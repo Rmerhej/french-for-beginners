@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Français Débutant</title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<!-- Nouvelle syntaxe recommandée -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-body p-5">
+                    <h3 class="text-center mb-4">🔑 Connexion</h3>
+
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Identifiants incorrects. Vérifiez votre nom d'utilisateur et mot de passe.
+                    </div>
+                    <div th:if="${param.success}" class="alert alert-success">
+                        Inscription réussie ! Vous pouvez maintenant vous connecter.
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-info">
+                        Vous avez été déconnecté avec succès.
+                    </div>
+
+                    <form th:action="@{/login}" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Nom d'utilisateur</label>
+                            <input type="text" name="username" placeholder="Nom d'utilisateur" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input type="password" name="password" placeholder="Mot de passe" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Se connecter</button>
+                    </form>
+                    <div th:if="${param.error}">Identifiants incorrects</div>
+                    <div th:if="${param.success}">Inscription réussie ! Connectez-vous.</div>
+                    <div class="text-center">
+                        Pas encore de compte ?
+                        <a th:href="@{/register}">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

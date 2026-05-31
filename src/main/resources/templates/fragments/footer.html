@@ -1,0 +1,50 @@
+<footer th:fragment="footer" class="bg-primary text-white py-4 mt-5 border-top border-light border-2">
+    <div class="container">
+        <div class="row">
+
+
+
+
+            <!-- Colonne 2 : Navigation -->
+            <div class="col-md-2 mb-4">
+                <h6 class="fw-bold">Navigation</h6>
+                <ul class="list-unstyled small">
+                    <li><a th:href="@{/}" class="text-light text-decoration-none">Accueil</a></li>
+                    <li><a th:href="@{/lessons}" class="text-light text-decoration-none">Leçons</a></li>
+                    <li><a th:href="@{/register}" class="text-light text-decoration-none">S'inscrire</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Liens utiles -->
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold">Liens utiles</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#" class="text-light text-decoration-none">À propos</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4 : Réseaux sociaux -->
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold">Suivez-nous</h6>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <hr class="border-secondary">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start small">
+                © 2026 French For Beginners - Tous droits réservés
+            </div>
+            <div class="col-md-6 text-center text-md-end small">
+                Développé avec ❤️ pour les apprenants de français
+            </div>
+        </div>
+    </div>
+</footer>

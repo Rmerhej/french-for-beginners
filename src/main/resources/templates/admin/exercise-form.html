@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${exercise.id == null} ? 'Nouvel Exercice' : 'Modifier Exercice'"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <h2 th:text="${exercise.id == null} ? '➕ Nouvel Exercice' : '✏️ Modifier l\'exercice'"></h2>
+
+    <div class="card shadow mt-4">
+        <div class="card-body">
+            <form th:action="@{/admin/exercises}" th:object="${exercise}" method="post">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="mb-3">
+                    <label class="form-label">Leçon associée</label>
+                    <input type="text" class="form-control" th:field="*{lessonTitle}" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Question</label>
+                    <textarea class="form-control" rows="3" th:field="*{question}" required></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Option A</label>
+                        <input type="text" class="form-control" th:field="*{optionA}" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Option B</label>
+                        <input type="text" class="form-control" th:field="*{optionB}" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Option C</label>
+                        <input type="text" class="form-control" th:field="*{optionC}" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Option D</label>
+                        <input type="text" class="form-control" th:field="*{optionD}" required />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Bonne réponse</label>
+                    <input type="text" class="form-control" th:field="*{correctAnswer}" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Explication / Correction</label>
+                    <textarea class="form-control" rows="4" th:field="*{explanation}"></textarea>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg me-3">
+                        <span th:text="${exercise.id == null} ? 'Créer l\'exercice' : 'Enregistrer les modifications'"></span>
+                    </button>
+                    <a th:href="@{/admin/exercises}" class="btn btn-secondary btn-lg">Annuler</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

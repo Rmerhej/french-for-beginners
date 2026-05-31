@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇫🇷 Français Débutant</title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .lesson-card {
+            transition: transform 0.3s;
+        }
+        .lesson-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+<!-- Nouvelle syntaxe recommandée -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/lessons">Leçons</a>
+            <a class="nav-link" href="/vocabulary">Vocabulaire</a>
+            <a class="nav-link" href="/exercises">Exercices</a>
+            <a class="nav-link" href="/admin">🔧 Admin</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero bg-primary text-white py-5" style="height: 45vh; min-height: 320px;">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">Apprenez le français facilement</h1>
+        <p class="lead mb-4">Leçons claires • Vocabulaire avec audio • Exercices adaptés</p>
+        <a th:href="@{/lessons}" class="btn btn-light btn-lg px-5">Commencer →</a>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <h2 class="mb-4">📚 Leçons Recommandées</h2>
+
+    <div class="row" th:if="${lessons}">
+        <div class="col-md-6 col-lg-4 mb-4" th:each="lesson : ${lessons}">
+            <div class="card lesson-card h-100 shadow-sm">
+                <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}"
+                     class="card-img-top" style="height: 200px; object-fit: cover;" alt="">
+
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2" th:text="${lesson.level}"></span>
+                    <h5 class="card-title" th:text="${lesson.title}"></h5>
+                    <p class="card-text text-muted" th:text="${lesson.category}"></p>
+
+                    <!-- Texte sécurisé -->
+                    <p class="card-text" th:text="${#strings.length(lesson.content) > 80 ?
+                            #strings.substring(lesson.content, 0, 80) + '...' : lesson.content}"></p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary w-100">
+                        Commencer la leçon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
