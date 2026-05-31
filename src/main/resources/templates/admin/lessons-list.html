@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Leçons - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Messages de succès / erreur -->
+<div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+    <span th:text="${success}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span th:text="${error}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>📚 Gestion des Leçons</h2>
+        <a th:href="@{/admin/lessons/new}" class="btn btn-success">+ Nouvelle Leçon</a>
+    </div>
+
+    <!-- Barre de recherche -->
+    <form th:action="@{/admin/lessons}" method="get" class="mb-4">
+        <div class="input-group w-50">
+            <input type="text" name="keyword" class="form-control"
+                   th:value="${keyword}" placeholder="Rechercher par titre...">
+            <button type="submit" class="btn btn-primary">🔍 Rechercher</button>
+            <a th:href="@{/admin/lessons}" class="btn btn-secondary">Effacer</a>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Niveau</th>
+            <th>Catégorie</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lesson : ${lessons}">
+            <td th:text="${lesson.id}"></td>
+            <td th:text="${lesson.title}"></td>
+            <td th:text="${lesson.level}"></td>
+            <td th:text="${lesson.category}"></td>
+            <td>
+                <a th:href="@{/admin/lessons/edit/{id}(id=${lesson.id})}" class="btn btn-warning btn-sm">Modifier</a>
+                <a th:href="@{/admin/lessons/delete/{id}(id=${lesson.id})}"
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette leçon ?')">
+                    Supprimer
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <nav th:if="${lessonsPage}" class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${lessonsPage.first} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/lessons(page=${lessonsPage.number - 1}, size=${lessonsPage.size}, keyword=${keyword})}">Précédent</a>
+            </li>
+            <li th:each="p : ${#numbers.sequence(0, lessonsPage.totalPages - 1)}"
+                class="page-item" th:classappend="${p == lessonsPage.number} ? 'active'">
+                <a class="page-link" th:href="@{/admin/lessons(page=${p}, size=${lessonsPage.size}, keyword=${keyword})}" th:text="${p + 1}"></a>
+            </li>
+            <li class="page-item" th:classappend="${lessonsPage.last} ? 'disabled'">
+                <a class="page-link" th:href="@{/admin/lessons(page=${lessonsPage.number + 1}, size=${lessonsPage.size}, keyword=${keyword})}">Suivant</a>
+            </li>
+
+        </ul>
+    </nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: french-for-beginners
+
+  # ==================== DATABASE ====================
+  datasource:
+    url: jdbc:mysql://localhost:3306/frenchdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ==================== JPA / HIBERNATE ====================
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  # ==================== FILE UPLOAD ====================
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 15MB
+
+  # ==================== THYMELEAF ====================
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+
+  # ==================== SECURITY & SESSION ====================
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+
+# ==================== LOGGING ====================
+logging:
+  level:
+    com.apprendrefr: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+# ==================== CUSTOM PROPERTIES ====================
+app:
+  upload:
+    dir: uploads

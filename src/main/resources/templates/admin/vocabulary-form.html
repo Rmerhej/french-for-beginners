@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${vocabulary.id == null} ? 'Ajouter un nouveau mot' : 'Modifier le mot'"></title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 th:text="${vocabulary.id == null} ? 'Ajouter un nouveau mot' : 'Modifier le mot'"></h4>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/vocabulary}" th:object="${vocabulary}" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" th:field="*{id}" />
+
+                        <!-- Leçon -->
+                        <div class="mb-3">
+                            <label class="form-label">Leçon associée <span class="text-danger">*</span></label>
+                            <select class="form-select" name="lessonId" required>
+                                <option value="">-- Sélectionnez une leçon --</option>
+                                <option th:each="lesson : ${lessons}"
+                                        th:value="${lesson.id}"
+                                        th:text="${lesson.title}"
+                                        th:selected="${lesson.id == vocabulary.lesson?.id}"></option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Mot en français <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" th:field="*{frenchWord}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Traduction anglaise <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" th:field="*{englishTranslation}" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Prononciation</label>
+                            <input type="text" class="form-control" th:field="*{pronunciation}"
+                                   placeholder="Ex: /pɔm/">
+                        </div>
+
+                        <!-- Phrase utile -->
+                        <div class="mb-3">
+                            <label class="form-label">Phrase utile (exemple)</label>
+                            <textarea class="form-control" th:field="*{exampleSentence}" rows="3"
+                                      placeholder="Ex: Je mange une pomme rouge chaque matin."></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Image</label>
+                                    <input type="file" class="form-control" name="imageFile" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Audio (prononciation)</label>
+                                    <input type="file" class="form-control" name="audioFile" accept="audio/*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg me-2">
+                                <span th:text="${vocabulary.id == null} ? 'Ajouter le mot' : 'Enregistrer les modifications'"></span>
+                            </button>
+                            <a th:href="@{/admin/vocabulary}" class="btn btn-secondary btn-lg">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
