@@ -15,19 +15,31 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())   // Temporaire pour simplifier
+                .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/register", "/login", "/css/**", "/js/**",
                                 "/images/**", "/uploads/**", "/fragments/**").permitAll()
-                        .requestMatchers("/lessons", "/lesson/**").permitAll()
+
+                        // Une seule leçon reste accessible sans connexion
+                        .requestMatchers("/lesson/**").permitAll()
+
+                        // Toutes les leçons nécessitent une connexion
+                        .requestMatchers("/lessons").authenticated()
+
+                        // Admin
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/lessons", true)
+                        .successHandler((request, response, authentication) -> {
+                            boolean isAdmin = authentication.getAuthorities().stream()
+                                    .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+                            response.sendRedirect(isAdmin ? "/admin" : "/lessons");
+                        })
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )

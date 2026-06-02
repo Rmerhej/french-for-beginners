@@ -1,7 +1,14 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary"
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow"
      xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">🇫🇷 Apprendre le Français</a>
+        <!-- Drapeau Français + Logo -->
+        <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}">
+            <!-- Image du drapeau français -->
+            <img src="https://flagcdn.com/w80/fr.png"
+                 alt="Drapeau Français"
+                 style="height: 28px; width: auto; margin-right: 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px;">
+            <span>Apprendre le Français</span>
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -9,16 +16,27 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/}">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/lessons}">Leçons</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/lessons}" sec:authorize="isAuthenticated()">Leçons</a>
+                </li>
             </ul>
 
             <div class="navbar-nav">
+                <!-- Connecté -->
                 <div sec:authorize="isAuthenticated()">
-                    <span class="navbar-text me-3">👤 <strong sec:authentication="name"></strong></span>
-                    <a th:href="@{/admin}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">Admin</a>
+                    <span class="navbar-text me-3">
+                        👤 <strong sec:authentication="name"></strong>
+                    </span>
+                    <a th:href="@{/admin}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
+                        Admin
+                    </a>
                     <a th:href="@{/logout}" class="btn btn-outline-danger">Déconnexion</a>
                 </div>
+
+                <!-- Non connecté -->
                 <div sec:authorize="isAnonymous()">
                     <a th:href="@{/login}" class="btn btn-outline-light me-2">Connexion</a>
                     <a th:href="@{/register}" class="btn btn-success">S'inscrire</a>
