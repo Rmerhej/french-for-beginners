@@ -66,11 +66,17 @@
                     </div>
 
                     <!-- Bouton Audio -->
-                    <button th:if="${word.audioUrl != null and word.audioUrl != ''}"
-                            class="btn btn-primary btn-sm mt-3"
-                            th:onclick="'playAudio('' + ${word.audioUrl} + '')'">
-                        🔊 Écouter la prononciation
-                    </button>
+                    <!-- Bouton Audio -->
+                    <div th:if="${word.audioUrl != null and word.audioUrl != ''}" class="mt-3">
+                        <!-- Bouton Audio - Version corrigée -->
+                        <button th:if="${word.audioUrl != null and word.audioUrl != ''}"
+                                class="btn btn-primary btn-sm mt-3"
+                                th:data-audio-url="${word.audioUrl}"
+                                onclick="playAudio(this.getAttribute('data-audio-url'))">
+                            🔊 Écouter la prononciation
+                        </button>
+                        <small class="text-muted d-block mt-1" th:text="${word.audioUrl}"></small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,12 +85,28 @@
 
 <script>
     function playAudio(url) {
-        if (url) {
+        console.log("Lecture audio demandée :", url);
+
+        if (!url) {
+            alert("Aucun audio disponible pour ce mot.");
+            return;
+        }
+
+        try {
             const audio = new Audio(url);
-            audio.play().catch(err => console.log("Erreur audio :", err));
+            audio.play()
+                .then(() => {
+                    console.log("✅ Lecture démarrée");
+                })
+                .catch(err => {
+                    console.error("Erreur lecture :", err);
+                    alert("Impossible de lire l'audio.\nVérifiez que le fichier existe.");
+                });
+        } catch (e) {
+            console.error("Erreur :", e);
+            alert("Erreur lors de la tentative de lecture.");
         }
     }
-</script>
-<div th:replace="~{fragments/footer :: footer}"></div>
+</script><div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
