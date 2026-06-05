@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>adjectif</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container my-5">
+
+    <!-- Titre -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">📘 L’adjectif en français</h2>
+        <p class="text-muted">Cours simple pour débutants</p>
+    </div>
+
+    <!-- Définition -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-body">
+            <h5 class="card-title">1. Qu’est-ce qu’un adjectif ?</h5>
+            <p class="card-text">
+                Un adjectif est un mot qui décrit un nom (personne, chose, lieu).
+            </p>
+            <ul>
+                <li>une voiture <strong>rouge</strong></li>
+                <li>un homme <strong>grand</strong></li>
+                <li>une idée <strong>intéressante</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Placement -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-body">
+            <h5 class="card-title">2. Où se place l’adjectif ?</h5>
+
+            <p><strong>Après le nom :</strong></p>
+            <p class="mb-2">un livre intéressant, une table blanche</p>
+
+            <p><strong>Avant le nom :</strong></p>
+            <p class="mb-0">un petit garçon, une grande maison</p>
+        </div>
+    </div>
+
+    <!-- Accord -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-body">
+            <h5 class="card-title">3. L’accord de l’adjectif</h5>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Masculin : un homme content</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Féminin : une femme contente</p>
+                </div>
+            </div>
+
+            <p class="mt-2">
+                Pluriel : des voitures rapides
+            </p>
+        </div>
+    </div>
+
+    <!-- Tableau -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-body">
+            <h5 class="card-title">4. Adjectifs fréquents</h5>
+
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="table-primary">
+                    <tr>
+                        <th>Masculin</th>
+                        <th>Féminin</th>
+                        <th>Sens</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>grand</td>
+                        <td>grande</td>
+                        <td>grand</td>
+                    </tr>
+                    <tr>
+                        <td>petit</td>
+                        <td>petite</td>
+                        <td>petit</td>
+                    </tr>
+                    <tr>
+                        <td>beau</td>
+                        <td>belle</td>
+                        <td>beau</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Résumé -->
+    <div class="alert alert-info shadow-sm">
+        <strong>🧠 À retenir :</strong>
+        L’adjectif décrit le nom et s’accorde en genre et en nombre.
+    </div>
+
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

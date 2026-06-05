@@ -207,8 +207,17 @@ public class AdminController {
     }
     // 1. Liste du vocabulaire
     @GetMapping("/vocabulary")
-    public String listVocabulary(Model model) {
-        model.addAttribute("vocabularies", vocabularyService.findAll());
+    public String listVocabulary(@RequestParam(value = "keyword", required = false) String keyword,
+                                 Model model) {
+
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            model.addAttribute("vocabularies",
+                    vocabularyService.searchVocabulary(keyword.trim(), Pageable.unpaged()));
+            model.addAttribute("keyword", keyword);
+        } else {
+            model.addAttribute("vocabularies", vocabularyService.findAll());
+        }
+
         return "admin/vocabulary-list";
     }
 
@@ -237,7 +246,6 @@ public class AdminController {
     }
 
 
-
     // ==================== EXERCISES ====================
     @GetMapping("/exercises")
     public String listExercises(@RequestParam(defaultValue = "0") int page,
@@ -262,26 +270,40 @@ public class AdminController {
     @GetMapping("/exercises/new")
     public String newExerciseForm(Model model) {
         model.addAttribute("exercise", new Exercise());
-        return "admin/exercise-form";
-    }
-
-    @GetMapping("/exercises/edit/{id}")
-    public String editExerciseForm(@PathVariable Long id, Model model) {
-        Exercise exercise = exerciseService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Exercice non trouvé"));
-        model.addAttribute("exercise", exercise);
+        model.addAttribute("lessons", lessonService.findAll());
         return "admin/exercise-form";
     }
 
     @PostMapping("/exercises")
-    public String saveExercise(@ModelAttribute Exercise exercise) {
-        exerciseService.save(exercise);
-        return "redirect:/admin/exercises";
+    public String saveExercise(@ModelAttribute Exercise exercise, RedirectAttributes redirectAttributes) {
+
+        try {
+            exerciseService.save(exercise);
+            redirectAttributes.addFlashAttribute("success", "✅ Exercice enregistré avec succès !");
+            return "redirect:/admin/exercises";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
+            return "redirect:/admin/exercises/new";
+        }
+    }
+
+    @GetMapping("/exercises/edit/{id}")
+    public String editExercise(@PathVariable Long id, Model model) {
+        Exercise exercise = exerciseService.findById(id)
+                .orElseThrow(() -> new RuntimeException("Exercice non trouvé"));
+        model.addAttribute("exercise", exercise);
+        model.addAttribute("lessons", lessonService.findAll());
+        return "admin/exercise-form";
     }
 
     @GetMapping("/exercises/delete/{id}")
-    public String deleteExercise(@PathVariable Long id) {
-        exerciseService.deleteById(id);
+    public String deleteExercise(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        try {
+            exerciseService.deleteById(id);
+            redirectAttributes.addFlashAttribute("success", "✅ Exercice supprimé !");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "❌ Impossible de supprimer cet exercice.");
+        }
         return "redirect:/admin/exercises";
     }
 

@@ -2,33 +2,52 @@ package com.apprendrefr;
 
 import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    @Value("${admin.username}")
+    private String adminUsername;
 
-    public DataInitializer(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+    @Value("${admin.password}")
+    private String adminPassword;
+
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
 
     @Override
-    public void run(String... args) {
-        // Création du compte Admin
-        if (userRepository.findByUsername("admin").isEmpty()) {
-            User admin = new User();
-            admin.setUsername("admin");
-            admin.setEmail("admin@apprendrefr.com");
-            admin.setPassword(passwordEncoder.encode("admin123"));  // Mot de passe encodé
-            admin.setRole("ADMIN");   // Important : "ADMIN" (pas ROLE_ADMIN)
-            admin.setEnabled(true);
-            userRepository.save(admin);
-            System.out.println("✅ Compte Admin créé : username = admin | password = admin123");
+    public void run(String... args) throws Exception {
+        System.out.println("username chargé par spring :" + adminUsername);
+
+        if (adminPassword == null || adminPassword.trim().isEmpty()) {
+            throw new RuntimeException("❌ ADMIN_PASSWORD n'est pas défini dans les variables d'environnement !");
         }
+
+        // Vérifier si l'admin existe déjà
+        if (userRepository.findByUsername(adminUsername).isPresent()) {
+            System.out.println("✅ Admin déjà existant : " + adminUsername);
+            return;
+        }
+
+        // Création de l'admin
+        User admin = new User();
+        admin.setUsername(adminUsername);
+        admin.setPassword(passwordEncoder.encode(adminPassword));
+        admin.setRole("ADMIN");
+        admin.setEmail(adminUsername + "admin@apprendrefr.com");   // ou une vraie adresse
+
+        // Si tu as d'autres champs obligatoires, ajoute-les ici
+
+        userRepository.save(admin);
+
+        System.out.println("✅ Admin créé avec succès !");
+        System.out.println("   Username : " + adminUsername);
+        System.out.println("   Email    : " + admin.getEmail());
     }
 }
