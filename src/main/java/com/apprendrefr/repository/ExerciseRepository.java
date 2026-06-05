@@ -11,7 +11,10 @@ import java.util.List;
 
 public interface ExerciseRepository extends  JpaRepository<Exercise, Long>  {
     List<Exercise> findByLessonTitle(String lessonTitle);
+
+    List<Exercise> findByExerciseType(String exerciseType);
     Page<Exercise> findAll(Pageable pageable);
     Page<Exercise> findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
             String question, String lessonTitle, Pageable pageable);
+
 }

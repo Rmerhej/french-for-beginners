@@ -46,6 +46,7 @@ target/
 
 # Environnement
 .env
+*.env
 application-local.yml
 
 # Dossiers temporaires

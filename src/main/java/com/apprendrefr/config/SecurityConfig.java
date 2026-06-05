@@ -20,14 +20,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/register", "/login", "/css/**", "/js/**",
                                 "/images/**", "/uploads/**", "/fragments/**").permitAll()
-
-                        // Une seule leçon reste accessible sans connexion
+                        .requestMatchers("/","/supports-de-cours/**").permitAll()
+                        .requestMatchers("/","/adjectif/**").permitAll()
+                        .requestMatchers("/","/pronoms/**").permitAll()
+                        .requestMatchers("/","/quiz/**").permitAll()
                         .requestMatchers("/lesson/**").permitAll()
-
-                        // Toutes les leçons nécessitent une connexion
                         .requestMatchers("/lessons").authenticated()
-
-                        // Admin
                         .requestMatchers("/admin/**").hasRole("ADMIN")
 
                         .anyRequest().authenticated()
