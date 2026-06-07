@@ -23,8 +23,10 @@
 
     <!-- Affichage des leçons uniquement pour les connectés -->
     <div sec:authorize="isAuthenticated()">
-        <h2 class="mb-4">📚 Toutes les Leçons</h2>
-
+        <h2 class="mb-4">📚 Toutes les Leçons + Accès aux quiz</h2>
+        <div class="col-6">
+            <a th:href="@{/quizzes}" class="btn btn-outline-success btn-lg w-100"><span style="color:#87CEEB">Quiz</span></a>
+        </div><br><br>
         <div class="row">
             <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">
                 <div class="card h-100 shadow-sm">
@@ -42,5 +44,6 @@
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

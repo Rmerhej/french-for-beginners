@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class UserService {
+public class UserService{
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -23,6 +23,7 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
+
 
     public void registerUser(User user) {
         System.out.println("=== REGISTER USER START ===");
@@ -72,7 +73,10 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
-
+    // Dans chaque service (LessonService, UserService, ExerciseService, VocabularyService)
+    public long count() {
+        return userRepository.count(); // Remplacez 'repository' par le nom de votre repository local
+    }
     public void toggleEnabled(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
@@ -95,4 +99,5 @@ public class UserService {
         return userRepository.findByUsernameContainingIgnoreCaseOrEmailContainingIgnoreCase(
                 keyword, keyword, pageable);
     }
+
 }

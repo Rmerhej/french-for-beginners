@@ -19,6 +19,7 @@ public class LessonService {
     public LessonService(LessonRepository lessonRepository) {
         this.lessonRepository = lessonRepository;
     }
+    // Dans chaque service (LessonService, UserService, ExerciseService, VocabularyService)
 
     public List<Lesson> findAll() {
         return lessonRepository.findAll();
@@ -49,4 +50,5 @@ public class LessonService {
 
         lessonRepository.deleteById(id);   // ou directement lessonRepository.deleteById(id);
     }
+
 }

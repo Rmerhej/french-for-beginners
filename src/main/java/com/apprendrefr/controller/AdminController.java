@@ -1,11 +1,10 @@
 package com.apprendrefr.controller;
 
-import com.apprendrefr.entity.Exercise;
-import com.apprendrefr.entity.Lesson;
-import com.apprendrefr.entity.User;
-import com.apprendrefr.entity.Vocabulary;
+import com.apprendrefr.entity.*;
+import com.apprendrefr.repository.QuizRepository;
 import com.apprendrefr.service.*;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,34 +18,51 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
-    private final LessonService lessonService;
-    private final UserService userService;
-    private final ExerciseService exerciseService;
-    private final VocabularyService vocabularyService;
+@Autowired
+   private LessonService lessonService;
+@Autowired
+   private UserService userService;
+@Autowired
+  private ExerciseService exerciseService;
+@Autowired
+private VocabularyService vocabularyService;
+    @Autowired
+    public QuizRepository quizRepository;
     private final FileUploadService fileUploadService;
 
 
 
+
     public AdminController(LessonService lessonService, UserService userService,
-                           ExerciseService exerciseService, VocabularyService vocabularyService,FileUploadService fileUploadService) {
+                           ExerciseService exerciseService, VocabularyService vocabularyService,FileUploadService fileUploadService,QuizRepository quizRepository) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
         this.vocabularyService = vocabularyService;
         this.fileUploadService = fileUploadService;
+        this.quizRepository = quizRepository;
     }
-
     @GetMapping
     public String dashboard(Model model) {
-        model.addAttribute("lessonsCount", lessonService.findAll().size());
-        model.addAttribute("usersCount", userService.findAll().size());
-        model.addAttribute("exercisesCount", exerciseService.findAll().size());
-        model.addAttribute("vocabularyCount", vocabularyService.findAll().size());
+        // 1. Appel des méthodes count() de vos services pour obtenir les chiffres
+        long lessons = lessonService.count();
+        long users = userService.count();
+        long exercises = exerciseService.count();
+        long vocabularies = vocabularyService.count();
+        long quizzes = quizRepository.count();
+
+        // 2. Passage des variables locales au modèle Thymeleaf
+        model.addAttribute("lessonsCount", lessons);
+        model.addAttribute("usersCount", users);
+        model.addAttribute("exercisesCount", exercises);
+        model.addAttribute("vocabularyCount", vocabularies);
+        model.addAttribute("quizzesCount", quizzes);
+
         return "admin/dashboard";
     }
 
@@ -306,5 +322,58 @@ public class AdminController {
         }
         return "redirect:/admin/exercises";
     }
+    // ==================== QUIZZES ====================
+    // LISTE POUR L'ADMIN
+    @GetMapping("/quizzes")
+    public String listQuizzesForAdmin(Model model) {
+        model.addAttribute("quizzes", quizRepository.findAll());
+        return "admin/quizzes-list";
+    }
+
+    // CRÉATION
+    @GetMapping("/quiz/create")
+    public String showCreateQuizForm(Model model) {
+        model.addAttribute("quiz", new Quiz());
+        return "/admin/quiz-create";
+    }
+
+    @PostMapping("/quiz/create")
+    public String saveQuiz(@ModelAttribute Quiz quiz, RedirectAttributes redirectAttributes) {
+        quizRepository.save(quiz);
+        redirectAttributes.addFlashAttribute("success", "✅ Quiz créé !");
+        return "redirect:/admin/quizzes";
+    }
+
+    // MODIFICATION
+    @GetMapping("/quiz/edit/{id}")
+    public String showEditQuizForm(@PathVariable Long id, Model model) {
+        Optional<Quiz> opt = quizRepository.findById(id);
+        if (opt.isPresent()) {
+            model.addAttribute("quiz", opt.get());
+            return "admin/quiz-edit";
+        }
+        return "redirect:/admin/quizzes";
+    }
+
+    @PostMapping("/quiz/edit/{id}")
+    public String updateQuiz(@PathVariable Long id, @ModelAttribute Quiz quiz) {
+        quiz.setId(id);
+        quizRepository.save(quiz);
+        return "redirect:/admin/quizzes";
+    }
+
+    // SUPPRESSION
+    @GetMapping("/quiz/delete/{id}")
+    public String deleteQuiz(@PathVariable Long id) {
+        quizRepository.deleteById(id);
+        return "redirect:/admin/quizzes";
+    }
+    @GetMapping("/quiz/new")
+    public String showCreateQuizForm1(Model model) {
+        model.addAttribute("quiz", new Quiz());
+        return "admin/quiz-create"; // Affiche le formulaire
+    }
+/// ////////////////////////////////////////////////////////////////
+
 
 }
