@@ -2,6 +2,7 @@ package com.apprendrefr.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,25 +20,19 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/register", "/login", "/css/**", "/js/**",
-                                "/images/**", "/uploads/**", "/fragments/**").permitAll()
-                        .requestMatchers("/","/supports-de-cours/**").permitAll()
-                        .requestMatchers("/","/adjectif/**").permitAll()
-                        .requestMatchers("/","/pronoms/**").permitAll()
-                        .requestMatchers("/","/quiz/**").permitAll()
-                        .requestMatchers("/lesson/**").permitAll()
-                        .requestMatchers("/lessons").authenticated()
+                                "/images/**","/webjars/**", "/uploads/**", "/fragments/**").permitAll()
+                        .requestMatchers("/","/supports-de-cours/**","/adjectif/**","/pronoms/**","/lesson/**").permitAll()
+                        .requestMatchers("/quizzes").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-
+                        .requestMatchers("/lessons").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/exercise/submit**").authenticated()
                         .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .successHandler((request, response, authentication) -> {
-                            boolean isAdmin = authentication.getAuthorities().stream()
-                                    .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
-                            response.sendRedirect(isAdmin ? "/admin" : "/lessons");
-                        })
+                        .defaultSuccessUrl("/lessons", true)
+                        .permitAll()
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )

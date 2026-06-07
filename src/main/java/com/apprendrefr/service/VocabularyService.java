@@ -19,7 +19,10 @@ public class VocabularyService {
     public VocabularyService(VocabularyRepository vocabularyRepository) {
         this.vocabularyRepository = vocabularyRepository;
     }
-
+    // Dans LessonService.java
+    public long count() {
+        return vocabularyRepository.count(); // Cette méthode existe déjà sans que vous ayez à la créer !
+    }
     public List<Vocabulary> findAll() {
         return vocabularyRepository.findAll();
     }
@@ -49,4 +52,5 @@ public class VocabularyService {
     public void deleteById(Long id) {
         vocabularyRepository.deleteById(id);
     }
+
 }
