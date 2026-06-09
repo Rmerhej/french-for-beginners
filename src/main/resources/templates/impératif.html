@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Impératif - Français Débutant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>🗣️ L'Impératif</h1>
+    <p><strong>Niveau débutant - Adultes</strong></p>
+
+    <h2>Qu'est-ce que l'impératif ?</h2>
+    <p>L'impératif sert à <strong>donner des ordres, des conseils, des instructions ou des invitations</strong>.</p>
+    <div class="exemple">
+        <strong>Exemples :</strong><br>
+        Viens ! (ordre)<br>
+        Écoutez bien. (instruction)<br>
+        Allons au cinéma ! (suggestion)
+    </div>
+
+    <h2>Comment former l'impératif ?</h2>
+    <p>On utilise 3 personnes : <strong>tu</strong>, <strong>nous</strong>, <strong>vous</strong>.</p>
+
+    <table class="table table-bordered text-center">
+        <tr><th>Verbe</th><th>tu</th><th>nous</th><th>vous</th></tr>
+        <tr><td>parler (er)</td><td>Parle !</td><td>Parlons !</td><td>Parlez !</td></tr>
+        <tr><td>finir (ir)</td><td>Finis !</td><td>Finissons !</td><td>Finissez !</td></tr>
+        <tr><td>attendre (re)</td><td>Attends !</td><td>Attendons !</td><td>Attendez !</td></tr>
+    </table>
+
+    <div class="note">
+        <strong>Règle importante :</strong> Pour les verbes en -er, on enlève le <strong>-s</strong> à la 2e personne du singulier (tu) :<br>
+        Tu parles → Parle !<br>
+        Tu manges → Mange !
+    </div>
+
+    <h2>Verbes irréguliers importants</h2>
+    <ul>
+        <li><strong>Être</strong> → Sois / Soyons / Soyez</li>
+        <li><strong>Avoir</strong> → Aie / Ayons / Ayez</li>
+        <li><strong>Aller</strong> → Va / Allons / Allez</li>
+        <li><strong>Faire</strong> → Fais / Faisons / Faites</li>
+        <li><strong>Savoir</strong> → Sache / Sachons / Sachez</li>
+        <li><strong>Vouloir</strong> → Veuille / Veuillons / Veuillez (plus poli)</li>
+    </ul>
+
+    <h2>Forme négative</h2>
+    <div class="exemple">
+        Ne parle pas !<br>
+        N'allons pas là-bas.<br>
+        Ne mangez pas trop de sucre.
+    </div>
+
+    <h2>Exercices rapides</h2>
+    <ol>
+        <li>Donne un conseil à un ami qui est stressé : <em>__________________ (se calmer)</em></li>
+        <li>Propose une sortie : <em>__________________ (aller) au restaurant !</em></li>
+        <li>Ordre poli en classe : <em>__________________ (ouvrir) votre livre page 10.</em></li>
+    </ol>
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
