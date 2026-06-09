@@ -21,5 +21,15 @@ public class SupportsCoursController {
         return "pronoms";
 
     }
+    @GetMapping("/imperatif")
+    public String allerSurImperatif(){
+        return "impératif";
+
+    }
+    @GetMapping("/passecompse")
+    public String allerSurPassecompse(){
+        return "le_passé_composé";
+
+    }
 
 }
