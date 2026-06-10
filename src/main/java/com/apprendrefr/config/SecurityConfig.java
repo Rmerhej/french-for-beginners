@@ -23,6 +23,7 @@ public class SecurityConfig {
                                 "/images/**","/webjars/**", "/uploads/**", "/fragments/**").permitAll()
                         .requestMatchers("/","/supports-de-cours/**","/adjectif/**","/pronoms/**","/lesson/**").permitAll()
                         .requestMatchers("/quizzes").authenticated()
+                        .requestMatchers("/admin/images/optimize").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/lessons").authenticated()
                         .requestMatchers(HttpMethod.POST, "/exercise/submit**").authenticated()

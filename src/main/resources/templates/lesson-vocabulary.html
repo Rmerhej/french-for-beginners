@@ -19,14 +19,14 @@
     </div>
 
     <div class="row">
-        <!-- Message si aucun mot -->
+
         <div th:if="${vocabularies.isEmpty()}" class="col-12">
             <div class="alert alert-info text-center p-5">
                 Aucun mot de vocabulaire pour cette leçon pour le moment.
             </div>
         </div>
 
-        <!-- Affichage des mots -->
+
         <div class="col-md-6 col-lg-4 mb-4" th:each="word : ${vocabularies}">
             <div class="card h-100 shadow-sm">
 
@@ -46,36 +46,35 @@
                 </div>
 
                 <div class="card-body text-center">
-                    <!-- Mot principal -->
+
                     <h4 class="card-title fw-bold" th:text="${word.frenchWord}"></h4>
 
-                    <!-- Traduction -->
+
                     <p class="text-muted fs-5 mb-2" th:text="${word.englishTranslation}"></p>
 
-                    <!-- Prononciation -->
+
                     <p th:if="${word.pronunciation != null and word.pronunciation != ''}"
                        class="text-secondary mb-3">
                         🔤 <strong th:text="${word.pronunciation}"></strong>
                     </p>
 
-                    <!-- Phrase utile -->
+
                     <div th:if="${word.exampleSentence != null and word.exampleSentence != ''}"
                          class="mt-3 p-3 bg-light border-start border-primary border-3 rounded text-start">
                         <small class="text-primary fw-bold">📝 Phrase utile :</small>
                         <p class="fst-italic mb-0" th:text="${word.exampleSentence}"></p>
                     </div>
 
-                    <!-- Bouton Audio -->
-                    <!-- Bouton Audio -->
+
                     <div th:if="${word.audioUrl != null and word.audioUrl != ''}" class="mt-3">
-                        <!-- Bouton Audio - Version corrigée -->
+
                         <button th:if="${word.audioUrl != null and word.audioUrl != ''}"
                                 class="btn btn-primary btn-sm mt-3"
                                 th:data-audio-url="${word.audioUrl}"
                                 onclick="playAudio(this.getAttribute('data-audio-url'))">
                             🔊 Écouter la prononciation
                         </button>
-                       <!-- <small class="text-muted d-block mt-1" th:text="${word.audioUrl}"></small>-->
+
                     </div>
                 </div>
             </div>

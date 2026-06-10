@@ -1,9 +1,9 @@
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow"
      xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="container">
-        <!-- Drapeau Français + Logo -->
+
         <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}">
-            <!-- Image du drapeau français -->
+
             <img src="https://flagcdn.com/w80/fr.png"
                  alt="Drapeau Français"
                  style="height: 28px; width: auto; margin-right: 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px;">
@@ -28,7 +28,7 @@
             </ul>
 
             <div class="navbar-nav">
-                <!-- Connecté -->
+
                 <div sec:authorize="isAuthenticated()">
                     <span class="navbar-text me-3">
                         👤 <strong sec:authentication="name"></strong>
@@ -39,7 +39,7 @@
                     <a th:href="@{/logout}" class="btn btn-outline-danger">Déconnexion</a>
                 </div>
 
-                <!-- Non connecté -->
+
                 <div sec:authorize="isAnonymous()">
                     <a th:href="@{/login}" class="btn btn-outline-light me-2">Connexion</a>
                     <a th:href="@{/register}" class="btn btn-success">S'inscrire</a>

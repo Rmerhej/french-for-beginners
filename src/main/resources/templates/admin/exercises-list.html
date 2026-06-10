@@ -10,7 +10,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<!-- Messages de succès / erreur -->
+
 <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
     <span th:text="${success}"></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -26,7 +26,6 @@
         <a th:href="@{/admin/exercises/new}" class="btn btn-success">+ Nouvel Exercice</a>
     </div>
 
-    <!-- Barre de recherche -->
     <form th:action="@{/admin/exercises}" method="get" class="mb-4">
         <div class="input-group w-50">
             <input type="text" name="keyword" class="form-control"
@@ -63,7 +62,6 @@
         </tbody>
     </table>
 
-    <!-- Pagination -->
     <nav th:if="${exercisesPage}" class="mt-4">
         <ul class="pagination justify-content-center">
             <li class="page-item" th:classappend="${exercisesPage.first} ? 'disabled'">

@@ -3,12 +3,14 @@ package com.apprendrefr.controller;
 import com.apprendrefr.entity.*;
 import com.apprendrefr.repository.QuizRepository;
 import com.apprendrefr.service.*;
+import jakarta.annotation.security.PermitAll;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,6 +36,8 @@ private VocabularyService vocabularyService;
     @Autowired
     public QuizRepository quizRepository;
     private final FileUploadService fileUploadService;
+    @Autowired
+    private ImageService imageService;
 
 
 
@@ -374,6 +378,15 @@ private VocabularyService vocabularyService;
         return "admin/quiz-create"; // Affiche le formulaire
     }
 /// ////////////////////////////////////////////////////////////////
+@GetMapping("/images/optimize")
+@PermitAll
+@PreAuthorize("hasRole('ADMIN')")
+@ResponseBody
+public String launchImageOptimization() {
 
+    String path = "uploads/images";
+    imageService.batchProcessImages(path);
+    return "Optimisation lancée sur le dossier : " + path;
+}
 
 }
