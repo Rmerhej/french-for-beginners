@@ -37,7 +37,6 @@ public class AdminService {
         userRepository.deleteById(id);
     }
 
-    // Pour usage futur (ex: promouvoir un utilisateur en admin)
     public void promoteToAdmin(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));

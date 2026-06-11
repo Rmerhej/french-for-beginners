@@ -36,7 +36,11 @@
                     <a th:href="@{/admin}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
                         Admin
                     </a>
-                    <a th:href="@{/logout}" class="btn btn-outline-danger">Déconnexion</a>
+                   <!-- <a th:href="@{/logout}" class="btn btn-outline-danger">Déconnexion</a>-->
+
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-danger">Déconnexion</button>
+                    </form>
                 </div>
 
 

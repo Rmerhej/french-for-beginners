@@ -29,7 +29,7 @@ public class DataInitializer implements CommandLineRunner {
             throw new RuntimeException("❌ ADMIN_PASSWORD n'est pas défini dans les variables d'environnement !");
         }
 
-        // Vérifier si l'admin existe déjà
+
         if (userRepository.findByUsername(adminUsername).isPresent()) {
             System.out.println("✅ Admin déjà existant : " + adminUsername);
             return;
@@ -42,7 +42,6 @@ public class DataInitializer implements CommandLineRunner {
         admin.setRole("ADMIN");
         admin.setEmail(adminUsername + "admin@apprendrefr.com");   // ou une vraie adresse
 
-        // Si tu as d'autres champs obligatoires, ajoute-les ici
 
         userRepository.save(admin);
 
