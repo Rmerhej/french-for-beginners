@@ -31,5 +31,30 @@ public class SupportsCoursController {
         return "le_passé_composé";
 
     }
+    @GetMapping("/adjectifsdemonstratifs")
+    public String allerSurAdjectifsDemonstratifs(){
+        return "adjectifs-demonstratifs";
+
+    }
+    @GetMapping("/expressionstemps")
+    public String allerSurExpressionsTemps(){
+        return "expressions-temps";
+
+    }
+    @GetMapping("/futursimple")
+    public String allerSurFutureSimple(){
+        return "future-simple";
+
+    }
+    @GetMapping("/verbesreguliers")
+    public String allerSurVerbesReguliers(){
+        return "verbes-reguliers";
+
+    }
+    @GetMapping("/auxiliaires")
+    public String allerSurAuxiliaires(){
+        return "auxiliaires";
+
+    }
 
 }
