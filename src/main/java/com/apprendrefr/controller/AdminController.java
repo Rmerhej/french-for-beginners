@@ -98,6 +98,18 @@ private VocabularyService vocabularyService;
         userService.deleteById(id);
         return "redirect:/admin/users";
     }
+    @GetMapping("/user/new")
+    public String createForm(Model model) {
+        model.addAttribute("user", new User());
+        return "admin/new-user-form";
+    }
+    /// /////////////////////////////
+    @PostMapping("/users/save")
+    public String saveDsBase(@ModelAttribute User user) {
+        userService.save(user);
+        return "redirect:/admin/users";
+    }
+
     // Gestion avancée utilisateurs
     @GetMapping("/users/edit/{id}")
     public String editUserForm(@PathVariable Long id, Model model) {
