@@ -39,7 +39,7 @@ services:
         condition: service_healthy
     volumes:
       # Dossier pour vos images uploadées
-      - ./uploads:/app/uploads
+      - ./uploads:/app/uploads/images
 
 volumes:
   mysql-data:
