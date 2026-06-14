@@ -12,7 +12,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
+      # Stockage permanent des données
       - mysql-data:/var/lib/mysql
+      # Importation automatique du fichier SQL au premier lancement
+      - ./init-db:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -21,6 +24,7 @@ services:
 
   app:
     build: .
+    container_name: french-app
     restart: always
     ports:
       - "8080:8080"
@@ -33,8 +37,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    # Optionnel : monter un dossier pour les uploads d'images
     volumes:
+      # Dossier pour vos images uploadées
       - ./uploads:/app/uploads
 
 volumes:
