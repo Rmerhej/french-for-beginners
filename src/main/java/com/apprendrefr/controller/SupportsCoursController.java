@@ -43,7 +43,7 @@ public class SupportsCoursController {
     }
     @GetMapping("/futursimple")
     public String allerSurFutureSimple(){
-        return "future-simple";
+        return "futur-simple";
 
     }
     @GetMapping("/verbesreguliers")

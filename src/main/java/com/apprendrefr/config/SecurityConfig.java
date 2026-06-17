@@ -23,9 +23,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/register", "/login", "/css/**", "/js/**",
-                                "/images/**","/webjars/**", "/uploads/**", "/fragments/**").permitAll()
+                                "/images/**","/webjars/**", "/uploads/**", "/fragments/**","/prononciation","/preparation","/aubureau/**","/lesgens/**","/lesport/**").permitAll()
                         .requestMatchers("/","/supports-de-cours/**","/adjectif/**","/pronoms/**","/lesson/**",
-                                "/adjectifsdemonstratifs/**","/expressionstemps/**","/futursimple/**","/verbesreguliers/**","/passecompse/**","/imperatif/**","/adjectif/**","/auxiliaires/**").permitAll()
+                                "/adjectifsdemonstratifs/**","/expressionstemps/**","/futursimple/**","/verbesreguliers/**","/passecompse/**","/imperatif/**","/adjectif/**","/auxiliaires/**","/about","/contact","/rgpd","/secourscatholique").permitAll()
                         .requestMatchers("/quizzes").authenticated()
                         .requestMatchers("/admin/images/optimize").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")

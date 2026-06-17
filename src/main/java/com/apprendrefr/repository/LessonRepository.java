@@ -11,14 +11,14 @@ import java.util.List;
 @Repository
 public interface LessonRepository extends JpaRepository<Lesson, Long> {
 
-    // Recherches optionnelles selon tes besoins
+    // recherches selon tes besoins
     List<Lesson> findByLevel(String level);
 
     List<Lesson> findByCategory(String category);
 
     List<Lesson> findByLevelAndCategory(String level, String category);
 
-    // Recherche par titre (utile pour l'admin ou recherche)
+    // Recherche par titre  pour l'admin
     List<Lesson> findByTitleContainingIgnoreCase(String title);
     Page<Lesson> findAll(Pageable pageable);
     Page<Lesson> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(

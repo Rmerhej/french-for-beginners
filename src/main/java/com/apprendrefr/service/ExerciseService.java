@@ -35,9 +35,9 @@ public class ExerciseService {
     public List<Exercise> findByLessonTitle(String lessonTitle) {
         return exerciseRepository.findByLessonTitle(lessonTitle);
     }
-    // Dans LessonService.java
+
     public long count() {
-        return exerciseRepository.count(); // Cette méthode existe déjà sans que vous ayez à la créer !
+        return exerciseRepository.count();
     }
 
     public Exercise save(Exercise exercise) {
@@ -48,13 +48,13 @@ public class ExerciseService {
         exerciseRepository.deleteById(id);
     }
 
-    // Nouveau : Récupérer uniquement les exercices de type "MATCHING"
+
     public List<Exercise> findMatchingExercisesByLesson(String lessonTitle) {
         return exerciseRepository.findByLessonTitle(lessonTitle).stream()
                 .filter(e -> "MATCHING".equals(e.getExerciseType()))
                 .toList();
     }
-    // Méthode de recherche pour l'admin
+
     public Page<Exercise> searchExercises(String keyword, Pageable pageable) {
         return exerciseRepository.findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
                 keyword, keyword, pageable);

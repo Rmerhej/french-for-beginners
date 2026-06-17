@@ -12,11 +12,11 @@ public class Quiz {
 
     private String title;
     private String sentence;
-    private String words;           // ex: "le,a,du"
-    private String correctAnswers;  // ex: "le,a"
+    private String words;
+    private String correctAnswers;
     private String imageUrl;
 
-    // === Getters et Setters explicites ===
+
     public Long getId() {
         return id;
     }

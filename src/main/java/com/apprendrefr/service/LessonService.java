@@ -19,7 +19,6 @@ public class LessonService {
     public LessonService(LessonRepository lessonRepository) {
         this.lessonRepository = lessonRepository;
     }
-    // Dans chaque service (LessonService, UserService, ExerciseService, VocabularyService)
 
     public List<Lesson> findAll() {
         return lessonRepository.findAll();
@@ -41,14 +40,14 @@ public class LessonService {
         return lessonRepository.count();
     }
 
-    // Méthode de recherche pour l'admin
+
     public Page<Lesson> searchLessons(String keyword, Pageable pageable) {
         return lessonRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
                 keyword, keyword, pageable);
     }
     public void deleteById(Long id) {
 
-        lessonRepository.deleteById(id);   // ou directement lessonRepository.deleteById(id);
+        lessonRepository.deleteById(id);
     }
 
 }

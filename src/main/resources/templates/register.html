@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
@@ -34,17 +37,60 @@
                             <div class="text-danger small" th:errors="*{email}"></div>
                         </div>
 
+                        <!-- Mot de passe -->
                         <div class="mb-3">
                             <label class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" th:field="*{password}" required>
+                            <div class="input-group">
+                                <input type="password"
+                                       class="form-control"
+                                       id="password"
+                                       th:field="*{password}"
+                                       required>
+                                <button class="btn btn-outline-secondary toggle-password-btn"
+                                        type="button"
+                                        id="togglePassword">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                             <div class="text-danger small" th:errors="*{password}"></div>
                         </div>
 
+                        <!-- Confirmer le mot de passe -->
                         <div class="mb-3">
-                            <label class="form-label">Confirmer le mot de passe</label>
-                            <input type="password" class="form-control" name="confirmPassword" required>
+                            <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+                            <div class="input-group">
+                                <input type="password"
+                                       id="confirmPassword"
+                                       name="confirmPassword"
+                                       class="form-control"
+                                       required>
+                                <button class="btn btn-outline-secondary toggle-password-btn"
+                                        type="button"
+                                        id="toggleConfirmPassword">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
+                        <div class="mb-4">
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle"></i>
+                                <strong>Important :</strong>
+                                Veuillez utiliser un <strong>pseudonyme</strong> et <strong>non vos données personnelles</strong>
+                                (nom, prénom, date de naissance, etc.).
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="confirmPseudo"
+                                       required>
+                                <label class="form-check-label" for="confirmPseudo">
+                                    J’ai compris et j’accepte d’utiliser un <strong>pseudonyme</strong>
+                                    et non mes informations personnelles.
+                                </label>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
                     </form>
                 </div>
@@ -54,5 +100,6 @@
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/password-toggle.js}"></script>
 </body>
 </html>

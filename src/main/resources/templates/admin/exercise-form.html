@@ -64,23 +64,6 @@
                     <input type="text" class="form-control" th:field="*{correctAnswer}">
                 </div>
 
-                <div class="mb-3">
-                    <label>5 Mots (séparés par ; )</label>
-                    <textarea class="form-control" th:field="*{words}" rows="2"
-                              placeholder="pomme;chat;maison;voiture;livre"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label>5 Phrases avec un mot manquant (séparées par ; )</label>
-                    <textarea class="form-control" th:field="*{sentences}" rows="4"
-                              placeholder="Je mange une ___ rouge.;Le ___ dort sur le lit.; etc."></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label>Explication / Correction</label>
-                    <textarea class="form-control" th:field="*{explanation}" rows="3"></textarea>
-                </div>
-
                 <button type="submit" class="btn btn-primary btn-lg">Enregistrer l'exercice</button>
                 <a th:href="@{/admin/exercises}" class="btn btn-secondary btn-lg">Annuler</a>
             </form>
