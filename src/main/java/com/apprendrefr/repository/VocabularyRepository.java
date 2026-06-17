@@ -11,10 +11,8 @@ import java.util.List;
 @Repository
 public interface VocabularyRepository extends JpaRepository<Vocabulary, Long> {
 
-    // Méthode correcte pour trouver le vocabulaire par ID de leçon
     List<Vocabulary> findByLesson_Id(Long lessonId);
 
-    // Recherche par mot (optionnel)
     List<Vocabulary> findByFrenchWordContainingIgnoreCase(String frenchWord);
     Page<Vocabulary> findAll(Pageable pageable);
     Page<Vocabulary> findByFrenchWordContainingIgnoreCaseOrEnglishTranslationContainingIgnoreCase(

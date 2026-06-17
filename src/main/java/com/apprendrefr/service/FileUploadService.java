@@ -35,7 +35,7 @@ public class FileUploadService {
             return null;
         }
 
-        // Vérification du type de fichier
+
         String contentType = file.getContentType();
         if (contentType == null ||
                 (!contentType.startsWith("image/") && !contentType.startsWith("audio/"))) {
@@ -56,7 +56,7 @@ public class FileUploadService {
             Path filePath = subDir.resolve(newFileName);
             file.transferTo(filePath);
 
-            // Retourne le chemin accessible via URL
+            // retourne le chemin accessible via URL
             return "/uploads/" + subFolder + "/" + newFileName;
 
         } catch (IOException e) {

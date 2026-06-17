@@ -33,9 +33,7 @@ public class AuthController {
                                RedirectAttributes redirectAttributes,
                                Model model) {
 
-        System.out.println("=== CONTROLLER REGISTER ===> Requête POST reçue");
 
-        // Affichage détaillé des erreurs de validation
         if (bindingResult.hasErrors()) {
             System.out.println("❌ Erreurs de validation détectées : " + bindingResult.getErrorCount() + " erreur(s)");
             bindingResult.getFieldErrors().forEach(error -> {
@@ -45,7 +43,7 @@ public class AuthController {
             return "register";
         }
 
-        // Vérification confirmation mot de passe
+
         if (confirmPassword == null || !confirmPassword.equals(user.getPassword())) {
             bindingResult.rejectValue("password", "error.password", "Les mots de passe ne correspondent pas");
             model.addAttribute("user", user);

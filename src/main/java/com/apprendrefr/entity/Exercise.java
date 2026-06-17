@@ -15,23 +15,23 @@ public class Exercise {
     private String lessonTitle;
 
     @Column(columnDefinition = "TEXT")
-    private String question;           // Pour QCM
+    private String question;
 
-    // === Type QCM ===
+    //
     private String optionA;
     private String optionB;
     private String optionC;
     private String optionD;
     private String correctAnswer;
 
-    // === Nouveau Type : Compléter les phrases ===
-    private String exerciseType;       // "QCM" ou "MATCHING"
+    //
+    private String exerciseType;
 
     @Column(columnDefinition = "TEXT")
-    private String words;              // ex: "pomme;chat;maison;voiture;livre"
+    private String words;
 
     @Column(columnDefinition = "TEXT")
-    private String sentences;          // ex: "Je mange une ___ rouge.;Le ___ dort sur le lit.;..."
+    private String sentences;
 
     @Column(columnDefinition = "TEXT")
     private String explanation;
@@ -141,5 +141,5 @@ public class Exercise {
     public void setLessonLevel(String lessonLevel) {
         this.lessonLevel = lessonLevel;
     }
-// Optionnel : A1, A2...
+
 }

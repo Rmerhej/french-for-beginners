@@ -39,7 +39,7 @@ public class VocabularyService {
         return vocabularyRepository.findByLesson_Id(lessonId);
     }
 
-    // Méthode de recherche pour l'admin
+
     public Page<Vocabulary> searchVocabulary(String keyword, Pageable pageable) {
         return vocabularyRepository.findByFrenchWordContainingIgnoreCaseOrEnglishTranslationContainingIgnoreCase(
                 keyword, keyword, pageable);

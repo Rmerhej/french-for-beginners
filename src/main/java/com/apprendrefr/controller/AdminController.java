@@ -110,7 +110,7 @@ private VocabularyService vocabularyService;
         return "redirect:/admin/users";
     }
 
-    // Gestion avancée utilisateurs
+    // Gestion  utilisateurs
     @GetMapping("/users/edit/{id}")
     public String editUserForm(@PathVariable Long id, Model model) {
         User user = userService.findById(id)
@@ -210,7 +210,7 @@ private VocabularyService vocabularyService;
                 return "redirect:/admin/vocabulary/new";
             }
 
-            // Récupérer et lier la leçon
+
             Lesson lesson = lessonService.findById(vocabulary.getLessonId())
                     .orElseThrow(() -> new RuntimeException("Leçon introuvable"));
             vocabulary.setLesson(lesson);
@@ -232,12 +232,12 @@ private VocabularyService vocabularyService;
             return "redirect:/admin/vocabulary";
 
         } catch (Exception e) {
-            e.printStackTrace();   // ← Important pour voir l’erreur dans la console
+            e.printStackTrace();  //console
             redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
             return "redirect:/admin/vocabulary/new";
         }
     }
-    // 1. Liste du vocabulaire
+
     @GetMapping("/vocabulary")
     public String listVocabulary(@RequestParam(value = "keyword", required = false) String keyword,
                                  Model model) {
@@ -253,7 +253,7 @@ private VocabularyService vocabularyService;
         return "admin/vocabulary-list";
     }
 
-    // 2. Formulaire pour ajouter un nouveau mot
+
     @GetMapping("/vocabulary/new")
     public String newVocabularyForm(Model model) {
         model.addAttribute("vocabulary", new Vocabulary());
@@ -400,5 +400,21 @@ public String launchImageOptimization() {
     imageService.batchProcessImages(path);
     return "Optimisation lancée sur le dossier : " + path;
 }
+/// //////////////////////////////////PRONONCIATION//////////////
 
+@GetMapping("/prononciation/new")
+public String showCreatePrononciationForm(Exercise exercise,Quiz quiz, Model model) {
+    model.addAttribute("quiz", new Quiz());
+    model.addAttribute("exercise", exercise);
+
+    return "admin/prononciation-form-create";
+}
+
+    @GetMapping("/preparation/new")
+    public String showCreatePreparationForm(Exercise exercise,Quiz quiz, Model model) {
+        model.addAttribute("quiz", new Quiz());
+        model.addAttribute("exercise", exercise);
+
+        return "admin/preparation-form-create";
+    }
 }

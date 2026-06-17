@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class ScoreService {
 
-    private final UserExerciseScoreRepository scoreRepository; // Utilisation du repository
+    private final UserExerciseScoreRepository scoreRepository;
 
     public ScoreService(UserExerciseScoreRepository scoreRepository) {
         this.scoreRepository = scoreRepository;

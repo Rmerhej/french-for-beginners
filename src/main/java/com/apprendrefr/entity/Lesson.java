@@ -23,7 +23,7 @@ public class Lesson {
     private String content;
 
     @NotBlank(message = "Le niveau est obligatoire")
-    private String level;   // Ex: A1, A2, etc.
+    private String level;
 
     private String category;
 

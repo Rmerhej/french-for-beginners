@@ -52,7 +52,7 @@ public class User implements UserDetails {
         createdAt = LocalDateTime.now();
     }
 
-    // ===================== Méthodes UserDetails =====================
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role));
@@ -80,7 +80,7 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() { return enabled; }
 
-    // Getter/Setter explicites si besoin
+
     public boolean getEnabled() {
         return enabled;
     }

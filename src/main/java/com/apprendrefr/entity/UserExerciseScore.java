@@ -13,7 +13,7 @@ public class UserExerciseScore {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    //Liaison vers la table d exercises
+    //
     @ManyToOne(optional = false)
     @JoinColumn(name = "exercise_id", nullable = false)
     private Exercise exercise;

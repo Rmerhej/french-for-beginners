@@ -73,9 +73,9 @@ public class UserService{
     public User save(User user) {
         return userRepository.save(user);
     }
-    // Dans chaque service (LessonService, UserService, ExerciseService, VocabularyService)
+
     public long count() {
-        return userRepository.count(); // Remplacez 'repository' par le nom de votre repository local
+        return userRepository.count();
     }
     public void toggleEnabled(Long id) {
         User user = userRepository.findById(id)

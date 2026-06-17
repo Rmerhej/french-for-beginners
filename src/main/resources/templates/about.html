@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Français Débutant-SC</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold text-primary">À propos du projet</h1>
+                <p class="lead text-muted">Un outil gratuit pour accompagner l'apprentissage du français</p>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+
+                    <h2 class="mb-4">Notre histoire</h2>
+                    <p class="lead">
+                        Je suis bénévole au sein d'une association qui dispense des cours de français
+                        aux adultes. Dès ma première participation, j'ai rapidement constaté qu'il manquait
+                        un outil numérique complémentaire pour renforcer l'apprentissage entre les cours.
+                    </p>
+                    <p>
+                        C'est ainsi qu'est né <strong>Français Débutant</strong> : un site conçu pour
+                        accompagner les apprenants adultes dans leur parcours linguistique, de manière
+                        ludique, progressive et accessible.
+                    </p>
+
+                    <hr class="my-5">
+
+                    <h2 class="mb-4">À quoi sert ce site ?</h2>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-book me-3 text-primary fs-4"></i>
+                                <div>
+                                    <h5>Vocabulaire</h5>
+                                    <p class="text-muted">Apprendre et réviser le vocabulaire de manière interactive.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-question-circle me-3 text-primary fs-4"></i>
+                                <div>
+                                    <h5>Exercices QCM</h5>
+                                    <p class="text-muted">Des questionnaires à choix multiple pour tester ses connaissances.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-arrows-move me-3 text-primary fs-4"></i>
+                                <div>
+                                    <h5>Drag &amp; Drop</h5>
+                                    <p class="text-muted">Des exercices interactifs pour mieux mémoriser.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-volume-up me-3 text-primary fs-4"></i>
+                                <div>
+                                    <h5>Prononciation (Pré-A1)</h5>
+                                    <p class="text-muted">Une section spécialement dédiée aux sons et à la phonétique.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <h5 class="mb-3">Une section au plus près des cours</h5>
+                        <p class="text-muted">
+                            Une partie du site est spécialement conçue pour coller aux cours dispensés chaque semaine
+                            en présentiel : QCM et quiz reprenant exactement le vocabulaire et les notions vues en classe.
+                        </p>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <h2 class="mb-4">Nos valeurs</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> <strong>Gratuit</strong> et accessible à tous</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Adapté aux <strong>adultes</strong> (rythme et contenu)</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Pédagogie progressive et bienveillante</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Respect de la vie privée des utilisateurs</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <h4 class="mb-4">Vous souhaitez participer ?</h4>
+
+                <div class="d-grid d-md-flex justify-content-center gap-3">
+                    <a th:href="@{/register}" class="btn btn-primary btn-lg px-5">
+                        <i class="bi bi-person-plus"></i> Je suis apprenant<br>
+                        <small>Créer mon compte gratuitement</small>
+                    </a>
+
+                    <a th:href="@{/secourscatholique}" class="btn btn-outline-primary btn-lg px-5">
+                        <i class="bi bi-heart"></i> Je veux devenir bénévole
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><br><br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
