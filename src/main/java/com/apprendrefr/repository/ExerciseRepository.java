@@ -16,5 +16,4 @@ public interface ExerciseRepository extends  JpaRepository<Exercise, Long>  {
     Page<Exercise> findAll(Pageable pageable);
     Page<Exercise> findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
             String question, String lessonTitle, Pageable pageable);
-
 }
