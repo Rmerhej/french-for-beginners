@@ -21,14 +21,12 @@ public class QuizController {
         this.quizRepository = quizRepository;
     }
 
-    // LISTE POUR LES ÉLÈVES
     @GetMapping("/quizzes")
     public String listQuizzesForStudents(Model model) {
         model.addAttribute("quizzes", quizRepository.findAll());
         return "quizzes-student";
     }
 
-    // JOUER À UN QUIZ
     @GetMapping("/quiz/{id}")
     public String showQuiz(@PathVariable Long id, Model model) {
         Optional<Quiz> opt = quizRepository.findById(id);

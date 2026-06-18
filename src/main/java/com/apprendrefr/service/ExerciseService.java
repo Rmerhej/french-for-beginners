@@ -59,6 +59,9 @@ public class ExerciseService {
         return exerciseRepository.findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
                 keyword, keyword, pageable);
     }
+    public List<Exercise> findByTitle(String title) {
+        return exerciseRepository.findByLessonTitle(title);
+    }
 
 
 }

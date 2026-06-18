@@ -16,7 +16,6 @@
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<!-- VOCABULAIRE  EXERCISE  QUIZ-->
 
 <div class="container mt-5">
     <h1 class="mb-4 text-center">
@@ -25,24 +24,6 @@
 
     <div class="row g-4">
         <h2 class="mb-4">EXERCISE-VOCABULAIRE</h2>
-        <!--<div class="col-md-3">
-            <div class="card h-100 shadow-sm">
-                <img th:if="${lesson.imageUrl}"
-                     th:src="${lesson.imageUrl}"
-                     class="card-img-top"
-                     style="height: 180px; object-fit: cover;">
-
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${lesson.title}">AU BUREAU</h5>
-                    <p class="text-muted small" th:text="${lesson.level}"></p>
-
-                    <a th:href="@{/lesson/{id}/exercises)}"
-                       class="btn btn-primary">
-                        VOIR
-                    </a>
-                </div>
-            </div>
-        </div>-->
         <div th:each="exercise : ${exercises}" class="card mb-4 shadow-sm" th:id="'exercise-card-' + ${exercise.id}">
             <div class="card-body">
                 <h5 class="card-title" th:text="${exercise.question}"></h5>
@@ -125,23 +106,28 @@
 <!--QUIZ -->
 <div class="container py-5">
     <h2 class="mb-4"> QUIZ</h2>
-    <h2 th:text="${quiz.title}"></h2>
+    <div th:title="${quiz.title}"></div>
 
-    <div class="card mb-4">
-        <div class="card-header">Mots à placer (glisse-les)</div>
-        <div class="card-body" id="wordsContainer"></div>
-    </div>
+    <div class="container py-5" th:if="${quiz != null}">
+        <h2 class="mb-4" th:text="${quiz.title != null ? quiz.title : 'Quiz non trouvé'}">QUIZ</h2>
 
-    <div class="card mb-4">
-        <div class="card-header">Complète la phrase :</div>
-        <div class="card-body fs-4 lh-lg" id="sentence" th:utext="${quiz.sentence}"></div>
+        <div class="card mb-4">
+            <div class="card-header">Mots à placer</div>
+            <div class="card-body" id="wordsContainer" th:data-words="${quiz.words}"></div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">Complète la phrase :</div>
+            <div class="card-body fs-4 lh-lg" id="sentence" th:utext="${quiz.sentence}"></div>
+        </div>
     </div>
 
     <button class="btn btn-success btn-lg me-3" onclick="checkAnswers()">Vérifier mes réponses</button>
     <button class="btn btn-secondary btn-lg" onclick="resetQuiz()">Recommencer</button>
 
     <div id="feedback" class="mt-4"></div>
-</script>
+</div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script th:src="@{/js/au-bureau.js}"></script>

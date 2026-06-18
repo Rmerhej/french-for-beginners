@@ -346,7 +346,6 @@ private VocabularyService vocabularyService;
         return "admin/quizzes-list";
     }
 
-    // CRÉATION
     @GetMapping("/quiz/create")
     public String showCreateQuizForm(Model model) {
         model.addAttribute("quiz", new Quiz());
@@ -360,7 +359,6 @@ private VocabularyService vocabularyService;
         return "redirect:/admin/quizzes";
     }
 
-    // MODIFICATION
     @GetMapping("/quiz/edit/{id}")
     public String showEditQuizForm(@PathVariable Long id, Model model) {
         Optional<Quiz> opt = quizRepository.findById(id);
@@ -378,7 +376,6 @@ private VocabularyService vocabularyService;
         return "redirect:/admin/quizzes";
     }
 
-    // SUPPRESSION
     @GetMapping("/quiz/delete/{id}")
     public String deleteQuiz(@PathVariable Long id) {
         quizRepository.deleteById(id);
@@ -402,14 +399,6 @@ public String launchImageOptimization() {
 }
 /// //////////////////////////////////PRONONCIATION//////////////
 
-@GetMapping("/prononciation/new")
-public String showCreatePrononciationForm(Exercise exercise,Quiz quiz, Model model) {
-    model.addAttribute("quiz", new Quiz());
-    model.addAttribute("exercise", exercise);
-
-    return "admin/prononciation-form-create";
-}
-
     @GetMapping("/preparation/new")
     public String showCreatePreparationForm(Exercise exercise,Quiz quiz, Model model) {
         model.addAttribute("quiz", new Quiz());
@@ -417,4 +406,5 @@ public String showCreatePrononciationForm(Exercise exercise,Quiz quiz, Model mod
 
         return "admin/preparation-form-create";
     }
+
 }

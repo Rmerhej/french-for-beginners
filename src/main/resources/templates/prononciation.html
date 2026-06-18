@@ -1,19 +1,117 @@
 <!doctype html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Prononciation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="container">
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+<br>
 
+<div class="d-flex flex-wrap gap-3">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">ô = au = eau</h5>
+            <p class="card-text">Exemple :<br>Un drapeau : Un drap<i style="color:green">eau<br></i>
+                Il est drôle : Il est dr<i style="color:red">ô</i>le<br>
+                Une faute : Une f<i style="color:green">au</i>te<br>
+            </p>
+            <audio controls>
+                <source src="/static/audios/o-au-eau.mp3" type="audio/mpeg"/>
+            </audio>
+        </div>
+    </div>
+    <br>
 
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">oin. ien.</h5>
 
+            <p class="card-text">Exemple :<br> Un gardien : Un gard<i style="color:red">ien</i><br>
+                Un témoin : Un tém<i style="color:red">oin</i></p>
+            <audio controls>
+                <source src="/static/audios/Oin-ien.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">ou.</h5>
+            <p class="card-text">Exemple :<br> La bouche : La b<i style="color:green">ou</i>che<br>
+                Le coude : Le c<i style="color:red">ou</i>de<br>
+            </p>
+            <audio controls>
+                <source src="/static/audios/Ou.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <br>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">ail. euil. eil. eille.</h5>
+            <p class="card-text">Exemple : <br>Le soleil : Le sol<i style="color:red">eil</i><br>
+                Le portail : Le port<i style="color:red">ail</i><br>
+                Un écureuil : Un écur<i style="color:red">euil</i><br>
+                Je me réveille : Je me rév<i style="color:red">eille</i><br>
+            </p>
+            <audio controls>
+                <source src="/static/audios/ail-euil-eil.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">our. oir. eur.</h5>
+            <p class="card-text">Exemple :<br> Bonsoir : Bons<i style="color:green">oir</i><br>
+                Bonjour : Bonj<i style="color:green">our</i><br>
+                le facteur : Le fact<i style="color:green">eur</i><br>
+            </p>
+            <audio controls>
+                <source src="/static/audios/our-our-eur.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <br>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Prononciation
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">in</h5>
+            <p class="card-text">Exemple :<br> Le sapin : Le sap<i style="color:red">in</i><br>
+                Le moulin : Le moul<i style="color:red">in</i>
+            </p>
+            <audio controls>
+                <source src="/static/audios/in.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <br>
+</div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

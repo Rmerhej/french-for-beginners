@@ -24,10 +24,15 @@
         <h2 class="mb-4">📚 Toutes les Leçons + Accès aux quiz</h2>
         <div class="col-6">
             <a th:href="@{/quizzes}" class="btn btn-outline-success btn-lg w-100"><span style="color:#87CEEB">Quiz</span></a>
-        </div><br><br>
+        </div><br>
         <div class="col-6">
             <a th:href="@{/preparation}" class="btn btn-outline-danger btn-lg w-100"><span> Préparation du cours hebdomadaire</span></a>
-        </div><br><br>
+        </div><br>
+        <div class="col-6">
+            <a th:href="@{/lessons/prononciation}" class="btn btn-outline-warning btn-lg w-100"><span>Prononciation </span></a>
+        </div>
+
+        <br>
         <div class="row">
             <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">
                 <div class="card h-100 shadow-sm">
