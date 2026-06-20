@@ -14,6 +14,36 @@ public class Exercise {
 
     private String lessonTitle;
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    // À ajouter dans la classe Exercise
+    private String date;
+    private String page;
+    private String url;
+
+    // + les getters/setters (ou laisse @Data faire le travail)
     @Column(columnDefinition = "TEXT")
     private String question;
 

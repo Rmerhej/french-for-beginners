@@ -1,13 +1,15 @@
 package com.apprendrefr.controller;
 
-import com.apprendrefr.entity.Quiz;
+import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PreparationController {
@@ -18,29 +20,24 @@ public class PreparationController {
     @Autowired
     private QuizService quizService;
 
-    @GetMapping("/preparation")
-    public String preparation() {
-        return "preparation";
+    @GetMapping("/preparation-list-index")
+    public String redirectFromIndex() {
+        return "redirect:/lessons/preparation-list";
+    }
+    // Point d'entrée principal pour la leçon "Au Bureau"
+    @GetMapping("/lessons/preparation-list")
+    public String getAuBureauPage(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        model.addAttribute("quizzes", quizService.findAll());
+        return "au-bureau";
     }
 
-    @GetMapping("/aubureau")
-    public String getQuizPage(
-            @RequestParam(name = "exTitle", required = false) String exTitle,
-            @RequestParam(name = "quizTitle", required = false) String quizTitle,
-            Model model) {
-
-        // 1. Exercises: Use service logic to return empty list if none found
-        model.addAttribute("exercises", (exTitle != null && !exTitle.isEmpty())
-                ? exerciseService.findByLessonTitle(exTitle)
-                : exerciseService.findAll());
-
-        // 2. Quiz: Service returns a valid Quiz or a new Quiz() object
-        // No need for .orElse() here if the service handles it internally
-        model.addAttribute("quiz", (quizTitle != null && !quizTitle.isEmpty())
-                ? quizService.findByTitle(quizTitle)
-                : quizService.getFirstQuiz());
-
-        return "au-bureau";
+    // Simplification des accès :
+    // Si vous tapez /preparation-list, on redirige proprement vers la page correcte
+    @GetMapping("/preparation-list")
+    public String redirectToPreparation() {
+        return "redirect:/lessons/preparation-list";
     }
 
     @GetMapping("/lesgens")
