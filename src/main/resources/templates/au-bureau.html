@@ -1,71 +1,32 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AU BUREAU</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">    <style>
-    .option { cursor: pointer; transition: all 0.3s; }
-    .option:hover { background-color: #f8f9fa; }
-    .correct { background-color: #d4edda !important; border-color: #198754; }
-    .incorrect { background-color: #f8d7da !important; border-color: #dc3545; }
-    .score { font-size: 1.5rem; font-weight: bold; }
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préparation du cours hebdomadaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .option-wrapper.correct { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .option-wrapper.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+    </style>
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">
-        📚 Préparation du cours hebdomadaire
-    </h1><hr>
+    <h2 class="mb-4">📚 Préparation du cours hebdomadaire</h2>
 
-    <div class="row g-4">
-        <h2 class="mb-4">EXERCISE-VOCABULAIRE</h2>
-        <div th:each="exercise : ${exercises}" class="card mb-4 shadow-sm" th:id="'exercise-card-' + ${exercise.id}">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${exercise.question}"></h5>
-
-                <div class="mt-3">
-                    <div class="form-check mb-2 p-2 rounded option-container">
-                        <input class="form-check-input ms-1" type="radio" th:name="'qcm-' + ${exercise.id}" th:id="${'optA' + exercise.id}" value="A">
-                        <label class="form-check-label ms-2" th:text="${exercise.optionA}" th:for="${'optA' + exercise.id}"></label>
-                    </div>
-                    <div class="form-check mb-2 p-2 rounded option-container">
-                        <input class="form-check-input ms-1" type="radio" th:name="'qcm-' + ${exercise.id}" th:id="${'optB' + exercise.id}" value="B">
-                        <label class="form-check-label ms-2" th:text="${exercise.optionB}" th:for="${'optB' + exercise.id}"></label>
-                    </div>
-                    <div class="form-check mb-2 p-2 rounded option-container">
-                        <input class="form-check-input ms-1" type="radio" th:name="'qcm-' + ${exercise.id}" th:id="${'optC' + exercise.id}" value="C">
-                        <label class="form-check-label ms-2" th:text="${exercise.optionC}" th:for="${'optC' + exercise.id}"></label>
-                    </div>
-                    <div class="form-check mb-2 p-2 rounded option-container">
-                        <input class="form-check-input ms-1" type="radio" th:name="'qcm-' + ${exercise.id}" th:id="${'optD' + exercise.id}" value="D">
-                        <label class="form-check-label ms-2" th:text="${exercise.optionD}" th:for="${'optD' + exercise.id}"></label>
-                    </div>
-                </div>
-
-                <button class="btn btn-success mt-3"
-                        th:onclick="checkAnswer(this, [[${exercise.id}]], [[${exercise.correctAnswer}]])">Vérifier</button>
-
-                <div class="mt-3 alert d-none" th:id="${'result-' + exercise.id}"></div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- EXERCISE -->
-
-<div class="container mt-5">
-    <h2 class="mb-4"> Exercices Interactifs</h2>
-    <div class="mb-4">
-        <span class="score text-primary">Score : <span id="score">0</span> / <span id="total">0</span></span>
+    <div class="alert alert-success">
+        Score : <span id="score">0</span> / <span id="total">0</span>
     </div>
 
-    <div th:each="ex : ${exercises}" class="mb-5" th:id="'exercise-container-' + ${ex.id}">
+    <h4 class="mt-5 mb-3 text-primary">📖 Exercices</h4>
+
+    <div th:each="ex : ${exercises}"
+         th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Au Bureau')}"
+         class="mb-5"
+         th:id="'exercise-container-' + ${ex.id}">
+
         <div class="card shadow-sm">
             <div class="card-header bg-light">
                 <strong th:text="${ex.lessonTitle}"></strong>
@@ -74,62 +35,39 @@
                 <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
 
                 <div class="options mb-3">
-                    <div class="form-check border rounded p-3 mb-2 option-wrapper">
-                        <input class="form-check-input mx-2" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optA-' + ${ex.id}" value="A">
-                        <label class="form-check-label w-100" th:for="'optA-' + ${ex.id}" th:text="${ex.optionA}"></label>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optA-' + ${ex.id}" value="A">
+                        <label class="form-check-label w-100 ms-2" th:for="'optA-' + ${ex.id}" th:text="${ex.optionA}"></label>
                     </div>
-                    <div class="form-check border rounded p-3 mb-2 option-wrapper">
-                        <input class="form-check-input mx-2" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optB-' + ${ex.id}" value="B">
-                        <label class="form-check-label w-100" th:for="'optB-' + ${ex.id}" th:text="${ex.optionB}"></label>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optB-' + ${ex.id}" value="B">
+                        <label class="form-check-label w-100 ms-2" th:for="'optB-' + ${ex.id}" th:text="${ex.optionB}"></label>
                     </div>
-                    <div class="form-check border rounded p-3 mb-2 option-wrapper">
-                        <input class="form-check-input mx-2" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optC-' + ${ex.id}" value="C">
-                        <label class="form-check-label w-100" th:for="'optC-' + ${ex.id}" th:text="${ex.optionC}"></label>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optC-' + ${ex.id}" value="C">
+                        <label class="form-check-label w-100 ms-2" th:for="'optC-' + ${ex.id}" th:text="${ex.optionC}"></label>
                     </div>
-                    <div class="form-check border rounded p-3 mb-2 option-wrapper">
-                        <input class="form-check-input mx-2" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optD-' + ${ex.id}" value="D">
-                        <label class="form-check-label w-100" th:for="'optD-' + ${ex.id}" th:text="${ex.optionD}"></label>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}" th:id="'optD-' + ${ex.id}" value="D">
+                        <label class="form-check-label w-100 ms-2" th:for="'optD-' + ${ex.id}" th:text="${ex.optionD}"></label>
                     </div>
                 </div>
 
                 <button type="button" class="btn btn-primary"
                         th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
-                    <i class="fa-solid fa-circle-check me-2"></i>Vérifier
+                    Vérifier
                 </button>
             </div>
-            <div class="card-footer d-none explanation" th:text="${ex.explanation}"></div>
+            <div class="card-footer d-none explanation" th:id="'explanation-' + ${ex.id}">
+                <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
+            </div>
         </div>
     </div>
-
     <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-</div>
-<!--QUIZ -->
-<div class="container py-5">
-    <h2 class="mb-4"> QUIZ</h2>
-    <div th:title="${quiz.title}"></div>
-
-    <div class="container py-5" th:if="${quiz != null}">
-        <h2 class="mb-4" th:text="${quiz.title != null ? quiz.title : 'Quiz non trouvé'}">QUIZ</h2>
-
-        <div class="card mb-4">
-            <div class="card-header">Mots à placer</div>
-            <div class="card-body" id="wordsContainer" th:data-words="${quiz.words}"></div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header">Complète la phrase :</div>
-            <div class="card-body fs-4 lh-lg" id="sentence" th:utext="${quiz.sentence}"></div>
-        </div>
-    </div>
-
-    <button class="btn btn-success btn-lg me-3" onclick="checkAnswers()">Vérifier mes réponses</button>
-    <button class="btn btn-secondary btn-lg" onclick="resetQuiz()">Recommencer</button>
-
-    <div id="feedback" class="mt-4"></div>
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:src="@{/js/au-bureau.js}"></script>
+<script th:src="@{/js/exercises.js}"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow"
+<nav th:fragment="navbar"
+     class="navbar navbar-expand-lg navbar-dark bg-dark shadow"
      xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="container">
 
@@ -36,7 +37,6 @@
                     <a th:href="@{/admin}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
                         Admin
                     </a>
-                   <!-- <a th:href="@{/logout}" class="btn btn-outline-danger">Déconnexion</a>-->
 
                     <form th:action="@{/logout}" method="post">
                         <button class="btn btn-outline-danger">Déconnexion</button>
@@ -46,7 +46,7 @@
 
                 <div sec:authorize="isAnonymous()">
                     <a th:href="@{/login}" class="btn btn-outline-light me-2">Connexion</a>
-                    <a th:href="@{/register}" class="btn btn-success">S'inscrire</a>
+                    <a th:href="@{/register}" class="btn btn-primary">S'inscrire</a>
                 </div>
             </div>
         </div>

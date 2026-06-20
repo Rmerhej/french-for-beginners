@@ -18,7 +18,6 @@ public class QuizService {
                 .orElse(new Quiz());
     }
 
-    // Use this to get the first available quiz as a fallback
     public Quiz getFirstQuiz() {
         return quizRepository.findAll().stream()
                 .findFirst()
