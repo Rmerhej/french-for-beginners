@@ -23,7 +23,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/register", "/login", "/css/**", "/js/**",
-                                "/images/**","/webjars/**", "/uploads/**", "/fragments/**","/prononciation","/preparation-list","/preparation-list-index/**","/lessons/preparation-list","/preparation-list-index1","/lesgens/**","/lesport/**").permitAll()
+                                "/images/**","/webjars/**", "/uploads/**", "/fragments/**","/prononciation",
+                                "/preparation-list-index/**","/togoToAuBureu",
+                                "/lessons/preparation-list","/lesgens/**","/lesport/**").permitAll()
                         .requestMatchers("/","/supports-de-cours/**","/adjectif/**","/pronoms/**","/lesson/**",
                                 "/adjectifsdemonstratifs/**","/expressionstemps/**","/futursimple/**","/verbesreguliers/**",
                                 "/passecompse/**","/imperatif/**","/adjectif/**","/auxiliaires/**","/about","/contact","/rgpd",

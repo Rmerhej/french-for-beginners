@@ -22,7 +22,7 @@ public class PreparationController {
 
     @GetMapping("/preparation-list-index")
     public String redirectFromIndex() {
-        return "redirect:/lessons/preparation-list";
+        return "preparation-list";
     }
     // Point d'entrée principal pour la leçon "Au Bureau"
     @GetMapping("/lessons/preparation-list")
@@ -33,11 +33,12 @@ public class PreparationController {
         return "au-bureau";
     }
 
-    // Simplification des accès :
-    // Si vous tapez /preparation-list, on redirige proprement vers la page correcte
-    @GetMapping("/preparation-list")
-    public String redirectToPreparation() {
-        return "redirect:/lessons/preparation-list";
+    @GetMapping("/togoToAuBureu")
+    public String redirectFromPreparationList(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        model.addAttribute("quizzes", quizService.findAll());
+        return "au-bureau";
     }
 
     @GetMapping("/lesgens")
