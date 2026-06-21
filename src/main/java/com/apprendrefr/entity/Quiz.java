@@ -11,6 +11,7 @@ public class Quiz {
     private Long id;
 
     private String title;
+    @Column(name = "sentence")
     private String sentence;
     private String words;
     private String correctAnswers;
@@ -63,5 +64,17 @@ public class Quiz {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    // Ajoutez ce champ en haut
+    private String quizType;
+
+    // Et corrigez le getter
+    public String getQuizType() {
+        return this.quizType;
+    }
+
+    // Ajoutez le setter correspondant
+    public void setQuizType(String quizType) {
+        this.quizType = quizType;
     }
 }
