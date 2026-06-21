@@ -11,7 +11,7 @@ public class Quiz {
     private Long id;
 
     private String title;
-    @Column(name = "sentence")
+    @Column(name = "sentence" ,columnDefinition = "TEXT")
     private String sentence;
     private String words;
     private String correctAnswers;

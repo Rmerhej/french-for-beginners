@@ -33,14 +33,11 @@ public class AdminController {
   private ExerciseService exerciseService;
 @Autowired
 private VocabularyService vocabularyService;
-    @Autowired
+@Autowired
     public QuizRepository quizRepository;
     private final FileUploadService fileUploadService;
     @Autowired
     private ImageService imageService;
-
-
-
 
     public AdminController(LessonService lessonService, UserService userService,
                            ExerciseService exerciseService, VocabularyService vocabularyService,FileUploadService fileUploadService,QuizRepository quizRepository) {
@@ -405,6 +402,10 @@ public String launchImageOptimization() {
         model.addAttribute("exercise", exercise);
 
         return "admin/preparation-form-create";
+    }
+    @GetMapping("/dashboard")
+    public String showDashboard() {
+        return "admin/dashboard";
     }
 
 }
