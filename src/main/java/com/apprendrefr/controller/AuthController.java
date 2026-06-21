@@ -50,6 +50,7 @@ public class AuthController {
             return "register";
         }
 
+
         try {
             System.out.println("Appel de UserService.registerUser() pour : " + user.getUsername());
             userService.registerUser(user);
