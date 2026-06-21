@@ -37,7 +37,9 @@ public class PreparationController {
     }
 
     @GetMapping("/lesgens")
-    public String allerLesGens() {
+    public String allerLesGens(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les gens");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "les-gens";
     }
 

@@ -9,7 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+   <!-- <link th:href="@{/css/style.css}" rel="stylesheet">-->
+    <style>
+        .form-check-input {
+            display: inline-block !important;
+            opacity: 1 !important;
+            position: relative !important;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
@@ -51,7 +58,12 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" name="Se souvenir de moi" id="remember-me" class="form-check-input" />
+                            <label for="remember-me" class="form-check-label"><span style="color:blue">Se souvenir de moi</span> </label>
+                        </div>
                         <button type="submit" class="btn btn-primary w-100 mb-3">Se connecter</button>
+
                     </form>
                     <div th:if="${param.success}">Inscription réussie ! Connectez-vous.</div>
                     <div class="text-center">

@@ -340,7 +340,7 @@ private VocabularyService vocabularyService;
     @GetMapping("/quizzes")
     public String listQuizzesForAdmin(Model model) {
         model.addAttribute("quizzes", quizRepository.findAll());
-        return "admin/quizzes-list";
+        return "/admin/quizzes-list";
     }
 
     @GetMapping("/quiz/create")
