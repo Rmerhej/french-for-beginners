@@ -3,8 +3,11 @@ package com.apprendrefr.service;
 import com.apprendrefr.entity.Quiz;
 import com.apprendrefr.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,16 +16,6 @@ public class QuizService {
 
     private final QuizRepository quizRepository;
 
-    public Quiz findByTitle(String title) {
-        return quizRepository.findByTitle(title)
-                .orElse(new Quiz());
-    }
-
-    public Quiz getFirstQuiz() {
-        return quizRepository.findAll().stream()
-                .findFirst()
-                .orElse(new Quiz());
-    }
     @Autowired
     public QuizService(QuizRepository quizRepository) {
         this.quizRepository = quizRepository;
@@ -42,6 +35,18 @@ public class QuizService {
 
     public void deleteById(Long id) {
         quizRepository.deleteById(id);
+    }
+    public Page<Quiz> searchQuiz(String keyword, Pageable pageable) {
+        // On cherche le mot-clé dans le titre OU dans la phrase (sentence)
+        return quizRepository.findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(
+                keyword, keyword, pageable);
+    }
+    public Quiz getFirstQuiz() {
+        return quizRepository.findAll().stream().findFirst().orElse(new Quiz());
+    }
+    public List<Quiz> findByTitleContaining(String title) {
+        List<Quiz> results = quizRepository.findByTitleContainingIgnoreCase(title);
+        return results != null ? results : new ArrayList<>();
     }
 
 }

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Préparation-Quiz-List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<h2 class="mb-4">📚 Préparation du cours hebdomadaire /Quiz</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Cours du 23 Juin<br>
+                    AU BUREAU /Quiz<br>
+                    P:130
+                </h5>
+
+                <a th:href="@{/togoToAuBureuQuiz}"class="btn btn-primary">
+                    Voir la leçon
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Cours du 30 Juin<br>
+                    LES GENS /Quiz<br>
+                    P:140
+                </h5>
+                <a th:href="@{/lesgens}" class="btn btn-primary">
+                    Voir la leçon
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Cours du 7 Juillet /Quiz<br>
+                    LE SPORT<br>
+                    P:150
+                </h5>
+                <a th:href="@{/lesport}" class="btn btn-primary">
+                    Voir la leçon
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Cours du 21 Juillet<br>
+                    L'ENTREPRISE /Quiz<br>
+                    P:160
+                </h5>
+                <a th:href="@{/lesgens}" class="btn btn-primary">
+                    Voir la leçon
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

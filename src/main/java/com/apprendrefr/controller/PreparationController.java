@@ -17,9 +17,6 @@ public class PreparationController {
     @Autowired
     private ExerciseService exerciseService;
 
-    @Autowired
-    private QuizService quizService;
-
     @GetMapping("/preparation-list-index")
     public String redirectFromIndex() {
         return "preparation-list";
@@ -29,7 +26,6 @@ public class PreparationController {
     public String getAuBureauPage(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
-        model.addAttribute("quizzes", quizService.findAll());
         return "au-bureau";
     }
 
@@ -37,7 +33,6 @@ public class PreparationController {
     public String redirectFromPreparationList(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
-        model.addAttribute("quizzes", quizService.findAll());
         return "au-bureau";
     }
 

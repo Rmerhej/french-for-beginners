@@ -29,7 +29,8 @@ public class SecurityConfig {
                         .requestMatchers("/","/supports-de-cours/**","/adjectif/**","/pronoms/**","/lesson/**",
                                 "/adjectifsdemonstratifs/**","/expressionstemps/**","/futursimple/**","/verbesreguliers/**",
                                 "/passecompse/**","/imperatif/**","/adjectif/**","/auxiliaires/**","/about","/contact","/rgpd",
-                                "/secourscatholique","/au-bureau").permitAll()
+                                "/secourscatholique","/au-bureau",
+                                "/preparation-quiz-index","/preparation-quiz-lesson-vers-index","/togoToAuBureuQuiz","/au-bureau-quiz").permitAll()
                         .requestMatchers("/quizzes").authenticated()
                         .requestMatchers("/admin/images/optimize").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
