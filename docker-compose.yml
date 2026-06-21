@@ -12,9 +12,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # Stockage permanent des données
       - mysql-data:/var/lib/mysql
-      # Importation automatique du fichier SQL au premier lancement
       - ./init-db:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
@@ -23,7 +21,9 @@ services:
       retries: 5
 
   app:
-    build: .
+    # MODIFICATION ICI : on pointe vers l'image versionnée
+    image: rolandmerhej1/french-app:v1.1
+    # On retire 'build: .' car on utilise maintenant l'image du hub
     container_name: french-app
     restart: always
     ports:
@@ -38,7 +38,6 @@ services:
       db:
         condition: service_healthy
     volumes:
-      # Dossier pour vos images uploadées
       - ./uploads:/app/uploads/images
 
 volumes:

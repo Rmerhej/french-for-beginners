@@ -1,6 +1,7 @@
 package com.apprendrefr.config;
 
 import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -9,31 +10,34 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-
+import javax.sql.DataSource;
+import org.springframework.context.annotation.Lazy;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final CustomAuthenticationSuccessHandler successHandler;
 
-    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler) {
+    private final CustomAuthenticationSuccessHandler successHandler;
+    private final PersistentTokenRepository persistentTokenRepository;
+    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler ,@Lazy PersistentTokenRepository  persistentTokenRepository) {
         this.successHandler = successHandler;
+        this.persistentTokenRepository = persistentTokenRepository;
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // 1. Protection CSRF
-                .csrf(csrf -> csrf
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                )
-                // 2. Gestion des accès
+                .csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .authorizeHttpRequests(auth -> auth
-                        // Ressources statiques et pages publiques
-                        .requestMatchers("/", "/register", "/login", "/css/**", "/js/**", "/images/**",
-                                "/webjars/**", "/uploads/**", "/fragments/**").permitAll()
-                        // Vos autres routes publiques (regroupées pour la lisibilité)
+                        // 1. Ressources publiques (Statiques + Pages publiques)
+                        .requestMatchers("/", "/index", "/register", "/login", "/logout",
+                                "/css/**", "/js/**", "/images/**", "/webjars/**",
+                                "/uploads/**", "/fragments/**").permitAll()
+
+                        // 2. Pages de contenu (Cours, Exercices) accessibles à tous
                         .requestMatchers("/prononciation", "/preparation-list-index/**", "/togoToAuBureu",
                                 "/lessons/preparation-list", "/lesgens/**", "/lesport/**",
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
@@ -42,29 +46,43 @@ public class SecurityConfig {
                                 "/auxiliaires/**", "/about", "/contact", "/rgpd",
                                 "/secourscatholique", "/au-bureau", "/preparation-quiz-index",
                                 "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
-                                "/au-bureau-quiz").permitAll()
-                        // Accès restreints
-                        .requestMatchers("/admin/images/optimize").permitAll()
+                                "/au-bureau-quiz","les-gens-quiz").permitAll()
+
+                        // 3. Règles Administration (La règle spécifique avant la générale)
+                        .requestMatchers("/admin/images/optimize").permitAll() // Exception spécifique
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+
+                        // 4. Règles Authentification
                         .requestMatchers("/quizzes", "/lessons").authenticated()
-                        .requestMatchers(HttpMethod.POST, "/exercise/submit**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/exercise/submit/**").authenticated()
+
+                        // 5. Tout le reste
                         .anyRequest().authenticated()
                 )
-                // 3. Configuration Login (c'est ici que le Handler est utilisé)
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .successHandler(successHandler) // Redirige dynamiquement selon le rôle
+                        .successHandler(successHandler)
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )
-                // 4. Configuration Logout
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/index")
+                        .logoutSuccessUrl("/") // Rediriger vers la racine "/" qui est autorisée
                         .permitAll()
+                )
+                .rememberMe(rememberMe -> rememberMe
+                        .rememberMeParameter("Se souvenir de moi")
+                        .tokenRepository(persistentTokenRepository)   // ← ici on passe le bean
+                        .tokenValiditySeconds(1209600) // 14 jours
                 );
 
         return http.build();
+    }
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository(DataSource dataSource) {
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+        return tokenRepository;
     }
 
     @Bean
