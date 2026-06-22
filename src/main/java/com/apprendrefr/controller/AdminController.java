@@ -48,7 +48,7 @@ private VocabularyService vocabularyService;
         this.fileUploadService = fileUploadService;
         this.quizRepository = quizRepository;
     }
-    @GetMapping
+    @GetMapping("/dashboard")
     public String dashboard(Model model) {
         // 1. Appel des méthodes count() de vos services pour obtenir les chiffres
         long lessons = lessonService.count();
@@ -402,10 +402,6 @@ public String launchImageOptimization() {
         model.addAttribute("exercise", exercise);
 
         return "admin/preparation-form-create";
-    }
-    @GetMapping("/dashboard")
-    public String showDashboard() {
-        return "admin/dashboard";
     }
 
 }

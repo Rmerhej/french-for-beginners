@@ -41,7 +41,7 @@
                     <form th:action="@{/login}" th:object="${user}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom d'utilisateur :</label><br>
-                            <input type="text" name="username" placeholder="Nom d'utilisateur" required />
+                            <input type="text" name="username"  class="form-control"  placeholder="Nom d'utilisateur" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mot de passe :</label>
@@ -58,10 +58,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" name="Se souvenir de moi" id="remember-me" class="form-check-input" />
-                            <label for="remember-me" class="form-check-label"><span style="color:blue">Se souvenir de moi</span> </label>
-                        </div>
+
                         <button type="submit" class="btn btn-primary w-100 mb-3">Se connecter</button>
 
                     </form>

@@ -21,9 +21,8 @@ services:
       retries: 5
 
   app:
-    # MODIFICATION ICI : on pointe vers l'image versionnée
+
     image: rolandmerhej1/french-app:v1.1
-    # On retire 'build: .' car on utilise maintenant l'image du hub
     container_name: french-app
     restart: always
     ports:
