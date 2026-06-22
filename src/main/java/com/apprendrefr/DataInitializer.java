@@ -23,7 +23,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("username chargé par spring :" + adminUsername);
+       // System.out.println("username chargé par spring :" + adminUsername);
 
         if (adminPassword == null || adminPassword.trim().isEmpty()) {
             throw new RuntimeException("❌ ADMIN_PASSWORD n'est pas défini dans les variables d'environnement !");

@@ -44,7 +44,9 @@ public class PreparationController {
     }
 
     @GetMapping("/lesport")
-    public String allerLeSport() {
+    public String allerLeSport(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Le sport");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "le-sport";
     }
 }
