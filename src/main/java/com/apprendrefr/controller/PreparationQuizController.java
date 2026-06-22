@@ -73,4 +73,27 @@ public class PreparationQuizController {
 
         return "les-gens-quiz";
     }
+    @GetMapping("/lesportquiz")
+    public String showLeSportQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("Le sport");
+
+        // Log the contents to identify if there are nulls inside the list
+        if (quizzes != null) {
+            for (int i = 0; i < quizzes.size(); i++) {
+                System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
+            }
+        }
+        // Debug: Print every object in the list
+        for (Quiz q : quizzes) {
+            if (q == null) {
+                System.out.println("FOUND A NULL OBJECT IN THE LIST!");
+            } else {
+                System.out.println("Quiz found: " + q.getTitle() + " | Sentence: " + q.getSentence());
+            }
+        }
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        System.out.println("Object type: " + model.getAttribute("quizzes").getClass().getName());
+
+        return "le-sport-quiz";
+    }
 }
