@@ -1,7 +1,6 @@
 package com.apprendrefr.config;
 
 import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -10,10 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import javax.sql.DataSource;
 import org.springframework.context.annotation.Lazy;
 @Configuration
 @EnableWebSecurity
@@ -69,21 +66,16 @@ public class SecurityConfig {
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/") // Rediriger vers la racine "/" qui est autorisée
                         .permitAll()
-                )
-                .rememberMe(rememberMe -> rememberMe
-                        .rememberMeParameter("Se souvenir de moi")
-                        .tokenRepository(persistentTokenRepository)   // ← ici on passe le bean
-                        .tokenValiditySeconds(1209600) // 14 jours
                 );
 
         return http.build();
     }
-    @Bean
-    public PersistentTokenRepository persistentTokenRepository(DataSource dataSource) {
-        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-        tokenRepository.setDataSource(dataSource);
-        return tokenRepository;
-    }
+   // @Bean
+    //public PersistentTokenRepository persistentTokenRepository(DataSource dataSource) {
+      //  JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        //tokenRepository.setDataSource(dataSource);
+        //return tokenRepository;
+    //}
 
     @Bean
     public PasswordEncoder passwordEncoder() {
