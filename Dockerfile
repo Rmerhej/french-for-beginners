@@ -6,10 +6,10 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src ./src
 
-# Build (corrigé + optimisation)
+
 RUN ./mvnw clean package -DskipTests --no-transfer-progress
 
-# Image runtime légère
+
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
@@ -20,7 +20,7 @@ EXPOSE 8080
 # Pour la production
 ENV SPRING_PROFILES_ACTIVE=prod
 
-# Options JVM recommandées pour conteneur
+
 ENTRYPOINT ["java", \
     "-XX:+UseContainerSupport", \
     "-XX:MaxRAMPercentage=75.0", \
