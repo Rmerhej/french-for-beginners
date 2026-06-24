@@ -31,13 +31,12 @@ public class PreparationQuizController {
     public String showAuBureauQuiz(Model model) {
         List<Quiz> quizzes = quizService.findByTitleContaining("Au Bureau");
 
-        // Log the contents to identify if there are nulls inside the list
         if (quizzes != null) {
             for (int i = 0; i < quizzes.size(); i++) {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
             }
         }
-        // Debug: Print every object in the list
+
         for (Quiz q : quizzes) {
             if (q == null) {
                 System.out.println("FOUND A NULL OBJECT IN THE LIST!");
@@ -54,13 +53,13 @@ public class PreparationQuizController {
     public String showAuLesGensQuiz(Model model) {
         List<Quiz> quizzes = quizService.findByTitleContaining("Les gens");
 
-        // Log the contents to identify if there are nulls inside the list
+       //à supprimer ultrieuremen
         if (quizzes != null) {
             for (int i = 0; i < quizzes.size(); i++) {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
             }
         }
-        // Debug: Print every object in the list
+    /// ////
         for (Quiz q : quizzes) {
             if (q == null) {
                 System.out.println("FOUND A NULL OBJECT IN THE LIST!");
@@ -77,7 +76,7 @@ public class PreparationQuizController {
     public String showLeSportQuiz(Model model) {
         List<Quiz> quizzes = quizService.findByTitleContaining("Le sport");
 
-        // Log the contents to identify if there are nulls inside the list
+        // à supp plus tard
         if (quizzes != null) {
             for (int i = 0; i < quizzes.size(); i++) {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));

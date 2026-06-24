@@ -34,7 +34,7 @@
                     <span class="navbar-text me-3">
                         👤 <strong sec:authentication="name"></strong>
                     </span>
-                    <a th:href="@{/admin}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
+                    <a th:href="@{/admin/dashboard}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
                         Admin
                     </a>
 

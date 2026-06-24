@@ -54,7 +54,47 @@ public class SupportsCoursController {
     @GetMapping("/auxiliaires")
     public String allerSurAuxiliaires(){
         return "auxiliaires";
-
+    }
+    /// /////////////////
+    @GetMapping("/coursGrammaireA1")
+    public String allerSurCoursGrammaire(){
+        return "cours-grammaire-A1";
+    }
+    @GetMapping("/articlesDéfinis")
+    public String allerSurArticleDefinis(){
+        return "articles-definis.html";
+    }
+    @GetMapping("/genreEtNombreDesNoms")
+    public String allerSurGenreEtNombre(){
+        return "genre-et-nombre-des-noms.html";
+    }
+    @GetMapping("/adjectifsQualificatifs")
+    public String allerSurAdjectifsQualificatifs(){
+        return "adjectifs-qualificatifs.html";
+    }
+    @GetMapping("/PronomsPersonnelsSujets")
+    public String allerSurPronomsPersonnelSujets(){
+        return "pronoms-personnels-sujets.html";
+    }
+    @GetMapping("/verbesAuPresent")
+    public String allerSurVerbesAuxPresent(){
+        return "verbes-au-present.html";
+    }
+    @GetMapping("/NegationSimple")
+    public String allerSurNegationSimple(){
+        return "negation-simple.html";
+    }
+    @GetMapping("/questionsSimples")
+    public String allerSurQuestionsSimple(){
+        return "questions-simples.html";
+    }
+    @GetMapping("/PropositionsDeLieuEtTemps")
+    public String allerSurPropositionsLieuTemps(){
+        return "propositions-de-lieu-et-de-temps.html";
+    }
+    @GetMapping("/pronomsPossessifsEtDemonstratifs")
+    public String allerSurPronomsPossessifsEtDemonstratifs(){
+        return "pronoms-possessifs-et-demonstratifs.html";
     }
 
 }
