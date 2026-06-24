@@ -48,6 +48,11 @@ private VocabularyService vocabularyService;
         this.fileUploadService = fileUploadService;
         this.quizRepository = quizRepository;
     }
+    @GetMapping
+    public String adminHome() {
+        return "redirect:/admin/dashboard";
+    }
+
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         // 1. Appel des méthodes count() de vos services pour obtenir les chiffres

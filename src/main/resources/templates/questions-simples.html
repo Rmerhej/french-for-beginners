@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Simples - Français A1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style> body { font-family: 'Segoe UI', system-ui, sans-serif; } .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; } </style>
+</head>
+<body class="container">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">❓ Questions Simples</h1>
+    </div>
+</header>
+
+<div class="container my-5">
+    <h4>Deux façons de poser une question :</h4>
+    <ol>
+        <li><strong>Intonation</strong> (oral) : Tu parles français ?</li>
+        <li><strong>Est-ce que</strong> : Est-ce que tu parles français ?</li>
+    </ol>
+
+    <h4>Mots interrogatifs :</h4>
+    <p>Qui ? Quoi ? Où ? Quand ? Comment ? Pourquoi ? Combien ?</p>
+
+    <div class="bg-light p-4 rounded">
+        Exemples :<br>
+        Où habites-tu ?<br>
+        Quand arrives-tu ?<br>
+        Combien ça coûte ?
+    </div>
+</div>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

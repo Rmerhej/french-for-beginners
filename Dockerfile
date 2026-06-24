@@ -14,7 +14,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
-
+RUN mkdir -p /app/uploads && chmod 777 /app/uploads
 EXPOSE 8080
 
 # Pour la production
