@@ -1,5 +1,6 @@
 package com.apprendrefr.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,13 +13,16 @@ import java.util.UUID;
 @Service
 public class FileUploadService {
 
-    private final Path uploadDir = Paths.get("uploads");
+    private final Path uploadDir;
 
-    public FileUploadService() {
+    public FileUploadService(@Value("${app.upload.dir}") String uploadPath) {
+        this.uploadDir = Paths.get(uploadPath);
+
         try {
-            Files.createDirectories(uploadDir);
+            Files.createDirectories(uploadDir.resolve("images"));
+            Files.createDirectories(uploadDir.resolve("audio"));
         } catch (IOException e) {
-            throw new RuntimeException("Impossible de créer le dossier uploads", e);
+            throw new RuntimeException("Impossible de créer les dossiers uploads", e);
         }
     }
 
@@ -31,32 +35,35 @@ public class FileUploadService {
     }
 
     private String saveFile(MultipartFile file, String subFolder) {
+
         if (file == null || file.isEmpty()) {
             return null;
         }
 
-
         String contentType = file.getContentType();
+
         if (contentType == null ||
                 (!contentType.startsWith("image/") && !contentType.startsWith("audio/"))) {
             throw new RuntimeException("Type de fichier non autorisé");
         }
 
         try {
-            // Création du sous-dossier
             Path subDir = uploadDir.resolve(subFolder);
             Files.createDirectories(subDir);
 
-            // Nom unique sécurisé
             String originalName = file.getOriginalFilename();
-            String extension = originalName != null ?
-                    originalName.substring(originalName.lastIndexOf(".")) : "";
+            String extension = "";
+
+            if (originalName != null && originalName.contains(".")) {
+                extension = originalName.substring(originalName.lastIndexOf("."));
+            }
+
             String newFileName = UUID.randomUUID() + extension;
 
             Path filePath = subDir.resolve(newFileName);
-            file.transferTo(filePath);
 
-            // retourne le chemin accessible via URL
+            file.transferTo(filePath.toFile());
+
             return "/uploads/" + subFolder + "/" + newFileName;
 
         } catch (IOException e) {

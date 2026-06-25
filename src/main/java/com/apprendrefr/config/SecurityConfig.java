@@ -31,8 +31,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // 1. Ressources publiques (Statiques + Pages publiques)
                         .requestMatchers("/", "/index", "/register", "/login", "/logout",
-                                "/css/**", "/js/**", "/images/**", "/webjars/**",
-                                "/uploads/**", "/fragments/**").permitAll()
+                                "/css/**", "/js/**","/uploads/**", "/images/**","/audio/**","/webjars/**",
+                                 "/fragments/**").permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
                         .requestMatchers("/prononciation", "/preparation-list-index/**", "/togoToAuBureu",
