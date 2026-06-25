@@ -7,11 +7,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    //@Value("${upload.path:uploads/}")
-    //private String uploadPath;
+    @Value("${app.upload.dir}")
+    private String uploadDir;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+       // On s'assure que le chemin commence bien par "file:"
+        String location = "file:" + uploadDir + (uploadDir.endsWith("/") ? "" : "/");
+
+        registry.addResourceHandler("/uploads/**")
+                .addResourceLocations(location)
+                .setCachePeriod(0);
         // Chemins principaux pour les uploads
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:uploads/")

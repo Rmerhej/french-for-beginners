@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: french-for-beginners
+
+  # ==================== DATABASE ====================
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/frenchdb?useSSL=false&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+
+  # ==================== JPA / HIBERNATE ====================
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  # ==================== FILE UPLOAD ====================
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 15MB
+
+  # ==================== THYMELEAF ====================
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+
+# ==================== SERVER ====================
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+
+# ==================== LOGGING ====================
+logging:
+  level:
+    com.apprendrefr: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+# ==================== ADMIN ====================
+admin:
+  username: ${ADMIN_USERNAME}
+  password: ${ADMIN_PASSWORD}
+
+
+# ==================== DEFAULT PROPERTIES ====================
+app:
+  upload:
+    dir: uploads/
+
+# ==================== PROD PROFILE ====================
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+app:
+  upload:
+    dir: /app/uploads/

@@ -26,7 +26,7 @@ public class PreparationController {
     public String getAuBureauPage(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
-        return "au-bureau";
+        return "preparation-list";
     }
 
     @GetMapping("/togoToAuBureu")

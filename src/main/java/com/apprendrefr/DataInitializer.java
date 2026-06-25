@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    @Value("${admin.username}")
+    @Value("${ADMIN_USERNAME : rolandladmin}")
     private String adminUsername;
 
-    @Value("${admin.password}")
+    @Value("${ADMIN_PASSWORD : roland300819}")
     private String adminPassword;
 
     private final PasswordEncoder passwordEncoder;
@@ -40,7 +40,7 @@ public class DataInitializer implements CommandLineRunner {
         admin.setUsername(adminUsername);
         admin.setPassword(passwordEncoder.encode(adminPassword));
         admin.setRole("ADMIN");
-        admin.setEmail(adminUsername + "admin@apprendrefr.com");   // ou une vraie adresse
+        admin.setEmail("admin-" + adminUsername + "@apprendrefr.com");   // ou une vraie adresse
 
 
         userRepository.save(admin);
