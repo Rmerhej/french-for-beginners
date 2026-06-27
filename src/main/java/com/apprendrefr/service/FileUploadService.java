@@ -41,29 +41,39 @@ public class FileUploadService {
         }
 
         String contentType = file.getContentType();
+        String originalName = file.getOriginalFilename();
+        String extension = "";
 
-        if (contentType == null ||
-                (!contentType.startsWith("images/") && !contentType.startsWith("audio/"))) {
-            throw new RuntimeException("Type de fichier non autorisé");
+        if (originalName != null && originalName.contains(".")) {
+            extension = originalName.substring(originalName.lastIndexOf(".")).toLowerCase();
+        }
+
+        // CORRECTION ICI : "image/" au lieu de "images/"
+        // Ajout d'une tolérance pour les fichiers audio dont le type MIME est parfois mal détecté par le navigateur (ex: application/octet-stream)
+        boolean isImage = contentType != null && contentType.startsWith("image/");
+        boolean isAudio = (contentType != null && contentType.startsWith("audio/")) ||
+                (extension.equals(".mp3") || extension.equals(".wav") || extension.equals(".ogg") || extension.equals(".m4a"));
+
+        if (!isImage && !isAudio) {
+            throw new RuntimeException("Type de fichier non autorisé : " + contentType);
         }
 
         try {
             Path subDir = uploadDir.resolve(subFolder);
             Files.createDirectories(subDir);
 
-            String originalName = file.getOriginalFilename();
-            String extension = "";
-
-            if (originalName != null && originalName.contains(".")) {
-                extension = originalName.substring(originalName.lastIndexOf("."));
-            }
-
+            // Génération du nom unique
             String newFileName = UUID.randomUUID() + extension;
-
             Path filePath = subDir.resolve(newFileName);
 
-            file.transferTo(filePath.toFile());
+            Files.deleteIfExists(filePath);
 
+// Copie le flux du fichier directement vers le vrai chemin absolu cible
+            try (var inputStream = file.getInputStream()) {
+                Files.copy(inputStream, filePath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            // Retourne le chemin relatif pour la BDD (ex: /uploads/audio/uuid.mp3)
             return "/uploads/" + subFolder + "/" + newFileName;
 
         } catch (IOException e) {
