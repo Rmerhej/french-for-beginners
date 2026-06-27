@@ -199,46 +199,70 @@ private VocabularyService vocabularyService;
     // ==================== VOCABULARY ====================
 
     @PostMapping("/vocabulary")
-    public String saveVocabulary( @ModelAttribute Vocabulary vocabulary,
-
+    public String saveVocabulary(@ModelAttribute Vocabulary vocabularyForm,
                                  @RequestParam(value = "imageFile", required = false) MultipartFile imageFile,
                                  @RequestParam(value = "audioFile", required = false) MultipartFile audioFile,
                                  RedirectAttributes redirectAttributes) {
-
+        System.out.println("--- DIAGNOSTIC UPLOAD ---");
+        System.out.println("Fichier Image reçu : " + (imageFile != null ? imageFile.getOriginalFilename() : "NULL"));
+        System.out.println("Fichier Audio reçu : " + (audioFile != null ? audioFile.getOriginalFilename() : "NULL"));
         try {
-            if (vocabulary.getLessonId() == null) {
+            // 1. Déterminer si c'est une création ou une modification
+            Vocabulary vocabularyToSave;
+
+            if (vocabularyForm.getId() != null) {
+                // MODIFICATION : On charge l'existant complet de la BDD
+                vocabularyToSave = vocabularyService.findById(vocabularyForm.getId())
+                        .orElseThrow(() -> new RuntimeException("Mot de vocabulaire introuvable pour l'id : " + vocabularyForm.getId()));
+
+                // On met à jour les données textuelles venues du formulaire
+                vocabularyToSave.setFrenchWord(vocabularyForm.getFrenchWord());
+                vocabularyToSave.setEnglishTranslation(vocabularyForm.getEnglishTranslation());
+                // Ajoute ici les autres champs de texte si tu en as (ex: description, exemple...)
+                vocabularyToSave.setPronunciation(vocabularyForm.getPronunciation());
+                vocabularyToSave.setExampleSentence(vocabularyForm.getExampleSentence());
+            } else {
+                // CRÉATION : C'est un nouveau mot
+                vocabularyToSave = vocabularyForm;
+            }
+
+            // 2. Gestion de la leçon (Commune création / modification)
+            if (vocabularyForm.getLessonId() == null) {
                 redirectAttributes.addFlashAttribute("error", "❌ Veuillez sélectionner une leçon.");
                 return "redirect:/admin/vocabulary/new";
             }
-
-
-            Lesson lesson = lessonService.findById(vocabulary.getLessonId())
+            Lesson lesson = lessonService.findById(vocabularyForm.getLessonId())
                     .orElseThrow(() -> new RuntimeException("Leçon introuvable"));
-            vocabulary.setLesson(lesson);
+            vocabularyToSave.setLesson(lesson);
+            vocabularyToSave.setLessonId(vocabularyForm.getLessonId());
 
-            // Upload des fichiers
+            // 3. Gestion de l'Image (On n'écrase que si un nouveau fichier est fourni)
             if (imageFile != null && !imageFile.isEmpty()) {
                 String imageUrl = fileUploadService.saveImage(imageFile);
-                vocabulary.setImageUrl(imageUrl);
+                vocabularyToSave.setImageUrl(imageUrl);
             }
 
+            // 4. Gestion de l'Audio (On n'écrase que si un nouveau fichier est fourni)
             if (audioFile != null && !audioFile.isEmpty()) {
                 String audioUrl = fileUploadService.saveAudio(audioFile);
-                vocabulary.setAudioUrl(audioUrl);
+                vocabularyToSave.setAudioUrl(audioUrl);
             }
 
-            vocabularyService.save(vocabulary);
+            // 5. Sauvegarde de l'objet sain et complet
+            vocabularyService.save(vocabularyToSave);
 
-            redirectAttributes.addFlashAttribute("success", "✅ Mot ajouté avec succès !");
+            redirectAttributes.addFlashAttribute("success", "✅ Mot enregistré avec succès !");
             return "redirect:/admin/vocabulary";
 
         } catch (Exception e) {
-            e.printStackTrace();  //console
+            e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
-            return "redirect:/admin/vocabulary/new";
+            // En cas d'erreur, on redirige intelligemment
+            return vocabularyForm.getId() != null ?
+                    "redirect:/admin/vocabulary/edit/" + vocabularyForm.getId() :
+                    "redirect:/admin/vocabulary/new";
         }
     }
-
     @GetMapping("/vocabulary")
     public String listVocabulary(@RequestParam(value = "keyword", required = false) String keyword,
                                  Model model) {

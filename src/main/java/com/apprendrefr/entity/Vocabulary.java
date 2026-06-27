@@ -107,5 +107,5 @@ public class Vocabulary {
     public void setLessonId(Long lessonId) {
         this.lessonId = lessonId;
     }
-// Getters & Setters ...
+
 }
