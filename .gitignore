@@ -48,7 +48,6 @@ target/
 .env
 *.env
 application-local.yml
-application-secret.yml
 #src/main/resources/application.yml
 # Dossiers temporaires
 uploads/

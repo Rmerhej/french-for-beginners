@@ -43,7 +43,7 @@ public class FileUploadService {
         String contentType = file.getContentType();
 
         if (contentType == null ||
-                (!contentType.startsWith("image/") && !contentType.startsWith("audio/"))) {
+                (!contentType.startsWith("images/") && !contentType.startsWith("audio/"))) {
             throw new RuntimeException("Type de fichier non autorisé");
         }
 

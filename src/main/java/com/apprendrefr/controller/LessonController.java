@@ -6,10 +6,15 @@ import com.apprendrefr.entity.Vocabulary;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.LessonService;
 import com.apprendrefr.service.VocabularyService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -73,6 +78,31 @@ public class LessonController {
         model.addAttribute("lesson", lesson);
         model.addAttribute("exercises", exercises);
         return "lesson-exercises";
+    }
+    @GetMapping("/admin/lessons-list")
+    public String listLessons(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending()); // ou l'ordre que tu veux
+
+        Page<Lesson> lessonsPage;
+
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            lessonsPage = lessonService.searchLessons(keyword.trim(), pageable);
+            model.addAttribute("keyword", keyword); // pour garder la valeur dans l'input
+        } else {
+            lessonsPage = lessonService.findAll(pageable); // ta méthode classique sans recherche
+        }
+
+        model.addAttribute("lessons", lessonsPage);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", lessonsPage.getTotalPages());
+        model.addAttribute("totalItems", lessonsPage.getTotalElements());
+
+        return "admin/lessons"; // ton template
     }
 
 }
