@@ -19,8 +19,9 @@
         onclick="history.back()">
     <i class="bi bi-arrow-left"></i> Retour
 </button>
-<div class="d-flex flex-wrap gap-3">
-    <div class="card">
+<div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -35,9 +36,10 @@
             </audio>
         </div>
     </div>
-    <br>
+    </div>
 
-    <div class="card">
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -50,9 +52,9 @@
                 <source src="/uploads/audio/Oin-ien.mp3" type="audio/mpeg">
             </audio>
         </div>
-    </div>
-    <br>
-    <div class="card">
+    </div></div>
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -65,10 +67,10 @@
                 <source src="/uploads/audio/Ou.mp3" type="audio/mpeg">
             </audio>
         </div>
-    </div>
-    <br>
+    </div></div>
 
-    <div class="card">
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -83,8 +85,10 @@
                 <source src="/uploads/audio/ail-euil-eil.mp3" type="audio/mpeg">
             </audio>
         </div>
-    </div>
-    <div class="card">
+    </div></div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+     <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -98,10 +102,11 @@
                 <source src="/uploads/audio/our-our-eur.mp3" type="audio/mpeg">
             </audio>
         </div>
+     </div>
     </div>
-    <br>
 
-    <div class="card">
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100">
         <div class="card-header bg-primary text-white">
             Prononciation
         </div>
@@ -115,7 +120,8 @@
             </audio>
         </div>
     </div>
-    <br>
+    </div>
+
 </div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>

@@ -40,11 +40,19 @@ public class LessonService {
         return lessonRepository.count();
     }
 
-
     public Page<Lesson> searchLessons(String keyword, Pageable pageable) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return lessonRepository.findAll(pageable);
+        }
         return lessonRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
-                keyword, keyword, pageable);
+                keyword.trim(), keyword.trim(), pageable);
     }
+
+    // Méthode classique (recommandée)
+    public Page<Lesson> findAll(Pageable pageable) {
+        return lessonRepository.findAll(pageable);
+    }
+
     public void deleteById(Long id) {
 
         lessonRepository.deleteById(id);

@@ -196,7 +196,6 @@ private VocabularyService vocabularyService;
     }
 
 
-
     // ==================== VOCABULARY ====================
 
     @PostMapping("/vocabulary")
