@@ -23,23 +23,24 @@
             onclick="history.back()">
         <i class="bi bi-arrow-left"></i> Retour
     </button>
-    <!-- Loop through each quiz -->
+
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
         <h1 th:text="${quiz.title}">Quiz Title</h1>
 
-        <!-- Mots à placer -->
+
         <div class="card mb-4">
             <div class="card-header">Mots à placer (glisse-les)</div>
             <div class="card-body words-container" th:data-words="${quiz.words}"></div>
         </div>
 
-        <!-- Phrase -->
+
         <div class="card mb-4">
             <div class="card-header">Complète la phrase :</div>
             <div class="card-body fs-4 lh-lg sentence-container"
                  th:id="'sentence-' + ${iter.index}"
                  th:data-answers="${quiz.correctAnswers}"
-                 th:utext="${quiz.sentence}"></div>
+                 th:text="${quiz.sentence}" style="white-space: pre-line;"></div>
+                <!-- th:utext="${quiz.sentence}"></div>-->
         </div>
 
         <button class="btn btn-success btn-lg me-3" th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier</button>

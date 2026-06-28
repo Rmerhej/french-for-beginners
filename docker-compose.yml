@@ -6,10 +6,10 @@ services:
     container_name: french-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: frenchdb
-      MYSQL_USER: frenchuser
-      MYSQL_PASSWORD: frenchpass
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -32,8 +32,8 @@ services:
       - "8080:8080"
     environment:
       # Variables pour votre DataInitializer
-      ADMIN_USERNAME: rolandladmin
-      ADMIN_PASSWORD: roland300819&
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
 
       # Configuration base de données
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/frenchdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
