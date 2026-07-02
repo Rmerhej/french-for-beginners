@@ -33,9 +33,12 @@ public class QuizService {
         return quizRepository.save(quiz);
     }
 
+    public List<Quiz> findByTitleContainingIgnoreCase(String title){ return quizRepository.findByTitleContainingIgnoreCase(title); };
+
     public void deleteById(Long id) {
         quizRepository.deleteById(id);
     }
+
     public Page<Quiz> searchQuiz(String keyword, Pageable pageable) {
         // On cherche le mot-clé dans le titre OU dans la phrase (sentence)
         return quizRepository.findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(

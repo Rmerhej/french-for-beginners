@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Les verbes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .dropzone { display: inline-block; min-width: 160px; max-width: 500px; height: 50px; border: 2px dashed #6c757d; text-align: center; vertical-align: middle; background: #f8f9fa; border-radius: 8px; margin: 0 6px; font-size: 1.1em; }
+        .dropzone.over { background: #d1e7dd; border-color: #198754; }
+        .word { display: inline-block; padding: 12px 18px; margin: 6px; background: #0d6efd; color: white; border-radius: 8px; cursor: grab; font-weight: bold; }
+        .word.dragging { opacity: 0.5; }
+    </style>
+    <script src="/js/scriptQuizGrammaire.js" defer></script>
+</head>
+<body class="container">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+
+    <h1>Les verbes en français</h1>
+
+    <p>
+        Les verbes permettent d'exprimer une action, un état ou un changement.
+        En français, ils sont classés en trois groupes.
+        Chaque groupe possède ses propres règles de conjugaison.
+    </p>
+
+    <hr>
+
+    <section>
+
+        <h2>Le premier groupe</h2>
+
+        <p>
+            Les verbes du premier groupe se terminent par <strong>-ER</strong>
+            (sauf <strong>aller</strong>).
+            Ce sont les verbes les plus nombreux et les plus réguliers.
+        </p>
+
+        <h3>Exemple : parler</h3>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>Pronom</th>
+                <th>Conjugaison</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Je</td><td>parle</td></tr>
+            <tr><td>Tu</td><td>parles</td></tr>
+            <tr><td>Il / Elle</td><td>parle</td></tr>
+            <tr><td>Nous</td><td>parlons</td></tr>
+            <tr><td>Vous</td><td>parlez</td></tr>
+            <tr><td>Ils / Elles</td><td>parlent</td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>Exemple :</strong> Je parle français.</p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Le deuxième groupe</h2>
+
+        <p>
+            Les verbes du deuxième groupe se terminent par
+            <strong>-IR</strong> et font
+            <strong>-issons</strong> avec <em>nous</em>.
+            Ils sont réguliers.
+        </p>
+
+        <h3>Exemple : finir</h3>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>Pronom</th>
+                <th>Conjugaison</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Je</td><td>finis</td></tr>
+            <tr><td>Tu</td><td>finis</td></tr>
+            <tr><td>Il / Elle</td><td>finit</td></tr>
+            <tr><td>Nous</td><td>finissons</td></tr>
+            <tr><td>Vous</td><td>finissez</td></tr>
+            <tr><td>Ils / Elles</td><td>finissent</td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>Exemple :</strong> Nous finissons le travail à 17 heures.</p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Le troisième groupe</h2>
+
+        <p>
+            Le troisième groupe rassemble tous les autres verbes.
+            Ils sont souvent irréguliers.
+            Leur conjugaison doit être apprise progressivement.
+        </p>
+
+        <h3>Exemple : prendre</h3>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>Pronom</th>
+                <th>Conjugaison</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Je</td><td>prends</td></tr>
+            <tr><td>Tu</td><td>prends</td></tr>
+            <tr><td>Il / Elle</td><td>prend</td></tr>
+            <tr><td>Nous</td><td>prenons</td></tr>
+            <tr><td>Vous</td><td>prenez</td></tr>
+            <tr><td>Ils / Elles</td><td>prennent</td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>Exemple :</strong> Ils prennent le train chaque matin.</p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Le verbe « aller »</h2>
+
+        <p>
+            Le verbe <strong>aller</strong> est particulier.
+            Il se termine par <strong>-ER</strong> mais
+            il appartient au <strong>troisième groupe</strong>.
+        </p>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>Pronom</th>
+                <th>Conjugaison</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Je</td><td>vais</td></tr>
+            <tr><td>Tu</td><td>vas</td></tr>
+            <tr><td>Il / Elle</td><td>va</td></tr>
+            <tr><td>Nous</td><td>allons</td></tr>
+            <tr><td>Vous</td><td>allez</td></tr>
+            <tr><td>Ils / Elles</td><td>vont</td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>Exemple :</strong> Nous allons au marché.</p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Comment reconnaître le groupe d'un verbe ?</h2>
+
+        <ul>
+            <li>Les verbes en <strong>-ER</strong> → premier groupe (sauf <strong>aller</strong>).</li>
+            <li>Les verbes en <strong>-IR</strong> qui font <strong>nous -issons</strong> → deuxième groupe.</li>
+            <li>Tous les autres → troisième groupe.</li>
+        </ul>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Conseils pour apprendre</h2>
+
+        <ul>
+            <li>Apprenez toujours un verbe avec un exemple.</li>
+            <li>Commencez par le présent de l'indicatif.</li>
+            <li>Répétez les conjugaisons à voix haute.</li>
+            <li>Écrivez une ou deux phrases avec chaque nouveau verbe.</li>
+            <li>Pratiquez un peu chaque jour.</li>
+        </ul>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Résumé</h2>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>Groupe</th>
+                <th>Terminaison</th>
+                <th>Exemple</th>
+                <th>Régularité</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1er groupe</td>
+                <td>-ER</td>
+                <td>parler</td>
+                <td>Très régulier</td>
+            </tr>
+            <tr>
+                <td>2e groupe</td>
+                <td>-IR (-issons)</td>
+                <td>finir</td>
+                <td>Régulier</td>
+            </tr>
+            <tr>
+                <td>3e groupe</td>
+                <td>Autres verbes</td>
+                <td>prendre</td>
+                <td>Souvent irrégulier</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

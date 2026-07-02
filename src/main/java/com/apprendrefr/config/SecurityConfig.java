@@ -32,7 +32,7 @@ public class SecurityConfig {
                         // 1. Ressources publiques (Statiques + Pages publiques)
                         .requestMatchers("/", "/index", "/register", "/login", "/logout",
                                 "/css/**", "/js/**","/uploads/**", "/images/**","/audio/**","/webjars/**",
-                                 "/fragments/**").permitAll()
+                                 "/fragments/**","prononciationNew").permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
                         .requestMatchers("/prononciation", "/preparation-list-index/**", "/togoToAuBureu",
@@ -43,7 +43,11 @@ public class SecurityConfig {
                                 "/auxiliaires/**", "/about", "/contact", "/rgpd",
                                 "/secourscatholique", "/au-bureau", "/preparation-quiz-index",
                                 "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
-                                "/au-bureau-quiz","les-gens-quiz").permitAll()
+                                "/au-bureau-quiz","/les-gens-quiz","/lesVerbes","/chiffresEtLettres",
+                                "/quizzesSurLaGrammaire","/prepositionConjonction",
+                                "/accords-des-adjectifs","/les-pronoms","/les-adjectifs-accord-pluriel","/utilisation-des-pronoms",
+                                "/expressions-de-temps","/futur-simple-quiz-grammaire","/adjectifs-demonstratif-quiz-grammaire",
+                                "/verbes-regulier-quiz-grammaire").permitAll()
 
                         // 3. Règles Administration (La règle spécifique avant la générale)
                         .requestMatchers("/admin/images/optimize").permitAll() // Exception spécifique

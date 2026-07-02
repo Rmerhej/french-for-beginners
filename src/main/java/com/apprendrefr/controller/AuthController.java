@@ -39,7 +39,7 @@ public class AuthController {
             bindingResult.getFieldErrors().forEach(error -> {
                 System.out.println(" - Champ '" + error.getField() + "' : " + error.getDefaultMessage());
             });
-            model.addAttribute("user", user);   // Important pour garder les données saisies
+            model.addAttribute("user", user);
             return "register";
         }
 
@@ -64,8 +64,10 @@ public class AuthController {
             return "redirect:/register";
         }
     }
+
     @GetMapping("/login")
     public String loginPage(Model model) {
         return "login";
     }
+
 }
