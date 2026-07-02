@@ -4,6 +4,8 @@ import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +38,7 @@ public class UserService{
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");      // ← Important
+        user.setRole("ROLE_USER");
         user.setEnabled(true);
 
         User saved = userRepository.save(user);
@@ -90,6 +92,7 @@ public class UserService{
         user.setRole(newRole.toUpperCase());
         userRepository.save(user);
     }
+
 
     public Page<User> findAllPaginated(Pageable pageable) {
         return userRepository.findAll(pageable);

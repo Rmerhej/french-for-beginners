@@ -2,9 +2,11 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.Lesson;
+import com.apprendrefr.entity.User;
 import com.apprendrefr.entity.Vocabulary;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.LessonService;
+import com.apprendrefr.service.UserService;
 import com.apprendrefr.service.VocabularyService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -62,8 +64,7 @@ public class LessonController {
 
         model.addAttribute("lesson", lesson);
         model.addAttribute("vocabularies", vocab);
-
-        System.out.println("✅ Retour de la vue lesson-vocabulary pour leçon " + id);
+        System.out.println("✅ Retour de la vue lesson-vocabulary pour leçon " + id );
 
         return "lesson-vocabulary";   // Important : sans .html
     }
