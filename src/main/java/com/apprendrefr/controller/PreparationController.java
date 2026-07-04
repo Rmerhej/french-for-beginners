@@ -51,8 +51,8 @@ public class PreparationController {
     }
     @GetMapping("/entreprise")
     public String allerAEntreprise(Model model) {
-       // List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Le sport");
-       // model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Entreprise");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "entreprise-qcm";
     }
 }
