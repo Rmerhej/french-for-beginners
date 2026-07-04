@@ -67,16 +67,15 @@
                         <p class="fst-italic mb-0" th:text="${word.exampleSentence}"></p>
                     </div>
 
-
                     <div th:if="${word.audioUrl != null and word.audioUrl != ''}" class="mt-3">
-
-                        <button th:if="${word.audioUrl != null and word.audioUrl != ''}"
-                                class="btn btn-primary btn-sm mt-3"
-                                th:data-audio-url="${word.audioUrl}"
-                                onclick="playAudio(this.getAttribute('data-audio-url'))">
-                            🔊 Écouter la prononciation
+                        <button class="btn btn-play btn-primary d-flex align-items-center gap-2 mx-auto"
+                                th:data-audio-url="${word.audioUrl}">
+                            <i class="bi bi-play-fill"></i>
+                            <span>Écouter la prononciation</span>
                         </button>
 
+                        <!-- Audio caché -->
+                        <audio class="d-none" th:attr="data-id=${word.id}"></audio>
                     </div>
                 </div>
             </div>

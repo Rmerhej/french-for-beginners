@@ -35,13 +35,13 @@ public class SecurityConfig {
                                  "/fragments/**","prononciationNew").permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
-                        .requestMatchers("/prononciation", "/preparation-list-index/**", "/togoToAuBureu",
+                        .requestMatchers("/prononciation",  "/togoToAuBureu",
                                 "/lessons/preparation-list", "/lesgens/**", "/lesport/**",
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
                                 "/adjectifsdemonstratifs/**", "/expressionstemps/**", "/futursimple/**",
                                 "/verbesreguliers/**", "/passecompse/**", "/imperatif/**",
                                 "/auxiliaires/**", "/about", "/contact", "/rgpd",
-                                "/secourscatholique", "/au-bureau", "/preparation-quiz-index",
+                                "/secourscatholique", "/au-bureau",
                                 "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
                                 "/au-bureau-quiz","/les-gens-quiz","/lesVerbes","/chiffresEtLettres",
                                 "/quizzesSurLaGrammaire","/prepositionConjonction",

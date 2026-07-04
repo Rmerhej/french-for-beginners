@@ -22,23 +22,24 @@ public class QuizController {
     }
 
     @GetMapping("/quizzesSurLaGrammaire")
-   // public String listQuizzesForStudents(Model model) {
-       // model.addAttribute("quizzes", quizRepository.findAll());
     public String goToquizSurLaGrammaire(){
         return "quiz-sur-la-grammaire";
     }
+
     @GetMapping("/prepositionConjonction")
      public String goToPrepositionConjonction(Model model) {
      model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("préposition"));
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("conjonction"));
         return "prepositionConjonction.html";
     }
+
     @GetMapping("/accords-des-adjectifs")
     public String goToLesPronoms(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Accords des adjectifs"));
 
         return "accords-des-adjectifs";
     }
+
     @GetMapping("/les-adjectifs-accord-pluriel")
     public String goToLesAdjectifsAccordAuPluriel(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Les Adjectifs(Accord au pluriel)"));
