@@ -26,9 +26,6 @@ public class User implements UserDetails {
     private String username;
 
     @NotBlank(message = "L'email est obligatoire")
-    //@Email(message = "Email invalide")
-    //@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-           // message = "Format d'email incorrect")
     @Size(max = 100)
     @Column(unique = true)
     private String email;

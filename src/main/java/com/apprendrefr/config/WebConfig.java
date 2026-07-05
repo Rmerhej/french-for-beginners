@@ -19,10 +19,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations(location)
                 .setCachePeriod(0);
-        // Chemins principaux pour les uploads
-       // registry.addResourceHandler("/uploads/**")
-              //  .addResourceLocations("file:uploads/")
-              //  .setCachePeriod(0);
 
         // Backup pour les anciens chemins
         registry.addResourceHandler("/static/uploads/**")

@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `sentences` text,
   `words` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   `level` varchar(255) DEFAULT NULL,
   `title` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `lessons`
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `title` varchar(255) DEFAULT NULL,
   `words` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `users_exercises_scores` (
   PRIMARY KEY (`id`),
   KEY `fk_score_users` (`user_id`),
   KEY `fk_score_exercises` (`exercise_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users_exercises_scores`
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `vocabularies` (
   `example_sentence` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKr4cdy69nx0qb4g4vv3ywxerav` (`lesson_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `vocabularies`
