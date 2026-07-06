@@ -3,7 +3,8 @@
      xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="container">
 
-        <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}">
+        <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}"
+        aria-label="Accueil - Apprendre le Français">
 
             <img src="https://flagcdn.com/w80/fr.png"
                  alt="Drapeau Français"
@@ -14,39 +15,54 @@
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Ouvrir / fermer le menu de navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Accueil</a>
+                    <a class="nav-link" th:href="@{/}"
+                     >Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/lessons}" sec:authorize="isAuthenticated()">Leçons</a>
+                    <a class="nav-link"
+                       th:href="@{/lessons}"
+                       sec:authorize="isAuthenticated()">
+                        Leçons</a>
                 </li>
             </ul>
 
-            <div class="navbar-nav">
+            <div class="navbar-nav ms-auto">
 
-                <div sec:authorize="isAuthenticated()">
-                    <span class="navbar-text me-3">
+                <div sec:authorize="isAuthenticated()" class="d-flex align-items-center">
+                    <span class="navbar-text me-3"  aria-label="Utilisateur connecté">
                         👤 <strong sec:authentication="name"></strong>
                     </span>
-                    <a th:href="@{/admin/dashboard}" class="btn btn-outline-light me-2" sec:authorize="hasRole('ADMIN')">
+                    <a th:href="@{/admin/dashboard}"
+                       class="btn btn-outline-light me-2"
+                       sec:authorize="hasRole('ADMIN')"
+                       aria-label="Accéder au panneau administrateur">
                         Admin
                     </a>
 
-                    <form th:action="@{/logout}" method="post">
-                        <button class="btn btn-outline-danger">Déconnexion</button>
+                    <form th:action="@{/logout}" method="post" class="d-inline">
+                        <button type="submit"
+                                class="btn btn-outline-danger"
+                                aria-label="Se Déconnecter">
+                        Déconnexion</button>
                     </form>
                 </div>
 
 
                 <div sec:authorize="isAnonymous()">
-                    <a th:href="@{/login}" class="btn btn-outline-light me-2">Connexion</a>
-                    <a th:href="@{/register}" class="btn btn-primary">S'inscrire</a>
+                    <a th:href="@{/login}"
+                       class="btn btn-outline-light"
+                       aria-label="Se Connecter à son compte">
+                    Connexion</a>
+                    <a th:href="@{/register}"
+                       class="btn btn-primary"
+                    aria-label="Créér un nouveau compte">S'inscrire</a>
                 </div>
             </div>
         </div>
