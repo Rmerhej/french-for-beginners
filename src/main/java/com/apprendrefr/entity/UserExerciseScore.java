@@ -1,6 +1,9 @@
 package com.apprendrefr.entity;
+
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "users_exercises_scores")
 public class UserExerciseScore {
@@ -13,20 +16,23 @@ public class UserExerciseScore {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    //
     @ManyToOne(optional = false)
     @JoinColumn(name = "exercise_id", nullable = false)
     private Exercise exercise;
-    @Column(name="completed_at", nullable = false)
+    @Column(name = "completed_at", nullable = false)
     private LocalDateTime completedAt;
+
     @PrePersist
     private void onCreate() {
         this.completedAt = LocalDateTime.now();
     }
+
     private int score;
 
-    public UserExerciseScore(){}
-    public UserExerciseScore(User user, Exercise exercise, int score, LocalDateTime completedAt){
+    public UserExerciseScore() {
+    }
+
+    public UserExerciseScore(User user, Exercise exercise, int score, LocalDateTime completedAt) {
         this.user = user;
         this.exercise = exercise;
         this.score = score;

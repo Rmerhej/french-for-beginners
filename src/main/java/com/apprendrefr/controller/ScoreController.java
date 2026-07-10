@@ -34,35 +34,35 @@ public class ScoreController {
                                             @RequestParam(required = false) String userAnswer,
                                             Principal principal) {
 
-        // 1. Sécurité : Vérification utilisateur connecté
+        //  Vérification utilisateur connecté
         if (principal == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Utilisateur non connecté");
         }
 
-        // 2. Vérification réponse envoyée
+        //  Vérification réponse envoyée
         if (userAnswer == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("La réponse envoyée est vide.");
         }
 
         try {
-            // 3. Récupération de l'exercice
+            //  Récupération de l'exercice
             Exercise exercise = exerciseService.findById(id)
                     .orElseThrow(() -> new IllegalArgumentException("Exercice introuvable : " + id));
 
-            // 4. Récupération de l'utilisateur
+            //  Récupération de l'utilisateur
             String currentUsername = principal.getName();
             User user = userService.findByUsername(currentUsername)
                     .orElseThrow(() -> new IllegalArgumentException("Utilisateur introuvable : " + currentUsername));
 
-            // 5. Calcul du score
+            //  Calcul du score
             int points = 0;
             if (exercise.getCorrectAnswer() != null &&
                     exercise.getCorrectAnswer().equalsIgnoreCase(userAnswer.trim())) {
                 points = 100;
             }
 
-            // 6. Sauvegarde via le service
-            // Note : La logique de sauvegarde de la date doit être DANS ScoreService.saveScore
+            //  Sauvegarde via le service
+
             scoreService.saveScore(user, exercise, points);
 
             return ResponseEntity.ok("Score enregistré avec succès !");

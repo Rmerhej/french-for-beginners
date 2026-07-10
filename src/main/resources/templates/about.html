@@ -40,10 +40,10 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="d-flex">
-                                <i class="bi bi-book me-3 text-primary fs-4"></i>
+                                <i class="bi bi-book me-3 text-primary fs-4" aria-hidden="true"></i>
                                 <div>
                                     <h5>Vocabulaire</h5>
-                                    <p class="text-muted">Apprendre et réviser le vocabulaire de manière interactive.</p>
+                                    <p class="text-secondary">Apprendre et réviser le vocabulaire de manière interactive.</p>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex">
-                                <i class="bi bi-volume-up me-3 text-primary fs-4"></i>
+                                <i class="bi bi-volume-up me-3 text-primary fs-4" aria-hidden="false" aria-label="prononciation"></i>
                                 <div>
                                     <h5>Prononciation (Pré-A1)</h5>
                                     <p class="text-muted">Une section spécialement dédiée aux sons et à la phonétique.</p>
@@ -102,7 +102,7 @@
 
                 <div class="d-grid d-md-flex justify-content-center gap-3">
                     <a th:href="@{/register}" class="btn btn-primary btn-lg px-5">
-                        <i class="bi bi-person-plus"></i> Je suis apprenant<br>
+                        <i class="bi bi-person-plus"></i><span> Je suis apprenant</span><br>
                         <small>Créer mon compte gratuitement</small>
                     </a>
 

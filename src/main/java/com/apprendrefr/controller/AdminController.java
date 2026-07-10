@@ -4,7 +4,6 @@ import com.apprendrefr.entity.*;
 import com.apprendrefr.repository.QuizRepository;
 import com.apprendrefr.service.*;
 import jakarta.annotation.security.PermitAll;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,34 +12,31 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-import java.io.IOException;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-@Autowired
-   private LessonService lessonService;
-@Autowired
-   private UserService userService;
-@Autowired
-  private ExerciseService exerciseService;
-@Autowired
-private VocabularyService vocabularyService;
-@Autowired
+    @Autowired
+    private LessonService lessonService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ExerciseService exerciseService;
+    @Autowired
+    private VocabularyService vocabularyService;
+    @Autowired
     public QuizRepository quizRepository;
     private final FileUploadService fileUploadService;
     @Autowired
     private ImageService imageService;
 
     public AdminController(LessonService lessonService, UserService userService,
-                           ExerciseService exerciseService, VocabularyService vocabularyService,FileUploadService fileUploadService,QuizRepository quizRepository) {
+                           ExerciseService exerciseService, VocabularyService vocabularyService, FileUploadService fileUploadService, QuizRepository quizRepository) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
@@ -48,6 +44,7 @@ private VocabularyService vocabularyService;
         this.fileUploadService = fileUploadService;
         this.quizRepository = quizRepository;
     }
+
     @GetMapping
     public String adminHome() {
         return "redirect:/admin/dashboard";
@@ -55,14 +52,14 @@ private VocabularyService vocabularyService;
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        // 1. Appel des méthodes count() de vos services pour obtenir les chiffres
+        //  Appel des méthodes count() des services pour obtenir les chiffres
         long lessons = lessonService.count();
         long users = userService.count();
         long exercises = exerciseService.count();
         long vocabularies = vocabularyService.count();
         long quizzes = quizRepository.count();
 
-        // 2. Passage des variables locales au modèle Thymeleaf
+        //  Passage des variables locales au modèle Thymeleaf
         model.addAttribute("lessonsCount", lessons);
         model.addAttribute("usersCount", users);
         model.addAttribute("exercisesCount", exercises);
@@ -95,24 +92,26 @@ private VocabularyService vocabularyService;
         model.addAttribute("keyword", keyword);
         return "admin/users-list";
     }
+
     @GetMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteById(id);
         return "redirect:/admin/users";
     }
+
     @GetMapping("/user/new")
     public String createForm(Model model) {
         model.addAttribute("user", new User());
         return "admin/new-user-form";
     }
-    /// /////////////////////////////
+
     @PostMapping("/users/save")
     public String saveDsBase(@ModelAttribute User user) {
         userService.save(user);
         return "redirect:/admin/users";
     }
 
-    // Gestion  utilisateurs
+    // ==================  utilisateurs =======================
     @GetMapping("/users/edit/{id}")
     public String editUserForm(@PathVariable Long id, Model model) {
         User user = userService.findById(id)
@@ -143,7 +142,7 @@ private VocabularyService vocabularyService;
 // ==================== LESSONS ====================
 
     @PostMapping("/lessons")
-    public String saveLesson( @ModelAttribute Lesson lesson,
+    public String saveLesson(@ModelAttribute Lesson lesson,
 
                              @RequestParam(value = "imageFile", required = false) MultipartFile imageFile,
                              RedirectAttributes redirectAttributes) {
@@ -176,7 +175,7 @@ private VocabularyService vocabularyService;
         model.addAttribute("lesson", new Lesson());
         return "admin/lesson-form";
     }
-    // Suppression d'une leçon
+
     @GetMapping("/lessons/delete/{id}")
     public String deleteLesson(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
@@ -187,6 +186,7 @@ private VocabularyService vocabularyService;
         }
         return "redirect:/admin/lessons";
     }
+
     @GetMapping("/lessons/edit/{id}")
     public String editLessonForm(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
@@ -211,18 +211,19 @@ private VocabularyService vocabularyService;
             Vocabulary vocabularyToSave;
 
             if (vocabularyForm.getId() != null) {
-                // MODIFICATION : On charge l'existant complet de la BDD
+                //  chargement de l'existant complet de la BDD
                 vocabularyToSave = vocabularyService.findById(vocabularyForm.getId())
                         .orElseThrow(() -> new RuntimeException("Mot de vocabulaire introuvable pour l'id : " + vocabularyForm.getId()));
 
-                // On met à jour les données textuelles venues du formulaire
+                //  mise à jour des données textuelles venues du formulaire
                 vocabularyToSave.setFrenchWord(vocabularyForm.getFrenchWord());
                 vocabularyToSave.setEnglishTranslation(vocabularyForm.getEnglishTranslation());
-                // Ajoute ici les autres champs de texte si tu en as (ex: description, exemple...)
+                // Ajout des autres champs de texte
                 vocabularyToSave.setPronunciation(vocabularyForm.getPronunciation());
                 vocabularyToSave.setExampleSentence(vocabularyForm.getExampleSentence());
+                vocabularyToSave.setAltText(vocabularyForm.getAltText());
             } else {
-                // CRÉATION : C'est un nouveau mot
+                // CRÉATION : nouveau mot
                 vocabularyToSave = vocabularyForm;
             }
 
@@ -236,19 +237,19 @@ private VocabularyService vocabularyService;
             vocabularyToSave.setLesson(lesson);
             vocabularyToSave.setLessonId(vocabularyForm.getLessonId());
 
-            // 3. Gestion de l'Image (On n'écrase que si un nouveau fichier est fourni)
+            // 3. Gestion de l'Image (écrasement  SI un nouveau fichier est fourni)
             if (imageFile != null && !imageFile.isEmpty()) {
                 String imageUrl = fileUploadService.saveImage(imageFile);
                 vocabularyToSave.setImageUrl(imageUrl);
             }
 
-            // 4. Gestion de l'Audio (On n'écrase que si un nouveau fichier est fourni)
+            // 4. Gestion de l'Audio (écrase que si un nouveau fichier est fourni)
             if (audioFile != null && !audioFile.isEmpty()) {
                 String audioUrl = fileUploadService.saveAudio(audioFile);
                 vocabularyToSave.setAudioUrl(audioUrl);
             }
 
-            // 5. Sauvegarde de l'objet sain et complet
+            // 5. Sauvegarde de l'objet
             vocabularyService.save(vocabularyToSave);
 
             redirectAttributes.addFlashAttribute("success", "✅ Mot enregistré avec succès !");
@@ -257,12 +258,13 @@ private VocabularyService vocabularyService;
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
-            // En cas d'erreur, on redirige intelligemment
+            // En cas d'erreur, on redirige
             return vocabularyForm.getId() != null ?
                     "redirect:/admin/vocabulary/edit/" + vocabularyForm.getId() :
                     "redirect:/admin/vocabulary/new";
         }
     }
+
     @GetMapping("/vocabulary")
     public String listVocabulary(@RequestParam(value = "keyword", required = false) String keyword,
                                  Model model) {
@@ -363,8 +365,9 @@ private VocabularyService vocabularyService;
         }
         return "redirect:/admin/exercises";
     }
+
     // ==================== QUIZZES ====================
-    // LISTE POUR L'ADMIN
+    // LISTE
     @GetMapping("/quizzes")
     public String listQuizzesForAdmin(Model model) {
         model.addAttribute("quizzes", quizRepository.findAll());
@@ -406,26 +409,29 @@ private VocabularyService vocabularyService;
         quizRepository.deleteById(id);
         return "redirect:/admin/quizzes";
     }
+
     @GetMapping("/quiz/new")
     public String showCreateQuizForm1(Model model) {
         model.addAttribute("quiz", new Quiz());
         return "admin/quiz-create"; // Affiche le formulaire
     }
-/// ////////////////////////////////////////////////////////////////
-@GetMapping("/images/optimize")
-@PermitAll
-@PreAuthorize("hasRole('ADMIN')")
-@ResponseBody
-public String launchImageOptimization() {
 
-    String path = "uploads/images";
-    imageService.batchProcessImages(path);
-    return "Optimisation lancée sur le dossier : " + path;
-}
-/// //////////////////////////////////PRONONCIATION//////////////
+    /// ////////////////////////////////////////////////////////////////
+    @GetMapping("/images/optimize")
+    @PermitAll
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseBody
+    public String launchImageOptimization() {
+
+        String path = "uploads/images";
+        imageService.batchProcessImages(path);
+        return "Optimisation lancée sur le dossier : " + path;
+    }
+
+    /// //////////////////////////////////PRONONCIATION//////////////
 
     @GetMapping("/preparation/new")
-    public String showCreatePreparationForm(Exercise exercise,Quiz quiz, Model model) {
+    public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
         model.addAttribute("quiz", new Quiz());
         model.addAttribute("exercise", exercise);
 

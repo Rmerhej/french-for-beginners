@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -22,13 +19,13 @@ public class QuizController {
     }
 
     @GetMapping("/quizzesSurLaGrammaire")
-    public String goToquizSurLaGrammaire(){
+    public String goToquizSurLaGrammaire() {
         return "quiz-sur-la-grammaire";
     }
 
     @GetMapping("/prepositionConjonction")
-     public String goToPrepositionConjonction(Model model) {
-     model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("préposition"));
+    public String goToPrepositionConjonction(Model model) {
+        model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("préposition"));
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("conjonction"));
         return "prepositionConjonction.html";
     }
@@ -46,30 +43,35 @@ public class QuizController {
 
         return "les-adjectifs-accord-pluriel";
     }
+
     @GetMapping("/utilisation-des-pronoms")
     public String goToUtilisationDesPronoms(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Les pronoms - Grammaire"));
 
         return "utilisation-des-pronoms";
     }
+
     @GetMapping("/expressions-de-temps")
     public String goToLesExpressionsDuTemps(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Les Expressions de temps - Grammaire"));
 
         return "expressions-de-temps";
     }
+
     @GetMapping("/futur-simple")
     public String goToFuturSimple(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Futur simple - Grammaire"));
 
         return "futur-simple-quiz-grammaire";
     }
+
     @GetMapping("/adjectifs-demonstratif")
     public String goToAdjectifsDemonstratif(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Adjectifs démonstratifs - Grammaire"));
 
         return "adjectifs-demonstratifs-quiz-grammaire";
     }
+
     @GetMapping("/verbes-regulier")
     public String goToVerbesRegulier(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("Verbes réguliers"));

@@ -2,7 +2,6 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.service.ExerciseService;
-import com.apprendrefr.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,7 @@ public class PreparationController {
     public String redirectFromIndex() {
         return "preparation-list";
     }
-    // Point d'entrée principal pour la leçon "Au Bureau"
+
     @GetMapping("/lessons/preparation-list")
     public String getAuBureauPage(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
@@ -49,6 +48,7 @@ public class PreparationController {
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "le-sport";
     }
+
     @GetMapping("/entreprise")
     public String allerAEntreprise(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Entreprise");

@@ -1,8 +1,8 @@
 package com.apprendrefr.entity;
 
-import com.apprendrefr.entity.Lesson;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "vocabularies")
@@ -27,6 +27,8 @@ public class Vocabulary {
     private String exampleSentence;
 
     private String imageUrl;
+    @Column
+    private String altText;
     private String audioUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -108,4 +110,11 @@ public class Vocabulary {
         this.lessonId = lessonId;
     }
 
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
+    }
 }

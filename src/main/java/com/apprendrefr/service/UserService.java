@@ -4,19 +4,16 @@ import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-public class UserService{
+public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -68,6 +65,7 @@ public class UserService{
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
     }
+
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
@@ -79,6 +77,7 @@ public class UserService{
     public long count() {
         return userRepository.count();
     }
+
     public void toggleEnabled(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));

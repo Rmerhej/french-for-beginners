@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-       // On s'assure que le chemin commence bien par "file:"
+        // On s'assure que le chemin commence bien par "file:"
         String location = "file:" + uploadDir + (uploadDir.endsWith("/") ? "" : "/");
 
         registry.addResourceHandler("/uploads/**")

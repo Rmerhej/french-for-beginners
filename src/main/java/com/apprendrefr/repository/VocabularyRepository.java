@@ -14,7 +14,9 @@ public interface VocabularyRepository extends JpaRepository<Vocabulary, Long> {
     List<Vocabulary> findByLesson_Id(Long lessonId);
 
     List<Vocabulary> findByFrenchWordContainingIgnoreCase(String frenchWord);
+
     Page<Vocabulary> findAll(Pageable pageable);
+
     Page<Vocabulary> findByFrenchWordContainingIgnoreCaseOrEnglishTranslationContainingIgnoreCase(
             String frenchWord, String englishTranslation, Pageable pageable);
 }

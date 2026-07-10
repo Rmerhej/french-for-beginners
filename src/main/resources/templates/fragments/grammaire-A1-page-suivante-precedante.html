@@ -30,8 +30,10 @@
             <div class="lesson-content" th:utext="${lessonContent}"></div>
 
             <div class="mt-5">
-                <a th:href="@{/lessons/{id}(id=${prevId})}" class="btn btn-secondary" th:if="${prevId != null}">← Leçon précédente</a>
-                <a th:href="@{/lessons/{id}(id=${nextId})}" class="btn btn-primary float-end" th:if="${nextId != null}">Leçon suivante →</a>
+                <a th:href="@{/lessons/{id}(id=${prevId})}" class="btn btn-secondary" th:if="${prevId != null}">← Leçon
+                    précédente</a>
+                <a th:href="@{/lessons/{id}(id=${nextId})}" class="btn btn-primary float-end" th:if="${nextId != null}">Leçon
+                    suivante →</a>
             </div>
         </div>
     </div>

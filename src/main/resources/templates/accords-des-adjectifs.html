@@ -34,7 +34,7 @@ onclick="history.back()">
     </div>
 
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
-        <h1 th:text="${quiz.title}">Quiz Title</h1>
+        <h2 th:text="${quiz.title}">Quiz Title</h2>
 
         <!-- Mots à placer -->
         <div class="card mb-4">

@@ -8,31 +8,31 @@
 </a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <main id="main-content">
-<section class="hero bg-primary text-white py-5">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold">Apprenez le français facilement</h1>
-        <p class="lead">Leçons claires • Vocabulaire avec audio • Exercices adaptés</p>
-    </div>
-</section>
+    <section class="hero bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Apprenez le français facilement</h1>
+            <p class="lead">Leçons claires • Vocabulaire avec audio • Exercices adaptés</p>
+        </div>
+    </section>
 
-<div class="container mt-5">
-    <h2 class="mb-4">📚 Leçons disponibles</h2>
+    <div class="container mt-5">
+        <h2 class="mb-4">📚 Leçons disponibles</h2>
 
-    <div class="row">
-        <div class="col-md-4 mb-4" th:each="lesson : ${lessons}" th:if="${lessonStat.index < 3}">
-            <div class="card h-100 shadow-sm">
-                <img th:if="${lesson.imageUrl}"
-                     th:src="${lesson.imageUrl}"
-                     th:alt="${lesson.title + ' - Illustration de la leçon'}"
-                     class="card-img-top" style="height: 180px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${lesson.title}"></h5>
-                    <p class="text-muted small" th:text="${lesson.level}"></p>
-                    <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">📕 Voir la leçon</a>
+        <div class="row">
+            <div class="col-md-4 mb-4" th:each="lesson : ${lessons}" th:if="${lessonStat.index < 3}">
+                <div class="card h-100 shadow-sm">
+                    <img th:if="${lesson.imageUrl}"
+                         th:src="${lesson.imageUrl}"
+                         th:alt="${lesson.title + ' - Illustration de la leçon'}"
+                         class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${lesson.title}"></h5>
+                        <p class="text-muted small" th:text="${lesson.level}"></p>
+                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">📕 Voir la leçon</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <div class="row my-5">
             <div class="col-6">
@@ -41,11 +41,11 @@
                 </a>
             </div>
 
-        <div class="col-6">
-            <a th:href="@{/prononciation}" class="btn btn-outline-primary btn-lg w-100">
-                <span>🗣️ Prononciation-(Pré A1) .</span>
-            </a>
-        </div>
+            <div class="col-6">
+                <a th:href="@{/prononciation}" class="btn btn-outline-primary btn-lg w-100">
+                    <span>🗣️ Prononciation-(Pré A1) .</span>
+                </a>
+            </div>
         </div>
 
         <div class="row my-5">
@@ -60,39 +60,43 @@
 
         <div class="row my-5">
             <div class="col-6">
-                <a th:href="@{/lesVerbes}" class="btn btn-outline-primary btn-lg w-100"><span> 📘 Les verbes . </span></a>
+                <a th:href="@{/lesVerbes}"
+                   class="btn btn-outline-primary btn-lg w-100"><span> 📘 Les verbes . </span></a>
             </div>
 
         </div>
 
 
-    <div class="row my-5">
+        <div class="row my-5">
 
 
-        <div class="col-6">
-            <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg w-100"><span>📕 Préparation du cours hebdomadaire /Quiz .</span></a>
+            <div class="col-6">
+                <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg w-100"><span>📕 Préparation du cours hebdomadaire /Quiz .</span></a>
+            </div>
+
+            <div class="col-6">
+                <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg w-100"><span>📗 Préparation du cours hebdomadaire /QCM.</span></a>
+            </div>
+
         </div>
-
-        <div class="col-6">
-            <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg w-100"><span>📗 Préparation du cours hebdomadaire /QCM.</span></a>
-        </div>
-
-    </div><br>
-<!-- Pour les utilisateurs non connectés-->
-    <div class="text-center mt-5" sec:authorize="isAnonymous()">
-        <div class="p-5 rounded-4 text-white" style="background: linear-gradient(135deg, #6f42c1, #9f7aea);">
-            <h5 class="mb-3">🔒 Accès complet aux leçons</h5>
-            <p class="lead mb-4">Vous devez vous connecter pour accéder à toutes les leçons et fonctionnalités.</p>
-            <a th:href="@{/login}" class="btn btn-light btn-lg me-3">Se connecter</a>
-            <a th:href="@{/register}" class="btn btn-outline-light btn-lg">Créer un compte</a>
+        <br>
+        <!-- Pour les utilisateurs non connectés-->
+        <div class="text-center mt-5" sec:authorize="isAnonymous()">
+            <div class="p-5 rounded-4 text-white" style="background: linear-gradient(135deg, #6f42c1, #9f7aea);">
+                <h5 class="mb-3">🔒 Accès complet aux leçons</h5>
+                <p class="lead mb-4">Vous devez vous connecter pour accéder à toutes les leçons et fonctionnalités.</p>
+                <a th:href="@{/login}" class="btn btn-light btn-lg me-3">Se connecter</a>
+                <a th:href="@{/register}" class="btn btn-outline-light btn-lg">Créer un compte</a>
+            </div>
         </div>
     </div>
-</div>
-<div class="text-center mt-4">
-    <a th:href="@{/lessons}" class="btn btn-outline-primary btn-lg">
-        &#128218; Voir toutes les leçons →
-    </a>
-</div></main><br>
+    <div class="text-center mt-4">
+        <a th:href="@{/lessons}" class="btn btn-outline-primary btn-lg">
+            &#128218; Voir toutes les leçons →
+        </a>
+    </div>
+</main>
+<br>
 
 <div class="alert alert-warning text-center" role="alert">
     <strong>Version de TEST</strong><br>
@@ -103,11 +107,11 @@
     Merci de ne pas utiliser d'informations personnelles réelles.
 </div>
 
-    <div class="container text-center mt-3">
-        <small class="fst-italic">
-            Les photos sur ce site ont été générées par IA.
-        </small>
-    </div>
+<div class="container text-center mt-3">
+    <small class="fst-italic">
+        Les photos sur ce site ont été générées par IA.
+    </small>
+</div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>

@@ -23,7 +23,6 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       // System.out.println("username chargé par spring :" + adminUsername);
 
         if (adminPassword == null || adminPassword.trim().isEmpty()) {
             throw new RuntimeException("❌ ADMIN_PASSWORD n'est pas défini dans les variables d'environnement !");
@@ -35,18 +34,17 @@ public class DataInitializer implements CommandLineRunner {
             return;
         }
 
-        // créer admin
+        // création admin
         User admin = new User();
         admin.setUsername(adminUsername);
         admin.setPassword(passwordEncoder.encode(adminPassword));
         admin.setRole("ADMIN");
-        admin.setEmail("admin-" + adminUsername + "@apprendrefr.com");   // ou une vraie adresse
+        admin.setEmail("admin-" + adminUsername + "@apprendrefr.com");
 
 
         userRepository.save(admin);
 
         System.out.println("✅ Admin créé avec succès !");
-        //System.out.println("   Username : " + adminUsername);
-        //System.out.println("   Email    : " + admin.getEmail());
+
     }
 }

@@ -48,7 +48,6 @@ public class FileUploadService {
             extension = originalName.substring(originalName.lastIndexOf(".")).toLowerCase();
         }
 
-        // CORRECTION ICI : "image/" au lieu de "images/"
         // Ajout d'une tolérance pour les fichiers audio dont le type MIME est parfois mal détecté par le navigateur (ex: application/octet-stream)
         boolean isImage = contentType != null && contentType.startsWith("image/");
         boolean isAudio = (contentType != null && contentType.startsWith("audio/")) ||

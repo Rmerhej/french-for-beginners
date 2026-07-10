@@ -13,6 +13,27 @@ public class Exercise {
     private Long id;
 
     private String lessonTitle;
+    private String date;
+    private String page;
+    private String url;
+    private String optionA;
+    private String optionB;
+    private String optionC;
+    private String optionD;
+    private String correctAnswer;
+    private String exerciseType;
+
+    @Column(columnDefinition = "TEXT")
+    private String words;
+
+    @Column(columnDefinition = "TEXT")
+    private String sentences;
+
+    @Column(columnDefinition = "TEXT")
+    private String explanation;
+    @Column(columnDefinition = "TEXT")
+    private String question;
+    private String lessonLevel;
 
     public String getDate() {
         return date;
@@ -37,36 +58,6 @@ public class Exercise {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    // À ajouter dans la classe Exercise
-    private String date;
-    private String page;
-    private String url;
-
-    // + les getters/setters (ou laisse @Data faire le travail)
-    @Column(columnDefinition = "TEXT")
-    private String question;
-
-    //
-    private String optionA;
-    private String optionB;
-    private String optionC;
-    private String optionD;
-    private String correctAnswer;
-
-    //
-    private String exerciseType;
-
-    @Column(columnDefinition = "TEXT")
-    private String words;
-
-    @Column(columnDefinition = "TEXT")
-    private String sentences;
-
-    @Column(columnDefinition = "TEXT")
-    private String explanation;
-
-    private String lessonLevel;
 
     public Long getId() {
         return id;
