@@ -36,8 +36,10 @@
             <td th:text="${quiz.title}">Titre</td>
             <td th:text="${quiz.sentence}">Phrase</td>
             <td>
-                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/quiz/edit/{id}(id=${quiz.id})}" class="btn btn-warning btn-sm">Modifier</a>
-                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/quiz/delete/{id}(id=${quiz.id})}" class="btn btn-danger btn-sm">Supprimer</a>
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/quiz/edit/{id}(id=${quiz.id})}"
+                   class="btn btn-warning btn-sm">Modifier</a>
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/quiz/delete/{id}(id=${quiz.id})}"
+                   class="btn btn-danger btn-sm">Supprimer</a>
             </td>
         </tr>
         </tbody>

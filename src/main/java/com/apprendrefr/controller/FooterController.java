@@ -7,22 +7,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FooterController {
 
     @GetMapping("/about")
-    public String allerSurAbout(){
+    public String allerSurAbout() {
         return "about";
 
     }
+
     @GetMapping("/contact")
-    public String allerSurContact(){
+    public String allerSurContact() {
         return "contact";
 
     }
+
     @GetMapping("/rgpd")
-    public String allerSurRgpd(){
+    public String allerSurRgpd() {
         return "rgpd";
 
     }
+
     @GetMapping("/secourscatholique")
-    public String allerSurSecourscatholique(){
+    public String allerSurSecourscatholique() {
         return "redirect:https://www.secours-catholique.org/";
 
     }

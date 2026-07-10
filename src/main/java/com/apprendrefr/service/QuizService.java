@@ -33,20 +33,26 @@ public class QuizService {
         return quizRepository.save(quiz);
     }
 
-    public List<Quiz> findByTitleContainingIgnoreCase(String title){ return quizRepository.findByTitleContainingIgnoreCase(title); };
+    public List<Quiz> findByTitleContainingIgnoreCase(String title) {
+        return quizRepository.findByTitleContainingIgnoreCase(title);
+    }
+
+    ;
 
     public void deleteById(Long id) {
         quizRepository.deleteById(id);
     }
 
     public Page<Quiz> searchQuiz(String keyword, Pageable pageable) {
-        // On cherche le mot-clé dans le titre OU dans la phrase (sentence)
+        //  mot-clé dans le titre OU dans la phrase (sentence)
         return quizRepository.findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(
                 keyword, keyword, pageable);
     }
+
     public Quiz getFirstQuiz() {
         return quizRepository.findAll().stream().findFirst().orElse(new Quiz());
     }
+
     public List<Quiz> findByTitleContaining(String title) {
         List<Quiz> results = quizRepository.findByTitleContainingIgnoreCase(title);
         return results != null ? results : new ArrayList<>();

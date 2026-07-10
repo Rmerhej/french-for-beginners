@@ -1,7 +1,9 @@
 package com.apprendrefr.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,13 +36,10 @@ public class User implements UserDetails {
     @Size(min = 8, message = "Le mot de passe doit contenir au moins 8 caractères")
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d).{8,}$",
             message = "Le mot de passe doit contenir au moins une lettre et un chiffre (8 caractères minimum)")
+
     private String password;
-
-
-    private String role; // ROLE_USER ou ROLE_ADMIN
-
+    private String role;
     private boolean enabled = true;
-
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
@@ -66,16 +65,24 @@ public class User implements UserDetails {
     }
 
     @Override
-    public boolean isAccountNonExpired() { return true; }
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
     @Override
-    public boolean isAccountNonLocked() { return true; }
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
     @Override
-    public boolean isCredentialsNonExpired() { return true; }
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
     @Override
-    public boolean isEnabled() { return enabled; }
+    public boolean isEnabled() {
+        return enabled;
+    }
 
 
     public boolean getEnabled() {

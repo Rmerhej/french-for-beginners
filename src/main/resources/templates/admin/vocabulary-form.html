@@ -18,11 +18,12 @@
                     <h4 th:text="${vocabulary.id == null} ? 'Ajouter un nouveau mot' : 'Modifier le mot'"></h4>
                 </div>
                 <div class="card-body">
-                    <form th:action="@{/admin/vocabulary}" th:object="${vocabulary}" method="post" enctype="multipart/form-data">
+                    <form th:action="@{/admin/vocabulary}" th:object="${vocabulary}" method="post"
+                          enctype="multipart/form-data">
 
-                        <input type="hidden" th:field="*{id}" />
-                        <input type="hidden" th:field="*{imageUrl}" />
-                        <input type="hidden" th:field="*{audioUrl}" />
+                        <input type="hidden" th:field="*{id}"/>
+                        <input type="hidden" th:field="*{imageUrl}"/>
+                        <input type="hidden" th:field="*{audioUrl}"/>
 
                         <div class="mb-3">
                             <label class="form-label">Leçon associée <span class="text-danger">*</span></label>
@@ -44,7 +45,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Traduction anglaise <span class="text-danger">*</span></label>
+                                    <label class="form-label">Traduction anglaise <span
+                                            class="text-danger">*</span></label>
                                     <input type="text" class="form-control" th:field="*{englishTranslation}" required>
                                 </div>
                             </div>
@@ -62,12 +64,28 @@
                                       placeholder="Ex: Je mange une pomme rouge chaque matin."></textarea>
                         </div>
 
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Texte alternatif (alt) pour l'image
+                                <span class="text-muted small"> Pour l'accessibilité</span>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   th:field="*{altText}"
+                                   placeholder="Ex: Illustration d'un chat noir assis sur un coussin">
+                            <div class="form-text">
+                                Décris clairement l'image pour les personnes malvoyantes.
+                                Exemple : "Illustration du mot chat : un chat gris sur un fauteuil"
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Image</label>
                                     <div th:if="*{imageUrl}" class="mb-2">
-                                        <img th:src="*{imageUrl}" width="100" class="img-thumbnail" alt="Current Image"/>
+                                        <img th:src="*{imageUrl}" width="100" class="img-thumbnail"
+                                             alt="Current Image"/>
                                     </div>
                                     <input type="file" class="form-control" name="imageFile" accept="image/*">
                                 </div>

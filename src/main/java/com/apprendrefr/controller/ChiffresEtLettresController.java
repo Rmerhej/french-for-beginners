@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ChiffresEtLettresController {
 
-    @GetMapping ("/chiffresEtLettres")
-    public String goToChiffresEtLettres () {
-            return "chiffresEtLettres";
-        }
+    @GetMapping("/chiffresEtLettres")
+    public String goToChiffresEtLettres() {
+        return "chiffresEtLettres";
     }
+}

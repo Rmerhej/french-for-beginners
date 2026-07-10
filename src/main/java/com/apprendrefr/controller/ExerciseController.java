@@ -1,20 +1,18 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.service.ExerciseService;
-import com.apprendrefr.service.UserService;
 import com.apprendrefr.service.ScoreService;
+import com.apprendrefr.service.UserService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class ExerciseController {
 
-    // 1. Déclaration des variables (attributs de la classe)
     private final ExerciseService exerciseService;
     private final UserService userService;
     private final ScoreService scoreService;
 
-    // 2. Initialisation unique via le constructeur
-    // C'est ici que Spring injecte automatiquement les 3 services d'un coup
+    // injection automatique des 3 services
     public ExerciseController(ExerciseService exerciseService,
                               UserService userService,
                               ScoreService scoreService) {

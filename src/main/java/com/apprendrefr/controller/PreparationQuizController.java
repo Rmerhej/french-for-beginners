@@ -16,7 +16,6 @@ public class PreparationQuizController {
     @Autowired
     private QuizService quizService;
 
-    // Fusion des deux méthodes identiques en une seule
     @GetMapping({"/preparation-quiz-index"})
     public String showQuizList() {
         return "preparationQuiz-list";
@@ -49,17 +48,18 @@ public class PreparationQuizController {
 
         return "au-bureau-quiz";
     }
+
     @GetMapping("/lesgensquiz")
     public String showAuLesGensQuiz(Model model) {
         List<Quiz> quizzes = quizService.findByTitleContaining("Les gens");
 
-       //à supprimer ultrieuremen
+        //à supprimer ultrieuremen
         if (quizzes != null) {
             for (int i = 0; i < quizzes.size(); i++) {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
             }
         }
-    /// ////
+
         for (Quiz q : quizzes) {
             if (q == null) {
                 System.out.println("FOUND A NULL OBJECT IN THE LIST!");
@@ -72,6 +72,7 @@ public class PreparationQuizController {
 
         return "les-gens-quiz";
     }
+
     @GetMapping("/lesportquiz")
     public String showLeSportQuiz(Model model) {
         List<Quiz> quizzes = quizService.findByTitleContaining("Le sport");
@@ -82,7 +83,7 @@ public class PreparationQuizController {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
             }
         }
-        // Debug: Print every object in the list
+        // Debug: imprime ts les objects ds la liste
         for (Quiz q : quizzes) {
             if (q == null) {
                 System.out.println("FOUND A NULL OBJECT IN THE LIST!");
@@ -95,15 +96,16 @@ public class PreparationQuizController {
 
         return "le-sport-quiz";
     }
+
     @GetMapping("/entrepriseQuiz")
     public String showEntrepriseQuiz(Model model) {
-       List<Quiz> quizzes = quizService.findByTitleContaining("Entreprise");
+        List<Quiz> quizzes = quizService.findByTitleContaining("Entreprise");
 
         if (quizzes != null) {
             for (int i = 0; i < quizzes.size(); i++) {
                 System.out.println("Quiz[" + i + "]: " + (quizzes.get(i) == null ? "NULL" : quizzes.get(i).getTitle()));
-          }
-       }
+            }
+        }
 
         for (Quiz q : quizzes) {
             if (q == null) {
@@ -111,7 +113,7 @@ public class PreparationQuizController {
             } else {
                 System.out.println("Quiz found: " + q.getTitle() + " | Sentence: " + q.getSentence());
             }
-      }
+        }
         model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
         System.out.println("Object type: " + model.getAttribute("quizzes").getClass().getName());
 

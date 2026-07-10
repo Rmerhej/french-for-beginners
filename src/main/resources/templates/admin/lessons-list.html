@@ -67,14 +67,18 @@
     <nav th:if="${lessonsPage}" class="mt-4">
         <ul class="pagination justify-content-center">
             <li class="page-item" th:classappend="${lessonsPage.first} ? 'disabled'">
-                <a class="page-link" th:href="@{/admin/lessons(page=${lessonsPage.number - 1}, size=${lessonsPage.size}, keyword=${keyword})}">Précédent</a>
+                <a class="page-link"
+                   th:href="@{/admin/lessons(page=${lessonsPage.number - 1}, size=${lessonsPage.size}, keyword=${keyword})}">Précédent</a>
             </li>
             <li th:each="p : ${#numbers.sequence(0, lessonsPage.totalPages - 1)}"
                 class="page-item" th:classappend="${p == lessonsPage.number} ? 'active'">
-                <a class="page-link" th:href="@{/admin/lessons(page=${p}, size=${lessonsPage.size}, keyword=${keyword})}" th:text="${p + 1}"></a>
+                <a class="page-link"
+                   th:href="@{/admin/lessons(page=${p}, size=${lessonsPage.size}, keyword=${keyword})}"
+                   th:text="${p + 1}"></a>
             </li>
             <li class="page-item" th:classappend="${lessonsPage.last} ? 'disabled'">
-                <a class="page-link" th:href="@{/admin/lessons(page=${lessonsPage.number + 1}, size=${lessonsPage.size}, keyword=${keyword})}">Suivant</a>
+                <a class="page-link"
+                   th:href="@{/admin/lessons(page=${lessonsPage.number + 1}, size=${lessonsPage.size}, keyword=${keyword})}">Suivant</a>
             </li>
 
         </ul>

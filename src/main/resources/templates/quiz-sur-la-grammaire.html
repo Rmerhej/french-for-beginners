@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -25,9 +25,9 @@
             onclick="history.back()">
         <i class="bi bi-arrow-left"></i> Retour
     </button>
-   <!-- <div th:if="${quizzes.isEmpty()}" class="alert alert-info">
-        Aucun quiz n'est disponible pour le moment.
-    </div>-->
+    <!-- <div th:if="${quizzes.isEmpty()}" class="alert alert-info">
+         Aucun quiz n'est disponible pour le moment.
+     </div>-->
 
     <table class="table table-hover bg-white shadow-sm rounded">
         <thead class="table-dark">
@@ -38,9 +38,9 @@
         </thead>
         <tbody>
         <tr>
-          <td>
-              Préposition,conjonction de coordination
-          </td>
+            <td>
+                Préposition,conjonction de coordination
+            </td>
             <td>
                 <a th:href="@{/prepositionConjonction}"
                    class="btn btn-primary">
@@ -51,8 +51,8 @@
         <tr>
 
             <td>Accords des adjectifs</td>
-            <td> <a th:href="@{/accords-des-adjectifs}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/accords-des-adjectifs}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
@@ -60,46 +60,46 @@
         <tr>
 
             <td>Les pronoms</td>
-            <td> <a th:href="@{/utilisation-des-pronoms}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/utilisation-des-pronoms}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
         <tr>
 
             <td>Les Adjectifs (Accord au pluriel)</td>
-            <td> <a th:href="@{/les-adjectifs-accord-pluriel}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/les-adjectifs-accord-pluriel}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
 
         <tr>
             <td>Les Expressions de temps</td>
-            <td> <a th:href="@{/expressions-de-temps}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/expressions-de-temps}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
         <tr>
             <td>Futur simple</td>
-            <td> <a th:href="@{/futur-simple}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/futur-simple}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
         <tr>
             <td>Adjectifs démonstratifs</td>
-            <td> <a th:href="@{/adjectifs-demonstratif}"
-                    class="btn btn-primary">
+            <td><a th:href="@{/adjectifs-demonstratif}"
+                   class="btn btn-primary">
                 Commencer le quiz
             </a></td>
         </tr>
-            <td>Verbes régulier</td>
-            <td> <a th:href="@{/verbes-regulier}"
-                    class="btn btn-primary">
-                Commencer le quiz
-            </a></td>
+        <td>Verbes régulier</td>
+        <td><a th:href="@{/verbes-regulier}"
+               class="btn btn-primary">
+            Commencer le quiz
+        </a></td>
         </tr>
         </tbody>
     </table>

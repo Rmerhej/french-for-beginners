@@ -41,7 +41,8 @@
                     <form th:action="@{/login}" th:object="${user}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom d'utilisateur :</label><br>
-                            <input type="text" name="username"  class="form-control"  placeholder="Nom d'utilisateur" required />
+                            <input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur"
+                                   required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mot de passe :</label>
@@ -50,7 +51,7 @@
                                        name="password"
                                        class="form-control"
                                        id="password"
-                                       required />
+                                       required/>
                                 <button class="btn btn-outline-secondary toggle-password-btn"
                                         type="button"
                                         id="togglePassword">

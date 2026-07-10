@@ -43,10 +43,12 @@ public class ExerciseService {
     public Exercise save(Exercise exercise) {
         return exerciseRepository.save(exercise);
     }
-    // Recherche contenant le mot (recommandé)
+
+    // Recherche contenant le mot
     public List<Exercise> findByLessonTitleContaining(String keyword) {
         return exerciseRepository.findByLessonTitleContainingIgnoreCase(keyword);
     }
+
     public void deleteById(Long id) {
         exerciseRepository.deleteById(id);
     }
@@ -62,6 +64,7 @@ public class ExerciseService {
         return exerciseRepository.findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
                 keyword, keyword, pageable);
     }
+
     public List<Exercise> findByTitle(String title) {
         return exerciseRepository.findByLessonTitle(title);
     }

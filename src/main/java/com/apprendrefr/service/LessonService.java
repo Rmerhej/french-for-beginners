@@ -48,7 +48,6 @@ public class LessonService {
                 keyword.trim(), keyword.trim(), pageable);
     }
 
-    // Méthode classique (recommandée)
     public Page<Lesson> findAll(Pageable pageable) {
         return lessonRepository.findAll(pageable);
     }

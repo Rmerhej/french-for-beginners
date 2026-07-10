@@ -1,8 +1,10 @@
 package com.apprendrefr.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,9 +26,7 @@ public class Lesson {
 
     @NotBlank(message = "Le niveau est obligatoire")
     private String level;
-
     private String category;
-
     private String imageUrl;
     private String audioUrl;
 

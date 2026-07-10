@@ -1,10 +1,11 @@
 <nav th:fragment="navbar"
      class="navbar navbar-expand-lg navbar-dark bg-dark shadow"
-     xmlns:sec="http://www.w3.org/1999/xhtml">
+     xmlns:sec="http://www.w3.org/1999/xhtml"
+     role="navigation" aria-label="navbar">
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}"
-        aria-label="Accueil - Apprendre le Français">
+           aria-label="Accueil - Apprendre le Français">
 
             <img src="https://flagcdn.com/w80/fr.png"
                  alt="Drapeau Français"
@@ -23,7 +24,7 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}"
-                     >Accueil</a>
+                    >Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
@@ -36,7 +37,7 @@
             <div class="navbar-nav ms-auto">
 
                 <div sec:authorize="isAuthenticated()" class="d-flex align-items-center">
-                    <span class="navbar-text me-3"  aria-label="Utilisateur connecté">
+                    <span class="navbar-text me-3" aria-label="Utilisateur connecté">
                         👤 <strong sec:authentication="name"></strong>
                     </span>
                     <a th:href="@{/admin/dashboard}"
@@ -50,7 +51,8 @@
                         <button type="submit"
                                 class="btn btn-outline-danger"
                                 aria-label="Se Déconnecter">
-                        Déconnexion</button>
+                            Déconnexion
+                        </button>
                     </form>
                 </div>
 
@@ -59,10 +61,10 @@
                     <a th:href="@{/login}"
                        class="btn btn-outline-light"
                        aria-label="Se Connecter à son compte">
-                    Connexion</a>
+                        Connexion</a>
                     <a th:href="@{/register}"
                        class="btn btn-primary"
-                    aria-label="Créér un nouveau compte">S'inscrire</a>
+                       aria-label="Créér un nouveau compte">S'inscrire</a>
                 </div>
             </div>
         </div>

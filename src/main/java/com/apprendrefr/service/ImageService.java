@@ -21,7 +21,7 @@ public class ImageService {
 
     public void batchProcessImages(String folderPath) {
         File dir = new File(folderPath);
-        if(!dir.exists()){
+        if (!dir.exists()) {
             System.err.println("ERREUR : Le dossier n'existe pas à cet emplacement : " + dir.getAbsolutePath());
             return;
         }

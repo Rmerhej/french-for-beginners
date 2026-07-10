@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class VerbesController {
 
-    @GetMapping ("/lesVerbes")
-        public String verbes(){
+    @GetMapping("/lesVerbes")
+    public String verbes() {
         return "verbes";
-        }
+    }
 }

@@ -2,11 +2,9 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.Lesson;
-import com.apprendrefr.entity.User;
 import com.apprendrefr.entity.Vocabulary;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.LessonService;
-import com.apprendrefr.service.UserService;
 import com.apprendrefr.service.VocabularyService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -55,6 +53,7 @@ public class LessonController {
         model.addAttribute("lesson", lesson);
         return "lesson-detail";
     }
+
     @GetMapping("/lesson/{id}/vocabulary")
     public String lessonVocabulary(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
@@ -64,9 +63,9 @@ public class LessonController {
 
         model.addAttribute("lesson", lesson);
         model.addAttribute("vocabularies", vocab);
-        System.out.println("✅ Retour de la vue lesson-vocabulary pour leçon " + id );
+        System.out.println("✅ Retour de la vue lesson-vocabulary pour leçon " + id);
 
-        return "lesson-vocabulary";   // Important : sans .html
+        return "lesson-vocabulary";
     }
 
     @GetMapping("/lesson/{id}/exercises")
@@ -80,6 +79,7 @@ public class LessonController {
         model.addAttribute("exercises", exercises);
         return "lesson-exercises";
     }
+
     @GetMapping("/admin/lessons-list")
     public String listLessons(
             @RequestParam(required = false) String keyword,
@@ -87,15 +87,15 @@ public class LessonController {
             @RequestParam(defaultValue = "10") int size,
             Model model) {
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending()); // ou l'ordre que tu veux
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
 
         Page<Lesson> lessonsPage;
 
         if (keyword != null && !keyword.trim().isEmpty()) {
             lessonsPage = lessonService.searchLessons(keyword.trim(), pageable);
-            model.addAttribute("keyword", keyword); // pour garder la valeur dans l'input
+            model.addAttribute("keyword", keyword); //  garder la valeur dans l'input
         } else {
-            lessonsPage = lessonService.findAll(pageable); // ta méthode classique sans recherche
+            lessonsPage = lessonService.findAll(pageable);
         }
 
         model.addAttribute("lessons", lessonsPage);
@@ -103,7 +103,7 @@ public class LessonController {
         model.addAttribute("totalPages", lessonsPage.getTotalPages());
         model.addAttribute("totalItems", lessonsPage.getTotalElements());
 
-        return "admin/lessons"; // ton template
+        return "admin/lessons";
     }
 
 }

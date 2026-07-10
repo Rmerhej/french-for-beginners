@@ -3,7 +3,7 @@ package com.apprendrefr.service;
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.User;
 import com.apprendrefr.entity.UserExerciseScore;
-import com.apprendrefr.repository.UserExerciseScoreRepository; // Importez le bon repository
+import com.apprendrefr.repository.UserExerciseScoreRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
