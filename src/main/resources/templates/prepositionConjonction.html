@@ -18,16 +18,20 @@
     </style>
 </head>
 <body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <button
         type="button"
         class="btn btn-outline-secondary float-end"
-        onclick="history.back()">
-    <i class="bi bi-arrow-left"></i> Retour
+        onclick="history.back()"
+        aria-label="Retour à la page précédente">
+    <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
 </button>
-<div class="container py-5">
-    <h2 class="mb-4">Quiz disponibles</h2>
-
+<main id="main-content" class="container py-5">
+    <h1 class="mb-4">Quiz disponibles</h1>
+    <h2 th:text="${quiz.title}"></h2>
     <div th:if="${quizzes.isEmpty()}" class="alert alert-info">
         Aucun quiz n'est disponible pour le moment.
     </div>
@@ -50,12 +54,16 @@
                  th:utext="${quiz.sentence}"></div>
         </div>
 
-        <button class="btn btn-success btn-lg me-3" th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier</button>
-        <button class="btn btn-secondary btn-lg" th:onclick="'resetQuiz(' + ${iter.index} + ')'">Recommencer</button>
+        <button class="btn btn-success btn-lg me-3" aria-label="Vérifier les réponses du quiz"
+                th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier
+        </button>
+        <button class="btn btn-secondary btn-lg" aria-label="Réinitialiser le quiz"
+                th:onclick="'resetQuiz(' + ${iter.index} + ')'">Recommencer
+        </button>
         <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
     </div>
 
-</div>
+</main>
 
 <script>
     // Initialize each quiz container

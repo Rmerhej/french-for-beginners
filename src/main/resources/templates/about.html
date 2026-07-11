@@ -2,14 +2,19 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='à propos')}"></head>
 <body class="bg-light">
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <button
         type="button"
         class="btn btn-outline-secondary float-end"
-        onclick="history.back()">
-    <i class="bi bi-arrow-left"></i> Retour
+        onclick="history.back()"
+        aria-label="Retour">
+    <i class="bi bi-arrow-left"
+       aria-hidden="true"></i> Retour
 </button>
-<div class="container mt-5">
+<main id="main-content" class="container pb-5">
     <div class="row justify-content-center">
         <div class="col-lg-10">
 
@@ -43,22 +48,24 @@
                                 <i class="bi bi-book me-3 text-primary fs-4" aria-hidden="true"></i>
                                 <div>
                                     <h5>Vocabulaire</h5>
-                                    <p class="text-secondary">Apprendre et réviser le vocabulaire de manière interactive.</p>
+                                    <p class="text-secondary">Apprendre et réviser le vocabulaire de manière
+                                        interactive.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex">
-                                <i class="bi bi-question-circle me-3 text-primary fs-4"></i>
+                                <i class="bi bi-question-circle me-3 text-primary fs-4" aria-hidden="true"></i>
                                 <div>
                                     <h5>Exercices QCM</h5>
-                                    <p class="text-muted">Des questionnaires à choix multiple pour tester ses connaissances.</p>
+                                    <p class="text-muted">Des questionnaires à choix multiple pour tester ses
+                                        connaissances.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex">
-                                <i class="bi bi-arrows-move me-3 text-primary fs-4"></i>
+                                <i class="bi bi-arrows-move me-3 text-primary fs-4" aria-hidden="true"></i>
                                 <div>
                                     <h5>Drag &amp; Drop</h5>
                                     <p class="text-muted">Des exercices interactifs pour mieux mémoriser.</p>
@@ -67,10 +74,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex">
-                                <i class="bi bi-volume-up me-3 text-primary fs-4" aria-hidden="false" aria-label="prononciation"></i>
+                                <i class="bi bi-volume-up me-3 text-primary fs-4" aria-hidden="true"
+                                   aria-label="prononciation"></i>
                                 <div>
                                     <h5>Prononciation (Pré-A1)</h5>
-                                    <p class="text-muted">Une section spécialement dédiée aux sons et à la phonétique.</p>
+                                    <p class="text-muted">Une section spécialement dédiée aux sons et à la
+                                        phonétique.</p>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +89,8 @@
                         <h5 class="mb-3">Une section au plus près des cours</h5>
                         <p class="text-muted">
                             Une partie du site est spécialement conçue pour coller aux cours dispensés chaque semaine
-                            en présentiel : QCM et quiz reprenant exactement le vocabulaire et les notions vues en classe.
+                            en présentiel : QCM et quiz reprenant exactement le vocabulaire et les notions vues en
+                            classe.
                         </p>
                     </div>
 
@@ -88,10 +98,17 @@
 
                     <h2 class="mb-4">Nos valeurs</h2>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> <strong>Gratuit</strong> et accessible à tous</li>
-                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Adapté aux <strong>adultes</strong> (rythme et contenu)</li>
-                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Pédagogie bienveillante</li>
-                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Respect de la vie privée des utilisateurs</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> <strong>Gratuit</strong>
+                            et accessible à tous
+                        </li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Adapté aux
+                            <strong>adultes</strong> (rythme et contenu)
+                        </li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Pédagogie bienveillante
+                        </li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i> Respect de la vie privée
+                            des utilisateurs
+                        </li>
                     </ul>
 
                 </div>
@@ -114,10 +131,9 @@
 
         </div>
     </div>
-</div><br><br>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

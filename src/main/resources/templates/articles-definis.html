@@ -11,70 +11,80 @@
         .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
     </style>
 </head>
-<body class="container">
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <header class="hero py-5 text-center">
     <div class="container">
-        <h1 class="display-5 fw-bold">📘 Les Adjectifs Qualificatifs</h1>
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘 </span>
+            Les Adjectifs Qualificatifs</h1>
         <p class="lead">Niveau A1 - Débutants</p>
     </div>
 </header>
 
-<div class="container my-5">
+<main id="main-content" class="container my-5">
     <div class="alert alert-info">
         <strong>Objectif :</strong> Décrire les personnes, les objets et les situations.
     </div>
 
     <h3>1. Règle générale</h3>
-    <div class="rule-box p-4 bg-light rounded mb-4">
-        L’adjectif s’accorde en <strong>genre</strong> (masculin/féminin) et en <strong>nombre</strong>
-        (singulier/pluriel) avec le nom.
+    <section class="p-4 bg-light rounded border-start border-primary border-5 mb-4">
+        <p>L’adjectif s’accorde en <strong>genre</strong> (masculin/féminin) et en <strong>nombre</strong>
+            (singulier/pluriel) avec le nom auquel il se rapporte.</p>
+    </section>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <caption class="visually-hidden">Tableau d'exemples d'accords d'adjectifs</caption>
+            <thead class="table-primary">
+            <tr>
+                <th scope="col">Masculin</th>
+                <th scope="col">Féminin</th>
+                <th scope="col">Pluriel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>grand</td>
+                <td>grande</td>
+                <td>grands / grandes</td>
+            </tr>
+            <tr>
+                <td>petit</td>
+                <td>petite</td>
+                <td>petits / petites</td>
+            </tr>
+            <tr>
+                <td>beau</td>
+                <td>belle</td>
+                <td>beaux / belles</td>
+            </tr>
+            <tr>
+                <td>heureux</td>
+                <td>heureuse</td>
+                <td>heureux / heureuses</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
-    <table class="table table-bordered">
-        <thead class="table-primary">
-        <tr>
-            <th>Masculin</th>
-            <th>Féminin</th>
-            <th>Pluriel</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>grand</td>
-            <td>grande</td>
-            <td>grands / grandes</td>
-        </tr>
-        <tr>
-            <td>petit</td>
-            <td>petite</td>
-            <td>petits / petites</td>
-        </tr>
-        <tr>
-            <td>beau</td>
-            <td>belle</td>
-            <td>beaux / belles</td>
-        </tr>
-        <tr>
-            <td>heureux</td>
-            <td>heureuse</td>
-            <td>heureux / heureuses</td>
-        </tr>
-        </tbody>
-    </table>
+    <section class="my-4">
+        <h4>Exemples :</h4>
+        <p>Un <strong>grand</strong> homme → Une <strong>grande</strong> femme<br>
+            Des voitures <strong>rouges</strong> → Des ordinateurs <strong>puissants</strong></p>
+    </section>
 
-    <h4>Exemples :</h4>
-    <p>Un <strong>grand</strong> homme → Une <strong>grande</strong> femme<br>
-        Des voitures <strong>rouges</strong> → Des ordinateurs <strong>puissants</strong></p>
-
-    <h4>Exercice :</h4>
-    <div class="card p-4">
-        Complétez : <br>
-        1. Ma voiture est _____ (rapide).<br>
-        2. Ils sont très _____ (gentil).<br>
-        3. C’est une _____ (nouveau) maison.
-    </div>
-</div>
+    <section class="card p-4 shadow-sm">
+        <h4 class="card-title">Exercice</h4>
+        <p class="card-text">Complétez les phrases suivantes :</p>
+        <ol>
+            <li>Ma voiture est ____________________ (rapide).</li>
+            <li>Ils sont très ____________________ (gentil).</li>
+            <li>C’est une ____________________ (nouveau) maison.</li>
+        </ol>
+    </section>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

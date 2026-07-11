@@ -28,198 +28,214 @@
     </style>
 </head>
 <body>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<h1>Les pronoms en français</h1>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<main id="main-content">
+    <h1>Les pronoms en français</h1>
 
-<p>Les pronoms remplacent un nom ou un groupe de noms afin d'éviter
-    les répétitions.ils sont essentiels pour parler et écrire un français naturel</p>
-<h2>Les pronoms personnels sujets</h2>
-<table>
-    <tr>
-        <th>Personne</th>
-        <th>Pronom</th>
-        <th>Exemple</th>
-    </tr>
-    <tr>
-        <td>1re persone singulier</td>
-        <td>Je</td>
-        <td>Je travaille à Paris</td>
+    <p>Les pronoms remplacent un nom ou un groupe de noms afin d'éviter
+        les répétitions.ils sont essentiels pour parler et écrire un français naturel</p>
+    <h2>Les pronoms personnels sujets</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th scope="col">Personne</th>
+                <th scope="col">Pronom</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            <tr>
+                <td>1re persone du singulier</td>
+                <td>Je</td>
+                <td>Je travaille à Paris</td>
 
-    </tr>
-    <tr>
-        <td>2e personne singulier</td>
-        <td>Tu</td>
-        <td>Tu habites en France</td>
-    </tr>
-    <tr>
-        <td>3e personne singulier</td>
-        <td>il/elle</td>
-        <td>Elle parle français</td>
-    </tr>
-    <tr>
-        <td>1re personne pluriel</td>
-        <td>Nous</td>
-        <td>Nousapprenons le français</td>
-    </tr>
-    <tr>
-        <td>2e personne pluriel</td>
-        <td>Vous</td>
-        <td>Vous êtes étudiants</td>
-    </tr>
-    <tr>
-        <td>3e personne pluriel</td>
-        <td>ils/elles</td>
-        <td>ils travaillent ensemble</td>
-    </tr>
-</table>
-<h2>Les pronoms compléments d'objet direct(COD)</h2>
-<p>Ils remplacent une personne ou une chose qui reçoit directement l'action</p>
-<table>
-    <tr>
-        <th>Pronom</th>
-        <th>Exemple</th>
-    </tr>
-    <tr>
-        <td>me/m'</td>
-        <td>il me connaît</td>
-    </tr>
-    <tr>
-        <td>je /t'</td>
-        <td>je t'écoute</td>
-    </tr>
-    <tr>
-        <td>le/la/l'</td>
-        <td>je la vois</td>
-    </tr>
-    <tr>
-        <td>nous</td>
-        <td>Elle nous invite</td>
-    </tr>
-    <tr>
-        <td>vous</td>
-        <td>je vous remercie</td>
-    </tr>
-    <td>
-        <tr>les</tr>
-        <tr>je les rencontre demain</tr>
-    </td>
-</table>
-<div class="exemple"><strong>Exemple :</strong><br>Je regarde le film --> je le regarde</div>
-<h2>Les pronoms compléments d'objet indirect(COI)</h2>
-<p>Ils remplacent un complément introduit par la préposition "à"</p>
-<table>
-    <tr>
-        <th>Pronom</th>
-        <th>Exemple</th>
-    </tr>
-    <tr>
-        <td>me</td>
-        <td>il me parle</td>
-    </tr>
-    <tr>
-        <td>je</td>
-        <td>je te téléphone</td>
-    </tr>
-    <tr>
-        <td>lui</td>
-        <td>Elle lui répond</td>
-    </tr>
-    <tr>
-        <td>nous</td>
-        <td>Vous nous écrivez</td>
-    </tr>
-    <tr>
-        <td>vous</td>
-        <td>Je vous explique la règle</td>
-    </tr>
-    <tr>
-        <td>leur</td>
-        <td>je leur envoie un message</td>
-    </tr>
-</table>
-<div class="exemple"><strong>Exemple</strong><br>Je parle à marie -->Je lui parle</div>
-<h2>Les pronoms toniques</h2>
-<p>Les pronoms toniques servent à insister ou après certaines prépositions</p>
-<table>
-    <tr>
-        <th>Pronom sujet</th>
-        <th>Pronom toniques</th>
-    </tr>
-    <tr>
-        <td>je</td>
-        <td>moi</td>
-    </tr>
-    <tr>
-        <td>tu</td>
-        <td>toi</td>
-    </tr>
-    <tr>
-        <td>il</td>
-        <td>lui</td>
-    </tr>
-    <tr>
-        <td>elle</td>
-        <td>elle</td>
-    </tr>
-    <tr>
-        <td>nous</td>
-        <td>nous</td>
-    </tr>
-    <tr>
-        <td>vous</td>
-        <td>vous</td>
-    </tr>
-    <tr>
-        <td>ils</td>
-        <td>eux</td>
-    </tr>
-    <tr>
-        <td>elles</td>
-        <td>elles</td>
-    </tr>
-</table>
-<div class="exemple"><strong>Exemples :</strong><br>-Moi,j'aime le café<br>-Elle travaille avec lui</div>
-<h2>Les pronoms "y" et "en"</h2>
-<table>
-    <tr>
-        <th>Pronom</th>
-        <th>Utilisation</th>
-        <th>Exemple</th>
-    </tr>
-    <tr>
-        <td>Y</td>
-        <td>Remplace un lieu ou un complément introduit par "à"</td>
-        <td>Je vais à Paris -->j'y vais</td>
-    </tr>
-    <tr>
-        <td>En</td>
-        <td>Remplace un complément introduit par "de" ou une quantité</td>
-        <td>J'ai des livres -->j'en ai</td>
-    </tr>
-</table>
-<h2>à retenir</h2>
-<ul>
-    <li>Les pronoms remplacent des noms pour éviter les répétitions</li>
-    <li>le pronom se place généralement le verbe</li>
-    <li>"Y" remplace souvent un lieu"En" remplace souvent un complément introduit par "de"</li>
-    <li></li>
-</ul>
-<div class="exercise"><h2>Exercises</h2>
-    <p><strong>1</strong>Remplacer le mot en italique par un pronom :</p>
-    <ol>
-        <li>je vois <em>Marie</em></li>
-        <li>nous parlons à <em>nos collègues</em></li>
-        <li>tu vas à <em>la bibliothèque</em></li>
-        <li>elle achète<em>des fruits</em></li>
-    </ol>
-    <p><strong>Réponses :</strong></p>
-    <ol>
-        <li>je la vois</li>
-        <li>nous leur parlons</li>
-        <li>tu y vas</li>
-        <li>elle en achète</li>
-    </ol>
-</div>
+            </tr>
+            <tr>
+                <td>2e personne singulier</td>
+                <td>Tu</td>
+                <td>Tu habites en France</td>
+            </tr>
+            <tr>
+                <td>3e personne singulier</td>
+                <td>il/elle</td>
+                <td>Elle parle français</td>
+            </tr>
+            <tr>
+                <td>1re personne pluriel</td>
+                <td>Nous</td>
+                <td>Nous apprenons le français</td>
+            </tr>
+            <tr>
+                <td>2e personne pluriel</td>
+                <td>Vous</td>
+                <td>Vous êtes étudiants</td>
+            </tr>
+            <tr>
+                <td>3e personne pluriel</td>
+                <td>ils/elles</td>
+                <td>ils travaillent ensemble</td>
+            </tr>
+        </table>
+    </div>
+    <h2>Les pronoms compléments d'objet direct(COD)</h2>
+    <p>Ils remplacent une personne ou une chose qui reçoit directement l'action</p>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th scope="col">Pronom</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            <tr>
+                <td>me/m'</td>
+                <td>il me connaît</td>
+            </tr>
+            <tr>
+                <td>je /t'</td>
+                <td>je t'écoute</td>
+            </tr>
+            <tr>
+                <td>le/la/l'</td>
+                <td>je la vois</td>
+            </tr>
+            <tr>
+                <td>nous</td>
+                <td>Elle nous invite</td>
+            </tr>
+            <tr>
+                <td>vous</td>
+                <td>je vous remercie</td>
+            </tr>
+            <td>
+            <td>les</td>
+            <td>je les rencontre demain</td>
+            </td>
+        </table>
+    </div>
+    <div class="exemple"><strong>Exemple :</strong><br>Je regarde le film --> je le regarde</div>
+    <h2>Les pronoms compléments d'objet indirect(COI)</h2>
+    <p>Ils remplacent un complément introduit par la préposition "à"</p>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th scope="col">Pronom</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            <tr>
+                <td>me</td>
+                <td>il me parle</td>
+            </tr>
+            <tr>
+                <td>je</td>
+                <td>je te téléphone</td>
+            </tr>
+            <tr>
+                <td>lui</td>
+                <td>Elle lui répond</td>
+            </tr>
+            <tr>
+                <td>nous</td>
+                <td>Vous nous écrivez</td>
+            </tr>
+            <tr>
+                <td>vous</td>
+                <td>Je vous explique la règle</td>
+            </tr>
+            <tr>
+                <td>leur</td>
+                <td>je leur envoie un message</td>
+            </tr>
+        </table>
+    </div>
+    <div class="exemple"><strong>Exemple</strong><br>Je parle à marie -->Je lui parle</div>
+    <h2>Les pronoms toniques</h2>
+    <p>Les pronoms toniques servent à insister ou après certaines prépositions</p>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th scope="col">Pronom sujet</th>
+                <th scope="col">Pronom toniques</th>
+            </tr>
+            <tr>
+                <td>je</td>
+                <td>moi</td>
+            </tr>
+            <tr>
+                <td>tu</td>
+                <td>toi</td>
+            </tr>
+            <tr>
+                <td>il</td>
+                <td>lui</td>
+            </tr>
+            <tr>
+                <td>elle</td>
+                <td>elle</td>
+            </tr>
+            <tr>
+                <td>nous</td>
+                <td>nous</td>
+            </tr>
+            <tr>
+                <td>vous</td>
+                <td>vous</td>
+            </tr>
+            <tr>
+                <td>ils</td>
+                <td>eux</td>
+            </tr>
+            <tr>
+                <td>elles</td>
+                <td>elles</td>
+            </tr>
+        </table>
+    </div>
+    <div class="exemple"><strong>Exemples :</strong><br>-Moi,j'aime le café<br>-Elle travaille avec lui</div>
+    <h2>Les pronoms "y" et "en"</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th scope="col">Pronom</th>
+                <th scope="col">Utilisation</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            <tr>
+                <td>Y</td>
+                <td>Remplace un lieu ou un complément introduit par "à"</td>
+                <td>Je vais à Paris -->j'y vais</td>
+            </tr>
+            <tr>
+                <td>En</td>
+                <td>Remplace un complément introduit par "de" ou une quantité</td>
+                <td>J'ai des livres -->j'en ai</td>
+            </tr>
+        </table>
+    </div>
+    <h2>À retenir</h2>
+    <ul>
+        <li>Les pronoms remplacent des noms pour éviter les répétitions</li>
+        <li>le pronom se place généralement avant le verbe</li>
+        <li>"Y" remplace souvent un lieu"En" remplace souvent un complément introduit par "de"</li>
+    </ul>
+    <section class="exercise" aria-labelledby="exercise-title">
+        <h2 id="exercise-title">Exercises</h2>
+        <p><strong>1</strong>Remplacer le mot en italique par un pronom :</p>
+        <ol>
+            <li>je vois <em>Marie</em></li>
+            <li>nous parlons à <em>nos collègues</em></li>
+            <li>tu vas à <em>la bibliothèque</em></li>
+            <li>elle achète<em>des fruits</em></li>
+        </ol>
+        <p><strong>Réponses :</strong></p>
+        <ol>
+            <li>je la vois</li>
+            <li>nous leur parlons</li>
+            <li>tu y vas</li>
+            <li>elle en achète</li>
+        </ol>
+    </section>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

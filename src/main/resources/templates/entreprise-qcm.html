@@ -37,7 +37,7 @@
          class="mb-5"
          th:id="'exercise-container-' + ${ex.id}">
 
-        <div class="card shadow-sm">
+        <fieldset class="card shadow-sm mb-5">
             <div class="card-header bg-light">
                 <strong th:text="${ex.lessonTitle}"></strong>
             </div>
@@ -79,7 +79,7 @@
             <div class="card-footer d-none explanation" th:id="'explanation-' + ${ex.id}">
                 <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
             </div>
-        </div>
+        </fieldset>
     </div>
 </div>
 

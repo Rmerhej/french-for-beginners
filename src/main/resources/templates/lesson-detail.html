@@ -2,27 +2,30 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Détail_leçon Vocab_QCM')}"></head>
 <body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <button
         type="button"
         class="btn btn-outline-secondary float-end"
-        onclick="history.back()">
-    <i class="bi bi-arrow-left"></i> Retour
+        onclick="history.back()"
+        aria-label="Retour">
+    <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
 </button>
-<div class="container mt-5">
-    <a th:href="@{/lessons}" class="btn btn-secondary mb-3">← Retour aux leçons</a>
+<main id="main-content" class="container mt-5">
 
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
-            <h3 th:text="${lesson.title}"></h3>
+            <h1 th:text="${lesson.title}"></h1>
             <p th:text="${lesson.level} + ' • ' + ${lesson.category}"></p>
         </div>
 
         <div class="card-body">
-            <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}"
+            <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}" th:alt="${lesson.title}"
                  class="img-fluid rounded mb-4" style="max-height: 300px; width: 100%; object-fit: cover;">
 
-            <h5>Contenu de la leçon :</h5>
+            <h2>Contenu de la leçon :</h2>
             <p class="lead" th:text="${lesson.content}"></p>
         </div>
 
@@ -30,12 +33,14 @@
             <div class="row text-center">
                 <div class="col">
                     <a th:href="@{/lesson/{id}/vocabulary(id=${lesson.id})}"
+                       aria-label="Voir le vocabulaire de cette leçon"
                        class="btn btn-primary btn-lg w-100">
                         📝 Voir le Vocabulaire
                     </a>
                 </div>
                 <div class="col">
                     <a th:href="@{/lesson/{id}/exercises(id=${lesson.id})}"
+                       aria-label="Faire les exercices de cette leçon"
                        class="btn btn-success btn-lg w-100">
                         ✍️ Faire les Exercices
                     </a>
@@ -43,7 +48,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
