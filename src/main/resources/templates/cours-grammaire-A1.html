@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head th:replace="~{fragments/head :: head(title='Cours grammaire A1')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<div class="container mt-5">
-    <h1 class="mb-4">Bienvenue dans le cours de Grammaire A1 !</h1>
-    <p class="lead">Parcourez les leçons une par une :</p>
-    <button
-            type="button"
-            class="btn btn-outline-secondary float-end"
-            onclick="history.back()">
-        <i class="bi bi-arrow-left"></i> Retour
-    </button>
+<main class="container mt-5 flex-grow-1">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-4">Bienvenue dans le cours de Grammaire A1 !</h1>
 
-    <div class="list-group">
-        <ul>
-            <li><a th:href="@{/articlesDéfinis}" class="btn btn-primary">1.Les articles définis, indéfinis et
-                partitifs</a></li>
-            <br>
-            <li><a th:href="@{/genreEtNombreDesNoms}" class="btn btn-primary">2.Genre et nombre des noms</a></li>
-            <br>
-            <li><a th:href="@{/adjectifsQualificatifs}" class="btn btn-primary">3.Adjectifs qualificatifs</a></li>
-            <br>
-            <li><a th:href="@{/PronomsPersonnelsSujets}" class="btn btn-primary">4.Pronoms personnels sujets</a></li>
-            <br>
-            <li><a th:href="@{/verbesAuPresent}" class="btn btn-primary">5.Verbes au présent</a></li>
-            <br>
-            <li><a th:href="@{/NegationSimple}" class="btn btn-primary">6.Négation simple</a></li>
-            <br>
-            <li><a th:href="@{/questionsSimples}" class="btn btn-primary">7.Questions simples</a></li>
-            <br>
-            <li><a th:href="@{/PropositionsDeLieuEtTemps}" class="btn btn-primary">8.Prépositions de lieu et temps</a>
-            </li>
-            <br>
-            <li><a th:href="@{/pronomsPossessifsEtDemonstratifs}" class="btn btn-primary">9.Pronoms possessifs et
-                démonstratifs</a></li>
-        </ul>
+        <button
+                type="button"
+                class="btn btn-outline-secondary float-end"
+                onclick="history.back()" aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+        </button>
     </div>
-</div>
+    <p class="lead">Parcourez les leçons une par une :</p>
+
+    <nav aria-label="Liste des leçons de grammaire">
+        <div class="list-group">
+            <a th:href="@{/articlesDéfinis}" class="list-group-item list-group-item-action">1. Les articles définis,
+                indéfinis et partitifs</a>
+            <a th:href="@{/genreEtNombreDesNoms}" class="list-group-item list-group-item-action">2. Genre et nombre des
+                noms</a>
+            <a th:href="@{/adjectifsQualificatifs}" class="list-group-item list-group-item-action">3. Adjectifs
+                qualificatifs</a>
+            <a th:href="@{/PronomsPersonnelsSujets}" class="list-group-item list-group-item-action">4. Pronoms
+                personnels sujets</a>
+            <a th:href="@{/verbesAuPresent}" class="list-group-item list-group-item-action">5. Verbes au présent</a>
+            <a th:href="@{/NegationSimple}" class="list-group-item list-group-item-action">6. Négation simple</a>
+            <a th:href="@{/questionsSimples}" class="list-group-item list-group-item-action">7. Questions simples</a>
+            <a th:href="@{/PropositionsDeLieuEtTemps}" class="list-group-item list-group-item-action">8. Prépositions de
+                lieu et temps</a>
+            <a th:href="@{/pronomsPossessifsEtDemonstratifs}" class="list-group-item list-group-item-action">9. Pronoms
+                possessifs et démonstratifs</a>
+        </div>
+    </nav>
+</main>
 
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>

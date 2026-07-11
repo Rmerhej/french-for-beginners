@@ -2,81 +2,91 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Préparation du cours hebdomadaire')}"></head>
 <body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<div class="container mt-5">
-    <h2 class="mb-4">📚 Préparation du cours hebdomadaire</h2>
-    <button
-            type="button"
-            class="btn btn-outline-secondary float-end"
-            onclick="history.back()">
-        <i class="bi bi-arrow-left"></i> Retour
-    </button>
-    <div class="row g-4">
+<div class="mb-5">
+    <main id="main-content" class="container mt-5">
+        <h1 class="mb-4"><span aria-hidden="true">📚</span> Préparation du cours hebdomadaire</h1>
+        <button
+                type="button"
+                class="btn btn-outline-secondary float-end"
+                onclick="history.back()"
+                aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+        </button>
+        <div class="row g-4">
 
-        <div class="col-md-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Cours du 23 Juin<br>
-                        AU BUREAU<br>
-                        P:130
-                    </h5>
+            <div class="col-md-3">
+                <article class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Cours du 23 Juin</h2>
+                        <p>
+                            <strong>AU BUREAU</strong><br>
+                            P:130</p>
 
-                    <a th:href="@{/togoToAuBureu}" class="btn btn-primary">
-                        Voir la leçon
-                    </a>
-                </div>
+                        <a th:href="@{/togoToAuBureu}"
+                           class="btn btn-primary"
+                           aria-label="Voir la leçon Au bureau">
+                            Voir la leçon
+                        </a>
+                    </div>
+                </article>
             </div>
-        </div>
 
-        <div class="col-md-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Cours du 30 Juin<br>
-                        LES GENS<br>
-                        P:140
-                    </h5>
-                    <a th:href="@{/lesgens}" class="btn btn-primary">
-                        Voir la leçon
-                    </a>
-                </div>
+            <div class="col-md-3">
+                <article class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Cours du 30 Juin<br>
+                            LES GENS<br>
+                            P:140
+                        </h5>
+                        <a th:href="@{/lesgens}" class="btn btn-primary"
+                           aria-label="Voir la leçon Les Gens">
+                            Voir la leçon
+                        </a>
+                    </div>
+                </article>
             </div>
-        </div>
 
-        <div class="col-md-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Cours du 7 Juillet<br>
-                        LE SPORT<br>
-                        P:150
-                    </h5>
-                    <a th:href="@{/lesport}" class="btn btn-primary">
-                        Voir la leçon
-                    </a>
-                </div>
+            <div class="col-md-3">
+                <article class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Cours du 7 Juillet<br>
+                            LE SPORT<br>
+                            P:150
+                        </h5>
+                        <a th:href="@{/lesport}" class="btn btn-primary"
+                           aria-label="Voir la leçon Le sport">
+                            Voir la leçon
+                        </a>
+                    </div>
+                </article>
             </div>
-        </div>
 
-        <div class="col-md-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Cours du 21 Juillet<br>
-                        L'ENTREPRISE<br>
-                        P:150
-                    </h5>
-                    <a th:href="@{/entreprise}" class="btn btn-primary">
-                        Voir la leçon
-                    </a>
-                </div>
+            <div class="col-md-3">
+                <article class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Cours du 21 Juillet<br>
+                            L'ENTREPRISE<br>
+                            P:150
+                        </h5>
+                        <a th:href="@{/entreprise}" class="btn btn-primary"
+                           aria-label="Voir la leçon L'ENTREPRISE">
+                            Voir la leçon
+                        </a>
+                    </div>
+                </article>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </main>
 </div>
-<br><br>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

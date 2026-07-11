@@ -3,9 +3,12 @@
 <head th:replace="~{fragments/head :: head(title='Inscription')}"></head>
 
 <body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<div class="container mt-5">
+<main id="main-content" class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow">
@@ -17,21 +20,23 @@
                     <form th:action="@{/register}" th:object="${user}" method="post">
 
                         <div class="mb-3">
-                            <label class="form-label">Nom d'utilisateur</label>
-                            <input type="text" class="form-control" th:field="*{username}" required>
+                            <label for="username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" id="username" class="form-control" th:field="*{username}" required>
                             <div class="text-danger small" th:errors="*{username}"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" th:field="*{email}" required>
-                            <div class="text-danger small" th:errors="*{email}"></div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" th:field="*{email}" required>
+                            <div class="text-danger small" th:errors="*{email}" role="alert"
+                                 aria-live="assertive"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Mot de passe</label>
+                            <label for="password" class="form-label">Mot de passe</label>
                             <div class="input-group">
                                 <input type="password"
+                                       id="password"
                                        class="form-control"
                                        id="password"
                                        th:field="*{password}"
@@ -42,7 +47,8 @@
                                     <i class="bi bi-eye"></i>
                                 </button>
                             </div>
-                            <div class="text-danger small" th:errors="*{password}"></div>
+                            <div class="text-danger small" th:errors="*{password}" role="alert"
+                                 aria-live="assertive"></div>
                         </div>
 
                         <div class="mb-3">
@@ -55,25 +61,28 @@
                                        required>
                                 <button class="btn btn-outline-secondary toggle-password-btn"
                                         type="button"
-                                        id="toggleConfirmPassword">
-                                    <i class="bi bi-eye"></i>
+                                        id="toggleConfirmPassword"
+                                        aria-label="Afficher le mot de passe">
+                                    <i class="bi bi-eye" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <div class="alert alert-info">
-                                <i class="bi bi-info-circle"></i>
-                                <strong>Important :</strong>
-                                Protection de vos données :
-                                Conformément à notre démarche de respect de votre vie privée,<br>
-                                ce site ne collecte aucune donnée personnelle nominative.<br>
-                                Pour créer votre compte, veuillez impérativement utiliser un pseudonyme<br>
-                                et une adresse e-mail fictive (ex: apprenant123@exemple.com).<br>
-                                Ne renseignez jamais votre vrai nom,<br>
-                                votre adresse réelle ou toute information permettant de vous identifier.
-                            </div>
-
+                            <fieldset>
+                                <legend>Acceptation des règles du site</legend>
+                                <div class="alert alert-info">
+                                    <i class="bi bi-info-circle"></i>
+                                    <strong>Important :</strong>
+                                    Protection de vos données :
+                                    Conformément à notre démarche de respect de votre vie privée,<br>
+                                    ce site ne collecte aucune donnée personnelle nominative.<br>
+                                    Pour créer votre compte, veuillez impérativement utiliser un pseudonyme<br>
+                                    et une adresse e-mail fictive (ex: apprenant123@exemple.com).<br>
+                                    Ne renseignez jamais votre vrai nom,<br>
+                                    votre adresse réelle ou toute information permettant de vous identifier.
+                                </div>
+                            </fieldset>
                             <div class="form-check">
                                 <input class="form-check-input is-invalid"
                                        type="checkbox"
@@ -92,7 +101,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

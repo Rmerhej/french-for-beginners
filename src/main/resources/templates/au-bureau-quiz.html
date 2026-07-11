@@ -13,15 +13,19 @@
         .word.dragging { opacity: 0.5; }
     </style>
 </head>
-<body class="container">
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <br>
-<div class="container py-5">
+<main id="main-content" class="container py-5">
     <button
             type="button"
             class="btn btn-outline-secondary float-end"
-            onclick="history.back()">
-        <i class="bi bi-arrow-left"></i> Retour
+            onclick="history.back()"
+            aria-label="Retour">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
     </button>
 
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
@@ -29,7 +33,7 @@
 
 
         <div class="card mb-4">
-            <div class="card-header">Mots à placer (glisse-les)</div>
+            <div class="card-header">Mots à placer</div>
             <div class="card-body words-container" th:data-words="${quiz.words}"></div>
         </div>
 
@@ -47,7 +51,7 @@
         <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
     </div>
 
-</div>
+</main>
 
 <script>
     // Initialize each quiz container

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Les adjectifs-accord pluriel</title>
 
@@ -20,16 +20,22 @@
 
 </head>
 <body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 
 <button
         type="button"
         class="btn btn-outline-secondary float-end"
-        onclick="history.back()">
-    <i class="bi bi-arrow-left"></i> Retour
+        onclick="history.back()"
+        aria-label="Retour à la page précédente">
+    <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
 </button>
-<div class="container py-5">
+<main id="main-content" class="container py-5">
+    <h1>Les adjectifs - Accord au pluriel</h1>
     <h2 class="mb-4">Quiz disponibles</h2>
 
     <div th:if="${quizzes.isEmpty()}" class="alert alert-info">
@@ -37,7 +43,7 @@
     </div>
 
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
-        <h1 th:text="${quiz.title}">Quiz Title</h1>
+        <h3 th:text="${quiz.title}">Quiz Title</h3>
 
         <!-- Mots à placer -->
         <div class="card mb-4">
@@ -59,7 +65,7 @@
         <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
     </div>
 
-</div>
+</main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>

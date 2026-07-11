@@ -1,46 +1,59 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/head :: head(title='Mentions légales _ RGPD')}"></head>
-<body class="container">
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<article class="privacy-policy">
-    <h2>Politique de protection de la vie privée - Français Pour Débutant </h2>
-    <button
-            type="button"
-            class="btn btn-outline-secondary float-end"
-            onclick="history.back()">
-        <i class="bi bi-arrow-left"></i> Retour
-    </button>
-    <h3 class="privacy-policy">Engagement de confidentialité</h3>
-    <p>On attache une importance capitale au respect de votre vie privée. Dans le cadre de l'utilisation du site
-        "Français Pour Débutant", nous avons fait le choix technique de ne traiter aucune donnée à caractère
-        personnel.</p>
+<main id="main-content" class="container my-5">
+    <article>
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Politique de protection de la vie privée - Français Pour Débutant </h1>
+            <button
+                    type="button"
+                    class="btn btn-outline-secondary float-end"
+                    onclick="history.back()"
+                    aria-label="Retour">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+            </button>
+        </header>
+        <h2>Engagement de confidentialité</h2>
+        <p>On attache une importance capitale au respect de votre vie privée. Dans le cadre de l'utilisation du site
+            "Français Pour Débutant", nous avons fait le choix technique de ne traiter aucune donnée à caractère
+            personnel.</p>
 
-    <h3 class="privacy-policy">Fonctionnement du site</h3>
-    <ul>
-        <li><strong>Création des comptes :</strong> Les comptes utilisateurs sont créés manuellement par
-            l'administrateur du site ou dans le cas ou le compte est crée par un utilisateur :
-        </li>
-        <li><strong>Données utilisateur :</strong> Il est strictement demandé aux utilisateurs de <span
-                style="color:red">ne fournir aucune information réelle (nom, prénom, adresse e-mail personnelle, numéro de téléphone). </span>
-            Seuls un pseudonyme et une adresse e-mail fictive doivent être utilisés lors de la configuration de l'accès.
-        </li>
-        <li><strong>Finalité :</strong> Ces informations fictives sont uniquement utilisées pour permettre l'accès aux
-            exercices et le suivi de la progression pédagogique au sein de l'outil, <span style="color:red">
+        <h3>Fonctionnement du site</h3>
+        <ul>
+            <li><strong>Création des comptes :</strong> Les comptes utilisateurs sont créés manuellement par
+                l'administrateur du site ou dans le cas ou le compte est crée par un utilisateur :
+            </li>
+            <li><strong>Données utilisateur :</strong> Il est strictement demandé aux utilisateurs de <span
+                    class="text-danger">ne fournir aucune information réelle (nom, prénom, adresse e-mail personnelle, numéro de téléphone). </span>
+                Seuls un pseudonyme et une adresse e-mail fictive doivent être utilisés lors de la configuration de
+                l'accès.
+            </li>
+            <li><strong>Finalité :</strong> Ces informations fictives sont uniquement utilisées pour permettre l'accès
+                aux
+                exercices et le suivi de la progression pédagogique au sein de l'outil, <span class="text-danger">
             sans aucun lien possible avec votre identité réelle.</span></li>
-    </ul>
+        </ul>
 
-    <h3 class="privacy-policy">Vos droits</h3>
-    <p>Le site n'effectuant pas de collecte de données nominatives, le droit d'accès, de rectification ou de suppression
-        ne s'applique pas, faute de données réelles enregistrées. Cependant, si vous souhaitez supprimer votre compte ou
-        votre progression, il vous suffit d'en faire la demande auprès de votre formateur ou de l'administrateur du
-        site.</p>
+        <h3>Vos droits</h3>
+        <p>Le site n'effectuant pas de collecte de données nominatives, le droit d'accès, de rectification ou de
+            suppression
+            ne s'applique pas, faute de données réelles enregistrées. Cependant, si vous souhaitez supprimer votre
+            compte ou
+            votre progression, il vous suffit d'en faire la demande auprès de votre formateur ou de l'administrateur du
+            site.</p>
 
-    <h3 class="privacy-policy">Cookies</h3>
-    <p>Ce site utilise uniquement des cookies strictement nécessaires au fonctionnement technique de la plateforme
-        (gestion de la session utilisateur). Aucune donnée n'est transmise à des tiers à des fins publicitaires ou de
-        suivi analytique.</p>
-</article>
+        <h3>Cookies</h3>
+        <p>Ce site utilise uniquement des cookies strictement nécessaires au fonctionnement technique de la plateforme
+            (gestion de la session utilisateur). Aucune donnée n'est transmise à des tiers à des fins publicitaires ou
+            de
+            suivi analytique.</p>
+    </article>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

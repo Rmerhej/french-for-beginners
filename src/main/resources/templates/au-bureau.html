@@ -15,19 +15,20 @@
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<div class="container mt-5">
-    <h2 class="mb-4">📚 Préparation du cours hebdomadaire</h2>
+<main class="container mt-5">
+    <h1 class="mb-4">📚 Préparation du cours hebdomadaire</h1>
     <button
             type="button"
             class="btn btn-outline-secondary float-end"
-            onclick="history.back()">
+            onclick="history.back()"
+            aria-label="Retour à la page précédente">
         <i class="bi bi-arrow-left"></i>← Retour
     </button>
     <div class="alert alert-success">
         Score : <span id="score">0</span> / <span id="total">0</span>
     </div>
 
-    <h4 class="mt-5 mb-3 text-primary">📖 Exercices</h4>
+    <h2 class="mt-5 mb-3 text-primary">📖 Exercices</h2>
 
     <div th:each="ex : ${exercises}"
          th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Au Bureau')}"
@@ -38,7 +39,7 @@
             <div class="card-header bg-light">
                 <strong th:text="${ex.lessonTitle}"></strong>
             </div>
-            <div class="card-body">
+            <fieldset class="card-body">
                 <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
 
                 <div class="options mb-3">
@@ -72,14 +73,14 @@
                         th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
                     Vérifier
                 </button>
-            </div>
+            </fieldset>
             <div class="card-footer d-none explanation" th:id="'explanation-' + ${ex.id}">
                 <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
             </div>
         </div>
     </div>
     <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-</div>
+</main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
