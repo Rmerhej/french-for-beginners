@@ -5,17 +5,19 @@ import com.apprendrefr.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("dev")
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    @Value("${ADMIN_USERNAME : rolandladmin}")
+    @Value("${ADMIN_USERNAME}")
     private String adminUsername;
 
-    @Value("${ADMIN_PASSWORD : roland300819}")
+    @Value("${ADMIN_PASSWORD}")
     private String adminPassword;
 
     private final PasswordEncoder passwordEncoder;
