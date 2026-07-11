@@ -30,8 +30,8 @@
     <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
 </button>
 <main id="main-content" class="container py-5">
-    <h1 class="mb-4">Quiz disponibles</h1>
-    <h2 th:text="${quiz.title}"></h2>
+    <h2 class="mb-4">Quiz disponibles</h2>
+
     <div th:if="${quizzes.isEmpty()}" class="alert alert-info">
         Aucun quiz n'est disponible pour le moment.
     </div>
@@ -39,13 +39,13 @@
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
         <h1 th:text="${quiz.title}">Quiz Title</h1>
 
-        <!-- Mots à placer -->
+
         <div class="card mb-4">
             <div class="card-header">Mots à placer (glisse-les)</div>
             <div class="card-body words-container" th:data-words="${quiz.words}"></div>
         </div>
 
-        <!-- Phrase -->
+
         <div class="card mb-4">
             <div class="card-header">Complète la phrase :</div>
             <div class="card-body fs-4 lh-lg sentence-container"

@@ -27,7 +27,7 @@ public class QuizController {
     public String goToPrepositionConjonction(Model model) {
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("préposition"));
         model.addAttribute("quizzes", quizRepository.findByTitleContainingIgnoreCase("conjonction"));
-        return "prepositionConjonction.html";
+        return "prepositionConjonction";
     }
 
     @GetMapping("/accords-des-adjectifs")
