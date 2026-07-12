@@ -34,7 +34,7 @@ public class SecurityConfig {
                         // 1. Ressources publiques (Statiques + Pages publiques)
                         .requestMatchers("/", "/index", "/register", "/login", "/logout",
                                 "/css/**", "/js/**", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
-                                "/fragments/**", "prononciationNew").permitAll()
+                                "/fragments/**", "/prononciationNew").permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
                         .requestMatchers("/prononciation", "/togoToAuBureu",
