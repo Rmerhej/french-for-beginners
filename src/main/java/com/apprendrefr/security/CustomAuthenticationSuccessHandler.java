@@ -18,6 +18,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         System.out.println("################Utilisateur connecté :   " + authentication.getName() + "  ################");
+        // BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        // String hash = encoder.encode("");
+        // System.out.println(hash);
 
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
 
