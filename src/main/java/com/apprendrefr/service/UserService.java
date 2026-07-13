@@ -2,9 +2,10 @@ package com.apprendrefr.service;
 
 import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.UserRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @CacheEvict(value = "users", key = "#id")
     public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
@@ -67,10 +69,12 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
+    @Cacheable("users")
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
+    @CacheEvict(value = "users", key = "#user.id")
     public User save(User user) {
         return userRepository.save(user);
     }
@@ -79,6 +83,7 @@ public class UserService {
         return userRepository.count();
     }
 
+    @CacheEvict(value = "users", key = "#id")
     public void toggleEnabled(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
