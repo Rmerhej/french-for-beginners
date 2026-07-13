@@ -20,25 +20,27 @@
 
     <div sec:authorize="isAuthenticated()">
         <h1 class="mb-4">📚 Toutes les Leçons + Accès aux quiz</h1>
-        <div class="col-6">
-            <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-success btn-lg w-100"><span
-                    style="color:#87CEEB">Quiz sur la grammaire</span></a>
-        </div>
-        <br>
-        <nav aria-label="Navigation des ressources">
-            <div class="col-6">
+        <section class="container mt-4">
+            <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-success btn-lg w-100"><span
+                        style="color:#87CEEB">Quiz sur la grammaire</span></a>
+            </div>
+            <br>
+
+            <div class="col-12 col-md-6">
                 <a th:href="@{/lessons/preparation-list}" class="btn btn-outline-danger btn-lg w-100"><span> Préparation du cours hebdomadaire</span></a>
             </div>
             <br>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <a th:href="@{/preparation-quiz-lesson-vers-index}" class="btn btn-outline-primary btn-lg w-100"><span> Préparation du cours hebdomadaire /Quiz</span></a>
             </div>
             <br>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <a th:href="@{/lessons/prononciation}"
                    class="btn btn-outline-warning btn-lg w-100"><span>Prononciation </span></a>
-            </div>
-        </nav>
+            </div></div>
+        </section>
         <br>
         <div class="row">
             <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">

@@ -66,10 +66,6 @@ public class SupportsCoursController {
     }
 
     /// /////////////////
-    @GetMapping("/coursGrammaireA1")
-    public String allerSurCoursGrammaire() {
-        return "cours-grammaire-A1";
-    }
 
     @GetMapping("/articlesDéfinis")
     public String allerSurArticleDefinis() {
