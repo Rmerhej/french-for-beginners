@@ -3,14 +3,12 @@ package com.apprendrefr.config;
 import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
@@ -19,11 +17,11 @@ public class SecurityConfig {
 
 
     private final CustomAuthenticationSuccessHandler successHandler;
-    private final PersistentTokenRepository persistentTokenRepository;
+    // private final PersistentTokenRepository persistentTokenRepository;
 
-    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler, @Lazy PersistentTokenRepository persistentTokenRepository) {
+    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler) {
         this.successHandler = successHandler;
-        this.persistentTokenRepository = persistentTokenRepository;
+        //  this.persistentTokenRepository = persistentTokenRepository;
     }
 
     @Bean
@@ -49,7 +47,7 @@ public class SecurityConfig {
                                 "/quizzesSurLaGrammaire", "/prepositionConjonction",
                                 "/accords-des-adjectifs", "/les-pronoms", "/les-adjectifs-accord-pluriel", "/utilisation-des-pronoms",
                                 "/expressions-de-temps", "/futur-simple-quiz-grammaire", "/adjectifs-demonstratif-quiz-grammaire",
-                                "/verbes-regulier-quiz-grammaire","/culture").permitAll()
+                                "/verbes-regulier-quiz-grammaire", "/culture").permitAll()
 
                         // 3. Règles Administration (La règle spécifique avant la générale)
                         .requestMatchers("/admin/images/optimize").permitAll() // Exception spécifique
@@ -68,6 +66,12 @@ public class SecurityConfig {
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )
+                .rememberMe(remember -> remember
+                        .key("une-cle-secrete-longue")
+                        .rememberMeParameter("remember-me")
+                        .tokenValiditySeconds(1209600)
+                )
+
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/") // Rediriger vers la racine "/" qui est autorisée

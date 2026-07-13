@@ -16,6 +16,12 @@
     </section>
 
     <div class="container mt-5">
+        <p>
+            Bienvenue
+            <span th:text="${#authentication.name}"
+                  style="font-weight: bold; color: #0d47a1;"></span>
+        </p>
+
         <h2 class="mb-4">📚 Leçons disponibles</h2>
 
         <div class="row">

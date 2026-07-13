@@ -32,6 +32,15 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 
+  cache:
+    type: simple
+
+  web:
+    resources:
+      cacha:
+        cachecontrol:
+          max-age: 30d
+
 # ==================== SERVER ====================
 server:
   port: 8080

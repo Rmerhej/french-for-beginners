@@ -40,7 +40,10 @@
                         Vous avez été déconnecté avec succès.
                     </div>
 
-                    <form th:action="@{/login}" th:object="${user}" method="post" aria-labelledby="login-title">
+                    <form th:action="@{/login}" method="post" aria-labelledby="login-title">
+                        <input type="hidden"
+                               th:name="${_csrf.parameterName}"
+                               th:value="${_csrf.token}" />
                         <div class="mb-3">
                             <label for="username" class="form-label">Nom d'utilisateur :</label>
                             <input type="text" id="username" name="username" class="form-control"
@@ -65,6 +68,10 @@
                                     <i class="bi bi-eye" aria-hidden="true"></i>
                                 </button>
                             </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="remember-me">
+                            Se souvenir de moi
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100 mb-3">Se connecter</button>
