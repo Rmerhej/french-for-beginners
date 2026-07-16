@@ -34,7 +34,8 @@
                     <div class="card-body">
                         <h5 class="card-title" th:text="${lesson.title}"></h5>
                         <p class="text-muted small" th:text="${lesson.level}"></p>
-                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">📕 Voir la leçon</a>
+                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary"><span aria-hidden="true">📕</span>
+                            Voir la leçon</a>
                     </div>
                 </div>
             </div>
@@ -49,17 +50,19 @@
 
             <div class="col-6">
                 <a th:href="@{/prononciation}" class="btn btn-outline-primary btn-lg w-100">
-                    <span>🗣️ Prononciation-(Pré A1) .</span>
+                    <span aria-hidden="true">🗣️</span> Prononciation-(Pré A1) .
                 </a>
             </div>
         </div>
 
         <div class="row my-5">
             <div class="col-6">
-                <a th:href="@{/chiffresEtLettres}" class="btn btn-outline-primary btn-lg w-100"><span> 🔢 🔡Les chiffres et les lettres . </span></a>
+                <a th:href="@{/chiffresEtLettres}" class="btn btn-outline-primary btn-lg w-100"><span
+                        aria-hidden="true"> 🔢 🔡 </span>Les chiffres et les lettres (A1) .</a>
             </div>
             <div class="col-6">
-                <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-primary btn-lg w-100"><span> ❓ Quiz sur la grammaire .</span></a>
+                <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-primary btn-lg w-100"><span
+                        aria-hidden="true">❓</span> Quiz sur la grammaire (A1-A2).</a>
             </div>
         </div>
 
@@ -67,12 +70,13 @@
         <div class="row my-5">
             <div class="col-6">
                 <a th:href="@{/lesVerbes}"
-                   class="btn btn-outline-primary btn-lg w-100"><span> 📘 Les verbes . </span></a>
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span> Les verbes (A1). </a>
             </div>
             <div class="col-6">
 
                 <a th:href="@{/culture}"
-                   class="btn btn-outline-primary btn-lg w-100"><span> ❓ Quiz Culture Française B1-B2  . </span></a>
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">❓</span> Quiz Culture Française
+                    (B1-B2) . </a>
             </div>
 
         </div>
@@ -82,13 +86,22 @@
 
 
             <div class="col-6">
-                <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg w-100"><span>📕 Préparation du cours hebdomadaire / Quiz .</span></a>
+                <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg w-100"><span
+                        aria-hidden="true">📕</span> Préparation du cours hebdomadaire / Quiz (A1-A2) .</a>
             </div>
 
             <div class="col-6">
-                <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg w-100"><span>📗 Préparation du cours hebdomadaire / QCM.</span></a>
+                <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg w-100"><span
+                        aria-hidden="true">📗</span> Préparation du cours hebdomadaire / QCM (A1-A2) .</a>
             </div>
 
+        </div>
+        <div class="row my-5">
+            <div class="col-6">
+                <a th:href="@{/themes}"
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span>Leçons par thème -
+                     Dialogue + QCM + QUIZ (A1-A2) .</a>
+            </div>
         </div>
         <br>
         <!-- Pour les utilisateurs non connectés-->
