@@ -16,6 +16,8 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
     List<Quiz> findByTitleContainingIgnoreCase(String title);
 
+    List<Quiz> findByTitleIgnoreCase(String title);
+
     //  chercher par plusieurs critères,  la logique OR sur les champs existants
     Page<Quiz> findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(
             String title, String sentence, Pageable pageable);

@@ -3,9 +3,10 @@ package com.apprendrefr.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+import lombok.*;
 @Entity
 @Table(name = "users_exercises_scores")
+@Getter @Setter
 public class UserExerciseScore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,43 +46,4 @@ public class UserExerciseScore {
         this.score = points;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Exercise getExercise() {
-        return exercise;
-    }
-
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public LocalDateTime getCompletedAt() {
-        return completedAt;
-    }
-
-    public void setCompletedAt(LocalDateTime completedAt) {
-        this.completedAt = completedAt;
-    }
 }

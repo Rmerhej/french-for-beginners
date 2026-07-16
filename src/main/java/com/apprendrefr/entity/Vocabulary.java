@@ -3,9 +3,10 @@ package com.apprendrefr.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
+import lombok.*;
 @Entity
 @Table(name = "vocabularies")
+@Getter @Setter
 public class Vocabulary {
 
     @Id
@@ -38,83 +39,4 @@ public class Vocabulary {
     @Transient
     private Long lessonId;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFrenchWord() {
-        return frenchWord;
-    }
-
-    public void setFrenchWord(String frenchWord) {
-        this.frenchWord = frenchWord;
-    }
-
-    public String getEnglishTranslation() {
-        return englishTranslation;
-    }
-
-    public void setEnglishTranslation(String englishTranslation) {
-        this.englishTranslation = englishTranslation;
-    }
-
-    public String getPronunciation() {
-        return pronunciation;
-    }
-
-    public void setPronunciation(String pronunciation) {
-        this.pronunciation = pronunciation;
-    }
-
-    public String getExampleSentence() {
-        return exampleSentence;
-    }
-
-    public void setExampleSentence(String exampleSentence) {
-        this.exampleSentence = exampleSentence;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getAudioUrl() {
-        return audioUrl;
-    }
-
-    public void setAudioUrl(String audioUrl) {
-        this.audioUrl = audioUrl;
-    }
-
-    public Lesson getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-    }
-
-    public Long getLessonId() {
-        return lessonId;
-    }
-
-    public void setLessonId(Long lessonId) {
-        this.lessonId = lessonId;
-    }
-
-    public String getAltText() {
-        return altText;
-    }
-
-    public void setAltText(String altText) {
-        this.altText = altText;
-    }
 }

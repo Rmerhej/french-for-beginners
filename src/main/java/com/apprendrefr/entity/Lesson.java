@@ -3,8 +3,8 @@ package com.apprendrefr.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
-
+//import lombok.Data;
+import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity

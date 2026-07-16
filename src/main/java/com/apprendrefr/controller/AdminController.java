@@ -2,6 +2,7 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.*;
 import com.apprendrefr.repository.QuizRepository;
+import com.apprendrefr.repository.ThemeRepository;
 import com.apprendrefr.service.*;
 import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +35,17 @@ public class AdminController {
     private final FileUploadService fileUploadService;
     @Autowired
     private ImageService imageService;
-
+@Autowired
+private ThemeRepository themeRepository;
     public AdminController(LessonService lessonService, UserService userService,
-                           ExerciseService exerciseService, VocabularyService vocabularyService, FileUploadService fileUploadService, QuizRepository quizRepository) {
+                           ExerciseService exerciseService, VocabularyService vocabularyService, FileUploadService fileUploadService, QuizRepository quizRepository,  ThemeRepository themeRepository) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
         this.vocabularyService = vocabularyService;
         this.fileUploadService = fileUploadService;
         this.quizRepository = quizRepository;
+        this.themeRepository = themeRepository;
     }
 
     @GetMapping
@@ -430,12 +433,22 @@ public class AdminController {
 
     /// //////////////////////////////////PRONONCIATION//////////////
 
-    @GetMapping("/preparation/new")
-    public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
+    @GetMapping("/preparation/new") public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
         model.addAttribute("quiz", new Quiz());
         model.addAttribute("exercise", exercise);
 
         return "admin/preparation-form-create";
+    }
+    @GetMapping("/theme/new")
+    public String showCreateThemeForm(Model model) {
+        model.addAttribute("theme", new Theme());
+
+        return "/admin/theme-form-create";
+    }
+    @PostMapping("/theme/new")
+    public String createTheme(@ModelAttribute Theme theme) {
+        themeRepository.save(theme);
+        return "redirect:/themes";
     }
 
 }

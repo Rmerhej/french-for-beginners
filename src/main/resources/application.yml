@@ -16,7 +16,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MySQLDialect
+
 
   # ==================== FILE UPLOAD ====================
   servlet:
@@ -75,7 +75,7 @@ app:
 spring:
   config:
     activate:
-      on-profile: prod
+      on-profile: dev
 
 app:
   upload:
