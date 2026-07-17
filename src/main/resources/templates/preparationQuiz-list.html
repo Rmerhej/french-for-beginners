@@ -1,72 +1,74 @@
 <!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/head :: head(title='Préparation du cours Quiz_List')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<main id="main-content" class="container">
-    <div class="mb-5">
-        <h1 class="mb-4"><span aria-hidden="true">📚 </span> Préparation du cours hebdomadaire /Quiz</h1>
-        <button
-                type="button"
-                class="btn btn-outline-secondary float-end"
-                onclick="history.back()"
-                aria-label="Retour à la page précédente">
-            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-        </button>
+<div class="mb-5">
+    <main id="main-content" class="container">
+        <div class="mb-5">
+            <h1 class="mb-4"><span aria-hidden="true">📚 </span> Préparation du cours hebdomadaire /Quiz</h1>
+            <button
+                    type="button"
+                    class="btn btn-outline-secondary float-end"
+                    onclick="history.back()"
+                    aria-label="Retour à la page précédente">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+            </button>
 
-        <div class="row g-4">
+            <div class="row g-4">
 
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Cours du 30 Juin<br>
-                            LES GENS /Quiz<br>
-                            P:140
-                        </h5>
-                        <a th:href="@{/lesgensquiz}" class="btn btn-primary"
-                           aria-label="Voir le quiz Les gens quiz">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
+                <div class="col-md-3">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Cours du 30 Juin<br>
+                                LES GENS /Quiz<br>
+                                P:140
+                            </h5>
+                            <a th:href="@{/lesgensquiz}" class="btn btn-primary"
+                               aria-label="Voir le quiz Les gens quiz">
+                                Voir la leçon
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-3">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Cours du 7 Juillet /Quiz<br>
+                                LE SPORT<br>
+                                P:150
+                            </h5>
+                            <a th:href="@{/lesportquiz}" class="btn btn-primary"
+                               aria-label="Voir le quiz Le sport quiz">
+                                Voir la leçon
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-3">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Cours du 21 Juillet<br>
+                                L'ENTREPRISE /Quiz<br>
+                                P:160
+                            </h5>
+                            <a th:href="@{/entrepriseQuiz}" class="btn btn-primary"
+                               aria-label="Voir le quiz L'Entreprise quiz">
+                                Voir la leçon
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
             </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Cours du 7 Juillet /Quiz<br>
-                            LE SPORT<br>
-                            P:150
-                        </h5>
-                        <a th:href="@{/lesportquiz}" class="btn btn-primary"
-                           aria-label="Voir le quiz Le sport quiz">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Cours du 21 Juillet<br>
-                            L'ENTREPRISE /Quiz<br>
-                            P:160
-                        </h5>
-                        <a th:href="@{/entrepriseQuiz}" class="btn btn-primary"
-                           aria-label="Voir le quiz L'Entreprise quiz">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
         </div>
-    </div>
-</main>
+    </main>
+</div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
