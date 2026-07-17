@@ -252,7 +252,6 @@ private ThemeRepository themeRepository;
                 vocabularyToSave.setAudioUrl(audioUrl);
             }
 
-            // 5. Sauvegarde de l'objet
             vocabularyService.save(vocabularyToSave);
 
             redirectAttributes.addFlashAttribute("success", "✅ Mot enregistré avec succès !");

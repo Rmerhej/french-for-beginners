@@ -17,7 +17,7 @@ public interface LessonRepository extends JpaRepository<Lesson, Long> {
 
     List<Lesson> findByLevelAndCategory(String level, String category);
 
-    // Recherche par titre
+
     List<Lesson> findByTitleContainingIgnoreCase(String title);
 
     Page<Lesson> findAll(Pageable pageable);

@@ -44,7 +44,7 @@ public class ExerciseService {
         return exerciseRepository.save(exercise);
     }
 
-    // Recherche contenant le mot
+
     public List<Exercise> findByLessonTitleContaining(String keyword) {
         return exerciseRepository.findByLessonTitleContainingIgnoreCase(keyword);
     }
