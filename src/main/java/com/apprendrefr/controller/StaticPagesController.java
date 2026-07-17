@@ -4,7 +4,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SupportsCoursController {
+public class StaticPagesController {
+    @GetMapping("/chiffresEtLettres")
+    public String goToChiffresEtLettres() {
+        return "chiffresEtLettres";
+    }
+
+    @GetMapping("/cultureFrancaise")
+    public String culture() {
+        return "cultureFrancaise";
+    }
+
+    @GetMapping("/fetesFrancaise")
+    public String goToFetesFrancaise() {
+        return "fetesfrancise";
+    }
+    @GetMapping("/politesse")
+    public String goToPolitesse() {
+        return "politesse";
+    }
+    @GetMapping("/lesRegions")
+    public String goToLesRegions() {
+        return "lesregions";
+    }
+    @GetMapping("/lesTransports")
+    public String goToLesTransports() {
+        return "lestransports";
+    }
+    @GetMapping("/lesRepas")
+    public String goToLesRepas() {
+        return "lesrepas";
+    }
 
     @GetMapping("/supports-de-cours")
     public String allerSupportCours() {
@@ -117,4 +147,8 @@ public class SupportsCoursController {
         return "pronoms-possessifs-et-demonstratifs.html";
     }
 
+    @GetMapping("/lesVerbes")
+    public String verbes() {
+        return "verbes";
+    }
 }

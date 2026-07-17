@@ -1,4 +1,3 @@
-// lesson-vocabulary.js
 let currentAudio = null;
 let currentButton = null;
 
