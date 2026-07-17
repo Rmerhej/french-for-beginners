@@ -17,11 +17,9 @@ public class SecurityConfig {
 
 
     private final CustomAuthenticationSuccessHandler successHandler;
-    // private final PersistentTokenRepository persistentTokenRepository;
 
     public SecurityConfig(CustomAuthenticationSuccessHandler successHandler) {
         this.successHandler = successHandler;
-        //  this.persistentTokenRepository = persistentTokenRepository;
     }
 
     @Bean
@@ -80,12 +78,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-    // @Bean
-    //public PersistentTokenRepository persistentTokenRepository(DataSource dataSource) {
-    //  JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-    //tokenRepository.setDataSource(dataSource);
-    //return tokenRepository;
-    //}
 
     @Bean
     public PasswordEncoder passwordEncoder() {
