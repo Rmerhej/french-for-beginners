@@ -32,8 +32,8 @@ public class ThemeController {
     public String listThemes(Model model) {
         var themes = themeService.findAll();
 
-        System.out.println("Nombre de thèmes : " + themes.size());
-        System.out.println(themes);
+       // System.out.println("Nombre de thèmes : " + themes.size());
+       // System.out.println(themes);
         model.addAttribute("themes", themeService.findAll());
 
         return "themes";

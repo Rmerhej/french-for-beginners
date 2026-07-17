@@ -19,9 +19,26 @@
     </div>
 
     <div sec:authorize="isAuthenticated()">
-        <h1 class="mb-4">📚 Toutes les Leçons + Accès aux quiz</h1>
-        <section class="container mt-4">
-            <div class="row g-3">
+        <h1 class="mb-4">📚 Toutes les Leçons + </h1>
+
+        <div class="row">
+            <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">
+                <div class="card h-100 shadow-sm">
+                    <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}"
+                         th:alt="'Illustration de la leçon ' + ${lesson.title}"
+                         class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${lesson.title}"></h5>
+                        <p class="text-muted" th:text="${lesson.level}"></p>
+                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">Accéder à la leçon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <section class="container mt-4">
+        <div class="row g-3">
             <div class="col-12 col-md-6">
                 <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-success btn-lg w-100"><span
                         style="color:#87CEEB">Quiz sur la grammaire</span></a>
@@ -39,24 +56,9 @@
             <div class="col-12 col-md-6">
                 <a th:href="@{/lessons/prononciation}"
                    class="btn btn-outline-warning btn-lg w-100"><span>Prononciation </span></a>
-            </div></div>
-        </section>
-        <br>
-        <div class="row">
-            <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">
-                <div class="card h-100 shadow-sm">
-                    <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}"
-                         th:alt="'Illustration de la leçon ' + ${lesson.title}"
-                         class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h2 class="card-title" th:text="${lesson.title}"></h2>
-                        <p class="text-muted" th:text="${lesson.level}"></p>
-                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">Accéder à la leçon</a>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>

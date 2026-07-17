@@ -10,7 +10,7 @@
 
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Culture</title>
+    <title>Culture-Quiz</title>
     <style>
         .option-wrapper.correct { background-color: #d4edda !important; border-color: #28a745 !important; }
         .option-wrapper.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
@@ -32,7 +32,7 @@
     Score : <span id="score">0</span> / <span id="total">0</span>
 </div>
 
-<h1 class="mt-5 mb-3 text-primary">📖 Culture Française . </h1>
+<h1 class="mt-5 mb-3 text-primary">📖 Culture Française-Quiz . </h1>
 
 <main id="main-content" th:each="ex : ${exercises}"
       th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Culture')}"

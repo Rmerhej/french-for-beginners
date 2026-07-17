@@ -44,7 +44,7 @@
         <div class="row my-5">
             <div class="col-6">
                 <a th:href="@{/supports-de-cours}" class="btn btn-outline-primary btn-lg w-100">
-                    📚 Supports de cours
+                    <span aria-hidden="true">📚</span>Grammaire-Supports de cours (A1-A2)
                 </a>
             </div>
 
@@ -61,17 +61,19 @@
                         aria-hidden="true"> 🔢 🔡 </span>Les chiffres et les lettres (A1) .</a>
             </div>
             <div class="col-6">
-                <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-primary btn-lg w-100"><span
-                        aria-hidden="true">❓</span> Quiz sur la grammaire (A1-A2).</a>
+                <a th:href="@{/lesVerbes}"
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span> Les verbes (A1). </a>
             </div>
+
         </div>
 
 
         <div class="row my-5">
             <div class="col-6">
-                <a th:href="@{/lesVerbes}"
-                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span> Les verbes (A1). </a>
+                <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-primary btn-lg w-100"><span
+                        aria-hidden="true">❓</span> Quiz sur la grammaire (A1-A2).</a>
             </div>
+
             <div class="col-6">
 
                 <a th:href="@{/culture}"
@@ -87,12 +89,12 @@
 
             <div class="col-6">
                 <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg w-100"><span
-                        aria-hidden="true">📕</span> Préparation du cours hebdomadaire / Quiz (A1-A2) .</a>
+                        aria-hidden="true">📕</span> Préparation du cours hebdomadaire : Quiz (A1-A2) .</a>
             </div>
 
             <div class="col-6">
                 <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg w-100"><span
-                        aria-hidden="true">📗</span> Préparation du cours hebdomadaire / QCM (A1-A2) .</a>
+                        aria-hidden="true">📗</span> Préparation du cours hebdomadaire : QCM (A1-A2) .</a>
             </div>
 
         </div>
@@ -100,7 +102,11 @@
             <div class="col-6">
                 <a th:href="@{/themes}"
                    class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span>Leçons par thème -
-                     Dialogue + QCM + QUIZ (A1-A2) .</a>
+                    Dialogue + QCM + QUIZ (A1-A2) .</a>
+            </div>
+            <div class="col-6">
+                <a th:href="@{/cultureFrancaise}"
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span>Culture (A1-A2) .</a>
             </div>
         </div>
         <br>
