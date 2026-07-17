@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les régions françaises</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body{ background:#f8f9fa; }
+        .lesson-header{
+            background:linear-gradient(90deg,#28a745,#20c997);
+            color:white;
+            padding:45px 20px;
+            text-align:center;
+            margin-bottom:40px;
+        }
+        .section-title{ margin-top:40px; margin-bottom:20px; font-weight:bold; }
+        .table th{ background:#f0f0f0; }
+        .example{ margin-bottom:12px; }
+        .translation{ color:#777; font-size:.9rem; margin-left:20px; }
+        .resume{ background:#e8f5e9; border-left:5px solid #28a745; padding:20px; border-radius:5px; }
+        footer{ background:#212529; color:white; padding:40px 0; margin-top:60px; }
+    </style>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<section class="lesson-header">
+    <div class="container">
+        <h1>🇫🇷 Les régions françaises</h1>
+        <p>Découvrir la diversité géographique et culturelle de la France.</p>
+    </div>
+</section>
+
+<div class="container mb-5">
+
+
+    <h3 class="section-title">1. Qu'est-ce qu'une région ?</h3>
+    <p>La France est divisée en plusieurs régions administratives. Chaque région possède sa propre identité, ses
+        paysages, sa gastronomie et ses traditions.</p>
+
+
+    <h3 class="section-title">2. Quelques régions emblématiques</h3>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Région</th>
+                <th>Chef-lieu (Capitale)</th>
+                <th>Spécialité célèbre</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Bretagne</td>
+                <td>Rennes</td>
+                <td>Les crêpes et le cidre.</td>
+            </tr>
+            <tr>
+                <td>Normandie</td>
+                <td>Caen / Rouen</td>
+                <td>Le camembert et les pommes.</td>
+            </tr>
+            <tr>
+                <td>Provence</td>
+                <td>Marseille</td>
+                <td>L'huile d'olive et la lavande.</td>
+            </tr>
+            <tr>
+                <td>Alsace</td>
+                <td>Strasbourg</td>
+                <td>La choucroute et les marchés de Noël.</td>
+            </tr>
+            <tr>
+                <td>Auvergne-Rhône-Alpes</td>
+                <td>Lyon</td>
+                <td>Le fromage et la gastronomie.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h3 class="section-title">3. Exemples de phrases</h3>
+    <div class="example"><span aria-hidden="true">📍</span> <strong>La Bretagne est connue pour ses côtes
+        sauvages.</strong></div>
+    <div class="example"><span aria-hidden="true">📍</span> <strong>À Lyon, on mange dans des bouchons
+        traditionnels.</strong></div>
+    <div class="example"><span aria-hidden="true">📍</span> <strong>La Provence est célèbre pour ses champs de
+        lavande.</strong></div>
+
+    <h3 class="section-title">4. Vocabulaire géographique</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><span aria-hidden="true">🏔</span> une montagne</li>
+                <li class="list-group-item"><span aria-hidden="true">🌊</span> la mer / l'océan</li>
+                <li class="list-group-item"><span aria-hidden="true">🚜</span> la campagne</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><span aria-hidden="true">🏙</span> une ville</li>
+                <li class="list-group-item"><span aria-hidden="true">🍲</span> la gastronomie</li>
+                <li class="list-group-item"><span aria-hidden="true">🗺</span> un territoire</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <h3 class="section-title">5. Petit exercice</h3>
+    <p>Complétez avec le nom de la région correspondante.</p>
+    <ol>
+        <li>On mange de la choucroute en __________.</li>
+        <li>La capitale de la Bretagne est __________.</li>
+        <li>Les champs de lavande se trouvent en __________.</li>
+    </ol>
+
+    <details class="mt-3">
+        <summary class="btn btn-outline-success">Voir les réponses</summary>
+        <div class="mt-3">
+            <ol>
+                <li>Alsace</li>
+                <li>Rennes</li>
+                <li>Provence</li>
+            </ol>
+        </div>
+    </details>
+
+
+    <h3 class="section-title">Résumé</h3>
+    <div class="resume">
+        <ul>
+            <li><strong>Bretagne :</strong> Ouest, crêpes.</li>
+            <li><strong>Normandie :</strong> Nord-Ouest, pommes.</li>
+            <li><strong>Provence :</strong> Sud, lavande.</li>
+            <li><strong>Alsace :</strong> Est, choucroute.</li>
+        </ul>
+    </div>
+</div>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

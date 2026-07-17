@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fêtes française</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+
+        body{
+            background:#f8f9fa;
+        }
+
+        .lesson-header{
+            background:linear-gradient(90deg,#5b8df9,#7b3ff2);
+            color:white;
+            padding:45px 20px;
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .lesson-header h1{
+            font-weight:bold;
+        }
+
+        .section-title{
+            margin-top:40px;
+            margin-bottom:20px;
+            font-weight:bold;
+        }
+
+        .table th{
+            background:#f0f0f0;
+        }
+
+        .example{
+            margin-bottom:12px;
+        }
+
+        .translation{
+            color:#777;
+            font-size:.9rem;
+            margin-left:20px;
+        }
+
+        .resume{
+            background:#eef5ff;
+            border-left:5px solid #0d6efd;
+            padding:20px;
+            border-radius:5px;
+        }
+
+        footer{
+            background:#212529;
+            color:white;
+            padding:40px 0;
+            margin-top:60px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<section class="lesson-header">
+
+    <div class="container">
+
+        <h1><span aria-hidden="true">🎉</span> Les fêtes françaises</h1>
+
+        <p>Découvrir les principales fêtes et traditions en France.</p>
+
+    </div>
+
+</section>
+
+<div class="container mb-5">
+
+    <h3 class="section-title">
+        1. Qu'est-ce qu'une fête ?
+    </h3>
+
+    <p>
+        Une fête est un jour spécial où les personnes célèbrent un événement,
+        une tradition ou une personne importante.
+    </p>
+
+    <p>En France, il existe plusieurs types de fêtes :</p>
+
+    <ul>
+
+        <li><span aria-hidden="true">🎄</span> Noël</li>
+
+        <li><span aria-hidden="true">🎆</span> Le Nouvel An</li>
+
+        <li><span aria-hidden="true">🥞</span> La Chandeleur</li>
+
+        <li><span aria-hidden="true">🐣</span> Pâques</li>
+
+        <li>🎵 La Fête de la Musique</li>
+
+        <li>🇫🇷 La Fête nationale</li>
+
+    </ul>
+
+
+    <h3 class="section-title">
+        2. Les principales fêtes françaises
+    </h3>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover">
+
+            <thead>
+
+            <tr>
+
+                <th>Fête</th>
+
+                <th>Date</th>
+
+                <th>Que fait-on ?</th>
+
+                <th>Traduction</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td><span aria-hidden="true">🎄</span> Noël</td>
+
+                <td>25 décembre</td>
+
+                <td>On offre des cadeaux et on mange en famille.</td>
+
+                <td>Christmas</td>
+
+            </tr>
+
+            <tr>
+
+                <td><span aria-hidden="true">🎆</span> Nouvel An</td>
+
+                <td>1er janvier</td>
+
+                <td>On souhaite une bonne année.</td>
+
+                <td>New Year's Day</td>
+
+            </tr>
+
+            <tr>
+
+                <td><span aria-hidden="true">🥞</span> La Chandeleur</td>
+
+                <td>2 février</td>
+
+                <td>On prépare des crêpes.</td>
+
+                <td>Candlemas</td>
+
+            </tr>
+
+            <tr>
+
+                <td><span aria-hidden="true">🐣</span> Pâques</td>
+
+                <td>Mars / Avril</td>
+
+                <td>Les enfants cherchent des œufs en chocolat.</td>
+
+                <td>Easter</td>
+
+            </tr>
+
+            <tr>
+
+                <td>🎵 Fête de la Musique</td>
+
+                <td>21 juin</td>
+
+                <td>On écoute de la musique dans les rues.</td>
+
+                <td>Music Festival</td>
+
+            </tr>
+
+            <tr>
+
+                <td>🇫🇷 Fête nationale</td>
+
+                <td>14 juillet</td>
+
+                <td>Défilé militaire et feu d'artifice.</td>
+
+                <td>Bastille Day</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- SECTION 3 -->
+
+    <h3 class="section-title">
+        3. Exemples avec des phrases
+    </h3>
+
+    <div class="example">
+
+        🎄 <strong>À Noël, nous décorons le sapin.</strong>
+
+        <div class="translation">
+            → We decorate the Christmas tree.
+        </div>
+
+    </div>
+
+    <div class="example">
+
+        🎆 <strong>Le 1er janvier, nous souhaitons une bonne année.</strong>
+
+        <div class="translation">
+            → We wish everyone a Happy New Year.
+        </div>
+
+    </div>
+
+    <div class="example">
+
+        <span aria-hidden="true">🥞</span> <strong>À la Chandeleur, nous mangeons des crêpes.</strong>
+
+        <div class="translation">
+            → We eat crêpes.
+        </div>
+
+    </div>
+
+    <div class="example">
+
+        <span aria-hidden="true">🥞</span> <strong>Les enfants cherchent des œufs en chocolat à Pâques.</strong>
+
+        <div class="translation">
+            → Children look for chocolate eggs.
+        </div>
+
+    </div>
+
+    <div class="example">
+
+        🇫🇷 <strong>Le 14 juillet, il y a un feu d'artifice.</strong>
+
+        <div class="translation">
+            → There is a fireworks display.
+        </div>
+
+    </div>
+
+    <!-- SECTION 4 -->
+
+    <h3 class="section-title">
+        4. Le vocabulaire des fêtes
+    </h3>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <ul class="list-group">
+
+                <li class="list-group-item"><span aria-hidden="true">🎁</span> un cadeau</li>
+
+                <li class="list-group-item"><span aria-hidden="true">🎄</span> un sapin</li>
+
+                <li class="list-group-item"><span aria-hidden="true">🕯</span> une bougie</li>
+
+                <li class="list-group-item"><span aria-hidden="true">🥞</span> une crêpe</li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <ul class="list-group">
+
+                <li class="list-group-item"><span aria-hidden="true">🥚</span> un œuf en chocolat</li>
+
+                <li class="list-group-item"><span aria-hidden="true">🎆</span> un feu d'artifice</li>
+
+                <li class="list-group-item"><span aria-hidden="true">🎉</span> célébrer</li>
+
+                <li class="list-group-item"><span aria-hidden="true">😊</span> souhaiter</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <h3 class="section-title">
+        5. Petit exercice
+    </h3>
+
+    <p>Complétez avec la bonne fête.</p>
+
+    <ol>
+
+        <li>Le 25 décembre, c'est __________.</li>
+
+        <li>Le 14 juillet, il y a __________.</li>
+
+        <li>À __________, on prépare des crêpes.</li>
+
+        <li>À __________, les enfants cherchent des œufs en chocolat.</li>
+
+        <li>Le 21 juin, c'est __________.</li>
+
+    </ol>
+
+    <details class="mt-3">
+
+        <summary class="btn btn-outline-primary">
+            Voir les réponses
+        </summary>
+
+        <div class="mt-3">
+
+            <ol>
+
+                <li>Noël</li>
+
+                <li>La Fête nationale</li>
+
+                <li>La Chandeleur</li>
+
+                <li>Pâques</li>
+
+                <li>La Fête de la Musique</li>
+
+            </ol>
+
+        </div>
+
+    </details>
+
+
+    <h3 class="section-title">
+        Résumé
+    </h3>
+
+    <div class="resume">
+
+        <ul>
+
+            <li><span aria-hidden="true">🎄</span> Noël → cadeaux, famille, sapin</li>
+
+            <li><span aria-hidden="true">🎆</span> Nouvel An → bonne année</li>
+
+            <li><span aria-hidden="true">🥞</span> Chandeleur → crêpes</li>
+
+            <li><span aria-hidden="true">🐣</span> Pâques → œufs en chocolat</li>
+
+            <li><span aria-hidden="true">🎵</span> Fête de la Musique → concerts</li>
+
+            <li>🇫🇷 14 juillet → défilé et feu d'artifice</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

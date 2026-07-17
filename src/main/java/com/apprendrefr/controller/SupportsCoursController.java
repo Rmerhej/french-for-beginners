@@ -59,6 +59,11 @@ public class SupportsCoursController {
         return "verbes-reguliers";
 
     }
+    @GetMapping("/conjugaison")
+    public String allerSurConjugaison() {
+        return "conjugaison";
+
+    }
 
     @GetMapping("/auxiliaires")
     public String allerSurAuxiliaires() {
