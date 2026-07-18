@@ -1,58 +1,783 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="description" content="Cours de français sur les expressions de temps pour adultes débutants">
-    <title>Expressions de temps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Cours de français A1 sur les expressions de temps pour adultes débutants">
+
+    <title>Expressions de temps - Français A1</title>
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+        .card{
+            height:100%;
+        }
+
+    </style>
+
+
 </head>
 
-<body class="bg-light">
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<button
-        type="button"
-        class="btn btn-outline-secondary float-end"
-        onclick="history.back()">
-    <i class="bi bi-arrow-left"></i> Retour
-</button>
-<div class="container py-5">
 
-    <main class="card shadow-sm">
-        <div class="card-body">
 
-            <h1 class="text-primary">Les expressions de temps</h1>
-            <p class="lead">Elles permettent de situer une action dans le temps.</p>
+<header class="hero py-5 text-center">
 
-            <h2>Exemples</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">hier</li>
-                        <li class="list-group-item">aujourd’hui</li>
-                        <li class="list-group-item">demain</li>
-                    </ul>
-                </div>
 
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">la semaine prochaine</li>
-                        <li class="list-group-item">dans deux jours</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="container">
 
-            <div class="alert alert-success mt-3">
-                Je vais au travail <b>demain</b>.
-            </div>
+
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">⏰</span> Les expressions de temps
+        </h1>
+
+
+        <p class="lead">
+            Situer une action dans le passé, le présent ou le futur
+        </p>
+
+
+    </div>
+
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+
+        <div class="alert alert-primary">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de parler
+                du moment où une action se passe et de répondre aux questions
+                "Quand ?" et "Depuis quand ?".
+
+            </p>
+
+
         </div>
-    </main>
 
-</div>
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'une expression de temps ?</h2>
+
+
+        <p>
+
+            Une expression de temps indique le moment ou la durée d'une action.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <strong>Exemple :</strong>
+
+
+            <p class="mb-0">
+
+                Je vais au travail <strong>demain</strong>.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">📅</span> Le temps : passé, présent, futur</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+
+                <div class="card border-danger">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            ⬅ Passé
+                        </h3>
+
+
+                        <ul>
+
+                            <li>hier</li>
+
+                            <li>avant-hier</li>
+
+                            <li>la semaine dernière</li>
+
+                            <li>il y a deux jours</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card border-success">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Aujourd'hui
+                        </h3>
+
+
+                        <ul>
+
+                            <li>aujourd'hui</li>
+
+                            <li>maintenant</li>
+
+                            <li>en ce moment</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card border-primary">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Futur
+                        </h3>
+
+
+                        <ul>
+
+                            <li>demain</li>
+
+                            <li>après-demain</li>
+
+                            <li>la semaine prochaine</li>
+
+                            <li>dans deux jours</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les expressions de temps fréquentes</h2>
+
+
+        <div class="table-responsive">
+
+
+            <table class="table table-bordered table-hover">
+
+
+                <thead class="table-primary">
+
+
+                <tr>
+
+                    <th>Expression</th>
+
+                    <th>Utilisation</th>
+
+                    <th>Exemple</th>
+
+                </tr>
+
+
+                </thead>
+
+
+                <tbody>
+
+
+                <tr>
+
+                    <td>Hier</td>
+
+                    <td>Jour précédent</td>
+
+                    <td>J'ai travaillé hier.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Aujourd'hui</td>
+
+                    <td>Jour actuel</td>
+
+                    <td>Je travaille aujourd'hui.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Demain</td>
+
+                    <td>Jour suivant</td>
+
+                    <td>Je pars demain.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Dans + durée</td>
+
+                    <td>Moment futur</td>
+
+                    <td>Je reviens dans deux heures.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Il y a + durée</td>
+
+                    <td>Moment passé</td>
+
+                    <td>Je suis arrivé il y a trois jours.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Depuis + durée</td>
+
+                    <td>Action commencée dans le passé et encore vraie</td>
+
+                    <td>J'habite ici depuis deux ans.</td>
+
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Dans ou Depuis ?</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Dans = futur
+                        </h3>
+
+
+                        <p>
+
+                            Une action va commencer plus tard.
+
+                        </p>
+
+
+                        <p>
+
+                            Je pars <strong>dans une heure</strong>.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Depuis = durée
+                        </h3>
+
+
+                        <p>
+
+                            Une action continue maintenant.
+
+                        </p>
+
+
+                        <p>
+
+                            Je travaille ici <strong>depuis cinq ans</strong>.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>🔄 Les expressions de fréquence</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-success">
+
+
+            <tr>
+
+                <th>Expression</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>toujours</td>
+
+                <td>Je suis toujours à l'heure.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>souvent</td>
+
+                <td>Je vais souvent au cinéma.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>parfois</td>
+
+                <td>Je cuisine parfois.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>jamais</td>
+
+                <td>Je ne mange jamais de viande.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>tous les jours</td>
+
+                <td>Je travaille tous les jours.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">❓</span> Questions utiles</h2>
+
+
+        <div class="alert alert-light border">
+
+
+            <ul class="mb-0">
+
+
+                <li>
+                    Quand est-ce que tu arrives ?
+                </li>
+
+
+                <li>
+                    Depuis quand habites-tu ici ?
+                </li>
+
+
+                <li>
+                    Combien de temps travailles-tu ?
+                </li>
+
+
+                <li>
+                    À quelle heure commence le cours ?
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Paul :</strong> Depuis quand habites-tu en France ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> J'habite en France depuis deux ans.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Quand est-ce que tu travailles ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Je travaille demain matin.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je travaille depuis deux heures demain.</td>
+
+                <td>Je travaille depuis deux heures.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je pars depuis deux jours.</td>
+
+                <td>Je pars dans deux jours.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je suis arrivé dans trois jours.</td>
+
+                <td>Je suis arrivé il y a trois jours.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>✍ Exercices</h2>
+
+
+        <p>
+
+            Complétez avec la bonne expression.
+
+        </p>
+
+
+        <ol>
+
+
+            <li>Je vais partir ______ deux heures.</li>
+
+
+            <li>J'habite ici ______ cinq ans.</li>
+
+
+            <li>Je suis allé au cinéma ______.</li>
+
+
+            <li>Nous avons un rendez-vous ______ lundi.</li>
+
+
+            <li>Je travaille ______ les jours.</li>
+
+
+        </ol>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Hier = passé, aujourd'hui = présent, demain = futur.</li>
+
+
+                <li><strong>Dans</strong> indique un moment futur.</li>
+
+
+                <li><strong>Depuis</strong> indique une durée qui continue.</li>
+
+
+                <li>Les expressions de temps répondent aux questions : Quand ? Depuis quand ? Combien de temps ?</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
