@@ -37,17 +37,10 @@ public class QuizService {
         return quizRepository.findByTitleContainingIgnoreCase(title);
     }
 
-    ;
-
     public void deleteById(Long id) {
         quizRepository.deleteById(id);
     }
 
-    public Page<Quiz> searchQuiz(String keyword, Pageable pageable) {
-        //  mot-clé dans le titre OU dans la phrase (sentence)
-        return quizRepository.findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(
-                keyword, keyword, pageable);
-    }
 
     public Quiz getFirstQuiz() {
         return quizRepository.findAll().stream().findFirst().orElse(new Quiz());
@@ -56,6 +49,21 @@ public class QuizService {
     public List<Quiz> findByTitleContaining(String title) {
         List<Quiz> results = quizRepository.findByTitleContainingIgnoreCase(title);
         return results != null ? results : new ArrayList<>();
+    }
+
+    public Page<Quiz> searchQuizzes(String keyword, Pageable pageable) {
+
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return quizRepository.findAll(pageable);
+        }
+
+        return quizRepository.findByTitleContainingIgnoreCase(
+                keyword.trim(),
+                pageable
+        );
+    }
+    public long count() {
+        return quizRepository.count();
     }
 
 }

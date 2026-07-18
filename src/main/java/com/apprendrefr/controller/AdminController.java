@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.*;
+import com.apprendrefr.repository.LessonRepository;
 import com.apprendrefr.repository.QuizRepository;
 import com.apprendrefr.repository.ThemeRepository;
 import com.apprendrefr.service.*;
@@ -30,22 +31,27 @@ public class AdminController {
     private ExerciseService exerciseService;
     @Autowired
     private VocabularyService vocabularyService;
-    @Autowired
-    public QuizRepository quizRepository;
+
     private final FileUploadService fileUploadService;
     @Autowired
     private ImageService imageService;
-@Autowired
-private ThemeRepository themeRepository;
-    public AdminController(LessonService lessonService, UserService userService,
-                           ExerciseService exerciseService, VocabularyService vocabularyService, FileUploadService fileUploadService, QuizRepository quizRepository,  ThemeRepository themeRepository) {
+    @Autowired
+    private ThemeRepository themeRepository;
+    @Autowired
+    private ThemeService themeService;
+    @Autowired
+    private QuizService quizService;
+
+    public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
+                           ExerciseService exerciseService, VocabularyService vocabularyService, ThemeService themeService, FileUploadService fileUploadService) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
         this.vocabularyService = vocabularyService;
         this.fileUploadService = fileUploadService;
-        this.quizRepository = quizRepository;
         this.themeRepository = themeRepository;
+        this.themeService = themeService;
+        this.quizService = quizService;
     }
 
     @GetMapping
@@ -60,7 +66,8 @@ private ThemeRepository themeRepository;
         long users = userService.count();
         long exercises = exerciseService.count();
         long vocabularies = vocabularyService.count();
-        long quizzes = quizRepository.count();
+        long quizzes = quizService.count();
+        long themes = themeService.count();
 
         //  Passage des variables locales au modèle Thymeleaf
         model.addAttribute("lessonsCount", lessons);
@@ -68,6 +75,7 @@ private ThemeRepository themeRepository;
         model.addAttribute("exercisesCount", exercises);
         model.addAttribute("vocabularyCount", vocabularies);
         model.addAttribute("quizzesCount", quizzes);
+        model.addAttribute("themesCount", themes);
 
         return "admin/dashboard";
     }
@@ -168,8 +176,20 @@ private ThemeRepository themeRepository;
 // ==================== GESTION DES LEÇONS ====================
 
     @GetMapping("/lessons")
-    public String listLessons(Model model) {
-        model.addAttribute("lessons", lessonService.findAll());
+    public String lessons(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String keyword,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Lesson> lessonsPage = lessonService.searchLessons(keyword, pageable);
+
+        model.addAttribute("lessonsPage", lessonsPage);
+        model.addAttribute("lessons", lessonsPage.getContent());
+        model.addAttribute("keyword", keyword);
+
         return "admin/lessons-list";
     }
 
@@ -369,13 +389,26 @@ private ThemeRepository themeRepository;
     }
 
     // ==================== QUIZZES ====================
-    // LISTE
+
     @GetMapping("/quizzes")
-    public String listQuizzesForAdmin(Model model) {
-        model.addAttribute("quizzes", quizRepository.findAll());
-        return "/admin/quizzes-list";
+    public String quizzes(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String keyword,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Quiz> quizzesPage = quizService.searchQuizzes(keyword, pageable);
+
+        model.addAttribute("quizzesPage", quizzesPage);
+        model.addAttribute("quizzes", quizzesPage.getContent());
+        model.addAttribute("keyword", keyword);
+
+        return "admin/quizzes-list";
     }
 
+    /*############################*/
     @GetMapping("/quiz/create")
     public String showCreateQuizForm(Model model) {
         model.addAttribute("quiz", new Quiz());
@@ -384,14 +417,14 @@ private ThemeRepository themeRepository;
 
     @PostMapping("/quiz/create")
     public String saveQuiz(@ModelAttribute Quiz quiz, RedirectAttributes redirectAttributes) {
-        quizRepository.save(quiz);
+        quizService.save(quiz);
         redirectAttributes.addFlashAttribute("success", "✅ Quiz créé !");
         return "redirect:/admin/quizzes";
     }
 
     @GetMapping("/quiz/edit/{id}")
     public String showEditQuizForm(@PathVariable Long id, Model model) {
-        Optional<Quiz> opt = quizRepository.findById(id);
+        Optional<Quiz> opt = quizService.findById(id);
         if (opt.isPresent()) {
             model.addAttribute("quiz", opt.get());
             return "admin/quiz-edit";
@@ -402,13 +435,13 @@ private ThemeRepository themeRepository;
     @PostMapping("/quiz/edit/{id}")
     public String updateQuiz(@PathVariable Long id, @ModelAttribute Quiz quiz) {
         quiz.setId(id);
-        quizRepository.save(quiz);
+        quizService.save(quiz);
         return "redirect:/admin/quizzes";
     }
 
     @GetMapping("/quiz/delete/{id}")
     public String deleteQuiz(@PathVariable Long id) {
-        quizRepository.deleteById(id);
+        quizService.deleteById(id);
         return "redirect:/admin/quizzes";
     }
 
@@ -417,6 +450,64 @@ private ThemeRepository themeRepository;
         model.addAttribute("quiz", new Quiz());
         return "admin/quiz-create"; // Affiche le formulaire
     }
+
+    //##############################  Themes  #############################//
+
+    @GetMapping("/themes")
+    public String listThemesForAdmin(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String keyword,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Theme> themesPage = themeService.searchThemes(keyword, pageable);
+
+        model.addAttribute("themesPage", themesPage);
+        model.addAttribute("themes", themesPage.getContent());
+        model.addAttribute("keyword", keyword);
+
+        return "admin/themes-list";
+    }
+
+    @GetMapping("/theme/new")
+    public String showCreateThemeForm(Model model) {
+        model.addAttribute("theme", new Theme());
+
+        return "admin/theme-form-create";
+    }
+
+    @PostMapping("/theme/new")
+    public String createTheme(@ModelAttribute Theme theme) {
+        themeService.save(theme);
+        return "redirect:/themes";
+    }
+
+    @GetMapping("/theme/edit/{id}")
+    public String showEditThemeForm(@PathVariable Long id, Model model) {
+        Optional<Theme> opt = themeService.findById(id);
+        if (opt.isPresent()) {
+            model.addAttribute("theme", opt.get());
+            return "admin/theme-edit";
+
+        }
+        return "redirect:/admin/themes";
+    }
+
+    @PostMapping("/theme/edit/{id}")
+    public String updateTheme(@PathVariable Long id, @ModelAttribute Theme theme) {
+        theme.setId(id);
+        themeService.save(theme);
+        return "redirect:/admin/themes";
+    }
+
+    @GetMapping("/theme/delete/{id}")
+    public String deleteTheme(@PathVariable Long id) {
+        themeService.deleteById(id);
+        return "redirect:/admin/themes";
+    }
+
 
     /// ////////////////////////////////////////////////////////////////
     @GetMapping("/images/optimize")
@@ -432,22 +523,13 @@ private ThemeRepository themeRepository;
 
     /// //////////////////////////////////PRONONCIATION//////////////
 
-    @GetMapping("/preparation/new") public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
+    @GetMapping("/preparation/new")
+    public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
         model.addAttribute("quiz", new Quiz());
         model.addAttribute("exercise", exercise);
 
         return "admin/preparation-form-create";
     }
-    @GetMapping("/theme/new")
-    public String showCreateThemeForm(Model model) {
-        model.addAttribute("theme", new Theme());
 
-        return "/admin/theme-form-create";
-    }
-    @PostMapping("/theme/new")
-    public String createTheme(@ModelAttribute Theme theme) {
-        themeRepository.save(theme);
-        return "redirect:/themes";
-    }
 
 }

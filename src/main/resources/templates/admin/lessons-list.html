@@ -31,7 +31,8 @@
             <input type="text" name="keyword" class="form-control"
                    th:value="${keyword}" placeholder="Rechercher par titre...">
             <button type="submit" class="btn btn-primary">🔍 Rechercher</button>
-            <a th:href="@{/admin/lessons(page=${currentPage}, size=${param.size})}"
+            <!--(page=${currentPage}, size=${param.size}) -->
+            <a th:href="@{/admin/lessons}"
                class="btn btn-secondary">Effacer</a>
         </div>
     </form>
