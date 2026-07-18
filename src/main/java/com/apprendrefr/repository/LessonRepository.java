@@ -21,6 +21,10 @@ public interface LessonRepository extends JpaRepository<Lesson, Long> {
     List<Lesson> findByTitleContainingIgnoreCase(String title);
 
     Page<Lesson> findAll(Pageable pageable);
+   /* Page<Lesson> findByTitleContainingIgnoreCase(
+            String keyword,
+            Pageable pageable
+    );*/
 
     Page<Lesson> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
             String title, String content, Pageable pageable);

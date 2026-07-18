@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Thèmes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Liste des Thèmes</h2>
+
+    <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/new}" class="btn btn-success mb-3">+ Nouveau Thème</a>
+
+    <form th:action="@{/admin/themes}" method="get" class="mb-4">
+        <div class="input-group w-50">
+            <input type="text" name="keyword" class="form-control"
+                   th:value="${keyword}"
+                   placeholder="Rechercher dans ou le titre du quiz...">
+            <button type="submit" class="btn btn-primary"><span aria-hidden="true">🔍</span> Rechercher</button>
+            <a th:href="@{/admin/themes}" class="btn btn-secondary">Effacer</a>
+        </div>
+    </form>
+
+    <table class="table table-hover bg-white shadow-sm rounded">
+        <thead class="table-dark">
+        <tr>
+            <th>Titre</th>
+            <!--  <th>Sujet</th>-->
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="theme : ${themes}">
+            <td th:text="${theme.title}">Titre</td>
+            <!-- <td th:text="${theme.dialogueContent}">Phrase</td>-->
+            <td>
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/edit/{id}(id=${theme.id})}"
+                   class="btn btn-warning btn-sm">Modifier</a>
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/delete/{id}(id=${theme.id})}"
+                   class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
