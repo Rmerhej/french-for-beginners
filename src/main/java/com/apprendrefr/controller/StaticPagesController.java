@@ -137,9 +137,9 @@ public class StaticPagesController {
         return "questions-simples.html";
     }
 
-    @GetMapping("/PropositionsDeLieuEtTemps")
-    public String allerSurPropositionsLieuTemps() {
-        return "propositions-de-lieu-et-de-temps.html";
+    @GetMapping("/PrepositionsDeLieuEtTemps")
+    public String allerSurPrepositionsLieuTemps() {
+        return "prepositions-de-lieu-et-de-temps.html";
     }
 
     @GetMapping("/pronomsPossessifsEtDemonstratifs")

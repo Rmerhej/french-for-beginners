@@ -1,56 +1,740 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="description" content="Cours de français sur Le futur simple pour adultes débutants">
-    <title>Le futur simple</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="description"
+          content="Cours de français A1 sur le futur simple pour adultes débutants">
+
+    <title>Le futur simple - Français A1</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+    </style>
+
 </head>
 
+
 <body class="bg-light">
+
+
 <a href="#contenu" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<button
-        type="button"
-        class="btn btn-outline-secondary float-end"
-        onclick="history.back()"
-        aria-label="Retour à la page précédente ">
-    <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-</button>
-<main class="container py-5">
+
+
+<main id="contenu" class="container py-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
 
     <div class="card shadow-sm">
+
+
         <div class="card-body">
 
-            <h1 class="text-primary">Le futur simple</h1>
-            <p class="lead">Le futur simple sert à parler d’actions qui vont se passer plus tard.</p>
-            <section aria-labelledby="Formation">
-                <h2>Formation</h2>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item">je -ai</li>
-                    <li class="list-group-item">tu -as</li>
-                    <li class="list-group-item">il/elle -a</li>
-                    <li class="list-group-item">nous -ons</li>
-                    <li class="list-group-item">vous -ez</li>
-                    <li class="list-group-item">ils/elles -ont</li>
-                </ul>
-            </section>
-            <section aria-labelledby="Examples">
-                <h2>Exemples</h2>
-                <div class="alert alert-info" role="note">
-                    Je <b>parlerai</b> français.<br>
-                    Nous <b>irons</b> à Paris.
+
+            <h1 class="text-primary">
+                <span aria-hidden="true">📅</span> Le futur simple
+            </h1>
+
+
+            <p class="lead">
+
+                Parler d'une action qui se passera dans le futur.
+
+            </p>
+
+
+            <section>
+
+
+                <div class="alert alert-primary">
+
+                    <strong><span aria-hidden="true">🎯</span> Objectif :</strong>
+
+                    Apprendre à parler de ses projets, ses prévisions et ses intentions.
+
                 </div>
+
+
             </section>
+
+
+            <section>
+
+
+                <h2>Quand utiliser le futur simple ?</h2>
+
+
+                <p>
+
+                    Le futur simple permet de parler d'une action qui aura lieu
+                    <strong>plus tard</strong>.
+
+                </p>
+
+
+                <ul>
+
+                    <li>un projet : Je voyagerai l'année prochaine.</li>
+
+                    <li>une prévision : Il fera beau demain.</li>
+
+                    <li>une promesse : Je t'aiderai.</li>
+
+                    <li>une décision : Nous commencerons lundi.</li>
+
+                </ul>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Formation du futur simple</h2>
+
+
+                <div class="alert alert-info">
+
+
+                    <strong>
+                        Infinitif du verbe + terminaison du futur
+                    </strong>
+
+
+                    <br><br>
+
+
+                    Parler + ai → Je parlerai
+
+                    <br>
+
+                    Finir + ons → Nous finirons
+
+                    <br>
+
+                    Vendre + ez → Vous vendrez
+
+
+                </div>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Les terminaisons</h2>
+
+
+                <table class="table table-bordered">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Pronom</th>
+
+                        <th>Terminaison</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+                        <td>Je</td>
+                        <td>-ai</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Tu</td>
+                        <td>-as</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Il / Elle / On</td>
+                        <td>-a</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Nous</td>
+                        <td>-ons</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Vous</td>
+                        <td>-ez</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ils / Elles</td>
+                        <td>-ont</td>
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Exemple : parler au futur simple</h2>
+
+
+                <table class="table table-bordered">
+
+
+                    <thead class="table-success">
+
+
+                    <tr>
+
+                        <th>Pronom</th>
+
+                        <th>Conjugaison</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+                        <td>Je</td>
+                        <td>parlerai</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Tu</td>
+                        <td>parleras</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Il / Elle</td>
+                        <td>parlera</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Nous</td>
+                        <td>parlerons</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Vous</td>
+                        <td>parlerez</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Ils / Elles</td>
+                        <td>parleront</td>
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Exemples dans la vie quotidienne</h2>
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-4">
+
+
+                        <div class="card shadow-sm">
+
+
+                            <div class="card-body">
+
+
+                                <h3 class="h5">
+                                    Travail
+                                </h3>
+
+
+                                <p>
+                                    Je travaillerai demain.
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+
+                        <div class="card shadow-sm">
+
+
+                            <div class="card-body">
+
+
+                                <h3 class="h5">
+                                    Voyage
+                                </h3>
+
+
+                                <p>
+                                    Nous visiterons Paris.
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+
+                        <div class="card shadow-sm">
+
+
+                            <div class="card-body">
+
+
+                                <h3 class="h5">
+                                    Projets
+                                </h3>
+
+
+                                <p>
+                                    J'apprendrai le français.
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Les verbes irréguliers fréquents</h2>
+
+
+                <table class="table table-bordered">
+
+
+                    <thead class="table-warning">
+
+
+                    <tr>
+
+                        <th>Verbe</th>
+
+                        <th>Futur</th>
+
+                        <th>Exemple</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td>être</td>
+
+                        <td>ser-</td>
+
+                        <td>Je serai prêt.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>avoir</td>
+
+                        <td>aur-</td>
+
+                        <td>J'aurai du temps.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>aller</td>
+
+                        <td>ir-</td>
+
+                        <td>Nous irons au cinéma.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>faire</td>
+
+                        <td>fer-</td>
+
+                        <td>Il fera attention.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>venir</td>
+
+                        <td>viendr-</td>
+
+                        <td>Ils viendront demain.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>prendre</td>
+
+                        <td>prendr-</td>
+
+                        <td>Je prendrai le train.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Futur proche ou futur simple ?</h2>
+
+
+                <table class="table table-bordered">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Temps</th>
+
+                        <th>Utilisation</th>
+
+                        <th>Exemple</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td>Futur proche</td>
+
+                        <td>Projet prévu, intention</td>
+
+                        <td>Je vais partir demain.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Futur simple</td>
+
+                        <td>Événement futur, prévision</td>
+
+                        <td>Je partirai demain.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2>Les expressions du futur</h2>
+
+
+                <div class="alert alert-secondary">
+
+
+                    <ul class="mb-0">
+
+
+                        <li>demain</li>
+
+                        <li>la semaine prochaine</li>
+
+                        <li>le mois prochain</li>
+
+                        <li>l'année prochaine</li>
+
+                        <li>plus tard</li>
+
+                        <li>dans quelques jours</li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+                <table class="table table-bordered">
+
+
+                    <thead class="table-danger">
+
+
+                    <tr>
+
+                        <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                        <th><span aria-hidden="true">✅</span> Correct</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td>Je parler demain.</td>
+
+                        <td>Je parlerai demain.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Nous irons à Paris hier.</td>
+
+                        <td>Nous irons à Paris demain.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Il sera faire.</td>
+
+                        <td>Il fera.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+            <section>
+
+
+                <h2><span aria-hidden="true">💬</span> Petit dialogue</h2>
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <p>
+                            <strong>A :</strong> Que feras-tu ce week-end ?
+                        </p>
+
+
+                        <p>
+                            <strong>B :</strong> Je visiterai ma famille et nous mangerons ensemble.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+            <section>
+
+
+                <div class="alert alert-success">
+
+
+                    <strong><span aria-hidden="true">🧠</span> À retenir :</strong>
+
+
+                    <ul class="mb-0">
+
+                        <li>Le futur simple parle d'une action future.</li>
+
+                        <li>On utilise l'infinitif + les terminaisons : ai, as, a, ons, ez, ont.</li>
+
+                        <li>Certains verbes ont un radical irrégulier.</li>
+
+                        <li>Il est très utilisé pour parler des projets et des prévisions.</li>
+
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+
         </div>
+
     </div>
+
+
 </main>
+
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>

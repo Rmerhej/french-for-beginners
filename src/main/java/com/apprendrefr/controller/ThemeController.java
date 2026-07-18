@@ -8,7 +8,9 @@ import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.ThemeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +20,19 @@ import java.util.List;
 public class ThemeController {
 
     private final ThemeService themeService;
-    private final ThemeRepository themeRepository;
     private final QuizRepository quizRepository;
     private final ExerciseService exerciseService;
+
     public ThemeController(ThemeService themeService, ThemeRepository themeRepository, QuizRepository quizRepository, ExerciseService exerciseService) {
         this.themeService = themeService;
-        this.themeRepository = themeRepository;
         this.quizRepository = quizRepository;
         this.exerciseService = exerciseService;
     }
 
     @GetMapping
     public String listThemes(Model model) {
-        var themes = themeService.findAll();
 
-       // System.out.println("Nombre de thèmes : " + themes.size());
-       // System.out.println(themes);
+        var themes = themeService.findAll();
         model.addAttribute("themes", themeService.findAll());
 
         return "themes";

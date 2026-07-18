@@ -4,70 +4,486 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronoms Personnels Sujets - Français A1</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
     <style>
-        body { font-family: 'Segoe UI', system-ui, sans-serif; } .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+        .card{
+            height:100%;
+        }
     </style>
 </head>
+
 <body>
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<header class="hero py-5 text-center" aria-labelledby="page-title">
+
+<header class="hero py-5 text-center">
     <div class="container">
-        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> Pronoms Personnels Sujets</h1>
+        <h1 class="display-5 fw-bold">
+            📘 Pronoms Personnels Sujets
+        </h1>
+        <p class="lead mt-3">
+            Apprenez à utiliser les pronoms personnels sujets pour parler de vous,
+            d'une autre personne ou d'un groupe.
+        </p>
     </div>
 </header>
 
 <main id="main-content" class="container my-5">
-    <div class="table-responsive">
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span>
+                Objectif
+            </h2>
+
+            <p class="mb-0">
+                À la fin de cette leçon, vous serez capable d'utiliser correctement
+                les pronoms personnels sujets dans des phrases simples du quotidien.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Qu'est-ce qu'un pronom personnel sujet ?</h2>
+
+        <p>
+            Le pronom personnel sujet remplace une personne, un animal ou une chose.
+            Il est placé avant le verbe.
+        </p>
+
+        <div class="alert alert-info">
+
+            <strong>Exemple :</strong>
+
+            <p class="mb-1">
+                Marie est française.
+            </p>
+
+            <p class="mb-0">
+                ➜ <strong>Elle</strong> est française.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Les pronoms personnels sujets</h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <caption>
+                    Tableau des pronoms personnels sujets
+                </caption>
+
+                <thead class="table-primary">
+
+                <tr>
+
+                    <th>Pronom</th>
+                    <th>Utilisation</th>
+                    <th>Exemple</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr>
+                    <td><strong>Je (J')</strong></td>
+                    <td>Moi</td>
+                    <td>Je suis étudiant.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Tu</strong></td>
+                    <td>Une personne proche</td>
+                    <td>Tu habites à Lyon.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Il</strong></td>
+                    <td>Un homme</td>
+                    <td>Il travaille.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Elle</strong></td>
+                    <td>Une femme</td>
+                    <td>Elle parle français.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>On</strong></td>
+                    <td>Une ou plusieurs personnes</td>
+                    <td>On mange ensemble.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Nous</strong></td>
+                    <td>Plusieurs personnes avec moi</td>
+                    <td>Nous étudions.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Vous</strong></td>
+                    <td>Politesse ou plusieurs personnes</td>
+                    <td>Vous êtes professeur.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Ils</strong></td>
+                    <td>Groupe masculin ou mixte</td>
+                    <td>Ils habitent à Paris.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Elles</strong></td>
+                    <td>Groupe féminin</td>
+                    <td>Elles travaillent.</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2><span aria-hidden="true">🤝</span> Tu ou Vous ?</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="card border-success">
+
+                    <div class="card-header bg-success text-white">
+
+                        Tu
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul>
+
+                            <li>avec la famille</li>
+
+                            <li>avec les amis</li>
+
+                            <li>avec les enfants</li>
+
+                            <li>avec une personne proche</li>
+
+                        </ul>
+
+                        <p>
+
+                            <strong>Exemple :</strong>
+
+                            Tu habites où ?
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="card border-primary">
+
+                    <div class="card-header bg-primary text-white">
+
+                        Vous
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul>
+
+                            <li>pour être poli</li>
+
+                            <li>au travail</li>
+
+                            <li>dans les magasins</li>
+
+                            <li>avec plusieurs personnes</li>
+
+                        </ul>
+
+                        <p>
+
+                            <strong>Exemple :</strong>
+
+                            Vous parlez français ?
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2><span aria-hidden="true">💡</span> Le pronom « on »</h2>
+
+        <p>
+
+            En français, <strong>on</strong> est très utilisé à l'oral.
+
+            Très souvent, il remplace <strong>nous</strong>.
+
+        </p>
+
+        <div class="alert alert-warning">
+
+            Nous allons au cinéma.
+
+            <br>
+
+            ➜ On va au cinéma.
+
+        </div>
+
+        <p>
+
+            Le verbe est toujours conjugué à la troisième personne du singulier.
+
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2><span aria-hidden="true" 📝></span> Je devient J'</h2>
+
+        <p>
+
+            Devant une voyelle ou un <strong>h</strong> muet, on écrit <strong>j'</strong>.
+
+        </p>
+
         <table class="table table-bordered">
-            <caption>Tableau des Pronoms Personnels Sujets avec exemples</caption>
-            <thead class="table-primary">
+
+            <thead class="table-light">
+
             <tr>
-                <th scope="col">Pronom</th>
-                <th scope="col">Exemple</th>
+
+                <th>Correct</th>
+
+                <th>Incorrect</th>
+
             </tr>
+
             </thead>
+
             <tbody>
+
             <tr>
-                <td>Je (J’)</td>
-                <td>Je suis français</td>
+
+                <td>J'aime le café.</td>
+
+                <td>Je aime le café.</td>
+
             </tr>
+
             <tr>
-                <td>Tu</td>
-                <td>Tu es étudiant</td>
+
+                <td>J'habite à Paris.</td>
+
+                <td>Je habite à Paris.</td>
+
             </tr>
-            <tr>
-                <td>Il / Elle / On</td>
-                <td>
-                    <ul>
-                        <li> Il parle</li>
-                        <li>Elle parle</li>
-                        <li>On parle</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Nous</td>
-                <td>Nous travaillons</td>
-            </tr>
-            <tr>
-                <td>Vous</td>
-                <td>Vous êtes gentils</td>
-            </tr>
-            <tr>
-                <td>Ils / Elles</td>
-                <td>Ils habitent à Paris</td>
-            </tr>
+
             </tbody>
+
         </table>
-    </div>
+
+    </section>
+
+    <section>
+
+        <h2>💬 Dialogue</h2>
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <p><strong>Paul :</strong> Bonjour !</p>
+
+                <p><strong>Sara :</strong> Bonjour !</p>
+
+                <p><strong>Paul :</strong> Tu t'appelles comment ?</p>
+
+                <p><strong>Sara :</strong> Je m'appelle Sara.</p>
+
+                <p><strong>Paul :</strong> Vous êtes française ?</p>
+
+                <p><strong>Sara :</strong> Non, je suis espagnole.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Erreurs -->
+
+    <section>
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+        <table class="table table-bordered">
+
+            <thead class="table-danger">
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th>✅ Correct</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td>Je est français.</td>
+
+                <td>Je suis français.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Elle parlent.</td>
+
+                <td>Elle parle.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Je aime.</td>
+
+                <td>J'aime.</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section>
+
+        <h2>✍ Exercices</h2>
+
+        <p>
+            Complétez avec le bon pronom personnel sujet.
+        </p>
+
+        <ol>
+
+            <li>_____ suis étudiant.</li>
+
+            <li>Marie est française. _____ habite à Lyon.</li>
+
+            <li>Pierre et Paul jouent au football. _____ sont amis.</li>
+
+            <li>Madame Martin, _____ habitez où ?</li>
+
+            <li>Paul et moi, _____ travaillons ensemble.</li>
+
+        </ol>
+
+    </section>
+
+    <section>
+
+        <div class="alert alert-success">
+
+            <h2 class="h4">
+
+                <span aria-hidden="true">✅</span> À retenir
+
+            </h2>
+
+            <ul class="mb-0">
+
+                <li>Le pronom personnel sujet est placé avant le verbe.</li>
+
+                <li><strong>Je</strong> devient <strong>j'</strong> devant une voyelle ou un h muet.</li>
+
+                <li><strong>Vous</strong> est utilisé pour la politesse ou pour plusieurs personnes.</li>
+
+                <li><strong>On</strong> remplace souvent <strong>nous</strong> à l'oral.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
 </main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

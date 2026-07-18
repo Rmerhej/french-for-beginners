@@ -1,60 +1,692 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pronoms Possessifs & Démonstratifs - Français A1</title>
+
+    <title>Possessifs et démonstratifs - Français A1</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+
     <style>
-        body { font-family: 'Segoe UI', system-ui, sans-serif; } .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+        .card{
+            height:100%;
+        }
+
     </style>
+
+
 </head>
+
+
 <body>
+
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
 <header class="hero py-5 text-center">
+
     <div class="container">
-        <h1 class="display-5 fw-bold">📘 Pronoms Possessifs & Démonstratifs</h1>
+
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">📘</span> Les possessifs et les démonstratifs
+        </h1>
+
+        <p class="lead">
+            Parler de ce qui appartient à quelqu'un et montrer quelque chose
+        </p>
+
     </div>
+
 </header>
 
+
 <main id="main-content" class="container my-5">
+
+
     <section>
-        <h2>Possessifs (mon, ton, son...)</h2>
+
+
+        <div class="alert alert-primary">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de dire à qui appartient
+                un objet et de désigner une personne ou une chose.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'un possessif ?</h2>
+
+
+        <p>
+
+            Un déterminant possessif indique une relation de possession.
+
+            Il répond souvent à la question :
+
+            <strong>"À qui ?" </strong>
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <strong>Exemples :</strong>
+
+
+            <ul class="mb-0">
+
+                <li>C'est <strong>mon</strong> téléphone.</li>
+
+                <li>C'est <strong>ma</strong> voiture.</li>
+
+                <li>Ce sont <strong>mes</strong> clés.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les déterminants possessifs</h2>
+
+
+        <div class="table-responsive">
+
+
+            <table class="table table-bordered table-hover">
+
+
+                <thead class="table-primary">
+
+
+                <tr>
+
+                    <th>Personne</th>
+
+                    <th>Masculin</th>
+
+                    <th>Féminin</th>
+
+                    <th>Pluriel</th>
+
+                </tr>
+
+
+                </thead>
+
+
+                <tbody>
+
+
+                <tr>
+
+                    <td>Je</td>
+
+                    <td>mon livre</td>
+
+                    <td>ma maison</td>
+
+                    <td>mes amis</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Tu</td>
+
+                    <td>ton téléphone</td>
+
+                    <td>ta voiture</td>
+
+                    <td>tes parents</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Il / Elle</td>
+
+                    <td>son frère</td>
+
+                    <td>sa sœur</td>
+
+                    <td>ses enfants</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Nous</td>
+
+                    <td>notre travail</td>
+
+                    <td>notre famille</td>
+
+                    <td>nos affaires</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Vous</td>
+
+                    <td>votre appartement</td>
+
+                    <td>votre maison</td>
+
+                    <td>vos amis</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Ils / Elles</td>
+
+                    <td>leur bureau</td>
+
+                    <td>leur voiture</td>
+
+                    <td>leurs enfants</td>
+
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Attention : le possessif dépend de l'objet</h2>
+
+
+        <p>
+
+            En français, le possessif dépend du genre du nom possédé,
+            pas de la personne qui possède.
+
+        </p>
+
+
+        <div class="alert alert-warning">
+
+
+            <p>
+
+                Paul a une voiture.
+
+                <br>
+
+                ➡ C'est <strong>sa</strong> voiture.
+
+            </p>
+
+
+            <p class="mb-0">
+
+                Paul a un téléphone.
+
+                <br>
+
+                ➡ C'est <strong>son</strong> téléphone.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'un démonstratif ?</h2>
+
+
+        <p>
+
+            Un déterminant démonstratif permet de montrer une personne,
+            un objet ou une chose.
+
+            Il correspond souvent à :
+
+            <strong>"ce / cette chose"</strong>.
+
+        </p>
+
+
         <table class="table table-bordered">
-            <thead>
+
+
+            <thead class="table-success">
+
+
             <tr>
-                <th scope="col">Pronom</th>
-                <th scope="col">Exemples</th>
+
+                <th>Forme</th>
+
+                <th>Utilisation</th>
+
+                <th>Exemple</th>
+
             </tr>
+
+
             </thead>
+
+
             <tbody>
+
+
             <tr>
-                <td>Mon / Ma / Mes</td>
-                <td>mon livre – ma voiture – mes amis</td>
+
+                <td><strong>Ce</strong></td>
+
+                <td>Masculin singulier</td>
+
+                <td>Ce livre</td>
+
             </tr>
+
+
             <tr>
-                <td>Ton / Ta / Tes</td>
-                <td>ton téléphone</td>
+
+                <td><strong>Cet</strong></td>
+
+                <td>Masculin devant une voyelle</td>
+
+                <td>Cet homme</td>
+
             </tr>
+
+
             <tr>
-                <td>Son / Sa / Ses</td>
-                <td>son mari – sa femme</td>
+
+                <td><strong>Cette</strong></td>
+
+                <td>Féminin singulier</td>
+
+                <td>Cette maison</td>
+
             </tr>
+
+
+            <tr>
+
+                <td><strong>Ces</strong></td>
+
+                <td>Pluriel</td>
+
+                <td>Ces voitures</td>
+
+            </tr>
+
+
             </tbody>
+
+
         </table>
+
+
     </section>
+
+
     <section>
-        <h2>Démonstratifs (ce, cet, cette, ces)</h2>
-        <p>Ce / Cet (masc.) – Cette (fém.) – Ces (pluriel)</p>
-        <p>Ex. : Ce livre – Cette maison – Ces voitures</p>
+
+
+        <h2>Possessif ou démonstratif ?</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Possession
+                        </h3>
+
+
+                        <p>
+
+                            C'est <strong>mon</strong> sac.
+
+                        </p>
+
+
+                        <p>
+
+                            ➡ Le sac appartient à moi.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Montrer
+                        </h3>
+
+
+                        <p>
+
+                            C'est <strong>ce</strong> sac.
+
+                        </p>
+
+
+                        <p>
+
+                            ➡ Je montre un sac.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
     </section>
+
+
+    <!-- Dialogue -->
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Paul :</strong> Est-ce que c'est ton téléphone ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Oui, c'est mon téléphone.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Et cette voiture ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> C'est la voiture de mon frère.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Ma téléphone</td>
+
+                <td>Mon téléphone</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ce maison</td>
+
+                <td>Cette maison</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ces voiture</td>
+
+                <td>Ces voitures</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Son voiture</td>
+
+                <td>Sa voiture</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>✍ Exercices</h2>
+
+
+        <p>
+
+            Complétez avec le bon déterminant.
+
+        </p>
+
+
+        <ol>
+
+
+            <li>Je cherche _____ clés. (mes / ces)</li>
+
+
+            <li>Elle présente _____ frère.</li>
+
+
+            <li>_____ maison est très grande.</li>
+
+
+            <li>Nous aimons _____ appartement.</li>
+
+
+            <li>_____ enfants jouent dans le jardin.</li>
+
+
+        </ol>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Les possessifs indiquent une possession : mon, ma, mes...</li>
+
+
+                <li>Les démonstratifs montrent une chose : ce, cette, ces...</li>
+
+
+                <li>Le possessif s'accorde avec le nom possédé.</li>
+
+
+                <li>On utilise <strong>cet</strong> devant une voyelle : cet homme.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
 </main>
+
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>

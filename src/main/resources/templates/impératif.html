@@ -1,107 +1,842 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cours de français sur l'impératif pour adultes débutants">
-    <title>L'Impératif - Français Débutant</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="description"
+          content="Cours de français A1 sur l'impératif pour adultes débutants">
+
+    <title>L'impératif - Français A1</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+        }
+
+    </style>
+
 </head>
+
+
 <body>
+
+
 <a href="#contenu" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<main class="container">
-    <h1> L'Impératif</h1>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">📘</span> L'impératif
+        </h1>
+
+        <p class="lead">
+            Donner un ordre, un conseil ou une instruction
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="contenu" class="container my-5">
+
+
     <button
             type="button"
             class="btn btn-outline-secondary float-end"
-            onclick="history.back()"
-            aria-label="Retour à la page précéédente">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
     </button>
-    <p><strong>Niveau débutant - Adultes</strong></p>
 
-    <h2>Qu'est-ce que l'impératif ?</h2>
-    <p>L'impératif sert à <strong>donner des ordres, des conseils, des instructions ou des invitations</strong>.</p>
-    <div class="alert alert-info" role="note">
-        <p><strong>Exemples :</strong></p>
+
+    <section>
+
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+
+            <p class="mb-0">
+
+                Apprendre à donner des instructions et des conseils
+                dans des situations de la vie quotidienne.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Qu'est-ce que l'impératif ?</h2>
+
+
+        <p>
+
+            L'impératif est un mode utilisé pour :
+
+        </p>
+
+
         <ul>
-            <li>Viens ! (ordre)</li>
-            <li>Écoutez bien. (instruction)</li>
-            <li>Allons au cinéma ! (suggestion)</li>
+
+            <li>donner un ordre ;</li>
+
+            <li>donner un conseil ;</li>
+
+            <li>donner une instruction ;</li>
+
+            <li>proposer une action.</li>
+
         </ul>
-    </div>
 
-    <h2>Comment former l'impératif ?</h2>
-    <p>On utilise 3 personnes : <strong>tu</strong>, <strong>nous</strong>, <strong>vous</strong>.</p>
 
-    <table class="table table-bordered text-center">
-        <caption>
-            Conjugaison de l'impératif pour différents groupes de verbes
-        </caption>
-        <tr>
-            <th scope="col">Verbe</th>
-            <th scope="col">tu</th>
-            <th scope="col">nous</th>
-            <th scope="col">vous</th>
-        </tr>
-        <tr>
-            <td>parler (er)</td>
-            <td>Parle !</td>
-            <td>Parlons !</td>
-            <td>Parlez !</td>
-        </tr>
-        <tr>
-            <td>finir (ir)</td>
-            <td>Finis !</td>
-            <td>Finissons !</td>
-            <td>Finissez !</td>
-        </tr>
-        <tr>
-            <td>attendre (re)</td>
-            <td>Attends !</td>
-            <td>Attendons !</td>
-            <td>Attendez !</td>
-        </tr>
-    </table>
+        <div class="alert alert-info">
 
-    <div class="alert alert-warning" role="note">
-        <strong>Règle importante :</strong> Pour les verbes en -er, on enlève le <strong>-s</strong> à la 2e personne du
-        singulier (tu) :<br>
-        Tu parles → Parle !<br>
-        Tu manges → Mange !
-    </div>
 
-    <h2>Verbes irréguliers importants</h2>
-    <ul>
-        <li><strong>Être</strong> → Sois / Soyons / Soyez</li>
-        <li><strong>Avoir</strong> → Aie / Ayons / Ayez</li>
-        <li><strong>Aller</strong> → Va / Allons / Allez</li>
-        <li><strong>Faire</strong> → Fais / Faisons / Faites</li>
-        <li><strong>Savoir</strong> → Sache / Sachons / Sachez</li>
-        <li><strong>Vouloir</strong> → Veuille / Veuillons / Veuillez (plus poli)</li>
-    </ul>
+            <strong>Exemples :</strong>
 
-    <h2>Forme négative</h2>
-    <div class="exemple">
-        Ne parle pas !<br>
-        N'allons pas là-bas.<br>
-        Ne mangez pas trop de sucre.
-    </div>
 
-    <h2>Exercices rapides</h2>
-    <ol>
-        <li>Donne un conseil à un ami qui est stressé : <em>__________________ (se calmer)</em></li>
-        <li>Propose une sortie : <em>__________________ (aller) au restaurant !</em></li>
-        <li>Ordre poli en classe : <em>__________________ (ouvrir) votre livre page 10.</em></li>
-    </ol>
+            <ul class="mb-0">
+
+                <li><strong>Ferme</strong> la porte ! → ordre</li>
+
+                <li><strong>Prenez</strong> votre temps. → conseil</li>
+
+                <li><strong>Regardez</strong> le tableau. → instruction</li>
+
+                <li><strong>Allons</strong> au cinéma ! → proposition</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les personnes utilisées</h2>
+
+
+        <p>
+
+            À l'impératif, on utilise seulement trois personnes :
+
+        </p>
+
+
+        <div class="row g-3">
+
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h3 class="h5">Tu</h3>
+
+                        <p>
+                            Parle !
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h3 class="h5">Nous</h3>
+
+                        <p>
+                            Parlons !
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <h3 class="h5">Vous</h3>
+
+                        <p>
+                            Parlez !
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Formation de l'impératif</h2>
+
+
+        <table class="table table-bordered table-hover">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Verbe</th>
+
+                <th>Tu</th>
+
+                <th>Nous</th>
+
+                <th>Vous</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>parler</td>
+
+                <td>Parle !</td>
+
+                <td>Parlons !</td>
+
+                <td>Parlez !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>finir</td>
+
+                <td>Finis !</td>
+
+                <td>Finissons !</td>
+
+                <td>Finissez !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>attendre</td>
+
+                <td>Attends !</td>
+
+                <td>Attendons !</td>
+
+                <td>Attendez !</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> La règle des verbes en -er</h2>
+
+
+        <div class="alert alert-warning">
+
+
+            À la forme <strong>tu</strong>, les verbes en -er perdent le <strong>-s</strong>.
+
+
+            <br><br>
+
+
+            Tu regardes → <strong>Regarde !</strong>
+
+            <br>
+
+            Tu écoutes → <strong>Écoute !</strong>
+
+            <br>
+
+            Tu manges → <strong>Mange !</strong>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les verbes irréguliers importants</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-success">
+
+
+            <tr>
+
+                <th>Verbe</th>
+
+                <th>Tu</th>
+
+                <th>Nous</th>
+
+                <th>Vous</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>être</td>
+
+                <td>Sois</td>
+
+                <td>Soyons</td>
+
+                <td>Soyez</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>avoir</td>
+
+                <td>Aie</td>
+
+                <td>Ayons</td>
+
+                <td>Ayez</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>aller</td>
+
+                <td>Va</td>
+
+                <td>Allons</td>
+
+                <td>Allez</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>faire</td>
+
+                <td>Fais</td>
+
+                <td>Faisons</td>
+
+                <td>Faites</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>savoir</td>
+
+                <td>Sache</td>
+
+                <td>Sachons</td>
+
+                <td>Sachez</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'impératif dans la vie quotidienne</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            À la maison
+                        </h3>
+
+
+                        <p>
+
+                            Ferme la fenêtre.<br>
+
+                            Range ta chambre.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            Au travail
+                        </h3>
+
+
+                        <p>
+
+                            Envoyez le document.<br>
+
+                            Attendez un moment.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5">
+                            En classe
+                        </h3>
+
+
+                        <p>
+
+                            Écoutez le professeur.<br>
+
+                            Ouvrez votre livre.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La forme négative</h2>
+
+
+        <p>
+
+            Pour faire une interdiction, on utilise :
+
+        </p>
+
+
+        <div class="alert alert-secondary">
+
+
+            <strong>Ne + verbe + pas</strong>
+
+
+            <br><br>
+
+
+            Ne parle pas !
+
+            <br>
+
+            N'oubliez pas votre téléphone.
+
+            <br>
+
+            Ne mangez pas en classe.
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Avec les pronoms</h2>
+
+
+        <p>
+
+            Les pronoms se placent après le verbe à l'impératif affirmatif.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Écoute-moi !</li>
+
+                <li>Regardez-le !</li>
+
+                <li>Aidez-nous !</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Expressions utiles</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Attention !</td>
+
+                <td>Faites attention !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Se dépêcher</td>
+
+                <td>Dépêche-toi !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Patienter</td>
+
+                <td>Attendez un instant.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Être prudent</td>
+
+                <td>Soyez prudent.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Parles !</td>
+
+                <td>Parle !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ne mange pas-il</td>
+
+                <td>Ne mange pas !</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Va toi !</td>
+
+                <td>Va !</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Professeur :</strong> Ouvrez vos livres page 20.
+                </p>
+
+
+                <p>
+                    <strong>Étudiant :</strong> Quelle page ?
+                </p>
+
+
+                <p>
+                    <strong>Professeur :</strong> Regardez la page 20 et écoutez bien.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>L'impératif sert à donner un ordre, un conseil ou une instruction.</li>
+
+
+                <li>Il existe seulement avec <strong>tu, nous, vous</strong>.</li>
+
+
+                <li>Les verbes en -er perdent le -s avec tu.</li>
+
+
+                <li>La forme négative utilise <strong>ne + verbe + pas</strong>.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
 </main>
+
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>

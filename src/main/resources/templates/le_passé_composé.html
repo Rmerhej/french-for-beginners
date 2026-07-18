@@ -1,132 +1,821 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cours de français sur Le passé composé pour adultes débutants">
-    <title>Le Passé Composé - Français Débutant</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="description"
+          content="Cours de français A1 sur le passé composé pour adultes débutants">
+
+    <title>Le passé composé - Français A1</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+        }
+
+    </style>
+
+
 </head>
+
+
 <body>
+
+
 <a href="#contenu" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<main class="container">
-    <h1><span aria-hidden="true">📅</span> Le Passé Composé</h1>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">📅</span> Le passé composé
+        </h1>
+
+        <p class="lead">
+            Parler d'une action terminée dans le passé
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="contenu" class="container my-5">
+
+
     <button
             type="button"
             class="btn btn-outline-secondary float-end"
-            onclick="history.back()"
-            aria-label="Retour">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
     </button>
-    <p><strong>Niveau débutant - Adultes</strong></p>
 
-    <h2>À quoi sert le passé composé ?</h2>
-    <p>C'est le temps du passé le plus utilisé en français. On l'emploie pour parler d'actions
-        <strong>terminées</strong> dans le passé.</p>
-    <div class="exemple">
-        Hier, j'ai mangé une pizza.<br>
-        L'année dernière, nous sommes allés en France.
-    </div>
 
-    <h2>Comment former le passé composé ?</h2>
-    <p><strong>Auxiliaire (avoir ou être) au présent + participe passé</strong></p>
+    <section>
 
-    <h3>1. Avec l'auxiliaire AVOIR </h3>
-    <table class="table table-bordered text-center">
-        <tr>
-            <th scope="col">Verbe</th>
-            <th scope="col">Participe passé</th>
-            <th scope="col">Exemple</th>
-        </tr>
-        <tr>
-            <td>manger</td>
-            <td>mangé</td>
-            <td>J'ai mangé</td>
-        </tr>
-        <tr>
-            <td>finir</td>
-            <td>fini</td>
-            <td>Tu as fini</td>
-        </tr>
-        <tr>
-            <td>attendre</td>
-            <td>attendu</td>
-            <td>Il a attendu</td>
-        </tr>
-    </table>
+        <div class="alert alert-primary">
 
-    <h3>2. Avec l'auxiliaire ÊTRE (verbes de mouvement et de changement d'état)</h3>
-    <p>Exemples : aller, venir, arriver, partir, monter, descendre, naître, mourir, rester, tomber, etc.</p>
-    <div class="exemple">
-        Je suis allé(e) à Paris.<br>
-        Elle est arrivée à 8 heures.
-    </div>
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
 
-    <div class="note">
-        <strong>Accord du participe passé :</strong><br>
-        Avec ÊTRE → le participe s'accorde avec le sujet (ajouter -e, -s, -es).
-    </div>
+            <p class="mb-0">
 
-    <h2>Tableau récapitulatif</h2>
-    <table class="table table-bordered text-center">
-        <tr>
-            <th scope="col">Pronom</th>
-            <th scope="col">Avoir (parler)</th>
-            <th scope="col">Être (aller)</th>
-        </tr>
-        <tr>
-            <td>J'</td>
-            <td>ai parlé</td>
-            <td>suis allé(e)</td>
-        </tr>
-        <tr>
-            <td>Tu</td>
-            <td>as parlé</td>
-            <td>es allé(e)</td>
-        </tr>
-        <tr>
-            <td>Il/Elle/On</td>
-            <td>a parlé</td>
-            <td>est allé(e)</td>
-        </tr>
-        <tr>
-            <td>Nous</td>
-            <td>avons parlé</td>
-            <td>sommes allé(e)s</td>
-        </tr>
-        <tr>
-            <td>Vous</td>
-            <td>avez parlé</td>
-            <td>êtes allé(e)(s)</td>
-        </tr>
-        <tr>
-            <td>Ils/Elles</td>
-            <td>ont parlé</td>
-            <td>sont allé(e)s</td>
-        </tr>
-    </table>
+                Apprendre à raconter des événements passés :
+                une journée, un voyage, une expérience.
 
-    <h2>Forme négative et questions</h2>
-    <div class="exemple">
-        Négatif : Je n'ai pas mangé.<br>
-        Question : As-tu fini ? / Est-elle partie ?
-    </div>
+            </p>
 
-    <h2>Exercices rapides</h2>
-    <ol>
-        <li>Hier soir, je __________ (regarder) un film.</li>
-        <li>Nous __________ (aller) en vacances l'été dernier.</li>
-        <li>Elle __________ (arriver) à l'heure ?</li>
-        <li>Vous __________ (manger) des escargots en France ?</li>
-    </ol>
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>À quoi sert le passé composé ?</h2>
+
+
+        <p>
+
+            Le passé composé est utilisé pour parler d'une action
+            <strong>terminée</strong> dans le passé.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+            <ul class="mb-0">
+
+                <li>Hier, j'ai travaillé.</li>
+
+                <li>Nous sommes partis en vacances.</li>
+
+                <li>Elle a acheté un nouveau téléphone.</li>
+
+            </ul>
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Présent ou passé composé ?</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+            <tr>
+
+                <th>Présent</th>
+
+                <th>Passé composé</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            <tr>
+
+                <td>
+                    Je mange au restaurant.
+                </td>
+
+                <td>
+                    J'ai mangé au restaurant.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Elle arrive à Paris.
+                </td>
+
+                <td>
+                    Elle est arrivée à Paris.
+                </td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Comment former le passé composé ?</h2>
+
+
+        <div class="alert alert-success">
+
+            <strong>
+                Auxiliaire au présent + participe passé
+            </strong>
+
+
+            <br><br>
+
+            J'<strong>ai</strong> parlé.
+
+            <br>
+
+            Nous <strong>sommes</strong> arrivés.
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Avec l'auxiliaire avoir</h2>
+
+
+        <p>
+
+            La majorité des verbes utilisent <strong>avoir</strong>.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-success">
+
+            <tr>
+
+                <th>Verbe</th>
+
+                <th>Participe passé</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>parler</td>
+
+                <td>parlé</td>
+
+                <td>J'ai parlé.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>manger</td>
+
+                <td>mangé</td>
+
+                <td>Nous avons mangé.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>finir</td>
+
+                <td>fini</td>
+
+                <td>Tu as fini.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>prendre</td>
+
+                <td>pris</td>
+
+                <td>Il a pris le bus.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Former le participe passé</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-warning">
+
+            <tr>
+
+                <th>Groupe</th>
+
+                <th>Infinitif</th>
+
+                <th>Participe passé</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>-er</td>
+
+                <td>parler</td>
+
+                <td>parlé</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>-ir</td>
+
+                <td>finir</td>
+
+                <td>fini</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>-re</td>
+
+                <td>vendre</td>
+
+                <td>vendu</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Avec l'auxiliaire être</h2>
+
+
+        <p>
+
+            Certains verbes de mouvement utilisent <strong>être</strong>.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+            <tr>
+
+                <th>Verbe</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>aller</td>
+
+                <td>Je suis allé à Paris.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>venir</td>
+
+                <td>Elle est venue hier.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>arriver</td>
+
+                <td>Ils sont arrivés tôt.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>partir</td>
+
+                <td>Nous sommes partis lundi.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>tomber</td>
+
+                <td>Il est tombé.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2><span aria-hidden="true">⚠</span> L'accord avec être</h2>
+
+
+        <div class="alert alert-warning">
+
+
+            Avec <strong>être</strong>, le participe passé s'accorde avec le sujet.
+
+
+            <br><br>
+
+
+            Il est arrivé.
+
+            <br>
+
+            Elle est arrivée.
+
+            <br>
+
+            Ils sont arrivés.
+
+            <br>
+
+            Elles sont arrivées.
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Participes passés fréquents</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-info">
+
+            <tr>
+
+                <th>Verbe</th>
+
+                <th>Participe passé</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>avoir</td>
+
+                <td>eu</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>être</td>
+
+                <td>été</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>faire</td>
+
+                <td>fait</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>voir</td>
+
+                <td>vu</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>prendre</td>
+
+                <td>pris</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>mettre</td>
+
+                <td>mis</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>Les mots qui indiquent le passé</h2>
+
+
+        <div class="alert alert-secondary">
+
+
+            <ul class="mb-0">
+
+                <li>hier</li>
+
+                <li>avant-hier</li>
+
+                <li>la semaine dernière</li>
+
+                <li>l'année dernière</li>
+
+                <li>il y a deux jours</li>
+
+                <li>ce matin</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+        <h2>La forme négative et les questions</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+            <tr>
+
+                <th>Type</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Négation</td>
+
+                <td>Je n'ai pas travaillé.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Question</td>
+
+                <td>Est-ce que tu as mangé ?</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Question avec inversion</td>
+
+                <td>Es-tu arrivé ?</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'ai allé au cinéma.</td>
+
+                <td>Je suis allé au cinéma.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle a arrivée.</td>
+
+                <td>Elle est arrivée.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>J'ai prendre le bus.</td>
+
+                <td>J'ai pris le bus.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+        <h2><span aria-hidden="true">💬</span> Exemple de récit</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+
+                    Hier, je <strong>suis allé</strong> au marché.
+
+                </p>
+
+
+                <p>
+
+                    J'<strong>ai acheté</strong> des légumes et j'<strong>ai rencontré</strong>
+                    un ami.
+
+                </p>
+
+
+                <p>
+
+                    Nous <strong>avons bu</strong> un café ensemble.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+                <li>Le passé composé parle d'une action terminée.</li>
+
+                <li>Il se forme avec un auxiliaire + un participe passé.</li>
+
+                <li>La majorité des verbes utilisent <strong>avoir</strong>.</li>
+
+                <li>Certains verbes utilisent <strong>être</strong>.</li>
+
+                <li>Avec être, le participe passé s'accorde avec le sujet.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
 </main>
+
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
