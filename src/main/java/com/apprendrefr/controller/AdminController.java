@@ -1,9 +1,6 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.*;
-import com.apprendrefr.repository.LessonRepository;
-import com.apprendrefr.repository.QuizRepository;
-import com.apprendrefr.repository.ThemeRepository;
 import com.apprendrefr.service.*;
 import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,22 +33,22 @@ public class AdminController {
     @Autowired
     private ImageService imageService;
     @Autowired
-    private ThemeRepository themeRepository;
-    @Autowired
     private ThemeService themeService;
     @Autowired
     private QuizService quizService;
+    @Autowired
+    private PrononciationService prononciationService;
 
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
-                           ExerciseService exerciseService, VocabularyService vocabularyService, ThemeService themeService, FileUploadService fileUploadService) {
+                           PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService, ThemeService themeService, FileUploadService fileUploadService) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
         this.vocabularyService = vocabularyService;
         this.fileUploadService = fileUploadService;
-        this.themeRepository = themeRepository;
         this.themeService = themeService;
         this.quizService = quizService;
+        this.prononciationService = prononciationService;
     }
 
     @GetMapping
@@ -68,6 +65,7 @@ public class AdminController {
         long vocabularies = vocabularyService.count();
         long quizzes = quizService.count();
         long themes = themeService.count();
+        long prononciations = prononciationService.count();
 
         //  Passage des variables locales au modèle Thymeleaf
         model.addAttribute("lessonsCount", lessons);
@@ -76,7 +74,7 @@ public class AdminController {
         model.addAttribute("vocabularyCount", vocabularies);
         model.addAttribute("quizzesCount", quizzes);
         model.addAttribute("themesCount", themes);
-
+        model.addAttribute("prononciationsCount", prononciations);
         return "admin/dashboard";
     }
 
@@ -530,6 +528,63 @@ public class AdminController {
 
         return "admin/preparation-form-create";
     }
+    /*########################Prononciation############################*/
+
+    @GetMapping("/prononciationsDashboard")
+    public String prononciationliste(Model model) {
+
+        model.addAttribute("prononciations", prononciationService.findAll());
+
+        return "admin/prononciation-list";
+    }
+
+    @GetMapping("/prononciation/ajouter")
+    public String afficherFormulaire(Model model) {
+        model.addAttribute("prononciation", new com.apprendrefr.model.Prononciation());
+        model.addAttribute("titre", "Ajouter une prononciation");
+
+        return "admin/prononciation-form-create";
+
+    }
+   /* @PostMapping("/prononciation/ajouter")
+    public String enregistrer(
+            @ModelAttribute com.apprendrefr.model.Prononciation prononciation) {
+
+        prononciationService.save(prononciation);
+
+        return "redirect:/prononciation";
+
+    }*/
+
+    @GetMapping("/prononciation/modifier/{id}")
+    public String afficherPrononciationModification(
+            @PathVariable Long id,
+            Model model) {
+        com.apprendrefr.model.Prononciation prononciation =
+                prononciationService.findById(id);
 
 
+        model.addAttribute("prononciation", prononciation);
+        model.addAttribute("titre", "Ajouter une prononciation");
+
+        return "admin/prononciation-form-create";
+
+    }
+
+    @PostMapping("/prononciation/enregistrer")
+    public String enregistrer(@ModelAttribute com.apprendrefr.model.Prononciation prononciation) {
+
+        prononciationService.save(prononciation);
+
+        return "redirect:/prononciation";
+
+    }
+
+    @GetMapping("/prononciation/supprimer/{id}")
+    public String supprimer(@PathVariable Long id) {
+
+        prononciationService.deleteById(id);
+
+        return "redirect:/prononciation";
+    }
 }
