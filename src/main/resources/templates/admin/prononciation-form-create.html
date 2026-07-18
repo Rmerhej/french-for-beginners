@@ -13,6 +13,42 @@
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
+<h1 th:text="${titre}"></h1>
+
+<form th:action="@{/admin/prononciation/enregistrer}" th:object="${prononciation}"
+      method="post">
+
+    <div class="mb-3">
+
+        <label class="form-label">Son</label>
+
+        <input class="form-control" type="text" th:field="*{son}" placeholder="Exemple : ou, on, ch">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">Exemple</label>
+
+        <textarea class="form-control" th:field="*{exemple}" rows="3"
+                  placeholder="Exemple : bouche, couture"></textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">Fichier audio</label>
+
+        <input class="form-control" type="text" th:field="*{audio}" placeholder="/uploads/audio/ou.mp3">
+
+    </div>
+
+    <button class="btn btn-success">Enregistrer</button>
+
+    <a href="/admin/prononciation" class="btn btn-secondary">Annuler</a>
+
+</form>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>

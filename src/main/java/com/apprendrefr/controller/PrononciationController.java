@@ -1,22 +1,38 @@
 package com.apprendrefr.controller;
 
+
+import com.apprendrefr.service.PrononciationService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class PrononciationController {
 
 
-    @GetMapping("/prononciation")
-    public String allerSurPrononciation() {
-        return "prononciation";
+    private final PrononciationService service;
+
+
+
+    public PrononciationController(PrononciationService service){
+        this.service=service;
     }
 
 
-    @GetMapping("/lessons/prononciation")
-    public String allerSurPrononciationDeLessonsPrononciation() {
+
+    @GetMapping("/prononciation")
+    public String afficher(Model model){
+
+
+        model.addAttribute(
+                "prononciations",
+                service.findAll()
+        );
+
+
         return "prononciation";
+
     }
 
 }
-

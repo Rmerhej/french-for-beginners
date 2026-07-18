@@ -15,283 +15,60 @@
     <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
 </button>
 
-<main id="main-content" class="row g-3">
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="h5 card-title mb-0">ô = au = eau</h2>
-            </div>
-            <div class="card-body">
+<main id="main-content">
 
-                <p class="fw-bold">Exemple : </p>
-                <ul>
-                    <li>Un drapeau : Un drap <span aria-hidden="true" style="color: green">eau</span></li>
-                    <li>Il est drôle : Il est dr<span aria-hidden="true" style="color:red">ô</span>le</li>
-                    <li>Une faute : Une f<span aria-hidden="true" style="color:green">au</span>te</li>
-                </ul>
+    <h1 class="text-primary">
+        <span aria-hidden="true">📘</span> Prononciation française
+    </h1>
 
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de ô ,au , eau"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
 
-                    <audio class="d-none">
-                        <source src="/uploads/audio/o-au-eau.mp3" type="audio/mpeg"/>
-                    </audio>
+    <div class="row g-3">
 
-                    <small class="text-muted">Écouter</small>
+
+        <div
+                class="col-12 col-md-6 col-lg-4"
+                th:each="item : ${prononciations}">
+
+            <div class="card h-100">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h2 class="h5" th:text="${item.son}"></h2>
+
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">al ,il ,ol ,ul</h2>
-            </div>
-            <div class="card-body">
 
-                <p class="card-text">Exemple :<br> calcul : calc<i style="color:red">ul</i><br>
-                    animal : anim<i style="color:red">al</i><br>
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de al, il, ol, ul"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
+                <div class="card-body">
 
-                    <audio class="d-none">
-                        <source src="/uploads/audio/al_ul.mp3" type="audio/mpeg"/>
-                    </audio>
 
-                    <small class="text-muted">Écouter</small>
+                    <p>Exemple :</p>
+                    <p th:text="${item.exemple}">
+                    </p>
+
+
+                    <div class="d-flex align-items-center gap-3">
+
+
+                        <button class="btn btn-primary btn-play">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+
+                        <audio class="d-none">
+
+                            <source th:src="${item.audio}" type="audio/mpeg">
+
+                        </audio>
+
+                        <span>Écouter</span>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title"> br ,dr</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> bravoure : <i style="color:red">br</i>avoure<br>
-                    droite : <i style="color:red">dr</i>oite
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de dr"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/br_dr.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">Ch: cha , chi ,cho </h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> La vache : La va<i style="color:red">che</i><br>
-                    déchiré : dé<i style="color:red">chi</i>ré
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de la ch"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/cha_chi.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">in</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> Le sapin : Le sap<i style="color:red">in</i><br>
-                    Le moulin : Le moul<i style="color:red">in</i>
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de l'in"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/in.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">ou</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> bouche : b<i style="color:red">ou</i>che<br>
-                    couture : c<i style="color:red">ou</i>ture
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de ou"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/ou.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">on : mon ,ton ,son</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> capuchon : capuch<i style="color:red">on</i><br>
-                    mouton : mout<i style="color:red">on</i>
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de on"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/on_mon_ton.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">oin. ien.</h2>
-            </div>
-            <div class="card-body">
-
-
-                <p class="card-text">Exemple :<br> Un gardien : Un gard<i style="color:red">ien</i><br>
-                    Un témoin : Un tém<i style="color:red">oin</i></p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de oin"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/Oin-ien.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">ail. euil. eil. eille.</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple : <br>Le soleil : Le sol<i style="color:red">eil</i><br>
-                    Le portail : Le port<i style="color:red">ail</i><br>
-                    Un écureuil : Un écur<i style="color:red">euil</i><br>
-                    Je me réveille : Je me rév<i style="color:red">eille</i><br>
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de ail"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/ail-euil-eil.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title">our. oir. eur.</h2>
-            </div>
-            <div class="card-body">
-
-                <p class="card-text">Exemple :<br> Bonsoir : Bons<i style="color:green">oir</i><br>
-                    Bonjour : Bonj<i style="color:green">our</i><br>
-                    le facteur : Le fact<i style="color:green">eur</i><br>
-                </p>
-                <div class="d-flex align-items-center gap-3 mt-3">
-                    <button class="btn btn-primary btn-play"
-                            aria-label="Écouter la prononciation de our"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
-                        <i class="bi bi-play-fill fs-3" aria-hidden="true"></i>
-                    </button>
-
-                    <audio class="d-none">
-                        <source src="/uploads/audio/our-our-eur.mp3" type="audio/mpeg"/>
-                    </audio>
-
-                    <small class="text-muted">Écouter</small>
-                </div>
-            </div>
-        </div>
     </div>
 
 </main>
