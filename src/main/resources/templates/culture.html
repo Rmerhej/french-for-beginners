@@ -16,7 +16,7 @@
         .option-wrapper.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
     </style>
 </head>
-<body class="container-fluid">
+<body>
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
@@ -34,9 +34,8 @@
 
 <h1 class="mt-5 mb-3 text-primary">📖 Culture Française-Quiz . </h1>
 
-<main id="main-content" th:each="ex : ${exercises}"
+<main class="container" id="main-content" th:each="ex : ${exercises}"
       th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Culture')}"
-      class="mb-5"
       th:id="'exercise-container-' + ${ex.id}">
 
     <div class="card shadow-sm">

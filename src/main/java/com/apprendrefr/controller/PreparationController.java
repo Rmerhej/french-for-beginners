@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
+import com.apprendrefr.entity.Quiz;
 import com.apprendrefr.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,13 @@ public class PreparationController {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Au Bureau");
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "preparation-list";
+    }
+    @GetMapping("/admin/preparation/new")
+    public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
+        model.addAttribute("quiz", new Quiz());
+        model.addAttribute("exercise", exercise);
+
+        return "admin/preparation-form-create";
     }
 
     @GetMapping("/togoToAuBureu")

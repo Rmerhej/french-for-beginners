@@ -15,7 +15,7 @@
         .option-wrapper.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
     </style>
 </head>
-<body class="container">
+<body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div class="container mt-5">
@@ -32,9 +32,9 @@
 
     <h4 class="mt-5 mb-3 text-primary">📖 Exercices</h4>
 
-    <div th:each="ex : ${exercises}"
+    <main th:each="ex : ${exercises}"
          th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Entreprise')}"
-         class="mb-5"
+         class="container"
          th:id="'exercise-container-' + ${ex.id}">
 
         <fieldset class="card shadow-sm mb-5">
@@ -80,7 +80,7 @@
                 <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
             </div>
         </fieldset>
-    </div>
+    </main>
 </div>
 
 
