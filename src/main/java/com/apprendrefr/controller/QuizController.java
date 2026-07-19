@@ -1,12 +1,14 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Quiz;
-import com.apprendrefr.repository.QuizRepository;
 import com.apprendrefr.service.QuizService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -93,5 +95,68 @@ public class QuizController {
         }
         return "redirect:/quizzes";
     }
+
+
+    @GetMapping("/admin/quizzes")
+    public String quizzes(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String keyword,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Quiz> quizzesPage = quizService.searchQuizzes(keyword, pageable);
+
+        model.addAttribute("quizzesPage", quizzesPage);
+        model.addAttribute("quizzes", quizzesPage.getContent());
+        model.addAttribute("keyword", keyword);
+
+        return "admin/quizzes-list";
+    }
+
+    @GetMapping("/admin/quiz/create")
+    public String showCreateQuizForm(Model model) {
+        model.addAttribute("quiz", new Quiz());
+        return "/admin/quiz-create";
+    }
+
+    @PostMapping("/admin/quiz/create")
+    public String saveQuiz(@ModelAttribute Quiz quiz, RedirectAttributes redirectAttributes) {
+        quizService.save(quiz);
+        redirectAttributes.addFlashAttribute("success", "✅ Quiz créé !");
+        return "redirect:/admin/quizzes";
+    }
+
+    @GetMapping("/admin/quiz/edit/{id}")
+    public String showEditQuizForm(@PathVariable Long id, Model model) {
+        Optional<Quiz> opt = quizService.findById(id);
+        if (opt.isPresent()) {
+            model.addAttribute("quiz", opt.get());
+            return "admin/quiz-edit";
+        }
+        return "redirect:/admin/quizzes";
+    }
+
+    @PostMapping("/admin/quiz/edit/{id}")
+    public String updateQuiz(@PathVariable Long id, @ModelAttribute Quiz quiz) {
+        quiz.setId(id);
+        quizService.save(quiz);
+        return "redirect:/admin/quizzes";
+    }
+
+    @GetMapping("/admin/quiz/delete/{id}")
+    public String deleteQuiz(@PathVariable Long id) {
+        quizService.deleteById(id);
+        return "redirect:/admin/quizzes";
+    }
+
+    @GetMapping("/admin/quiz/new")
+    public String showCreateQuizForm1(Model model) {
+        model.addAttribute("quiz", new Quiz());
+        return "admin/quiz-create";
+    }
+
+
 }
 
