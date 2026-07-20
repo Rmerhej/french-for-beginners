@@ -10,8 +10,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - "3306:3306"
+
     volumes:
       - mysql-data:/var/lib/mysql
       - ./init-db:/docker-entrypoint-initdb.d
@@ -22,7 +21,7 @@ services:
       retries: 5
 
   app:
-    image: rolandmerhej1/french-app:v1.6
+    image: rolandmerhej1/french-app:v1.7
     container_name: french-app
     restart: always
     depends_on:

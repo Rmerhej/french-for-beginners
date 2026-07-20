@@ -54,18 +54,156 @@ Une plateforme interactive pour maîtriser le vocabulaire, la grammaire, la pron
 
 ### Avec Docker
 
+# French for Beginners
+
+Application Spring Boot + MySQL exécutée avec Docker Compose.
+
+## Prérequis
+
+- Docker Desktop (Windows/Mac) ou Docker Engine + Docker Compose (Linux)
+- Git
+
+Vérifiez les installations :
+
+```bash
+docker --version
+docker compose version
+git --version
+```
+
+---
+
+## Installation
+
+### 1. Cloner le projet
+Choisissez le dossier dans lequel vous souhaitez installer l'application, puis exécutez :
 ```bash
 git clone https://github.com/Rmerhej/french-for-beginners.git
 cd french-for-beginners
+```
 
-# Copier le fichier d'environnement
+### 2. Créer le fichier d'environnement
+
+Copiez le fichier d'exemple :
+
+```bash
 cp .env.example .env
+```
 
-# Lancer l'application
+Sous Windows PowerShell :
+
+```powershell
+Copy-Item .env.example .env
+```
+
+### 3. Modifier le fichier `.env`
+
+Avant de lancer l'application, remplacez les mots de passe d'exemple par vos propres valeurs.
+
+Par exemple :
+
+```env
+MYSQL_ROOT_PASSWORD=StrongRootPassword123!
+MYSQL_DATABASE=frenchdb
+MYSQL_USER=frenchuser
+MYSQL_PASSWORD=StrongDatabasePassword123!
+
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=StrongAdminPassword123!
+```
+
+---
+
+### 4. Construire et lancer l'application
+
+```bash
 docker compose up --build
-L’application sera disponible sur : http://localhost:8080
+```
 
-Important : Modifiez le fichier .env avec vos propres mots de passe avant de lancer docker compose up.
+Ou en arrière-plan :
+
+```bash
+docker compose up --build -d
+```
+
+---
+
+## Accès
+
+Application :
+
+```
+http://localhost:8080
+```
+
+---
+
+## Arrêter l'application
+
+```bash
+docker compose down
+```
+
+---
+
+## Supprimer également les données MySQL
+
+⚠️ Cette commande supprime également la base de données.
+
+```bash
+docker compose down -v
+```
+
+---
+
+## Première utilisation
+
+L'utilisateur administrateur est créé avec les informations définies dans le fichier `.env` :
+
+```
+ADMIN_USERNAME
+ADMIN_PASSWORD
+```
+
+---
+
+## Dépannage
+
+### Vérifier les logs
+
+```bash
+docker compose logs
+```
+
+ou
+
+```bash
+docker compose logs app
+docker compose logs db
+```
+
+### Reconstruire complètement
+
+```bash
+docker compose down
+docker compose build --no-cache
+docker compose up
+```
+
+> **Important**
+>
+> Le fichier `.env` contient des informations sensibles (mots de passe).
+> Il ne doit jamais être versionné sur GitHub.
+> Seul le fichier `.env.example` est inclus dans le dépôt.
+
+
+## Ports utilisés
+
+| Service | Port |
+|----------|------|
+| Spring Boot | 8080 |
+| MySQL (interne uniquement) | 3306 |
+
 
 
  ###Routes Principales

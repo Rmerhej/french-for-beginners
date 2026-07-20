@@ -37,7 +37,7 @@ spring:
 
   web:
     resources:
-      cacha:
+      cache:
         cachecontrol:
           max-age: 30d
 
@@ -54,10 +54,9 @@ server:
 # ==================== LOGGING ====================
 logging:
   level:
-    com.apprendrefr: DEBUG
+    com.apprendrefr: INFO
     org.springframework.web: INFO
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql: TRACE
+    org.hibernate.SQL: WARN
 
 # ==================== ADMIN ====================
 admin:
