@@ -34,34 +34,30 @@ public class ScoreController {
                                             @RequestParam(required = false) String userAnswer,
                                             Principal principal) {
 
-        //  Vérification utilisateur connecté
+
         if (principal == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Utilisateur non connecté");
         }
 
-        //  Vérification réponse envoyée
         if (userAnswer == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("La réponse envoyée est vide.");
         }
 
         try {
-            //  Récupération de l'exercice
+
             Exercise exercise = exerciseService.findById(id)
                     .orElseThrow(() -> new IllegalArgumentException("Exercice introuvable : " + id));
 
-            //  Récupération de l'utilisateur
+
             String currentUsername = principal.getName();
             User user = userService.findByUsername(currentUsername)
                     .orElseThrow(() -> new IllegalArgumentException("Utilisateur introuvable : " + currentUsername));
 
-            //  Calcul du score
             int points = 0;
             if (exercise.getCorrectAnswer() != null &&
                     exercise.getCorrectAnswer().equalsIgnoreCase(userAnswer.trim())) {
-                points = 100;
+                points = 1;
             }
-
-            //  Sauvegarde via le service
 
             scoreService.saveScore(user, exercise, points);
 

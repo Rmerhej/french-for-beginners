@@ -41,27 +41,25 @@ public class VocabularyController {
                                  RedirectAttributes redirectAttributes) {
 
         try {
-            // 1. Déterminer si c'est une création ou une modification
+
             Vocabulary vocabularyToSave;
 
             if (vocabularyForm.getId() != null) {
-                //  chargement de l'existant complet de la BDD
+
                 vocabularyToSave = vocabularyService.findById(vocabularyForm.getId())
                         .orElseThrow(() -> new RuntimeException("Mot de vocabulaire introuvable pour l'id : " + vocabularyForm.getId()));
 
-                //  mise à jour des données textuelles venues du formulaire
+
                 vocabularyToSave.setFrenchWord(vocabularyForm.getFrenchWord());
                 vocabularyToSave.setEnglishTranslation(vocabularyForm.getEnglishTranslation());
-                // Ajout des autres champs de texte
                 vocabularyToSave.setPronunciation(vocabularyForm.getPronunciation());
                 vocabularyToSave.setExampleSentence(vocabularyForm.getExampleSentence());
                 vocabularyToSave.setAltText(vocabularyForm.getAltText());
             } else {
-                // CRÉATION : nouveau mot
                 vocabularyToSave = vocabularyForm;
             }
 
-            // 2. Gestion de la leçon (Commune création / modification)
+
             if (vocabularyForm.getLessonId() == null) {
                 redirectAttributes.addFlashAttribute("error", "❌ Veuillez sélectionner une leçon.");
                 return "redirect:/admin/vocabulary/new";
@@ -71,13 +69,12 @@ public class VocabularyController {
             vocabularyToSave.setLesson(lesson);
             vocabularyToSave.setLessonId(vocabularyForm.getLessonId());
 
-            // 3. Gestion de l'Image (écrasement  SI un nouveau fichier est fourni)
             if (imageFile != null && !imageFile.isEmpty()) {
                 String imageUrl = fileUploadService.saveImage(imageFile);
                 vocabularyToSave.setImageUrl(imageUrl);
             }
 
-            // 4. Gestion de l'Audio (écrase que si un nouveau fichier est fourni)
+
             if (audioFile != null && !audioFile.isEmpty()) {
                 String audioUrl = fileUploadService.saveAudio(audioFile);
                 vocabularyToSave.setAudioUrl(audioUrl);
@@ -91,7 +88,7 @@ public class VocabularyController {
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
-            // En cas d'erreur, on redirige
+
             return vocabularyForm.getId() != null ?
                     "redirect:/admin/vocabulary/edit/" + vocabularyForm.getId() :
                     "redirect:/admin/vocabulary/new";

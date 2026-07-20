@@ -66,7 +66,6 @@ public class LessonController {
 
         model.addAttribute("lesson", lesson);
         model.addAttribute("vocabularies", vocab);
-        System.out.println("✅ Retour de la vue lesson-vocabulary pour leçon " + id);
 
         return "lesson-vocabulary";
     }
@@ -109,7 +108,6 @@ public class LessonController {
         return "admin/lessons";
     }
 
-    /*#########################################################*/
     @PostMapping("/admin/lessons")
     public String saveLesson(@ModelAttribute Lesson lesson,
 
@@ -131,7 +129,6 @@ public class LessonController {
             return "redirect:/admin/lessons";
         }
     }
-// ==================== GESTION DES LEÇONS ====================
 
     @GetMapping("/admin/lessons")
     public String lessons(
