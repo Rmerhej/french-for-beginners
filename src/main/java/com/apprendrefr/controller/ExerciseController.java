@@ -35,7 +35,6 @@ public class ExerciseController {
         this.lessonService = lessonService;
     }
 
-    /*###############################################*/
 
     @GetMapping("/admin/exercises")
     public String listExercises(@RequestParam(defaultValue = "0") int page,
@@ -96,7 +95,6 @@ public class ExerciseController {
         }
         return "redirect:/admin/exercises";
     }
-    /*###############*/
 
     @GetMapping("/culture")
     public String getCulturePage(Model model) {

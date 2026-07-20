@@ -35,7 +35,6 @@ public class ThemeController {
 
         var themes = themeService.findAll();
         model.addAttribute("themes", themeService.findAll());
-
         return "themes";
     }
 
@@ -46,13 +45,12 @@ public class ThemeController {
                 .orElseThrow(() -> new RuntimeException("Thème non trouvé"));
 
         model.addAttribute("theme", theme);
-        model.addAttribute("quizzes",
-                quizService.findByTitleContainingIgnoreCase(theme.getNom()));
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase(theme.getNom()));
 
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining(theme.getNom());
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
-        model.addAttribute("exercises",
-                exerciseService.findByLessonTitleContaining(theme.getNom()));
+        model.addAttribute("exercises", exerciseService.findByLessonTitleContaining(theme.getNom()));
+
         return "theme-detail";
     }
 

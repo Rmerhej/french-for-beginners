@@ -20,7 +20,6 @@ public class PrononciationController {
     @GetMapping("/prononciation")
     public String afficher(Model model) {
 
-
         model.addAttribute("prononciations", service.findAll());
 
         return "prononciation";
