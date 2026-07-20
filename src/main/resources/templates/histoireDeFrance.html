@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrir l'histoire de France</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1>Découvrir l'histoire de France</h1>
+        <p class="lead">Une introduction pour les apprenants de français</p>
+    </div>
+</header>
+
+
+<main class="container my-5">
+
+    <section class="mb-5">
+        <h2 class="text-primary">1. Pourquoi apprendre l'histoire de France ?</h2>
+        <p>
+            L'histoire de France permet de mieux comprendre la culture française,
+            ses traditions, ses symboles et les valeurs de la société actuelle.
+            Elle raconte l'évolution d'un pays à travers plusieurs siècles.
+        </p>
+    </section>
+
+
+    <section class="mb-5">
+        <h2 class="text-primary">2. Les grandes périodes historiques</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Les Gaulois et les Romains</h3>
+                        <p class="card-text">
+                            Avant la France actuelle, le territoire était habité
+                            par les Gaulois. Au Ier siècle avant J.-C., les Romains
+                            conquièrent cette région. La culture romaine influence
+                            la langue, les villes et l'organisation de la société.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Les rois de France</h3>
+                        <p class="card-text">
+                            Pendant plusieurs siècles, la France est une monarchie.
+                            Des rois célèbres comme Louis XIV construisent de grands
+                            monuments et développent le pouvoir royal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">La Révolution française (1789)</h3>
+                        <p class="card-text">
+                            En 1789, le peuple français se révolte contre la monarchie.
+                            La Révolution apporte de nouvelles idées :
+                            liberté, égalité et citoyenneté.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Napoléon Bonaparte</h3>
+                        <p class="card-text">
+                            Napoléon devient empereur en 1804.
+                            Il réforme l'administration française et crée notamment
+                            le Code civil, qui influence encore le droit français.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="mb-5">
+        <h2 class="text-primary">3. Vocabulaire utile</h2>
+
+        <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th>Mot</th>
+                <th>Définition</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Un empire</td>
+                <td>Un grand territoire dirigé par un empereur.</td>
+            </tr>
+            <tr>
+                <td>Une révolution</td>
+                <td>Un changement politique ou social important.</td>
+            </tr>
+            <tr>
+                <td>Un roi / une reine</td>
+                <td>Une personne qui dirige une monarchie.</td>
+            </tr>
+            <tr>
+                <td>Une république</td>
+                <td>Un système politique où les citoyens élisent leurs représentants.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="bg-light p-4 rounded mb-5">
+        <h2 class="text-primary">4. Activité de discussion</h2>
+
+        <ul>
+            <li>Que connaissez-vous déjà de l'histoire de France ?</li>
+            <li>Quel événement historique français trouvez-vous intéressant ?</li>
+            <li>Votre pays a-t-il connu une révolution importante ?</li>
+            <li>Quels personnages historiques sont célèbres dans votre culture ?</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2 class="text-primary">5. Petit quiz</h2>
+
+        <div class="accordion" id="quiz">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
+                        En quelle année commence la Révolution française ?
+                    </button>
+                </h2>
+                <div id="q1" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        En 1789.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q2">
+                        Qui était Napoléon Bonaparte ?
+                    </button>
+                </h2>
+                <div id="q2" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Un général français devenu empereur au début du XIXe siècle.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">
+        Cours de culture française - Niveau A2/B1
+    </p>
+</footer>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

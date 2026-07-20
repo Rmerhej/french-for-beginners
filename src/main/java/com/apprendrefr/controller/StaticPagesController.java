@@ -120,8 +120,19 @@ public class StaticPagesController {
         return "pronoms-possessifs-et-demonstratifs";
     }
 
-    @GetMapping("/lesVerbes")
-    public String verbes() {
+    @GetMapping("/lesVerbes") public String verbes() {
         return "verbes";
+    }
+
+    @GetMapping("/histoireDFrance") public String histoireDeFrance() {
+        return "histoireDeFrance";
+    }
+
+    @GetMapping("/expressionsFrancaises") public String expressionsFrancaises() {
+        return "expressionsFrancaises";
+    }
+
+    @GetMapping("/paris") public String paris() {
+        return "paris";
     }
 }
