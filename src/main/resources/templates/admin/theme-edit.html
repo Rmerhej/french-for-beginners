@@ -29,7 +29,10 @@
             <textarea class="form-control" rows="3" th:field="*{dialogueContent}" required></textarea>
         </div>
 
-
+        <div class="mb-3">
+            <label class="form-label">Audio</label>
+            <input class="form-control" type="text" th:field="*{audio}" placeholder="/uploads/audio/ou.mp3">
+        </div>
         <button type="submit" class="btn btn-primary btn-lg">Enregistrer les modifications</button>
         <a th:href="@{/themes}" class="btn btn-secondary btn-lg">Annuler</a>
     </form>

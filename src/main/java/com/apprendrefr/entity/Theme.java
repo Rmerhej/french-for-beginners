@@ -20,4 +20,6 @@ public class Theme {
 
     @Column(columnDefinition = "TEXT")   // Pour du contenu plus long
     private String dialogueContent;   // ← Nouveau champ
+    @Column
+    private String audio;
 }
