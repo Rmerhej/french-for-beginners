@@ -29,15 +29,21 @@ public class AdminController {
     private QuizService quizService;
     @Autowired
     private PrononciationService prononciationService;
+    @Autowired
+    OnlineUserService onlineUserService;
+    @Autowired
+    VisitorTrackerService  visitorTrackerService;
 
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
-                           PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService) {
+                           PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,OnlineUserService onlineUserService,VisitorTrackerService visitorTrackerService) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
         this.vocabularyService = vocabularyService;
         this.quizService = quizService;
         this.prononciationService = prononciationService;
+        this.onlineUserService = onlineUserService;
+        this.visitorTrackerService = visitorTrackerService;
     }
 
     @GetMapping
@@ -64,6 +70,9 @@ public class AdminController {
         model.addAttribute("quizzesCount", quizzes);
         model.addAttribute("themesCount", themes);
         model.addAttribute("prononciationsCount", prononciations);
+        model.addAttribute("onlineUsers", onlineUserService.getOnlineUsersCount());
+        model.addAttribute("onlineVisitors", visitorTrackerService.getOnlineVisitors());
+
         return "admin/dashboard";
     }
 

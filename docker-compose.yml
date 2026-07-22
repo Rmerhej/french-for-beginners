@@ -12,6 +12,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     volumes:
+      - uploads_data:/app/uploads
       - mysql-data:/var/lib/mysql
       - ./init-db:/docker-entrypoint-initdb.d
     healthcheck:
