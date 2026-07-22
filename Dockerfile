@@ -18,6 +18,8 @@ COPY --from=build /app/target/*.jar app.jar
 RUN mkdir -p /app/uploads/images \
     && mkdir -p /app/uploads/audio
 
+COPY ./uploads /app/uploads
+
 EXPOSE 8080
 
 # Pour la production

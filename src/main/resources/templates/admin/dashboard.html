@@ -27,6 +27,29 @@
         <span class="badge bg-success fs-6">Connecté en tant qu'Admin</span>
     </div>
 
+    <div class="row mb-4">
+
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Visiteurs en ligne</h5>
+                    <h2 class="fw-bold text-primary" th:text="${onlineVisitors}">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs connectés</h5>
+                    <h2 class="fw-bold text-success" th:text="${onlineUsers}">0</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
     <div class="row g-4">
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm bg-white">

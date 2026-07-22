@@ -54,4 +54,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        function sendHeartbeat() {
+     console.log("heartbeat envoyé");
+            fetch('/visitor/heartbeat', {
+                method: 'GET',
+                credentials: 'same-origin'
+            }).catch(() => {
+                // On ignore les erreurs réseau
+            });
+
+        }
+
+        sendHeartbeat();
+
+        setInterval(sendHeartbeat, 30000);
+
+    </script>
+
 </footer>
