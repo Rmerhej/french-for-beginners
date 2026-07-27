@@ -72,7 +72,6 @@ public class AdminController {
         model.addAttribute("prononciationsCount", prononciations);
         model.addAttribute("onlineUsers", onlineUserService.getOnlineUsersCount());
         model.addAttribute("onlineVisitors", visitorTrackerService.getOnlineVisitors());
-
         return "admin/dashboard";
     }
 

@@ -29,7 +29,6 @@ class VocabularyRepositoryTest {
     private Lesson frenchLesson;
 
     private Vocabulary helloVocabulary;
-    private Vocabulary catVocabulary;
 
 
     @BeforeEach
@@ -43,7 +42,7 @@ class VocabularyRepositoryTest {
         frenchLesson = new Lesson();
 
         frenchLesson.setTitle("Français débutant");
-
+        frenchLesson.setLevel("A1");
 
         frenchLesson = lessonRepository.save(frenchLesson);
 
@@ -57,7 +56,7 @@ class VocabularyRepositoryTest {
         helloVocabulary.setLesson(frenchLesson);
 
 
-        catVocabulary = new Vocabulary();
+        Vocabulary catVocabulary = new Vocabulary();
 
         catVocabulary.setFrenchWord("chat");
         catVocabulary.setEnglishTranslation("cat");

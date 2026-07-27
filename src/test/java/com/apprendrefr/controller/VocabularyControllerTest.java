@@ -2,40 +2,36 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Lesson;
 import com.apprendrefr.entity.Vocabulary;
-import com.apprendrefr.repository.QuizRepository;
-import com.apprendrefr.service.ExerciseService;
-import com.apprendrefr.service.FileUploadService;
-import com.apprendrefr.service.ImageService;
-import com.apprendrefr.service.LessonService;
-import com.apprendrefr.service.UserService;
-import com.apprendrefr.service.VocabularyService;
-
+import com.apprendrefr.repository.*;
+import com.apprendrefr.service.*;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.mock.web.MockMultipartFile;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-@WebMvcTest(AdminController.class)
-class AdminControllerTest {
+@WebMvcTest(controllers = VocabularyController.class)   // ← This is critical
+@AutoConfigureMockMvc(addFilters = false)
+
+class VocabularyControllerTest {
 
 
     @Autowired
@@ -44,28 +40,29 @@ class AdminControllerTest {
 
     @MockitoBean
     private LessonService lessonService;
-
     @MockitoBean
-    private UserService userService;
-
-    @MockitoBean
-    private ExerciseService exerciseService;
-
+    private LessonRepository lessonRepository;
     @MockitoBean
     private VocabularyService vocabularyService;
-
+    @MockitoBean
+    private VocabularyRepository vocabularyRepository;
+    @MockitoBean
+    private UserRepository userRepository;
+    @MockitoBean
+    private PrononciationRepository prononciationRepository;
+    @MockitoBean
+    private ExerciseRepository exerciseRepository;
+    @MockitoBean
+    private ThemeRepository themeRepository;
     @MockitoBean
     private QuizRepository quizRepository;
 
     @MockitoBean
     private FileUploadService fileUploadService;
 
-    @MockitoBean
-    private ImageService imageService;
-
-
 
     @Test
+    @WithMockUser(roles = "ADMIN")
     void listVocabulary_shouldReturnVocabularyList() throws Exception {
 
         Vocabulary vocabulary = new Vocabulary();
@@ -86,7 +83,6 @@ class AdminControllerTest {
     }
 
 
-
     @Test
     void listVocabulary_shouldSearchVocabulary() throws Exception {
 
@@ -101,7 +97,6 @@ class AdminControllerTest {
                 .thenReturn(page);
 
 
-
         mockMvc.perform(get("/admin/vocabulary")
                         .param("keyword", "bonjour"))
 
@@ -110,9 +105,6 @@ class AdminControllerTest {
                 .andExpect(model().attributeExists("vocabularies"))
                 .andExpect(model().attribute("keyword", "bonjour"));
     }
-
-
-
 
 
     @Test
@@ -130,10 +122,6 @@ class AdminControllerTest {
                 .andExpect(model().attributeExists("vocabulary"))
                 .andExpect(model().attributeExists("lessons"));
     }
-
-
-
-
 
 
     @Test
@@ -154,7 +142,6 @@ class AdminControllerTest {
                 .thenReturn(Collections.emptyList());
 
 
-
         mockMvc.perform(get("/admin/vocabulary/edit/1"))
 
                 .andExpect(status().isOk())
@@ -162,10 +149,6 @@ class AdminControllerTest {
                 .andExpect(model().attributeExists("vocabulary"))
                 .andExpect(model().attributeExists("lessons"));
     }
-
-
-
-
 
 
     @Test
@@ -181,11 +164,6 @@ class AdminControllerTest {
         verify(vocabularyService)
                 .deleteById(1L);
     }
-
-
-
-
-
 
 
     @Test
@@ -204,7 +182,6 @@ class AdminControllerTest {
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
 
-
         mockMvc.perform(multipart("/admin/vocabulary")
 
                         .param("frenchWord", "bonjour")
@@ -216,21 +193,13 @@ class AdminControllerTest {
                 .andExpect(redirectedUrl("/admin/vocabulary"));
 
 
-
         verify(vocabularyService)
                 .save(any(Vocabulary.class));
     }
 
 
-
-
-
-
-
-
     @Test
     void saveVocabulary_shouldRedirectWhenLessonIsMissing() throws Exception {
-
 
 
         mockMvc.perform(multipart("/admin/vocabulary")
@@ -243,16 +212,9 @@ class AdminControllerTest {
                 .andExpect(redirectedUrl("/admin/vocabulary/new"));
 
 
-
         verify(vocabularyService, never())
                 .save(any());
     }
-
-
-
-
-
-
 
 
     @Test
@@ -263,20 +225,16 @@ class AdminControllerTest {
         lesson.setId(1L);
 
 
-
         when(lessonService.findById(1L))
                 .thenReturn(Optional.of(lesson));
-
 
 
         when(fileUploadService.saveImage(any()))
                 .thenReturn("/uploads/image.jpg");
 
 
-
         when(fileUploadService.saveAudio(any()))
                 .thenReturn("/uploads/audio.mp3");
-
 
 
         MockMultipartFile image =
@@ -288,7 +246,6 @@ class AdminControllerTest {
                 );
 
 
-
         MockMultipartFile audio =
                 new MockMultipartFile(
                         "audioFile",
@@ -296,7 +253,6 @@ class AdminControllerTest {
                         "audio/mpeg",
                         "audio-content".getBytes()
                 );
-
 
 
         mockMvc.perform(multipart("/admin/vocabulary")
@@ -311,7 +267,6 @@ class AdminControllerTest {
                 .andExpect(status().is3xxRedirection())
 
                 .andExpect(redirectedUrl("/admin/vocabulary"));
-
 
 
         verify(fileUploadService)

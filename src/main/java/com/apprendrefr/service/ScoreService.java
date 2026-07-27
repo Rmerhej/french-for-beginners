@@ -1,4 +1,4 @@
-package com.apprendrefr.service;
+/*package com.apprendrefr.service;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.User;
@@ -39,4 +39,4 @@ public class ScoreService {
             scoreRepository.save(newScore);
         }
     }
-}
+}*/

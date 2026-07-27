@@ -1,4 +1,4 @@
-package com.apprendrefr.controller;
+/*package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.User;
@@ -69,4 +69,4 @@ public class ScoreController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erreur : " + e.getMessage());
         }
     }
-}
+}*/

@@ -96,7 +96,7 @@ class AuthenticationIntegrationTest {
                 .andExpect(status().is3xxRedirection())
 
                 .andExpect(
-                        redirectedUrl("/admin/dashboard")
+                        redirectedUrl("/")
                 );
     }
 
@@ -140,7 +140,7 @@ class AuthenticationIntegrationTest {
                 .andExpect(status().is3xxRedirection())
 
                 .andExpect(
-                        redirectedUrl("/login?error")
+                        redirectedUrl("/login?error=true")
                 );
     }
 
@@ -180,7 +180,7 @@ class AuthenticationIntegrationTest {
                 .andExpect(status().is3xxRedirection())
 
                 .andExpect(
-                        redirectedUrl("/login?error")
+                        redirectedUrl("/login?error=true")
                 );
 
     }

@@ -18,7 +18,7 @@
 
     <h1 th:text="${titre}"></h1>
 
-    <form th:action="@{/admin/prononciation/enregistrer}" th:object="${prononciation}" method="post">
+    <form th:action="@{/admin/prononciation/enregistrer}" th:object="${prononciation}" method="post" enctype="multipart/form-data">
 
         <input type="hidden" th:field="*{id}"/>
 
@@ -33,19 +33,21 @@
                       placeholder="Exemple : bouche, couture"></textarea>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Fichier audio</label>
-            <input class="form-control" type="text" th:field="*{audio}" placeholder="/uploads/audio/ou.mp3">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Audio (prononciation)</label>
+                <input type="file" class="form-control" name="audioFile" accept="audio/*">
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-success">
-            Enregistrer
-        </button>
+            <button type="submit" class="btn btn-success">
+                Enregistrer
+            </button>
 
-        <a th:href="@{/admin/prononciationsDashboard}" class="btn btn-secondary">
-            Annuler
-        </a>
-
+            <a th:href="@{/admin/prononciationsDashboard}" class="btn btn-secondary">
+                Annuler
+            </a>
+        
     </form>
 
 </main>
