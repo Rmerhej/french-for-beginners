@@ -81,6 +81,38 @@ public class QuizController {
 
         return "verbes-regulier-quiz-grammaire";
     }
+    /*#####################################*/
+
+
+    @GetMapping("/LesArticlesDefinis")
+    public String goToLesArticlesDefinis(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Articles définis - Grammaire"));
+
+        return "LesArticlesDefinis-quiz-grammaire";
+    }
+
+
+    @GetMapping("/AdjectifsQualificatifs")
+    public String goToAdjectifsQualificatifs(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les adjectifs qualificatifs- Grammaire"));
+
+        return "AdjectifsQualificatifs-quiz-grammaire";
+    }
+
+    @GetMapping("/PronomsPossessifesEtDemonstratifs")
+    public String goToPronomsPossessifesEtDemonstratifs(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Pronoms possessifs et démonstratifs - Grammaire"));
+
+        return "PronomsPossessifesEtDemonstratifs-quiz-grammaire";
+    }
+
+    @GetMapping("/LesAuxiliaresQuiz")
+    public String goToLesAuxiliares(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les auxiliaires - Grammaire"));
+
+        return "LesAuxiliares-quiz-grammaire";
+    }
+    /*#####################################*/
 
 
     @GetMapping("/quiz/{id}")
