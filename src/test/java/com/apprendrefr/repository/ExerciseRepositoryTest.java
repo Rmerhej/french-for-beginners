@@ -22,7 +22,6 @@ class ExerciseRepositoryTest {
 
 
     private Exercise cultureExercise;
-    private Exercise grammarExercise;
 
 
     @BeforeEach
@@ -41,7 +40,7 @@ class ExerciseRepositoryTest {
         cultureExercise.setLessonLevel("A1");
 
 
-        grammarExercise = new Exercise();
+        Exercise grammarExercise = new Exercise();
 
         grammarExercise.setLessonTitle("Grammaire");
         grammarExercise.setExerciseType("TEXT");

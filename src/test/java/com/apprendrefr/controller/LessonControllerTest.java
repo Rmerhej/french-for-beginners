@@ -1,12 +1,13 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Lesson;
-import com.apprendrefr.service.ExerciseService;
+import com.apprendrefr.repository.*;
 import com.apprendrefr.service.LessonService;
-import com.apprendrefr.service.VocabularyService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -23,21 +24,30 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(LessonController.class)   // Test uniquement le controller + ses dépendances web
+@WebMvcTest(LessonController.class)// Test uniquement le controller + ses dépendances web
+@AutoConfigureMockMvc(addFilters = false)
+
 class LessonControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @MockitoBean
+    @Mock
     private LessonService lessonService;
-
     @MockitoBean
-    private VocabularyService vocabularyService;
-
+    private LessonRepository lessonRepository;
     @MockitoBean
-    private ExerciseService exerciseService;
-
+    private UserRepository userRepository;
+    @MockitoBean
+    private QuizRepository quizRepository;
+    @MockitoBean
+    private PrononciationRepository prononciationRepository;
+    @MockitoBean
+    private ExerciseRepository exerciseRepository;
+    @MockitoBean
+    private VocabularyRepository vocabularyRepository;
+    @MockitoBean
+    private ThemeRepository themeRepository;
     private List<Lesson> lessons;
 
     @BeforeEach

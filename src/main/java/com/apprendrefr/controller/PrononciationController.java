@@ -1,17 +1,24 @@
 package com.apprendrefr.controller;
 
+import com.apprendrefr.entity.Prononciation;
 import com.apprendrefr.service.PrononciationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.UUID;
 
 @Controller
 public class PrononciationController {
 
     private final PrononciationService service;
+    private final String AUDIO_UPLOAD_DIR = "uploads/audio/";
 
     public PrononciationController(PrononciationService service) {
         this.service = service;
@@ -35,7 +42,7 @@ public class PrononciationController {
 
     @GetMapping("/admin/prononciation/ajouter")
     public String afficherFormulaire(Model model) {
-        model.addAttribute("prononciation", new com.apprendrefr.model.Prononciation());
+        model.addAttribute("prononciation", new com.apprendrefr.entity.Prononciation());
         model.addAttribute("titre", "Ajouter une prononciation");
 
         return "admin/prononciation-form-create";
@@ -44,7 +51,7 @@ public class PrononciationController {
 
     @GetMapping("/admin/prononciation/modifier/{id}")
     public String afficherPrononciationModification(@PathVariable Long id, Model model) {
-        com.apprendrefr.model.Prononciation prononciation = service.findById(id);
+        com.apprendrefr.entity.Prononciation prononciation = service.findById(id);
 
         model.addAttribute("prononciation", prononciation);
         model.addAttribute("titre", "Modifier une prononciation");
@@ -54,11 +61,33 @@ public class PrononciationController {
     }
 
     @PostMapping("/admin/prononciation/enregistrer")
-    public String enregistrer(@ModelAttribute com.apprendrefr.model.Prononciation prononciation) {
+    public String enregistrer(@ModelAttribute Prononciation prononciation,
+                              @RequestParam(value = "audioFile", required = false) MultipartFile audioFile) throws IOException {
+
+        if (audioFile != null && !audioFile.isEmpty()) {
+
+            String originalName = Paths.get(audioFile.getOriginalFilename())
+                    .getFileName()
+                    .toString();
+
+            String fileName = UUID.randomUUID() + "_" + originalName;
+
+            Path uploadPath = Paths.get(AUDIO_UPLOAD_DIR);
+
+            Files.createDirectories(uploadPath);
+
+            Files.copy(
+                    audioFile.getInputStream(),
+                    uploadPath.resolve(fileName),
+                    StandardCopyOption.REPLACE_EXISTING
+            );
+
+            // chemin enregistré en base
+            prononciation.setAudio("/uploads/audio/" + fileName);
+        }
 
         service.save(prononciation);
-
-        return "redirect:/prononciation";
+        return "redirect:/admin/prononciationsDashboard";
 
     }
 

@@ -22,7 +22,6 @@ class UserRepositoryTest {
 
 
     private User adminUser;
-    private User normalUser;
 
 
     @BeforeEach
@@ -41,7 +40,7 @@ class UserRepositoryTest {
         adminUser.setEnabled(true);
 
 
-        normalUser = new User();
+        User normalUser = new User();
 
         normalUser.setUsername("jean");
         normalUser.setEmail("jean@test.com");

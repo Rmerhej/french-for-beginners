@@ -1,4 +1,4 @@
-package com.apprendrefr.model;
+package com.apprendrefr.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

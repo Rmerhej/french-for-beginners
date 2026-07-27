@@ -30,7 +30,6 @@ class ExerciseServiceTest {
     @Mock
     private ExerciseRepository exerciseRepository;
 
-
     @InjectMocks
     private ExerciseService exerciseService;
 
@@ -56,14 +55,12 @@ class ExerciseServiceTest {
     @Test
     void findAll_shouldReturnExercises() {
 
-
         when(exerciseRepository.findAll())
                 .thenReturn(List.of(exercise));
 
 
         List<Exercise> result =
                 exerciseService.findAll();
-
 
         assertThat(result)
                 .hasSize(1);
@@ -86,7 +83,7 @@ class ExerciseServiceTest {
                 new PageImpl<>(List.of(exercise));
 
 
-        when(exerciseRepository.findAll(any(PageRequest.class)))
+        when(exerciseRepository.findAll(any(Pageable.class)))
                 .thenReturn(page);
 
 
@@ -123,6 +120,9 @@ class ExerciseServiceTest {
 
         assertThat(result.get().getId())
                 .isEqualTo(1L);
+
+        verify(exerciseRepository)
+                .findById(1L);
     }
 
 
@@ -215,13 +215,10 @@ class ExerciseServiceTest {
 
     @Test
     void deleteById_shouldDeleteExercise() {
+        Long id = 1L;
 
+        exerciseService.deleteById(id);
 
-        exerciseService.deleteById(1L);
-
-
-        verify(exerciseRepository)
-                .deleteById(1L);
     }
 
 

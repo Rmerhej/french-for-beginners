@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `cards` (
   `body` varchar(255) DEFAULT NULL,
   `header` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cards`
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   `title` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `lessons`
@@ -353,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `prononciation` (
   `exemple` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `son` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4;
 
 --
 -- Déchargement des données de la table `prononciation`
@@ -394,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -570,7 +570,7 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `audio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4;
 
 --
 -- Déchargement des données de la table `themes`
@@ -615,7 +615,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
@@ -674,7 +674,7 @@ CREATE TABLE IF NOT EXISTS `users_exercises_scores` (
   PRIMARY KEY (`id`),
   KEY `fk_score_users` (`user_id`),
   KEY `fk_score_exercises` (`exercise_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users_exercises_scores`
@@ -908,7 +908,7 @@ CREATE TABLE IF NOT EXISTS `vocabularies` (
   PRIMARY KEY (`id`),
   KEY `FKr4cdy69nx0qb4g4vv3ywxerav` (`lesson_id`),
   KEY `french_word` (`french_word`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `vocabularies`

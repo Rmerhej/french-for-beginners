@@ -1,4 +1,4 @@
-package com.apprendrefr.entity;
+/*package com.apprendrefr.entity;
 
 import jakarta.persistence.*;
 
@@ -12,7 +12,6 @@ public class UserExerciseScore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //Liaison vers la table users
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -46,4 +45,4 @@ public class UserExerciseScore {
         this.score = points;
     }
 
-}
+}*/

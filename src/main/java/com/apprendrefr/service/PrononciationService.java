@@ -1,7 +1,7 @@
 package com.apprendrefr.service;
 
 
-import com.apprendrefr.model.Prononciation;
+import com.apprendrefr.entity.Prononciation;
 import com.apprendrefr.repository.PrononciationRepository;
 import org.springframework.stereotype.Service;
 
