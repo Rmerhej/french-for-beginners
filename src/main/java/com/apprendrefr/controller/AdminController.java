@@ -1,41 +1,42 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.service.*;
-import jakarta.annotation.security.PermitAll;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
-    private LessonService lessonService;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private ExerciseService exerciseService;
-    @Autowired
-    private VocabularyService vocabularyService;
-    @Autowired
-    private ThemeService themeService;
-    @Autowired
-    private ImageService imageService;
-    @Autowired
-    private QuizService quizService;
-    @Autowired
-    private PrononciationService prononciationService;
-    @Autowired
+
+    private final LessonService lessonService;
+
+    private final UserService userService;
+
+    private final ExerciseService exerciseService;
+
+    private final VocabularyService vocabularyService;
+
+    private final ThemeService themeService;
+
+    private final ImageService imageService;
+
+    private final QuizService quizService;
+
+    private final PrononciationService prononciationService;
+
     OnlineUserService onlineUserService;
-    @Autowired
+
     VisitorTrackerService  visitorTrackerService;
 
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
-                           PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,OnlineUserService onlineUserService,VisitorTrackerService visitorTrackerService) {
+                           PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,
+                           OnlineUserService onlineUserService,
+                           VisitorTrackerService visitorTrackerService,ThemeService themeService,ImageService imageService) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
@@ -44,6 +45,8 @@ public class AdminController {
         this.prononciationService = prononciationService;
         this.onlineUserService = onlineUserService;
         this.visitorTrackerService = visitorTrackerService;
+        this.themeService = themeService;
+        this.imageService = imageService;
     }
 
     @GetMapping
@@ -76,7 +79,6 @@ public class AdminController {
     }
 
     @GetMapping("/images/optimize")
-    @PermitAll
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseBody
     public String launchImageOptimization() {
