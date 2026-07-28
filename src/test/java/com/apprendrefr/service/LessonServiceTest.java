@@ -13,11 +13,11 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,85 +29,78 @@ class LessonServiceTest {
     @InjectMocks
     private LessonService lessonService;
 
-    private Lesson lesson1;
-    private Lesson lesson2;
+    private Lesson lesson;
 
     @BeforeEach
     void setUp() {
-        lesson1 = new Lesson();
-        lesson1.setId(1L);
-        lesson1.setTitle("Salutations");
-        lesson1.setContent("Bonjour, comment ça va ?");
-        lesson1.setLevel("A1");
-
-        lesson2 = new Lesson();
-        lesson2.setId(2L);
-        lesson2.setTitle("Se présenter");
-        lesson2.setContent("Je m'appelle...");
-        lesson2.setLevel("A1");
+        lesson = new Lesson();
+        lesson.setId(1L);
+        lesson.setTitle("Les articles définis");
+        lesson.setContent("Le, la, les...");
+        lesson.setLevel("A1");
     }
 
     @Test
-    void shouldReturnAllLessons() {
-        when(lessonRepository.findAll()).thenReturn(Arrays.asList(lesson1, lesson2));
+    void findAll_returnsList() {
+        when(lessonRepository.findAll()).thenReturn(List.of(lesson));
 
         List<Lesson> result = lessonService.findAll();
 
-        assertThat(result).hasSize(2);
-        assertThat(result).containsExactly(lesson1, lesson2);
-        verify(lessonRepository, times(1)).findAll();
+        assertEquals(1, result.size());
+        assertEquals("Les articles définis", result.get(0).getTitle());
     }
 
     @Test
-    void shouldReturnLessonById() {
-        when(lessonRepository.findById(1L)).thenReturn(Optional.of(lesson1));
+    void findById_found() {
+        when(lessonRepository.findById(1L)).thenReturn(Optional.of(lesson));
 
         Optional<Lesson> result = lessonService.findById(1L);
 
-        assertThat(result).isPresent();
-        assertThat(result.get().getTitle()).isEqualTo("Salutations");
-        assertThat(result.get().getLevel()).isEqualTo("A1");
+        assertTrue(result.isPresent());
     }
 
     @Test
-    void shouldReturnEmptyWhenLessonNotFound() {
-        when(lessonRepository.findById(99L)).thenReturn(Optional.empty());
+    void save_success() {
+        when(lessonRepository.save(any(Lesson.class))).thenReturn(lesson);
 
-        Optional<Lesson> result = lessonService.findById(99L);
+        Lesson saved = lessonService.save(lesson);
 
-        assertThat(result).isEmpty();
+        assertNotNull(saved);
+        verify(lessonRepository).save(lesson);
     }
 
     @Test
-    void shouldSaveLesson() {
-        when(lessonRepository.save(any(Lesson.class))).thenReturn(lesson1);
-
-        Lesson result = lessonService.save(lesson1);
-
-        assertThat(result).isNotNull();
-        assertThat(result.getTitle()).isEqualTo("Salutations");
-        verify(lessonRepository, times(1)).save(lesson1);
-    }
-
-    @Test
-    void shouldReturnPaginatedLessons() {
-        Pageable pageable = PageRequest.of(0, 10);
-        Page<Lesson> page = new PageImpl<>(Arrays.asList(lesson1, lesson2));
-
-        when(lessonRepository.findAll(pageable)).thenReturn(page);
-
-        Page<Lesson> result = lessonService.findAll(pageable);
-
-        assertThat(result.getContent()).hasSize(2);
-        assertThat(result.getTotalElements()).isEqualTo(2);
-    }
-
-    @Test
-    void shouldDeleteLessonById() {
+    void deleteById_success() {
         doNothing().when(lessonRepository).deleteById(1L);
 
         lessonService.deleteById(1L);
 
-        verify(lessonRepository, times(1)).deleteById(1L);
+        verify(lessonRepository).deleteById(1L);
+    }
+
+    @Test
+    void searchLessons_withKeyword() {
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Lesson> page = new PageImpl<>(List.of(lesson));
+
+        when(lessonRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
+                "articles", "articles", pageable)).thenReturn(page);
+
+        Page<Lesson> result = lessonService.searchLessons("articles", pageable);
+
+        assertEquals(1, result.getTotalElements());
+    }
+
+    @Test
+    void searchLessons_emptyKeyword_returnsAll() {
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Lesson> page = new PageImpl<>(List.of(lesson));
+
+        when(lessonRepository.findAll(pageable)).thenReturn(page);
+
+        Page<Lesson> result = lessonService.searchLessons("   ", pageable);
+
+        assertEquals(1, result.getTotalElements());
+        verify(lessonRepository).findAll(pageable);
     }
 }

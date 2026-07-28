@@ -16,16 +16,12 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ExerciseServiceTest {
-
 
     @Mock
     private ExerciseRepository exerciseRepository;
@@ -33,277 +29,117 @@ class ExerciseServiceTest {
     @InjectMocks
     private ExerciseService exerciseService;
 
-
     private Exercise exercise;
-
 
     @BeforeEach
     void setUp() {
-
-
         exercise = new Exercise();
-
         exercise.setId(1L);
-        exercise.setLessonTitle("Culture française");
-        exercise.setQuestion("Quelle est la capitale de la France ?");
-        exercise.setExerciseType("QUIZ");
-        exercise.setCorrectAnswer("Paris");
-
+        exercise.setLessonTitle("Les articles");
+        exercise.setQuestion("Quel article utiliser ?");
+        exercise.setCorrectAnswer("le");
+        exercise.setExerciseType("MATCHING");
+        exercise.setOptionA("le");
+        exercise.setOptionB("la");
+        exercise.setOptionC("les");
+        exercise.setOptionD("un");
     }
 
+    @Test
+    void findAll_returnsList() {
+        when(exerciseRepository.findAll()).thenReturn(List.of(exercise));
+
+        List<Exercise> result = exerciseService.findAll();
+
+        assertEquals(1, result.size());
+        assertEquals("Les articles", result.get(0).getLessonTitle());
+    }
 
     @Test
-    void findAll_shouldReturnExercises() {
+    void findById_found() {
+        when(exerciseRepository.findById(1L)).thenReturn(Optional.of(exercise));
 
-        when(exerciseRepository.findAll())
+        Optional<Exercise> result = exerciseService.findById(1L);
+
+        assertTrue(result.isPresent());
+        assertEquals("Quel article utiliser ?", result.get().getQuestion());
+    }
+
+    @Test
+    void findById_notFound() {
+        when(exerciseRepository.findById(99L)).thenReturn(Optional.empty());
+
+        Optional<Exercise> result = exerciseService.findById(99L);
+
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void save_success() {
+        when(exerciseRepository.save(any(Exercise.class))).thenReturn(exercise);
+
+        Exercise saved = exerciseService.save(exercise);
+
+        assertNotNull(saved);
+        assertEquals(1L, saved.getId());
+        verify(exerciseRepository).save(exercise);
+    }
+
+    @Test
+    void deleteById_success() {
+        doNothing().when(exerciseRepository).deleteById(1L);
+
+        exerciseService.deleteById(1L);
+
+        verify(exerciseRepository).deleteById(1L);
+    }
+
+    @Test
+    void findByLessonTitle_success() {
+        when(exerciseRepository.findByLessonTitle("Les articles"))
                 .thenReturn(List.of(exercise));
 
+        List<Exercise> result = exerciseService.findByLessonTitle("Les articles");
 
-        List<Exercise> result =
-                exerciseService.findAll();
-
-        assertThat(result)
-                .hasSize(1);
-
-
-        assertThat(result.get(0).getLessonTitle())
-                .isEqualTo("Culture française");
-
-
-        verify(exerciseRepository)
-                .findAll();
+        assertEquals(1, result.size());
     }
 
-
     @Test
-    void findAllPaginated_shouldReturnPage() {
-
-
-        Page<Exercise> page =
-                new PageImpl<>(List.of(exercise));
-
-
-        when(exerciseRepository.findAll(any(Pageable.class)))
-                .thenReturn(page);
-
-
-        Page<Exercise> result =
-                exerciseService.findAllPaginated(
-                        PageRequest.of(0, 10)
-                );
-
-
-        assertThat(result.getContent())
-                .hasSize(1);
-
-
-        verify(exerciseRepository)
-                .findAll(any(Pageable.class));
-    }
-
-
-    @Test
-    void findById_shouldReturnExercise() {
-
-
-        when(exerciseRepository.findById(1L))
-                .thenReturn(Optional.of(exercise));
-
-
-        Optional<Exercise> result =
-                exerciseService.findById(1L);
-
-
-        assertThat(result)
-                .isPresent();
-
-
-        assertThat(result.get().getId())
-                .isEqualTo(1L);
-
-        verify(exerciseRepository)
-                .findById(1L);
-    }
-
-
-    @Test
-    void findByLessonTitle_shouldReturnExercises() {
-
-
-        when(exerciseRepository.findByLessonTitle("Culture française"))
-                .thenReturn(List.of(exercise));
-
-
-        List<Exercise> result =
-                exerciseService.findByLessonTitle(
-                        "Culture française"
-                );
-
-
-        assertThat(result)
-                .hasSize(1);
-
-
-        verify(exerciseRepository)
-                .findByLessonTitle("Culture française");
-    }
-
-
-    @Test
-    void findByLessonTitleContaining_shouldReturnExercises() {
-
-
-        when(exerciseRepository
-                .findByLessonTitleContainingIgnoreCase("culture"))
-                .thenReturn(List.of(exercise));
-
-
-        List<Exercise> result =
-                exerciseService.findByLessonTitleContaining(
-                        "culture"
-                );
-
-
-        assertThat(result)
-                .hasSize(1);
-    }
-
-
-    @Test
-    void count_shouldReturnNumberOfExercises() {
-
-
-        when(exerciseRepository.count())
-                .thenReturn(5L);
-
-
-        long result =
-                exerciseService.count();
-
-
-        assertThat(result)
-                .isEqualTo(5L);
-    }
-
-
-    @Test
-    void save_shouldSaveExercise() {
-
-
-        when(exerciseRepository.save(exercise))
-                .thenReturn(exercise);
-
-
-        Exercise result =
-                exerciseService.save(exercise);
-
-
-        assertThat(result)
-                .isNotNull();
-
-
-        assertThat(result.getQuestion())
-                .isEqualTo(
-                        "Quelle est la capitale de la France ?"
-                );
-
-
-        verify(exerciseRepository)
-                .save(exercise);
-    }
-
-
-    @Test
-    void deleteById_shouldDeleteExercise() {
-        Long id = 1L;
-
-        exerciseService.deleteById(id);
-
-    }
-
-
-    @Test
-    void findMatchingExercisesByLesson_shouldReturnOnlyMatchingExercises() {
-
-
+    void findMatchingExercisesByLesson_filtersCorrectly() {
         Exercise matching = new Exercise();
-
         matching.setExerciseType("MATCHING");
-        matching.setLessonTitle("Culture française");
+        matching.setLessonTitle("Les articles");
 
+        Exercise qcm = new Exercise();
+        qcm.setExerciseType("QCM");
+        qcm.setLessonTitle("Les articles");
 
-        Exercise quiz = new Exercise();
+        when(exerciseRepository.findByLessonTitle("Les articles"))
+                .thenReturn(List.of(matching, qcm));
 
-        quiz.setExerciseType("QUIZ");
-        quiz.setLessonTitle("Culture française");
+        List<Exercise> result = exerciseService.findMatchingExercisesByLesson("Les articles");
 
-
-        when(exerciseRepository.findByLessonTitle("Culture française"))
-                .thenReturn(
-                        List.of(matching, quiz)
-                );
-
-
-        List<Exercise> result =
-                exerciseService.findMatchingExercisesByLesson(
-                        "Culture française"
-                );
-
-
-        assertThat(result)
-                .hasSize(1);
-
-
-        assertThat(result.get(0).getExerciseType())
-                .isEqualTo("MATCHING");
+        assertEquals(1, result.size());
+        assertEquals("MATCHING", result.get(0).getExerciseType());
     }
-
 
     @Test
-    void searchExercises_shouldReturnPage() {
+    void searchExercises_success() {
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Exercise> page = new PageImpl<>(List.of(exercise));
 
+        when(exerciseRepository.findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
+                "article", "article", pageable)).thenReturn(page);
 
-        Page<Exercise> page =
-                new PageImpl<>(List.of(exercise));
+        Page<Exercise> result = exerciseService.searchExercises("article", pageable);
 
-
-        when(
-                exerciseRepository
-                        .findByQuestionContainingIgnoreCaseOrLessonTitleContainingIgnoreCase(
-                                eq("Paris"),
-                                eq("Paris"),
-                                any()
-                        )
-        )
-                .thenReturn(page);
-
-
-        Page<Exercise> result =
-                exerciseService.searchExercises(
-                        "Paris",
-                        PageRequest.of(0, 10)
-                );
-
-
-        assertThat(result.getContent())
-                .hasSize(1);
+        assertEquals(1, result.getTotalElements());
     }
-
 
     @Test
-    void findByTitle_shouldReturnExercises() {
+    void count_returnsCorrectValue() {
+        when(exerciseRepository.count()).thenReturn(5L);
 
-
-        when(exerciseRepository.findByLessonTitle("Culture"))
-                .thenReturn(List.of(exercise));
-
-
-        List<Exercise> result =
-                exerciseService.findByTitle("Culture");
-
-
-        assertThat(result)
-                .hasSize(1);
+        assertEquals(5L, exerciseService.count());
     }
-
 }

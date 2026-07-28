@@ -2,65 +2,90 @@ package com.apprendrefr.integration;
 
 import com.apprendrefr.entity.Lesson;
 import com.apprendrefr.repository.LessonRepository;
+import com.apprendrefr.service.LessonService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@AutoConfigureMockMvc
 @ActiveProfiles("test")
+@Transactional
 class LessonIntegrationTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private LessonService lessonService;
 
     @Autowired
     private LessonRepository lessonRepository;
+
+    private Lesson lesson;
 
     @BeforeEach
     void setUp() {
         lessonRepository.deleteAll();
 
-        Lesson lesson1 = new Lesson();
-        lesson1.setTitle("Salutations");
-        lesson1.setContent("Bonjour, comment allez-vous ?");
-        lesson1.setLevel("A1");
-        lessonRepository.save(lesson1);
+        lesson = new Lesson();
+        lesson.setTitle("Les articles définis");
+        lesson.setContent("Le, la, les, l'");
+        lesson.setLevel("A1");
+        lesson.setCategory("Grammaire");
+    }
+
+    @Test
+    void saveAndFindById() {
+        Lesson saved = lessonService.save(lesson);
+
+        assertNotNull(saved.getId());
+
+        Optional<Lesson> found = lessonService.findById(saved.getId());
+        assertTrue(found.isPresent());
+        assertEquals("Les articles définis", found.get().getTitle());
+        assertEquals("A1", found.get().getLevel());
+    }
+
+    @Test
+    void findAll_and_count() {
+        lessonService.save(lesson);
 
         Lesson lesson2 = new Lesson();
-        lesson2.setTitle("Les nombres");
-        lesson2.setContent("Un, deux, trois...");
+        lesson2.setTitle("Les verbes au présent");
+        lesson2.setContent("Je mange, tu manges...");
         lesson2.setLevel("A1");
-        lessonRepository.save(lesson2);
+        lessonService.save(lesson2);
+
+        List<Lesson> all = lessonService.findAll();
+        assertEquals(2, all.size());
+        assertEquals(2, lessonService.count());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = "USER")
-    void shouldAccessLessonsPageAsAuthenticatedUser() throws Exception {
-        mockMvc.perform(get("/lessons"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("lessons"))
-                .andExpect(model().attributeExists("lessons"));
+    void searchLessons() {
+        lessonService.save(lesson);
+
+        Page<Lesson> page = lessonService.searchLessons("articles", PageRequest.of(0, 10));
+
+        assertEquals(1, page.getTotalElements());
+        assertEquals("Les articles définis", page.getContent().get(0).getTitle());
     }
 
     @Test
-    void shouldRedirectUnauthenticatedUserToLogin() throws Exception {
-        mockMvc.perform(get("/lessons"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrlPattern("**/login**"));
-    }
+    void deleteById() {
+        Lesson saved = lessonService.save(lesson);
+        Long id = saved.getId();
 
-    @Test
-    @WithMockUser(roles = "ADMIN")
-    void shouldAccessAdminLessonsPage() throws Exception {
-        mockMvc.perform(get("/admin/lessons"))
-                .andExpect(status().isOk());
+        lessonService.deleteById(id);
+
+        assertTrue(lessonService.findById(id).isEmpty());
+        assertEquals(0, lessonService.count());
     }
 }

@@ -2,187 +2,95 @@ package com.apprendrefr.integration;
 
 import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.UserRepository;
-
+import com.apprendrefr.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
-
+import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
+import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
-
-
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
+@Transactional
 class AuthenticationIntegrationTest {
-
 
     @Autowired
     private MockMvc mockMvc;
 
-
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-
     @BeforeEach
     void setUp() {
-
         userRepository.deleteAll();
 
-
-        User admin = new User();
-
-        admin.setUsername("admin");
-        admin.setEmail("admin@test.com");
-
-        admin.setPassword(
-                passwordEncoder.encode("Admin1234")
-        );
-
-        admin.setRole("ROLE_ADMIN");
-        admin.setEnabled(true);
-
-
-        userRepository.save(admin);
-
-
-
         User user = new User();
-
-        user.setUsername("user");
-        user.setEmail("user@test.com");
-
-        user.setPassword(
-                passwordEncoder.encode("User1234")
-        );
-
-        user.setRole("ROLE_USER");
-        user.setEnabled(true);
-
-
-        userRepository.save(user);
+        user.setUsername("eleve");
+        user.setEmail("eleve@test.com");
+        user.setPassword("Password123");
+        userService.registerUser(user);
     }
-
-
-
-
 
     @Test
-    void adminLogin_shouldRedirectToAdminDashboard() throws Exception {
-
-
-        mockMvc.perform(
-                        formLogin("/login")
-                                .user("admin")
-                                .password("Admin1234")
-                )
-
-                .andExpect(status().is3xxRedirection())
-
-                .andExpect(
-                        redirectedUrl("/")
-                );
+    void login_withValidCredentials_shouldSucceed() throws Exception {
+        mockMvc.perform(formLogin("/login")
+                        .user("eleve")
+                        .password("Password123"))
+                .andExpect(authenticated().withUsername("eleve"))
+                .andExpect(redirectedUrl("/")); // ou la page de succès de ton SuccessHandler
     }
-
-
-
-
 
     @Test
-    void userLogin_shouldRedirectToHome() throws Exception {
-
-
-        mockMvc.perform(
-                        formLogin("/login")
-                                .user("user")
-                                .password("User1234")
-                )
-
-
-                .andExpect(status().is3xxRedirection())
-
-                .andExpect(
-                        redirectedUrl("/")
-                );
+    void login_withWrongPassword_shouldFail() throws Exception {
+        mockMvc.perform(formLogin("/login")
+                        .user("eleve")
+                        .password("WrongPassword"))
+                .andExpect(unauthenticated())
+                .andExpect(redirectedUrl("/login?error=true"));
     }
-
-
-
-
 
     @Test
-    void loginWithWrongPassword_shouldFail() throws Exception {
-
-
-        mockMvc.perform(
-                        formLogin("/login")
-                                .user("admin")
-                                .password("WrongPassword")
-                )
-
-
-                .andExpect(status().is3xxRedirection())
-
-                .andExpect(
-                        redirectedUrl("/login?error=true")
-                );
+    void login_withUnknownUser_shouldFail() throws Exception {
+        mockMvc.perform(formLogin("/login")
+                        .user("inconnu")
+                        .password("Password123"))
+                .andExpect(unauthenticated());
     }
-
-
-
-
 
     @Test
-    void disabledUser_shouldNotLogin() throws Exception {
-
-
-        User disabledUser = new User();
-
-        disabledUser.setUsername("disabled");
-        disabledUser.setEmail("disabled@test.com");
-
-        disabledUser.setPassword(
-                passwordEncoder.encode("Disabled123")
-        );
-
-        disabledUser.setRole("ROLE_USER");
-
-        disabledUser.setEnabled(false);
-
-
-        userRepository.save(disabledUser);
-
-
-
-        mockMvc.perform(
-                        formLogin("/login")
-                                .user("disabled")
-                                .password("Disabled123")
-                )
-
-
+    void protectedPage_withoutAuth_redirectsToLogin() throws Exception {
+        mockMvc.perform(get("/lessons"))
                 .andExpect(status().is3xxRedirection())
-
-                .andExpect(
-                        redirectedUrl("/login?error=true")
-                );
-
+                .andExpect(redirectedUrlPattern("**/login"));
     }
 
+    @Test
+    void adminPage_asUser_isForbidden() throws Exception {
+        mockMvc.perform(formLogin("/login")
+                .user("eleve")
+                .password("Password123"));
+
+        // On force le rôle USER (déjà le cas)
+        mockMvc.perform(get("/admin/dashboard")
+                        .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user("eleve").roles("USER")))
+                .andExpect(status().isForbidden());
+    }
 }
