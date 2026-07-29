@@ -59,8 +59,8 @@ public class SecurityConfig {
                                 "/accords-des-adjectifs", "/les-pronoms", "/les-adjectifs-accord-pluriel", "/utilisation-des-pronoms",
                                 "/expressions-de-temps", "/futur-simple-quiz-grammaire", "/adjectifs-demonstratif-quiz-grammaire",
                                 "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-form-create", "/theme-detail", "/conjugaison", "/cultureFrancaise",
-                      "LesArticlesDefinis","AdjectifsQualificatifs","PronomsPossessifesEtDemonstratifs","LesAuxiliares").permitAll()
-
+                      "/LesArticlesDefinis","/AdjectifsQualificatifs","/PronomsPossessifesEtDemonstratifs","/LesAuxiliares").permitAll()
+                        .requestMatchers("/api/admin/uploads/**").hasRole("ADMIN")
                         // 3. Règles Administration (La règle spécifique avant la générale)
                         .requestMatchers("/admin/images/optimize").permitAll() // Exception spécifique
                         .requestMatchers("/admin/**").hasRole("ADMIN")
