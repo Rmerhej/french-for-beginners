@@ -11,13 +11,21 @@ RUN ./mvnw clean package -DskipTests --no-transfer-progress
 
 
 FROM eclipse-temurin:17-jre-alpine
+
+RUN addgroup -g 1000 appuser && \
+    adduser -u 1000 -G appuser -S appuser
+
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
-RUN mkdir -p /app/uploads/images \
-    && mkdir -p /app/uploads/audio
+RUN mkdir -p /app/uploads/images /app/uploads/audio && \
+    chown -R appuser:appuser /app/uploads && \
+    chmod -R 775 /app/uploads
 
+COPY --chown=appuser:appuser uploads/images/ /app/uploads/images/
+COPY --chown=appuser:appuser uploads/audio/ /app/uploads/audio/
+USER appuser
 
 EXPOSE 8080
 
