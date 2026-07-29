@@ -50,6 +50,6 @@ target/
 application-local.yml
 #src/main/resources/application.yml
 # Dossiers temporaires
-uploads/
+#uploads/
 .DS_Store
 Thumbs.db
