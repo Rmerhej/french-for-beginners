@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 25 juil. 2026 à 07:22
+-- Généré le : mer. 29 juil. 2026 à 17:01
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `cards` (
   `body` varchar(255) DEFAULT NULL,
   `header` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cards`
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   `title` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `lessons`
@@ -353,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `prononciation` (
   `exemple` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `son` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `prononciation`
@@ -375,7 +375,13 @@ INSERT INTO `prononciation` (`id`, `audio`, `exemple`, `son`) VALUES
 (13, '/uploads/audio/Prononciation_an.mp3', 'Sans , enfant', 'an'),
 (14, '/uploads/audio/Prononciation_oi.mp3', 'Boire , Voir', 'oi'),
 (15, '/uploads/audio/Prononciation_eu.mp3', 'Feu , Peur', 'eu'),
-(16, '/uploads/audio/Prononciation_u.mp3', 'Tu , Lune', 'u');
+(16, '/uploads/audio/Prononciation_u.mp3', 'Tu , Lune', 'u'),
+(17, '/uploads/audio/Prononciation_ge.mp3', 'manger , age', 'ge'),
+(18, '/uploads/audio/Prononciation_g_-e_i_y.mp3', 'girafe , gym', 'g + e , i , y'),
+(19, '/uploads/audio/Prononciation_C_+_e_i_y.mp3', 'cinq , ciel', 'c + e , i , y '),
+(20, '/uploads/audio/Prononciation_qu.mp3', 'qui , quatre', 'qu'),
+(21, '/uploads/audio/000c14a3-a807-4e89-868d-4d42bf1dd7ee_Prononciation_ph.mp3', 'photo , téléphone', 'ph'),
+(22, '/uploads/audio/Prononciation_ti_PlusVoyelle.mp3', 'nation , patience', 'ti + Voyelle (a , e , i , o , u , y)');
 
 -- --------------------------------------------------------
 
@@ -394,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -554,7 +560,22 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (157, 'préfecture,titre de séjour,justificatif de domicile,formulaire,rendez-vous', NULL, '1. administration publique qui gère certaines démarches____\r\n2. document permettant à un étranger de résider légalement____\r\n3. document qui prouve une adresse____\r\n4. document à compléter____\r\n5. moment prévu pour rencontrer quelqu\'un____', 'À la préfecture - Associez le mot à sa définition.', 'titre de séjour,formulaire,rendez-vous,préfecture,justificatif de domicile', NULL),
 (158, 'titre,rendez-vous,passeport,d\'identité,SMS ', NULL, '1.Je voudrais demander un____ de séjour.\r\n2.J\'ai un____  aujourd\'hui.\r\n3.Voici mon____.\r\n4.Il manque une photo____.\r\n5.Je recevrai un____ ou un e-mail', 'À la préfecture - Complétez les phrases.', ' rendez-vous,passeport,titre,d\'identité,SMS ', NULL),
 (159, 'passeport,facture d\'électricité,formulaire,photo d\'identité,rendez-vous', NULL, '1.prouver son identité____\r\n2.  prouver son adresse____\r\n3. donner des informations personnelles____\r\n4.  compléter un dossier administratif____\r\n5.  organiser une visite à la préfecture____', 'À la préfecture - Associez les documents à leur utilisation.', 'rendez-vous,passeport,photo d\'identité,facture d\'électricité,formulaire', NULL),
-(160, 'passeport,facture d\'électricité,formulaire,photo d\'identité,rendez-vous', NULL, '1.prouver son identité____\r\n2.  prouver son adresse____\r\n3. donner des informations personnelles____\r\n4.  compléter un dossier administratif____\r\n5.  organiser une visite à la préfecture____', 'À la préfecture - Associez les documents à leur utilisation.', 'rendez-vous,passeport,photo d\'identité,facture d\'électricité,formulaire', NULL);
+(160, 'passeport,facture d\'électricité,formulaire,photo d\'identité,rendez-vous', NULL, '1.prouver son identité____\r\n2.  prouver son adresse____\r\n3. donner des informations personnelles____\r\n4.  compléter un dossier administratif____\r\n5.  organiser une visite à la préfecture____', 'À la préfecture - Associez les documents à leur utilisation.', 'rendez-vous,passeport,photo d\'identité,facture d\'électricité,formulaire', NULL),
+(161, 'le,la,les,l\'', NULL, '1.____ chat dort sur le canapé.\r\n2.____ voiture est rouge.\r\n3.____enfants jouent dans le parc.\r\n4.____ école est près de chez moi.', 'Les articles définis - grammaire', 'l\',les,le,la', NULL),
+(162, 'la,l\',les,l\'', NULL, '1.____ maison\r\n2.____ ordinateur\r\n3.____ amis\r\n4.____ avion', 'Les articles définis - Grammaire', 'le,la,l\',les', NULL),
+(163, 'le,les,la,le', NULL, '1.____ professeur explique la leçon.\r\n2.____ fleurs sont magnifiques.\r\n3.____ table est grande.\r\n4.____ livre est intéressant.', 'Les articles définis - Grammaire', 'le,la,les', NULL),
+(164, 'chat,jardin,voiture,maison,livres,enfants', NULL, '1.Le____\r\n2.Le____\r\n3.La____\r\n4.La____\r\n5.Les____\r\n6.Les____', 'Les articles définis - Grammaire', 'enfants,chat,livres,jardin,maison,voiture', NULL),
+(165, 'rouge,gentil,petite,grand', NULL, '1.Une voiture ____\r\n2.Un homme ____\r\n3.Une____ maison\r\n4.Un____ arbre', 'Les adjectifs qualificatifs- Grammaire', 'petite,gentil,rouge,grand', NULL),
+(166, 'heureux,heureuse,petit,petite', NULL, '1.Un garçon ____\r\n2.Une fille ____\r\n3.Un____ livre\r\n4.Une____ table', ' Les adjectifs qualificatifs- Grammaire', 'petit,petite,heureuse,heureux', NULL),
+(167, 'rapide,bleu,ancienne,beaux', NULL, '1.Une voiture ____\r\n2.Un ciel ____\r\n3.Une maison ____\r\n4.De ____ paysages', ' Les adjectifs qualificatifs- Grammaire', 'ancienne,bleu,rapide,beaux', NULL),
+(168, 'grande,heureux,intéressant', NULL, '1.Une femme____\r\n2.Des garçons____\r\n3.Un film____', ' Les adjectifs qualificatifs- Grammaire', 'heureux,intéressant,grande', NULL),
+(169, 'la mienne,les miens,la mienne,les miennes', NULL, '1.Cette voiture est à moi,  C’est ____\r\n2.Ces livres sont à moi,  Ce sont ____\r\n3.Cette maison est à moi,  C’est ____\r\n4.Ces clés sont à moi,  Ce sont ____', 'Pronoms possessifs et démonstratifs - Grammaire', 'la mienne,les miennes,les miens,la mienne', NULL),
+(170, 'le tien,les tiennes,le tien', '', '1.Mon sac est noir, mais ____ est bleu.\r\n2.Mes chaussures sont neuves, mais ____sont anciennes.\r\n3.Ton téléphone est moderne, ____ est vieux.', 'Pronoms possessifs et démonstratifs - Grammaire', 'les tiennes,le tien,le tien', NULL),
+(171, 'celui,celle,ceux,celles', '', '1.J’aime ce livre, mais je préfère ____de Paul.\r\n2.Cette chaise est cassée, prends ____ de la cuisine.\r\n3.Ces garçons jouent, mais ____ sont mes amis.\r\n4.Ces fleurs sont belles, surtout ____ du jardin.', 'Pronoms possessifs et démonstratifs - Grammaire', 'ceux,celles,celui,celle', NULL),
+(172, 'le tien,la sienne,ceux,la tienne', '', '1.Mon ordinateur est rapide, ____ est lent.\r\n2.Sa voiture est rouge, ____ est bleue.\r\n3.J’aime ces livres, mais je préfère ____ de Marie.\r\n4.Cette robe est belle, mais ____ est plus jolie.', 'Pronoms possessifs et démonstratifs - Grammaire', 'ceux,le tien,la sienne,la tienne', NULL),
+(173, 'ai,suis,est,ont', '', '1.J’____ 20 ans.\r\n2.Je ____ étudiant.\r\n3.Il ____malade.\r\n4.Ils ____ une voiture.', 'Les auxiliaires - Grammaire', 'est,ont,suis,ai', NULL),
+(174, 'sommes,avez,est,ont', '', '1.Nous ____ français.\r\n2.Vous ____ un rendez-vous.\r\n3.Elle ____ fatiguée.\r\n4.Ils ____ deux enfants.', 'Les auxiliaires - Grammaire', 'est,ont,avez,sommes', NULL),
+(175, 'ai,est,avons,sont', '', '1.J’____ mangé.\r\n2.Elle ____ arrivée.\r\n3.Nous ____ travaillé.\r\n4.Ils ____ partis.', 'Les auxiliaires - Grammaire', 'avons,est,sont,ai', NULL);
 
 -- --------------------------------------------------------
 
@@ -570,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `audio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `themes`
@@ -615,7 +636,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=288 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -656,7 +677,12 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (47, '2026-07-01 03:44:19.888421', 'youpi@gmail.com', b'1', '$2a$10$y0GxkM5oKLpvvv8LrYnMKermyd2jsWjM/2l7z18CWd7FJqLroq97i', 'ROLE_USER', 'youpi'),
 (48, '2026-07-02 15:02:45.968533', 'france@gmail.com', b'1', '$2a$10$XMjb45e6D870TQvTAUKkqOrxLenbyeN31VJgWrXCixxRyt2Vlfw/u', 'ROLE_USER', 'france'),
 (49, '2026-07-05 05:13:56.533895', 'rita@gmail.com', b'1', '$2a$10$5ayy6Klbx9Fo3Atv8FM5x.zd2DRLnafN0ZDb8TdCbVzcDyhOWXPp2', 'ROLE_USER', 'rita'),
-(50, NULL, 'apprendrefr@gmail.com', b'1', '$2a$10$x09JJusZVtxw8UCH43cC5O1NlK8RIzBwvWUAPWHOLun25F1Ndj6XW', 'ADMIN', 'roladmin');
+(50, NULL, 'apprendrefr@gmail.com', b'1', '$2a$10$x09JJusZVtxw8UCH43cC5O1NlK8RIzBwvWUAPWHOLun25F1Ndj6XW', 'ADMIN', 'roladmin'),
+(283, '2026-07-26 08:44:56.605266', 'admin@test.com', b'1', '$2a$10$/KW5O7DAcqdXWGMNftvi4urheugdI3imA9qZZ7Ft8xyb2bUXyHUX.', 'ROLE_ADMIN', 'admin'),
+(284, '2026-07-26 08:44:56.692845', 'user@test.com', b'1', '$2a$10$j1m8TkFathJwJhazrsLBvOt3njvGUaXH6gLPzY05BsQAoqLlpKcmq', 'ROLE_USER', 'user'),
+(285, '2026-07-27 06:08:45.911171', 'testu17@gmail.com', b'1', '$2a$10$sgnQOfKayTHp.JI7MHZVlOEADNu0sQ.mNYoHaiFloDfS6VLFzE0hW', 'ROLE_USER', 'testu17'),
+(286, '2026-07-27 06:09:37.018093', 'testu18@gmail.com', b'1', '$2a$10$lpz1xZ9YQgwmBJjfxRpN/.SLy27ecgc6aFGI9yuLr/8/13KV1CyQu', 'ROLE_USER', 'testu18'),
+(287, '2026-07-27 06:10:40.563859', 'testu19@gmail.com', b'1', '$2a$10$kS95q8rGmvtSFjXYHCBuJe1OaaU.7OCDXD6gFYTmiaE2D3IHBYtwu', 'ROLE_USER', 'testu19');
 
 -- --------------------------------------------------------
 
@@ -674,219 +700,7 @@ CREATE TABLE IF NOT EXISTS `users_exercises_scores` (
   PRIMARY KEY (`id`),
   KEY `fk_score_users` (`user_id`),
   KEY `fk_score_exercises` (`exercise_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `users_exercises_scores`
---
-
-INSERT INTO `users_exercises_scores` (`id`, `user_id`, `exercise_id`, `score`, `completed_at`) VALUES
-(1, 2, 6, 0, '2026-06-06 20:23:15'),
-(2, 2, 7, 100, '2026-06-06 20:23:23'),
-(3, 2, 8, 100, '2026-06-06 20:24:21'),
-(4, 2, 9, 100, '2026-06-06 20:24:41'),
-(5, 2, 62, 100, '2026-06-06 20:29:00'),
-(6, 2, 63, 100, '2026-06-06 20:29:34'),
-(7, 2, 64, 100, '2026-06-06 20:29:38'),
-(8, 2, 65, 100, '2026-06-06 20:29:44'),
-(9, 2, 66, 100, '2026-06-06 20:29:50'),
-(10, 2, 26, 100, '2026-06-07 07:28:55'),
-(12, 2, 30, 100, '2026-06-07 14:16:38'),
-(13, 2, 27, 100, '2026-06-07 13:12:33'),
-(16, 2, 28, 100, '2026-06-07 14:15:38'),
-(17, 2, 29, 100, '2026-06-07 14:15:50'),
-(18, 2, 3, 100, '2026-06-07 14:16:30'),
-(19, 2, 31, 100, '2026-06-07 14:16:45'),
-(20, 2, 32, 100, '2026-06-07 14:17:00'),
-(21, 2, 33, 0, '2026-06-07 14:17:08'),
-(22, 2, 34, 100, '2026-06-07 14:17:44'),
-(23, 2, 69, 100, '2026-06-07 14:17:51'),
-(24, 17, 53, 100, '2026-06-07 14:18:19'),
-(25, 15, 26, 100, '2026-06-09 16:11:11'),
-(26, 15, 27, 100, '2026-06-09 15:32:51'),
-(27, 15, 28, 100, '2026-06-09 15:33:04'),
-(28, 15, 29, 100, '2026-06-09 15:33:07'),
-(29, 23, 66, 100, '2026-06-09 15:53:45'),
-(30, 23, 10, 100, '2026-06-09 15:54:29'),
-(31, 23, 58, 100, '2026-06-09 15:58:05'),
-(35, 33, 26, 100, '2026-06-16 16:00:31'),
-(36, 33, 27, 100, '2026-06-16 16:00:39'),
-(37, 33, 28, 100, '2026-06-16 16:01:05'),
-(38, 33, 29, 100, '2026-06-16 16:01:19'),
-(39, 16, 26, 0, '2026-06-16 16:02:45'),
-(40, 33, 3, 100, '2026-06-20 15:38:54'),
-(41, 33, 30, 100, '2026-06-16 16:03:11'),
-(42, 33, 31, 100, '2026-06-16 16:03:28'),
-(43, 16, 27, 0, '2026-06-16 16:03:46'),
-(44, 33, 32, 100, '2026-06-16 16:03:48'),
-(45, 32, 6, 100, '2026-06-16 16:04:23'),
-(46, 16, 28, 0, '2026-06-16 16:04:36'),
-(47, 32, 7, 100, '2026-06-16 16:04:44'),
-(48, 33, 33, 100, '2026-06-16 16:05:06'),
-(49, 33, 34, 100, '2026-06-16 16:05:54'),
-(50, 32, 8, 100, '2026-06-16 16:05:57'),
-(51, 33, 69, 100, '2026-06-16 16:06:06'),
-(52, 32, 9, 100, '2026-06-16 16:06:06'),
-(53, 33, 53, 100, '2026-06-16 16:07:07'),
-(54, 33, 54, 100, '2026-06-16 16:08:24'),
-(55, 33, 55, 100, '2026-06-16 16:09:00'),
-(56, 33, 56, 100, '2026-06-16 16:09:42'),
-(57, 33, 57, 100, '2026-06-16 16:09:56'),
-(58, 33, 58, 100, '2026-06-16 16:10:58'),
-(59, 33, 59, 0, '2026-06-16 16:11:17'),
-(60, 33, 60, 100, '2026-06-16 16:12:40'),
-(61, 33, 61, 100, '2026-06-16 16:13:42'),
-(62, 33, 62, 100, '2026-06-16 16:14:42'),
-(63, 33, 63, 100, '2026-06-16 16:14:49'),
-(64, 33, 64, 100, '2026-06-16 16:15:00'),
-(65, 33, 65, 100, '2026-06-16 16:15:12'),
-(66, 33, 66, 100, '2026-06-16 16:15:23'),
-(67, 33, 48, 100, '2026-06-16 16:16:13'),
-(68, 33, 49, 100, '2026-06-16 16:22:09'),
-(69, 33, 50, 100, '2026-06-20 15:47:10'),
-(70, 33, 51, 100, '2026-06-16 16:22:46'),
-(71, 33, 52, 100, '2026-06-16 16:22:54'),
-(72, 33, 44, 100, '2026-06-20 15:47:48'),
-(73, 33, 45, 100, '2026-06-16 16:24:01'),
-(74, 33, 46, 100, '2026-06-16 16:24:26'),
-(75, 33, 47, 100, '2026-06-16 16:25:09'),
-(76, 32, 44, 100, '2026-06-16 16:25:28'),
-(77, 32, 45, 100, '2026-06-16 16:25:33'),
-(78, 32, 46, 100, '2026-06-16 16:25:39'),
-(79, 33, 10, 100, '2026-06-16 16:25:41'),
-(80, 33, 11, 100, '2026-06-16 16:25:47'),
-(81, 32, 47, 100, '2026-06-16 16:25:51'),
-(82, 33, 13, 100, '2026-06-16 16:25:59'),
-(83, 33, 14, 100, '2026-06-16 16:26:43'),
-(84, 33, 15, 100, '2026-06-16 16:27:02'),
-(85, 33, 16, 100, '2026-06-16 16:27:11'),
-(86, 33, 40, 100, '2026-06-16 16:27:41'),
-(87, 33, 41, 100, '2026-06-16 16:28:10'),
-(88, 32, 48, 100, '2026-06-16 16:28:11'),
-(89, 33, 42, 100, '2026-06-20 15:52:12'),
-(90, 32, 49, 100, '2026-06-16 16:28:25'),
-(91, 32, 50, 100, '2026-06-16 16:28:35'),
-(92, 32, 51, 100, '2026-06-16 16:28:41'),
-(93, 32, 52, 100, '2026-06-16 16:28:48'),
-(94, 33, 43, 100, '2026-06-16 16:29:17'),
-(95, 32, 62, 100, '2026-06-16 16:30:10'),
-(96, 33, 6, 100, '2026-06-16 16:30:14'),
-(97, 32, 63, 100, '2026-06-16 16:30:15'),
-(98, 32, 64, 100, '2026-06-16 16:30:21'),
-(99, 32, 65, 100, '2026-06-16 16:30:33'),
-(100, 32, 66, 100, '2026-06-16 16:30:39'),
-(101, 33, 7, 100, '2026-06-16 16:30:51'),
-(102, 33, 8, 100, '2026-06-16 16:31:03'),
-(103, 33, 9, 100, '2026-06-16 16:31:15'),
-(104, 32, 53, 100, '2026-06-16 16:31:48'),
-(105, 32, 54, 100, '2026-06-16 16:31:51'),
-(106, 32, 55, 100, '2026-06-16 16:31:57'),
-(107, 33, 4, 100, '2026-06-16 16:32:07'),
-(108, 32, 56, 100, '2026-06-16 16:32:10'),
-(109, 32, 57, 100, '2026-06-16 16:32:20'),
-(110, 33, 5, 100, '2026-06-16 16:32:21'),
-(111, 33, 21, 100, '2026-06-16 16:33:06'),
-(112, 33, 22, 100, '2026-06-20 15:55:24'),
-(113, 33, 23, 100, '2026-06-16 16:36:04'),
-(114, 33, 24, 100, '2026-06-16 16:36:46'),
-(115, 32, 35, 100, '2026-06-16 16:36:46'),
-(116, 32, 37, 100, '2026-06-16 16:38:04'),
-(117, 32, 38, 100, '2026-06-16 16:38:11'),
-(118, 33, 25, 100, '2026-06-16 16:38:15'),
-(119, 32, 39, 100, '2026-06-16 16:38:33'),
-(120, 33, 35, 100, '2026-06-16 16:38:40'),
-(121, 33, 36, 100, '2026-06-16 16:40:15'),
-(122, 33, 37, 100, '2026-06-16 16:40:41'),
-(123, 33, 38, 100, '2026-06-16 16:40:48'),
-(124, 33, 39, 100, '2026-06-16 16:41:04'),
-(125, 33, 12, 100, '2026-06-16 16:42:17'),
-(126, 33, 17, 100, '2026-06-20 16:01:26'),
-(127, 33, 18, 100, '2026-06-16 16:46:02'),
-(128, 33, 19, 100, '2026-06-16 16:47:00'),
-(129, 33, 20, 100, '2026-06-16 16:47:44'),
-(134, 2, 5, 100, '2026-06-18 05:05:27'),
-(135, 2, 10, 0, '2026-06-18 05:14:30'),
-(136, 33, 71, 100, '2026-06-20 16:04:00'),
-(142, 43, 26, 100, '2026-06-23 15:04:57'),
-(143, 43, 27, 100, '2026-06-23 15:05:16'),
-(144, 43, 28, 100, '2026-06-23 15:05:24'),
-(145, 43, 29, 100, '2026-06-23 15:05:37'),
-(146, 43, 53, 100, '2026-06-23 15:07:44'),
-(147, 43, 54, 0, '2026-06-23 15:07:52'),
-(148, 43, 55, 100, '2026-06-23 15:08:08'),
-(149, 43, 56, 100, '2026-06-23 15:08:13'),
-(150, 43, 57, 100, '2026-06-23 15:08:22'),
-(154, 43, 3, 100, '2026-06-30 15:22:24'),
-(155, 43, 30, 100, '2026-06-30 15:22:31'),
-(156, 43, 69, 100, '2026-06-30 15:23:15'),
-(157, 43, 31, 100, '2026-06-30 15:29:39'),
-(158, 43, 33, 100, '2026-06-30 15:30:15'),
-(159, 43, 34, 100, '2026-06-30 15:31:22'),
-(160, 43, 32, 0, '2026-06-30 15:33:10'),
-(163, 48, 26, 100, '2026-07-07 15:51:49'),
-(164, 48, 27, 100, '2026-07-07 15:51:59'),
-(165, 48, 28, 100, '2026-07-07 15:52:04'),
-(166, 48, 29, 100, '2026-07-07 15:52:12'),
-(167, 48, 3, 0, '2026-07-07 15:52:44'),
-(168, 48, 30, 100, '2026-07-07 15:53:00'),
-(169, 48, 31, 100, '2026-07-07 15:53:12'),
-(170, 48, 32, 100, '2026-07-07 15:53:16'),
-(171, 48, 33, 100, '2026-07-07 15:53:21'),
-(172, 48, 34, 100, '2026-07-07 15:53:25'),
-(173, 48, 69, 100, '2026-07-07 15:53:29'),
-(174, 48, 53, 100, '2026-07-07 15:53:51'),
-(175, 48, 54, 100, '2026-07-07 15:53:54'),
-(176, 48, 55, 100, '2026-07-07 15:53:59'),
-(177, 48, 56, 100, '2026-07-07 15:54:05'),
-(178, 48, 57, 100, '2026-07-07 15:54:14'),
-(179, 48, 58, 100, '2026-07-07 15:54:30'),
-(180, 48, 59, 100, '2026-07-07 15:54:36'),
-(181, 48, 60, 100, '2026-07-07 15:54:39'),
-(182, 48, 61, 100, '2026-07-07 15:54:46'),
-(183, 48, 62, 100, '2026-07-07 15:54:59'),
-(184, 48, 63, 100, '2026-07-07 15:55:02'),
-(185, 48, 64, 100, '2026-07-07 15:55:04'),
-(186, 48, 65, 0, '2026-07-07 15:55:07'),
-(187, 48, 66, 100, '2026-07-07 15:55:37'),
-(188, 48, 48, 100, '2026-07-07 15:56:15'),
-(189, 48, 49, 100, '2026-07-07 15:56:33'),
-(190, 48, 50, 100, '2026-07-07 15:56:46'),
-(191, 48, 51, 100, '2026-07-07 15:57:03'),
-(192, 48, 52, 100, '2026-07-07 15:57:11'),
-(193, 48, 44, 100, '2026-07-07 15:57:52'),
-(194, 48, 45, 100, '2026-07-07 15:57:57'),
-(195, 48, 46, 100, '2026-07-07 15:58:02'),
-(196, 48, 47, 100, '2026-07-07 15:58:09'),
-(197, 48, 10, 100, '2026-07-07 15:58:22'),
-(198, 48, 11, 100, '2026-07-07 15:58:26'),
-(199, 48, 13, 100, '2026-07-07 15:58:31'),
-(200, 48, 14, 100, '2026-07-07 15:58:37'),
-(201, 48, 15, 100, '2026-07-07 15:58:41'),
-(202, 48, 16, 100, '2026-07-07 15:58:47'),
-(203, 48, 40, 100, '2026-07-07 15:59:05'),
-(204, 48, 41, 100, '2026-07-07 15:59:09'),
-(205, 48, 42, 100, '2026-07-07 15:59:13'),
-(206, 48, 43, 100, '2026-07-07 15:59:18'),
-(207, 48, 6, 100, '2026-07-07 15:59:37'),
-(208, 48, 7, 100, '2026-07-07 15:59:42'),
-(209, 48, 8, 0, '2026-07-07 15:59:48'),
-(210, 48, 9, 100, '2026-07-07 16:00:00'),
-(211, 48, 4, 100, '2026-07-07 16:00:28'),
-(212, 48, 5, 100, '2026-07-07 16:00:31'),
-(213, 48, 21, 100, '2026-07-07 16:00:38'),
-(214, 48, 22, 100, '2026-07-07 16:00:43'),
-(215, 48, 23, 100, '2026-07-07 16:00:47'),
-(216, 48, 24, 100, '2026-07-07 16:00:49'),
-(217, 48, 25, 100, '2026-07-07 16:00:54'),
-(218, 48, 35, 100, '2026-07-07 16:01:07'),
-(219, 48, 36, 100, '2026-07-07 16:01:18'),
-(220, 48, 37, 100, '2026-07-07 16:01:26'),
-(221, 48, 38, 100, '2026-07-07 16:01:29'),
-(222, 48, 39, 100, '2026-07-07 16:01:33'),
-(223, 48, 12, 100, '2026-07-07 16:01:45'),
-(224, 48, 17, 100, '2026-07-07 16:01:50'),
-(225, 48, 18, 100, '2026-07-07 16:01:54'),
-(226, 48, 19, 0, '2026-07-07 16:02:01');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -908,7 +722,7 @@ CREATE TABLE IF NOT EXISTS `vocabularies` (
   PRIMARY KEY (`id`),
   KEY `FKr4cdy69nx0qb4g4vv3ywxerav` (`lesson_id`),
   KEY `french_word` (`french_word`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vocabularies`
