@@ -53,3 +53,4 @@ application-local.yml
 #uploads/
 .DS_Store
 Thumbs.db
+SERVER_PRIVATE_NOTES.md
