@@ -11,11 +11,24 @@ spring:
   # ==================== JPA / HIBERNATE ====================
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: false
     properties:
       hibernate:
         format_sql: true
+
+
+  # ==================== FLYWAY ====================
+ # flyway:
+  #  enabled: true
+  #  locations: classpath:db/migration
+  #  baseline-on-migrate: true
+  #  repair-on-migrate: true
+  #  baseline-version: 0
+  #  schemas: frenchdb
+  #  encoding: UTF-8
+
+
 
 
   # ==================== FILE UPLOAD ====================
@@ -74,7 +87,15 @@ app:
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: prod
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8mb4
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+   # flyway:
+   #   enabled: true
 
 app:
   upload:
