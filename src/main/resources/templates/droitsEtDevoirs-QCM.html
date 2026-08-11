@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>droitsEtDevoirs-QCM</title>
+
+    <style>
+        .option-wrapper.correct { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .option-wrapper.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+    </style>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">❓ Droits et Devoirs des citoyens - QCM .</h2>
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+        <i class="bi bi-arrow-left"></i>← Retour
+    </button>
+    <div class="alert alert-success">
+        Score : <span id="score">0</span> / <span id="total">0</span>
+    </div>
+
+    <h4 class="mt-5 mb-3 text-primary">📖 Exercices</h4>
+
+    <main th:each="ex : ${exercises}"
+          th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Droits et devoirs')}"
+          class="container"
+          th:id="'exercise-container-' + ${ex.id}">
+
+        <fieldset class="card shadow-sm mb-5">
+            <div class="card-header bg-light">
+                <strong th:text="${ex.lessonTitle}"></strong>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
+
+                <div class="options mb-3">
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optA-' + ${ex.id}" value="A">
+                        <label class="form-check-label w-100 ms-2" th:for="'optA-' + ${ex.id}"
+                               th:text="${ex.optionA}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optB-' + ${ex.id}" value="B">
+                        <label class="form-check-label w-100 ms-2" th:for="'optB-' + ${ex.id}"
+                               th:text="${ex.optionB}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optC-' + ${ex.id}" value="C">
+                        <label class="form-check-label w-100 ms-2" th:for="'optC-' + ${ex.id}"
+                               th:text="${ex.optionC}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optD-' + ${ex.id}" value="D">
+                        <label class="form-check-label w-100 ms-2" th:for="'optD-' + ${ex.id}"
+                               th:text="${ex.optionD}"></label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary"
+                        th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
+                    Vérifier
+                </button>
+            </div>
+            <div class="card-footer d-none explanation" th:id="'explanation-' + ${ex.id}">
+                <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
+            </div>
+        </fieldset>
+    </main>
+</div>
+
+
+<input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/au-bureau.js}"></script>
+</body>
+</html>
