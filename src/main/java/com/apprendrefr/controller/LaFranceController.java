@@ -2,6 +2,7 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.service.ExerciseService;
+import com.apprendrefr.service.QuizService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,10 @@ import java.util.List;
 public class LaFranceController {
 
     private final ExerciseService exerciseService;
-
-    public LaFranceController(ExerciseService exerciseService) {
+    private final QuizService quizService;
+    public LaFranceController(ExerciseService exerciseService,QuizService quizService) {
         this.exerciseService = exerciseService;
+        this.quizService = quizService;
     }
 
     @GetMapping("/laFrance")
@@ -32,7 +34,9 @@ public class LaFranceController {
     }
 
     @GetMapping("/principesEtValeursQUIZ")
-    public String goToprincipesEtValeursQUIZ() {
+    public String goToprincipesEtValeursQUIZ(Model model) {
+
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("principes et valeurs"));
         return "principesEtValeurs-QUIZ";
     }
 
@@ -44,9 +48,9 @@ public class LaFranceController {
     }
 
     @GetMapping("/systemeInstEtPolitiqueQUIZ")
-    public String goTosystemeInstEtPolitiqueQUIZ() {
+    public String goTosystemeInstEtPolitiqueQUIZ(Model model) {
 
-
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("systeme institutionnel et politique"));
         return "systemeInstEtPolitique-QUIZ";
     }
 
@@ -59,7 +63,8 @@ public class LaFranceController {
     }
 
     @GetMapping("/droitsEtDevoirsQUIZ")
-    public String goTodroitsEtDevoirsQUIZ() {
+    public String goTodroitsEtDevoirsQUIZ(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("droits et devoirs"));
         return "droitsEtDevoirs-QUIZ";
     }
 
@@ -71,7 +76,9 @@ public class LaFranceController {
     }
 
     @GetMapping("/histoireGeoCultureQUIZ")
-    public String goTohistoireGeoCultureQUIZ() {
+    public String goTohistoireGeoCultureQUIZ(Model model) {
+
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("histoire geographie et culture"));
         return "histoireGeoCulture-QUIZ";
     }
 
@@ -83,7 +90,8 @@ public class LaFranceController {
     }
 
     @GetMapping("/vivreDsSocieteFQUIZ")
-    public String goTovivreDsSocieteFQUIZ() {
+    public String goTovivreDsSocieteFQUIZ(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("vivre dans la societe française"));
         return "vivreDsSocieteF-QUIZ";
     }
 

@@ -40,7 +40,11 @@
                 </div>
             </div>
         </div>
-
+        <div class="text-center mt-4">
+            <a th:href="@{/lessons}" class="btn btn-outline-primary btn-lg">
+                &#128218; Voir toutes les leçons →
+            </a>
+        </div>
         <div class="row my-5">
             <div class="col-6">
                 <a th:href="@{/supports-de-cours}" class="btn btn-outline-primary btn-lg w-100">
@@ -54,7 +58,25 @@
                 </a>
             </div>
         </div>
-
+        <div class="row my-5">
+            <div class="col-6">
+                <a th:href="@{/themes}"
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘 ❓</span>Leçons par thème -
+                    Dialogue + QCM + QUIZ (A1-A2) .</a>
+            </div>
+            <div class="col-6">
+                <a th:href="@{/cultureFrancaise}"
+                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span>Culture générale
+                    (A1-A2) .</a>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-12">
+                <a th:href="@{/laFrance}" class="btn btn-outline-primary btn-lg w-100">
+                    <span aria-hidden="true"> 📚 ❓</span> FRANCE - LIVRET DU CITOYEN 2026 + QCM + QUIZ (A2-B1) .</a>
+                </a>
+            </div>
+        </div>
         <div class="row my-5">
             <div class="col-6">
                 <a th:href="@{/chiffresEtLettres}" class="btn btn-outline-primary btn-lg w-100"><span
@@ -98,24 +120,8 @@
             </div>
 
         </div>
-        <div class="row my-5">
-            <div class="col-6">
-                <a th:href="@{/themes}"
-                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘 ❓</span>Leçons par thème -
-                    Dialogue + QCM + QUIZ (A1-A2) .</a>
-            </div>
-            <div class="col-6">
-                <a th:href="@{/cultureFrancaise}"
-                   class="btn btn-outline-primary btn-lg w-100"><span aria-hidden="true">📘</span>Culture générale (A1-A2) .</a>
-            </div>
-        </div>
-        <div class="row my-5">
-            <div class="col-12">
-                <a th:href="@{/laFrance}" class="btn btn-outline-primary btn-lg w-100">
-                    <span aria-hidden="true"> 📚 ❓</span>LA FRANCE - LIVRET DU CITOYEN 2026 + QCM et Exercises(glisser-déposer) .</a>
-                </a>
-            </div>
-        </div>
+
+
         <br>
         <!-- Pour les utilisateurs non connectés-->
         <div class="text-center mt-5" sec:authorize="isAnonymous()">
@@ -127,11 +133,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center mt-4">
-        <a th:href="@{/lessons}" class="btn btn-outline-primary btn-lg">
-            &#128218; Voir toutes les leçons →
-        </a>
-    </div>
+
 </main>
 <br>
 
@@ -139,9 +141,9 @@
     <strong>Version de TEST</strong><br>
     Ce site est en phase de test.<br>
     Les comptes sont fictifs et créés par l'administrateur.<br>
-    <strong style="color: #d32f2f;">Prière de ne pas créer de compte.</strong><br>
-    Vos données seront supprimées régulièrement.<br>
-    Merci de ne pas utiliser d'informations personnelles réelles.
+    <strong style="color: #d32f2f;">Prière de ne pas créer de compte utilisant vos informations
+        personnelles.</strong><br>
+    Vos données seront supprimées régulièrement.
 </div>
 
 <div class="container text-center mt-3">
