@@ -87,13 +87,13 @@ cd french-for-beginners
 Copiez le fichier d'exemple :
 
 ```bash
-cp .env.example .env
+cp .env.exemple .env
 ```
 
 Sous Windows PowerShell :
 
 ```powershell
-Copy-Item .env.example .env
+Copy-Item .env.exemple .env
 ```
 
 ### 3. Modifier le fichier `.env`
