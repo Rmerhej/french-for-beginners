@@ -7,4 +7,5 @@ README.md
 Dockerfile
 docker-compose.yml
 *.md
-uploads/
+*.iml
+#uploads/

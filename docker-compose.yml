@@ -22,7 +22,7 @@ services:
       - french-network
 
   app:
-    image: rolandmerhej1/french-app:v1.7.2
+    image: rolandmerhej1/french-app:v1.8
     container_name: french-app
     restart: always
     depends_on:
