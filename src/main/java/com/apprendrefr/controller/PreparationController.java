@@ -71,4 +71,16 @@ public class PreparationController {
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "le-bricolage";
     }
+    @GetMapping("/ville")
+    public String allerAVille(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("La ville");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "la-ville";
+    }
+    @GetMapping("/meteo")
+    public String allerAmeteo(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("La météo");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "la-meteo";
+    }
 }

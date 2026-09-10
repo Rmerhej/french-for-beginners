@@ -60,4 +60,16 @@ public class PreparationQuizController {
         model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
         return "bricolage-quiz";
     }
+    @GetMapping("/meteoQuiz")
+    public String showMeteoQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("la météo");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "meteo-quiz";
+    }
+    @GetMapping("/villeQuiz")
+    public String showVilleQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("la ville");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "ville-quiz";
+    }
 }
