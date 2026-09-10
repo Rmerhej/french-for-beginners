@@ -53,4 +53,11 @@ public class PreparationQuizController {
         model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
         return "entreprise-quiz";
     }
+
+    @GetMapping("/bricolageQuiz")
+    public String showBricolageQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("le bricolage");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "bricolage-quiz";
+    }
 }
