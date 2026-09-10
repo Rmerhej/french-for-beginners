@@ -28,6 +28,7 @@ public class PreparationController {
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "preparation-list";
     }
+
     @GetMapping("/admin/preparation/new")
     public String showCreatePreparationForm(Exercise exercise, Quiz quiz, Model model) {
         model.addAttribute("quiz", new Quiz());
@@ -62,5 +63,12 @@ public class PreparationController {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Entreprise");
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "entreprise-qcm";
+    }
+
+    @GetMapping("/bricolage")
+    public String allerABricolage(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Le bricolage");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "le-bricolage";
     }
 }
