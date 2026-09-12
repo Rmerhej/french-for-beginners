@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 12 août 2026 à 08:02
+-- Généré le : sam. 12 sep. 2026 à 11:10
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=333 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -372,8 +372,68 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (328, 'C', 'Le CIR permet d\'apprendre les valeurs de la République et la langue française.', 'Vivre dans la société française', 'De tester les compétences sportives des candidats.', 'De trouver un logement social en moins d\'un mois.', 'De faciliter l\'intégration en France via des formations civiques et linguistiques.', 'De remplacer le contrat de travail.', 'Quel est l\'objectif principal du contrat d\'intégration républicaine (CIR) signé lors d\'une première installation ou naturalisation ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (329, 'A', 'Le bail encadre juridiquement la location d\'un logement.', 'Vivre dans la société française', 'Un contrat écrit qui lie le propriétaire et le locataire en fixant les droits et devoirs de chacun.', 'Une facture d\'électricité.', 'Une attestation de fin de contrat de travail.', 'Un acte de naissance.', 'Qu\'est-ce qu\'un bail de location immobilière ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (330, 'B', 'Plusieurs vaccinations sont obligatoires pour protéger la santé publique des enfants.', 'Vivre dans la société française', 'Facultatifs selon le choix des grands-parents.', 'Obligatoires pour l\'admission en collectivité (crèche, école), sauf contre-indication médicale.', 'Réservés uniquement aux adultes.', ' Interdits par la loi.', ' Les vaccins obligatoires des nourrissons en France sont :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(331, 'D', 'Il existe des structures d\'accès au droit et d\'information pour aider les citoyens.', 'Vivre dans la société française', 'En cas de litige avec un employeur ou un propriétaire, à qui peut-on s\'adresser en priorité pour obtenir des conseils juridiques gratuits ?', 'Au Président de la République.', 'À la Banque de France.', 'Aux maisons de justice et du droit ou à des permanences juridiques associatives.', 'En cas de litige avec un employeur ou un propriétaire, à qui peut-on s\'adresser en priorité pour obtenir des conseils juridiques gratuits ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(332, 'C', 'Prendre soin de son environnement fait partie des devoirs de civisme et de solidarité envers les générations futures.', 'Vivre dans la société française', 'L\'écologie punitive sans lien avec le civisme.', 'Une option que l\'on peut totalement ignorer en ville.', 'La responsabilité civique et du respect du cadre de vie partagé.', 'Une directive réservée aux seules entreprises industrielles.', 'Le tri des déchets et le respect de l\'environnement au quotidien relèvent de :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+(331, 'D', 'Il existe des structures d\'accès au droit et d\'information pour aider les citoyens.', 'Vivre dans la société française', 'Au préfet', 'Au Président de la République.', 'À la Banque de France.', 'Aux maisons de justice et du droit ou à des permanences juridiques associatives.', 'En cas de litige avec un employeur ou un propriétaire, à qui peut-on s\'adresser en priorité pour obtenir des conseils juridiques gratuits ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(332, 'C', 'Prendre soin de son environnement fait partie des devoirs de civisme et de solidarité envers les générations futures.', 'Vivre dans la société française', 'L\'écologie punitive sans lien avec le civisme.', 'Une option que l\'on peut totalement ignorer en ville.', 'La responsabilité civique et du respect du cadre de vie partagé.', 'Une directive réservée aux seules entreprises industrielles.', 'Le tri des déchets et le respect de l\'environnement au quotidien relèvent de :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(333, 'B', '', 'Le bricolage', 'D\'un tournevis', 'D\'un marteau', 'D\'une perceuse', 'D\'une rallonge électrique', 'De quel outil Étienne a-t-il besoin au début du dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(334, 'C', '', 'Le bricolage', 'Pour réparer une porte', 'Pour faire des trous', 'Pour planter des clous', 'Pour réparer une lampe', 'Pourquoi Étienne a-t-il besoin du marteau ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(335, 'C', '', 'Le bricolage', 'Dans le placard', 'Dans la cuisine', 'Dans la boîte à outils', 'Dans le garage', 'Où Adèle a-t-elle vu le marteau ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(336, 'B', '', 'Le bricolage', '5', '10', '20', '1', 'Combien de clous Étienne veut-il environ ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(337, 'B', '', 'Le bricolage', 'Continuer à bricoler', 'Aller ouvrir', 'Chercher le marteau', 'Monter sur l\'échelle', 'Que doit faire Adèle lorsqu\'on sonne à la porte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(338, 'D', '', 'Le bricolage', 'Il y a beaucoup de bruit.', 'Il n\'a pas de marteau.', 'Il doit sortir.', 'Il risque de se faire mal.', 'Pourquoi Adèle dit-elle à Étienne de faire attention ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(339, 'A', '', 'Le bricolage', 'Une perceuse', 'Un marteau', 'Un tournevis', 'Une rallonge', 'Quel outil le voisin demande-t-il à Adèle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(340, 'C', '', 'Le bricolage', 'Pour planter des clous', 'Pour réparer une ampoule', 'Pour faire des trous', 'Pour peindre le salon', 'Pourquoi Étienne utilise-t-il une perceuse ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(341, 'C', '', 'Le bricolage', 'D\'un marteau', 'D\'une pince', 'D\'un tournevis', 'D\'une échelle', 'De quel petit outil Étienne a-t-il besoin ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(342, 'B', '', 'Le bricolage', 'De réparer la cuisine', 'De lui prêter une perceuse', 'De lui vendre des outils', 'De peindre son appartement', 'Que propose le voisin à Adèle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(343, 'B', '', 'Le bricolage', 'La lampe', 'L\'ampoule', ' La rallonge', 'Le fil électrique', 'Dans le dialogue « Tout est à refaire ! », qu\'est-ce qui est grillé ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(344, 'C', '', 'Le bricolage', 'Dans la cuisine', 'Dans le salon', 'Dans le placard', 'Dans la chambre', 'Où se trouvent les autres ampoules ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(345, 'B', '', 'Le bricolage', 'D\'une échelle', 'D\'une rallonge électrique', 'D\'un marteau', 'D\'un tournevis', 'De quoi Boniface a-t-il besoin pour brancher la lampe ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(346, 'C', '', 'Le bricolage', 'Elle est très moderne.', 'Elle est toute neuve.', 'Elle semble très ancienne.', 'Elle est parfaite.', 'Que pense Boniface de l\'installation électrique ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(347, 'C', '', 'Le bricolage', 'Un boulanger', 'Un peintre', 'Un électricien', 'Un menuisier', 'Quel professionnel Boniface pense-t-il devoir appeler ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(348, 'A', '', 'Le bricolage', 'Un plombier', 'Un mécanicien', 'Un jardinier', 'Un coiffeur', 'Quel autre professionnel est mentionné dans le dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(349, 'C', '', 'Le bricolage', 'Vert clair', 'Blanc', 'Jaune pâle', 'Bleu clair', 'Quelle couleur Marie a-t-elle choisie pour la cuisine ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(350, 'B', '', 'Le bricolage', 'En blanc', 'En vert clair', 'En jaune pâle', 'En rouge', 'De quelle couleur Marie a-t-elle repeint la chambre ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(351, 'C', '', 'Le bricolage', 'Une lampe', 'Une étagère', 'Un placard', 'Une porte', 'Qu\'est-ce que Marie a installé seule dans la cuisine ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(352, 'D', '', 'Le bricolage', 'Elle a perdu son portefeuille.', 'Elle est très fatiguée.', 'Elle est « crevée » et doit acheter des outils.', 'Elle a besoin d\'argent pour terminer ses travaux.', 'Pourquoi Marie doit-elle demander de l\'argent à ses parents ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(353, 'B', '', 'La ville', 'Le château municipal', 'Le bâtiment du musée', 'La grande avenue', 'La mairie', 'Qu\'est-ce qui a été rénové et restructuré selon le maire au début du texte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(354, 'C', '', 'La ville', 'Par des néons artificiels', 'Par des projecteurs halogènes', 'Par des projecteurs halogènes', 'Par des bougies anciennes', 'Comment est éclairée la salle des sculptures antiques ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(355, 'B', '', 'La ville', 'Un architecte français', 'Un architecte allemand', 'Un architecte italien', 'Un architecte suisse', 'Qui a conçu le projet architectural du musée ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(356, 'B', '', 'La ville', 'À des entreprises internationales', 'À des entreprises de la région', 'À des bénévoles du village', 'À une seule grande multinationale', 'À qui a été confiée la rénovation des travaux ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(357, 'B', '', 'La ville', 'Plus de cent personnes', 'Plus de deux cents personnes', 'Exactement cinquante personnes', 'Près de mille personnes', 'Combien de personnes ont été réunies le jour de l\'inauguration du musée ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(358, 'D', '', 'La ville', 'Luxueux et modernes', 'Spacieux et neufs', 'Vides et abandonnés sans habitants', 'Très pauvres et insalubres', 'Comment étaient les logements du quartier avant sa réhabilitation selon Adrienne ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(359, 'C', '', 'La ville', 'Parce qu\'il n\'y avait pas d\'école', 'Parce qu\'il faisait trop froid', 'Parce que les enfants ne pouvaient pas jouer dehors en sécurité', 'Parce qu\'ils devaient travailler', 'Pourquoi les parents devaient-ils garder les enfants à la maison dans l\'ancien quartier ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(360, 'C', '', 'La ville', 'Un grand centre commercial', 'Des parcs de stationnement', 'Des petits immeubles plus confortables', 'Des usines modernes', 'Qu\'est-ce qui a remplacé l\'immense ensemble de H.L.M. détruit ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(361, 'C', '', 'La ville', 'Le bruit constant', 'L\'éloignement des transports', 'L\'augmentation de 35% du prix des logements', 'La disparition totale des commerces', 'Quel est l\'inconvénient majeur suite à la réhabilitation du quartier ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(362, 'A', '', 'La ville', 'Elle achetait des œufs à un petit paysan', 'Elle vendait des fruits', 'Elle jouait de la musique', 'Elle gardait les chiens', 'Que faisait Jeanne quand elle était petite au marché ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(363, 'B', '', 'La ville', 'Un grand musée', 'Un centre commercial', 'Une école primaire', 'Un parc public', 'Qu\'y a-t-il maintenant à la place de l\'ancienne ferme où Jeanne allait chercher du lait ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(364, 'B', '', 'La ville', 'Les jeunes ne parlent aucune langue', 'Les jeunes parlent l\'anglais et voyagent partout', 'Les jeunes parlent uniquement le dialecte local', 'Les jeunes refusent d\'apprendre des langues étrangères', 'Selon Jeanne, quelle différence y a-t-il entre sa génération et la jeunesse actuelle concernant les langues ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(365, 'B', '', 'La ville', 'Une forêt dense', 'Un petit chemin de terre', 'Une rivière navigable', 'Une voie de chemin de fer', 'Avant, à la place de la grande avenue moderne, qu\'y a-t-il eu selon Lucien ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(366, 'B', '', 'La ville', 'Plus connectée et rapide', 'Plus humaine, plus agréable (on lisait, on parlait)', 'Plus ennuyeuse et solitaire', 'Plus stressante', 'Comment Lucien qualifie-t-il la vie d\'avant par rapport à l\'utilisation des écrans ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(367, 'C', '', 'La ville', 'À Lyon', 'À Marseille', 'À Paris', 'Dans un petit village rural', 'Où habite Lucien actuellement ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(368, 'B', '', 'La ville', 'Animé et festif', 'Vide, mort et ennuyeux', 'Dangereux et violent', 'Prospère et commerçant', 'Comment Alain qualifiait-il son village natal d\'autrefois ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(369, 'C', '', 'La ville', '10', '20', '30', '50', 'Quelle était la distance en kilomètres de la pharmacie la plus proche pour Alain quand il était jeune ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(370, 'B', '', 'La ville', 'De calme absolu', 'De la grande ville, de l\'animation, des cinémas', 'D\'une vie agricole traditionnelle', 'De voyages en mer', 'De quoi Alain rêvait-il lorsqu\'il habitait à la campagne ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(371, 'B', '', 'La ville', 'C\'est une réussite !', 'C\'était le bon vieux temps...', 'Heureusement !', 'L\'inconvénient, c\'est que...', 'Quelle expression exprime la nostalgie ou le regret du passé dans les dialogues ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(372, 'B', '', 'La ville', 'De la colère pure contre le passé', 'Un sentiment partagé (regret de certaines choses mais conscience des aspects moins agréables d\'avant)', 'Une indifférence totale', 'De la jalousie envers ses voisins actuels', 'Quel sentiment éprouvait Jeanne lorsqu\'elle évoque sa jeunesse ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(373, 'B', '', 'La météo', 'De la pluie qui ne s\'arrête pas', 'Du fait qu\'il fait beaucoup plus chaud aujourd\'hui', 'De la neige qui est tombée en hiver', 'D\'un vent violent qui souffle', 'De quoi Corentin parle-t-il au début du premier dialogue avec Papi ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(374, 'D', '', 'La météo', 'Il est d\'accord immédiatement', 'Il demande à rentrer à la maison', 'Il sourit et enlève son manteau', 'Il a froid et il ne comprend pas', 'Quelle est la réaction initiale de Papi quand Corentin lui parle de la chaleur ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(375, 'C', '', 'La météo', 'Un t-shirt léger', 'Un imperméable transparent', 'Un pull et une écharpe', 'Un maillot de bain', 'Que porte Papi sur lui dans le premier dialogue, ce qui montre qu\'il a froid ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(376, 'C', '', 'La météo', 'À la montagne', 'À la campagne', 'À la mer', 'En ville', 'Où se déroule le deuxième dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(377, 'B', '', 'La météo', 'Parce qu\'il y a un vent du nord glacial', 'Parce qu\'il y a un monde fou de baigneurs et qu\'hier il y avait un monde fou sur la plage', 'Parce qu\'on est en plein hiver', 'Parce que la température extérieure est négative', 'Pourquoi Clotilde trouve-t-elle que la mer ne doit pas être chaude au début du dialogue 2 ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(378, 'C', '', 'La météo', 'Il déteste la foule', 'Il trouve cela insupportable', 'Il trouve cela plus agréable que la veille où c\'était impossible de trouver une place', 'Il aimerait qu\'il y ait encore plus de monde', 'Que pense Anatole de l\'affluence sur la plage ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(379, 'B', '', 'La météo', 'De rester allongé sans bouger toute la journée', 'De mettre un peu plus de crème solaire pour éviter les coups de soleil', 'De ne pas porter de lunettes de soleil', 'De se baigner immédiatement sans protection', 'Que conseille Clotilde à Anatole concernant le soleil ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(380, 'B', '', 'La météo', '18', '24', '30', '35', 'Quelle température (en degrés)  fait-il selon Anatole d\'après son thermomètre ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(381, 'B', '', 'La météo', '10 degrés', '14', '18', '22', 'Quelle est la température de l\'eau de mer mesurée par Anatole ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(382, 'C', '', 'La météo', 'Trop chaude', 'Presque agréable', 'Glaciale (\"Que c\'est froid ! Elle était presque aussi froide hier\")', 'Parfaite pour nager des heures', 'Comment Clotilde qualifie-t-elle la température de l\'eau (14 degrés) ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(383, 'B', '', 'La météo', 'Il pleut tous les jours sans interruption', 'Il fait souvent très beau, mais assez froid avec du vent (le mistral)', 'Il y a de la neige et du verglas constants', 'Il fait extrêmement doux et tropical', 'Quel temps fait-il en hiver en Provence selon Antoine (Dialogue 3) ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(384, 'A', '', 'La météo', 'C\'est un vent très fort et froid', 'C\'est une brise légère et chaude', 'C\'est un vent qui apporte de la pluie fine', 'C\'est un vent rare qui souffle en été', 'Comment se caractérise le mistral en Provence ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(385, 'B', '', 'La météo', 'Il y a beaucoup de soleil et de vent', 'Il fait assez doux, mais il y a souvent du brouillard et les nuages restent', 'Il y a des tempêtes de neige régulières', 'Il fait un temps sec et très chaud', 'Quel temps fait-il dans la région d\'origine de Philippe en hiver ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(386, 'D', '', 'La météo', 'Le climat n\'a pas changé depuis son enfance', 'Il y a désormais de la neige toute l\'année', 'Il ne pleut plus du tout', 'Le climat a changé : quand il était jeune, il y avait plus de vent', 'Que remarque Philippe concernant l\'évolution du climat en Provence ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(387, 'C', '', 'La météo', 'Un grand soleil radieux sans aucun nuage', 'Une tempête de neige généralisée', 'Un grand soleil radieux sans aucun nuage', 'Un brouillard épais qui persiste toute la journée', 'D\'après le bulletin météo radiophonique (Document 4), quel temps fait-il le matin ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(388, 'A', '', 'La météo', 'Le ciel se dégagera après l\'arrivée d\'un fort vent de nord-est, pour laisser place à de belles éclaircies', 'Le temps va se détériorer avec de l\'orage', 'La température va chuter brusquement sous zéro', 'Il commencera à neiger abondamment', 'Que va-t-il se passer l\'après-midi selon le bulletin météo ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(389, 'B', '', 'La météo', 'Entre 0 et 10 degrés', 'Entre 7 et 15 degrés', 'Entre 15 et 25 degrés', 'Entre 20 et 30 degrés', 'Quelles seront les températures comprises selon le bulletin météo ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(390, 'D', '', 'La météo', 'Entre 8h et 10h', 'Entre 17h et 19h', 'Toute la journée sans exception', 'Entre 12 heures et 16 heures', 'Entre quelles heures est-il recommandé de se protéger du soleil en été (Document 5) ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(391, 'C', '', 'La météo', 'Un verre de jus de fruits', 'Du thé chaud', 'Une grande bouteille d\'eau par jour', 'Du lait frais de la ferme', 'Que conseille l\'article de journal (Document 5) de boire par jour ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(392, 'D', '', 'La météo', ' \"C\'est une question d\'habitude.\"', '\"Tant mieux !\"', '\"Ça change de...\"', '\"Quel temps fait-il ?\"', 'Quelle expression-clé utilise-t-on pour demander la météo actuelle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -464,16 +524,16 @@ CREATE TABLE IF NOT EXISTS `prononciation` (
 --
 
 INSERT INTO `prononciation` (`id`, `audio`, `exemple`, `son`) VALUES
-(1, '/uploads/audio/o-au-eau.mp3', 'drapeau, drôle, faute', 'ô = au = eau'),
-(2, '/uploads/audio/al_ul.mp3', 'calcul, animal', 'al = il = ol = ul'),
-(3, '/uploads/audio/br_dr.mp3', 'bravoure, droite', 'br = dr '),
-(4, '/uploads/audio/cha_chi.mp3', 'Vache, Chic', 'ch = cha = chi = cho '),
+(1, 'uploads/audio/o-au-eau.mp3', 'drapeau, drôle, faute', 'ô ; au ; eau'),
+(2, '/uploads/audio/81fb840b-63ce-436a-9f40-47ea4e9e1129_al_ul.mp3', 'calcul, animal,sol', 'al ; il ; ol ; ul'),
+(3, '/uploads/audio/ffba98a5-ea0f-4571-b4b5-01564c35b390_br_dr.mp3', 'bravoure, droite', 'br ; dr '),
+(4, '/uploads/audio/b18f3f22-c7d2-4f86-ae1d-0bba45b7ba5b_cha_chi.mp3', 'Vache, Chic', 'ch ; cha ; chi ; cho '),
 (5, '/uploads/audio/in.mp3', 'Sapin', 'in'),
 (6, '/uploads/audio/ou.mp3', 'bouche, couture', 'ou'),
 (7, '/uploads/audio/on_mon_ton.mp3', 'mouton, capuchon', 'on'),
-(8, '/uploads/audio/Oin-ien.mp3', 'Gardien, Témoin', 'oin = ien'),
-(9, '/uploads/audio/ail-euil-eil.mp3', 'Portail, Écureuil, Réveille', 'ail = euil = eil = eille'),
-(10, '/uploads/audio/our-our-eur.mp3', 'Bonsoir, Bonjour, Facteur', 'our = oir = eur'),
+(8, 'uploads/audio/Oin-ien.mp3', 'Gardien, Témoin', 'oin ; ien'),
+(9, 'uploads/audio/ail-euil-eil.mp3', 'Portail, Écureuil, Réveille', 'ail ; euil ; eil ; eille'),
+(10, 'uploads/audio/our-our-eur.mp3', 'Bonsoir, Bonjour, Facteur', 'our ; oir ; eur'),
 (11, '/uploads/audio/Prononciation_ILL.mp3', 'Fille , Travailler', 'ill'),
 (12, '/uploads/audio/Prononciation_gn.mp3', 'Montagne , oignon', 'gn'),
 (13, '/uploads/audio/Prononciation_an.mp3', 'Sans , enfant', 'an'),
@@ -504,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -714,7 +774,7 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (206, '1789,1944,1958', '', '1.Prise de la Bastille et début de la Révolution française____\r\n2.Obtention du droit de vote pour les femmes et Libération____\r\n3.Proclamation de la Constitution de la Ve République____', 'Histoire géographie et culture - Les grandes dates de l\'Histoire de France', '1958,1789,1944', NULL),
 (207, 'Le général de Gaulle,Simone Veil,Robert Badinter', '', '1.Appel du 18 juin 1940 et fondateur de la Ve République____\r\n2.Loi dépénalisant l\'Interruption Volontaire de Grossesse (IVG) en 1975____\r\n3.Abolition de la peine de mort en France en 1981____', 'Histoire géographie et culture - Les grands personnages historiques', 'Le général de Gaulle,Robert Badinter,Simone Veil', NULL),
 (208, 'Le Mont Blanc,Les Pyrénées,La Seine', '', '1.Point culminant de la France et de l\'Europe occidentale (dans les Alpes)____\r\n2.Chaîne de montagnes formant la frontière naturelle entre la France et l\'Espagne____\r\n3.Fleuve majeur qui traverse notamment la ville de Paris____', 'Histoire géographie et culture - Géographie physique de la France (Reliefs et frontières)', 'La Seine,Le Mont Blanc,Les Pyrénées', NULL),
-(209, 'La Réunion,La Guadeloupe et la Martinique,La Guyane', '', '1.Située dans l\'océan Indien____\r\n2.Situées dans la mer des Caraïbes (aux Antilles)____\r\n3.Située sur le continent sud-américain____', 'Histoire géographie et culture - Les départements et régions d\'outre-mer (DROM)', 'La Réunion,La Guadeloupe et la Martinique,La Guyane', NULL),
+(209, 'La Réunion,La Guadeloupe,Martinique,La Guyane', '', '1.Située dans l\'océan Indien____\r\n2.Situées dans la mer des Caraïbes (aux Antilles)____\r\n3.Située sur le continent sud-américain____', 'Histoire géographie et culture - Les départements et régions d\'outre-mer (DROM)', 'La Réunion,La Guadeloupe,Martinique,La Guyane', NULL),
 (210, 'Le musée du Louvre,Le musée d\'Orsay,Le Centre Pompidou (Beaubourg)', '', '1.Abrite notamment le tableau de La Joconde à Paris____\r\n2.Célèbre pour ses collections d\'art impressionniste du XIXe siècle____\r\n3.Référence majeure pour l\'art moderne et contemporain à l\'architecture audacieuse____', 'Histoire géographie et culture - Patrimoine culturel et musées de France', 'Le Centre Pompidou (Beaubourg),Le musée du Louvre,Le musée d\'Orsay', NULL),
 (211, 'Vrai,Vrai,Faux', '', '1.Plus de 300 millions de locuteurs partagent la langue française sur tous les continents____\r\n\r\n2.L\'Organisation Internationale de la Francophonie (OIF) rassemble de nombreux États membres____\r\n\r\n3.Le français n\'est parlé que sur le territoire européen de la France____', 'Histoire géographie et culture - La Francophonie à travers le monde', 'Vrai,Faux,Vrai', NULL),
 (212, 'Le défilé militaire sur les Champs-Élysées,Les feux d\'artifice', '', '1.Démonstration de la puissance et de la cohésion des forces armées républicaines____\r\n2.Moments de rassemblement festif et républicain pour les citoyens____', 'Histoire géographie et culture - Symboles et traditions de la fête nationale', 'Les feux d\'artifice,Le défilé militaire sur les Champs-Élysées', NULL),
@@ -729,7 +789,49 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (221, 'L\'assurance responsabilité civile,L\'assurance habitation,Le bail de location', NULL, '1.Indemnise les dommages involontaires causés aux autres dans la vie de tous les jours____\r\n2.Protège le logement contre les risques (dégâts des eaux, incendie)____\r\n3.Contrat écrit obligatoire fixant les droits du propriétaire et du locataire____', ' Vivre dans la société française - La vie quotidienne et l\'assurance', 'L\'assurance responsabilité civile,Le bail de location,L\'assurance habitation', NULL),
 (222, 'Vrai,Vrai,Faux', NULL, '1.Plusieurs vaccinations infantiles sont obligatoires pour l\'entrée en collectivité (crèche, école)____\r\n\r\n2.Le médecin du travail veille à la santé des salariés à leur poste____\r\n\r\n3.Il est interdit de consulter un médecin spécialiste sans passer par le médecin traitant sous peine d\'amende pénale____', ' Vivre dans la société française - La santé publique et la prévention (Vaccination)', 'Vrai,Faux,Vrai', NULL),
 (223, 'Les maisons de justice et du droit,Le tribunal de proximité ou judiciaire', NULL, '1.Pour obtenir gratuitement des conseils juridiques et de l\'information de premier niveau____\r\n2.Pour trancher officiellement un litige civil (impayés, conflits de voisinage) par un juge____', ' Vivre dans la société française - Résolution des litiges et accès au droit', 'Les maisons de justice et du droit,Le tribunal de proximité ou judiciaire', NULL),
-(224, 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL, '1.Participation citoyenne au recyclage et à la préservation des ressources____\r\n2.Garantie du vivre-ensemble pacifique et du repos d\'autrui____\r\n3.Infraction passible d\'une amende forfaitaire pour non-respect de la propreté urbaine____', ' Vivre dans la société française - Écologie et cadre de vie partagé', 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL);
+(224, 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL, '1.Participation citoyenne au recyclage et à la préservation des ressources____\r\n2.Garantie du vivre-ensemble pacifique et du repos d\'autrui____\r\n3.Infraction passible d\'une amende forfaitaire pour non-respect de la propreté urbaine____', ' Vivre dans la société française - Écologie et cadre de vie partagé', 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL),
+(225, 'marteau,perceuse,tournevis,rallonge électrique,échelle', NULL, '1.planter des clous____\r\n2.faire des trous____\r\n3.visser / dévisser____\r\n4.éloigner le point de branchement____\r\n5.monter en hauteur____', 'Le bricolage - Associer l\'outil à son utilisation', 'rallonge électrique,échelle,tournevis,marteau,perceuse', NULL),
+(226, 'marteau', NULL, 'Étienne doit planter des clous. Il a besoin d\'un____', 'Le bricolage - Compléter avec l\'outil', 'perceuse,marteau,ampoule,placard', NULL),
+(227, 'Adèle,Étienne,Le voisin,Boniface,Anatole', NULL, '1.demande un marteau____\r\n2.bricole dans l\'appartement____\r\n3.propose de chercher un outil____\r\n4.pense appeler un électricien____\r\n5.discute des réparations____', 'Le bricolage - Les personnages : Associer chaque personne à son rôle dans les dialogues.', 'Anatole,Adèle,Étienne,Boniface,Le voisin', NULL),
+(228, 'd\'un,d\'une,une,des,en', NULL, '1.Tu as besoin____ marteau.\r\n2.Il a besoin____ perceuse.\r\n3.J\'en ai____ dans le placard.\r\n4.Nous avons besoin____ outils.\r\n5.Je vais____ chercher une.', 'Le bricolage - Compléter les phrases', 'en,d\'un,d\'une,des,une', NULL),
+(229, 'échelle,clou,ampoule,placard,fil électrique', NULL, 'A. Objet qui permet de monter en hauteur____\r\nB. Petit objet métallique que l\'on plante____\r\nC. Objet qui éclaire une lampe____\r\nD. Meuble servant à ranger des objets____\r\nE. Fil utilisé pour conduire l\'électricité____', 'Le bricolage - Associer les mots à leur définition.', 'fil électrique,placard,clou,échelle,ampoule', NULL),
+(231, 'jaune pâle,vert clair,blanc', NULL, '1.cuisine____\r\n2.chambre____\r\n3.séjour____', 'Le bricolage - Associer la pièce à sa couleur.', 'blanc,jaune pâle,vert clair', NULL),
+(232, 'décoration', NULL, 'Marie est dans un moment important de sa vie : elle s\'occupe de la____ de son nouvel appartement.', 'Le bricolage - Compléter :', 'réparation,plomberie,décoration', NULL),
+(233, 'Léo,Marie,Boniface,Anatole,le voisin', NULL, '1.aide Marie à poser la moquette____\r\n2.décore son nouvel appartement____\r\n3.veut faire réparer l\'installation électrique____\r\n4.pense qu\'il faut appeler un plombier____\r\n5.possède beaucoup d\'outils____', 'Le bricolage - Qui fait quoi ?', 'le voisin,Léo,Anatole,Marie,Boniface', NULL),
+(234, 'Éclairage,Éclairage,Électricité,Électricité,Électricité', NULL, '1.ampoule____\r\n2.lampe____\r\n3.rallonge____\r\n4.fil électrique____\r\n5.prise____', 'Le bricolage - Associer ', 'Éclairage,Électricité', NULL),
+(235, 'en,y,en,y', NULL, '1.Tu as une perceuse ? Oui, j\'____ ai une.\r\n2.Tu vas chercher la boîte ? Oui, j\'____ vais.\r\n3.Il a besoin d\'un marteau ? Oui, il ____ a besoin.\r\n4.Tu vas à la porte ?  Oui, j\'____vais.', 'Le bricolage - Compléter avec « en » ou « y »', 'y,en', NULL),
+(236, 'électricien,plombier,coiffeur,mécanicien,peintre', NULL, '1.problème électrique____\r\n2.problème de plomberie____\r\n3.problème de cheveux____\r\n4.problème de voiture____\r\n5.problème de peinture____', 'Le bricolage - Associer le problème au professionnel.', 'mécanicien,peintre,électricien,plombier,coiffeur', NULL),
+(237, 'décoration,cuisine,chambre,séjour,moquette', NULL, '1.Je m\'occupe de la____ de mon nouvel appartement.\r\n2.J\'ai choisi la couleur de la____.\r\n3.J\'ai déjà repeint la____ en vert clair.\r\n4.Je vais peindre le____ en blanc.\r\n5.J\'ai posé la____.', 'Le bricolage - Compléter ', 'séjour,moquette,chambre,cuisine,décoration', NULL),
+(238, 'froid', NULL, 'Papi ne comprend pas tout de suite car il a____ et porte un pull et une écharpe.', 'La météo', 'chaud,froid,faim,soif', NULL),
+(239, 'chaud', NULL, 'Corentin s\'étonne qu\'il fasse beaucoup plus____ aujourd\'hui qu\'hier.', 'La météo', 'froid,gris,chaud,sombre', NULL),
+(240, 'de monde', NULL, 'À la mer, il y a beaucoup____ de baigneurs sur la plage.', 'La météo', 'peu,de monde,d\'espace,de calme', NULL),
+(241, 'solaire', NULL, 'Clotilde conseille à Anatole de mettre de la crème____ pour ne pas attraper de coup de soleil.', 'La météo', 'hydratante,solaire,glacée,colorée', NULL),
+(242, '24', NULL, 'D\'après le thermomètre d\'Anatole, il fait exactement____ degrés.', 'La météo', '14,24,30,40', NULL),
+(243, '14', NULL, 'La température de l\'eau de mer est très basse : elle est à seulement____ degrés.', 'La météo', '14,22,28,32', NULL),
+(244, 'simple', NULL, 'Se baigner dans de l\'eau froide, c\'est une____ question d\'habitude !', 'La météo', 'simple,tout,bonne', NULL),
+(245, 'mistral', NULL, 'En hiver en Provence, il fait souvent très beau, mais il y a beaucoup de vent, du____', 'La météo', 'sirocco,mistral,mousson', NULL),
+(246, 'brouillard', NULL, 'Dans la région de Philippe, en hiver, il fait assez doux, mais il y a souvent du____ et les nuages persistent.', 'La météo', 'brouillard,soleil,sable,tonnerre', NULL),
+(247, 'journée', NULL, 'Selon le bulletin météo radiophonique, des nuages couvriront le ciel jusqu\'en milieu de la____.', 'La météo', 'nuit,matinée,journée,semaine', NULL),
+(248, 'nord-est', NULL, 'Le bulletin météo annonce l\'arrivée d\'un fort vent de____', 'La météo', 'nord-est,sud-ouest,ouest,sud', NULL),
+(249, 'éclaircies', NULL, 'L\'après-midi, le ciel se dégagera pour laisser place à de belles____', 'La météo', 'éclaircies,tempêtes,pluies,neiges', NULL),
+(250, 'degrés', NULL, 'Les températures prévues par le bulletin radiophonique seront comprises entre 7 et 15____', 'La météo', 'mètres,kilomètres,degrés,heures', NULL),
+(251, 'ombre', NULL, 'Pour se protéger du soleil en été, il est conseillé de se mettre à l\'____', 'La météo', 'lumière,plage,hauteur,ombre', NULL),
+(252, 'eau', NULL, 'Il est recommandé de boire au moins une grande bouteille d\'____ par jour en été.', 'La météo', 'lait,jus,eau,soupe', NULL),
+(253, 'restructuré', NULL, 'Le bâtiment ancien du musée a été entièrement rénové et____', 'La ville', 'restructuré,détruit,abandonné,peint', NULL),
+(254, 'la lumière du jour', NULL, 'La salle des sculptures antiques est éclairée par____', 'La ville', 'des lampes torches,la lumière du jour,des projecteurs noirs,des bougies', NULL),
+(255, 'la région', NULL, 'La rénovation du musée a été confiée à des entreprises de____', 'La ville', 'la capitale,l\'étranger,la région,l\'outre-mer', NULL),
+(256, 'réunies', NULL, 'Le jour de l\'inauguration, plus de deux cents personnes étaient____', 'La ville', 'réunies,absentes,fâchées,fatiguées', NULL),
+(257, 'réhabilité', NULL, 'Le quartier populaire a été entièrement____ pour devenir agréable.', 'La ville', 'détruit définitivement,réhabilité,ignoré,pollué', NULL),
+(258, 'criminalité', NULL, 'Avant les travaux, le quartier était marqué par la____, les vols et les trafics.', 'La ville', 'criminalité,prospérité,solidarité,modernité', NULL),
+(259, 'immeubles', NULL, 'L\'ancien ensemble de H.L.M. a été détruit et remplacé par de petits____.', 'La ville', 'grattes-ciels,supermarchés,immeubles,entrepôts', NULL),
+(260, '35%', NULL, 'L\'inconvénient est que le prix des logements dans ce quartier a augmenté de____', 'La ville', '10%,25%,35%,50%', NULL),
+(261, 'la ferme', '', 'Jeanne allait chercher du lait frais directement à____', 'La ville', 'l\'usine,la pharmacie,la ferme,l\'école', NULL),
+(262, 'vieux', NULL, 'Pour exprimer la nostalgie du passé, on utilise l\'expression : \"C\'était le bon____ temps...\"', 'La ville', 'nouveau,mauvais,grand,vieux', NULL),
+(263, 'terre', NULL, 'Lucien allait à l\'école à pied en empruntant un petit chemin de____', 'La ville', 'fer,sable,terre,goudron', NULL),
+(264, 'autres', NULL, 'Au lieu de regarder la télévision, on lisait, on parlait, on faisait plus attention aux____', 'La ville', 'écrans,livres,autres,animaux', NULL),
+(265, 'vide', NULL, 'Alain trouvait que la vie dans son village d\'autrefois était ennuyeuse et____', 'La ville', 'animée,vide,bruyante,passionnante', NULL),
+(266, '30', NULL, 'La pharmacie la plus proche de chez Alain se trouvait à____ kilomètres.', 'La ville', '5,10,20,30', NULL),
+(267, 'Paris', NULL, ' Heureusement, maintenant Alain habite à____', 'La ville', 'Paris,Marseille,Lyon,Bordeaux', NULL);
 
 -- --------------------------------------------------------
 
