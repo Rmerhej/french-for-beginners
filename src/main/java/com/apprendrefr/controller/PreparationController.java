@@ -43,6 +43,12 @@ public class PreparationController {
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "au-bureau";
     }
+    @GetMapping("/AuCafé")
+    public String allerAuCAfé(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("U Sartrouville");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "Au-café";
+    }
 
     @GetMapping("/lesgens")
     public String allerLesGens(Model model) {
