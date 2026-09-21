@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 12 sep. 2026 à 11:10
+-- Généré le : lun. 21 sep. 2026 à 12:47
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=484 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -433,7 +433,84 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (389, 'B', '', 'La météo', 'Entre 0 et 10 degrés', 'Entre 7 et 15 degrés', 'Entre 15 et 25 degrés', 'Entre 20 et 30 degrés', 'Quelles seront les températures comprises selon le bulletin météo ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (390, 'D', '', 'La météo', 'Entre 8h et 10h', 'Entre 17h et 19h', 'Toute la journée sans exception', 'Entre 12 heures et 16 heures', 'Entre quelles heures est-il recommandé de se protéger du soleil en été (Document 5) ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (391, 'C', '', 'La météo', 'Un verre de jus de fruits', 'Du thé chaud', 'Une grande bouteille d\'eau par jour', 'Du lait frais de la ferme', 'Que conseille l\'article de journal (Document 5) de boire par jour ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(392, 'D', '', 'La météo', ' \"C\'est une question d\'habitude.\"', '\"Tant mieux !\"', '\"Ça change de...\"', '\"Quel temps fait-il ?\"', 'Quelle expression-clé utilise-t-on pour demander la météo actuelle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+(392, 'D', '', 'La météo', ' \"C\'est une question d\'habitude.\"', '\"Tant mieux !\"', '\"Ça change de...\"', '\"Quel temps fait-il ?\"', 'Quelle expression-clé utilise-t-on pour demander la météo actuelle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(393, 'B', '', 'U Sartrouville', 'Une omelette au fromage', 'Un sandwich jambon-beurre', 'Un saumon grillé', 'Une pizza au jambon', 'Que commande le client pour son déjeuner ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(394, 'A', '', 'U Sartrouville', 'Une salade verte', 'Une salade niçoise', 'Une assiette de crudités', 'Une assiette de frites', 'Que commande la cliente avec son croque-monsieur ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(395, 'A', '', 'Au café', 'Une formule « petit-déjeuner »', 'Une formule « déjeuner »', 'Une formule « dîner »', 'Une formule végétarienne', 'Que demande la cliente pour son petit-déjeuner ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(396, 'C', '', 'U Sartrouville', 'Des frites', 'Une salade verte', 'Du riz', 'Des crudités', 'Avec quoi veut-il manger le saumon grillé ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(397, 'B', '', 'U Sartrouville', 'Elle n\'aime pas la moutarde.', 'Elle est végétarienne.', 'Elle préfère le poisson.', 'Elle n\'a pas faim.', 'Pourquoi Virginie refuse-t-elle le lapin à la moutarde ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(398, 'C', '', 'U Sartrouville', 'De la viande', 'Du poisson', 'Des légumes', 'Des frites', 'Que veut manger Virginie ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(399, 'C', '', 'U Sartrouville', 'Crus', 'Froids', 'Cuits', 'Avec du beurre', 'Comment veut-elle ses légumes ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(400, 'A', '', 'U Sartrouville', 'Une assiette de riz avec des haricots verts', 'Une assiette de frites', 'Un saumon grillé avec du riz', 'Une salade niçoise', 'Que demande finalement Virginie ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(401, 'B', '', 'U Sartrouville', 'Le saumon grillé', 'Le jambon-beurre', 'La sole', 'L\'omelette', 'Quel aliment est un sandwich ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(402, 'C', '', 'U Sartrouville', 'L\'entrecôte', 'La pizza au jambon', 'La salade verte', 'Le saumon grillé', 'Quel plat fait partie des « plats froids » de la carte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(403, 'C', '', 'U Sartrouville', 'Le lapin à la moutarde', 'Les côtes d\'agneau', ' La sole', 'Le jambon-beurre', 'Quel aliment appartient à la catégorie « poissons » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(404, 'A', '', 'U Sartrouville', 'voudrais', 'voudrait', 'vouloir', 'voulons', 'Complétez : « Je _______ une formule à 12 euros. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(405, 'A', '', 'U Sartrouville', 'avons', 'avez', 'ont', 'avoir', 'Complétez : « Nous _______ du muscadet et de l\'aligoté. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(406, 'A', '', 'U Sartrouville', 'Je ne voudrais pas des légumes.', 'Je voudrais ne pas des légumes.', 'Je pas voudrais des légumes.', 'Je voudrais des ne légumes pas.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(407, 'D', '', 'U Sartrouville', 'Je voudrais un café.', 'Nous avons du riz.', 'Je suis végétarienne.', 'Je ne voudrais pas de viande.', 'Quelle phrase est négative ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(408, 'A', '', 'U Sartrouville', 'avez', 'avons', 'ont', 'avoir', 'Complétez : « Vous _______ une table libre, là-bas. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(424, 'B', '', 'Test', 'Je suis vingt ans.', 'Je m\'appelle Paul.', 'J\'habite français.', 'Je vais Paul.', 'Comment vous appelez-vous ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(425, 'C', '', 'Test', 'es', 'suis', 'est', 'sont', 'Marie ___ française.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, `optiona`, `optionb`, `optionc`, `optiond`, `question`, `exercise_type`, `lesson_level`, `sentences`, `words`, `date`, `page`, `url`) VALUES
+(426, 'D', '', 'Test', 'habite', 'habites', 'habitez', 'habitons', 'Nous ___ à Paris.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(427, 'B', '', 'Test', 'une', 'un', 'des', 'de', 'Je voudrais ___ café, s\'il vous plaît.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(428, 'C', '', 'Test', 'dimanche', 'mercredi', 'mardi', 'jeudi', 'Quel jour vient après lundi ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(429, 'B', '', 'Test', 'Au revoir !', 'Très bien, merci.', 'Il est midi.', 'J\'ai vingt ans.', '« Bonjour, comment allez-vous ? »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(430, 'B', '', 'Test', 'ne suis', 'n\'ai', 'ne vais', 'n\'habite', 'Je ___ pas de voiture.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(431, 'A', '', 'Test', 'au', 'à la', 'aux', 'en', 'Il est huit heures. Je vais ___ travail.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(432, 'A', '', 'Test', 'J\'aime beaucoup le chocolat.', 'J\'aime le beaucoup chocolat.', 'Beaucoup j\'aime chocolat le.', 'J\'aime chocolat beaucoup le.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(433, 'B', '', 'Test', 'Elle est française.', 'Elle coûte un euro.', 'Elle est à Paris.', 'Elle est grande.', 'Combien coûte cette baguette ? ', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(434, 'B', '', 'Test', 'frère', 'frères', 'frèrer', 'frèrees', 'Pierre et Paul sont mes ___.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(435, 'B', '', 'Test', 'à la', 'au', 'aux', 'en', 'Nous mangeons ___ restaurant.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(436, 'A', '', 'Test', 'Je mange maintenant.', 'J\'ai mangé hier.', 'Je mangerai demain.', 'Je mangeais avant.', 'Quelle phrase indique une activité actuelle ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(437, 'C', '', 'Test', 'J\'ai 25 ans.', 'Je suis étudiant.', 'J\'habite à Lyon.', 'Je parle français.', 'Où habites-tu ? ', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(438, 'A', '', 'Test', 'Elle a une voiture rouge.', 'Elle est une voiture rouge.', 'Elle a un voiture rouge.', 'Elle une voiture a rouge.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(439, 'B', '', 'Test', 'allons', 'sommes allés', 'irons', 'aller', 'Hier, nous ___ au cinéma.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(440, 'C', '', 'Test', 'joue', 'jouerai', 'jouais', 'ai joué', 'Quand j\'étais enfant, je ___ beaucoup au parc.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(441, 'C', '', 'Test', 'ont visité', 'visitaient', 'visiteront', 'visitent hier', 'Demain, ils ___ leurs grands-parents.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(442, 'A', '', 'Test', 'à', 'en', 'au', 'dans', 'Je me lève ___ sept heures.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(443, 'A', '', 'Test', 'pas de', 'pas du', 'pas le', 'ne', 'Il n\'y a ___ pain sur la table.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(444, 'A', '', 'Test', 'les', 'lui', 'leur', 'y', 'J\'ai acheté deux pommes et je ___ ai mangées immédiatement.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(445, 'B', '', 'Test', 'lui', 'la', 'leur', 'les', 'Tu connais cette femme ? Oui, je ___ connais.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(446, 'C', '', 'Test', 'à', 'au', 'en', 'aux', 'Nous allons ___ France cet été.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(447, 'A', '', 'Test', 'ton', 'ta', 'tes', 'leur', 'Il fait froid. Mets ___ manteau !', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(448, 'B', '', 'Test', 'que', 'au', 'du', 'pour', 'Je préfère le thé ___ café.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(449, 'A', '', 'Test', 'Parce que le bus était en retard.', 'Depuis deux heures.', 'À Paris.', 'Avec Marie.', 'Pourquoi es-tu en retard ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(450, 'C', '', 'Test', 'chez', 'dans', 'à', 'pour', 'Je vais acheter du pain ___ la boulangerie.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(451, 'B', '', 'Test', 'pendant', 'depuis', 'dans', 'avant', 'Il travaille ici ___ trois ans.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(452, 'A', '', 'Test', 'avons', 'sommes', 'avons été', 'étions', 'Nous ___ déjà vu ce film.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(453, 'A', '', 'Test', 'Je ne veux rien manger.', 'Je ne veux pas rien manger.', 'Je veux ne rien pas manger.', 'Je veux ne rien pas manger.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(454, 'C', '', 'Test', 'voyagerai', 'voyage', 'voyagerais', 'ai voyagé', 'Si j\'avais plus de temps, je ___ davantage.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(455, 'B', '', 'Test', 'sont', 'étaient', 'ont', 'seront', 'Quand je suis arrivé, ils ___ déjà partis.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(456, 'C', '', 'Test', 'fais', 'feras', 'fasses', 'faire', 'Il faut que tu ___ attention.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(457, 'B', '', 'Test', 'est', 'soit', 'sera', 'était', 'Bien qu\'il ___ fatigué, il continue à travailler.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(458, 'C', '', 'Test', 'viendra', 'vient', 'viendrait', 'est venue', 'Elle m\'a dit qu\'elle ___ le lendemain.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(459, 'B', '', 'Test', 'sait', 'sache', 'saura', 'savait', 'Je cherche quelqu\'un qui ___ parler espagnol.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(460, 'B', '', 'Test', 'donc', 'pourtant', 'parce que', 'puisque', 'Il a beaucoup travaillé ; ___, il n\'a pas réussi son examen.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(461, 'C', '', 'Test', 'que', 'qui', 'dont', 'où', 'Le livre ___ tu m\'as parlé est intéressant.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(462, 'A', '', 'Test', 'à', 'de', 'pour', 'que', 'Je suis habitué ___ me lever tôt.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(463, 'C', '', 'Test', 'Il est arrivé hier.', 'Il arrivera demain.', 'S\'il avait le temps, il viendrait.', 'Il arrive toujours à l\'heure.', 'Quelle phrase exprime une hypothèse ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(464, 'C', '', 'Test ', 'Nous sommes sortis parce qu\'il pleuvait.', 'Nous ne sommes pas sortis à cause de la pluie.', 'Nous sommes sortis même s\'il pleuvait.', 'Nous avons attendu la fin de la pluie.', ' Que signifie cette phrase ? : Malgré la pluie, nous sommes sortis.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(465, 'C', '', 'Test', 'prenez', 'prendrez', 'preniez', 'avez pris', 'Il faudrait que vous ___ votre décision rapidement.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(466, 'B', '', 'Test', 'est allée', 'allait', 'ira', 'va', 'Quand elle était petite, elle ___ souvent chez ses grands-parents.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(467, 'C', '', 'Test', 'est', 'sera', 'était', 'soit', 'Je ne savais pas qu\'il ___ déjà parti.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(468, 'B', '', 'Test', 'Il pleut parce qu\'il fait froid.', 'Il fait froid, donc je mets un manteau.', 'Je reste chez moi bien qu\'il fasse beau.', 'Je sors quand il fait beau.', 'Quelle phrase exprime une conséquence ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(469, 'A', '', 'Test', 'lisez', 'lirez', 'lisiez', 'avez lu', 'Il est indispensable que vous ___ ce document avant de signer.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(470, 'B', '', 'Test', 'travaille', 'travaillerait', 'travaillera', 'aurait travaillé', 'Si elle avait accepté cette proposition, elle ___ aujourd\'hui dans cette entreprise.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(471, 'C', '', 'Test', 'venions', 'viendrions', 'soyons venus', 'étions venus', 'Il aurait préféré que nous ___ plus tôt.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(472, 'B', '', 'Test', 'a', 'ait', 'aura', 'avait', 'Quoiqu\'il ___ beaucoup d\'expérience, il a encore besoin d\'aide.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(473, 'B', '', 'Test', 'résoudre', 'avoir résolu', 'avoir résolu depuis', 'qu\'il résoudrait', 'Il prétend ___ ce problème depuis plusieurs mois.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(474, 'C', '', 'Test', 'La décision ne comporte aucun risque.', 'Les risques ont complètement disparu.', 'Malgré les éléments précédents, certains risques subsistent.', 'La décision a été annulée.', 'Que signifie principalement cette expression ? : Il n\'en demeure pas moins que cette décision comporte certains risques.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(475, 'A', '', 'Test', 'C\'est un problème auquel il faut que nous réfléchissions.', 'C\'est un problème que nous devons y réfléchir.', 'C\'est un problème dont nous devons y réfléchir.', 'C\'est un problème auquel nous devons en réfléchir.', 'Quelle phrase est grammaticalement correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(476, 'B', '', 'Test', 'les conditions sont déjà réunies.', 'les conditions doivent encore être réunies.', 'les conditions ne sont jamais nécessaires.', 'les conditions ont été supprimées.', 'Encore faudrait-il que les conditions soient réunies. Cette phrase signifie que :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(477, 'B', '', 'Test', 'Parce qu\'il est compétent, il ne fait jamais d\'erreurs.', 'Bien qu\'il soit compétent, il commet parfois des erreurs.', ' Il n\'est pas compétent et fait beaucoup d\'erreurs.', 'Il devient compétent lorsqu\'il fait des erreurs.', 'Il a beau être compétent, il commet parfois des erreurs. Cette phrase signifie :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(478, 'A', '', 'Test', 'lisiez', 'lirez', 'avez lu', 'lisez', 'Il aurait fallu que vous ___ plus attentivement les instructions.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(479, 'C', '', 'Test', 'Il a réussi parce qu\'il a beaucoup travaillé.', 'Il a réussi, donc il est satisfait.', 'Même s\'il était fatigué, il a continué à travailler.', 'Il a travaillé afin de réussir.', 'Quelle phrase présente une concession ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(480, 'B', '', 'Test', 'Certain de provoquer', 'Capable ou susceptible de provoquer', 'Impossible de provoquer', 'Interdit de provoquer', '« Cette mesure est susceptible d\'avoir des conséquences importantes. » Que signifie « susceptible de » dans cette phrase ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(481, 'B', '', 'Test', 'Je veux savoir pourquoi vous avez fait ça.', 'Je voudrais savoir pour quelle raison vous avez pris cette décision.', 'Je veux savoir c\'est pourquoi cette décision.', 'Pourquoi vous avez fait ça, dites-moi.', 'Quelle formulation est la plus adaptée à un registre formel ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(482, 'C', '', 'Test', 'Il est possible de renoncer au projet.', 'Il est probable que le projet soit abandonné.', 'Il n\'est pas question d\'abandonner le projet.', 'Le projet a déjà été abandonné.', 'Il ne saurait être question de renoncer à ce projet. Cette phrase signifie :', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(483, 'C', '', 'Test', 'Les résultats sont entièrement négatifs.', 'L\'étude n\'a pas été terminée.', 'Le nombre de participants est limité.', 'Les participants ont refusé de répondre.', 'Lisez la phrase :\r\n\r\n« Bien que les résultats soient encourageants, ils doivent être interprétés avec prudence, dans la mesure où l\'étude ne porte que sur un nombre limité de participants. »  Pourquoi faut-il interpréter les résultats avec prudence ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -564,7 +641,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=278 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -831,7 +908,17 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (264, 'autres', NULL, 'Au lieu de regarder la télévision, on lisait, on parlait, on faisait plus attention aux____', 'La ville', 'écrans,livres,autres,animaux', NULL),
 (265, 'vide', NULL, 'Alain trouvait que la vie dans son village d\'autrefois était ennuyeuse et____', 'La ville', 'animée,vide,bruyante,passionnante', NULL),
 (266, '30', NULL, 'La pharmacie la plus proche de chez Alain se trouvait à____ kilomètres.', 'La ville', '5,10,20,30', NULL),
-(267, 'Paris', NULL, ' Heureusement, maintenant Alain habite à____', 'La ville', 'Paris,Marseille,Lyon,Bordeaux', NULL);
+(267, 'Paris', NULL, ' Heureusement, maintenant Alain habite à____', 'La ville', 'Paris,Marseille,Lyon,Bordeaux', NULL),
+(268, 'le matin,à midi,le soir', NULL, '1.petit-déjeuner____\r\n2.déjeuner____\r\n3.dîner____', 'U Sartrouville - Classez les expressions dans la bonne catégorie.', 'à midi,le soir,le matin', NULL),
+(269, 'Boissons chaudes,Boissons froides,Boissons froides,Boissons froides,Boissons chaudes', NULL, '1.café crème____\r\n2.orange pressée____\r\n3.verre de blanc____\r\n4.carafe d\'eau____\r\n5.thé____', 'U Sartrouville', 'Boissons chaudes,Boissons froides', NULL),
+(270, 'Aliment,Aliment,Aliment,Aliment,Aliment,Aliment', '', '1.saumon grillé____\r\n2.riz____\r\n3.haricots verts____\r\n4.salade verte____\r\n5.jambon____\r\n6.frites____', 'U Sartrouville', 'Aliment,Boisson', NULL),
+(271, 'Plats chauds,Viandes,Sandwichs,Plats froids,Poissons', NULL, '1.omelette nature____\r\n2.entrecôte____\r\n3.sandwich jambon-beurre____\r\n4.salade verte____\r\n5.saumon grillé____', 'U Sartrouville - Les catégories de la carte', 'Plats froids,Poissons,Sandwichs,Plats chauds,Viandes', NULL),
+(272, 'avons,avez,ai,a', NULL, '1.Nous____ du muscadet.\r\n2.Vous____ une table libre.\r\n3.J\'____ une salade verte.\r\n4.Il____ une carte.', 'U Sartrouville - Compléter avec le verbe « avoir »', 'a,ai,avez,avons', NULL),
+(273, 'voudrais,voudrait,voulons,voulez', NULL, '1.Je____ un café crème.\r\n2.Elle____ des légumes.\r\n3.Nous____ une table.\r\n4.Vous____ une formule ?', 'U Sartrouville - Compléter avec « vouloir »', 'voulez,voudrais,voulons,voudrait', NULL),
+(274, 'Je,voudrais,un café crème,s\'il vous plaît', NULL, '____ ____ ____ ____', 'U Sartrouville - Reconstituez la phrase.', 's\'il vous plaît,voudrais,Je,un café crème', NULL),
+(275, 'ne,pas', NULL, 'Je____ voudrais____ de viande.', 'U Sartrouville - La négation', 'pas,ne', NULL),
+(276, 'Un petit verre de blanc,Un café crème,Oui là-bas,Oui s\'il vous plaît', NULL, '1.Et comme boisson ?____\r\n2.Avec un café, un thé, un chocolat ?____\r\n3.Vous avez une table libre ?____\r\n4.Vous voulez des légumes cuits ?____', 'U Sartrouville - Associer la question et la réponse', 'Un petit verre de blanc,Un café crème,Oui s\'il vous plaît,Oui là-bas', NULL),
+(277, 'Je,voudrais,une formule à 12 euros,avec une salade au chèvre chaud,et un saumon grillé,avec du riz,s\'il vous plaît', '', '____ ____ ____ ____ ____ ____ ____', 'U Sartrouville - Reconstituer une commande complète', 'voudrais,Je,avec une salade au chèvre chaud,une formule à 12 euros,avec du riz,et un saumon grillé,s\'il vous plaît', NULL);
 
 -- --------------------------------------------------------
 
@@ -892,7 +979,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=288 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=291 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -938,7 +1025,9 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (284, '2026-07-26 08:44:56.692845', 'user@test.com', b'1', '$2a$10$j1m8TkFathJwJhazrsLBvOt3njvGUaXH6gLPzY05BsQAoqLlpKcmq', 'ROLE_USER', 'user'),
 (285, '2026-07-27 06:08:45.911171', 'testu17@gmail.com', b'1', '$2a$10$sgnQOfKayTHp.JI7MHZVlOEADNu0sQ.mNYoHaiFloDfS6VLFzE0hW', 'ROLE_USER', 'testu17'),
 (286, '2026-07-27 06:09:37.018093', 'testu18@gmail.com', b'1', '$2a$10$lpz1xZ9YQgwmBJjfxRpN/.SLy27ecgc6aFGI9yuLr/8/13KV1CyQu', 'ROLE_USER', 'testu18'),
-(287, '2026-07-27 06:10:40.563859', 'testu19@gmail.com', b'1', '$2a$10$kS95q8rGmvtSFjXYHCBuJe1OaaU.7OCDXD6gFYTmiaE2D3IHBYtwu', 'ROLE_USER', 'testu19');
+(287, '2026-07-27 06:10:40.563859', 'testu19@gmail.com', b'1', '$2a$10$kS95q8rGmvtSFjXYHCBuJe1OaaU.7OCDXD6gFYTmiaE2D3IHBYtwu', 'ROLE_USER', 'testu19'),
+(288, '2026-09-17 13:51:21.531223', 'testu21@gmail.com', b'1', '$2a$10$fekboTCvsfrLWYD6P1aJDOIroWbNAyyKPOi6BHNgKZ.kZi6VTxigy', 'USER', 'testu21'),
+(290, '2026-09-17 13:53:55.442270', 'testu22@gmail.com', b'1', '$2a$10$DIwJE4VKnl44yuT/GbIpaOzO21Oo7T1A9J3vKDaKwpymSbyeSEFc6', 'USER', 'testu22');
 
 -- --------------------------------------------------------
 
