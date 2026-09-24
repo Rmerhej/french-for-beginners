@@ -29,7 +29,7 @@ public class QuizController {
     @GetMapping("/prepositionConjonction")
     public String goToPrepositionConjonction(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("préposition"));
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("conjonction"));
+       // model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("conjonction"));
         return "prepositionConjonction";
     }
 
