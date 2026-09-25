@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur les adverbes (manière, temps, lieu, quantité) pour adultes débutants">
+
+    <title>Les adverbes - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Les adverbes
+        </h1>
+
+        <p class="lead">
+            Préciser un verbe, un adjectif ou une phrase
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de reconnaître et d'utiliser
+                les adverbes de <strong>manière</strong>, de <strong>temps</strong>,
+                de <strong>lieu</strong> et de <strong>quantité</strong>.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'un adverbe ?</h2>
+
+
+        <p>
+
+            Un adverbe est un mot <strong>invariable</strong> : il ne s'accorde jamais,
+
+            ni en genre ni en nombre. Il précise un verbe, un adjectif, ou une phrase entière.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Il parle <strong>lentement</strong>. (précise le verbe)</li>
+
+                <li>Elle est <strong>très</strong> gentille. (précise l'adjectif)</li>
+
+                <li><strong>Heureusement</strong>, il fait beau. (précise la phrase)</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les adverbes de manière</h2>
+
+
+        <p>
+
+            Beaucoup se forment en ajoutant <strong>-ment</strong> à l'adjectif féminin.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Adjectif (masculin)</th>
+
+                <th>Adjectif (féminin)</th>
+
+                <th>Adverbe</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+                <td>lent</td>
+                <td>lente</td>
+                <td>lente<strong>ment</strong></td>
+            </tr>
+
+            <tr>
+                <td>heureux</td>
+                <td>heureuse</td>
+                <td>heureuse<strong>ment</strong></td>
+            </tr>
+
+            <tr>
+                <td>rapide</td>
+                <td>rapide</td>
+                <td>rapide<strong>ment</strong></td>
+            </tr>
+
+            <tr>
+                <td>facile</td>
+                <td>facile</td>
+                <td>facile<strong>ment</strong></td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+        <div class="alert alert-warning">
+
+            Certains adverbes de manière sont irréguliers : <strong>bien</strong> (de bon),
+            <strong>mal</strong> (de mauvais), <strong>vite</strong>.
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les adverbes de temps</h2>
+
+
+        <p>
+
+            Ils indiquent <strong>quand</strong> se passe une action.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>aujourd'hui, demain, hier</li>
+
+                <li>maintenant, bientôt, déjà</li>
+
+                <li>souvent, toujours, jamais</li>
+
+            </ul>
+
+
+        </div>
+
+
+        <p>
+
+            <em>Je vais <strong>souvent</strong> au marché. Elle n'est <strong>jamais</strong> en retard.</em>
+
+        </p>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les adverbes de lieu</h2>
+
+
+        <p>
+
+            Ils indiquent <strong>où</strong> se passe une action.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>ici, là, là-bas</li>
+
+                <li>devant, derrière, dedans, dehors</li>
+
+                <li>partout, ailleurs</li>
+
+            </ul>
+
+
+        </div>
+
+
+        <p>
+
+            <em>Viens <strong>ici</strong>. Le chat est <strong>dehors</strong>.</em>
+
+        </p>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les adverbes de quantité et d'intensité</h2>
+
+
+        <p>
+
+            Ils indiquent une <strong>quantité</strong> ou un <strong>degré</strong>.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>très, beaucoup, peu, assez</li>
+
+                <li>trop, plus, moins</li>
+
+            </ul>
+
+
+        </div>
+
+
+        <p>
+
+            <em>Elle est <strong>très</strong> fatiguée. Il travaille <strong>beaucoup</strong>.</em>
+
+        </p>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La place de l'adverbe dans la phrase</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Cas</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+                <td>Avec un verbe au présent</td>
+                <td>Il mange <strong>rapidement</strong>.</td>
+            </tr>
+
+            <tr>
+                <td>Avec un verbe au passé composé (souvent avant le participe)</td>
+                <td>J'ai <strong>bien</strong> dormi.</td>
+            </tr>
+
+            <tr>
+                <td>Avec un adjectif (juste avant)</td>
+                <td>Elle est <strong>très</strong> grande.</td>
+            </tr>
+
+            <tr>
+                <td>En début de phrase (pour insister)</td>
+                <td><strong>Souvent</strong>, il arrive en retard.</td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Elle parle bonnement.</td>
+
+                <td>Elle parle bien.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il est très bon acteur.</td>
+
+                <td>Il est un très bon acteur.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>J'ai dormi bien.</td>
+
+                <td>J'ai bien dormi.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle est trop fatiguée gentille.</td>
+
+                <td>Elle est trop fatiguée pour être gentille.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Paul :</strong> Comment ça va aujourd'hui ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> <strong>Très</strong> bien, merci ! Et toi ?
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Je suis <strong>un peu</strong> fatigué, j'ai
+                    <strong>beaucoup</strong> travaillé.
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Tu devrais <strong>vraiment</strong> te reposer
+                    <strong>maintenant</strong>.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Oui, je vais <strong>bientôt</strong> rentrer.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>L'adverbe est <strong>invariable</strong>, il ne s'accorde jamais.</li>
+
+
+                <li>Beaucoup d'adverbes de manière se forment avec <strong>-ment</strong>.</li>
+
+
+                <li>Il existe des adverbes de manière, de temps, de lieu et de quantité.</li>
+
+
+                <li>L'adverbe se place généralement juste après le verbe, ou juste avant
+                    l'adjectif qu'il précise.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

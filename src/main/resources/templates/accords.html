@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur les accords (adjectifs, sujet-verbe, participe passé) pour adultes débutants">
+
+    <title>Les accords - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Les accords
+        </h1>
+
+        <p class="lead">
+            Accorder les mots entre eux en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'accorder correctement
+                l'<strong>adjectif</strong> avec le nom, le <strong>verbe</strong> avec son sujet,
+                et le <strong>participe passé</strong> avec être.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'un accord ?</h2>
+
+
+        <p>
+
+            En français, certains mots changent de forme selon le mot auquel ils se rapportent.
+
+            On dit qu'ils <strong>s'accordent</strong>. Il existe trois accords principaux :
+
+        </p>
+
+
+        <ul>
+
+            <li>l'accord de l'<strong>adjectif</strong> avec le nom</li>
+
+            <li>l'accord du <strong>verbe</strong> avec le sujet</li>
+
+            <li>l'accord du <strong>participe passé</strong> avec être</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'accord de l'adjectif</h2>
+
+
+        <p>
+
+            L'adjectif s'accorde en <strong>genre</strong> (masculin/féminin) et en
+            <strong>nombre</strong> (singulier/pluriel) avec le nom qu'il décrit.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Un garçon <strong>grand</strong> → Une fille <strong>grande</strong></li>
+
+                <li>Un livre <strong>intéressant</strong> → Des livres <strong>intéressants</strong></li>
+
+                <li>Une maison <strong>blanche</strong> → Des maisons <strong>blanches</strong></li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Formation du féminin et du pluriel</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Masculin → Féminin
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td>+ e</td>
+                                <td>grand → grande</td>
+                            </tr>
+
+                            <tr>
+                                <td>eux → euse</td>
+                                <td>heureux → heureuse</td>
+                            </tr>
+
+                            <tr>
+                                <td>if → ive</td>
+                                <td>actif → active</td>
+                            </tr>
+
+                            <tr>
+                                <td>en → enne</td>
+                                <td>italien → italienne</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Singulier → Pluriel
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td>+ s</td>
+                                <td>grand → grands</td>
+                            </tr>
+
+                            <tr>
+                                <td>déjà en -s / -x</td>
+                                <td>heureux → heureux</td>
+                            </tr>
+
+                            <tr>
+                                <td>-al → -aux</td>
+                                <td>national → nationaux</td>
+                            </tr>
+
+                            <tr>
+                                <td>-eau → -eaux</td>
+                                <td>beau → beaux</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'accord du verbe avec le sujet</h2>
+
+
+        <p>
+
+            Le verbe s'accorde toujours avec son <strong>sujet</strong>, même si le sujet
+            est éloigné du verbe.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Le professeur <strong>parle</strong> lentement.</li>
+
+                <li>Les élèves <strong>parlent</strong> lentement.</li>
+
+                <li>Marie et Paul <strong>habitent</strong> à Paris.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'accord du participe passé avec être</h2>
+
+
+        <p>
+
+            Avec l'auxiliaire <strong>être</strong>, le participe passé s'accorde
+            en genre et en nombre avec le <strong>sujet</strong> du verbe.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Sujet</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Il</td>
+
+                <td>Il est all<strong>é</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle</td>
+
+                <td>Elle est all<strong>ée</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ils</td>
+
+                <td>Ils sont all<strong>és</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elles</td>
+
+                <td>Elles sont all<strong>ées</strong>.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+        <div class="alert alert-warning">
+
+            Avec <strong>avoir</strong>, le participe passé ne s'accorde généralement
+            <strong>pas</strong> avec le sujet.
+
+            <br>
+
+            Elle a mangé une pomme. (pas d'accord avec « elle »)
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Une fille grand.</td>
+
+                <td>Une fille grande.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Des maison blanche.</td>
+
+                <td>Des maisons blanches.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle est allé au marché.</td>
+
+                <td>Elle est allée au marché.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Les enfants joue dans le jardin.</td>
+
+                <td>Les enfants jouent dans le jardin.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Paul :</strong> Comment est ta nouvelle maison ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Elle est grande et blanche.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Et tes voisins, comment sont-ils ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Ils sont gentils et très sympathiques.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Ta sœur est arrivée hier, non ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Oui, elle est arrivée le matin.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>L'<strong>adjectif</strong> s'accorde en genre et en nombre avec le nom.</li>
+
+
+                <li>Le <strong>verbe</strong> s'accorde toujours avec son sujet.</li>
+
+
+                <li>Avec <strong>être</strong>, le participe passé s'accorde avec le sujet.</li>
+
+
+                <li>Avec <strong>avoir</strong>, le participe passé ne s'accorde généralement pas.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
