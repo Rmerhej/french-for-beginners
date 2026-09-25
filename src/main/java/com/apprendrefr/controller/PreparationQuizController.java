@@ -81,4 +81,10 @@ public class PreparationQuizController {
         model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
         return "ville-quiz";
     }
+    @GetMapping("/facQuiz")
+    public String showFacQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("la fac");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "facQuiz";
+    }
 }
