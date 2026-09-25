@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur les connecteurs logiques (et, mais, donc, parce que, d'abord...) pour adultes débutants">
+
+    <title>Les connecteurs logiques - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Les connecteurs logiques
+        </h1>
+
+        <p class="lead">
+            Relier ses idées pour parler et écrire plus clairement
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'utiliser les principaux
+                connecteurs logiques pour relier vos idées : l'<strong>addition</strong>,
+                la <strong>cause</strong>, la <strong>conséquence</strong>, l'<strong>opposition</strong>
+                et la <strong>chronologie</strong>.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'un connecteur logique ?</h2>
+
+
+        <p>
+
+            Un connecteur logique est un mot qui relie deux idées, deux phrases
+
+            ou deux parties d'un texte. Il aide à mieux comprendre la relation
+
+            entre les idées : est-ce une cause ? une conséquence ? une opposition ?
+
+        </p>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'addition : ajouter une idée</h2>
+
+
+        <p>
+
+            On utilise ces connecteurs pour ajouter une information à ce qui a
+
+            déjà été dit.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>et</strong> — J'aime le café <strong>et</strong> le thé.</li>
+
+                <li><strong>de plus</strong> — Il est gentil. <strong>De plus</strong>, il est drôle.</li>
+
+                <li><strong>aussi</strong> — Elle parle anglais, elle parle <strong>aussi</strong> espagnol.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La cause : expliquer pourquoi</h2>
+
+
+        <p>
+
+            On utilise ces connecteurs pour donner la <strong>raison</strong> d'un fait.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>parce que</strong> — Je reste chez moi <strong>parce que</strong> je suis malade.</li>
+
+                <li><strong>car</strong> — Il ne sort pas, <strong>car</strong> il pleut.</li>
+
+                <li><strong>puisque</strong> — <strong>Puisque</strong> tu es prêt, on peut partir.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La conséquence : montrer le résultat</h2>
+
+
+        <p>
+
+            On utilise ces connecteurs pour indiquer le <strong>résultat</strong> d'une cause.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>donc</strong> — Il pleut, <strong>donc</strong> je prends mon parapluie.</li>
+
+                <li><strong>alors</strong> — J'étais fatigué, <strong>alors</strong> je me suis couché tôt.</li>
+
+                <li><strong>c'est pourquoi</strong> — Il est malade, <strong>c'est pourquoi</strong> il ne vient pas.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>L'opposition : montrer un contraste</h2>
+
+
+        <p>
+
+            On utilise ces connecteurs pour opposer deux idées.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>mais</strong> — J'aime le café <strong>mais</strong> pas le thé.</li>
+
+                <li><strong>pourtant</strong> — Il fait froid, <strong>pourtant</strong> elle sort sans manteau.</li>
+
+                <li><strong>cependant</strong> — Le film est long, <strong>cependant</strong> il est intéressant.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La chronologie : organiser dans le temps</h2>
+
+
+        <p>
+
+            On utilise ces connecteurs pour indiquer l'<strong>ordre des étapes</strong>
+
+            dans un récit ou une explication.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Étape</th>
+
+                <th>Connecteur</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+                <td>1</td>
+                <td>d'abord</td>
+                <td><strong>D'abord</strong>, je prends mon petit-déjeuner.</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>ensuite / puis</td>
+                <td><strong>Ensuite</strong>, je vais au travail.</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>après</td>
+                <td><strong>Après</strong>, je déjeune avec des collègues.</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>enfin</td>
+                <td><strong>Enfin</strong>, je rentre à la maison.</td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Tableau récapitulatif</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Relation</th>
+
+                <th>Connecteurs</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+                <td>Addition</td>
+                <td>et, de plus, aussi</td>
+            </tr>
+
+            <tr>
+                <td>Cause</td>
+                <td>parce que, car, puisque</td>
+            </tr>
+
+            <tr>
+                <td>Conséquence</td>
+                <td>donc, alors, c'est pourquoi</td>
+            </tr>
+
+            <tr>
+                <td>Opposition</td>
+                <td>mais, pourtant, cependant</td>
+            </tr>
+
+            <tr>
+                <td>Chronologie</td>
+                <td>d'abord, ensuite, puis, enfin</td>
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je suis fatigué, mais je vais dormir.</td>
+
+                <td>Je suis fatigué, donc je vais dormir.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il pleut, pourtant je prends mon parapluie.</td>
+
+                <td>Il pleut, donc je prends mon parapluie.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Parce que il pleut, je reste chez moi.</td>
+
+                <td>Je reste chez moi parce qu'il pleut.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Paul :</strong> Tu ne viens pas au parc aujourd'hui ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Non, <strong>parce que</strong> je dois travailler.
+                    <strong>De plus</strong>, il pleut.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> D'accord. <strong>Et</strong> demain ?
+                </p>
+
+
+                <p>
+                    <strong>Sara :</strong> Demain, je suis libre, <strong>donc</strong> on peut y aller.
+                </p>
+
+
+                <p>
+                    <strong>Paul :</strong> Parfait ! <strong>D'abord</strong> on marche,
+                    <strong>ensuite</strong> on déjeune, et <strong>enfin</strong> on rentre.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Les connecteurs logiques relient les idées : addition, cause,
+                    conséquence, opposition, chronologie.</li>
+
+
+                <li><strong>parce que</strong> introduit une cause,
+                    <strong>donc</strong> introduit une conséquence.</li>
+
+
+                <li><strong>mais</strong>, <strong>pourtant</strong> et <strong>cependant</strong>
+                    marquent une opposition.</li>
+
+
+                <li><strong>d'abord</strong>, <strong>ensuite</strong>, <strong>puis</strong> et
+                    <strong>enfin</strong> organisent les étapes dans le temps.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

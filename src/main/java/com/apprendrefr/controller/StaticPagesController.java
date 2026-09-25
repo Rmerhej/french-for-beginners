@@ -135,4 +135,19 @@ public class StaticPagesController {
     @GetMapping("/paris") public String paris() {
         return "paris";
     }
+    @GetMapping("/accords") public String accords() {
+        return "accords";
+    }
+    @GetMapping("/phrase") public String phrase() {
+        return "phrase";
+    }
+    @GetMapping("/compléments") public String compléments() {
+        return "compléments";
+    }
+    @GetMapping("/connecteursLogiques") public String connecteursLogiques() {
+        return "connecteursLogiques";
+    }
+    @GetMapping("/adverbes") public String adverbes() {
+        return "adverbes";
+    }
 }
