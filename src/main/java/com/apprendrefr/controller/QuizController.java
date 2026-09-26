@@ -29,7 +29,7 @@ public class QuizController {
     @GetMapping("/prepositionConjonction")
     public String goToPrepositionConjonction(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("préposition"));
-       // model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("conjonction"));
+        // model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("conjonction"));
         return "prepositionConjonction";
     }
 
@@ -81,7 +81,6 @@ public class QuizController {
 
         return "verbes-regulier-quiz-grammaire";
     }
-    /*#####################################*/
 
 
     @GetMapping("/LesArticlesDefinis")
@@ -112,7 +111,35 @@ public class QuizController {
 
         return "LesAuxiliares-quiz-grammaire";
     }
-    /*#####################################*/
+
+    @GetMapping("/verbesPresent")
+    public String goToLesVerbesAuPresent(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les verbes au présent"));
+
+        return "LesVerbesAuPresent-quiz-grammaire";
+    }
+
+    @GetMapping("/impératif")
+    public String goToImperatif(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Impératif"));
+
+        return "Impératif-quiz-grammaire";
+    }
+
+    @GetMapping("/passéComposé")
+    public String goToPasséComposé(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Le passé composé"));
+
+        return "passéComposé-quiz-grammaire";
+    }
+
+
+    @GetMapping("/futurSimple")
+    public String goToFuturSimpleGrammaire(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Le futur simple"));
+
+        return "futurSimple-quiz-grammaire";
+    }
 
 
     @GetMapping("/quiz/{id}")
