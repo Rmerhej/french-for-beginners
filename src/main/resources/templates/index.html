@@ -24,11 +24,10 @@
         </p>
         <div class="card h-100 shadow-sm text-center">
             <div class="card-body d-flex flex-column align-items-center">
-                <h3 class="card-title fw-bold">Test de positionnement</h3>
+                <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span>Test de positionnement</h3>
                 <p class="text-muted fs-5 mb-3">A1 → B2</p>
 
                 <a th:href="@{/testEval}" class="btn btn-primary btn-lg">
-                    <span aria-hidden="true">❓</span>
                     Passer le test
                 </a>
             </div>
@@ -47,6 +46,7 @@
             <p class="text-muted mb-4">Pour poser les toutes premières briques : sons, chiffres, verbes et premiers mots
                 du quotidien.</p>
             <h2 class="mb-4">📚 Leçons disponibles</h2>
+            <p class="text-muted fs-5 mb-3">Pour enrichir votre vocabulaire.</p>
             <div class="row my-5 g-4">
                 <div class="row">
                     <div class="col-md-4 mb-4" th:each="lesson : ${lessons}" th:if="${lessonStat.index < 3}">
@@ -74,11 +74,11 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold">Prononciation</h3>
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">🗣️</span> Prononciation</h3>
                             <p class="text-muted fs-5 mb-3">Niveau Pré A1</p>
 
                             <a th:href="@{/prononciation}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">🗣️</span> Travailler la prononciation
+                                Travailler la prononciation
                             </a>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span>Les chiffres et les lettres
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Les chiffres et les lettres
                             </h3>
                             <p class="text-muted fs-5 mb-3">A1 .</p>
 
@@ -101,7 +101,7 @@
             <div class="col-md-6">
                 <div class="card h-100 shadow-sm text-center">
                     <div class="card-body d-flex flex-column align-items-center">
-                        <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span>Les verbes</h3>
+                        <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Les verbes</h3>
                         <p class="text-muted fs-5 mb-3">A1 .</p>
 
                         <a th:href="@{/lesVerbes}" class="btn btn-outline-primary btn-lg mt-auto">
@@ -125,11 +125,11 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold">Grammaire</h3>
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Grammaire</h3>
                             <p class="text-muted fs-5 mb-3">Supports de cours (A1-A2)</p>
 
                             <a th:href="@{/supports-de-cours}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">📚</span> Accéder aux cours
+                                Accéder aux cours
                             </a>
                         </div>
                     </div>
@@ -139,11 +139,11 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold">Leçons par thème</h3>
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚 ❓</span> Leçons par thème</h3>
                             <p class="text-muted fs-5 mb-3">Dialogue + QCM + QUIZ (A1-A2) .</p>
 
                             <a th:href="@{/themes}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">📚</span> Accéder aux Leçons
+                                Accéder aux Leçons
                             </a>
                         </div>
                     </div>
@@ -164,11 +164,11 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold">Culture générale</h3>
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Culture générale</h3>
                             <p class="text-muted fs-5 mb-3"> (A1-A2)</p>
 
                             <a th:href="@{/cultureFrancaise}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">📚</span> Accéder aux Leçons
+                                Accéder aux Leçons
                             </a>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📕 ❓</span> Préparation-révision
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> Préparation-révision
                                 du cours
                                 hebdomadaire </h3>
                             <p class="text-muted fs-5 mb-3"> Quiz (A1-A2) .</p>
@@ -194,7 +194,7 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📗 ❓</span>Préparation-révision
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> Préparation-révision
                                 du cours
                                 hebdomadaire </h3>
                             <p class="text-muted fs-5 mb-3">QCM (A1-A2) .</p>
@@ -208,7 +208,6 @@
             </div>
         </section>
 
-        <!----------------->
 
         <section class="mb-5">
             <h3 class="mb-1">
@@ -221,11 +220,12 @@
             <div class="row my-5 g-4">
                 <div class="card h-100 shadow-sm text-center">
                     <div class="card-body d-flex flex-column align-items-center">
-                        <h3 class="card-title fw-bold">FRANCE - LIVRET DU CITOYEN 2026</h3>
+                        <h3 class="card-title fw-bold"><span aria-hidden="true">📚 ❓</span> FRANCE - LIVRET DU CITOYEN
+                            2026</h3>
                         <p class="text-muted fs-5 mb-3">Cours + QCM + QUIZ (A2-B1) .</p>
 
                         <a th:href="@{/laFrance}" class="btn btn-primary btn-lg">
-                            <span aria-hidden="true">📚 ❓</span>
+
                             Consulter
                         </a>
                     </div>
@@ -235,7 +235,7 @@
                 <div class="col-md-6">
                     <div class="card h-100 shadow-sm text-center">
                         <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span>QCM Culture Française</h3>
+                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> QCM Culture Française</h3>
                             <p class="text-muted fs-5 mb-3">B1-B2 .</p>
 
                             <a th:href="@{/culture}" class="btn btn-outline-primary btn-lg mt-auto">
