@@ -50,6 +50,13 @@ public class PreparationController {
         return "Au-café";
     }
 
+    @GetMapping("/LaVieQuotidienne")
+    public String allerAlaVieQuotidienne(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("La vie quotidienne");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "LaVieQuotidienne.html";
+    }
+
     @GetMapping("/lesgens")
     public String allerLesGens(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les gens");
