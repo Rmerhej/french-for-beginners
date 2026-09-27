@@ -42,6 +42,26 @@ public class LessonController {
         return "index";
     }
 
+    @GetMapping("/niveauDebutant")
+    public String niveauDebutant(Model model) {
+        List<Lesson> lessonsList = lessonService.findAll();
+
+        if (lessonsList == null) {
+            System.out.println("ATTENTION : lessonService.findAll() a retourné NULL !");
+        } else {
+            System.out.println("Nombre de leçons trouvées : " + lessonsList.size());
+        }
+
+        model.addAttribute("lessons", lessonsList);
+
+        return "niveauDebutant";
+    }
+    @GetMapping("/niveauConsolidation")
+    public String niveauConsolidation(Model model) {
+       // model.addAttribute("lessons", lessonService.findAll());
+        return "niveauConsolidation";
+    }
+
     @GetMapping("/lessons")
     public String lessons(Model model) {
         model.addAttribute("lessons", lessonService.findAll());

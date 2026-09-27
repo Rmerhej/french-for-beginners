@@ -134,4 +134,5 @@ public class VocabularyController {
         return "redirect:/admin/vocabulary";
     }
 
+
 }

@@ -22,231 +22,168 @@
             <span th:text="${#authentication.name}"
                   style="font-weight: bold; color: #0d47a1;"></span>
         </p>
-        <div class="card h-100 shadow-sm text-center">
-            <div class="card-body d-flex flex-column align-items-center">
-                <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span>Test de positionnement</h3>
-                <p class="text-muted fs-5 mb-3">A1 → B2</p>
+        <div class="card border-0 shadow-lg text-center text-white overflow-hidden my-4"
+             style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); border-radius: 20px;">
+            <!-- Élément décoratif d'arrière-plan subtil (optionnel pour le style) -->
+            <div class="card-body p-5 position-relative">
+                <div class="mb-3">
+            <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold shadow-sm"
+                  style="font-size: 0.9rem;">
+                🚀 Étape recommandée
+            </span>
+                </div>
 
-                <a th:href="@{/testEval}" class="btn btn-primary btn-lg">
-                    Passer le test
+                <h3 class="card-title fw-bold text-white mb-2 display-6">
+                    <span aria-hidden="true" class="me-2">🎯</span>Test de positionnement
+                </h3>
+
+                <p class="text-white-50 fs-5 mb-4 fw-medium">
+                    Évaluez votre niveau (A1 → B2) en quelques minutes pour trouver le parcours idéal.
+                </p>
+
+                <a th:href="@{/testEval}"
+                   class="btn btn-light btn-lg px-5 py-3 fw-bold text-primary shadow-sm rounded-pill"
+                   style="transition: all 0.3s ease;">
+                    Passer le test maintenant
                 </a>
             </div>
         </div>
+
         <br><br>
         <!-------------------------->
 
         <h2 class="text-center mb-2">Choisissez votre parcours</h2>
         <p class="text-muted text-center mb-5">Trois étapes, pensées pour progresser dans l'ordre.</p>
-        <section class="mb-5">
-            <h3 class="mb-1">
-                <span class="badge bg-primary rounded-circle p-2 fs-6 me-2">1</span>
-                Débutant complet
-                <span class="badge bg-primary ms-2">Pré-A1 → A1</span>
-            </h3>
-            <p class="text-muted mb-4">Pour poser les toutes premières briques : sons, chiffres, verbes et premiers mots
-                du quotidien.</p>
-            <h2 class="mb-4">📚 Leçons disponibles</h2>
-            <p class="text-muted fs-5 mb-3">Pour enrichir votre vocabulaire.</p>
-            <div class="row my-5 g-4">
-                <div class="row">
-                    <div class="col-md-4 mb-4" th:each="lesson : ${lessons}" th:if="${lessonStat.index < 3}">
-                        <div class="card h-100 shadow-sm">
-                            <img th:if="${lesson.imageUrl}"
-                                 th:src="${lesson.imageUrl}"
-                                 th:alt="${lesson.title + ' - Illustration de la leçon'}"
-                                 class="card-img-top" style="height: 180px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${lesson.title}"></h5>
-                                <p class="text-muted small" th:text="${lesson.level}"></p>
-                                <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary"><span
-                                        aria-hidden="true">📕</span>
-                                    Voir la leçon</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a th:href="@{/lessons}" class="btn btn-outline-primary btn-lg">
-                        &#128218; Voir toutes les leçons →
-                    </a>
-                </div>
-                <br>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">🗣️</span> Prononciation</h3>
-                            <p class="text-muted fs-5 mb-3">Niveau Pré A1</p>
-
-                            <a th:href="@{/prononciation}" class="btn btn-outline-primary btn-lg mt-auto">
-                                Travailler la prononciation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Les chiffres et les lettres
-                            </h3>
-                            <p class="text-muted fs-5 mb-3">A1 .</p>
-
-                            <a th:href="@{/chiffresEtLettres}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">Consulter</span>
-                            </a>
-                        </div>
-                    </div>
+        <section class="mb-5 py-4">
+            <!-- En-tête de section principal -->
+            <div class="d-flex align-items-center mb-3">
+                <span class="badge bg-primary rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center"
+                      style="width: 36px; height: 36px;">1</span>
+                <div>
+                    <h3 class="mb-0 fw-bold">Débutant complet</h3>
+                    <span class="badge bg-light text-primary border border-primary-subtle mt-1">Pré-A1 → A1</span>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card h-100 shadow-sm text-center">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Les verbes</h3>
-                        <p class="text-muted fs-5 mb-3">A1 .</p>
+            <p class="text-muted mb-4 fs-6">Pour poser les toutes premières briques : sons, chiffres, verbes et premiers
+                mots du quotidien.</p>
 
-                        <a th:href="@{/lesVerbes}" class="btn btn-outline-primary btn-lg mt-auto">
-                            <span aria-hidden="true"></span> Consulter
+            <!-- Bloc résumé / Carte principale de la section -->
+            <div class="card border-0 shadow-sm p-4 mb-4"
+                 style="border-radius: 16px; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <h5 class="fw-bold text-dark mb-2">🎯 Ce que contient ce parcours :</h5>
+                        <ul class="list-unstyled text-muted mb-0">
+                            <li class="mb-1">📚 <strong>Leçons de vocabulaire</strong> (Fruits, Objets, Politesse...)
+                            </li>
+                            <li class="mb-1">🗣️ <strong>Modules de prononciation</strong> (Niveau Pré A1)</li>
+                            <li class="mb-1">🔢 <strong>Chiffres, lettres et verbes essentiels</strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <!-- CTA principal redirigeant vers la vue détaillée ou la page dédiée du niveau -->
+                        <a th:href="@{/niveauDebutant}"
+                           class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-sm fw-bold">
+                            Explorer ce parcours →
                         </a>
                     </div>
                 </div>
             </div>
+
+
         </section>
+
         <!----------------------------->
-        <section class="mb-5">
-            <h3 class="mb-1">
-                <span class="badge bg-warning text-dark rounded-circle p-2 fs-6 me-2">2</span>
-                Consolidation
-                <span class="badge bg-warning text-dark ms-2">A1 → A2</span>
-            </h3>
-            <p class="text-muted mb-4">Une fois les bases posées : grammaire structurée, dialogues, quiz et révisions
-                hebdomadaires.</p>
-            <div class="row my-5 g-4">
-
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Grammaire</h3>
-                            <p class="text-muted fs-5 mb-3">Supports de cours (A1-A2)</p>
-
-                            <a th:href="@{/supports-de-cours}" class="btn btn-outline-primary btn-lg mt-auto">
-                                Accéder aux cours
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚 ❓</span> Leçons par thème</h3>
-                            <p class="text-muted fs-5 mb-3">Dialogue + QCM + QUIZ (A1-A2) .</p>
-
-                            <a th:href="@{/themes}" class="btn btn-outline-primary btn-lg mt-auto">
-                                Accéder aux Leçons
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> Quiz sur la grammaire
-                            </h3>
-                            <p class="text-muted fs-5 mb-3">A1-A2 .</p>
-
-                            <a th:href="@{/quizzesSurLaGrammaire}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">Passer le quiz</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">📚</span> Culture générale</h3>
-                            <p class="text-muted fs-5 mb-3"> (A1-A2)</p>
-
-                            <a th:href="@{/cultureFrancaise}" class="btn btn-outline-primary btn-lg mt-auto">
-                                Accéder aux Leçons
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <hr>
-            <div style="text-align: center; font-weight: bold; color: red;">Unité locale : Sartrouville.</div>
-            <div class="row my-5 g-4">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> Préparation-révision
-                                du cours
-                                hebdomadaire </h3>
-                            <p class="text-muted fs-5 mb-3"> Quiz (A1-A2) .</p>
-
-                            <a th:href="@{/preparation-quiz-index}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">Passer le quiz</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> Préparation-révision
-                                du cours
-                                hebdomadaire </h3>
-                            <p class="text-muted fs-5 mb-3">QCM (A1-A2) .</p>
-
-                            <a th:href="@{/preparation-list-index}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true">Passer le qcm</span>
-                            </a>
-                        </div>
-                    </div>
+        <section class="mb-5 py-4">
+            <!-- En-tête de section -->
+            <div class="d-flex align-items-center mb-3">
+                <span class="badge bg-warning text-dark rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center fw-bold"
+                      style="width: 36px; height: 36px;">2</span>
+                <div>
+                    <h3 class="mb-0 fw-bold">Consolidation</h3>
+                    <span class="badge bg-light text-dark border border-warning-subtle mt-1">A1 → A2</span>
                 </div>
             </div>
-        </section>
+            <p class="text-muted mb-4 fs-6">Une fois les bases posées : grammaire structurée, dialogues, quiz et
+                révisions hebdomadaires.</p>
 
-
-        <section class="mb-5">
-            <h3 class="mb-1">
-                <span class="badge bg-success rounded-circle p-2 fs-6 me-2">3</span>
-                Approfondissement
-                <span class="badge bg-success ms-2">A2 → B1</span>
-            </h3>
-            <p class="text-muted mb-4">Pour viser l'autonomie : culture française et vie citoyenne.</p>
-
-            <div class="row my-5 g-4">
-                <div class="card h-100 shadow-sm text-center">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h3 class="card-title fw-bold"><span aria-hidden="true">📚 ❓</span> FRANCE - LIVRET DU CITOYEN
-                            2026</h3>
-                        <p class="text-muted fs-5 mb-3">Cours + QCM + QUIZ (A2-B1) .</p>
-
-                        <a th:href="@{/laFrance}" class="btn btn-primary btn-lg">
-
-                            Consulter
+            <!-- Bloc résumé / Carte principale de la section -->
+            <div class="card border-0 shadow-sm p-4 mb-4"
+                 style="border-radius: 16px; background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%); border-left: 5px solid #ffc107 !important;">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <h5 class="fw-bold text-dark mb-2">⚡ Ce que contient ce niveau de consolidation :</h5>
+                        <ul class="list-unstyled text-muted mb-0">
+                            <li class="mb-1">📚 <strong>Grammaire & Leçons par thème</strong> (Dialogues + QCM)</li>
+                            <li class="mb-1">❓ <strong>Quiz d'entraînement</strong> et Culture générale (A1-A2)</li>
+                            <li class="mb-1">📝 <strong>Préparations et révisions</strong> des cours hebdomadaires</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a th:href="@{/niveauConsolidation}"
+                           class="btn btn-warning text-dark btn-lg px-4 py-2 rounded-pill shadow-sm fw-bold">
+                            Explorer la consolidation →
                         </a>
                     </div>
                 </div>
+            </div>
 
 
-                <div class="row my-5 g-4">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <h3 class="card-title fw-bold"><span aria-hidden="true">❓</span> QCM Culture Française</h3>
-                            <p class="text-muted fs-5 mb-3">B1-B2 .</p>
+        </section>
 
-                            <a th:href="@{/culture}" class="btn btn-outline-primary btn-lg mt-auto">
-                                <span aria-hidden="true"></span> Tester vos connaissances
+        <section class="mb-5 py-4">
+            <!-- En-tête de section -->
+            <div class="d-flex align-items-center mb-3">
+                <span class="badge bg-success rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center fw-bold text-white"
+                      style="width: 36px; height: 36px;">3</span>
+                <div>
+                    <h3 class="mb-0 fw-bold">Approfondissement</h3>
+                    <span class="badge bg-light text-success border border-success-subtle mt-1">A2 → B1</span>
+                </div>
+            </div>
+            <p class="text-muted mb-4 fs-6">Pour viser l'autonomie : culture française et vie citoyenne.</p>
+
+            <!-- Grille des cartes d'approfondissement -->
+            <div class="row g-4">
+
+                <!-- Carte 1 : Livret du citoyen -->
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-2"
+                         style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div class="card-body d-flex flex-column align-items-center p-4">
+                            <div class="fs-1 mb-2">🇫🇷</div>
+                            <h3 class="card-title fw-bold fs-5 mb-2">FRANCE - LIVRET DU CITOYEN 2026</h3>
+                            <p class="text-muted small mb-4">Cours + QCM + QUIZ (A2-B1)</p>
+
+                            <a th:href="@{/laFrance}"
+                               class="btn btn-success btn-lg px-4 py-2 mt-auto rounded-pill shadow-sm fw-bold w-100">
+                                Consulter
                             </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Carte 2 : QCM Culture Française -->
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-2"
+                         style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <div class="card-body d-flex flex-column align-items-center p-4">
+                            <div class="fs-1 mb-2">🏛️</div>
+                            <h3 class="card-title fw-bold fs-5 mb-2">QCM Culture Française</h3>
+                            <p class="text-muted small mb-4">Niveau B1-B2</p>
+
+                            <a th:href="@{/culture}"
+                               class="btn btn-outline-success btn-lg px-4 py-2 mt-auto rounded-pill fw-bold w-100">
+                                Tester vos connaissances
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+
         <hr>
 
 
@@ -265,19 +202,34 @@
 </main>
 <br>
 
-<div class="alert alert-warning text-center" role="alert">
-    <strong>Version de TEST</strong><br>
-    Ce site est en phase de test.<br>
-    Les comptes sont fictifs et créés par l'administrateur.<br>
-    <strong style="color: #d32f2f;">Prière de ne pas créer de compte utilisant vos informations
-        personnelles.</strong><br>
-    Vos données seront supprimées régulièrement.
-</div>
+<div class="container my-5">
+    <div class="card border-0 shadow-sm p-4 text-center" style="border-radius: 16px; background-color: #fcfcfd; border: 1px solid rgba(0, 0, 0, 0.05) !important;">
+        <div class="card-body">
 
-<div class="container text-center mt-3">
-    <small class="fst-italic">
-        Les photos sur ce site ont été générées par IA.
-    </small>
+            <!-- Petit badge élégant -->
+            <div class="mb-3">
+                <span class="badge bg-warning-subtle text-warning-emphasis px-3 py-2 rounded-pill fw-bold border border-warning-subtle" style="font-size: 0.85rem;">
+                    ⚠️ Environnement de Démonstration / Test
+                </span>
+            </div>
+
+            <!-- Texte explicatif principal -->
+            <p class="text-secondary small mb-2">
+                Ce site est actuellement en phase de test. Les comptes sont fictifs et gérés par l'administrateur.
+            </p>
+
+            <!-- Avertissement de sécurité important -->
+            <p class="text-danger fw-semibold small mb-3">
+                🔒 Merci de ne pas renseigner vos véritables informations personnelles. Les données sont purgées régulièrement.
+            </p>
+
+            <!-- Mention discrète pour les images IA -->
+            <div class="text-muted fst-italic pt-3 border-top border-light" style="font-size: 0.8rem;">
+                🎨 Les photos et illustrations présentes sur ce site ont été générées par intelligence artificielle.
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
