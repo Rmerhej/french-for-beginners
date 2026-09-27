@@ -73,5 +73,52 @@
         setInterval(sendHeartbeat, 30000);
 
     </script>
+    <!-- Script global pour le mode sombre -->
+    <script>
+        (function() {
+            // 1. Appliquer le thème immédiatement pour éviter le flash blanc
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
 
+            // 2. Initialiser le bouton une fois que la page est prête
+            function initThemeToggle() {
+                const toggleButton = document.getElementById('darkModeToggle');
+                const themeIcon = document.getElementById('themeIcon');
+                const themeText = document.getElementById('themeText');
+
+                if (!toggleButton) return; // Si le bouton n'est pas sur la page, on arrête
+
+                updateButtonUI(savedTheme);
+
+                // Écouter le clic sur le bouton
+                toggleButton.addEventListener('click', () => {
+                    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    document.documentElement.setAttribute('data-bs-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    updateButtonUI(newTheme);
+                });
+
+                function updateButtonUI(theme) {
+                    if (theme === 'dark') {
+                        if (themeIcon) themeIcon.textContent = '☀️';
+                        if (themeText) themeText.textContent = 'Clair';
+                        toggleButton.classList.replace('btn-outline-secondary', 'btn-outline-light');
+                    } else {
+                        if (themeIcon) themeIcon.textContent = '🌙';
+                        if (themeText) themeText.textContent = 'Sombre';
+                        toggleButton.classList.replace('btn-outline-light', 'btn-outline-secondary');
+                    }
+                }
+            }
+
+            // Exécuter l'initialisation que le DOM soit déjà chargé ou non
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initThemeToggle);
+            } else {
+                initThemeToggle();
+            }
+        })();
+    </script>
 </footer>

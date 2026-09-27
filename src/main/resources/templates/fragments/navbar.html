@@ -40,6 +40,10 @@
                     <span class="navbar-text me-3" aria-label="Utilisateur connecté">
                         👤 <strong sec:authentication="name"></strong>
                     </span>
+                    <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-2 d-inline-flex align-items-center" id="darkModeToggle" title="Changer de thème">
+                        <span id="themeIcon" class="me-1">🌙</span>
+                        <span id="themeText">Sombre</span>
+                    </button>
                     <a th:href="@{/admin/dashboard}"
                        class="btn btn-outline-light me-2"
                        sec:authorize="hasRole('ADMIN')"
