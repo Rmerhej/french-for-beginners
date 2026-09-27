@@ -1,162 +1,165 @@
 <!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Préparation du cours hebdomadaire')}"></head>
-<body  class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<div class="mb-5">
-    <main id="main-content" class="container mt-5">
-        <h1 class="mb-4"><span aria-hidden="true">📚</span> Préparation du cours hebdomadaire</h1>
-        <button
-                type="button"
-                class="btn btn-outline-secondary float-end"
-                onclick="history.back()"
-                aria-label="Retour à la page précédente">
-            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-        </button>
-        <div class="row g-4">
 
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Au café
-                        </h5>
-                        <a th:href="@{/AuCafé}" class="btn btn-primary"
-                           aria-label="Voir la leçon Au café">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
+<main id="main-content" class="container my-5 flex-grow-1">
 
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Au téléphone
-                        </h5>
-                        <a th:href="@{/AuTéléphone}" class="btn btn-primary"
-                           aria-label="Voir la leçon Au téléphone">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            La vie quotidienne
-                        </h5>
-                        <a th:href="@{/LaVieQuotidienne}" class="btn btn-primary"
-                           aria-label="Voir la leçon La vie quotidienne">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            LES GENS
-                        </h5>
-                        <a th:href="@{/lesgens}" class="btn btn-primary"
-                           aria-label="Voir la leçon Les Gens">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            LE SPORT
-                        </h5>
-                        <a th:href="@{/lesport}" class="btn btn-primary"
-                           aria-label="Voir la leçon Le sport">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            L'ENTREPRISE
-                        </h5>
-                        <a th:href="@{/entreprise}" class="btn btn-primary"
-                           aria-label="Voir la leçon L'ENTREPRISE">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Le bricolage
-                        </h5>
-                        <a th:href="@{/bricolage}" class="btn btn-primary"
-                           aria-label="Voir la leçon L'ENTREPRISE">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            La météo
-                        </h5>
-                        <a th:href="@{/meteo}" class="btn btn-primary"
-                           aria-label="Voir la leçon L'ENTREPRISE">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            La fac
-                        </h5>
-                        <a th:href="@{/laFac}" class="btn btn-primary"
-                           aria-label="Voir la leçon La fac">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-3">
-                <article class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            La ville
-                        </h5>
-                        <a th:href="@{/ville}" class="btn btn-primary"
-                           aria-label="Voir la leçon L'ENTREPRISE">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </article>
-            </div>
-
+    <!-- En-tête moderne (Titre + Bouton Retour alignés proprement) -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+        <div class="mb-3 mb-md-0">
+            <h1 class="h2 fw-bold mb-1">
+                <span aria-hidden="true" class="me-2">📚</span>Préparation du cours hebdomadaire
+            </h1>
+            <p class="text-muted mb-0">Choisissez un thème pour préparer ou réviser vos leçons de la semaine.</p>
         </div>
-    </main>
-</div>
+        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
+        </button>
+    </div>
+
+    <!-- Grille des leçons modernisée -->
+    <div class="row g-4">
+
+        <!-- 1. Au café -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">☕</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">Au café</h5>
+                    <a th:href="@{/AuCafé}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon Au café">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 2. Au téléphone -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">📞</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">Au téléphone</h5>
+                    <a th:href="@{/AuTéléphone}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon Au téléphone">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. La vie quotidienne -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">🏡</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">La vie quotidienne</h5>
+                    <a th:href="@{/LaVieQuotidienne}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon La vie quotidienne">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 4. Les gens -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">👥</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">Les gens</h5>
+                    <a th:href="@{/lesgens}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon Les Gens">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 5. Le sport -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">⚽</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">Le sport</h5>
+                    <a th:href="@{/lesport}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon Le sport">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 6. L'entreprise -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">💼</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">L'entreprise</h5>
+                    <a th:href="@{/entreprise}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon L'entreprise">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 7. Le bricolage -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">🛠️</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">Le bricolage</h5>
+                    <a th:href="@{/bricolage}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon Le bricolage">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 8. La météo -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">🌤️</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">La météo</h5>
+                    <a th:href="@{/meteo}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon La météo">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 9. La fac -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">🎓</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">La fac</h5>
+                    <a th:href="@{/laFac}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon La fac">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 10. La ville -->
+        <div class="col-md-3 col-sm-6">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center text-center p-4">
+                    <div class="fs-1 mb-3">🏙️</div>
+                    <h5 class="card-title fw-bold fs-6 mb-3">La ville</h5>
+                    <a th:href="@{/ville}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Voir la leçon La ville">
+                        Voir la leçon
+                    </a>
+                </div>
+            </article>
+        </div>
+
+    </div>
+</main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
