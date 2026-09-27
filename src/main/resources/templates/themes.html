@@ -1,33 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Thèmes')}"></head>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
-<div th:replace="~{fragments/head :: head('Themes')}"></div>
-
-<body>
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
 
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main id="main-content" class="container mt-5">
-    <h1 class="text-center mb-4">Leçons par Thème</h1>
-    <p class="lead text-center mb-5">Apprenez le français dans des situations de la vie réelle .</p>
+<main id="main-content" class="container my-5 flex-grow-1">
 
+    <!-- En-tête moderne -->
+    <div class="text-center mb-5">
+        <h1 class="h2 fw-bold mb-2">
+            <span aria-hidden="true" class="me-2">🎯</span>Leçons par Thème
+        </h1>
+        <p class="text-muted lead fs-6">Apprenez le français dans des situations de la vie réelle.</p>
+    </div>
+
+    <!-- Grille des thèmes -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
         <div class="col" th:each="theme : ${themes}">
-            <div class="card h-100 shadow-sm theme-card">   <!-- ajout de la classe pour le CSS -->
-                <div class="card-body text-center">
-                    <h5 class="card-title" th:text="${theme.title}"></h5>
+            <article class="card h-100 border-0 shadow-sm theme-card" style="border-radius: 16px;">
+                <div class="card-body text-center d-flex flex-column justify-content-center p-4">
+                    <div class="fs-1 mb-3" aria-hidden="true">💡</div>
+                    <h5 class="card-title fw-bold fs-6 mb-0" th:text="${theme.title}">Titre du thème</h5>
                 </div>
-                <div class="card-footer bg-white border-0">
+                <div class="card-footer bg-white border-0 pb-4 px-4 text-center">
                     <a th:href="@{/themes/{nom}(nom=${theme.nom})}"
-                       class="btn btn-primary w-100">
+                       class="btn btn-outline-primary btn-sm rounded-pill w-100 py-2 shadow-sm"
+                       th:aria-label="'Commencer la leçon ' + ${theme.title}">
                         Commencer la leçon
                     </a>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </main>
@@ -38,10 +45,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <style>
+    .theme-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
     .theme-card:hover {
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08) !important;
     }
 </style>
 </body>

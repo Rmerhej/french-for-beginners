@@ -1,46 +1,95 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="~{fragments/head :: head(title='Toutes les leçons')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main id="main-content" class="container mt-5">
+<main id="main-content" class="container my-5 flex-grow-1">
 
+    <!-- Section utilisateur non connecté -->
     <div sec:authorize="isAnonymous()">
-        <div class="alert alert-warning text-center p-5">
-            <h4>🔒 Accès restreint</h4>
-            <p class="lead">Vous devez être connecté pour accéder à toutes les leçons.</p>
-            <a th:href="@{/login}" class="btn btn-primary btn-lg me-3">Se connecter</a>
-            <a th:href="@{/register}" class="btn btn-success btn-lg">Créer un compte</a>
-        </div>
-    </div>
-
-    <div sec:authorize="isAuthenticated()">
-        <h1 class="mb-4">📚 Toutes les Leçons + </h1>
-
-        <div class="row">
-            <div class="col-md-4 mb-4" th:each="lesson : ${lessons}">
-                <div class="card h-100 shadow-sm">
-                    <img th:if="${lesson.imageUrl}" th:src="${lesson.imageUrl}"
-                         th:alt="'Illustration de la leçon ' + ${lesson.title}"
-                         class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${lesson.title}"></h5>
-                        <p class="text-muted" th:text="${lesson.level}"></p>
-                        <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-primary">Accéder à la leçon</a>
-                    </div>
+        <div class="card border-0 shadow-sm text-center p-5 bg-white mx-auto my-5" style="max-width: 600px; border-radius: 20px;">
+            <div class="card-body">
+                <div class="fs-1 mb-3" aria-hidden="true">🔒</div>
+                <h2 class="h4 fw-bold mb-3">Accès restreint</h2>
+                <p class="text-muted mb-4">Vous devez être connecté pour accéder à l'ensemble de nos leçons et suivre votre progression.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <a th:href="@{/login}" class="btn btn-primary rounded-pill px-4 shadow-sm">Se connecter</a>
+                    <a th:href="@{/register}" class="btn btn-outline-success rounded-pill px-4 shadow-sm">Créer un compte</a>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+
+    <!-- Section utilisateur authentifié -->
+    <div sec:authorize="isAuthenticated()">
+        <!-- En-tête de page -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+            <div>
+                <h1 class="h2 fw-bold mb-1">
+                    <span aria-hidden="true" class="me-2">📚</span>Toutes les Leçons
+                </h1>
+                <p class="text-muted mb-0">Explorez notre catalogue complet de cours de français.</p>
+            </div>
+        </div>
+
+        <!-- Grille des leçons -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col" th:each="lesson : ${lessons}">
+                <article class="card h-100 border-0 shadow-sm lesson-card" style="border-radius: 16px; overflow: hidden;">
+
+                    <!-- Image de la leçon (si présente) -->
+                    <div th:if="${lesson.imageUrl}" class="position-relative">
+                        <img th:src="${lesson.imageUrl}"
+                             th:alt="'Illustration de la leçon ' + ${lesson.title}"
+                             class="card-img-top" style="height: 180px; object-fit: cover;">
+                    </div>
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <!-- Niveau (Badge) -->
+                        <div class="mb-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-pill fw-semibold"
+                                  th:if="${lesson.level}" th:text="${lesson.level}">Niveau</span>
+                        </div>
+
+                        <!-- Titre -->
+                        <h2 class="card-title h5 fw-bold mb-3" th:text="${lesson.title}">Titre de la leçon</h2>
+
+                        <!-- Bouton d'action en bas de carte -->
+                        <div class="mt-auto pt-3">
+                            <a th:href="@{/lesson/{id}(id=${lesson.id})}"
+                               class="btn btn-outline-primary btn-sm rounded-pill w-100 py-2 shadow-sm"
+                               th:aria-label="'Accéder à la leçon ' + ${lesson.title}">
+                                Accéder à la leçon
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
 
 </main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .lesson-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .lesson-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08) !important;
+    }
+</style>
 </body>
 </html>

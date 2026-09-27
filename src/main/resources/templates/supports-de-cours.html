@@ -1,376 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Supports de cours')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main id="main-content" class="container mt-5">
-    <header class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="mb-0"><span aria-hidden="true">📚</span> Grammaire-Supports de Cours</h1>
-        <button type="button" class="btn btn-outline-secondary" onclick="history.back()"
-                aria-label="Retour à la page précédente">
-            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+<main id="main-content" class="container my-5 flex-grow-1">
+
+    <!-- En-tête moderne -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+        <div class="mb-3 mb-md-0">
+            <h1 class="h2 fw-bold mb-1">
+                <span aria-hidden="true" class="me-2">📚</span>Grammaire - Supports de Cours
+            </h1>
+            <p class="text-muted mb-0">Choisissez une catégorie et sélectionnez une leçon pour consulter son contenu détaillé.</p>
+        </div>
+        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
         </button>
-    </header>
-    <p class="lead mb-5">Choisissez une leçon pour voir son contenu détaillé :</p>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
-
-        <h2 class="fw-bold mb-2">
-            1. Les classes de mots
-        </h2>
-
-
-        <div class="row g-4">
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">L'adjectif .</h5>
-
-                        <a th:href="@{/adjectif}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="L'adjectif">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            Adjectifs qualificatifs .
-                        </h5>
-
-                        <a th:href="@{/adjectifsQualificatifs}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="Adjectifs qualificatifs">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            Les adjectifs démonstratifs .
-                        </h5>
-
-                        <a th:href="@{/adjectifsdemonstratifs}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="Les adjectifs démonstratifs">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            Les pronoms .
-                        </h5>
-
-                        <a th:href="@{/pronoms}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="Les pronoms">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            Pronoms personnels sujets .
-                        </h5>
-
-                        <a th:href="@{/PronomsPersonnelsSujets}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="Pronoms personnels sujets">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 6 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            Pronoms possessifs et démonstratifs .
-                        </h5>
-
-                        <a th:href="@{/pronomsPossessifsEtDemonstratifs}"
-                           class="btn btn-primary mt-auto"
-                           aria-label="Pronoms possessifs et démonstratifs">
-                            Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Genre et nombre des
-                            noms .</h5>
-                        <a th:href="@{/genreEtNombreDesNoms}" class="btn btn-primary" aria-label="Genre et nombre des
-                        noms">Voir la leçon
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Les déterminants-Les articles définis .</h5>
-                        <a th:href="@{/articlesDéfinis}" class="btn btn-primary" aria-label=" articlesDéfinis">Voir la
-                            leçon</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
-
-        <h2 class="fw-bold mb-2">
-            2. Les verbes et la conjugaison
-        </h2>
-
+    <!-- 1. Les classes de mots -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">📝</span>
+            <h2 class="h4 fw-bold mb-0">1. Les classes de mots</h2>
+        </div>
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Les verbes .</h5>
-
-                        <a th:href="@{/lesVerbes}" class="btn btn-primary" aria-hidden="Les verbes">
-                            Consulter
-                        </a>
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">L'adjectif</h5>
+                        <a th:href="@{/adjectif}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="L'adjectif">Voir la leçon</a>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Les Auxiliaires .</h5>
-                        <a th:href="@{/auxiliaires}" class="btn btn-primary" aria-label="Les auxiliaires">voir la
-                            leçon</a>
-                    </div>
-                </div>
+                </article>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">La Conjugaison .</h5>
-                        <a th:href="@{/conjugaison}" class="btn btn-primary" aria-label="La Conjugaison">voir la
-                            leçon</a>
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Adjectifs qualificatifs</h5>
+                        <a th:href="@{/adjectifsQualificatifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Adjectifs qualificatifs">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les adjectifs démonstratifs</h5>
+                        <a th:href="@{/adjectifsdemonstratifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les adjectifs démonstratifs">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les pronoms</h5>
+                        <a th:href="@{/pronoms}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les pronoms">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Pronoms personnels sujets</h5>
+                        <a th:href="@{/PronomsPersonnelsSujets}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Pronoms personnels sujets">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Pronoms possessifs et démonstratifs</h5>
+                        <a th:href="@{/pronomsPossessifsEtDemonstratifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Pronoms possessifs et démonstratifs">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Genre et nombre des noms</h5>
+                        <a th:href="@{/genreEtNombreDesNoms}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Genre et nombre des noms">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Articles définis</h5>
+                        <a th:href="@{/articlesDéfinis}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Articles définis">Voir la leçon</a>
+                    </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            3. Les accords
-        </h2>
+    <!-- 2. Les verbes et la conjugaison -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">⚙️</span>
+            <h2 class="h4 fw-bold mb-0">2. Les verbes et la conjugaison</h2>
+        </div>
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Les accords .</h5>
-                        <a th:href="@{/accords}" class="btn btn-primary" aria-label="Les accords">voir la
-                            leçon</a>
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les verbes</h5>
+                        <a th:href="@{/lesVerbes}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les verbes">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les auxiliaires</h5>
+                        <a th:href="@{/auxiliaires}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les auxiliaires">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">La conjugaison</h5>
+                        <a th:href="@{/conjugaison}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="La conjugaison">Voir la leçon</a>
+                    </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            4. La phrase
-        </h2>
+    <!-- 3. Les accords -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">🔗</span>
+            <h2 class="h4 fw-bold mb-0">3. Les accords</h2>
+        </div>
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">La phrase .</h5>
-                        <a th:href="@{/phrase}" class="btn btn-primary" aria-label="La phrase">voir la
-                            leçon</a>
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les accords</h5>
+                        <a th:href="@{/accords}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les accords">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            5. Les compléments
-        </h2>
+    <!-- 4. La phrase -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">📄</span>
+            <h2 class="h4 fw-bold mb-0">4. La phrase</h2>
+        </div>
         <div class="row g-4">
-            <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Les compléments .</h5>
-                            <a th:href="@{/compléments}" class="btn btn-primary" aria-label="Les compléments">voir la
-                                leçon</a>
-                        </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">La phrase</h5>
+                        <a th:href="@{/phrase}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="La phrase">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            6. Les expressions de temps
-        </h2>
+    <!-- 5. Les compléments -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">➕</span>
+            <h2 class="h4 fw-bold mb-0">5. Les compléments</h2>
+        </div>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Les expressions de temps .</h5>
-                        <a th:href="@{/expressionstemps}" class="btn btn-primary" aria-label="Les expressions de temps">voir
-                            la leçon</a>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les compléments</h5>
+                        <a th:href="@{/compléments}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les compléments">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
+    </section>
 
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
-
-        <h2 class="fw-bold mb-2">
-            7. Les connecteurs logiques
-        </h2>
+    <!-- 6. Les expressions de temps -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">⏰</span>
+            <h2 class="h4 fw-bold mb-0">6. Les expressions de temps</h2>
+        </div>
         <div class="row g-4">
-
-            <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Les connecteurs logiques .</h5>
-                            <a th:href="@{/connecteursLogiques}" class="btn btn-primary"
-                               aria-label="Les connecteurs Logiques">voir la
-                                leçon</a>
-                        </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les expressions de temps</h5>
+                        <a th:href="@{/expressionstemps}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les expressions de temps">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            8. Les adverbes
-        </h2>
+    <!-- 7. Les connecteurs logiques -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">🔀</span>
+            <h2 class="h4 fw-bold mb-0">7. Les connecteurs logiques</h2>
+        </div>
         <div class="row g-4">
-
-            <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Les adverbes .</h5>
-                            <a th:href="@{/adverbes}" class="btn btn-primary" aria-label="Les adverbes">voir la
-                                leçon</a>
-                        </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les connecteurs logiques</h5>
+                        <a th:href="@{/connecteursLogiques}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les connecteurs logiques">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
+    </section>
 
-        <h2 class="fw-bold mb-2">
-            9. La négation
-        </h2>
+    <!-- 8. Les adverbes -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">🎯</span>
+            <h2 class="h4 fw-bold mb-0">8. Les adverbes</h2>
+        </div>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Négation simple .</h5>
-                        <a th:href="@{/NegationSimple}" class="btn btn-primary" aria-label="Négation simple">Voir la
-                            leçon</a>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Les adverbes</h5>
+                        <a th:href="@{/adverbes}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Les adverbes">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
-
         </div>
+    </section>
 
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
-
-        <h2 class="fw-bold mb-2">
-            10. L'interrogation
-        </h2>
+    <!-- 9. La négation -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">🚫</span>
+            <h2 class="h4 fw-bold mb-0">9. La négation</h2>
+        </div>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Questions simples .</h5>
-                        <a th:href="@{/questionsSimples}" class="btn btn-primary" aria-label="Questions simples">Voir la
-                            leçon
-                        </a>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Négation simple</h5>
+                        <a th:href="@{/NegationSimple}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Négation simple">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
+    </section>
 
-    </div>
-    <div class="text-center mb-4 p-4 rounded-4 bg-white shadow-sm">
-        <div class="fs-1 mb-2" aria-hidden="true">📚</div>
-
-        <h2 class="fw-bold mb-2">
-            11. Les prépositions
-        </h2>
+    <!-- 10. L'interrogation -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">❓</span>
+            <h2 class="h4 fw-bold mb-0">10. L'interrogation</h2>
+        </div>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Prépositions de
-                            lieu et temps .</h5>
-                        <a th:href="@{/PrepositionsDeLieuEtTemps}" class="btn btn-primary" aria-label="Prépositions de
-                        lieu et temps">Voir la leçon</a>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Questions simples</h5>
+                        <a th:href="@{/questionsSimples}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Questions simples">Voir la leçon</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
+    </section>
 
-    </div>
-    <br>
+    <!-- 11. Les prépositions -->
+    <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
+        <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+            <span class="fs-2 me-3">📍</span>
+            <h2 class="h4 fw-bold mb-0">11. Les prépositions</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="card h-100 border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold fs-6 mb-3">Prépositions de lieu et temps</h5>
+                        <a th:href="@{/PrepositionsDeLieuEtTemps}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill" aria-label="Prépositions de lieu et temps">Voir la leçon</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
 </main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

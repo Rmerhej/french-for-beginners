@@ -1,80 +1,78 @@
 <!doctype html>
-<html lang="fr" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Prononciation')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
-<br>
-<button
-        type="button"
-        class="btn btn-outline-secondary float-end"
-        onclick="history.back()"
-        aria-label="Retour">
-    <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-</button>
 
-<main id="main-content" class="container">
+<main id="main-content" class="container my-5 flex-grow-1">
 
-    <h1 class="text-primary">
-        <span aria-hidden="true">📘</span> Prononciation française
-    </h1>
+    <!-- En-tête moderne -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+        <div class="mb-3 mb-md-0">
+            <h1 class="h2 fw-bold mb-1">
+                <span aria-hidden="true" class="me-2">🔊</span>Prononciation française
+            </h1>
+            <p class="text-muted mb-0">Apprenez à maîtriser les sons et les nuances de la langue française.</p>
+        </div>
+        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
+        </button>
+    </div>
 
+    <!-- Grille des sons et prononciations -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" th:each="item : ${prononciations}">
+            <article class="card h-100 border-0 shadow-sm prononciation-card" style="border-radius: 16px; overflow: hidden;">
 
-    <div class="row g-3">
-
-
-        <div
-                class="col-12 col-md-6 col-lg-4"
-                th:each="item : ${prononciations}">
-
-            <div class="card h-100">
-
-                <div class="card-header bg-primary text-white">
-
-                    <h2 class="h5" th:text="${item.son}"></h2>
-
+                <!-- En-tête de la carte -->
+                <div class="card-header bg-primary text-white py-3 px-4 border-0 d-flex align-items-center">
+                    <span class="fs-4 me-2" aria-hidden="true">🗣️</span>
+                    <h2 class="h5 fw-bold mb-0" th:text="${item.son}">Son</h2>
                 </div>
 
-
-                <div class="card-body">
-
-
-                    <p>Exemple :</p>
-                    <p th:text="${item.exemple}">
-                    </p>
-
-
-                    <div class="d-flex align-items-center gap-3">
-
-
-                        <button class="btn btn-primary btn-play">
-                            <i class="bi bi-play-fill"></i>
-                        </button>
-
-                        <audio class="d-none">
-
-                            <source th:src="${item.audio}" type="audio/mpeg">
-
-                        </audio>
-
-                        <span>Écouter</span>
-
+                <!-- Corps de la carte -->
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="mb-4">
+                        <span class="text-muted small text-uppercase fw-bold d-block mb-1">Exemple :</span>
+                        <p class="fs-5 fw-semibold text-dark mb-0" th:text="${item.exemple}">Exemple</p>
                     </div>
 
+                    <!-- Lecteur Audio -->
+                    <div class="mt-auto pt-3 border-top d-flex align-items-center gap-3">
+                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center shadow-sm btn-play" style="width: 42px; height: 42px;" th:aria-label="'Écouter la prononciation de ' + ${item.son}">
+                            <i class="bi bi-play-fill fs-5" aria-hidden="true"></i>
+                        </button>
+                        <audio class="d-none">
+                            <source th:src="${item.audio}" type="audio/mpeg">
+                        </audio>
+                        <span class="text-muted fw-medium small">Écouter l'exemple</span>
+                    </div>
                 </div>
-
-            </div>
-
+            </article>
         </div>
-
     </div>
 
 </main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/audio.js"></script>
+
+<style>
+    .prononciation-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .prononciation-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08) !important;
+    }
+</style>
 </body>
 </html>

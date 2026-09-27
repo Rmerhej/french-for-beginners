@@ -1,114 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='La FRANCE')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
+
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main id="main-content" class="container mt-5">
+<main id="main-content" class="container my-5 flex-grow-1">
 
-    <header class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="mb-0"><span aria-hidden="true">📚</span>
-            <span style="color: #0055A4;">LA </span><span
-                    style="color: #FFFFFF; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">FRA</span><span
-                    style="color: #EF4135;">NCE</span>
-        </h1>
-        <button type="button" class="btn btn-outline-secondary" onclick="history.back()"
-                aria-label="Retour à la page précédente">
-            <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
+    <!-- En-tête moderne -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+        <div class="mb-3 mb-md-0">
+            <h1 class="h2 fw-bold mb-1">
+                <span aria-hidden="true" class="me-2">📚</span>
+                <span style="color: #0055A4;">LA </span><span style="color: #6c757d; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">FRA</span><span style="color: #EF4135;">NCE</span>
+            </h1>
+            <p class="text-muted mb-0">Modules d'apprentissage pour la préparation à l'examen civique.</p>
+        </div>
+        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
         </button>
-    </header>
-    <p class="lead mb-5">Modules d'apprentissage .</p>
-    <div class="row g-4">
+    </div>
 
-        <div class="col-md-12">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">1. Principes et valeurs de la République .</h2>
-                    <a th:href="@{/LIVRET-CITOYEN.pdf#page=5}" class="btn btn-primary" target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Principes et valeurs de la République">📘 Consulter</a>
-                    <a th:href="@{/principesEtValeursQCM}" class="btn btn-primary"
-                       aria-label="">❓ QCM .</a>
-                    <a th:href="@{/principesEtValeursQUIZ}" class="btn btn-primary"
-                       aria-label="">❓ QUIZ (glisser-déposer) .</a>
+    <!-- Modules d'apprentissage en cartes -->
+    <div class="row g-4 mb-5">
+
+        <!-- Module 1 -->
+        <div class="col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 align-self-start px-3 py-2 rounded-pill fw-bold">Module 1</span>
+                    <h2 class="card-title h5 fw-bold mb-4">Principes et valeurs de la République</h2>
+                    <div class="mt-auto d-grid gap-2">
+                        <a th:href="@{/LIVRET-CITOYEN.pdf#page=5}" class="btn btn-outline-primary btn-sm rounded-pill py-2" target="_blank" rel="noopener noreferrer" aria-label="Consulter les principes et valeurs de la République">
+                            <i class="bi bi-book me-2" aria-hidden="true"></i> Consulter le livret
+                        </a>
+                        <a th:href="@{/principesEtValeursQCM}" class="btn btn-primary btn-sm rounded-pill py-2" aria-label="QCM sur les principes et valeurs">
+                            <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM
+                        </a>
+                        <a th:href="@{/principesEtValeursQUIZ}" class="btn btn-success btn-sm rounded-pill py-2" aria-label="Quiz glisser-déposer sur les principes et valeurs">
+                            <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz (Glisser-déposer)
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="col-md-12">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">2. Système institutionnel et politique .</h2>
-                    <a th:href="@{/LIVRET-CITOYEN.pdf#page=15}" class="btn btn-primary" target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Système institutionnel et politique ">📘 Consulter</a>
-                    <a th:href="@{/systemeInstEtPolitiqueQCM}" class="btn btn-primary"
-                       aria-label="">❓ QCM .</a>
-                    <a th:href="@{/systemeInstEtPolitiqueQUIZ}" class="btn btn-primary"
-                       aria-label="">❓ QUIZ (glisser-déposer) .</a>
+        <!-- Module 2 -->
+        <div class="col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 align-self-start px-3 py-2 rounded-pill fw-bold">Module 2</span>
+                    <h2 class="card-title h5 fw-bold mb-4">Système institutionnel et politique</h2>
+                    <div class="mt-auto d-grid gap-2">
+                        <a th:href="@{/LIVRET-CITOYEN.pdf#page=15}" class="btn btn-outline-primary btn-sm rounded-pill py-2" target="_blank" rel="noopener noreferrer" aria-label="Consulter le système institutionnel et politique">
+                            <i class="bi bi-book me-2" aria-hidden="true"></i> Consulter le livret
+                        </a>
+                        <a th:href="@{/systemeInstEtPolitiqueQCM}" class="btn btn-primary btn-sm rounded-pill py-2" aria-label="QCM sur le système institutionnel">
+                            <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM
+                        </a>
+                        <a th:href="@{/systemeInstEtPolitiqueQUIZ}" class="btn btn-success btn-sm rounded-pill py-2" aria-label="Quiz glisser-déposer sur le système institutionnel">
+                            <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz (Glisser-déposer)
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="col-md-12">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">3. Droits et devoirs des citoyens .</h2>
-                    <a th:href="@{/LIVRET-CITOYEN.pdf#page=24}" class="btn btn-primary" target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Droits et devoirs ">📘 Consulter</a>
-                    <a th:href="@{/droitsEtDevoirsQCM}" class="btn btn-primary"
-                       aria-label="">❓ QCM .</a>
-                    <a th:href="@{/droitsEtDevoirsQUIZ}" class="btn btn-primary"
-                       aria-label="">❓ QUIZ (glisser-déposer) .</a>
+        <!-- Module 3 -->
+        <div class="col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 align-self-start px-3 py-2 rounded-pill fw-bold">Module 3</span>
+                    <h2 class="card-title h5 fw-bold mb-4">Droits et devoirs des citoyens</h2>
+                    <div class="mt-auto d-grid gap-2">
+                        <a th:href="@{/LIVRET-CITOYEN.pdf#page=24}" class="btn btn-outline-primary btn-sm rounded-pill py-2" target="_blank" rel="noopener noreferrer" aria-label="Consulter les droits et devoirs">
+                            <i class="bi bi-book me-2" aria-hidden="true"></i> Consulter le livret
+                        </a>
+                        <a th:href="@{/droitsEtDevoirsQCM}" class="btn btn-primary btn-sm rounded-pill py-2" aria-label="QCM sur les droits et devoirs">
+                            <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM
+                        </a>
+                        <a th:href="@{/droitsEtDevoirsQUIZ}" class="btn btn-success btn-sm rounded-pill py-2" aria-label="Quiz glisser-déposer sur les droits et devoirs">
+                            <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz (Glisser-déposer)
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="col-md-12">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">4. Histoire, géographie et culture .</h2>
-                    <a th:href="@{/LIVRET-CITOYEN.pdf#page=37}" class="btn btn-primary" target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Histoire, géographie et culture "> 📘Consulter</a>
-                    <a th:href="@{/histoireGeoCultureQCM}" class="btn btn-primary"
-                       aria-label="">❓ QCM .</a>
-                    <a th:href="@{/histoireGeoCultureQUIZ}" class="btn btn-primary"
-                       aria-label="">❓ QUIZ (glisser-déposer) .</a>
+        <!-- Module 4 -->
+        <div class="col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 align-self-start px-3 py-2 rounded-pill fw-bold">Module 4</span>
+                    <h2 class="card-title h5 fw-bold mb-4">Histoire, géographie et culture</h2>
+                    <div class="mt-auto d-grid gap-2">
+                        <a th:href="@{/LIVRET-CITOYEN.pdf#page=37}" class="btn btn-outline-primary btn-sm rounded-pill py-2" target="_blank" rel="noopener noreferrer" aria-label="Consulter l'histoire, géographie et culture">
+                            <i class="bi bi-book me-2" aria-hidden="true"></i> Consulter le livret
+                        </a>
+                        <a th:href="@{/histoireGeoCultureQCM}" class="btn btn-primary btn-sm rounded-pill py-2" aria-label="QCM sur l'histoire, géographie et culture">
+                            <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM
+                        </a>
+                        <a th:href="@{/histoireGeoCultureQUIZ}" class="btn btn-success btn-sm rounded-pill py-2" aria-label="Quiz glisser-déposer sur l'histoire, géographie et culture">
+                            <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz (Glisser-déposer)
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="col-md-12">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">5. Vivre dans la société française .</h2>
-                    <a th:href="@{/LIVRET-CITOYEN.pdf#page=61}" class="btn btn-primary" target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Vivre dans la société française "> 📘Consulter</a>
-                    <a th:href="@{/vivreDsSocieteFQCM}" class="btn btn-primary"
-                       aria-label="">❓ QCM .</a>
-                    <a th:href="@{/vivreDsSocieteFQUIZ}" class="btn btn-primary"
-                       aria-label="">❓ QUIZ (glisser-déposer) .</a>
+        <!-- Module 5 -->
+        <div class="col-md-6 col-lg-4">
+            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 align-self-start px-3 py-2 rounded-pill fw-bold">Module 5</span>
+                    <h2 class="card-title h5 fw-bold mb-4">Vivre dans la société française</h2>
+                    <div class="mt-auto d-grid gap-2">
+                        <a th:href="@{/LIVRET-CITOYEN.pdf#page=61}" class="btn btn-outline-primary btn-sm rounded-pill py-2" target="_blank" rel="noopener noreferrer" aria-label="Consulter vivre dans la société française">
+                            <i class="bi bi-book me-2" aria-hidden="true"></i> Consulter le livret
+                        </a>
+                        <a th:href="@{/vivreDsSocieteFQCM}" class="btn btn-primary btn-sm rounded-pill py-2" aria-label="QCM sur la société française">
+                            <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM
+                        </a>
+                        <a th:href="@{/vivreDsSocieteFQUIZ}" class="btn btn-success btn-sm rounded-pill py-2" aria-label="Quiz glisser-déposer sur la société française">
+                            <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz (Glisser-déposer)
+                        </a>
+                    </div>
                 </div>
+            </article>
+        </div>
+
+    </div>
+
+    <!-- Avertissement officiel / Source stylisé -->
+    <div class="alert alert-warning border-0 shadow-sm p-4 text-secondary" style="border-radius: 16px;" role="region" aria-label="Informations légales et sources">
+        <div class="d-flex align-items-start">
+            <i class="bi bi-info-circle-fill fs-4 text-warning me-3 mt-1" aria-hidden="true"></i>
+            <div>
+                <strong class="text-dark d-block mb-1">Source et informations officielles</strong>
+                <p class="mb-2 small" style="line-height: 1.6;">
+                    Ce contenu est mis à disposition à titre pédagogique pour accompagner la préparation à l'examen civique. Les informations factuelles sont issues du <em>Livret du citoyen</em> édité par le Ministère de l'Intérieur.
+                </p>
+                <p class="mb-0 small" style="line-height: 1.6;">
+                    ⚠️ <strong>Attention :</strong> Ce site est une initiative indépendante et n'est pas un site officiel du gouvernement. Bien que nous nous efforcions de maintenir les ressources à jour, le contenu législatif et administratif peut évoluer rapidement. Nous vous recommandons de consulter régulièrement la version la plus récente du document sur le site officiel : <a href="https://immigration.interieur.gouv.fr" target="_blank" rel="noopener noreferrer" class="alert-link">immigration.interieur.gouv.fr</a>.
+                </p>
             </div>
         </div>
     </div>
-    <br>
 
-    <p>*Source et informations officielles :
-        Ce contenu est mis à disposition à titre pédagogique pour accompagner la préparation à l'examen civique. Les
-        informations factuelles sont issues du Livret du citoyen édité par le Ministère de l'Intérieur.
-
-        ⚠️ Attention : Ce site est une initiative indépendante et n'est pas un site officiel du gouvernement. Bien que
-        nous nous efforcions de maintenir les ressources à jour, le contenu législatif et administratif peut évoluer
-        rapidement. Nous vous recommandons de consulter régulièrement la version la plus récente du document sur le site
-        officiel : https://immigration.interieur.gouv.fr.</p>
 </main>
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
