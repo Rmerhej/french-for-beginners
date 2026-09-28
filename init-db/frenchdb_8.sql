@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 25 sep. 2026 à 08:14
+-- Généré le : lun. 28 sep. 2026 à 03:54
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=504 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=537 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -345,7 +345,7 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (301, 'B', 'Situé dans les Alpes, le Mont Blanc culmine à environ 4 807 mètres.', 'Histoire géographie et culture', 'Le Puy de Dôme', 'Le Mont Blanc', 'La Grande Casse', 'Le Pic du Midi', 'Quel est le point culminant de la France et de l\'Europe occidentale ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (302, 'C', 'La langue française est partagée par plus de 300 millions de locuteurs sur tous les continents.', 'Histoire géographie et culture', 'Une dizaine', 'Une cinquantaine', 'Plusieurs centaines de millions de locuteurs et des dizaines d\'États membres (plus de 80 dans l\'OIF)', 'Uniquement la France et la Belgique', 'Combien de pays environ comptent la francophonie institutionnelle (OIF) à travers le monde ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (303, 'B', 'Le musée du Louvre est le plus grand musée d\'art et d\'antiquités du monde.', 'Histoire géographie et culture', 'Le musée d\'Orsay', 'Le musée du Louvre', 'Le Centre Pompidou', 'Le musée Rodin', 'Quel grand musée parisien abrite notamment La Joconde ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(304, 'C', 'La Réunion est une île et un département français situé dans l\'océan Indien.', 'Histoire géographie et culture', 'La Guadeloupe', 'La Martinique', 'La Martinique', 'La Guyane', 'Lequel de ces départements ou régions d\'outre-mer (DROM) se situe dans l\'océan Indien ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(304, 'C', 'La Réunion est une île et un département français situé dans l\'océan Indien.', 'Histoire géographie et culture', 'La Guadeloupe', 'La Martinique', 'La Réunion', 'La Guyane', 'Lequel de ces départements ou régions d\'outre-mer (DROM) se situe dans l\'océan Indien ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (305, 'B', 'Elle fait partie du bloc de constitutionnalité français.', 'Histoire géographie et culture', 'Un manuel de cuisine française', 'Un texte fondamental voté en 1789 proclamant les droits universels de l\'individu', 'Le règlement intérieur du Parlement européen', 'Un code de commerce', 'Qu\'est-ce que la Déclaration des Droits de l\'Homme et du Citoyen (DDHC) ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (306, 'C', 'François Mitterrand était président lors de la signature du traité de Maastricht en 1992.', 'Histoire géographie et culture', 'Charles de Gaulle', 'Georges Pompidou', 'François Mitterrand', 'Emmanuel Macron', 'Quel président de la Ve République a initié le passage à l\'euro et le traité de Maastricht ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (307, 'B', 'Les Pyrénées forment la frontière naturelle au sud.', 'Histoire géographie et culture', 'Les Alpes', 'Les Pyrénées', 'Le Jura', 'Les Vosges', 'Quelle chaîne de montagnes sépare la France de l\'Espagne ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -530,7 +530,40 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (500, 'A', '', 'La fac', 'Elle doit préparer un exposé pour son TD.', 'Elle doit préparer un voyage.', 'Elle cherche un emploi.', 'Elle doit organiser un échange Erasmus.', 'Pourquoi Bénédicte est-elle débordée de travail ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (501, 'C', '', 'La fac', 'Un logement étudiant', 'Des cours d\'italien', 'Des documents et une bibliographie', 'Une université étrangère', 'Que cherche Bénédicte sur Internet ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (502, 'C', '', 'La fac', 'Pour lui parler d\'Erasmus.', 'Pour lui donner les notes d\'un cours.', 'Pour lui remettre les notes du cours d\'histoire médiévale qu\'elle a raté.', 'Pour travailler avec elle sur un exposé.', 'Pourquoi Bénédicte veut-elle voir Éléonore au restaurant universitaire ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(503, 'B', '', 'La fac', 'Je suis arrivé avant les autres.', 'Je suis favorable à cette idée.', 'Je travaille pour cette université.', 'Je suis responsable du projet.', 'Dans le document, que signifie « Je suis pour » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+(503, 'B', '', 'La fac', 'Je suis arrivé avant les autres.', 'Je suis favorable à cette idée.', 'Je travaille pour cette université.', 'Je suis responsable du projet.', 'Dans le document, que signifie « Je suis pour » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(504, 'B', 'Solange prépare une conférence pour deux cents personnes, en mai.', 'La vie quotidienne', 'Un dîner en famille', 'Une conférence pour deux cents personnes', 'Une soirée de conversation', 'Un voyage à l\'étranger', 'Que prépare Solange ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(505, 'C', 'Solange explique qu\'elle est calme et qu\'elle n\'est pas stressée.', 'La  vie quotidienne', 'Elle est très stressée.', 'Elle est fatiguée et malade.', 'Elle est calme.', 'Elle est en colère.', 'Comment Solange se sent-elle pendant son travail ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(506, 'B', 'Elle est responsable de l\'organisation de la conférence et de plusieurs réservations.', 'la vie quotidienne', 'Elle doit apprendre l\'italien.', 'Elle invite les participants et réserve les hôtels.', 'Elle regarde la télévision toute la journée.', 'Elle prépare un examen.', 'Quelle tâche Solange doit-elle effectuer ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(507, 'C', 'Son téléphone sonne et elle annonce qu\'elle doit rejoindre une réunion.', 'La vie quotidienne', 'Elle doit aller déjeuner.', 'Elle a oublié son téléphone.', 'Elle a une réunion et elle est un peu en retard.', 'Elle doit partir en vacances.', 'Pourquoi Solange doit-elle interrompre sa conversation avec Philippe ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(508, 'B', 'Colette dit qu\'Anatole ne parle pas anglais, mais qu\'il parle espagnol.', 'La vie quotidienne', 'L\'anglais', 'L\'espagnol', 'L\'allemand', 'L\'italien', 'Quelle langue Anatole parle-t-il selon le dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(509, 'B', 'Jane organise des soirées de conversation en anglais et en français.', 'La vie quotidienne', 'Elle prépare un examen.', 'Elle organise des soirées de conversation.', 'Elle cherche un appartement.', 'Elle travaille dans un restaurant.', 'Pourquoi Jane cherche-t-elle des personnes qui parlent anglais et français ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(510, 'A', 'Le dialogue mentionne une jeune Anglaise qui parle bien anglais et français. Le courriel de Julie mentionne également l\'étude du russe.', 'La vie quotidienne', 'Le français et le russe', 'L\'anglais et l\'allemand', 'Le français et l\'italien', 'L\'espagnol et le chinois', 'Quelles langues la jeune Anglaise étudie-t-elle ou parle-t-elle dans le dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(511, 'B', 'Françoise explique qu\'ils déjeunent ensemble le mardi et le vendredi.', 'La vie quotidienne', 'Le lundi et le mercredi', 'Le mardi et le vendredi', 'Le samedi et le dimanche', 'Tous les jours', 'Quels jours Françoise déjeune-t-elle avec son père ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(512, 'C', 'Françoise dit que son père regarde la télévision toute la journée.', 'La vie quotidienne', 'Il travaille au bureau.', 'Il fait du sport.', 'Il regarde la télévision.', 'Il étudie les langues.', 'Que fait le père de Françoise toute la journée, selon le dialogue ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(513, 'B', 'Julie souhaite participer à une soirée de conversation organisée par Jane.', 'La vie quotidienne', 'Pour demander un emploi à Paris.', 'Pour participer à une soirée de conversation.', 'Pour réserver un hôtel.', 'Pour inviter Jane à dîner.', 'Pourquoi Julie écrit-elle à Jane ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(514, 'A', 'Avec « je », le verbe travailler au présent se conjugue : je travaille.', 'La vie quotidienne', 'travaille', 'travailles', 'travaillons', 'travaillez', 'Je ___ beaucoup.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(515, 'A', 'La négation standard est : Il ne parle pas anglais.', 'La vie quotidienne', 'ne / pas', 'n\' / jamais', 'ne / plus', 'n\' / rien', 'Complétez la phrase négative : Il ___ parle ___ anglais.', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(516, 'A', 'Le sujet « nous » prend la terminaison -ons au présent pour ce verbe.', 'La vie quotidienne', 'Nous déjeunons ensemble.', 'Nous déjeune ensemble.', 'Nous déjeuner ensemble.', 'Nous déjeunent ensemble.', 'Quelle phrase est correctement conjuguée au présent ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(517, 'D', 'Être responsable signifie notamment avoir la charge d\'une tâche ou d\'un projet.', 'La vie quotidienne', 'Une personne qui est en vacances', 'Une personne qui ne travaille pas', 'Une personne qui est en retard', 'Une personne qui a la charge de quelque chose', 'Dans « Elle est responsable du projet », que signifie « responsable » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(518, 'A', 'Devant le verbe être, « ne » devient « n\' » devant une voyelle.', 'La vie quotidienne', 'Elle n\'est pas stressée.', 'Elle ne est pas stressée.', 'Elle n\'est pas stresse.', 'Elle pas est stressée.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(519, 'A', 'Dans le dialogue, Françoise demande « Pourquoi ? », puis explique la raison de sa question.', 'La vie quotidienne', 'Pourquoi', 'Comment', 'Quand', 'Combien', 'Quel mot complète la question ?   :« ___ est-ce qu\'Anatole parle espagnol ? »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(520, 'C', 'Solange est une personne féminine singulière : le pronom personnel sujet est « elle ».', 'La vie quotidienne', 'Il', 'Ils', 'Elle', 'Nous', 'Quel pronom remplace « Solange » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(521, 'D', 'Avec « Julie », le verbe habiter se conjugue à la troisième personne du singulier : elle habite.', 'La vie quotidienne', 'habites', 'habitons', 'habitez', 'habite', 'Complétez : « Julie ___ à Fontainebleau, mais elle travaille à Paris. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(522, 'B', '« Cordialement » est une formule de politesse adaptée à la fin d\'un courriel.', 'La vie quotidienne', 'À demain, les amis !', 'Cordialement', 'Salut, ça roule ?', 'Bon appétit !', 'Quelle formule peut terminer un courriel professionnel ou poli ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(523, 'A', 'Après « je voudrais », on utilise l\'infinitif : participer.', 'La vie quotidienne', 'Je voudrais participer à une soirée.', 'Je voudrais participe à une soirée.', 'Je voudrai participer une soirée.', 'Je voudrais participé à une soirée.', 'Quelle phrase est correctement formulée ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(524, 'C', 'Le dialogue commence par « Le standardiste : Entreprise Béraut, bonjour. »', 'Au téléphone', 'Véronique', 'Matthieu', 'Le standardiste', 'Sébastien', 'Dans le dialogue « En entreprise », qui décroche le téléphone en premier ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(525, 'B', 'Formule polie pour demander à parler à quelqu\'un au téléphone.', 'Au téléphone', 'Allô, c\'est Patricia !', 'Je voudrais parler à Véronique Dumaurier, s\'il vous plaît.', 'C\'est urgent !', 'Ça vous va ?', 'Que dit Matthieu quand il téléphone à l\'entreprise Béraut ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(526, 'B', 'Nous avons rendez-vous à 16 heures mais j\'ai un petit problème, je suis un peu en retard.', 'Au téléphone', 'Il est malade', 'Il a un petit problème', 'Il est en vacances', 'Il a oublié le rendez-vous', 'Pourquoi Matthieu est-il en retard à son rendez-vous avec Véronique ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(527, 'B', 'Non, je suis désolé, demain, je ne suis pas libre. Je suis en déplacement.', 'Au téléphone', 'Il est malade', 'Il est en déplacement', 'Il est en vacances', 'Il a une autre réunion', 'Dans « Au bureau », pourquoi Sébastien n\'est-il pas libre le lendemain ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(528, 'A', 'Nous avons une réunion importante, de 14 heures à 15 heures.', 'Au téléphone', '14h-15h', '15h-16h', '14h-16h', '13h-15h', 'De quelle heure à quelle heure a lieu la réunion importante mentionnée par Solange ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(529, 'B', 'Je voudrais un rendez-vous avec le docteur Gaillard, s\'il vous plaît', 'Au téléphone', 'Pour annuler un rendez-vous', 'Pour prendre un rendez-vous avec le docteur Gaillard', 'Pour payer une facture', 'Pour parler à une amie', 'Pourquoi Colette Langlois téléphone-t-elle au cabinet médical ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(530, 'B', 'mercredi à midi, c\'est parfait.', 'Au téléphone', 'Mercredi à 14h', 'Mercredi à midi', 'Mardi à midi', 'Jeudi à midi', 'Quel jour et à quelle heure est finalement fixé le rendez-vous de Colette Langlois ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(531, 'A', 'Langlois : l-a-n-g-l-o-i-s.', 'Au téléphone', 'L-A-N-G-L-O-I-S', 'L-O-N-G-L-O-I-S', 'L-A-N-G-L-O-I', 'L-A-N-G-L-O-I-S-E', 'Comment Colette épelle-t-elle son nom de famille ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(532, 'D', 'Je voudrais réserver un taxi pour aller à l\'aéroport.', 'Au téléphone', 'Pour aller au bureau', 'Pour aller à une réunion', 'Pour aller chez le médecin', 'Pour aller à l\'aéroport', 'Pourquoi Philippe a-t-il besoin d\'un taxi ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(533, 'C', '', 'Au téléphone', 'C\'est noté !', 'Je vous en prie !', 'Ça vous va ?', 'Pardon ?', 'Quelle expression sert à demander poliment si un horaire convient à quelqu\'un ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(534, 'D', 'La négation en français encadre le verbe : ne + verbe + pas.', 'Au téléphone', 'suis pas', 'pas suis', 'suis ne pas', 'ne suis pas', 'Complétez : « Non, je suis désolé, demain, je ___ libre. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(535, 'C', 'est-ce que + sujet + verbe est une des trois façons standards de poser une question en français', 'Au téléphone', 'Vous êtes libre lundi ?', 'Êtes-vous que libre lundi ?', 'Est-ce que vous êtes libre lundi ?', 'Que vous êtes libre lundi ?', 'Quelle question, tirée du document « Organiser une réunion », est correctement formée ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(536, 'A', 'L\'adjectif possessif votre s\'accorde en nombre (pas en genre) avec le nom qui suit', 'Au téléphone', 'votre / votre', 'vos / vos', 'votre / vos', 'ton / ta', 'Choisissez la forme correcte : la standardiste demande « Quel est ___ numéro de téléphone ? » puis « Quelle est ___ adresse ? »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -661,7 +694,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=290 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=357 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -883,7 +916,7 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (218, 'Le CDI,La durée légale de travail,France Travail', NULL, '1.Contrat de référence offrant la plus grande stabilité de l\'emploi____\r\n2.Nombre d\'heures hebdomadaires légales de travail effectif____\r\n3.Organisme public d\'accompagnement des demandeurs d\'emploi____', ' Vivre dans la société française - L\'emploi et le droit du travail', 'Le CDI,La durée légale de travail,France Travail', NULL),
 (219, 'Vrai,Vrai,Faux', NULL, '1.Chacun contribue selon ses moyens (via les cotisations et impôts)____\r\n\r\n2.Chacun reçoit selon ses besoins en cas de risque (maladie, vieillesse, chômage)____\r\n\r\n3.Le système repose uniquement sur la charité individuelle facultative____', ' Vivre dans la société française - La protection sociale et la solidarité', 'Vrai,Faux,Vrai', NULL),
 (220, 'La déclaration annuelle des revenus,Le permis de conduire,Le contrat d\'intégration républicaine (CIR)', NULL, '1.S\'effectue principalement en ligne sur le site officiel impots.gouv.fr____\r\n2.Document obligatoire soumis à un examen théorique (code) et pratique____\r\n3.Contrat signé lors de l\'arrivée incluant des formations civiques et linguistiques____', ' Vivre dans la société française - Les démarches administratives et fiscales', 'La déclaration annuelle des revenus,Le contrat d\'intégration républicaine (CIR),Le permis de conduire', NULL),
-(221, 'L\'assurance responsabilité civile,L\'assurance habitation,Le bail de location', NULL, '1.Indemnise les dommages involontaires causés aux autres dans la vie de tous les jours____\r\n2.Protège le logement contre les risques (dégâts des eaux, incendie)____\r\n3.Contrat écrit obligatoire fixant les droits du propriétaire et du locataire____', ' Vivre dans la société française - La vie quotidienne et l\'assurance', 'L\'assurance responsabilité civile,Le bail de location,L\'assurance habitation', NULL),
+(221, 'L\'assurance responsabilité civile,L\'assurance habitation,Le bail de location', '', '1.Indemnise les dommages involontaires causés aux autres dans la vie de tous les jours____\r\n2.Protège le logement contre les risques (dégâts des eaux, incendie)____\r\n3.Contrat écrit obligatoire fixant les droits du propriétaire et du locataire____', ' Vivre dans la société française ', 'L\'assurance responsabilité civile,Le bail de location,L\'assurance habitation', NULL),
 (222, 'Vrai,Vrai,Faux', NULL, '1.Plusieurs vaccinations infantiles sont obligatoires pour l\'entrée en collectivité (crèche, école)____\r\n\r\n2.Le médecin du travail veille à la santé des salariés à leur poste____\r\n\r\n3.Il est interdit de consulter un médecin spécialiste sans passer par le médecin traitant sous peine d\'amende pénale____', ' Vivre dans la société française - La santé publique et la prévention (Vaccination)', 'Vrai,Faux,Vrai', NULL),
 (223, 'Les maisons de justice et du droit,Le tribunal de proximité ou judiciaire', NULL, '1.Pour obtenir gratuitement des conseils juridiques et de l\'information de premier niveau____\r\n2.Pour trancher officiellement un litige civil (impayés, conflits de voisinage) par un juge____', ' Vivre dans la société française - Résolution des litiges et accès au droit', 'Les maisons de justice et du droit,Le tribunal de proximité ou judiciaire', NULL),
 (224, 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL, '1.Participation citoyenne au recyclage et à la préservation des ressources____\r\n2.Garantie du vivre-ensemble pacifique et du repos d\'autrui____\r\n3.Infraction passible d\'une amende forfaitaire pour non-respect de la propreté urbaine____', ' Vivre dans la société française - Écologie et cadre de vie partagé', 'Le tri des déchets ménagers,Le respect des règles de tranquillité publique,L\'interdiction de jeter ses déchets sur la voie publique', NULL),
@@ -950,7 +983,74 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (286, 'TD,exposé,cours,crédits,bibliographie', NULL, '1.Travail réalisé dans le cadre d\'un enseignement____\r\n2.Présentation orale préparée par un étudiant____\r\n3.Enseignement suivi par les étudiants____\r\n4.Unités obtenues dans le parcours universitaire____\r\n5.Liste de références utilisées pour un travail____', 'la fac - Vocabulaire universitaire,  Associez :', 'exposé,cours,crédits,bibliographie,TD', NULL),
 (287, 'la rentrée,trois ans,plusieurs jours', NULL, '1.Je suis débordée depuis____\r\n2.Je travaille sur ce projet depuis____\r\n3.Elle cherche ses documents depuis____', 'La fac - Complétez avec :', 'la rentrée,plusieurs jours,trois ans', NULL),
 (288, 'Ça a l\'air bien.,Ça a l\'air intéressant.,Ça a l\'air difficile.,Ça a l\'air solide.', NULL, '1.Cela semble positif.____\r\n2.Cela semble susciter de l\'intérêt.____\r\n3.Cela semble difficile.____\r\n4.Cela semble fiable ou bien construit.____', 'La fac - Comprendre « ça a l\'air »  Associez les expressions.', 'Ça a l\'air solide.,Ça a l\'air difficile.,Ça a l\'air bien.,Ça a l\'air intéressant.', NULL),
-(289, 'Je,viens,de,lire,un article,sur le sujet', NULL, '____ ____ ____ ____ ____ ____', 'La fac - Replacez les éléments pour former une phrase correcte.', 'sur le sujet,Je,un article,lire,viens,de', NULL);
+(289, 'Je,viens,de,lire,un article,sur le sujet', NULL, '____ ____ ____ ____ ____ ____', 'La fac - Replacez les éléments pour former une phrase correcte.', 'sur le sujet,Je,un article,lire,viens,de', NULL),
+(290, 'parle', NULL, 'Je____ français tous les jours.', 'Les verbes au présent', 'parle,parles,parlons', NULL),
+(291, 'habitons', NULL, 'Nous____ à Paris.', 'Les verbes au présent', 'habitez,habitons,habitent', NULL),
+(292, 'bois', NULL, 'Tu____ un café le matin.', 'Les verbes au présent', 'bois,boit,buvons', NULL),
+(293, 'prennent', NULL, 'Ils____ le bus pour aller au travail.', 'Les verbes au présent', 'prend,prennent,prenons', NULL),
+(294, 'lit', NULL, 'Elle____ beaucoup de livres.', 'Les verbes au présent', 'lis,lit,lisez', NULL),
+(295, 'apprenez', NULL, 'Vous____ le français à l\'école.', 'Les verbes au présent', 'apprenez,apprennent,apprenons', NULL),
+(296, 'mangent', NULL, 'Mes amis____ au restaurant.', 'Les verbes au présent', 'mange,mangeons,mangent', NULL),
+(297, 'fais', NULL, 'Je____ mes devoirs le soir.', 'Les verbes au présent', 'fais,fait,font', NULL),
+(298, 'regardons', NULL, 'Nous____ la télévision après le dîner.', 'Les verbes au présent', 'regardent,regardez,regardons', NULL),
+(299, 'allez', NULL, 'Vous____ souvent au marché.', 'Les verbes au présent', 'allons,allez,vont', NULL),
+(300, 'Ferme', NULL, '____ la porte, s\'il te plaît.', 'Impératif', 'Ferme,Fermes,Fermez', NULL),
+(301, 'Écoute', NULL, '____ attentivement !', 'Impératif', 'Écoutes,Écoutons,Écoute ', NULL),
+(302, 'Faites', NULL, '____ vos devoirs !', 'Impératif', 'Faisons,Faites,Fais', NULL),
+(303, 'Asseyez-vous', NULL, '____ ici, s\'il vous plaît.', 'Impératif', 'Vous asseyez-vous,Vous asseyez,Asseyez-vous', NULL),
+(304, 'Parle', NULL, '____ doucement !', 'Impératif', 'Parles,Parle', NULL),
+(305, 'Dis', NULL, '____ la vérité !', 'Impératif', 'Dis,Dit', NULL),
+(306, 'Travaillons', NULL, '____ ensemble !', 'Impératif', 'Travaille,Travaillons', NULL),
+(307, 'Fais', NULL, '____ attention à la circulation !', 'Impératif', 'Fais,Fait', NULL),
+(308, 'Lavez', NULL, '____ vos mains avant de manger.', 'Impératif', 'Lavez,Laves,Lavons', NULL),
+(309, 'Allez', NULL, '____ au médecin si vous êtes malade.', 'Impératif', 'Allons,Allez', NULL),
+(310, 'suis allé', NULL, 'Hier, je____ au cinéma.', 'Le passé composé', 'suis allé,ai allé,vais aller', NULL),
+(311, 'avons mangé', NULL, 'Nous ____ un bon repas.', 'Le passé composé ', 'mangeons,sommes mangés,avons mangé', NULL),
+(312, 'a écrit', NULL, 'Elle ____ une lettre.', 'Le passé composé  ', 'est écrit,écrit,a écrit', NULL),
+(313, 'ont rencontré', NULL, 'Ils ____ leurs amis samedi.', 'Le passé composé  ', 'sont rencontrés,ont rencontré,rencontrent', NULL),
+(314, 'as terminé', NULL, 'Tu ____ ton travail hier soir.', 'Le passé composé  ', 'es terminé,as terminé,termines', NULL),
+(315, 'est arrivée', NULL, 'Marie ____ à huit heures.', 'Le passé composé  ', 'a arrivée,est arrivée,arrive', NULL),
+(316, 'avons visité', NULL, 'Nous ____ le musée dimanche.', 'Le passé composé  ', 'sommes visités,avons visité,visitons', NULL),
+(317, 'avez pris', NULL, 'Vous ____ un café ce matin.', 'Le passé composé  ', 'êtes pris,prenez,avez pris', NULL),
+(318, 'sont venus', NULL, 'Paul et Sophie ____ en France en 2025.', 'Le passé composé  ', 'sont venus,ont venu,viennent', NULL),
+(319, 'ai posé', NULL, 'J\'____ mes clés sur la table.', 'Le passé composé  ', 'ai posé,suis posé,pose', NULL),
+(320, 'irai', NULL, 'Demain, j\' ____ au travail.', 'Le futur simple', 'allais,vais,irai', NULL),
+(321, 'étudierons', NULL, 'Nous ____ français demain.', '  Le futur simple', 'étudions,étudierons,avons étudié', NULL),
+(322, 'verras', NULL, 'Tu ____ ton ami samedi.', '  Le futur simple', 'vois,as vu,verras', NULL),
+(323, 'passera', NULL, 'Elle ____ ses examens la semaine prochaine.', '  Le futur simple', 'passera,passe,a passé', NULL),
+(324, 'achèterez', NULL, 'Vous ____ un nouveau téléphone bientôt.', 'Le futur simple', 'achetez,achèterez,avez acheté', NULL),
+(325, 'prendront', NULL, 'Ils ____ leurs vacances en juillet.', 'Le futur simple', 'prennent,prendront,ont pris', NULL),
+(326, 'travaillerai', NULL, 'Je ____ demain matin.', 'Le futur simple', 'travaillerai,travaille,ai travaillé', NULL),
+(327, 'resterons', NULL, 'Nous ____ à la maison ce soir.', 'Le futur simple', 'resterons,restons,sommes restés', NULL),
+(328, 'découvriras', NULL, 'Tu ____ beaucoup de choses pendant ce voyage.', 'Le futur simple', 'découvres,as découvert,découvriras ', NULL),
+(329, 'feront', NULL, 'Ils ____ leurs devoirs demain.', 'Le futur simple', 'font,feront,ont fait', NULL),
+(330, 'je,travaille,beaucoup', NULL, '____ ____ ____', 'La vie quotidienne - Le présent — Organiser une phrase -Remettre les mots dans le bon ordre', 'beaucoup,je,travaille', NULL),
+(331, 'Solange,prépare,une conférence', NULL, '____ ____ ____', 'La vie quotidienne  Le présent — Organisation d\'une conférence', 'une conférence,Solange,prépare', NULL),
+(332, 'il,ne,parle,pas,anglais', '', '____ ____ ____ ____ ____', 'La vie quotidienne - La négation', 'ne,il,parle,anglais,pas', NULL),
+(333, 'nous,déjeunons,ensemble,le mardi', NULL, '____ ____ ____ ____', 'La vie quotidienne', 'ensemble,nous,déjeunons,le mardi', NULL),
+(334, 'est-ce que,Anatole,parle,anglais', NULL, '____ ____ ____ ____', 'La vie quotidienne', 'anglais,Anatole,parle,est-ce que', NULL),
+(335, 'des amis,téléphonent,tous les jours', NULL, '____ ____ ____', 'La vie quotidienne', 'téléphonent,tous les jours,des amis', NULL),
+(336, 'il,regarde,la télévision,toute la journée', NULL, '____ ____ ____ ____', 'La vie quotidienne', 'toute la journée,la télévision,regarde,il', NULL),
+(337, 'Solange,Anatole,Julie,Le père de Françoise', NULL, '1.Organise une conférence____\r\n2.Parle espagnol____\r\n3.Souhaite participer à une soirée de conversation____\r\n4.Regarde la télévision____', 'La vie quotidienne - . Associer les éléments', 'Le père de Françoise,Solange,Anatole,Julie', NULL),
+(338, 'Pourquoi ?,Je vous en prie,À bientôt  j\'espère,Ça va ?', NULL, '1. Demander la raison____\r\n\r\n2. Exprimer une formule de politesse en réponse à un remerciement ou une demande____\r\n\r\n3C. Prendre congé en espérant revoir la personne____\r\n\r\n4. Demander comment une personne se porte____', 'La vie quotidienne - Associer les expressions à leur signification', 'Ça va ?,Je vous en prie,À bientôt  j\'espère,Pourquoi ?', NULL),
+(339, 'Je,Elle,Nous,Ils', NULL, '1.____travaille\r\n2.____organise\r\n3.____déjeunons\r\n4.____parlent', 'La vie quotidienne - Associer le verbe à son sujet', 'Ils,Elle,Je,Nous', NULL),
+(340, 'Organisation,Apprentissage,Vie familiale,Communication écrite', NULL, '1.Réserver un hôtel____\r\n2.Étudier une langue____\r\n3.Déjeuner ensemble____\r\n4.Écrire un courriel____', 'La vie quotidienne - Associer le vocabulaire au bon thème', 'Apprentissage,Vie familiale,Organisation,Communication écrite', NULL),
+(341, 'habite,n\'est,pas', NULL, '1.Julie____ à Fontainebleau.\r\n2.Mon père ____ ____ très communicatif.', 'La vie quotidienne - Compléter', 'habitent,habite,n\'est,ne,pas', NULL),
+(342, 'On se présente au téléphone.', NULL, '« Allô, c\'est Patricia ! » : ____', 'Au téléphone', 'On confirme un rendez-vous,On se présente au téléphone.,On demande si quelqu\'un est là.', NULL),
+(343, 'Entreprise Béraut,Cabinet médical,Taxis verts', NULL, '1.Le standardiste / Matthieu / Véronique____\r\n2.La secrétaire / Colette Langlois____\r\n3.La standardiste / Philippe (réservation)____', 'Au téléphone - Glissez chaque personne dans la bonne case selon le texte.', 'Taxis verts,Entreprise Béraut,Cabinet médical', NULL),
+(344, '16 heures,retard', NULL, 'Matthieu a rendez-vous avec Véronique à____, mais il a un peu de____.', 'Au téléphone - Complétez la phrase', '16 heures,14 heures,retard,avance', NULL),
+(345, 'En déplacement,En rendez-vous', NULL, '1.Sébastien demain____\r\n2.Philippe demain après-midi____', 'Au téléphone - Associez chaque personnage à sa situation professionnelle demain.', 'Au bureau,En rendez-vous,En déplacement', NULL),
+(346, 'midi (12 heures),mercredi', NULL, 'Le rendez-vous est fixé à____, le____.', 'Au téléphone - Glissez les informations correctes pour le rendez-vous chez le docteur Gaillard.', 'midi (12 heures),14 heures,mercredi,vendredi', NULL),
+(347, 'Budapest,7 heures 50', NULL, 'Philippe prend un vol pour____ à____.', 'Au téléphone - Glissez les détails du voyage de Philippe.', 'Budapest,Paris,7 heures 50,6 heures du matin', NULL),
+(348, 'J 68 93', NULL, '____', 'Au téléphone - Retrouvez le numéro de réservation de Philippe.', 'K 54 82,06 00 57 98 75,J 68 93', NULL),
+(349, 'Pierre Nguyen,déplacement', NULL, '____ est absent car il est en____ mercredi et jeudi.', 'Au téléphone - Glissez la raison pour laquelle la réunion de mercredi pose problème.', 'Pierre Nguyen,Stéphane Lopez,déplacement,vacances', NULL),
+(350, 'Lundi à 9h30', '', 'Glissez le créneau horaire final retenu pour la réunion.____', 'Au téléphone', 'Lundi prochain à 14h00,Lundi à 9h30,Vendredi après-midi', NULL),
+(351, 'suis,est', '', '1.Demain, je ne____ pas libre.\r\n2. Philippe____ en réunion.', 'Au téléphone - Glissez la bonne forme du verbe être.', 'sont,es,suis,est', NULL),
+(352, 'à', NULL, 'Philippe est____ Dijon.', 'Au téléphone - Glissez la bonne préposition pour indiquer le lieu.', 'à,en,au,chez', NULL),
+(353, 'chez', NULL, 'Il est____ des clients.', 'Au téléphone - Au téléphone', 'sur,chez,à,pour', NULL),
+(354, 'voudrais,voudrais', NULL, '1.Je____ parler à Véronique Dumaurier.\r\n2.Je____ réserver un taxi.', 'Au téléphone - Glissez voudrais ou veux pour compléter poliment les demandes.', 'aimerais,veux,voudrais,dois', NULL),
+(355, 'Ne quittez pas !,C\'est urgent !,C\'est noté !', NULL, '1.Attendre au téléphone____\r\n2.Un problème prioritaire chez le médecin____\r\n3.Valider une information (secrétaire/standardiste)____', 'Au téléphone - Associez la réplique à sa situation de communication.', 'C\'est noté !,Ne quittez pas !,C\'est urgent !', NULL),
+(356, 'ne,pas', '', 'Demain, je____ suis____ libre.', 'Au téléphone - Transformez la phrase affirmative en négative en glissant les mots manquants.', 'plus,ne,rien,pas', NULL);
 
 -- --------------------------------------------------------
 
