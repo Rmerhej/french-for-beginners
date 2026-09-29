@@ -62,6 +62,12 @@ public class PreparationController {
         model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
         return "LaVieQuotidienne.html";
     }
+    @GetMapping("/LeTourisme")
+    public String allerAleTourisme(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Le tourisme");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "LeTourisme.html";
+    }
 
     @GetMapping("/lesgens")
     public String allerLesGens(Model model) {
