@@ -75,6 +75,28 @@ public class PreparationController {
         return "LesRenseignements.html";
     }
 
+    @GetMapping("/AutourDeBébé")
+    public String allerAautourdeBebe(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Autour de Bébé");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "AutourDeBébé.html";
+    }
+
+    @GetMapping("/laSanté")
+    public String allerAlaSante(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("La santé");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "laSanté.html";
+    }
+    @GetMapping("/LesRelationsHumaines")
+    public String allerLesRelationsHumaines(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les relations humaines");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "LesRelationsHumaines.html";
+    }
+
+
+
     @GetMapping("/lesgens")
     public String allerLesGens(Model model) {
         List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les gens");

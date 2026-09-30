@@ -65,6 +65,27 @@ public class PreparationQuizController {
         model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
         return "LesRenseignements-quiz";
     }
+    @GetMapping("/AutourdeBebeQuiz")
+    public String showAutourdeBébéQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("Autour de bébé");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "AutourdeBebe-quiz";
+    }
+
+    @GetMapping("/laSanteQuiz")
+    public String showLaSanteQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("La santé");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "laSante-quiz";
+    }
+
+    @GetMapping("/lesRelationsHumainesQuiz")
+    public String showLesRelationsHumainesQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("Les relations humaines");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "lesRelationsHumainesQuiz-quiz";
+    }
+
 
     @GetMapping("/lesgensquiz")
     public String showAuLesGensQuiz(Model model) {
