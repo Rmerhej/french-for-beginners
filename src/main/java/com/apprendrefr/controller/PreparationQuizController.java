@@ -86,6 +86,13 @@ public class PreparationQuizController {
         return "lesRelationsHumainesQuiz-quiz";
     }
 
+    @GetMapping("/LesTâchesDomestiquesQuiz")
+    public String showLesTâchesDomestiquesQuiz(Model model) {
+        List<Quiz> quizzes = quizService.findByTitleContaining("Les tâches domestiques");
+        model.addAttribute("quizzes", quizzes != null ? quizzes : new ArrayList<>());
+        return "LesTâchesDomestiques-quiz";
+    }
+
 
     @GetMapping("/lesgensquiz")
     public String showAuLesGensQuiz(Model model) {

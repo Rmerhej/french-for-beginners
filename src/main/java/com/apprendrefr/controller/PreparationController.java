@@ -95,6 +95,13 @@ public class PreparationController {
         return "LesRelationsHumaines.html";
     }
 
+    @GetMapping("/LesTâchesDomestiques")
+    public String aller(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les tâches domestiques");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "LesTâchesDomestiques.html";
+    }
+
 
 
     @GetMapping("/lesgens")
