@@ -102,6 +102,27 @@ public class PreparationController {
         return "LesTâchesDomestiques.html";
     }
 
+    @GetMapping("/LePatrimoine")
+    public String alleAlePatrimoiner(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Le patrimoine");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "LePatrimoine";
+    }
+
+    @GetMapping("/LImmobiier")
+    public String alleAimmobilier(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("L'immobilier");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "Limmobilier";
+    }
+
+    @GetMapping("/LesLieux")
+    public String allerAlesLieux(Model model) {
+        List<Exercise> exercises = exerciseService.findByLessonTitleContaining("Les lieux");
+        model.addAttribute("exercises", exercises != null ? exercises : new ArrayList<>());
+        return "Les-Lieux";
+    }
+
 
 
     @GetMapping("/lesgens")
