@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le genre des noms (masculin et féminin) - Français A1</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+        .card{
+            height:100%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">📘</span> Le genre des noms en français
+        </h1>
+
+        <p class="lead">
+            Reconnaître et utiliser le masculin et le féminin
+        </p>
+
+    </div>
+
+</header>
+
+<main id="main-content" class="container my-5">
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'identifier le genre (masculin ou féminin)
+                des noms courants et d'utiliser les articles adaptés.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Qu'est-ce qu'un nom masculin et féminin ?</h2>
+
+        <p>
+
+            En français, tous les noms ont un genre : ils sont soit <strong>masculins</strong>,
+            soit <strong>féminins</strong>. Pour les personnes et les animaux, le genre correspond souvent à la réalité.
+            Pour les objets, le genre est grammatical.
+
+        </p>
+
+        <div class="alert alert-info">
+
+            <strong>Exemples :</strong>
+
+            <ul class="mb-0">
+
+                <li>un homme (masculin) / une femme (féminin)</li>
+
+                <li>un chat (masculin) / une chatte (féminin)</li>
+
+                <li>une table (féminin) / un livre (masculin)</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Comment reconnaître le genre avec les articles ?</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h3 class="h5">
+
+                            Masculin (un / le)
+
+                        </h3>
+
+                        <ul>
+
+                            <li><strong>un</strong> garçon / <strong>le</strong> garçon</li>
+
+                            <li><strong>un</strong> stylo / <strong>le</strong> stylo</li>
+
+                            <li><strong>un</strong> professeur / <strong>le</strong> professeur</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h3 class="h5">
+
+                            Féminin (une / la)
+
+                        </h3>
+
+                        <ul>
+
+                            <li><strong>une</strong> fille / <strong>la</strong> fille</li>
+
+                            <li><strong>une</strong> chaise / <strong>la</strong> chaise</li>
+
+                            <li><strong>une</strong> voiture / <strong>la</strong> voiture</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="alert alert-warning mt-3">
+
+            Devant une voyelle ou un 'h' muet, "le" et "la" deviennent <strong>l'</strong> (ex: l'ami, l'école).
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Le genre des personnes</h2>
+
+        <table class="table table-bordered">
+
+            <thead class="table-primary">
+
+            <tr>
+
+                <th>Masculin</th>
+
+                <th>Féminin</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td>un étudiant</td>
+
+                <td>une étudiante</td>
+
+            </tr>
+
+            <tr>
+
+                <td>un ami</td>
+
+                <td>une amie</td>
+
+            </tr>
+
+            <tr>
+
+                <td>un employeur</td>
+
+                <td>une employeuse</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section>
+
+        <h2>Règles générales de formation du féminin</h2>
+
+        <p>
+
+            Pour la plupart des noms de métiers ou de nationalités, on ajoute un <strong>-e</strong> à la fin du masculin.
+
+        </p>
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-success">
+
+            <tr>
+
+                <th>Cas général</th>
+
+                <th>Exemple Masculin</th>
+
+                <th>Exemple Féminin</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td>Masculin + e</td>
+
+                <td>un Français</td>
+
+                <td>une Française</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Inchangé (finit déjà par -e)</td>
+
+                <td>un journaliste</td>
+
+                <td>une journaliste</td>
+
+            </tr>
+
+            <tr>
+
+                <td>-eur -> -euse</td>
+
+                <td>un chanteur</td>
+
+                <td>une chanteuse</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section>
+
+        <h2>Noms fréquents : Masculin et Féminin</h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-primary">
+
+                <tr>
+
+                    <th>Masculin</th>
+
+                    <th>Féminin</th>
+
+                    <th>Traduction / Sens</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr>
+
+                    <td>un homme</td>
+
+                    <td>une femme</td>
+
+                    <td>adulte humain</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>un garçon</td>
+
+                    <td>une fille</td>
+
+                    <td>enfant</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>un père</td>
+
+                    <td>une mère</td>
+
+                    <td>parents</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>un frère</td>
+
+                    <td>une sœur</td>
+
+                    <td>membres de la fratrie</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>un chat</td>
+
+                    <td>une chatte</td>
+
+                    <td>animal domestique</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>un client</td>
+
+                    <td>une cliente</td>
+
+                    <td>personne qui achète</td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>💬 Dialogue</h2>
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <p><strong>Thomas :</strong> C'est qui, cette personne là-bas ?</p>
+
+                <p><strong>Chloé :</strong> C'est une nouvelle collègue. Elle s'appelle Marie.</p>
+
+                <p><strong>Thomas :</strong> Et le monsieur à côté d'elle ?</p>
+
+                <p><strong>Chloé :</strong> C'est un ami, il s'appelle Lucas.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+        <table class="table table-bordered">
+
+            <thead class="table-danger">
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th>✅ Correct</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td>un table</td>
+
+                <td>une table</td>
+
+            </tr>
+
+            <tr>
+
+                <td>une livre</td>
+
+                <td>un livre</td>
+
+            </tr>
+
+            <tr>
+
+                <td>un amie</td>
+
+                <td>une amie</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section>
+
+        <h2>✍ Exercices</h2>
+
+        <p>
+
+            Choisissez l'article correct (un / une) ou mettez le nom au féminin.
+
+        </p>
+
+        <ol>
+
+            <li>__________ chaise (féminin)</li>
+
+            <li>__________ bureau (masculin)</li>
+
+            <li>Un étudiant / Une __________</li>
+
+            <li>Un chanteur / Une __________</li>
+
+            <li>__________ porte (féminin)</li>
+
+        </ol>
+
+    </section>
+
+    <section>
+
+        <div class="alert alert-success">
+
+            <h2 class="h4">
+
+                ✅ À retenir
+
+            </h2>
+
+            <ul class="mb-0">
+
+                <li>En français, tous les noms ont un genre : masculin ou féminin.</li>
+
+                <li>On utilise <strong>un / le</strong> pour le masculin et <strong>une / la</strong> pour le féminin.</li>
+
+                <li>Souvent, on ajoute un <strong>-e</strong> à la fin du nom pour former le féminin des personnes.</li>
+
+                <li>Il faut apprendre le genre de chaque nouveau mot par cœur avec son article.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
