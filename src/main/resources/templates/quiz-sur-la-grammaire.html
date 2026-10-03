@@ -1,6 +1,9 @@
+```html
 <!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{fragments/head :: head(title='Quiz sur la Grammaire')}"></head>
+
 <body class="d-flex flex-column min-vh-100 bg-light">
 
 <a href="#main-content" class="visually-hidden-focusable">
@@ -11,18 +14,37 @@
 
 <main id="main-content" class="container my-5 flex-grow-1">
 
-    <!-- En-tête moderne (Titre + Bouton Retour) -->
+    <!-- ========================================================= -->
+    <!-- EN-TÊTE                                                    -->
+    <!-- ========================================================= -->
+
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
+
         <div class="mb-3 mb-md-0">
+
             <h1 class="h2 fw-bold mb-1">
-                <span aria-hidden="true" class="me-2">✍️</span>Quiz sur la Grammaire
+                <span aria-hidden="true" class="me-2">✍️</span>
+                Quiz sur la Grammaire
             </h1>
-            <p class="text-muted mb-0">Sélectionnez un sujet grammatical pour vous entraîner et tester vos compétences.</p>
+
+            <p class="text-muted mb-0">
+                Sélectionnez un sujet grammatical pour vous entraîner et tester vos compétences.
+            </p>
+
         </div>
-        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
-            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
+
+        <button type="button"
+                class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm"
+                onclick="history.back()"
+                aria-label="Retour à la page précédente">
+
+            <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>
+            Retour
+
         </button>
+
     </div>
+
 
     <!-- ========================================================= -->
     <!-- PROGRESSION                                                -->
@@ -85,292 +107,693 @@
 
 
     <!-- ========================================================= -->
-    <!-- A1                                                          -->
+    <!-- A1                                                         -->
     <!-- ========================================================= -->
 
+    <section id="niveau-a1" class="mb-5">
 
-    <!-- Grille des quiz de grammaire -->
-    <div class="row g-4">
+        <div class="d-flex align-items-center mb-4">
 
-        <!-- 1. Accords des adjectifs -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">📝</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Accords des adjectifs</h5>
-                    </div>
-                    <a th:href="@{/accords-des-adjectifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les Accords des adjectifs">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
+            <div class="fs-2 me-3">🟢</div>
 
-        <!-- 2. Les Adjectifs (Accord au pluriel) -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">📑</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Les Adjectifs (Accord au pluriel)</h5>
-                    </div>
-                    <a th:href="@{/les-adjectifs-accord-pluriel}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les Adjectifs accord pluriel">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 3. Adjectifs qualificatifs -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">✨</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Adjectifs qualificatifs</h5>
-                    </div>
-                    <a th:href="@{/AdjectifsQualificatifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les Adjectifs qualificatifs">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 4. Adjectifs démonstratifs -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">👉</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Adjectifs démonstratifs</h5>
-                    </div>
-                    <a th:href="@{/adjectifs-demonstratif}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les adjectifs démonstratifs">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 5. Les pronoms -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">👤</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Les pronoms</h5>
-                    </div>
-                    <a th:href="@{/utilisation-des-pronoms}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les pronoms">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 6. Pronoms possessifs et démonstratifs -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">🗂️</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Pronoms possessifs et démonstratifs</h5>
-                    </div>
-                    <a th:href="@{/PronomsPossessifesEtDemonstratifs}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les Pronoms possessifs et démonstratifs">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 7. Verbes au présent -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">⏳</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Verbes au présent</h5>
-                    </div>
-                    <a th:href="@{/verbesPresent}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les verbes au présent">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 8. L'impératif -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">⚡</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">L'impératif</h5>
-                    </div>
-                    <a th:href="@{/impératif}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur l'impératif">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 9. Le passé composé -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">🕰️</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Le passé composé</h5>
-                    </div>
-                    <a th:href="@{/passéComposé}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur le passé composé">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 10. Le futur simple -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">🚀</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Le futur simple</h5>
-                    </div>
-                    <a th:href="@{/futurSimple}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur le futur simple">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 11. Verbes réguliers -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">📖</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Verbes réguliers</h5>
-                    </div>
-                    <a th:href="@{/verbes-regulier}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les verbes réguliers">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 12. Les expressions de temps -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">⏰</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Les expressions de temps</h5>
-                    </div>
-                    <a th:href="@{/expressions-de-temps}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les Expressions de temps">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 13. Les articles définis -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">🔍</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Les articles définis</h5>
-                    </div>
-                    <a th:href="@{/LesArticlesDefinis}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur les articles définis">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 14. Les auxiliaires -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">⚙️</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Les auxiliaires</h5>
-                    </div>
-                    <a th:href="@{/LesAuxiliaresQuiz}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur Les auxiliaires">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- 15. Prépositions et conjonctions -->
-        <div class="col-md-4 col-sm-6">
-            <article class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <div class="card-body d-flex flex-column p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="fs-3 me-3">🔗</span>
-                        <h5 class="card-title fw-bold fs-6 mb-0">Prépositions & Conjonctions</h5>
-                    </div>
-                    <a th:href="@{/prepositionConjonction}" class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100" aria-label="Commencer le quiz sur la conjonction et préposition">
-                        Commencer le quiz
-                    </a>
-                </div>
-            </article>
-        </div>
-        <div class="card border-0 shadow-sm rounded-4 bg-white mb-4">
-
-            <div class="card-body p-4 p-md-5">
-
-                <h2 class="h4 fw-bold mb-3">
-                    💡 Comment progresser ?
+            <div>
+                <h2 class="h3 fw-bold mb-1">
+                    Niveau A1
                 </h2>
 
-                <div class="row g-3">
+                <p class="text-muted mb-0">
+                    Les bases essentielles de la grammaire française.
+                </p>
+            </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 h-100">
-                            <strong>1. Comprendre</strong>
-                            <p class="small text-muted mb-0 mt-2">
-                                Découvrez la règle et observez les exemples.
-                            </p>
+        </div>
+
+        <div class="row g-4">
+
+
+            <!-- Accords des adjectifs -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">📝</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Accords des adjectifs
+                            </h5>
+
                         </div>
+
+                        <a th:href="@{/accords-des-adjectifs}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les Accords des adjectifs">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Adjectifs qualificatifs -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">✨</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Adjectifs qualificatifs
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/AdjectifsQualificatifs}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les Adjectifs qualificatifs">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Les pronoms -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">👤</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Les pronoms
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/utilisation-des-pronoms}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les pronoms">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Verbes au présent -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">⏳</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Verbes au présent
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/verbesPresent}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les verbes au présent">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Verbes réguliers -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">📖</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Verbes réguliers
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/verbes-regulier}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les verbes réguliers">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Les auxiliaires -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">⚙️</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Les auxiliaires
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/LesAuxiliaresQuiz}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur Les auxiliaires">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- A2                                                         -->
+    <!-- ========================================================= -->
+
+    <section id="niveau-a2" class="mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="fs-2 me-3">🟡</div>
+
+            <div>
+
+                <h2 class="h3 fw-bold mb-1">
+                    Niveau A2
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Approfondir la grammaire et commencer à construire des phrases plus variées.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="row g-4">
+
+
+            <!-- Adjectifs démonstratifs -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">👉</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Adjectifs démonstratifs
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/adjectifs-demonstratif}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les adjectifs démonstratifs">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Accord au pluriel -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">📑</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Les Adjectifs (Accord au pluriel)
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/les-adjectifs-accord-pluriel}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les Adjectifs accord pluriel">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Impératif -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">⚡</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                L'impératif
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/impératif}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur l'impératif">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Passé composé -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">🕰️</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Le passé composé
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/passéComposé}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur le passé composé">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Expressions de temps -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">⏰</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Les expressions de temps
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/expressions-de-temps}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les Expressions de temps">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- B1                                                         -->
+    <!-- ========================================================= -->
+
+    <section id="niveau-b1" class="mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="fs-2 me-3">🟠</div>
+
+            <div>
+
+                <h2 class="h3 fw-bold mb-1">
+                    Niveau B1
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Utiliser des structures grammaticales plus précises et plus complexes.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="row g-4">
+
+
+            <!-- Pronoms possessifs et démonstratifs -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">🗂️</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Pronoms possessifs et démonstratifs
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/PronomsPossessifesEtDemonstratifs}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur les Pronoms possessifs et démonstratifs">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Futur simple -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">🚀</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Le futur simple
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/futurSimple}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur le futur simple">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Prépositions et conjonctions -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">🔗</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Prépositions &amp; Conjonctions
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/prepositionConjonction}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur la conjonction et préposition">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- B2                                                         -->
+    <!-- ========================================================= -->
+
+    <section id="niveau-b2" class="mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="fs-2 me-3">🔴</div>
+
+            <div>
+
+                <h2 class="h3 fw-bold mb-1">
+                    Niveau B2
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Approfondissement et maîtrise des structures grammaticales complexes.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 bg-white">
+
+            <div class="card-body p-4 p-md-5 text-center">
+
+                <div class="fs-1 mb-3">
+                    📚
+                </div>
+
+                <h3 class="h5 fw-bold">
+                    Les quiz B2 seront ajoutés progressivement
+                </h3>
+
+                <p class="text-muted mb-0">
+                    Cette section pourra accueillir les exercices portant sur les structures complexes,
+                    les nuances grammaticales et la maîtrise de la langue écrite et orale.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- COMMENT PROGRESSER                                         -->
+    <!-- ========================================================= -->
+
+    <div class="card border-0 shadow-sm rounded-4 bg-white mb-4">
+
+        <div class="card-body p-4 p-md-5">
+
+            <h2 class="h4 fw-bold mb-3">
+                💡 Comment progresser ?
+            </h2>
+
+            <div class="row g-3">
+
+                <div class="col-md-3">
+
+                    <div class="p-3 border rounded-3 h-100">
+
+                        <strong>1. Comprendre</strong>
+
+                        <p class="small text-muted mb-0 mt-2">
+                            Découvrez la règle et observez les exemples.
+                        </p>
+
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 h-100">
-                            <strong>2. S'exercer</strong>
-                            <p class="small text-muted mb-0 mt-2">
-                                Faites des QCM et des exercices interactifs.
-                            </p>
-                        </div>
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="p-3 border rounded-3 h-100">
+
+                        <strong>2. S'exercer</strong>
+
+                        <p class="small text-muted mb-0 mt-2">
+                            Faites des QCM et des exercices interactifs.
+                        </p>
+
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 h-100">
-                            <strong>3. Pratiquer</strong>
-                            <p class="small text-muted mb-0 mt-2">
-                                Utilisez la grammaire dans des situations concrètes.
-                            </p>
-                        </div>
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="p-3 border rounded-3 h-100">
+
+                        <strong>3. Pratiquer</strong>
+
+                        <p class="small text-muted mb-0 mt-2">
+                            Utilisez la grammaire dans des situations concrètes.
+                        </p>
+
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 h-100">
-                            <strong>4. Vérifier</strong>
-                            <p class="small text-muted mb-0 mt-2">
-                                Testez vos connaissances avant de passer au niveau suivant.
-                            </p>
-                        </div>
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="p-3 border rounded-3 h-100">
+
+                        <strong>4. Vérifier</strong>
+
+                        <p class="small text-muted mb-0 mt-2">
+                            Testez vos connaissances avant de passer au niveau suivant.
+                        </p>
+
                     </div>
 
                 </div>
 
             </div>
+
         </div>
+
     </div>
+
 </main>
 
+
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
