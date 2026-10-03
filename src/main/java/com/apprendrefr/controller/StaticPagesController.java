@@ -67,6 +67,32 @@ public class StaticPagesController {
     @GetMapping("/verbesreguliers")
     public String allerSurVerbesReguliers() {return "verbes-reguliers";
     }
+
+    @GetMapping("/lesNomsMasculinetFeminin")
+    public String allerSurlesNomsMasculinetFeminin() {return "lesNomsMasculinetFeminin";
+    }
+    @GetMapping("/lesPrépositions")
+    public String allerSurlesPrépositions() {return "lesPrépositions";
+    }
+    @GetMapping("/présentdesVerbesEner")
+    public String allerSurprésentdesVerbesEner() {return "présentdesVerbesEner";
+    }
+
+    @GetMapping("/allerEtFaire")
+    public String allerSurallerEtFaire() {return "allerEtFaire";
+    }
+
+    @GetMapping("/verbesPronominaux")
+    public String allerSurverbesPronominaux() {return "verbesPronominaux";
+    }
+
+    @GetMapping("/futurProche")
+    public String allerSurfuturProche() {return "futurProche";
+    }
+
+    @GetMapping("/passéRécent")
+    public String allerSurpasséRécent() {return "passéRécent";
+    }
     @GetMapping("/conjugaison")
     public String allerSurConjugaison() {return "conjugaison";}
 
