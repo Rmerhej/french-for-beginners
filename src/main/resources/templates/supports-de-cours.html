@@ -1,4 +1,589 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Grammaire et conjugaison française</title>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+</head>
+
+<body class="bg-light">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <div class="fs-1 mb-3" aria-hidden="true">📚</div>
+
+        <h1 class="fw-bold mb-3">
+            Grammaire et conjugaison françaises
+        </h1>
+
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">
+            Progressez de A1 à B2 grâce à un parcours structuré
+            de grammaire et de conjugaison adapté aux adultes.
+        </p>
+
+        <p class="text-muted">
+            Chaque niveau combine les règles grammaticales et
+            la maîtrise des verbes nécessaires pour communiquer
+            avec de plus en plus de précision.
+        </p>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- PROGRESSION                                                -->
+    <!-- ========================================================= -->
+
+    <div class="card border-0 shadow-sm rounded-4 mb-5 bg-white">
+
+        <div class="card-body p-4">
+
+            <h2 class="h4 fw-bold text-center mb-4">
+                Votre progression
+            </h2>
+
+            <div class="row g-3 text-center">
+
+                <div class="col-6 col-md-3">
+                    <div class="p-3">
+                        <div class="fs-2">🟢</div>
+                        <strong>A1</strong>
+                        <div class="small text-muted">
+                            Construire
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="p-3">
+                        <div class="fs-2">🟡</div>
+                        <strong>A2</strong>
+                        <div class="small text-muted">
+                            Raconter
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="p-3">
+                        <div class="fs-2">🟠</div>
+                        <strong>B1</strong>
+                        <div class="small text-muted">
+                            Expliquer
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="p-3">
+                        <div class="fs-2">🔴</div>
+                        <strong>B2</strong>
+                        <div class="small text-muted">
+                            Nuancer
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- A1                                                          -->
+    <!-- ========================================================= -->
+
+    <section class="mb-5">
+
+        <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden">
+
+            <div class="card-body p-4 p-md-5">
+
+                <div class="d-flex align-items-center mb-3">
+
+                    <div class="fs-1 me-3">
+                        🟢
+                    </div>
+
+                    <div>
+                        <h2 class="fw-bold mb-1">
+                            A1 — Les bases du français
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Construire des phrases simples
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mb-4">
+                    Apprenez les structures essentielles pour vous présenter,
+                    parler de votre quotidien et communiquer dans des
+                    situations courantes.
+                </p>
+
+
+                <div class="row g-4">
+
+                    <!-- GRAMMAIRE -->
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <div class="d-flex align-items-center mb-3">
+
+                                <span class="fs-2 me-2">📘</span>
+
+                                <h3 class="h4 fw-bold mb-0">
+                                    Grammaire
+                                </h3>
+
+                            </div>
+
+                            <ul class="text-muted">
+                                <li>
+                                    <a th:href="@{/phrase}"
+                                       aria-label="La phrase simple"
+                                       class="text-decoration-none text-dark">
+                                        La phrase simple
+                                    </a>
+                                </li>
+
+                                <li>Les noms : masculin et féminin</li>
+                                <li>
+                                    <a th:href="@{/articlesDéfinis}"
+                                       aria-label="Les articles définis"
+                                       class="text-decoration-none text-dark">
+                                        Les articles définis
+                                    </a>
+                                </li>
+                                <li>Les adjectifs</li>
+
+                                <li>
+                                    <a th:href="@{/PronomsPersonnelsSujets}"
+                                       aria-label="Les pronoms personnels"
+                                       class="text-decoration-none text-dark">
+                                        Les pronoms personnels
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a th:href="@{/NegationSimple}"
+                                       aria-label="La négation simple"
+                                       class="text-decoration-none text-dark">
+                                        La négation simple
+                                    </a>
+                                </li>
+                                <li>La question</li>
+                                <li>Les prépositions</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONJUGAISON -->
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <div class="d-flex align-items-center mb-3">
+
+                                <span class="fs-2 me-2">🔤</span>
+
+                                <h3 class="h4 fw-bold mb-0">
+                                    Conjugaison
+                                </h3>
+
+                            </div>
+
+                            <ul class="text-muted">
+                                <li>
+                                    <a th:href="@{/verbesAuPresent}"
+                                       aria-label="Être et avoir au présent"
+                                       class="text-decoration-none text-dark">
+                                        Être et avoir au présent
+                                    </a>
+                                </li>
+                                <li>Présent des verbes en -ER</li>
+                                <li>Aller et faire</li>
+                                <li>Verbes fréquents</li>
+                                <li>Verbes pronominaux</li>
+                                <li>Futur proche</li>
+                                <li>Passé récent</li>
+                                <li>
+                                    <a th:href="@{/imperatif}"
+                                       aria-label="Impératif"
+                                       class="text-decoration-none text-dark">
+                                        Impératif
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- A2                                                          -->
+    <!-- ========================================================= -->
+
+    <section class="mb-5">
+
+        <div class="card border-0 shadow-sm rounded-4 bg-white">
+
+            <div class="card-body p-4 p-md-5">
+
+                <div class="d-flex align-items-center mb-3">
+
+                    <div class="fs-1 me-3">🟡</div>
+
+                    <div>
+                        <h2 class="fw-bold mb-1">
+                            A2 — Développer et raconter
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Raconter des événements et parler de ses projets
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mb-4">
+                    Enrichissez vos phrases et apprenez à raconter des
+                    expériences passées et à parler de vos projets.
+                </p>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                📘 Grammaire
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Les pronoms COD et COI</li>
+                                <li>Les pronoms <strong>y</strong> et <strong>en</strong></li>
+                                <li>Les pronoms relatifs simples</li>
+                                <li>La comparaison</li>
+                                <li>La quantité</li>
+                                <li>
+                                    <a th:href="@{/PrepositionsDeLieuEtTemps}"
+                                       aria-label="Les prépositions de lieu et temps"
+                                       class="text-decoration-none text-dark">
+                                        Les prépositions de lieu et temps
+                                    </a>
+                                </li>
+                                <li>Le conditionnel de politesse</li>
+                                <li>Les connecteurs simples</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                🔤 Conjugaison
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Présent approfondi</li>
+                                <li>Passé composé</li>
+                                <li>Imparfait</li>
+                                <li>Passé composé ou imparfait</li>
+                                <li>Futur simple</li>
+                                <li>Futur proche ou futur simple</li>
+                                <li>Conditionnel présent</li>
+                                <li>Impératif avec les pronoms</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- B1                                                          -->
+    <!-- ========================================================= -->
+
+    <section class="mb-5">
+
+        <div class="card border-0 shadow-sm rounded-4 bg-white">
+
+            <div class="card-body p-4 p-md-5">
+
+                <div class="d-flex align-items-center mb-3">
+
+                    <div class="fs-1 me-3">🟠</div>
+
+                    <div>
+                        <h2 class="fw-bold mb-1">
+                            B1 — Construire un raisonnement
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Expliquer, justifier et exprimer des hypothèses
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mb-4">
+                    Apprenez à relier vos idées et à construire des phrases
+                    plus complexes pour expliquer votre opinion.
+                </p>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                📘 Grammaire
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Les propositions subordonnées</li>
+                                <li>La cause et la conséquence</li>
+                                <li>Le but</li>
+                                <li>L'opposition et la concession</li>
+                                <li>Les pronoms relatifs</li>
+                                <li>Les hypothèses</li>
+                                <li>Le discours indirect</li>
+                                <li>La voix passive</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                🔤 Conjugaison
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Plus-que-parfait</li>
+                                <li>Futur antérieur</li>
+                                <li>Conditionnel présent</li>
+                                <li>Conditionnel passé</li>
+                                <li>Les trois types d'hypothèses</li>
+                                <li>Subjonctif présent</li>
+                                <li>Concordance des temps</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- B2                                                          -->
+    <!-- ========================================================= -->
+
+    <section class="mb-5">
+
+        <div class="card border-0 shadow-sm rounded-4 bg-white">
+
+            <div class="card-body p-4 p-md-5">
+
+                <div class="d-flex align-items-center mb-3">
+
+                    <div class="fs-1 me-3">🔴</div>
+
+                    <div>
+                        <h2 class="fw-bold mb-1">
+                            B2 — Maîtriser et nuancer
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            S'exprimer avec précision et nuance
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mb-4">
+                    Maîtrisez les structures complexes et adaptez votre
+                    expression aux situations professionnelles, sociales
+                    et académiques.
+                </p>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                📘 Grammaire
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Les structures complexes</li>
+                                <li>Les pronoms relatifs complexes</li>
+                                <li>Le subjonctif</li>
+                                <li>La concession</li>
+                                <li>Les propositions circonstancielles</li>
+                                <li>La mise en relief</li>
+                                <li>Les formes impersonnelles</li>
+                                <li>Les registres de langue</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded-4 p-4 h-100">
+
+                            <h3 class="h4 fw-bold mb-3">
+                                🔤 Conjugaison
+                            </h3>
+
+                            <ul class="text-muted">
+                                <li>Révision approfondie des temps</li>
+                                <li>Subjonctif présent</li>
+                                <li>Subjonctif passé</li>
+                                <li>Conditionnel présent et passé</li>
+                                <li>Concordance des temps</li>
+                                <li>Participe présent</li>
+                                <li>Gérondif</li>
+                                <li>Infinitif passé</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- CONSEIL DE PROGRESSION                                    -->
+    <!-- ========================================================= -->
+
+    <div class="card border-0 shadow-sm rounded-4 bg-white mb-4">
+
+        <div class="card-body p-4 p-md-5">
+
+            <h2 class="h4 fw-bold mb-3">
+                💡 Comment progresser ?
+            </h2>
+
+            <div class="row g-3">
+
+                <div class="col-md-3">
+                    <div class="p-3 border rounded-3 h-100">
+                        <strong>1. Comprendre</strong>
+                        <p class="small text-muted mb-0 mt-2">
+                            Découvrez la règle et observez les exemples.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-3 border rounded-3 h-100">
+                        <strong>2. S'exercer</strong>
+                        <p class="small text-muted mb-0 mt-2">
+                            Faites des QCM et des exercices interactifs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-3 border rounded-3 h-100">
+                        <strong>3. Pratiquer</strong>
+                        <p class="small text-muted mb-0 mt-2">
+                            Utilisez la grammaire dans des situations concrètes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-3 border rounded-3 h-100">
+                        <strong>4. Vérifier</strong>
+                        <p class="small text-muted mb-0 mt-2">
+                            Testez vos connaissances avant de passer au niveau suivant.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+
+<!--<!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Supports de cours')}"></head>
 <body class="d-flex flex-column min-vh-100 bg-light">
@@ -11,7 +596,7 @@
 
 <main id="main-content" class="container my-5 flex-grow-1">
 
-    <!-- En-tête moderne -->
+
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 pb-3 border-bottom">
         <div class="mb-3 mb-md-0">
             <h1 class="h2 fw-bold mb-1">
@@ -24,7 +609,7 @@
         </button>
     </div>
 
-    <!-- 1. Les classes de mots -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">📝</span>
@@ -98,7 +683,7 @@
         </div>
     </section>
 
-    <!-- 2. Les verbes et la conjugaison -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">⚙️</span>
@@ -132,7 +717,7 @@
         </div>
     </section>
 
-    <!-- 3. Les accords -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">🔗</span>
@@ -150,7 +735,7 @@
         </div>
     </section>
 
-    <!-- 4. La phrase -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">📄</span>
@@ -168,7 +753,7 @@
         </div>
     </section>
 
-    <!-- 5. Les compléments -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">➕</span>
@@ -186,7 +771,6 @@
         </div>
     </section>
 
-    <!-- 6. Les expressions de temps -->
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">⏰</span>
@@ -204,7 +788,7 @@
         </div>
     </section>
 
-    <!-- 7. Les connecteurs logiques -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">🔀</span>
@@ -222,7 +806,7 @@
         </div>
     </section>
 
-    <!-- 8. Les adverbes -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">🎯</span>
@@ -240,7 +824,7 @@
         </div>
     </section>
 
-    <!-- 9. La négation -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">🚫</span>
@@ -258,7 +842,7 @@
         </div>
     </section>
 
-    <!-- 10. L'interrogation -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">❓</span>
@@ -276,7 +860,7 @@
         </div>
     </section>
 
-    <!-- 11. Les prépositions -->
+
     <section class="mb-5 p-4 bg-white shadow-sm" style="border-radius: 16px;">
         <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
             <span class="fs-2 me-3">📍</span>
@@ -300,4 +884,4 @@
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html>-->

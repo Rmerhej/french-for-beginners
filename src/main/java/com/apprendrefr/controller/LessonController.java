@@ -57,6 +57,12 @@ public class LessonController {
         return "niveauConsolidation";
     }
 
+    @GetMapping("/niveauApprofondissement")
+    public String niveauApprofondissement(Model model) {
+        // model.addAttribute("lessons", lessonService.findAll());
+        return "niveauApprofondissement";
+    }
+
     @GetMapping("/lessons")
     public String lessons(Model model) {
         model.addAttribute("lessons", lessonService.findAll());

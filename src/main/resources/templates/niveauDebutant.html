@@ -1,4 +1,391 @@
+```html
 <!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head(title='Niveau débutant')}">
+    <title>Niveau débutant</title>
+</head>
+
+<body>
+
+<a href="#main-content"
+   class="skip-link position-absolute bg-primary text-white p-2">
+    Aller au contenu principal
+</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content">
+
+    <div class="container mt-5 mb-5">
+
+        <!-- ========================================================= -->
+        <!-- EN-TÊTE DU NIVEAU                                         -->
+        <!-- ========================================================= -->
+
+        <div class="mb-5">
+
+            <h3 class="mb-2">
+                <span class="badge bg-primary rounded-circle p-2 fs-6 me-2">
+                    1
+                </span>
+                Débutant complet
+
+                <span class="badge bg-primary ms-2">
+                    Pré-A1 → A1
+                </span>
+            </h3>
+
+            <p class="text-muted mb-0">
+                Pour poser les toutes premières briques : sons, chiffres,
+                verbes et premiers mots du quotidien.
+            </p>
+
+        </div>
+
+
+        <!-- ========================================================= -->
+        <!-- LEÇONS DE VOCABULAIRE                                    -->
+        <!-- ========================================================= -->
+
+        <section class="mb-5">
+
+            <div class="mb-4">
+                <h2 class="fw-bold mb-2">
+                    📚 Leçons disponibles
+                </h2>
+
+                <p class="text-muted fs-5 mb-0">
+                    Pour enrichir votre vocabulaire.
+                </p>
+            </div>
+
+
+            <!-- Grille des leçons -->
+            <div class="row g-4">
+
+                <!-- Boucle Thymeleaf sur les leçons (3 premières) -->
+                <div class="col-md-4"
+                     th:each="lesson, lessonStat : ${lessons}"
+                     th:if="${lessonStat.index < 3}">
+
+                    <div class="card h-100 border-0 shadow-sm"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <img th:if="${lesson.imageUrl != null and !lesson.imageUrl.isEmpty()}"
+                             th:src="${lesson.imageUrl}"
+                             th:alt="${lesson.title + ' - Illustration de la leçon'}"
+                             class="card-img-top"
+                             style="height: 160px;
+                                    object-fit: cover;
+                                    border-top-left-radius: 16px;
+                                    border-top-right-radius: 16px;">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title fw-bold fs-6"
+                                th:text="${lesson.title}">
+                                Titre de la leçon
+                            </h5>
+
+                            <p class="text-muted small mb-3"
+                               th:text="${lesson.level}">
+                                Niveau
+                            </p>
+
+                            <a th:href="@{/lesson/{id}(id=${lesson.id})}"
+                               class="btn btn-outline-primary btn-sm mt-auto rounded-pill">
+
+                                <span aria-hidden="true">📕</span>
+                                Voir la leçon
+
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Message si aucune leçon -->
+                <div class="col-12"
+                     th:if="${lessons == null or lessons.empty}">
+
+                    <div class="alert alert-warning text-center"
+                         role="alert">
+
+                        Aucune leçon disponible pour le moment.
+                        (Vérifiez que le contrôleur Java transmet bien
+                        l'attribut <code>lessons</code>).
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Lien vers toutes les leçons -->
+            <div class="text-center mt-4">
+
+                <a th:href="@{/lessons}"
+                   class="text-decoration-none fw-bold text-primary">
+
+                    📚 Voir l'intégralité des leçons de vocabulaire →
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- PRONONCIATION / CHIFFRES / VERBES                        -->
+        <!-- ========================================================= -->
+
+        <section class="mb-5">
+
+            <div class="row g-4">
+
+                <!-- Prononciation -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 border-0 shadow-sm text-center"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <div class="card-body d-flex flex-column
+                                    align-items-center p-4">
+
+                            <div class="fs-1 mb-2">
+                                🗣️
+                            </div>
+
+                            <h3 class="card-title fw-bold fs-5 mb-2">
+                                Prononciation
+                            </h3>
+
+                            <p class="text-muted small mb-4">
+                                Niveau Pré A1
+                            </p>
+
+                            <a th:href="@{/prononciation}"
+                               class="btn btn-outline-primary btn-sm
+                                      mt-auto rounded-pill">
+
+                                Travailler la prononciation
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Chiffres et lettres -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 border-0 shadow-sm text-center"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <div class="card-body d-flex flex-column
+                                    align-items-center p-4">
+
+                            <div class="fs-1 mb-2">
+                                🔢
+                            </div>
+
+                            <h3 class="card-title fw-bold fs-5 mb-2">
+                                Chiffres et lettres
+                            </h3>
+
+                            <p class="text-muted small mb-4">
+                                Niveau A1
+                            </p>
+
+                            <a th:href="@{/chiffresEtLettres}"
+                               class="btn btn-outline-primary btn-sm
+                                      mt-auto rounded-pill">
+
+                                Consulter
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Les verbes -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 border-0 shadow-sm text-center"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <div class="card-body d-flex flex-column
+                                    align-items-center p-4">
+
+                            <div class="fs-1 mb-2">
+                                📖
+                            </div>
+
+                            <h3 class="card-title fw-bold fs-5 mb-2">
+                                Les verbes
+                            </h3>
+
+                            <p class="text-muted small mb-4">
+                                Niveau A1
+                            </p>
+
+                            <a th:href="@{/lesVerbes}"
+                               class="btn btn-outline-primary btn-sm
+                                      mt-auto rounded-pill">
+
+                                Consulter
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- GRAMMAIRE                                                 -->
+        <!-- ========================================================= -->
+
+        <section class="mb-5">
+
+            <div class="mb-4">
+
+                <h2 class="fw-bold mb-2">
+                    📖 Grammaire & Conjugaison
+                </h2>
+
+                <p class="text-muted fs-5 mb-0">
+                    Supports et exercices pour progresser en grammaire et en conjugaison.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Supports de cours -->
+                <div class="col-md-6">
+
+                    <div class="card h-100 border-0 shadow-sm text-center"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <div class="card-body d-flex flex-column
+                                    align-items-center p-4">
+
+                            <div class="fs-1 mb-2">
+                                📖
+                            </div>
+
+                            <h3 class="card-title fw-bold fs-5 mb-2">
+                                Grammaire & conjugaison
+                            </h3>
+
+                            <p class="text-muted small mb-4">
+                                Supports A1
+                            </p>
+
+                            <a th:href="@{/supports-de-cours}"
+                               class="btn btn-outline-success btn-lg
+                                      px-4 py-2 mt-auto rounded-pill
+                                      fw-bold w-100">
+
+                                Accéder aux cours
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz de grammaire -->
+                <div class="col-md-6">
+
+                    <div class="card h-100 border-0 shadow-sm text-center"
+                         style="border-radius: 16px;
+                                transition: transform 0.3s ease,
+                                box-shadow 0.3s ease;">
+
+                        <div class="card-body d-flex flex-column
+                                    align-items-center p-4">
+
+                            <div class="fs-1 mb-2">
+                                ❓
+                            </div>
+
+                            <h3 class="card-title fw-bold fs-5 mb-2">
+                                Quiz Grammaire & conjugaison
+                            </h3>
+
+                            <p class="text-muted small mb-4">
+                                Niveau A1
+                            </p>
+
+                            <a th:href="@{/quizzesSurLaGrammaire}"
+                               class="btn btn-outline-success btn-lg
+                                      px-4 py-2 mt-auto rounded-pill
+                                      fw-bold w-100">
+
+                                Passer le quiz
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- ============================================================= -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================= -->
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
+
+<!--<!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Niveau débutant')}">
     <title>Niveau débutant</title>
@@ -14,7 +401,7 @@
 <main id="main-content">
     <div class="container mt-5 mb-5">
 
-        <!-- En-tête de section -->
+
         <h3 class="mb-1">
             <span class="badge bg-primary rounded-circle p-2 fs-6 me-2">1</span>
             Débutant complet
@@ -25,10 +412,10 @@
         <h2 class="mb-2">📚 Leçons disponibles</h2>
         <p class="text-muted fs-5 mb-4">Pour enrichir votre vocabulaire.</p>
 
-        <!-- Grille des leçons -->
+
         <div class="row g-4">
 
-            <!-- Boucle Thymeleaf sur les leçons (limitée aux 3 premières) -->
+
             <div class="col-md-4" th:each="lesson, lessonStat : ${lessons}" th:if="${lessonStat.index < 3}">
                 <div class="card h-100 border-0 shadow-sm" style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <img th:if="${lesson.imageUrl != null and !lesson.imageUrl.isEmpty()}"
@@ -47,7 +434,7 @@
                 </div>
             </div>
 
-            <!-- Message d'alerte si la liste ${lessons} est vide ou absente -->
+
             <div class="col-12" th:if="${lessons == null or lessons.empty}">
                 <div class="alert alert-warning text-center" role="alert">
                     Aucune leçon disponible pour le moment. (Vérifiez que le contrôleur Java transmet bien l'attribut <code>lessons</code>).
@@ -56,14 +443,14 @@
 
         </div>
 
-        <!-- Lien global pour voir toutes les leçons -->
+
         <div class="text-center mt-4 mb-5">
             <a th:href="@{/lessons}" class="text-decoration-none fw-bold text-primary">
                 📚 Voir l'intégralité des leçons de vocabulaire →
             </a>
         </div>
 
-        <!-- Cartes secondaires (Prononciation, Chiffres, Verbes) bien rangées dans un conteneur row -->
+
         <div class="row g-4 mt-3">
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm text-center border-0" style="border-radius: 16px;">
@@ -101,12 +488,45 @@
                 </div>
             </div>
         </div>
-
     </div>
+        <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm text-center p-2"
+                 style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center p-4">
+                    <div class="fs-1 mb-2">📖</div>
+                    <h3 class="card-title fw-bold fs-5 mb-2">Grammaire</h3>
+                    <p class="text-muted small mb-4">Supports A1</p>
+
+                    <a th:href="@{/supports-de-cours}"
+                       class="btn btn-outline-success btn-lg px-4 py-2 mt-auto rounded-pill fw-bold w-100">
+                        Accéder aux cours
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm text-center p-2"
+                 style="border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="card-body d-flex flex-column align-items-center p-4">
+                    <div class="fs-1 mb-2">❓</div>
+                    <h3 class="card-title fw-bold fs-5 mb-2">Quiz Grammaire</h3>
+                    <p class="text-muted small mb-4">Niveau A1</p>
+
+                    <a th:href="@{/quizzesSurLaGrammaire}"
+                       class="btn btn-outline-success btn-lg px-4 py-2 mt-auto rounded-pill fw-bold w-100">
+                        Passer le quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html>-->
