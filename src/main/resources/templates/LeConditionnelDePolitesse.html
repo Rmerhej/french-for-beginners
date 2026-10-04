@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur le conditionnel de politesse (vouloir, aimer, pouvoir) pour adultes débutants">
+
+    <title>Le conditionnel de politesse - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Le conditionnel de politesse
+        </h1>
+
+        <p class="lead">
+            Demander quelque chose poliment et adoucir ses requêtes en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'utiliser le conditionnel présent
+                avec les verbes essentiels (<em>vouloir, aimer, pouvoir</em>) pour formuler des demandes
+                polies dans des situations de la vie quotidienne.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que le conditionnel de politesse ?</h2>
+
+
+        <p>
+
+            En français, pour ne pas paraître trop direct ou impoli quand on demande un service ou un renseignement,
+            on n'utilise pas le présent de l'indicatif (ex: <em>Je veux un café</em> peut sembler agressif),
+            mais le <strong>conditionnel de politesse</strong> (ex: <em>Je voudrais un café</em>).
+
+        </p>
+
+
+        <ul>
+
+            <li>Il sert à atténuer une demande ou un souhait.</li>
+
+            <li>Il est très utilisé dans les commerces, au restaurant ou au téléphone.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La formation du conditionnel présent</h2>
+
+
+        <p>
+
+            Pour former le conditionnel présent des verbes réguliers, on prend le radical du futur
+            (l'infinitif du verbe) et on ajoute les terminaisons de l'imparfait :
+            <strong>-ais, -ais, -ait, -ions, -iez, -aient</strong>.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>Parler :</strong> Je parlerais, tu parlerais, il parlerait...</li>
+
+                <li><strong>Venir :</strong> Je viendrais, tu viendrais, il viendrait...</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les verbes indispensables pour la politesse</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Vouloir et Aimé (Aimer)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Je voudrais</strong></td>
+                                <td><em>Je voudrais un café, s'il vous plaît.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Tu voudrais</strong></td>
+                                <td><em>Tu voudrais venir avec nous ?</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>J'aimerais</strong></td>
+                                <td><em>J'aimerais réserver une table.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Vous aimeriez</strong></td>
+                                <td><em>Vous aimeriez voir le menu ?</em></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Pouvoir et Devoir
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Je pourrais</strong></td>
+                                <td><em>Je pourrais avoir l'addition ?</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Pourriez-vous</strong></td>
+                                <td><em>Pourriez-vous m'aider, s'il vous plaît ?</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Je devrais</strong></td>
+                                <td><em>Je devrais partir un peu plus tôt.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Il faudrait</strong></td>
+                                <td><em>Il faudrait appeler le médecin.</em></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Comparaison : Indicatif vs Conditionnel</h2>
+
+
+        <p>
+
+            Regardez la différence de ton entre une phrase directe au présent et une demande polie au conditionnel.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Présent (Trop direct / Brut)</th>
+
+                <th>Conditionnel (Poli / Courtois)</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je veux un kilo de pommes.</td>
+
+                <td>Je <strong>voudrais</strong> un kilo de pommes.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu peux fermer la fenêtre ?</td>
+
+                <td>Tu <strong>pourrais</strong> fermer la fenêtre ?</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Donnez-moi l'heure.</td>
+
+                <td>Vous <strong>auriez</strong> l'heure, s'il vous plaît ?</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je veux un renseignement, s'il vous plaît.</td>
+
+                <td>Je <strong>voudrais</strong> un renseignement, s'il vous plaît.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Pouvez-vous de m'aider ?</td>
+
+                <td><strong>Pourriez-vous</strong> m'aider ? (ou Pouvez-vous m'aider ?)</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je voulerais un café.</td>
+
+                <td>Je <strong>voudrais</strong> un café. (Attention à la racine du verbe vouloir)</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il fauterais partir.</td>
+
+                <td>Il <strong>faudrait</strong> partir. (Verbe impersonnel irrégulier)</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Client :</strong> Bonjour monsieur, je <strong>voudrais</strong> réserver une table pour deux personnes ce soir.
+                </p>
+
+
+                <p>
+                    <strong>Restaurateur :</strong> Bonjour. À quelle heure <strong>aimeriez-vous</strong> venir ?
+                </p>
+
+
+                <p>
+                    <strong>Client :</strong> <strong>Pourriez-vous</strong> nous trouver une table vers 20 heures ?
+                </p>
+
+
+                <p>
+                    <strong>Restaurateur :</strong> Bien sûr, c'est noté. Autre chose ?
+                </p>
+
+
+                <p>
+                    <strong>Client :</strong> Oui, il <strong>faudrait</strong> une table près de la fenêtre si c'est possible. Merci beaucoup !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Le conditionnel sert à exprimer la politesse et à adoucir une demande.</li>
+
+
+                <li>Le verbe <strong>vouloir</strong> donne <em>je voudrais</em>, indispensable pour commander ou demander.</li>
+
+
+                <li>Le verbe <strong>pouvoir</strong> donne <em>pourriez-vous... ?</em> pour demander un service.</li>
+
+
+                <li>Sa formation combine le radical du futur et les terminaisons de l'imparfait.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

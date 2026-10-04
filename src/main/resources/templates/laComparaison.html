@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur la comparaison (comparatif, superlatif, adjectifs, noms, verbes) pour adultes débutants">
+
+    <title>La comparaison - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 La comparaison
+        </h1>
+
+        <p class="lead">
+            Comparer des personnes, des objets et des situations en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'exprimer la supériorité,
+                l'égalité et l'infériorité en utilisant les comparatifs et les superlatifs
+                avec les adjectifs, les noms et les verbes.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que la comparaison ?</h2>
+
+
+        <p>
+
+            Pour comparer des éléments entre eux, on utilise des structures qui permettent de dire
+            qu'une chose est supérieure, égale ou inférieure à une autre. On peut comparer des
+            <strong>adjectifs</strong>, des <strong>noms</strong> ou des <strong>verbes</strong>.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Supériorité :</strong> plus... que</li>
+
+            <li><strong>Égalité :</strong> aussi... que</li>
+
+            <li><strong>Infériorité :</strong> moins... que</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Le comparatif avec les adjectifs</h2>
+
+
+        <p>
+
+            Pour comparer une qualité (un adjectif), on utilise les structures suivantes :
+            <em>plus... que</em>, <em>aussi... que</em> ou <em>moins... que</em>.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Pierre est <strong>plus</strong> grand <strong>que</strong> Paul. <span class="text-muted">(Supériorité)</span></li>
+
+                <li>Marie est <strong>aussi</strong> rapide <strong>que</strong> Julie. <span class="text-muted">(Égalité)</span></li>
+
+                <li>Ce livre est <strong>moins</strong> intéressant <strong>que</strong> l'autre. <span class="text-muted">(Infériorité)</span></li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Comparaison avec les noms et les verbes</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Avec un nom
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Supériorité</strong></td>
+                                <td>plus de + nom + que<br><em>Il a plus de temps que moi.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Égalité</strong></td>
+                                <td>autant de + nom + que<br><em>Elle a autant d'amis que lui.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Infériorité</strong></td>
+                                <td>moins de + nom + que<br><em>J'ai moins de travail que toi.</em></td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Avec un verbe
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Supériorité</strong></td>
+                                <td>verbe + plus + que<br><em>Il travaille plus que son frère.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Égalité</strong></td>
+                                <td>verbe + autant + que<br><em>Elle voyage autant que nous.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Infériorité</strong></td>
+                                <td>verbe + moins + que<br><em>Tu dors moins que d'habitude.</em></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Le superlatif</h2>
+
+
+        <p>
+
+            Le superlatif permet d'exprimer le degré maximum ou minimum d'une qualité
+            par rapport à un groupe (le plus / le moins).
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Type</th>
+
+                <th>Structure avec adjectif</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Supériorité</td>
+
+                <td>le / la / les + plus + adjectif</td>
+
+                <td>C'est le garçon <strong>le plus intelligent</strong> de la classe.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Infériorité</td>
+
+                <td>le / la / les + moins + adjectif</td>
+
+                <td>C'est la voiture <strong>la moins chère</strong> du garage.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Cas particuliers (Bon / Meilleur)</h2>
+
+
+        <p>
+
+            Attention, certains mots ont des formes irrégulières qu'il faut retenir par cœur.
+            L'adjectif <em>bon</em> devient <em>meilleur</em> au comparatif.
+
+        </p>
+
+
+        <div class="alert alert-warning">
+
+
+            <ul class="mb-0">
+
+                <li>Ce gâteau est bon. → Ce gâteau est <strong>meilleur</strong> que l'autre. (pas de « plus bon »)</li>
+
+                <li>C'est le gâteau <strong>le meilleur</strong> de la boulangerie. (pas de « le plus bon »)</li>
+
+                <li>Il travaille bien. → Il travaille <strong>mieux</strong> que moi. (adverbe <em>bien</em> → <em>mieux</em>)</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Il est plus bon que son ami.</td>
+
+                <td>Il est <strong>meilleur</strong> que son ami.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle a plus de la chance que toi.</td>
+
+                <td>Elle a <strong>plus de</strong> chance que toi.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Paris est plus grand que Lyon.</td>
+
+                <td>Paris est <strong>plus grand que</strong> Lyon. (ou plus grande selon le contexte, mais attention à l'accord si l'adjectif change)</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>C'est le plus meilleur film.</td>
+
+                <td>C'est <strong>le meilleur</strong> film.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Léa :</strong> Quel restaurant tu préfères pour ce soir ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Je trouve que le Pizzeria Roma est <strong>plus agréable que</strong> le bistrot du coin.
+                </p>
+
+
+                <p>
+                    <strong>Léa :</strong> Oui, mais le bistrot a <strong>autant de</strong> choix et c'est <strong>moins cher</strong> !
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> C'est vrai, mais les pizzas de Roma sont <strong>les meilleures</strong> de la ville.
+                </p>
+
+
+                <p>
+                    <strong>Léa :</strong> D'accord, alors allons-y, tu as <strong>plus faim que</strong> moi de toute façon !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Le comparatif utilise <strong>plus... que</strong>, <strong>aussi... que</strong> ou <strong>moins... que</strong>.</li>
+
+
+                <li>Avec un nom, on utilise <strong>plus de</strong>, <strong>autant de</strong> ou <strong>moins de</strong>.</li>
+
+
+                <li>Le superlatif utilise <strong>le/la/les plus</strong> ou <strong>le/la/les moins</strong>.</li>
+
+
+                <li>Attention aux irrégularités : <em>bon</em> devient <strong>meilleur</strong>, et <em>bien</em> devient <strong>mieux</strong>.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A1-A2 sur l'expression de la quantité (articles partitifs, expressions de quantité, peu, beaucoup) pour adultes débutants">
+
+    <title>La quantité - Français A1-A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 La quantité
+        </h1>
+
+        <p class="lead">
+            Exprimer les quantités, les parts et les mesures en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'utiliser correctement
+                les <strong>articles partitifs</strong> (du, de la, des) et les
+                <strong>expressions de quantité</strong> (beaucoup de, un peu de, trop de) pour exprimer
+                ce que l'on consomme, achète ou possède.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que l'expression de la quantité ?</h2>
+
+
+        <p>
+
+            En français, pour parler de choses qu'on ne peut pas compter (comme l'eau, le pain, le courage)
+            ou pour indiquer une portion précise, on utilise différents types de mots :
+            les articles partitifs ou des adverbes de quantité suivis de la préposition <em>de</em>.
+
+        </p>
+
+
+        <ul>
+
+            <li>Les articles partitifs pour une quantité indéterminée (ex: <em>du pain</em>).</li>
+
+            <li>Les expressions de quantité pour une quantité précise ou évaluée (ex: <em>beaucoup de pain</em>).</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les articles partitifs</h2>
+
+
+        <p>
+
+            On utilise les articles partitifs devant des noms non comptables (souvent de la nourriture ou des matières)
+            pour indiquer une partie d'un tout.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Masculin singulier : <strong>du</strong> (Je mange <strong>du</strong> chocolat.)</li>
+
+                <li>Féminin singulier : <strong>de la</strong> (Je bois <strong>de la</strong> eau ? → <em>de l'</em>eau.)</li>
+
+                <li>Devant une voyelle : <strong>de l'</strong> (Il achète <strong>de l'</strong>huile.)</li>
+
+                <li>Pluriel : <strong>des</strong> (Tu prends <strong>des</strong> fruits.)</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les expressions de quantité</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Quantités générales
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Beaucoup de</strong></td>
+                                <td>Il a <em>beaucoup de</em> travail.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Un peu de</strong></td>
+                                <td>Je veux <em>un peu de</em> sel.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Trop de</strong></td>
+                                <td>Tu manges <em>trop de</em> sucre.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Assez de</strong></td>
+                                <td>J'ai <em>assez de</em> temps.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Pas de / d'</strong></td>
+                                <td>Je ne veux <em>pas de</em> café.</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Contenus et mesures
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Une bouteille de</strong></td>
+                                <td><em>Une bouteille de</em> lait</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Un kilo de</strong></td>
+                                <td><em>Un kilo de</em> pommes</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Un morceau de</strong></td>
+                                <td><em>Un morceau de</em> pain</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Une tasse de</strong></td>
+                                <td><em>Une tasse de</em> thé</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Une boîte de</strong></td>
+                                <td><em>Une boîte de</em> thon</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La transformation à la négative</h2>
+
+
+        <p>
+
+            Attention ! À la forme négative, tous les articles partitifs (<em>du, de la, des</em>)
+            et les expressions de quantité générale (<em>beaucoup de, un peu de...</em>) se transforment
+            simplement en <strong>de</strong> (ou <strong>d'</strong> devant une voyelle).
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Forme affirmative</th>
+
+                <th>Forme négative</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je mange <strong>du</strong> pain.</td>
+
+                <td>Je ne mange pas <strong>de</strong> pain.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle achète <strong>des</strong> pommes.</td>
+
+                <td>Elle n'achète pas <strong>de</strong> pommes.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il a <strong>beaucoup de</strong> chance.</td>
+
+                <td>Il n'a pas <strong>de</strong> chance.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je veux de le pain.</td>
+
+                <td>Je veux <strong>du</strong> pain.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il a beaucoup du travail.</td>
+
+                <td>Il a <strong>beaucoup de</strong> travail. (pas de « de + le »)</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je ne bois pas du vin.</td>
+
+                <td>Je ne bois pas <strong>de</strong> vin.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle mange un peu de les fruits.</td>
+
+                <td>Elle mange <strong>un peu de</strong> fruits. (ou un peu des fruits, mais « un peu de » est standard)</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Qu'est-ce qu'on achète pour le dîner ce soir ?
+                </p>
+
+
+                <p>
+                    <strong>Antoine :</strong> Il nous faut <strong>un kilo de</strong> tomates et <strong>un peu de</strong> fromage.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Est-ce qu'on a <strong>du</strong> pain à la maison ?
+                </p>
+
+
+                <p>
+                    <strong>Antoine :</strong> Non, il n'y a plus <strong>de</strong> pain. Il faut en acheter une baguette.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> D'accord, et n'oublie pas : on ne prend pas <strong>de</strong> boissons sucrées cette fois !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Utilisez <strong>du, de la, des</strong> pour une quantité indéterminée (partitifs).</li>
+
+
+                <li>Utilisez <strong>beaucoup de, un peu de, trop de</strong> suivis de <em>de / d'</em> pour quantifier.</li>
+
+
+                <li>À la forme négative, <em>du, de la, des</em> et les expressions de quantité deviennent toujours <strong>de / d'</strong>.</li>
+
+
+                <li>Les unités de mesure (kilo, litre, morceau) sont toujours suivies de <strong>de / d'</strong>.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
