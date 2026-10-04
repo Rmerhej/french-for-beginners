@@ -93,7 +93,26 @@ public class StaticPagesController {
     @GetMapping("/passéRécent")
     public String allerSurpasséRécent() {return "passéRécent";
     }
-    @GetMapping("/conjugaison")
+
+    @GetMapping("/pronomsYetEn")
+    public String allerSurpronomsYetEn() {return "pronomsYetEn";
+    }
+
+    @GetMapping("/laComparaison")
+    public String allerSurlaComparaison() {return "laComparaison";
+    }
+
+    @GetMapping("/laQuantité")
+    public String allerSurlaQuantité() {return "laQuantité";
+    }
+
+    @GetMapping("/LesConnecteursSimples")
+    public String allerSurLesConnecteursSimples() {return "LesConnecteursSimples";
+    }
+    @GetMapping("/LeConditionnelDePolitesse")
+    public String allerSurLeConditionnelDePolitesse() {return "LeConditionnelDePolitesse";
+    }
+
     public String allerSurConjugaison() {return "conjugaison";}
 
     @GetMapping("/auxiliaires")

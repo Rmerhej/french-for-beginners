@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A2 sur les pronoms y et en (lieux, quantités, compléments) pour adultes débutants">
+
+    <title>Les pronoms y et en - Français A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Les pronoms y et en
+        </h1>
+
+        <p class="lead">
+            Remplacer un lieu, une quantité ou un complément en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable d'utiliser correctement
+                le pronom <strong>y</strong> pour remplacer un lieu ou un complément en <em>à</em>,
+                et le pronom <strong>en</strong> pour remplacer une quantité ou un complément en <em>de</em>.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu's-ce que sont les pronoms y et en ?</h2>
+
+
+        <p>
+
+            En français, pour éviter de répéter des mots, on utilise des pronoms compléments.
+            Les pronoms <strong>y</strong> et <strong>en</strong> se placent généralement
+            <strong>avant le verbe</strong>.
+
+        </p>
+
+
+        <ul>
+
+            <li>Le pronom <strong>y</strong> remplace un lieu ou un complément introduit par <strong>à</strong>.</li>
+
+            <li>Le pronom <strong>en</strong> remplace une quantité ou un complément introduit par <strong>de</strong>.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Le pronom « Y »</h2>
+
+
+        <p>
+
+            Le pronom <strong>y</strong> remplace le plus souvent un nom de lieu (introduit par <em>à, au, à la, aux, en, dans</em>...)
+            ou un complément d'objet indirect introduit par <strong>à</strong> (souvent des choses, rarement des personnes).
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Tu vas <strong>à Paris</strong> ? → Oui, j'<strong>y</strong> vais.</li>
+
+                <li>Il habite <strong>en France</strong> ? → Oui, il l'<strong>y</strong> habite ? (Non : Oui, il <strong>y</strong> habite.)</li>
+
+                <li>Tu penses <strong>à ton avenir</strong> ? → Oui, j'<strong>y</strong> pense.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Le pronom « EN »</h2>
+
+
+        <p>
+
+            Le pronom <strong>en</strong> remplace un nom précédé de l'article partitif (<em>du, de la, des</em>),
+            d'un nombre, d'une quantité, ou d'un complément introduit par la préposition <strong>de</strong>.
+
+        </p>
+
+
+        <div class="alert alt-info alert-info">
+
+
+            <ul class="mb-0">
+
+                <li>Tu veux <strong>du café</strong> ? → Oui, j'<strong>en</strong> veux.</li>
+
+                <li>Tu as <strong>trois frères</strong> ? → Oui, j'<strong>en</strong> ai trois.</li>
+
+                <li>Tu viens <strong>de Lyon</strong> ? → Oui, j'<strong>en</strong> viens.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Synthèse et comparaison</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Le pronom Y
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Remplace</strong></td>
+                                <td>Lieu / à + chose</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Prépositions</strong></td>
+                                <td>à, au, en, dans, sur...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple lieu</strong></td>
+                                <td>aller <em>à la plage</em> → y aller</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple idée</strong></td>
+                                <td>penser <em>à un projet</em> → y penser</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Le pronom EN
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Remplace</strong></td>
+                                <td>Quantité / de + nom</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Prépositions</strong></td>
+                                <td>de, du, de la, des</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple quantité</strong></td>
+                                <td>boire <em>du lait</em> → en boire</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple origine</strong></td>
+                                <td>venir <em>de Paris</em> → en venir</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La place des pronoms dans la phrase</h2>
+
+
+        <p>
+
+            Avec un temps simple, <strong>y</strong> et <strong>en</strong> se placent
+            <strong>directement avant le verbe</strong>. Avec la négation, ils se placent
+            entre la négation et le verbe.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Type de phrase</th>
+
+                <th>Exemple avec Y</th>
+
+                <th>Exemple avec EN</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Affirmatif</td>
+
+                <td>Je <strong>y</strong> vais. (J'y vais)</td>
+
+                <td>J'<strong>en</strong> prends.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Négatif</td>
+
+                <td>Je n'<strong>y</strong> vais pas.</td>
+
+                <td>Je n'<strong>en</strong> prends pas.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Impératif (Attention au -s !)</td>
+
+                <td>Va<strong>-y</strong> !</td>
+
+                <td>Prends<strong>-en</strong> !</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je vais à la piscine ? Oui, je vais.</td>
+
+                <td>Je vais à la piscine ? Oui, j'<strong>y</strong> vais.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu veux du pain ? Oui, je veux.</td>
+
+                <td>Tu veux du pain ? Oui, j'<strong>en</strong> veux.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu as des frères ? Oui, j'ai deux.</td>
+
+                <td>Tu as des frères ? Oui, j'<strong>en</strong> ai deux.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu penses à ton examen ? Oui, je pense.</td>
+
+                <td>Tu penses à ton examen ? Oui, j'<strong>y</strong> pense.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Marc :</strong> Tu vas au supermarché ?
+                </p>
+
+
+                <p>
+                    <strong>Julie :</strong> Oui, j'<strong>y</strong> vais tout de suite.
+                </p>
+
+
+                <p>
+                    <strong>Marc :</strong> Est-ce que tu peux acheter du lait ?
+                </p>
+
+
+                <p>
+                    <strong>Julie :</strong> D'accord, j'<strong>en</strong> achète. Combien de bouteilles ?
+                </p>
+
+
+                <p>
+                    <strong>Marc :</strong> Prends-<strong>en</strong> deux, s'il te plaît.
+                </p>
+
+
+                <p>
+                    <strong>Julie :</strong> C'est noté, j'<strong>y</strong> pense !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Le pronom <strong>y</strong> remplace un lieu ou un complément introduit par <strong>à</strong>.</li>
+
+
+                <li>Le pronom <strong>en</strong> remplace une quantité ou un complément introduit par <strong>de</strong>.</li>
+
+
+                <li>Ils se placent tous les deux <strong>avant le verbe</strong> (sauf à l'impératif affirmatif).</li>
+
+
+                <li>Avec une expression de quantité (un, deux, beaucoup...), on garde le chiffre ou la quantité à la fin de la phrase.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
