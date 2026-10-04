@@ -60,8 +60,8 @@
 
                     <div th:if="${word.exampleSentence != null and word.exampleSentence != ''}"
                          class="mt-3 p-3 bg-light border-start border-primary border-3 rounded text-start">
-                        <small class="text-primary fw-bold">📝 Phrase utile :</small>
-                        <p class="fst-italic mb-0" th:text="${word.exampleSentence}"></p>
+                        <small class="text-secondary fw-bold">📝 Phrase utile :</small>
+                        <p class="text-secondary fst-italic mb-0" th:text="${word.exampleSentence}"></p>
                     </div>
 
                     <div th:if="${word.audioUrl != null and word.audioUrl != ''}" class="mt-3">
