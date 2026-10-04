@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head(title='Prononciation')}"></head>
-<body class="d-flex flex-column min-vh-100 bg-light">
+<body class="d-flex flex-column min-vh-100">
 
 <a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
@@ -17,7 +17,7 @@
             <h1 class="h2 fw-bold mb-1">
                 <span aria-hidden="true" class="me-2">🔊</span>Prononciation française
             </h1>
-            <p class="text-muted mb-0">Apprenez à maîtriser les sons et les nuances de la langue française.</p>
+            <p class="text-secondary mb-0">Apprenez à maîtriser les sons et les nuances de la langue française.</p>
         </div>
         <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center shadow-sm" onclick="history.back()" aria-label="Retour à la page précédente">
             <i class="bi bi-arrow-left me-2" aria-hidden="true"></i> Retour
@@ -30,7 +30,7 @@
             <article class="card h-100 border-0 shadow-sm prononciation-card" style="border-radius: 16px; overflow: hidden;">
 
                 <!-- En-tête de la carte -->
-                <div class="card-header bg-primary text-white py-3 px-4 border-0 d-flex align-items-center">
+                <div class="card-header bg-primary py-3 px-4 border-0 d-flex align-items-center">
                     <span class="fs-4 me-2" aria-hidden="true">🗣️</span>
                     <h2 class="h5 fw-bold mb-0" th:text="${item.son}">Son</h2>
                 </div>
@@ -38,8 +38,8 @@
                 <!-- Corps de la carte -->
                 <div class="card-body d-flex flex-column p-4">
                     <div class="mb-4">
-                        <span class="text-muted small text-uppercase fw-bold d-block mb-1">Exemple :</span>
-                        <p class="fs-5 fw-semibold text-dark mb-0" th:text="${item.exemple}">Exemple</p>
+                        <span class="text-secondary small text-uppercase fw-bold d-block mb-1">Exemple :</span>
+                        <p class="text-secondary fs-5 fw-semibold  mb-0" th:text="${item.exemple}">Exemple</p>
                     </div>
 
                     <!-- Lecteur Audio -->
@@ -50,7 +50,7 @@
                         <audio class="d-none">
                             <source th:src="${item.audio}" type="audio/mpeg">
                         </audio>
-                        <span class="text-muted fw-medium small">Écouter l'exemple</span>
+                        <span class="text-secondary fw-medium small">Écouter l'exemple</span>
                     </div>
                 </div>
             </article>
