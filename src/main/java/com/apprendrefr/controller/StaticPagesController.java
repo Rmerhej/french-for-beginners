@@ -61,9 +61,6 @@ public class StaticPagesController {
     @GetMapping("/expressionstemps")
     public String allerSurExpressionsTemps() {return "expressions-temps";}
 
-    @GetMapping("/futursimple")
-    public String allerSurFutureSimple() {return "futur-simple";}
-
     @GetMapping("/verbesreguliers")
     public String allerSurVerbesReguliers() {return "verbes-reguliers";
     }
@@ -132,9 +129,9 @@ public class StaticPagesController {
     public String allerSurpasseComposeOuImparfait() {
         return "passéComposéOuImparfait";
     }
-
-    @GetMapping("/LefuturSimple")
-    public String allerSurLefuturSimple() {
+/// ///////////////////////////////////////////////////////////////////////////////////////////////////
+    @GetMapping("/futursimple")
+    public String allerSurfuturSimple() {
         return "futurSimple";
     }
 
