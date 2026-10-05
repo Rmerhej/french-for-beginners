@@ -130,7 +130,7 @@ public class StaticPagesController {
         return "passéComposéOuImparfait";
     }
 /// ///////////////////////////////////////////////////////////////////////////////////////////////////
-    @GetMapping("/futursimple")
+    @GetMapping("/futurSimple")
     public String allerSurfuturSimple() {
         return "futurSimple";
     }
