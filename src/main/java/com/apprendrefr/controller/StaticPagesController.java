@@ -72,10 +72,10 @@ public class StaticPagesController {
     public String allerSurlesNomsMasculinetFeminin() {return "lesNomsMasculinetFeminin";
     }
     @GetMapping("/lesPrépositions")
-    public String allerSurlesPrépositions() {return "lesPrépositions";
+    public String allerSurlesPrepositions() {return "lesPrépositions";
     }
     @GetMapping("/présentdesVerbesEner")
-    public String allerSurprésentdesVerbesEner() {return "présentdesVerbesEner";
+    public String allerSurpresentdesVerbesEner() {return "présentdesVerbesEner";
     }
 
     @GetMapping("/allerEtFaire")
@@ -90,8 +90,8 @@ public class StaticPagesController {
     public String allerSurfuturProche() {return "futurProche";
     }
 
-    @GetMapping("/passéRécent")
-    public String allerSurpasséRécent() {return "passéRécent";
+    @GetMapping("/passeRecent")
+    public String allerSurpasseRecent() {return "passéRécent";
     }
 
     @GetMapping("/pronomsYetEn")
@@ -102,8 +102,8 @@ public class StaticPagesController {
     public String allerSurlaComparaison() {return "laComparaison";
     }
 
-    @GetMapping("/laQuantité")
-    public String allerSurlaQuantité() {return "laQuantité";
+    @GetMapping("/laQuantite")
+    public String allerSurlaQuantite() {return "laQuantité";
     }
 
     @GetMapping("/LesConnecteursSimples")
@@ -120,6 +120,40 @@ public class StaticPagesController {
         return "auxiliaires";
     }
 
+    @GetMapping("/presentApprofondi")
+    public String allerSurpresentApprofondi() {
+        return "présentApprofondi";
+    }
+
+    @GetMapping("/imparfait")
+    public String allerSurImparfait() {
+        return "imparfait";
+    }
+
+    @GetMapping("/passeComposeOuImparfait")
+    public String allerSurpasseComposeOuImparfait() {
+        return "passéComposéOuImparfait";
+    }
+
+    @GetMapping("/LefuturSimple")
+    public String allerSurLefuturSimple() {
+        return "futurSimple";
+    }
+
+    @GetMapping("/FuturProcheOuFuturSimple")
+    public String allerSurFuturProcheOuFuturSimple() {
+        return "FuturProcheOuFuturSimple";
+    }
+
+    @GetMapping("/ConditionnelPresent")
+    public String allerSurConditionnelPresent() {
+        return "ConditionnelPrésent";
+    }
+
+    @GetMapping("/ImperatifAvecLesPronoms")
+    public String allerSurImperatifAvecLesPronoms() {
+        return "ImpératifAvecLesPronoms";
+    }
     @GetMapping("/articlesDéfinis")
     public String allerSurArticleDefinis() {
         return "articles-definis";
@@ -186,7 +220,7 @@ public class StaticPagesController {
     @GetMapping("/phrase") public String phrase() {
         return "phrase";
     }
-    @GetMapping("/compléments") public String compléments() {
+    @GetMapping("/complements") public String complements() {
         return "compléments";
     }
     @GetMapping("/connecteursLogiques") public String connecteursLogiques() {

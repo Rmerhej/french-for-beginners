@@ -1,0 +1,72 @@
+/* =========================================================
+   DRAG & DROP - QUIZ
+   ========================================================= */
+
+.dropzone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+    height: 50px;
+
+    border: 2px dashed #6c757d;
+    border-radius: 8px;
+
+    margin: 0 6px;
+
+    vertical-align: middle;
+    text-align: center;
+
+    background-color: #f8f9fa;
+    color: #212529;
+
+    font-size: 1.1em;
+    box-sizing: border-box;
+
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+/* Zone survolée pendant le drag */
+.dropzone.over {
+    background-color: rgba(25, 135, 84, 0.2);
+    border-color: #198754;
+}
+
+/* Mot à déplacer */
+.word {
+    display: inline-block;
+
+    padding: 12px 18px;
+    margin: 6px;
+
+    background-color: #0d6efd;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    cursor: grab;
+    font-weight: bold;
+
+    user-select: none;
+}
+
+.word.dragging {
+    opacity: 0.5;
+}
+
+/* =========================================================
+   MODE SOMBRE
+   ========================================================= */
+
+[data-bs-theme="dark"] .dropzone {
+    background-color: #212529;
+    border-color: #adb5bd;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .dropzone.over {
+    background-color: rgba(25, 135, 84, 0.35);
+    border-color: #198754;
+}

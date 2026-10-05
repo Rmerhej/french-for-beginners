@@ -8,11 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
-    <span th:text="${success}"></span>
+    <span th:text="${success}"  class="text-secondary"></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
@@ -30,7 +30,7 @@
     <div class="row mb-4">
 
         <div class="col-md-6">
-            <div class="card text-center shadow-sm">
+            <div class="card text-center  shadow-sm text-secondary">
                 <div class="card-body">
                     <h5 class="card-title">Visiteurs en ligne</h5>
                     <h2 class="fw-bold text-primary" th:text="${onlineVisitors}">0</h2>
@@ -38,8 +38,8 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="card text-center shadow-sm">
+        <div class="col-md-6 text-secondary">
+            <div class="card text-center  shadow-sm text-secondary">
                 <div class="card-body">
                     <h5 class="card-title">Utilisateurs connectés</h5>
                     <h2 class="fw-bold text-success" th:text="${onlineUsers}">0</h2>
@@ -53,10 +53,10 @@
     <div class="row g-4">
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm bg-white">
-                <div class="card-body text-center">
+                <div class="card-body text-center ">
                     <i class="bi bi-book fs-1 text-primary mb-3"></i>
                     <h2 class="fw-bold text-primary" th:text="${lessonsCount}"></h2>
-                    <p class="text-muted">Leçons créées</p>
+                    <p class="text-secondary">Leçons créées</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/lessons}" class="btn btn-outline-primary w-100">Gérer les leçons</a>
@@ -65,11 +65,11 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
-                    <i class="bi bi-translate fs-1 text-success mb-3"></i>
+                    <i class="bi bi-translate fs-1 text-success  mb-3"></i>
                     <h2 class="fw-bold text-success" th:text="${vocabularyCount}"></h2>
-                    <p class="text-muted">Mots de vocabulaire</p>
+                    <p class="text-secondary">Mots de vocabulaire</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/vocabulary}" class="btn btn-outline-success w-100">Gérer le vocabulaire</a>
@@ -78,11 +78,11 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
-                    <i class="bi bi-pencil-square fs-1 text-warning mb-3"></i>
+                    <i class="bi bi-pencil-square fs-1 text-warning  mb-3"></i>
                     <h2 class="fw-bold text-warning" th:text="${exercisesCount}"></h2>
-                    <p class="text-muted">Exercices</p>
+                    <p class="text-secondary">Exercices</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/exercises}" class="btn btn-outline-warning w-100">Gérer les exercices</a>
@@ -92,11 +92,11 @@
 
 
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
-                    <i class="bi bi-people fs-1 text-info mb-3"></i>
+                    <i class="bi bi-people fs-1 text-info  mb-3"></i>
                     <h2 class="fw-bold text-info" th:text="${usersCount}"></h2>
-                    <p class="text-muted">Utilisateurs</p>
+                    <p class="text-secondary">Utilisateurs</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/users}" class="btn btn-outline-info w-100">Gérer les utilisateurs</a>
@@ -104,11 +104,11 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
-                    <i class="bi bi-question-circle fs-1 text-danger mb-3"></i>
+                    <i class="bi bi-question-circle fs-1 text-danger  mb-3"></i>
                     <h2 class="fw-bold text-danger" th:text="${quizzesCount}"></h2>
-                    <p class="text-muted">Quizzes</p>
+                    <p class="text-secondary">Quizzes</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/quizzes}" class="btn btn-outline-danger w-100">Gérer les quizzes</a>
@@ -116,11 +116,11 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
                     <i class="bi bi-question-circle fs-1 text-danger mb-3"></i>
                     <h2 class="fw-bold text-info" th:text="${themesCount}"></h2>
-                    <p class="text-muted">Thèmes</p>
+                    <p class="text-secondary">Thèmes</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/themes}" class="btn btn-outline-danger w-100">Gérer les thèmes</a>
@@ -129,11 +129,11 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <div class="card h-100 border-0 shadow-sm bg-white">
+            <div class="card h-100 border-0 shadow-sm bg-white ">
                 <div class="card-body text-center">
                     <i class="bi bi-question-circle fs-1 text-danger mb-3"></i>
                     <h2 class="fw-bold text-info" th:text="${prononciationsCount}"></h2>
-                    <p class="text-muted">Prononciation</p>
+                    <p class="text-secondary">Prononciation</p>
                 </div>
                 <div class="card-footer bg-transparent border-0">
                     <a th:href="@{/admin/prononciationsDashboard}" class="btn btn-outline-danger w-100">Gérer les
@@ -146,25 +146,25 @@
     <div class="mt-5">
         <h4 class="mb-3">🚀 Actions rapides</h4>
         <div class="d-flex flex-wrap gap-3">
-            <a th:href="@{/admin/lessons/new}" class="btn btn-primary px-4 py-2">
+            <a th:href="@{/admin/lessons/new}" class="btn btn-primary  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouvelle Leçon
             </a>
-            <a th:href="@{/admin/vocabulary/new}" class="btn btn-success px-4 py-2">
+            <a th:href="@{/admin/vocabulary/new}" class="btn btn-success  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouveau Mot
             </a>
-            <a th:href="@{/admin/exercises/new}" class="btn btn-warning px-4 py-2">
+            <a th:href="@{/admin/exercises/new}" class="btn btn-warning  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouvel Exercice
             </a>
-            <a th:href="@{/admin/quiz/create}" class="btn btn-danger px-4 py-2">
+            <a th:href="@{/admin/quiz/create}" class="btn btn-danger  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouveau Quiz
             </a>
-            <a th:href="@{/admin/user/new}" class="btn btn-primary px-4 py-2">
+            <a th:href="@{/admin/user/new}" class="btn btn-primary  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouveau user
             </a>
-            <a th:href="@{/admin/preparation/new}" class="btn btn-success px-4 py-2">
+            <a th:href="@{/admin/preparation/new}" class="btn btn-success  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouvelle Préparation-Quiz
             </a>
-            <a th:href="@{/admin/theme/new}" class="btn btn-primary px-4 py-2">
+            <a th:href="@{/admin/theme/new}" class="btn btn-primary  px-4 py-2">
                 <i class="bi bi-plus-circle"></i> Nouveau Thème
             </a>
             <a href="/admin/images/optimize" class="btn btn-warning">Lancer l'optimisation des images</a>
