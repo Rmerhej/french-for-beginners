@@ -129,9 +129,9 @@ public class StaticPagesController {
     public String allerSurpasseComposeOuImparfait() {
         return "passéComposéOuImparfait";
     }
-/// ///////////////////////////////////////////////////////////////////////////////////////////////////
-    @GetMapping("/futurSimple")
-    public String allerSurfuturSimple() {
+
+    @GetMapping("/LefuturSimple")
+    public String allerAfuturSimple() {
         return "futurSimple";
     }
 

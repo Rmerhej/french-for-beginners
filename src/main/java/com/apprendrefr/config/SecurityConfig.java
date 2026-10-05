@@ -49,7 +49,7 @@ public class SecurityConfig {
                         .requestMatchers("/prononciation", "/togoToAuBureu",
                                 "/lessons/preparation-list", "/lesgens/**", "/lesport/**",
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
-                                "/adjectifsdemonstratifs/**", "/expressionstemps/**", "/futursimple/**",
+                                "/adjectifsdemonstratifs/**", "/expressionstemps/**",
                                 "/verbesreguliers/**", "/passecompse/**", "/imperatif/**",
                                 "/auxiliaires/**", "/about", "/contact", "/rgpd",
                                 "/secourscatholique", "/au-bureau",
