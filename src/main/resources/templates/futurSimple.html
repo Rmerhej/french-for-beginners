@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A2 sur le futur simple (formation, verbes irréguliers, projets) pour adultes débutants">
+
+    <title>Le futur simple - Français A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Le futur simple
+        </h1>
+
+        <p class="lead">
+            Exprimer des projets, faire des prévisions et parler de l'avenir en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de former le <strong>futur simple</strong>
+                pour les verbes réguliers et irréguliers, et de l'utiliser pour parler de vos projets
+                ou faire des prévisions à long terme.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que le futur simple ?</h2>
+
+
+        <p>
+
+            Le futur simple sert à exprimer une action qui se réalisera plus tard dans l'avenir.
+            Contrairement au futur proche (<em>aller + infinitif</em>) qui indique un avenir très proche ou certain,
+            le futur simple s'emploie pour des projets lointains, des prévisions ou des promesses.
+
+        </p>
+
+
+        <ul>
+
+            <li>Il exprime un projet ou une résolution (ex: <em>L'année prochaine, j'apprendrai l'espagnol.</em>)</li>
+
+            <li>Il exprime une prévision (ex: <em>Demain, il fera beau.</em>)</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La formation du futur simple</h2>
+
+
+        <p>
+
+            La règle générale est très simple : pour les verbes réguliers (en <em>-er</em> et <em>-ir</em>),
+            on prend l'<strong>infinitif complet du verbe</strong> comme radical, et on ajoute les terminaisons
+            du verbe avoir au présent (<strong>-ai, -as, -a, -ons, -ez, -ont</strong>).
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>Parler :</strong> Je parler<strong>ai</strong>, tu parler<strong>as</strong>, il parler<strong>a</strong>, nous parler<strong>ons</strong>, vous parler<strong>ez</strong>, ils parler<strong>ont</strong>.</li>
+
+                <li><strong>Finir :</strong> Je finir<strong>ai</strong>, tu finir<strong>as</strong>, il finir<strong>a</strong>, nous finir<strong>ons</strong>, vous finir<strong>ez</strong>, ils finir<strong>ont</strong>.</li>
+
+                <li><strong>Note pour les verbes en -re :</strong> On supprime le <em>-e</em> final avant d'ajouter la terminaison (ex: <em>prendre → je prendrai</em>).</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les principaux verbes irréguliers</h2>
+
+
+        <p>
+
+            De nombreux verbes courants ont un <strong>radical irrégulier</strong> au futur simple,
+            mais gardent exactement les mêmes terminaisons (<em>-ai, -as, -a, -ons, -ez, -ont</em>).
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Verbes essentiels
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Être</strong> (ser-)</td>
+                                <td>Je <em>serai</em>, tu seras, il sera...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Avoir</strong> (aur-)</td>
+                                <td>J'<em>aurai</em>, tu auras, il aura...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aller</strong> ir-)</td>
+                                <td>J'<em>irai</em>, tu iras, il ira...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Faire</strong> (fer-)</td>
+                                <td>Je <em>ferai</em>, tu feras, il fera...</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Verbes de modalité et mouvement
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Pouvoir</strong> (pourr-)</td>
+                                <td>Je <em>pourrai</em>, tu pourras...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Vouloir</strong> (voudr-)</td>
+                                <td>Je <em>voudrai</em>, tu voudras...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Venir</strong> (viendr-)</td>
+                                <td>Je <em>viendrai</em>, tu viendras...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Voir</strong> (verr-)</td>
+                                <td>Je <em>verrai</em>, tu verras...</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Comparaison : Futur proche vs Futur simple</h2>
+
+
+        <p>
+
+            Voyez la nuance d'usage entre l'action imminente (futur proche) et le projet à venir (futur simple).
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Futur proche (Aller + Infinitif)</th>
+
+                <th>Futur simple (Radical + Terminaisons)</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Je <strong>vais partir</strong> dans cinq minutes. (Imminent)</td>
+
+                <td>L'année prochaine, je <strong>partirai</strong> en voyage. (Projet lointain)</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Attention, le vase <strong>va tomber</strong> ! (Immédiat)</td>
+
+                <td>Un jour, la technologie <strong>changera</strong> notre vie. (Prévision générale)</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'ai serai en retard demain. (mélange avec l'auxiliaire avoir)</td>
+
+                <td>Je <strong>serai</strong> en retard demain. (Le radical d'être au futur est <em>ser-</em>).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je vais pourrai t'aider.</td>
+
+                <td>Je <strong>pourrai</strong> t'aider. (Le verbe pouvoir au futur s'utilise directement avec le radical <em>pourr-</em>).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu prendras avec le "e" complet de l'infinitif. (tu prendrais)</td>
+
+                <td>Tu <strong>prendras</strong>. (On supprime le e final de l'infinitif en -re : <em>prendr-</em>).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il pleuvera.</td>
+
+                <td>Il <strong>pleuvra</strong>. (Le verbe pleuvoir est impersonnel et irrégulier au futur).</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Qu'est-ce que tu <strong>feras</strong> ce week-end ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> S'il fait beau, j'<strong>irai</strong> à la campagne avec des amis. Et toi ?
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Je <strong>resterai</strong> chez moi pour finir mon livre, mais la semaine prochaine, je <strong>partirai</strong> en vacances à Nice.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oh, tu <strong>auras</strong> beaucoup de soleil là-bas ! Tu <strong>reviendras</strong> quand ?
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Je <strong>rentrerai</strong> dans dix jours. On <strong>verra</strong> pour se voir à mon retour !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Le futur simple se forme avec l'infinitif (ou un radical irrégulier) + les terminaisons <strong>-ai, -as, -a, -ons, -ez, -ont</strong>.</li>
+
+
+                <li>Il est idéal pour exprimer des projets lointains, des prévisions ou des résolutions.</li>
+
+
+                <li>Attention aux radicaux irréguliers indispensables : <em>être (ser-), avoir (aur-), aller (ir-), faire (fer-), pouvoir (pourr-)</em>.</li>
+
+
+                <li>Pour les verbes en <em>-re</em>, n'oubliez pas d'enlever le <em>e</em> de l'infinitif avant d'ajouter les terminaisons.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

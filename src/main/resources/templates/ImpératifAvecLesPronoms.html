@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A2 sur l'impératif avec les pronoms (COD, COI, y, en, place des pronoms) pour adultes débutants">
+
+    <title>L'impératif avec les pronoms - Français A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 L'impératif avec les pronoms
+        </h1>
+
+        <p class="lead">
+            Donner des ordres et des conseils en combinant l'impératif et les pronoms en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez placer correctement les pronoms
+                (COD, COI, réfléchis, <em>y</em> et <em>en</em>) avec les verbes à l'impératif,
+                que ce soit à la forme affirmative ou à la forme négative.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Rappel : Comment se forme l'impératif ?</h2>
+
+
+        <p>
+
+            L'impératif s'utilise pour donner un ordre, un conseil ou faire une suggestion.
+            Il n'a que trois personnes (<strong>tu, nous, vous</strong>) et on ne prononce jamais les pronoms sujets.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Parler :</strong> Parle ! / Parlons ! / Parlez !</li>
+
+            <li><strong>Finir :</strong> Finis ! / Finissons ! / Finissez !</li>
+
+            <li><strong>Attention aux verbes en -er :</strong> On supprime le <em>s</em> à la 2e personne du singulier (<em>tu parles → parle !</em>),
+                sauf s'ils sont suivis des pronoms <em>y</em> ou <em>en</em>.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La place des pronoms : Affirmatif vs Négatif</h2>
+
+
+        <p>
+
+            La règle change radicalement selon que vous donnez un ordre positif ou négatif (interdiction).
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Forme Affirmative (+)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Position</strong></td>
+                                <td>Le pronom est <strong>après</strong> le verbe, relié par un <strong>tiret</strong>.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Ordre</strong></td>
+                                <td>Verbe - COD (le, la, les) - COI (lui, leur) - y - en</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Regarde <em>la</em> ! → <strong>Regarde-la !</strong><br>Donne le livre à Marc → <strong>Donne-le-lui !</strong></td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Forme Négative (-)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Position</strong></td>
+                                <td>Le pronom revient <strong>avant</strong> le verbe (ordre classique).</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Structure</strong></td>
+                                <td>Ne + Pronom(s) + Verbe + pas</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Ne regarde pas la → <strong>Ne la regarde pas !</strong><br>Ne le donne pas à Marc → <strong>Ne le lui donne pas !</strong></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Cas particuliers : "moi", "toi" et le maintien du "s"</h2>
+
+
+        <p>
+
+            Certains pronoms et liaisons modifient légèrement la structure de la phrase à l'impératif affirmatif.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Particularité</th>
+
+                <th>Règle et Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>Transformation me / te</strong></td>
+
+                <td>À l'impératif affirmatif, <em>me</em> et <em>te</em> deviennent <strong>moi</strong> et <strong>toi</strong>.<br>
+                    <em>Exemple :</em> Lève-toi ! (au lieu de *lève-te*).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Le retour du "s" (y et en)</strong></td>
+
+                <td>Pour les verbes en <em>-er</em>, on remet le <em>s</em> de la 2e personne du singulier devant <em>y</em> ou <em>en</em> pour faire la liaison.<br>
+                    <em>Exemple :</em> Pense à ton projet → Pense<strong>s-y</strong> ! / Mange de la soupe → Mange<strong>s-en</strong> !</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Le regarde ! (à la forme affirmative)</td>
+
+                <td><strong>Regarde-le !</strong> (À l'affirmatif, le pronom se place après le verbe avec un tiret).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ne le touche-pas ! (à la forme négative)</td>
+
+                <td>Ne <strong>le touche</strong> pas ! (À la forme négative, le pronom reste avant le verbe).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Parle-lui en. (ordre des pronoms)</td>
+
+                <td>Parle-<strong>lui-en</strong>. (L'ordre des pronoms COI avant 'en' est fixe).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Mange en ! (sans liaison)</td>
+
+                <td>Mange<strong>s-en</strong> ! (Le s revient devant "en" pour les verbes en -er).</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Maman :</strong> Thomas, ta chambre est en désordre ! <strong>Range-la</strong> tout de suite !
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> D'accord maman, je le fais.
+                </p>
+
+
+                <p>
+                    <strong>Maman :</strong> Et surtout, <strong>ne laisse pas</strong> tes affaires par terre. <strong> Mets-les</strong> dans l'armoire !
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> C'est bon, c'est fait. Je peux aller jouer dehors ?
+                </p>
+
+
+                <p>
+                    <strong>Maman :</strong> Attends ! Tu as fini tes devoirs ? <strong>Apporte-les-moi</strong> que je les vérifie avant.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li><strong>Forme affirmative (+) :</strong> Le pronom vient après le verbe (ex: <em>Donne-le-moi !</em>).</li>
+
+
+                <li><strong>Forme négative (-) :</strong> Le pronom reste avant le verbe (ex: <em>Ne me le donne pas !</em>).</li>
+
+
+                <li><em>Me</em> et <em>te</em> se transforment en <strong>moi</strong> et <strong>toi</strong> à l'impératif affirmatif (ex: <em>Lève-toi !</em>).</li>
+
+
+                <li>Pour les verbes en <em>-er</em>, on remet le <strong>s</strong> final devant <em>y</em> et <em>en</em> (ex: <em>Vas-y ! / Manges-en !</em>).</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

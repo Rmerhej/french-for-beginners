@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français A2 sur l'imparfait de l'indicatif (formation, terminaisons, emplois) pour adultes débutants">
+
+    <title>L'imparfait - Français A2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 L'imparfait
+        </h1>
+
+        <p class="lead">
+            Décrire le passé, les habitudes et les situations en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de former l'<strong>imparfait de l'indicatif</strong>
+                pour tous les verbes et de savoir quand l'utiliser pour raconter des souvenirs,
+                décrire un décor ou exprimer des habitudes dans le passé.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que l'imparfait ?</h2>
+
+
+        <p>
+
+            L'imparfait est un temps du passé qui sert principalement à peindre le décor,
+            à raconter des actions qui ont duré ou à exprimer des habitudes dans le passé
+            (contrairement au passé composé qui sert pour des actions ponctuelles et terminées).
+
+        </p>
+
+
+        <ul>
+
+            <li>Il exprime une description (ex: <em>Il faisait beau.</em>)</li>
+
+            <li>Il exprime une habitude (ex: <em>Quand j'étais petit, je jouais au foot.</em>)</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La formation de l'imparfait</h2>
+
+
+        <p>
+
+            La règle générale est très simple : on prend le radical du verbe à la première personne du pluriel
+            (<strong>nous</strong>) au présent de l'indicatif, on enlève le <em>-ons</em>,
+            et on ajoute les terminaisons de l'imparfait.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>Terminaisons :</strong> -ais, -ais, -ait, -ions, -iez, -aient</li>
+
+                <li><strong>Parler (nous parlons) :</strong> je parlais, tu parlais, il parlait, nous parlions, vous parliez, ils parlaient.</li>
+
+                <li><strong>Finir (nous finissons) :</strong> je finissais, tu finissais, il finissait, nous finissions, vous finissiez, ils finissaient.</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Particularités orthographiques et verbes courants</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Verbes en -ger et -cer
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Manger</strong><br><em>Ajout d'un e devant a</em></td>
+                                <td>Je mang<strong>e</strong>ais, tu mang<strong>e</strong>ais, il mang<strong>e</strong>ait<br><em>mais</em> nous mangions</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Commencer</strong><br><em>Cédille (ç) devant a</em></td>
+                                <td>Je comman<strong>ç</strong>ais, tu comman<strong>ç</strong>ais...<br><em>mais</em> nous commencions</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Le verbe ÊTRE (Irrégulier)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Radical unique :</strong> <em>ét-</em></td>
+                                <td>
+                                    J'<strong>étais</strong><br>
+                                    Tu <strong>étais</strong><br>
+                                    Il / Elle / On <strong>était</strong><br>
+                                    Nous <strong>étions</strong><br>
+                                    Vous <strong>étiez</strong><br>
+                                    Ils / Elles <strong>étaient</strong>
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Quand utiliser l'imparfait ? (Imparfait vs Passé composé)</h2>
+
+
+        <p>
+
+            Dans un récit au passé, on utilise l'imparfait pour le décor et le passé composé pour l'action principale.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Contexte / Rôle</th>
+
+                <th>Exemple</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>Description / Décor</strong></td>
+
+                <td>Il <strong>faisait</strong> froid et le soleil <strong>brillait</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Habitude dans le passé</strong></td>
+
+                <td>Quand j'étais jeune, je <strong>lisais</strong> beaucoup de livres.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Action en cours interrompue</strong></td>
+
+                <td>Je <strong>dormais</strong> quand le téléphone a sonné.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'étais avec le radical du présent "suis". (Je suisais)</td>
+
+                <td>J'<strong>étais</strong>. (Le verbe être a un radical entièrement irrégulier : ét-).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Nous mangions sans le "e".</td>
+
+                <td>Nous mang<strong>e</strong>ions. (Le "e" se conserve après le g pour garder le son doux [ʒ]).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ils avoient (avec le radical du présent).</td>
+
+                <td>Ils av<strong>aient</strong>. (Le radical de avoir à l'imparfait est av-).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Oublier le "i" à nous et vous (ex: nous parlons -> nous parlons).</td>
+
+                <td>Nous parl<strong>ions</strong>, vous parl<strong>iez</strong>. (Ne pas oublier le i des terminaisons -ions et -iez).</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Claire :</strong> Comment c'était tes vacances quand tu <strong>étais</strong> enfant ?
+                </p>
+
+
+                <p>
+                    <strong>Marc :</strong> C'<strong>était</strong> super ! Nous <strong>allions</strong> tous les ans à la mer.
+                </p>
+
+
+                <p>
+                    <strong>Claire :</strong> Qu'est-ce que tu <strong>faisais</strong> là-bas ?
+                </p>
+
+
+                <p>
+                    <strong>Marc :</strong> Il <strong>faisait</strong> toujours beau, alors je <strong>jouais</strong> sur la plage toute la journée et mes parents <strong>nageaient</strong>.
+                </p>
+
+
+                <p>
+                    <strong>Claire :</strong> Ça fait rêver ! Moi, je restais souvent à la maison.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>L'imparfait se forme à partir du radical de "nous" au présent + les terminaisons <strong>-ais, -ais, -ait, -ions, -iez, -aient</strong>.</li>
+
+
+                <li>Le verbe <strong>être</strong> est irrégulier et utilise le radical <em>ét-</em> (j'étais).</li>
+
+
+                <li>Il sert à décrire le décor, exprimer des habitudes ou parler d'une action en cours dans le passé.</li>
+
+
+                <li>N'oubliez pas les <em>e</em> et les cédilles pour les verbes en <em>-ger</em> et <em>-cer</em> (sauf avec nous et vous).</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
