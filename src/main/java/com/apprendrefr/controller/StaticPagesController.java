@@ -113,8 +113,6 @@ public class StaticPagesController {
     public String allerSurLeConditionnelDePolitesse() {return "LeConditionnelDePolitesse";
     }
 
-    public String allerSurConjugaison() {return "conjugaison";}
-
     @GetMapping("/auxiliaires")
     public String allerSurAuxiliaires() {
         return "auxiliaires";
