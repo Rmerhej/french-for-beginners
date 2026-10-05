@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 02 oct. 2026 à 12:03
+-- Généré le : lun. 05 oct. 2026 à 08:29
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=675 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=687 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -702,7 +702,19 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (671, 'A', 'Valentine précise : « Je suis en train de nettoyer les étagères ».', 'Les lieux', 'Elle nettoie les étagères', 'Elle prépare le thé', 'Elle téléphone à ses parents', 'Elle peint les murs du salon', 'Que fait Valentine pendant que les déménageurs s\'occupent des cartons ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (672, 'C', 'Valentine est un sujet féminin singulier (« Un peu fatiguée »).', 'Les lieux', 'fatigué', 'fatiguées', 'fatiguée', 'fatigués', 'À la fin du déménagement, Valentine répond au téléphone : « Oui, ça va. Un peu ______ »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (673, 'C', 'La structure « être en train de » est toujours suivie de l\'infinitif (« boire »).', 'Les lieux', 'buvant', 'bois', 'boire', 'bu', 'Julie écrit : « Au moment où je t\'écris, je suis en train de ______ un bon thé bien chaud. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(674, 'A', 'Le texte indique explicitement : « En septembre, il y a des dizaines de brocantes ! ».', 'Les lieux', 'septembre', 'janvier', 'juillet', 'décembre', 'Julie mentionne une période propice pour les brocantes : « En ______ , il y a des dizaines de brocantes !', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+(674, 'A', 'Le texte indique explicitement : « En septembre, il y a des dizaines de brocantes ! ».', 'Les lieux', 'septembre', 'janvier', 'juillet', 'décembre', 'Julie mentionne une période propice pour les brocantes : « En ______ , il y a des dizaines de brocantes !', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(675, 'La girafe', '', 'Les animaux', 'Le zèbre', 'La girafe', 'Le panda', 'Le tigre', 'Quel animal a un très long cou ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(676, 'Le panda', '', 'Les animaux', 'Le panda', 'Le dauphin', 'Le pingouin', 'Le zèbre', 'Quel animal mange principalement du bambou ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(677, 'Le zèbre', '', 'Les animaux', 'Le tigre', 'Le panda', 'Le lion', 'Le zèbre', 'Quel animal possède des rayures noires et blanches ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(678, 'Le dauphin', '', 'Les animaux', 'Le pingouin', 'Le chien', 'Le dauphin', 'La girafe', 'Quel animal vit dans la mer et ressemble à un gros poisson ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(679, 'Le pingouin', '', 'Les animaux', 'Le zèbre', 'Le panda', 'Le dauphin', 'Le pingouin', 'Quel animal est un oiseau qui ne vole pas et qui vit dans les régions froides ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(680, 'Le chien', '', 'Les animaux', 'Le chat', 'Le tigre', 'Le lion', 'Le chien', 'Quel animal est souvent considéré comme le meilleur ami de l’homme ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(681, 'Le chat', '', 'Les animaux', 'Le chien', 'Le chat', 'Le lion', 'Le dauphin', 'Quel animal miaule ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(682, 'Le', '', 'Les animaux', 'La', 'Les', 'Le', 'L\'', 'Quel article utilise-t-on avec « ___ lion » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(683, 'La', '', 'Les animaux', 'La', 'Le', 'L\'', 'Les', 'Quel article utilise-t-on avec « ___ girafe » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(684, 'L’éléphant', '', 'Les animaux', 'Le éléphant', 'La éléphant', 'L’éléphant', 'Les éléphant', 'Quelle est la bonne expression ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(685, 'Le panda', '', 'Les animaux', 'La panda', 'L’panda', 'Les panda', 'Le panda', 'Quelle est la bonne expression ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(686, 'Le dauphin est un animal marin.', '', 'Les animaux', 'La dauphin est un animal marin.', 'Le dauphin est un animal marin.', 'L’dauphin est un animal marin.', 'Les dauphin est un animal marin.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -834,7 +846,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=460 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=522 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -879,22 +891,22 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (42, 'contentes', '', 'Les filles sont____', 'Accords des adjectifs - Grammaire', 'contents,contentes', NULL),
 (43, 'bleu', '', 'Un ciel____', 'Accords des adjectifs - Grammaire', 'bleue,bleu', NULL),
 (44, 'Je', '', '____ vais au marché .', 'Les pronoms - Grammaire', 'Moi,Je,Me', NULL),
-(45, 'ils', '', 'Marie et Paul,____ sont amis .', 'Les pronoms - Grammaire', 'eux,ils,lui', NULL),
+(45, 'ils', '', 'Marie et Paul -->____ sont amis .', 'Les pronoms - Grammaire', 'eux,ils,lui', NULL),
 (46, 'mon', '', 'Ce livre est à moi --> C\'est____ livre .', 'Les pronoms - Grammaire', 'le mien,mon,mien', NULL),
 (47, 'nos', '', 'Ces stylos sont à nous --> Ce sont____ stylos .', 'Les pronoms - Grammaire', 'notre,nos,les nôtres', NULL),
 (48, 'celui-ci', '', 'Tu veux____ ou celui-là ?', 'Les pronoms - Grammaire', 'celle,ce,celui-ci', NULL),
 (49, 'qui', '', 'La fille____ parle est ma soeur .', 'Les pronoms - Grammaire', 'dont,que,qui', NULL),
 (50, 'il', '', '____ aime le chocolat .', 'Les pronoms - Grammaire', 'je,tu,il,nous', NULL),
 (51, 'nous', '', '____ allons au cinéma .', 'Les pronoms - Grammaire', 'ils,nous,vous,elle', NULL),
-(52, 'elles', '', 'Larie et Sophie,____ sont en classe .', 'Les pronoms - Grammaire', 'il,elles,nous,vous', NULL),
+(52, 'elles', '', 'Larie et Sophie -->____ sont en classe .', 'Les pronoms - Grammaire', 'il,elles,nous,vous', NULL),
 (53, 'la', NULL, 'Je mange une pomme. -->Je____ mange .', 'Les pronoms - Grammaire', 'lui,la,leur,y', NULL),
-(54, 'le', NULL, 'Nous regardons le film . Nous____ regardons .', 'Les pronoms - Grammaire', 'lui,y,le,leur', NULL),
+(54, 'le', NULL, 'Nous regardons le film .--> Nous____ regardons .', 'Les pronoms - Grammaire', 'lui,y,le,leur', NULL),
 (55, 'les', NULL, 'Tu prends les clés --> Tu ____ prends .', 'Les pronoms - Grammaire', 'leur,lui,en,les', NULL),
 (56, 'lui', NULL, 'Je parle à Paul . --> Je ____ parle', 'Les pronoms - Grammaire', 'le,la,lui,les', NULL),
 (57, 'le mien', NULL, 'Ce livre est à moi.--> c\'est ____', 'Les pronoms - Grammaire', 'mon,mien,le mien,le leur', NULL),
 (58, 'que', NULL, 'Le livre ____ je lis est intéressant .', 'Les pronoms - Grammaire', 'dont,qui,que', NULL),
 (59, 'rouges', '', 'des voitures ____', 'Les Adjectifs(Accord au pluriel) - Grammaire', 'rouge,rouges,rougeses', NULL),
-(60, 'noirs', NULL, 'Des chats _____', 'Les Adjectifs(Accord au pluriel) - Grammaire', 'noir,noirs,noires', NULL),
+(60, 'noirs', '', 'Des chats ____', 'Les Adjectifs(Accord au pluriel) - Grammaire', 'noir,noirs,noires', NULL),
 (61, 'contents', NULL, 'Des garçons ____', 'Les Adjectifs(Accord au pluriel) - Grammaire', 'contente,contentes,contents', NULL),
 (62, 'sérieux', NULL, 'Des élèves ____', 'Les Adjectifs(Accord au pluriel) - Grammaire', 'sérieuse,sérieuxs,sérieux', NULL),
 (63, 'le', NULL, 'Je pars ____ lundi .', 'Les Expressions de temps - Grammaire', 'à,le,en', NULL),
@@ -1293,7 +1305,69 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (456, 'la grippe', NULL, 'Dans son courriel à Jane, Julie explique qu\'elle a attrapé ____.', 'Les lieux', 'la grippe,un rhume,la migraine,une angine', NULL),
 (457, 'sommes en train de repeindre,suis en train de nettoyer,suis en train de chercher,suis en train de boire', NULL, '1. Attention, nous ____ le couloir !\r\n2. Je ____ les étagères.\r\n3. Je ____sur Internet des brocantes.\r\n4. Je ____ un bon thé bien chaud.', 'Les lieux', 'suis en train de nettoyer,suis en train de chercher,suis en train de boire,sommes en train de repeindre', NULL),
 (458, 'contre,au milieu de,dans,sur', NULL, '1. Le canapé est ____ le mur de droite.\r\n2. La table est ____ la salle à manger.\r\n3. Mettez cela ____ l\'entrée.\r\n4. Posez la valise ____ la table. ', 'Les lieux', 'contre,dans,au milieu de,sur', NULL),
-(459, 'montez,continuez,prenez,traversez', NULL, '1. Vous ____ l\'escalier B à gauche.\r\n2. Vous ____ tout droit dans le couloir.\r\n3. Vous ____ l\'avenue Jean Jaurès.\r\n4. Vous ____ ce pont.', 'Les lieux', 'prenez,traversez,montez,continuez', NULL);
+(459, 'montez,continuez,prenez,traversez', NULL, '1. Vous ____ l\'escalier B à gauche.\r\n2. Vous ____ tout droit dans le couloir.\r\n3. Vous ____ l\'avenue Jean Jaurès.\r\n4. Vous ____ ce pont.', 'Les lieux', 'prenez,traversez,montez,continuez', NULL),
+(460, 'vieux', NULL, 'Ce manteau est très _____ .', 'Accords des adjectifs', 'vieille,vieux,vieil', NULL),
+(461, 'neuve', '', 'J\'ai acheté une voiture ____ .', 'Accords des adjectifs', 'neuve,neuf,neuves', NULL),
+(462, 'sérieux', '', 'Ce sont des garçons très ____ .', 'Accords des adjectifs', 'serieuses,sérieuse,sérieux', NULL),
+(463, 'orange', NULL, 'Ces fleurs ont une couleur ____ .', 'Accords des adjectifs', 'orange,oranges,orangée', NULL),
+(464, 'âgés', NULL, 'Mes grands-parents sont ____ .', 'Accords des adjectifs', 'âgé,âgée,âgés', NULL),
+(465, 'longue', NULL, 'Elle porte une jupe ____ .', 'Accords des adjectifs', 'long,longue,longues', NULL),
+(466, 'beaux', NULL, 'Regarde ces ____ oiseaux !', 'Accords des adjectifs', 'beaux,bel,beau', NULL),
+(467, 'grande', NULL, 'Ma sœur est plus ____ que moi.', 'Accords des adjectifs', 'grand,grande,grandes', NULL),
+(468, 'petit', '', 'Dans la phrase « Le petit chat dort sur le canapé », quel mot est l\'adjectif qualificatif ?____', 'Les adjectifs qualificatifs- Grammaire', 'chat,petit,dort', NULL),
+(469, 'intelligente', '', 'Ma sœur est très ____', 'Les adjectifs qualificatifs- Grammaire', 'intelligente,intelligent,intelligentes', NULL),
+(470, 'intéressants', '', 'Ce sont des livres ____', 'Les adjectifs qualificatifs- Grammaire', 'intéressant,intéressante,intéressants', NULL),
+(471, 'bon', '', 'J\'ai vu un ____ film hier soir.', 'Les adjectifs qualificatifs- Grammaire', 'bon,film,hier', NULL),
+(472, 'blanche', '', 'Elle porte une chemise ____ .', 'Les adjectifs qualificatifs- Grammaire', 'blanc,blanche,blanches', NULL),
+(473, 'animées', '', 'Les rues de cette ville sont ____', 'Les adjectifs qualificatifs- Grammaire', 'animé,animée,animées', NULL),
+(474, 'marron', NULL, 'Mon père a acheté une voiture ____ .', 'Les adjectifs qualificatifs- Grammaire', 'marrons,marronne,marron', NULL),
+(475, 'magnifique', NULL, 'Dans la phrase « Il fait un temps magnifique », quel mot qualifie le nom « temps » ?____', 'Les adjectifs qualificatifs- Grammaire', 'temps,fait,magnifique', NULL),
+(476, 'gros', NULL, 'Mon oncle est un homme ____', 'Les adjectifs qualificatifs- Grammaire', 'grosses,gros,grosse', NULL),
+(477, 'chaude', NULL, 'La soupe est ____', 'Les adjectifs qualificatifs- Grammaire', 'chaud,chaude,chaudes', NULL),
+(478, 'globaux', NULL, 'Ce sont des problèmes ____', 'Les adjectifs qualificatifs- Grammaire', 'globals,globaux,global', NULL),
+(479, 'prends', NULL, 'Tous les matins, je ____ le bus pour aller à l\'école.', 'Verbes réguliers - Grammaire', 'prendes,prends,prend', NULL),
+(480, 'parles', NULL, 'Tu ____ français très bien !', 'Verbes réguliers - Grammaire', 'parle,parles,parlent', NULL),
+(481, 'regarde', NULL, 'Marie ____ la télévision le soir.', 'Verbes réguliers - Grammaire', 'regardes,regardent,regarde', NULL),
+(482, 'mangeons', NULL, 'Nous ____ au restaurant ce soir.', 'Verbes réguliers - Grammaire', 'mangeons,mangez,mangent', NULL),
+(483, 'aimez', NULL, 'Est-ce que vous ____le tennis ?', 'Verbes réguliers - Grammaire', 'aime,aimes,aimez', NULL),
+(484, 'jouent', NULL, 'Les enfants ____dans le jardin.\r\n\r\n', 'Verbes réguliers - Grammaire', 'joue,jouons,jouent', NULL),
+(485, 'travailler', NULL, 'Pour réussir ton examen, tu dois ____ tes leçons.', 'Verbes réguliers - Grammaire', 'travaillait,travailler,travailles', NULL),
+(486, 'suis', NULL, 'Je ____fatigué aujourd\'hui.', 'Les auxiliaires - Grammaire', 'suis,es,est', NULL),
+(487, 'as', '', 'Tu ____une belle voiture rouge.', 'Les auxiliaires - Grammaire', 'a,as,ai', NULL),
+(488, 'sont', NULL, 'Marie et Paul ____étudiants à l\'université.', 'Les auxiliaires - Grammaire', 'sommes,êtes,sont', NULL),
+(489, 'avons', NULL, 'Nous ____vingt ans.', 'Les auxiliaires - Grammaire', 'avez,ont,avons', NULL),
+(490, 'êtes', NULL, 'Vous ____français ou canadien ?', 'Les auxiliaires - Grammaire', 'sommes,êtes,sont', NULL),
+(491, 'ai', NULL, 'J\'____faim, je veux manger une pizza.', 'Les auxiliaires - Grammaire', 'as,a,ai', NULL),
+(492, 'ai', NULL, 'Hier, j\'____mangé une pomme.', 'Les auxiliaires - Grammaire', 'suis,ai,as', NULL),
+(493, 'est', NULL, 'Elle ____allée au cinéma hier soir.', 'Les auxiliaires - Grammaire', 'a,est,sont', NULL),
+(494, 'ce', NULL, 'Regarde ____livre, il est passionnant !', 'Adjectifs démonstratifs - Grammaire', 'cet,ce,cette', NULL),
+(495, 'cet', NULL, 'J\'aime beaucoup ____appartement.', 'Adjectifs démonstratifs - Grammaire', 'ce,cet,ces', NULL),
+(496, 'cette', NULL, 'Elle porte ____belle robe rouge.', 'Adjectifs démonstratifs - Grammaire', 'ce,cette,ces', NULL),
+(497, 'ces', NULL, '____ enfants jouent dans le parc.', 'Adjectifs démonstratifs - Grammaire', 'cet,cette,ces', NULL),
+(498, 'cet', NULL, '____ hôtel est très confortable.', 'Adjectifs démonstratifs - Grammaire', 'ce,cet,cette', NULL),
+(499, 'cette', NULL, '____ amie vient de Paris.', 'Adjectifs démonstratifs - Grammaire', 'cet,cette,ces', NULL),
+(500, 'ces', NULL, 'Tu prends ____ photos pour ton album ?', 'Adjectifs démonstratifs - Grammaire', 'ce,cette,ces', NULL),
+(501, 'petits', '', 'Les chats de mon voisin sont ____ .', 'Les adjectifs(Accord au pluriel)', 'petit,petite,petits', NULL),
+(502, 'belles', '', 'Ces fleurs sont très ____.', 'Les adjectifs(Accord au pluriel)', 'beau,belles,belle', NULL),
+(503, 'fixes', '', 'Mes parents ont des horaires ____.', 'Les adjectifs(Accord au pluriel)', 'fixe,fixes,fixees', NULL),
+(504, 'globaux', '', 'Ce sont des problèmes ____.', 'Les adjectifs(Accord au pluriel)', 'globals,globaux,global', NULL),
+(505, 'noirs', '', 'Le chien et le chat sont ____.', 'Les adjectifs(Accord au pluriel)', 'noir,noire,noirs', NULL),
+(506, 'beaux', '', 'Regarde ces ____paysages !', 'Les adjectifs(Accord au pluriel)', 'beaux,beau,bel', NULL),
+(507, 'ouvertes', '', 'Les portes de la maison sont ____.', 'Les adjectifs(Accord au pluriel)', 'ouvert,ouverte,ouvertes', NULL),
+(508, 'maintenant', NULL, 'Qu\'est-ce que tu fais ____? Je regarde un film.', 'Les Expressions de temps - Grammaire', 'hier,maintenant,demain', NULL),
+(509, 'demain', NULL, 'Nous allons partir en vacances ____.', 'Les Expressions de temps - Grammaire', 'hier,demain,avant-hier', NULL),
+(510, 'hier', '', 'Je suis arrivé à Paris ____', 'Les Expressions de temps - Grammaire', 'hier,demain,bientôt', NULL),
+(511, 'tous', NULL, 'Elle fait du sport ____les matins, du lundi au vendredi.', 'Les Expressions de temps - Grammaire', 'tout,tous,toutes', NULL),
+(512, 'il y a trois', NULL, 'J\'ai rencontré mon meilleur ami ____ans.', 'Les Expressions de temps - Grammaire', 'il y a trois,pendant trois,dans trois', NULL),
+(513, 'dans', NULL, 'Le train va arriver ____cinq minutes, dépêche-toi !', 'Les Expressions de temps - Grammaire', 'il y a,dans,pendant', NULL),
+(514, 'le tien', NULL, 'J\'ai oublié mon stylo. Tu peux me prêter ____?', 'Pronoms possessifs et démonstratifs - Grammaire', 'le tien,la tienne,les tiens', NULL),
+(515, 'la tienne', NULL, 'Ma voiture est au garage. Je peux prendre ____?', 'Pronoms possessifs et démonstratifs - Grammaire', 'le mien,la mienne,la tienne', NULL),
+(516, 'les miens', NULL, 'Tes résultats sont excellents, mais regarde ____!', 'Pronoms possessifs et démonstratifs - Grammaire', 'le mien,la mienne,les miens', NULL),
+(517, 'celui-ci', NULL, 'Quel manteau tu préfères ? ____ou celui-là ?', 'Pronoms possessifs et démonstratifs - Grammaire', 'ceux,celui,celui-ci', NULL),
+(518, 'celle', NULL, 'Je n\'aime pas cette chemise, je préfère ____en soie.', 'Pronoms possessifs et démonstratifs - Grammaire', 'celui,celle,celles', NULL),
+(519, 'celles-ci', NULL, 'De toutes ces chaussures, ____sont les plus confortables.', 'Pronoms possessifs et démonstratifs - Grammaire', 'celle,celles,celles-ci', NULL),
+(520, 'les siennes', NULL, 'Paul a perdu ses clés, mais Julie a retrouvé ____.', 'Pronoms possessifs et démonstratifs - Grammaire', 'les siennes,les siens,le sien', NULL),
+(521, 'celui-ci', NULL, 'Je ne veux pas ce livre-là, je veux ____ .', 'Pronoms possessifs et démonstratifs - Grammaire', 'celle-ci,ceux-ci,celui-ci', NULL);
 
 -- --------------------------------------------------------
 
