@@ -47,7 +47,7 @@
         <div class="mb-3">
             <label>Image de la leçon</label>
             <input type="file" class="form-control" name="imageFile" accept="image/*"/>
-            <small class="text-muted" th:if="${lesson.imageUrl}">
+            <small class="text-secondary" th:if="${lesson.imageUrl}">
                 Image actuelle : <a th:href="${lesson.imageUrl}" target="_blank">Voir</a>
             </small>
         </div>
