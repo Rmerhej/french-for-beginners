@@ -3,6 +3,7 @@ package com.apprendrefr.controller;
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.Lesson;
 import com.apprendrefr.entity.Vocabulary;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.LessonService;
@@ -53,13 +54,11 @@ public class LessonController {
 
     @GetMapping("/niveauConsolidation")
     public String niveauConsolidation(Model model) {
-        // model.addAttribute("lessons", lessonService.findAll());
         return "niveauConsolidation";
     }
 
     @GetMapping("/niveauApprofondissement")
     public String niveauApprofondissement(Model model) {
-        // model.addAttribute("lessons", lessonService.findAll());
         return "niveauApprofondissement";
     }
 
@@ -72,7 +71,7 @@ public class LessonController {
     @GetMapping("/lesson/{id}")
     public String lessonDetail(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Leçon non trouvée"));
+                .orElseThrow(() -> new ResourceNotFoundException("Leçon non trouvée"));
 
         model.addAttribute("lesson", lesson);
         return "lesson-detail";
@@ -81,7 +80,7 @@ public class LessonController {
     @GetMapping("/lesson/{id}/vocabulary")
     public String lessonVocabulary(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Leçon non trouvée"));
+                .orElseThrow(() -> new ResourceNotFoundException("Leçon non trouvée"));
 
         List<Vocabulary> vocab = vocabularyService.findByLessonId(id);
 
@@ -94,7 +93,7 @@ public class LessonController {
     @GetMapping("/lesson/{id}/exercises")
     public String lessonExercises(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Leçon non trouvée"));
+                .orElseThrow(() -> new ResourceNotFoundException("Leçon non trouvée"));
 
         List<Exercise> exercises = exerciseService.findByLessonTitle(lesson.getTitle());
 
@@ -116,7 +115,7 @@ public class LessonController {
 
         if (keyword != null && !keyword.trim().isEmpty()) {
             lessonsPage = lessonService.searchLessons(keyword.trim(), pageable);
-            model.addAttribute("keyword", keyword); //  garder la valeur dans l'input
+            model.addAttribute("keyword", keyword);
         } else {
             lessonsPage = lessonService.findAll(pageable);
         }
@@ -189,7 +188,7 @@ public class LessonController {
     @GetMapping("/admin/lessons/edit/{id}")
     public String editLessonForm(@PathVariable Long id, Model model) {
         Lesson lesson = lessonService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Leçon non trouvée"));
+                .orElseThrow(() -> new ResourceNotFoundException("Leçon non trouvée"));
         model.addAttribute("lesson", lesson);
         return "admin/lesson-form";
     }

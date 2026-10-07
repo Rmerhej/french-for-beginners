@@ -2,6 +2,7 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.entity.Theme;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.QuizService;
 import com.apprendrefr.service.ThemeService;
@@ -42,7 +43,7 @@ public class ThemeController {
     @GetMapping("/themes/{nom}")
     public String showTheme(@PathVariable String nom, Model model) {
         Theme theme = themeService.findByNom(nom)
-                .orElseThrow(() -> new RuntimeException("Thème non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Thème non trouvé"));
 
         model.addAttribute("theme", theme);
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase(theme.getNom()));

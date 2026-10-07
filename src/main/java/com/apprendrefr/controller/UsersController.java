@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.User;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -62,7 +63,7 @@ public class UsersController {
     @GetMapping("/admin/users/edit/{id}")
     public String editUserForm(@PathVariable Long id, Model model) {
         User user = userService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé"));
         model.addAttribute("user", user);
         return "admin/user-form";
     }

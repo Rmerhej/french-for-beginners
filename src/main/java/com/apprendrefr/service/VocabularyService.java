@@ -21,7 +21,7 @@ public class VocabularyService {
     }
 
     public long count() {
-        return vocabularyRepository.count(); // Cette méthode existe déjà sans que vous ayez à la créer !
+        return vocabularyRepository.count();
     }
 
     public List<Vocabulary> findAll() {

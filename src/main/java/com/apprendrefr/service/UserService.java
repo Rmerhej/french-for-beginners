@@ -32,7 +32,7 @@ public class UserService {
         System.out.println("=== REGISTER USER START ===");
 
         if (userRepository.existsByUsername(user.getUsername())) {
-            throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
+            throw new DuplicateResourceException("Ce nom d'utilisateur est déjà utilisé");
         }
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new DuplicateResourceException("Cet email est déjà utilisé");
@@ -97,7 +97,7 @@ public class UserService {
 
     public void changeRole(Long id, String newRole) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé"));
         user.setRole(newRole.toUpperCase());
         userRepository.save(user);
     }
