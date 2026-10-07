@@ -12,7 +12,7 @@ public class VisitorTrackerService {
 
     private final Map<String, Instant> visitors = new ConcurrentHashMap<>();
 
-    private static final long TIMEOUT_SECONDS = 300;
+    private static final long TIMEOUT_SECONDS = 60;
 
     public String registerVisitor(String visitorId) {
 

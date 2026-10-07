@@ -1,5 +1,6 @@
 package com.apprendrefr.service;
 
+import com.apprendrefr.exception.FileUploadException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +23,7 @@ public class FileUploadService {
             Files.createDirectories(uploadDir.resolve("images"));
             Files.createDirectories(uploadDir.resolve("audio"));
         } catch (IOException e) {
-            throw new RuntimeException("Impossible de créer les dossiers uploads", e);
+            throw new FileUploadException("Impossible de créer les dossiers uploads", e);
         }
     }
 
@@ -54,7 +55,7 @@ public class FileUploadService {
                 (extension.equals(".mp3") || extension.equals(".wav") || extension.equals(".ogg") || extension.equals(".m4a"));
 
         if (!isImage && !isAudio) {
-            throw new RuntimeException("Type de fichier non autorisé : " + contentType);
+            throw new FileUploadException("Type de fichier non autorisé : " + contentType);
         }
 
         try {

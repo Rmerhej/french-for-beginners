@@ -1,6 +1,7 @@
 package com.apprendrefr.service;
 
 import com.apprendrefr.entity.User;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,11 +37,11 @@ public class AdminService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
     public void promoteToAdmin(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
-        user.setRole("ADMIN");
+                .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé avec l'id : " + userId));
+        user.setRole("ROLE_ADMIN");   // ← Attention : mieux avec le préfixe ROLE_
         userRepository.save(user);
     }
+
 }

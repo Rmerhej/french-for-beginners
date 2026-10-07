@@ -2,6 +2,7 @@ package com.apprendrefr.service;
 
 
 import com.apprendrefr.entity.Prononciation;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.repository.PrononciationRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +28,8 @@ public class PrononciationService {
     }
 
     public Prononciation findById(Long id) {
-
         return repository.findById(id)
-                .orElseThrow();
-
+                .orElseThrow(() -> new ResourceNotFoundException("Prononciation non trouvée avec l'id : " + id));
     }
 
     public Prononciation save(Prononciation prononciation) {
