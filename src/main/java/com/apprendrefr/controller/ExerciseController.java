@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.LessonService;
 import org.springframework.data.domain.Page;
@@ -72,7 +73,7 @@ public class ExerciseController {
     @GetMapping("/admin/exercises/edit/{id}")
     public String editExercise(@PathVariable Long id, Model model) {
         Exercise exercise = exerciseService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Exercice non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Exercice non trouvé"));
         model.addAttribute("exercise", exercise);
         model.addAttribute("lessons", lessonService.findAll());
         return "admin/exercise-form";

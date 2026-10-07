@@ -2,6 +2,7 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Lesson;
 import com.apprendrefr.entity.Vocabulary;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.ImageService;
 import com.apprendrefr.service.LessonService;
@@ -47,7 +48,7 @@ public class VocabularyController {
             if (vocabularyForm.getId() != null) {
 
                 vocabularyToSave = vocabularyService.findById(vocabularyForm.getId())
-                        .orElseThrow(() -> new RuntimeException("Mot de vocabulaire introuvable pour l'id : " + vocabularyForm.getId()));
+                        .orElseThrow(() -> new ResourceNotFoundException("Mot de vocabulaire introuvable pour l'id : " + vocabularyForm.getId()));
 
 
                 vocabularyToSave.setFrenchWord(vocabularyForm.getFrenchWord());
@@ -65,7 +66,7 @@ public class VocabularyController {
                 return "redirect:/admin/vocabulary/new";
             }
             Lesson lesson = lessonService.findById(vocabularyForm.getLessonId())
-                    .orElseThrow(() -> new RuntimeException("Leçon introuvable"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Leçon introuvable"));
             vocabularyToSave.setLesson(lesson);
             vocabularyToSave.setLessonId(vocabularyForm.getLessonId());
 
@@ -114,14 +115,14 @@ public class VocabularyController {
     @GetMapping("/admin/vocabulary/new")
     public String newVocabularyForm(Model model) {
         model.addAttribute("vocabulary", new Vocabulary());
-        model.addAttribute("lessons", lessonService.findAll());   // Pour le select des leçons
+        model.addAttribute("lessons", lessonService.findAll());
         return "admin/vocabulary-form";
     }
 
     @GetMapping("/admin/vocabulary/edit/{id}")
     public String editVocabularyForm(@PathVariable Long id, Model model) {
         Vocabulary vocab = vocabularyService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Mot non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Mot non trouvé"));
         model.addAttribute("vocabulary", vocab);
         model.addAttribute("lessons", lessonService.findAll());
         return "admin/vocabulary-form";

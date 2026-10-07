@@ -77,7 +77,7 @@ public class FileUploadService {
             return "/uploads/" + subFolder + "/" + newFileName;
 
         } catch (IOException e) {
-            throw new RuntimeException("Erreur lors de l'upload du fichier", e);
+            throw new FileUploadException("Erreur lors de l'upload du fichier", e);
         }
     }
 }
