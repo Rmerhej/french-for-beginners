@@ -11,46 +11,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class VisitorTrackerService {
 
     private final Map<String, Instant> visitors = new ConcurrentHashMap<>();
-
-    private static final long TIMEOUT_SECONDS = 60;
+    private static final long TIMEOUT_SECONDS = 90;
 
     public String registerVisitor(String visitorId) {
-
         if (visitorId == null || visitorId.isBlank()) {
             visitorId = UUID.randomUUID().toString();
         }
-
         visitors.put(visitorId, Instant.now());
-
         cleanup();
-
         return visitorId;
     }
 
     public void heartbeat(String visitorId) {
-
-       // System.out.println("Visitor : " + visitorId);
-        if (visitorId != null) {
+        if (visitorId != null && !visitorId.isBlank()) {
             visitors.put(visitorId, Instant.now());
         }
-
         cleanup();
     }
 
     public int getOnlineVisitors() {
-
         cleanup();
-
         return visitors.size();
     }
 
     private void cleanup() {
-
         Instant limit = Instant.now().minusSeconds(TIMEOUT_SECONDS);
-
-        visitors.entrySet().removeIf(
-                e -> e.getValue().isBefore(limit)
-        );
+        visitors.entrySet().removeIf(e -> e.getValue().isBefore(limit));
     }
-
 }
