@@ -38,12 +38,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+                .csrf(csrf -> csrf
+                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                        .ignoringRequestMatchers(
+                                "/visitor/**",          // ← ignore CSRF pour le tracking
+                                "/api/visitor/**"       // ← au cas où tu utilises le préfixe /api
+                        )
+                )
                 .authorizeHttpRequests(auth -> auth
                         // 1. Ressources publiques (Statiques + Pages publiques)
-                        .requestMatchers("/", "/index", "/register", "/login", "/logout", "/visitor/heartbeat",
+                        .requestMatchers(
+                                "/", "/index", "/register", "/login", "/logout",
+                                "/visitor/**",                    // ← plus simple
                                 "/css/**", "/js/**", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
-                                "/fragments/**", "/prononciationNew").permitAll()
+                                "/fragments/**", "/prononciationNew"
+                        ).permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
                         .requestMatchers("/prononciation", "/togoToAuBureu",
@@ -96,6 +105,7 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/") // Rediriger vers la racine "/" qui est autorisée
                         .permitAll()
                 );
+
 
         return http.build();
     }
