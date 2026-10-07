@@ -35,10 +35,6 @@ public class AuthController {
 
 
         if (bindingResult.hasErrors()) {
-            System.out.println("❌ Erreurs de validation détectées : " + bindingResult.getErrorCount() + " erreur(s)");
-            bindingResult.getFieldErrors().forEach(error -> {
-                System.out.println(" - Champ '" + error.getField() + "' : " + error.getDefaultMessage());
-            });
             model.addAttribute("user", user);
             return "register";
         }
@@ -49,20 +45,10 @@ public class AuthController {
             model.addAttribute("user", user);
             return "register";
         }
+        userService.registerUser(user);
+        redirectAttributes.addFlashAttribute("success", "✅ Inscription réussie ! Vous pouvez maintenant vous connecter.");
+        return "redirect:/login";
 
-
-        try {
-            System.out.println("Appel de UserService.registerUser() pour : " + user.getUsername());
-            userService.registerUser(user);
-            System.out.println("✅ Inscription réussie !");
-            redirectAttributes.addFlashAttribute("success", "✅ Inscription réussie ! Vous pouvez maintenant vous connecter.");
-            return "redirect:/login";
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "❌ Erreur : " + e.getMessage());
-            return "redirect:/register";
-        }
     }
 
     @GetMapping("/login")

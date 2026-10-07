@@ -1,6 +1,8 @@
 package com.apprendrefr.service;
 
 import com.apprendrefr.entity.User;
+import com.apprendrefr.exception.DuplicateResourceException;
+import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.repository.UserRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -33,7 +35,7 @@ public class UserService {
             throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
         }
         if (userRepository.existsByEmail(user.getEmail())) {
-            throw new RuntimeException("Cet email est déjà utilisé");
+            throw new DuplicateResourceException("Cet email est déjà utilisé");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -88,7 +90,7 @@ public class UserService {
     @CacheEvict(value = "users", key = "#id")
     public void toggleEnabled(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé"));
         user.setEnabled(!user.getEnabled());
         userRepository.save(user);
     }
