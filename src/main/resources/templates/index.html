@@ -1,4 +1,1063 @@
 <!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="~{fragments/head :: head(title='Accueil - Français pour Débutants')}"></head>
+
+<body>
+
+<a href="#main-content"
+   class="skip-link position-absolute bg-primary text-white p-2">
+    Aller au contenu principal
+</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">
+                Apprenez le français facilement
+            </h1>
+
+            <p class="lead">
+                Leçons claires • Vocabulaire avec audio • Exercices adaptés
+            </p>
+        </div>
+    </section>
+
+
+    <div class="container mt-5">
+
+        <!-- =====================================================
+             BIENVENUE
+             ===================================================== -->
+        <p sec:authorize="isAuthenticated()">
+            <span class="fw-bold text-primary">
+                Bienvenue
+            </span>
+
+            <span sec:authentication="name"
+                  class="fw-bold text-primary">
+            </span>
+        </p>
+
+
+        <!-- =====================================================
+             TEST DE POSITIONNEMENT
+             ===================================================== -->
+        <div class="card border-0 shadow-lg text-center text-white
+                    overflow-hidden my-4 position-relative test-card">
+
+            <div class="card-body p-5 position-relative">
+
+                <div class="mb-3">
+
+                    <span class="badge bg-white text-primary
+                                 px-3 py-2 rounded-pill fw-bold shadow-sm"
+                          style="font-size: 0.9rem;">
+                        🚀 Étape recommandée
+                    </span>
+
+                </div>
+
+                <h3 class="card-title fw-bold text-white mb-2 display-6">
+
+                    <span aria-hidden="true" class="me-2">
+                        🎯
+                    </span>
+
+                    Test de positionnement
+
+                </h3>
+
+                <p class="text-white-50 fs-5 mb-4 fw-medium">
+                    Évaluez votre niveau (A1 → B2) en quelques minutes
+                    pour trouver le parcours idéal.
+                </p>
+
+                <a th:href="@{/testEval}"
+                   class="btn btn-light btn-lg px-5 py-3 fw-bold
+                          text-primary shadow-sm rounded-pill"
+                   style="transition: all 0.3s ease;">
+
+                    Passer le test maintenant
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <br><br>
+
+
+        <!-- =====================================================
+             TITRE DES PARCOURS
+             ===================================================== -->
+        <h2 class="text-center mb-2">
+            Choisissez votre parcours
+        </h2>
+
+        <p class="text-muted text-center mb-5">
+            Trois étapes, pensées pour progresser dans l'ordre.
+        </p>
+
+
+        <!-- =====================================================
+             1 - DÉBUTANT COMPLET
+             ===================================================== -->
+        <section class="mb-5 py-4">
+
+            <div class="d-flex align-items-center mb-3">
+
+                <span class="badge bg-primary rounded-circle p-2 fs-6 me-2
+                             d-flex align-items-center justify-content-center"
+                      style="width: 36px; height: 36px;">
+                    1
+                </span>
+
+                <div>
+
+                    <h3 class="mb-0 fw-bold">
+                        Débutant complet
+                    </h3>
+
+                    <span class="badge level-badge level-badge-primary mt-1">
+                        Pré-A1 → A1
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-muted mb-4 fs-6">
+                Pour poser les toutes premières briques :
+                sons, chiffres, verbes et premiers mots du quotidien.
+            </p>
+
+
+            <!-- Carte du parcours -->
+            <div class="card border-0 shadow-sm p-4 mb-4 parcours-card parcours-card-primary">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+
+                        <h5 class="fw-bold mb-2">
+                            🎯 Ce que contient ce parcours :
+                        </h5>
+
+                        <ul class="list-unstyled mb-0 parcours-list">
+
+                            <li class="mb-1">
+                                📚
+                                <strong>
+                                    Leçons de vocabulaire
+                                </strong>
+                                (Fruits, Objets, Politesse...)
+                            </li>
+
+                            <li class="mb-1">
+                                🗣️
+                                <strong>
+                                    Modules de prononciation
+                                </strong>
+                                (Niveau Pré A1)
+                            </li>
+
+                            <li class="mb-1">
+                                🔢
+                                <strong>
+                                    Chiffres, lettres et verbes essentiels
+                                </strong>
+                            </li>
+
+                            <li class="mb-1">
+                                📚
+                                <strong>
+                                    Grammaire &amp; Conjugaison
+                                </strong>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-lg-4 text-lg-end">
+
+                        <a th:href="@{/niveauDebutant}"
+                           class="btn btn-primary btn-lg px-4 py-2
+                                  rounded-pill shadow-sm fw-bold">
+
+                            Explorer ce parcours →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             2 - CONSOLIDATION
+             ===================================================== -->
+        <section class="mb-5 py-4">
+
+            <div class="d-flex align-items-center mb-3">
+
+                <span class="badge bg-warning text-dark rounded-circle p-2 fs-6 me-2
+                             d-flex align-items-center justify-content-center fw-bold"
+                      style="width: 36px; height: 36px;">
+                    2
+                </span>
+
+                <div>
+
+                    <h3 class="mb-0 fw-bold">
+                        Consolidation
+                    </h3>
+
+                    <span class="badge level-badge level-badge-warning mt-1">
+                        A1 → A2
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-muted mb-4 fs-6">
+                Une fois les bases posées :
+                grammaire structurée, dialogues, quiz et
+                révisions hebdomadaires.
+            </p>
+
+
+            <!-- Carte du parcours -->
+            <div class="card border-0 shadow-sm p-4 mb-4 parcours-card parcours-card-warning">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+
+                        <h5 class="fw-bold mb-2">
+                            ⚡ Ce que contient ce niveau de consolidation :
+                        </h5>
+
+                        <ul class="list-unstyled mb-0 parcours-list">
+
+                            <li class="mb-1">
+                                📚
+                                <strong>
+                                    Leçons par thème
+                                </strong>
+                                (Dialogues + QCM +
+                                Exercices (glisser-déposer))
+                            </li>
+
+                            <li class="mb-1">
+                                📚
+                                <strong>
+                                    Grammaire &amp; Conjugaison
+                                </strong>
+                            </li>
+
+                            <li class="mb-1">
+                                ❓
+                                <strong>
+                                    Quiz d'entraînement
+                                </strong>
+                                et Culture générale (A1-A2)
+                            </li>
+
+                            <li class="mb-1">
+                                📝
+                                <strong>
+                                    Préparations et révisions
+                                </strong>
+                                des cours hebdomadaires
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-lg-4 text-lg-end">
+
+                        <a th:href="@{/niveauConsolidation}"
+                           class="btn btn-warning text-dark btn-lg px-4 py-2
+                                  rounded-pill shadow-sm fw-bold">
+
+                            Explorer la consolidation →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             3 - APPROFONDISSEMENT
+             ===================================================== -->
+        <section class="mb-5 py-4">
+
+            <div class="d-flex align-items-center mb-3">
+
+                <span class="badge bg-success rounded-circle p-2 fs-6 me-2
+                             d-flex align-items-center justify-content-center
+                             fw-bold text-white"
+                      style="width: 36px; height: 36px;">
+                    3
+                </span>
+
+                <div>
+
+                    <h3 class="mb-0 fw-bold">
+                        Approfondissement
+                    </h3>
+
+                    <span class="badge level-badge level-badge-success mt-1">
+                        A2 → B1
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-muted mb-4 fs-6">
+                Pour viser l'autonomie :
+                culture française et vie citoyenne.
+            </p>
+
+
+            <!-- Carte du parcours -->
+            <div class="card border-0 shadow-sm p-4 mb-4 parcours-card parcours-card-success">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+
+                        <h5 class="fw-bold mb-2">
+                            ⚡ Ce que contient ce niveau d'approfondissement :
+                        </h5>
+
+                        <ul class="list-unstyled mb-0 parcours-list">
+
+                            <li class="mb-1">
+                                🗼
+                                <strong>
+                                    FRANCE - LIVRET DU CITOYEN 2026
+                                </strong>
+                                Cours + QCM + QUIZ (A2-B1)
+                            </li>
+
+                            <li class="mb-1">
+                                📚
+                                <strong>
+                                    Grammaire &amp; Conjugaison
+                                </strong>
+                            </li>
+
+                            <li class="mb-1">
+                                🏛️
+                                <strong>
+                                    Quiz d'entraînement
+                                </strong>
+                                QCM Culture Française (B1)
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-lg-4 text-lg-end">
+
+                        <a th:href="@{/niveauApprofondissement}"
+                           class="btn btn-success btn-lg px-4 py-2
+                                  rounded-pill shadow-sm fw-bold">
+
+                            Explorer l'approfondissement →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <hr>
+
+        <br>
+
+
+        <!-- =====================================================
+             ACCÈS ANONYME
+             ===================================================== -->
+        <div class="text-center mt-5"
+             sec:authorize="isAnonymous()">
+
+            <div class="p-5 rounded-4 text-white login-card">
+
+                <h5 class="mb-3">
+                    🔒 Accès complet aux leçons
+                </h5>
+
+                <p class="lead mb-4">
+                    Vous devez vous connecter pour accéder à toutes
+                    les leçons et fonctionnalités.
+                </p>
+
+                <a th:href="@{/login}"
+                   class="btn btn-light btn-lg me-3">
+                    Se connecter
+                </a>
+
+                <a th:href="@{/register}"
+                   class="btn btn-outline-light btn-lg">
+                    Créer un compte
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<br>
+
+
+<!-- =============================================================
+     ENVIRONNEMENT DE DÉMONSTRATION
+     ============================================================= -->
+<div class="container my-5">
+
+    <div class="card border-0 shadow-sm p-4 text-center demo-card">
+
+        <div class="card-body">
+
+            <div class="mb-3">
+
+                <span class="badge bg-warning-subtle text-warning-emphasis
+                             px-3 py-2 rounded-pill fw-bold
+                             border border-warning-subtle"
+                      style="font-size: 0.85rem;">
+
+                    ⚠️ Environnement de Démonstration / Test
+
+                </span>
+
+            </div>
+
+
+            <p class="text-secondary small mb-2">
+
+                Ce site est actuellement en phase de test.
+                Les comptes sont fictifs et gérés par l'administrateur.
+
+            </p>
+
+
+            <p class="text-danger fw-semibold small mb-3">
+
+                🔒 Merci de ne pas renseigner vos véritables
+                informations personnelles.
+                Les données sont purgées régulièrement.
+
+            </p>
+
+
+            <div class="text-secondary fst-italic pt-3
+                        border-top demo-footer-text"
+                 style="font-size: 0.8rem;">
+
+                🎨 Les photos et illustrations présentes sur ce site
+                ont été générées par intelligence artificielle.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+
+<!-- =============================================================
+     BOOTSTRAP
+     ============================================================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- =============================================================
+     DARK MODE
+     ============================================================= -->
+<script>
+
+
+
+
+        function initThemeToggle() {
+
+            const toggleButton =
+                document.getElementById('darkModeToggle');
+
+            const themeIcon =
+                document.getElementById('themeIcon');
+
+            const themeText =
+                document.getElementById('themeText');
+
+
+            if (!toggleButton) {
+                return;
+            }
+
+
+            updateButtonUI(savedTheme);
+
+
+            toggleButton.addEventListener('click', function () {
+
+                const currentTheme =
+                    document.documentElement.getAttribute(
+                        'data-bs-theme'
+                    );
+
+
+                const newTheme =
+                    currentTheme === 'dark'
+                        ? 'light'
+                        : 'dark';
+
+
+                /*
+                 * Changement du thème Bootstrap
+                 */
+                document.documentElement.setAttribute(
+                    'data-bs-theme',
+                    newTheme
+                );
+
+
+                /*
+                 * Sauvegarde du choix
+                 */
+                localStorage.setItem(
+                    'theme',
+                    newTheme
+                );
+
+
+                /*
+                 * Mise à jour du bouton
+                 */
+                updateButtonUI(newTheme);
+
+            });
+
+
+            function updateButtonUI(theme) {
+
+                if (theme === 'dark') {
+
+                    if (themeIcon) {
+                        themeIcon.textContent = '☀️';
+                    }
+
+                    if (themeText) {
+                        themeText.textContent = 'Clair';
+                    }
+
+
+                    toggleButton.classList.remove(
+                        'btn-outline-secondary'
+                    );
+
+                    toggleButton.classList.add(
+                        'btn-outline-light'
+                    );
+
+
+                } else {
+
+                    if (themeIcon) {
+                        themeIcon.textContent = '🌙';
+                    }
+
+                    if (themeText) {
+                        themeText.textContent = 'Sombre';
+                    }
+
+
+                    toggleButton.classList.remove(
+                        'btn-outline-light'
+                    );
+
+                    toggleButton.classList.add(
+                        'btn-outline-secondary'
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        if (document.readyState === 'loading') {
+
+            document.addEventListener(
+                'DOMContentLoaded',
+                initThemeToggle
+            );
+
+        } else {
+
+            initThemeToggle();
+
+        }
+
+    })();
+
+</script>
+
+
+<!-- =============================================================
+     DARK MODE + STYLE DE LA PAGE
+     ============================================================= -->
+<style>
+
+    /* ============================================================
+       BODY
+       ============================================================ */
+
+    body {
+
+        display: grid;
+
+        grid-template-rows:
+            auto
+            1fr
+            auto;
+
+        min-height: 100vh;
+
+        background-color:
+            var(--bs-body-bg) !important;
+
+        color:
+            var(--bs-body-color) !important;
+    }
+
+
+    /* ============================================================
+       CARTES DES PARCOURS
+       ============================================================ */
+
+    .parcours-card {
+
+        border-radius: 16px;
+
+        color: var(--bs-body-color);
+
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+
+    }
+
+
+    /* ------------------------------------------------------------
+       Parcours 1 - Bleu
+       ------------------------------------------------------------ */
+
+    .parcours-card-primary {
+
+        background:
+            linear-gradient(
+                135deg,
+                #f8f9fa 0%,
+                #ffffff 100%
+            );
+
+        border-left:
+            5px solid #0d6efd !important;
+    }
+
+
+    /* ------------------------------------------------------------
+       Parcours 2 - Jaune
+       ------------------------------------------------------------ */
+
+    .parcours-card-warning {
+
+        background:
+            linear-gradient(
+                135deg,
+                #fffdf5 0%,
+                #ffffff 100%
+            );
+
+        border-left:
+            5px solid #ffc107 !important;
+    }
+
+
+    /* ------------------------------------------------------------
+       Parcours 3 - Vert
+       ------------------------------------------------------------ */
+
+    .parcours-card-success {
+
+        background:
+            linear-gradient(
+                135deg,
+                #f4fbf7 0%,
+                #ffffff 100%
+            );
+
+        border-left:
+            5px solid #198754 !important;
+    }
+
+
+    /* ============================================================
+       TEXTE DES CARTES
+       ============================================================ */
+
+    .parcours-card h5 {
+
+        color:
+            var(--bs-body-color);
+
+    }
+
+
+    .parcours-list {
+
+        color:
+            var(--bs-secondary-color);
+
+    }
+
+
+    .parcours-list strong {
+
+        color:
+            var(--bs-body-color);
+
+    }
+
+
+    /* ============================================================
+       BADGES DE NIVEAU
+       ============================================================ */
+
+    .level-badge {
+
+        padding:
+            0.35rem 0.65rem;
+
+        font-weight:
+            600;
+
+    }
+
+
+    /* Bleu */
+
+    .level-badge-primary {
+
+        color:
+            #0d6efd;
+
+        background-color:
+            rgba(13, 110, 253, 0.08);
+
+        border:
+            1px solid rgba(13, 110, 253, 0.35);
+
+    }
+
+
+    /* Jaune */
+
+    .level-badge-warning {
+
+        color:
+            #ffc107;
+
+        background-color:
+            rgba(255, 193, 7, 0.10);
+
+        border:
+            1px solid rgba(255, 193, 7, 0.45);
+
+    }
+
+
+    /* Vert */
+
+    .level-badge-success {
+
+        color:
+            #198754;
+
+        background-color:
+            rgba(25, 135, 84, 0.08);
+
+        border:
+            1px solid rgba(25, 135, 84, 0.35);
+
+    }
+
+
+    /* ============================================================
+       CARTE TEST
+       ============================================================ */
+
+    .test-card {
+
+        background:
+            linear-gradient(
+                135deg,
+                #0d6efd 0%,
+                #0a58ca 100%
+            );
+
+        border-radius:
+            20px;
+
+    }
+
+
+    /* ============================================================
+       CARTE CONNEXION
+       ============================================================ */
+
+    .login-card {
+
+        background:
+            linear-gradient(
+                135deg,
+                #6f42c1,
+                #9f7aea
+            );
+
+    }
+
+
+    /* ============================================================
+       CARTE ENVIRONNEMENT DE DÉMONSTRATION
+       ============================================================ */
+
+    .demo-card {
+
+        border-radius:
+            16px;
+
+        background-color:
+            var(--bs-tertiary-bg);
+
+        border:
+            1px solid var(--bs-border-color) !important;
+
+        color:
+            var(--bs-body-color);
+
+    }
+
+
+    /* Ligne supérieure de la mention IA */
+
+    .demo-footer-text {
+
+        border-color:
+            var(--bs-border-color) !important;
+
+    }
+
+
+    /* ============================================================
+       MODE SOMBRE
+       ============================================================ */
+
+    [data-bs-theme="dark"] .parcours-card-primary {
+
+        background:
+            linear-gradient(
+                135deg,
+                #1b2633 0%,
+                #212529 100%
+            );
+
+    }
+
+
+    [data-bs-theme="dark"] .parcours-card-warning {
+
+        background:
+            linear-gradient(
+                135deg,
+                #2a281f 0%,
+                #212529 100%
+            );
+
+    }
+
+
+    [data-bs-theme="dark"] .parcours-card-success {
+
+        background:
+            linear-gradient(
+                135deg,
+                #1c2a23 0%,
+                #212529 100%
+            );
+
+    }
+
+
+    /* Texte des cartes en mode sombre */
+
+    [data-bs-theme="dark"] .parcours-card h5 {
+
+        color:
+            #f8f9fa;
+
+    }
+
+
+    [data-bs-theme="dark"] .parcours-list {
+
+        color:
+            #adb5bd;
+
+    }
+
+
+    [data-bs-theme="dark"] .parcours-list strong {
+
+        color:
+            #dee2e6;
+
+    }
+
+
+    /* Badges en mode sombre */
+
+    [data-bs-theme="dark"] .level-badge-primary {
+
+        color:
+            #6ea8fe;
+
+        background-color:
+            rgba(13, 110, 253, 0.15);
+
+    }
+
+
+    [data-bs-theme="dark"] .level-badge-warning {
+
+        color:
+            #ffda6a;
+
+        background-color:
+            rgba(255, 193, 7, 0.15);
+
+    }
+
+
+    [data-bs-theme="dark"] .level-badge-success {
+
+        color:
+            #75b798;
+
+        background-color:
+            rgba(25, 135, 84, 0.15);
+
+    }
+
+
+    /* Carte démonstration en mode sombre */
+
+    [data-bs-theme="dark"] .demo-card {
+
+        background-color:
+            #212529;
+
+        border-color:
+            #495057 !important;
+
+    }
+
+
+    [data-bs-theme="dark"] .demo-card .text-secondary {
+
+        color:
+            #adb5bd !important;
+
+    }
+
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    @media (max-width: 991.98px) {
+
+        .parcours-card .text-lg-end {
+
+            margin-top:
+                1rem;
+
+            text-align:
+                left !important;
+
+        }
+
+    }
+
+</style>
+
+</body>
+
+</html>
+<!--<!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/head :: head(title='Accueil - Français pour Débutants')}"></head>
@@ -24,7 +1083,7 @@
         </p>
         <div class="card border-0 shadow-lg text-center text-white overflow-hidden my-4"
              style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); border-radius: 20px;">
-            <!-- Élément décoratif d'arrière-plan subtil (optionnel pour le style) -->
+
             <div class="card-body p-5 position-relative">
                 <div class="mb-3">
             <span class="badge bg-white text-primary px-3 py-2 rounded-pill fw-bold shadow-sm"
@@ -50,12 +1109,12 @@
         </div>
 
         <br><br>
-        <!-------------------------->
+
 
         <h2 class="text-center mb-2">Choisissez votre parcours</h2>
         <p class="text-muted text-center mb-5">Trois étapes, pensées pour progresser dans l'ordre.</p>
         <section class="mb-5 py-4">
-            <!-- En-tête de section principal -->
+
             <div class="d-flex align-items-center mb-3">
                 <span class="badge bg-primary rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center"
                       style="width: 36px; height: 36px;">1</span>
@@ -67,7 +1126,7 @@
             <p class="text-muted mb-4 fs-6">Pour poser les toutes premières briques : sons, chiffres, verbes et premiers
                 mots du quotidien.</p>
 
-            <!-- Bloc résumé / Carte principale de la section -->
+
             <div class="card border-0 shadow-sm p-4 mb-4"
                  style="border-radius: 16px; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-left: 5px solid #0d6efd!important;">
 
@@ -82,8 +1141,8 @@
                             <li class="mb-1">📚 <strong>Grammaire & Conjugaison</strong></li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <!-- CTA principal redirigeant vers la vue détaillée ou la page dédiée du niveau -->
+
+
                         <a th:href="@{/niveauDebutant}"
                            class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-sm fw-bold">
                             Explorer ce parcours →
@@ -95,9 +1154,9 @@
 
         </section>
 
-        <!----------------------------->
+
         <section class="mb-5 py-4">
-            <!-- En-tête de section -->
+
             <div class="d-flex align-items-center mb-3">
                 <span class="badge bg-warning text-dark rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center fw-bold"
                       style="width: 36px; height: 36px;">2</span>
@@ -109,7 +1168,7 @@
             <p class="text-muted mb-4 fs-6">Une fois les bases posées : grammaire structurée, dialogues, quiz et
                 révisions hebdomadaires.</p>
 
-            <!-- Bloc résumé / Carte principale de la section -->
+
             <div class="card border-0 shadow-sm p-4 mb-4"
                  style="border-radius: 16px; background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%); border-left: 5px solid #ffc107 !important;">
                 <div class="row align-items-center">
@@ -136,10 +1195,10 @@
 
         </section>
 
-        <!------------------------------------------------------------------------------>
+
 
         <section class="mb-5 py-4">
-            <!-- En-tête de section -->
+
             <div class="d-flex align-items-center mb-3">
                 <span class="badge bg-success rounded-circle p-2 fs-6 me-2 d-flex align-items-center justify-content-center fw-bold text-white"
                       style="width: 36px; height: 36px;">3</span>
@@ -150,7 +1209,7 @@
             </div>
             <p class="text-muted mb-4 fs-6">Pour viser l'autonomie : culture française et vie citoyenne.</p>
 
-            <!-- Bloc résumé / Carte principale de la section -->
+
             <div class="card border-0 shadow-sm p-4 mb-4"
                  style="border-radius: 16px; background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%); border-left: 5px solid #198754 !important;">
                 <div class="row align-items-center">
@@ -199,7 +1258,7 @@
          style="border-radius: 16px; background-color: #fcfcfd; border: 1px solid rgba(0, 0, 0, 0.05) !important;">
         <div class="card-body">
 
-            <!-- Petit badge élégant -->
+
             <div class="mb-3">
                 <span class="badge bg-warning-subtle text-warning-emphasis px-3 py-2 rounded-pill fw-bold border border-warning-subtle"
                       style="font-size: 0.85rem;">
@@ -207,18 +1266,18 @@
                 </span>
             </div>
 
-            <!-- Texte explicatif principal -->
+
             <p class="text-secondary small mb-2">
                 Ce site est actuellement en phase de test. Les comptes sont fictifs et gérés par l'administrateur.
             </p>
 
-            <!-- Avertissement de sécurité important -->
+
             <p class="text-danger fw-semibold small mb-3">
                 🔒 Merci de ne pas renseigner vos véritables informations personnelles. Les données sont purgées
                 régulièrement.
             </p>
 
-            <!-- Mention discrète pour les images IA -->
+
             <div class="text-secondary fst-italic pt-3 border-top border-light" style="font-size: 0.8rem;">
                 🎨 Les photos et illustrations présentes sur ce site ont été générées par intelligence artificielle.
             </div>
@@ -231,4 +1290,4 @@
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html>-->
