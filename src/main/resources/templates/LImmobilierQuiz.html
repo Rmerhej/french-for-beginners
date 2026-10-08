@@ -139,9 +139,12 @@
         zones.forEach((zone, i) => {
             if (zone.textContent.trim() === correctAnswers[i].trim()) {
                 zone.style.backgroundColor = '#d1e7dd';
+                 zone.style.color = '#0f5132';
                 score++;
             } else {
                 zone.style.backgroundColor = '#f8d7da';
+                zone.style.color = '#842029';
+
             }
         });
         document.getElementById('feedback-' + index).innerHTML =
