@@ -206,6 +206,36 @@ public class StaticPagesController {
         return "expressionsFrancaises";
     }
 
+    @GetMapping("/LesPropositionsSubordonnées") public String LesPropositionsSubordonnées() {
+        return "LesPropositionsSubordonnées";
+    }
+
+    @GetMapping("/LeBut") public String LeBut() {
+        return "LeBut";
+    }
+
+    @GetMapping("/LOppositionEtLaConcession") public String LOppositionEtLaConcession() {
+        return "LOppositionEtLaConcession";
+    }
+
+    @GetMapping("/LesPronomsRelatifs") public String LesPronomsRelatifs() {
+        return "LesPronomsRelatifs";
+    }
+
+    @GetMapping("/LesHypothèses") public String LesHypothèses() {
+        return "LesHypothèses";
+    }
+
+    @GetMapping("/LeDiscoursIndirect") public String LeDiscoursIndirect() {
+        return "LeDiscoursIndirect";
+    }
+
+    @GetMapping("/LaVoixPassive") public String LaVoixPassive() {
+        return "LaVoixPassive";
+    }
+    @GetMapping("/LaCauseEtLaConséquence") public String LaCauseEtLaConséquence() {
+        return "LaCauseEtLaConséquence";
+    }
     @GetMapping("/paris") public String paris() {
         return "paris";
     }
