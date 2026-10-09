@@ -68,7 +68,7 @@
         Aucun quiz n'est disponible pour le moment.
     </div>
 
-    <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
+    <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 border rounded">
         <h3 th:text="${quiz.title}" class="text-secondary">Quiz Title</h3>
 
         <!-- Mots à placer -->

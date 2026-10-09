@@ -39,6 +39,7 @@
 
 <h1 class="text-center mt-5 mb-3 text-primary">TEST D'ÉVALUATION DE FRANÇAIS (A1 - B2)</h1>
 <h3 class="text-center">Grammaire ,Vocabulaire ,Compréhension ,Communication. </h3>
+<h4  class="text-center text-primary">N.B : Veuillez vérifier chaque réponse au fur et à mesure. </h4>
 <main class="container mb-5" id="main-content">
 
     <!-- Boucle Thymeleaf sur les exercices -->
@@ -47,7 +48,7 @@
          th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'test')}"
          th:id="'exercise-container-' + ${ex.id}">
 
-        <div class="card-header bg-light">
+        <div class="card-header">
             <strong th:text="${ex.lessonTitle}" class="text-secondary"></strong>
         </div>
 
