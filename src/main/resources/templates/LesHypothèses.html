@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français sur l'expression de l'hypothèse et la condition (si + présent/imparfait/plus-que-parfait) pour adultes">
+
+    <title>Les hypothèses - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 L'expression de l'hypothèse
+        </h1>
+
+        <p class="lead">
+            Imaginer des situations, poser des conditions et exprimer le futur ou le regret en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez utiliser les structures conditionnelles avec <strong>« si »</strong>
+                pour exprimer une hypothèse liée au présent, au futur ou au passé, en maîtrisant la concordance
+                des temps (présent/futur, imparfait/conditionnel présent, plus-que-parfait/conditionnel passé).
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'une hypothèse ?</h2>
+
+
+        <p>
+
+            Une phrase hypothétique est généralement composée de deux parties : une condition introduite par
+            <strong>« si »</strong> (la protase) et un résultat (l'apodose). Selon le degré de probabilité,
+            les temps des verbes changent radicalement.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Principe de base :</strong> On ne met <em>jamais</em> de futur ou de conditionnel directement après le mot « si ».</li>
+
+            <li><strong>La règle d'or :</strong> « Les "si" n'aiment pas les "rai" ni les "rais" ! »</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. Les trois grands types d'hypothèses</h2>
+
+
+        <p>
+
+            En français, on distingue trois situations principales selon que l'hypothèse est réalisable, irréelle dans le présent, ou impossible dans le passé.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            1. Hypothèse réalisable (Futur)
+                        </h3>
+
+                        <p><strong>Si + Présent ➔ Futur simple</strong></p>
+                        <p class="small text-muted">Exprime une forte probabilité dans l'avenir.</p>
+                        <p><em>Ex: S'il fait beau demain, j'<strong>irai</strong> à la plage.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            2. Hypothèse irréelle (Présent)
+                        </h3>
+
+                        <p><strong>Si + Imparfait ➔ Conditionnel Présent</strong></p>
+                        <p class="small text-muted">Exprime un souhait ou une situation imaginaire actuelle.</p>
+                        <p><em>Ex: Si j'étais riche, j'<strong>achèterais</strong> une grande maison.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-danger">
+                            3. Hypothèse passée (Regret)
+                        </h3>
+
+                        <p><strong>Si + Plus-que-parfait ➔ Conditionnel Passé</strong></p>
+                        <p class="small text-muted">Exprime un regret ou un reproche sur le passé.</p>
+                        <p><em>Ex: Si j'avais su, je serais <strong>venu</strong> plus tôt.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Tableau récapitulatif de la concordance des temps</h2>
+
+
+        <p>
+
+            Vue d'ensemble indispensable pour associer correctement les verbes dans la phrase conditionnelle.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Degré de probabilité</th>
+
+                <th>Proposition avec "SI"</th>
+
+                <th>Proposition principale (Résultat)</th>
+
+                <th>Exemple type</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>1. Probable / Futur</strong></td>
+
+                <td>Présent</td>
+
+                <td>Futur simple (ou Présent / Impératif)</td>
+
+                <td>Si tu étudies, tu <strong>réussiras</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>2. Imaginaire / Présent</strong></td>
+
+                <td>Imparfait</td>
+
+                <td>Conditionnel présent</td>
+
+                <td>Si tu étudiais, tu <strong>réussirais</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>3. Regret / Passé</strong></td>
+
+                <td>Plus-que-parfait</td>
+
+                <td>Conditionnel passé</td>
+
+                <td>Si tu avais étudié, tu <strong>aurais réussi</strong>.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Autres nuances pour exprimer la condition</h2>
+
+
+        <p>
+
+            On n'utilise pas seulement « si ». D'autres conjonctions permettent de nuancer l'hypothèse (souvent suivies du subjonctif).
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>À condition que (+ subjonctif) :</strong> Exprime une condition indispensable. <em>Ex: Je t'accompagne <strong>à condition que</strong> tu sois prêt à l'heure.</em></li>
+
+                <li><strong>À moins que (+ subjonctif + ne) :</strong> Exprime une restriction. <em>Ex: Nous viendrons <strong>à moins qu'</strong>il <strong>ne</strong> pleuve.</em></li>
+
+                <li><strong>Au cas où (+ conditionnel) :</strong> Pour envisager une éventualité. <em>Ex: Prends un parapluie <strong>au cas où</strong> il <strong>pleuvrait</strong>.</em></li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Si j'aurai le temps, je t'aiderai. (Mise du futur après "si").</td>
+
+                <td>Si j'<strong>ai</strong> le temps, je t'aiderai. (Présent après "si").</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Si je serais riche, je voyageais. (Mélange des temps de l'hypothèse irréelle).</td>
+
+                <td>Si j'<strong>étais</strong> riche, je <strong>voyagerais</strong>. (Imparfait ➔ Conditionnel présent).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Au cas où il viendra, préviens-moi. (Futur après "au cas où").</td>
+
+                <td>Au cas où il <strong>viendrait</strong>, préviens-moi. ("Au cas où" est suivi du conditionnel).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Qu'est-ce que tu ferais si tu gagnais à la loterie ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Si je gagnais un million d'euros, j'<strong>achèterais</strong> une maison au bord de la mer et je <strong>voyagerais</strong> autour du monde. Et toi ?
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Moi, si j'<strong>avais eu</strong> plus de temps libre cette année, je serais partie en Asie. Mais bon, avec le travail, c'était impossible !
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Tu <strong>auras</strong> peut-être l'occasion de le faire l'été prochain si tu t'organises bien.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Retenez la règle magique : <strong>Présent ➔ Futur</strong>, <strong>Imparfait ➔ Conditionnel Présent</strong>, <strong>Plus-que-parfait ➔ Conditionnel Passé</strong>.</li>
+
+
+                <li>Le mot <strong>« si »</strong> n'est jamais suivi du futur ni du conditionnel.</li>
+
+
+                <li>D'autres expressions utiles : <em>à condition que</em> (+ subjonctif) et <em>au cas où</em> (+ conditionnel).</li>
+
+
+                <li>L'hypothèse permet d'exprimer des projets, des imaginations ou des regrets.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

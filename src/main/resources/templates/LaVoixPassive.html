@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français sur la voix passive (transformation de l'actif au passif, accord du participe passé, agent) pour adultes">
+
+    <title>La voix passive - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 La voix passive
+        </h1>
+
+        <p class="lead">
+            Inverser la perspective et mettre l'accent sur l'objet ou le résultat en français
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez identifier et transformer une phrase de la
+                <strong>voix active</strong> à la <strong>voix passive</strong>, en maîtrisant la conjugaison
+                du verbe <em>être</em>, l'accord du participe passé et l'utilisation du complément d'agent (par / de).
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que la voix passive ?</h2>
+
+
+        <p>
+
+            À la <strong>voix active</strong>, le sujet fait l'action (ex: <em>Le chat mange la souris</em>).
+            À la <strong>voix passive</strong>, le sujet subit l'action. L'objet direct du verbe actif devient
+            le sujet du verbe passif, et le sujet initial devient le <em>complément d'agent</em>.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Voix active :</strong> Le professeur corrige les copies. (Focus sur le professeur)</li>
+
+            <li><strong>Voix passive :</strong> Les copies <strong>sont corrigées par</strong> le professeur. (Focus sur les copies)</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. Comment transformer une phrase active en passive ?</h2>
+
+
+        <p>
+
+            La transformation passive obéit à une règle de bascule précise entre les éléments de la phrase.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>1. Le COD actif devient le sujet passif.</strong></li>
+
+                <li><strong>2. Le verbe devient : Être (au temps de l'actif) + Participe Passé.</strong> (Attention à l'accord en genre et en nombre avec le nouveau sujet !)</li>
+
+                <li><strong>3. Le sujet actif devient le complément d'agent</strong>, généralement introduit par <strong>par</strong> (ou parfois <em>de</em> avec les verbes de sentiment/description comme <em>aimer, connaître, entourer</em>).</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. La conjugaison du verbe à la voix passive</h2>
+
+
+        <p>
+
+            L'auxiliaire <em>être</em> se conjugue au temps de l'action active d'origine, suivi du participe passé du verbe principal.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Temps simples
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Présent</strong></td>
+                                <td>Le chat mange la souris. <br>➔ La souris <strong>est mangée</strong> par le chat.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Passé composé</strong></td>
+                                <td>Le chat a mangé la souris. <br>➔ La souris <strong>a été mangée</strong> par le chat.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Futur simple</strong></td>
+                                <td>Le chat mangera la souris. <br>➔ La souris <strong>sera mangée</strong> par le chat.</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Temps du passé et autres
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Imparfait</strong></td>
+                                <td>Le chat mangeait la souris. <br>➔ La souris <strong>était mangée</strong> par le chat.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Infinitif</strong></td>
+                                <td>Il faut punir l'enfant. <br>➔ L'enfant doit <strong>être puni</strong>.</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Tableau récapitulatif : Actif vs Passif</h2>
+
+
+        <p>
+
+            Vue d'ensemble de la structure et des transformations.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Voix Active</th>
+
+                <th>Voix Passive</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Victor Hugo a écrit <em>Les Misérables</em>.</td>
+
+                <td><em>Les Misérables</em> <strong>ont été écrits par</strong> Victor Hugo.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>L'architecte dessinera les plans.</td>
+
+                <td>Les plans <strong>seront dessinés par</strong> l'architecte.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Le livre est écrit par Pierre. (Verbe intransitif sans COD).</td>
+
+                <td>La voix passive n'est possible <strong>que avec des verbes transitifs directs</strong> (qui ont un COD). On ne peut pas dire *« Il est allé par Paul »*.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Les maisons sont construits par la ville. (Oubli de l'accord du participe passé).</td>
+
+                <td>Les maisons sont <strong>construites</strong> par la ville. (Le participe passé s'accorde avec le nouveau sujet féminin pluriel).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Ce film est aimé de tout le monde, mais l'emploi de "par" est obligatoire.</td>
+
+                <td>Avec certains verbes (<em>aimer, connaître, respecter</em>), on utilise souvent <strong>de</strong> à la place de <strong>par</strong>.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Tu as vu ce magnifique tableau dans le hall ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oui, il a <strong>été peint par</strong> une artiste locale, n'est-ce pas ?
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Exactement, et la galerie <strong>sera inaugurée par</strong> le maire demain matin.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> C'est super ! Toutes les œuvres exposées <strong>ont été vendues</strong> en un temps record, d'ailleurs.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Une belle réussite pour cette exposition !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Seuls les verbes avec un <strong>COD</strong> peuvent se mettre à la voix passive.</li>
+
+
+                <li>La formule passive est : <strong>Être (au temps de l'actif) + Participe Passé</strong>.</li>
+
+
+                <li>Le participe passé s'accorde toujours en genre et en nombre avec le nouveau sujet.</li>
+
+
+                <li>Le complément d'agent s'introduit généralement par <strong>par</strong> (ou <em>de</em>).</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français sur l'expression de la cause et de la conséquence (connecteurs, nuances, mise en pratique) pour adultes">
+
+    <title>La cause et la conséquence - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 La cause et la conséquence
+        </h1>
+
+        <p class="lead">
+            Exprimer les liens logiques entre les faits, expliquer pourquoi et quel est le résultat
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous serez capable de maîtriser les principaux connecteurs
+                et structures pour exprimer <strong>la cause</strong> (l'origine d'un fait) et <strong>la conséquence</strong>
+                (le résultat ou l'effet produit) afin d'enrichir vos argumentations à l'écrit comme à l'oral.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que la cause et la conséquence ?</h2>
+
+
+        <p>
+
+            Dans un discours, les faits sont toujours reliés logiquement.
+            La <strong>cause</strong> répond à la question « <em>Pourquoi ?</em> » (l'élément déclencheur),
+            tandis que la <strong>conséquence</strong> répond à la question « <em>Qu'est-ce que cela donne ?</em> » (le résultat).
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>La cause :</strong> Il est fatigué <em>parce qu'il a beaucoup travaillé</em>.</li>
+
+            <li><strong>La conséquence :</strong> Il a beaucoup travaillé, <em>si bien qu'il est fatigué</em>.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Exprimer la cause</h2>
+
+
+        <p>
+
+            Il existe plusieurs façons d'exprimer la cause selon la nuance souhaitée ou la nature de l'élément qui suit (nom, verbe, phrase complète).
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <ul class="mb-0">
+
+                <li><strong>Parce que :</strong> Exprime la cause de manière neutre (suivi d'une phrase). <em>Ex: Je reste chez moi <strong>parce qu'</strong>il pleut.</em></li>
+
+                <li><strong>Puisque :</strong> Exprime une cause évidente ou connue de tous. <em>Ex: <strong>Puisque</strong> tu es libre, viens m'aider.</em></li>
+
+                <li><strong>Comme :</strong> Se place toujours au début de la phrase pour introduire une cause partagée. <em>Ex: <strong>Comme</strong> il fait beau, nous allons au parc.</em></li>
+
+                <li><strong>À cause de / Grâce à :</strong> Suivis d'un nom. <em>À cause de</em> (négatif) vs <em>Grâce à</em> (positif). <em>Ex: Le vol a été retardé <strong>à cause du</strong> brouillard. / J'ai réussi <strong>grâce à</strong> tes conseils.</em></li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Exprimer la conséquence</h2>
+
+
+        <p>
+
+            La conséquence présente le résultat direct ou indirect d'une action ou d'un événement.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Conséquences verbales
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Donc</strong></td>
+                                <td>Lien logique simple. <br><em>Il est en retard, <strong>donc</strong> il rate le début.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Par conséquent</strong></td>
+                                <td>Plus soutenu ou formel. <br><em>Les prix augmentent, <strong>par conséquent</strong> les ventes baissent.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>C'est pourquoi</strong></td>
+                                <td>Pour introduire un résultat logique. <br><em>Il pleut, <strong>c'est pourquoi</strong> je prends un parapluie.</em></td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Structures avec "Si... que" / "Tellement... que"
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Si + adjectif + que</strong></td>
+                                <td><em>Il est <strong>si</strong> fatigué <strong>qu'</strong>il s'endort.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Tellement + verbe / nom + que</strong></td>
+                                <td><em>Il a <strong>tellement</strong> travaillé <strong>qu'</strong>il est épuisé.</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Si bien que</strong></td>
+                                <td>Liaison fluide de conséquence. <br><em>Le trafic est dense, <strong>si bien que</strong> nous serons en retard.</em></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Tableau récapitulatif : Cause vs Conséquence</h2>
+
+
+        <p>
+
+            Comparaison rapide pour ne plus confondre les deux notions dans une même situation.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Exprimer la Cause (Le Pourquoi)</th>
+
+                <th>Exprimer la Conséquence (Le Résultat)</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Il a raté son train <strong>parce qu'</strong>il s'est réveillé en retard.</td>
+
+                <td>Il s'est réveillé en retard, <strong>donc</strong> il a raté son train.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Grâce à</strong> son aide, j'ai fini à temps.</td>
+
+                <td>J'ai reçu de l'aide, <strong>si bien que</strong> j'ai fini à temps.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'ai réussi l'examen à cause de ton aide. (confusion positif/négatif)</td>
+
+                <td>J'ai réussi l'examen <strong>grâce à</strong> ton aide. (<em>À cause de</em> s'emploie pour un résultat négatif).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Parce qu'il pleut, donc je reste à la maison.</td>
+
+                <td>Je reste à la maison <strong>parce qu'</strong>il pleut. (On ne combine pas <em>parce que</em> et <em>donc</em> dans la même relation).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il est tellement grand que il peut toucher le plafond. (oubli de l'élision)</td>
+
+                <td>Il est tellement grand <strong>qu'</strong>il peut toucher le plafond. (Élision obligatoire de <em>que</em> devant une voyelle).</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Tu n'as pas assisté à la réunion ce matin ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Non, j'ai eu une panne de réveil, <strong>si bien que</strong> je suis arrivé avec deux heures de retard.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Ah d'accord, c'est <strong>pourquoi</strong> le directeur t'a cherché tout à l'heure.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oui, et c'est <strong>grâce à</strong> l'intervention de ma collègue que j'ai pu rattraper le dossier en urgence.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Heureusement pour toi ! Fais attention la prochaine fois.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li><strong>La cause</strong> explique l'origine (utilisez <em>parce que, puisque, à cause de, grâce à</em>).</li>
+
+
+                <li><strong>La conséquence</strong> montre le résultat (utilisez <em>donc, par conséquent, si bien que, si... que</em>).</li>
+
+
+                <li>Attention à l'opposition entre <em>à cause de</em> (négatif) et <em>grâce à</em> (positif) suivis d'un nom.</li>
+
+
+                <li>Évitez d'associer <em>parce que</em> et <em>donc</em> dans une même structure logique.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

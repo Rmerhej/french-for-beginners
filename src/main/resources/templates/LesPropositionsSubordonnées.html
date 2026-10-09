@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les propositions subordonnées - Français B1</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+        .card{
+            height:100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">
+            <span aria-hidden="true">📘</span> Les propositions subordonnées
+        </h1>
+        <p class="lead">
+            Nuancer sa pensée et enrichir ses phrases (Niveau B1)
+        </p>
+    </div>
+</header>
+
+<main id="main-content" class="container my-5">
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+        <i class="bi bi-arrow-left"></i>
+        Retour
+    </button>
+
+    <section>
+        <div class="alert alert-primary">
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+            <p class="mb-0">
+                À la fin de cette leçon, vous serez capable de reconnaître et d'utiliser
+                les principales propositions subordonnées (relatives, complétives et circonstancielles)
+                pour structurer un discours argumenté ou fluide en français.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Qu'est-ce qu'une proposition subordonnée ?</h2>
+        <p>
+            Une phrase complexe est composée d'une <strong>proposition principale</strong> et d'une ou plusieurs
+            <strong>propositions subordonnées</strong>. La subordonnée dépend de la principale et ne peut pas
+            généralement fonctionner toute seule. Elle est introduite par un mot subordonnant (pronom relatif ou conjonction).
+        </p>
+        <div class="alert alert-info">
+            <strong>Exemple simple :</strong>
+            <ul class="mb-0">
+                <li>Je pense [que tu as raison]. ➔ <em>[que tu as raison] est une proposition subordonnée.</em></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Les trois grands types de subordonnées</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5">1. La subordonnée Relative</h3>
+                        <p>Elle complète un nom (l'antécédent).</p>
+                        <p class="small text-muted">Mots-clés : qui, que, où, dont</p>
+                        <p><em>Ex: Le livre <strong>que je lis</strong> est passionnant.</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5">2. La subordonnée Complétive</h3>
+                        <p>Elle complète un verbe (souvent COD).</p>
+                        <p class="small text-muted">Mots-clés : que, si</p>
+                        <p><em>Ex: Je sais <strong>qu'il viendra</strong> demain.</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5">3. La subordonnée Circonstancielle</h3>
+                        <p>Elle exprime une circonstance (temps, cause, but...).</p>
+                        <p class="small text-muted">Mots-clés : parce que, pour que, bien que...</p>
+                        <p><em>Ex: Je sors <strong>bien qu'il pleuve</strong>.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning mt-3">
+            Au niveau B1, la maîtrise des subordonnées circonstancielles (opposition, cause, conséquence, but)
+            et du choix du mode (indicatif vs subjonctif) est essentielle.
+        </div>
+    </section>
+
+    <section>
+        <h2>Zoom sur les pronoms relatifs (qui, que, où, dont)</h2>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+            <tr>
+                <th>Pronom</th>
+                <th>Fonction / Rôle</th>
+                <th>Exemple</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>qui</strong></td>
+                <td>Sujet du verbe de la subordonnée</td>
+                <td>L'homme <strong>qui</strong> parle est mon professeur.</td>
+            </tr>
+            <tr>
+                <td><strong>que</strong> (qu')</td>
+                <td>COD (Objet) du verbe de la subordonnée</td>
+                <td>La voiture <strong>que</strong> j'ai achetée est rouge.</td>
+            </tr>
+            <tr>
+                <td><strong>où</strong></td>
+                <td>Lieu ou moment</td>
+                <td>La ville <strong>où</strong> je suis né est magnifique.</td>
+            </tr>
+            <tr>
+                <td><strong>dont</strong></td>
+                <td>Remplace un complément introduit par "de"</td>
+                <td>Le film <strong>dont</strong> je t'ai parlé est génial.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Les propositions circonstancielles et leurs nuances</h2>
+        <p>
+            Elles permettent d'exprimer des liens logiques indispensables pour argumenter.
+        </p>
+        <table class="table table-bordered table-hover">
+            <thead class="table-success">
+            <tr>
+                <th>Nuance logique</th>
+                <th>Conjonctions fréquentes</th>
+                <th>Exemple</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>La cause</td>
+                <td>parce que, puisque, étant donné que</td>
+                <td>Je reste chez moi <strong>parce qu'il pleut</strong>.</td>
+            </tr>
+            <tr>
+                <td>Le but</td>
+                <td>pour que (+ subjonctif), afin que</td>
+                <td>Je parle doucement <strong>pour que tu m'entendes</strong>.</td>
+            </tr>
+            <tr>
+                <td>L'opposition / Concession</td>
+                <td>bien que (+ subjonctif), alors que</td>
+                <td>Il court vite <strong>bien qu'il soit fatigué</strong>.</td>
+            </tr>
+            <tr>
+                <td>La conséquence</td>
+                <td>si bien que, de sorte que</td>
+                <td>Il a beaucoup travaillé, <strong>si bien qu'il a réussi</strong>.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>💬 Dialogue</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Élodie :</strong> Tu as lu le roman <strong>dont</strong> nous avons parlé hier ?</p>
+                <p><strong>Thomas :</strong> Oui, je l'ai terminé <strong>bien qu'il soit</strong> un peu long. Je trouve <strong>que</strong> l'histoire est très originale.</p>
+                <p><strong>Élodie :</strong> C'est vrai, c'est un auteur <strong>qui</strong> écrit magnifiquement bien.</p>
+                <p><strong>Thomas :</strong> Exactement, je vais l'offrir à ma sœur <strong>pour qu'elle</strong> puisse le découvrir aussi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+        <table class="table table-bordered">
+            <thead class="table-danger">
+            <tr>
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+                <th>✅ Correct</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>L'homme que il est venu hier... (double pronom)</td>
+                <td>L'homme <strong>qui</strong> est venu hier... (ou L'homme <strong>qu'</strong>il a vu...)</td>
+            </tr>
+            <tr>
+                <td>Bien qu'il est fatigué, il travaille. (indicatif après bien que)</td>
+                <td>Bien qu'il <strong>soit</strong> fatigué, il travaille. (subjonctif)</td>
+            </tr>
+            <tr>
+                <td>C'est la ville que j'habite.</td>
+                <td>C'est la ville <strong>où</strong> j'habite.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>✍ Exercices</h2>
+        <p>
+            Complétez les phrases avec le pronom relatif ou la conjonction qui convient (<em>qui, que, dont, bien que, pour que</em>).
+        </p>
+        <ol>
+            <li>C'est un projet __________ me tient vraiment à cœur.</li>
+            <li>Voici le document __________ tu m'as demandé.</li>
+            <li>Il porte un manteau __________ il fait très chaud.</li>
+            <li>Je t'explique la situation __________ tu comprennes bien.</li>
+            <li>C'est le musicien __________ le concert a eu tant de succès.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="alert alert-success">
+            <h2 class="h4">
+                ✅ À retenir
+            </h2>
+            <ul class="mb-0">
+                <li>La proposition subordonnée complète ou précise une proposition principale.</li>
+                <li>Les relatives (<em>qui, que, où, dont</em>) évitent les répétitions en qualifiant un nom.</li>
+                <li>Les complétives (souvent introduites par <em>que</em>) relient un verbe d'opinion ou de déclaration.</li>
+                <li>Les circonstancielles structurent l'argumentation (attention au mode subjonctif avec certaines conjonctions comme <em>bien que</em> ou <em>pour que</em>).</li>
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
