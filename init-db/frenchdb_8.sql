@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 05 oct. 2026 à 08:29
+-- Généré le : ven. 09 oct. 2026 à 12:36
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=687 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=695 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -208,7 +208,7 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (165, 'C', NULL, 'Au café', 'Un café', 'Un thé', 'Un chocolat chaud', 'Un jus de pomme', 'Que boit l\'amie ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (166, 'C', NULL, 'Au café', '10 euros', '12 euros', '14 euros', '20 euros', 'Combien coûte la commande ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (167, 'D', NULL, 'Au café', '14 euros', '15 euros', '18 euros', '20 euros', 'Combien d\'argent donne le client ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(168, 'B', NULL, 'Shopping', '. Une chemise', 'Un pantalon', 'Une veste', 'Des chaussures', 'Que cherche le client ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(168, 'B', '', 'Shopping', 'Une chemise', 'Un pantalon', 'Une veste', 'Des chaussures', 'Que cherche le client ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (169, 'C', NULL, 'Shopping', '36', '38', '40', '42', 'Quelle est la taille du client ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (170, 'C', NULL, 'Shopping', 'Rouge', 'Verte', 'Bleue', 'Blanche', 'Quelle couleur préfère le client ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (171, 'C', NULL, 'Shopping', '35 €', '40 €', '45 €', '50 €', 'Combien coûte le pantalon ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -714,7 +714,15 @@ INSERT INTO `exercises` (`id`, `correct_answer`, `explanation`, `lesson_title`, 
 (683, 'La', '', 'Les animaux', 'La', 'Le', 'L\'', 'Les', 'Quel article utilise-t-on avec « ___ girafe » ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (684, 'L’éléphant', '', 'Les animaux', 'Le éléphant', 'La éléphant', 'L’éléphant', 'Les éléphant', 'Quelle est la bonne expression ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
 (685, 'Le panda', '', 'Les animaux', 'La panda', 'L’panda', 'Les panda', 'Le panda', 'Quelle est la bonne expression ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
-(686, 'Le dauphin est un animal marin.', '', 'Les animaux', 'La dauphin est un animal marin.', 'Le dauphin est un animal marin.', 'L’dauphin est un animal marin.', 'Les dauphin est un animal marin.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
+(686, 'Le dauphin est un animal marin.', '', 'Les animaux', 'La dauphin est un animal marin.', 'Le dauphin est un animal marin.', 'L’dauphin est un animal marin.', 'Les dauphin est un animal marin.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(687, 'C', '', 'Le sport', 'Un nageur', 'Un cycliste', 'Un skieur', 'Un coureur', 'Comment appelle-t-on la personne qui descend une piste avec des skis ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(688, 'B', '', 'Le sport .', 'deux skis', 'une planche', 'des patins', 'une luge', 'Le snowboard se pratique avec…', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(689, 'D', '', 'Le sport .', 'de la', 'au', 'aux', 'du', 'Complétez : « Elle fait ___ ski tous les dimanches. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(690, 'A', '', 'Le sport .', 'à la', 'au', 'aux', 'de la', 'Complétez : « Nous allons ___ montagne pendant les vacances. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(691, 'B', '', 'Le sport .', 'Les gants', 'Le casque', 'L’écharpe', 'Les lunettes', 'Quel équipement protège la tête du skieur ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(692, 'C', '', 'Le sport .', 'enneigé', 'enneiger', 'enneigées', 'neige', 'Complétez : « Les pistes sont très ___. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(693, 'C', '', 'Le sport .', 'Je fais du ski hier.', 'Je fais du ski demain.', 'Je ferai du ski demain.', 'Je faire du ski demain.', 'Quelle phrase est correcte ?', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL),
+(694, 'C', '', 'Le sport .', 'descend', 'descends', 'descendent', 'descendre', 'Complétez : « Les skieurs ___ rapidement sur la piste. »', 'QCM', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -846,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `quizzes` (
   `quiz_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=522 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=574 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -1367,7 +1375,59 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (518, 'celle', NULL, 'Je n\'aime pas cette chemise, je préfère ____en soie.', 'Pronoms possessifs et démonstratifs - Grammaire', 'celui,celle,celles', NULL),
 (519, 'celles-ci', NULL, 'De toutes ces chaussures, ____sont les plus confortables.', 'Pronoms possessifs et démonstratifs - Grammaire', 'celle,celles,celles-ci', NULL),
 (520, 'les siennes', NULL, 'Paul a perdu ses clés, mais Julie a retrouvé ____.', 'Pronoms possessifs et démonstratifs - Grammaire', 'les siennes,les siens,le sien', NULL),
-(521, 'celui-ci', NULL, 'Je ne veux pas ce livre-là, je veux ____ .', 'Pronoms possessifs et démonstratifs - Grammaire', 'celle-ci,ceux-ci,celui-ci', NULL);
+(521, 'celui-ci', NULL, 'Je ne veux pas ce livre-là, je veux ____ .', 'Pronoms possessifs et démonstratifs - Grammaire', 'celle-ci,ceux-ci,celui-ci', NULL),
+(522, 'casque,gants,skis,lunettes,écharpe', NULL, '1. Pour protéger ma tête, je porte un ____.\r\n2. Je mets mes mains dans mes ____.\r\n3. Je descends la piste avec mes ____.\r\n4. Je porte des ____ pour protéger mes yeux.\r\n5. En hiver, je mets une ____autour du cou.', 'Le sport', 'lunettes,écharpe,casque,skis,gants', NULL),
+(523, 'ski alpin,snowboard,ski de fond,patinage,luge', NULL, '1. Le ____ consiste à descendre une piste avec deux skis.\r\n2. Le ____ se pratique avec une seule planche.\r\n3. Le ____ se pratique sur des pistes relativement plates et longues.\r\n4. Le ____ se pratique sur la glace avec des patins.\r\n5. Avec la ____, on descend une pente assis ou allongé.', 'Le sport', 'luge,ski alpin,snowboard,patinage,ski de fond', NULL),
+(524, 'du,de la,des,à la,au', NULL, '1. Je fais ____ ski.\r\n2. Elle fait ____ luge.\r\n3. Ils pratiquent ____ sports d’hiver.\r\n4. Nous allons ____ montagne.\r\n5. Il va ____ ski.', 'Le sport', 'de la,du,au,à la,des', NULL),
+(525, 'enneigée,froides,rapides,dangereuse,glissante', NULL, '1. La piste est bien ____.\r\n2. Les températures sont très ____.\r\n3. Les skieurs sont très ____.\r\n4. Cette piste est ____ pour les débutants.\r\n5. La neige est ____.', 'Le sport', 'dangereuse,glissante,enneigée,rapides,froides', NULL),
+(526, 'skie,descendons,pratiquent,met,portez', NULL, '1. Je ____ tous les samedis.\r\n2. Nous ____ la piste ensemble.\r\n3. Ils ____ le snowboard.\r\n4. Elle ____ son casque.\r\n5. Vous ____ des gants.', 'Le sport', 'descendons,pratiquent,skie,portez,met', NULL),
+(527, 'fais,ferai,allons,irons,pratique', NULL, '1. Aujourd’hui, je ____ du ski.\r\n2. Demain, je ____ du snowboard.\r\n3. Cette semaine, nous ____ à la montagne.\r\n4. L’hiver prochain, nous ____ dans les Alpes.\r\n5. Chaque hiver, elle ____ le patinage.', 'Le sport', 'irons,pratique,fais,allons,ferai', NULL),
+(528, 'skieur,skieurs,piste,pistes,gants', NULL, '1. Un ____ descend rapidement.\r\n2. Les ____ attendent le départ.\r\n3. Cette ____ est réservée aux débutants.\r\n4. Les ____ sont ouvertes aujourd’hui.\r\n5. Je mets mes ____ avant de sortir.', 'Le sport', 'pistes,skieur,skieurs,gants,piste', NULL),
+(529, 'une,un,une,un,une,un', NULL, '1. ____ piste\r\n2. ____ casque\r\n3. ____ montagne\r\n4. ____ skieur\r\n5. ____ luge\r\n6. ____ snowboard', 'Le sport', 'une,une,un,une,un,un', NULL),
+(530, 'à,sur,dans,avec,en', NULL, '1. Je vais ____ la montagne.\r\n2. Le skieur descend ____ la piste.\r\n3. Les enfants jouent ____ la neige.\r\n4. Elle skie ____ ses amis.\r\n5. Nous partons ____ vacances à la montagne.', 'Le sport', 'avec,en,dans,à,sur', NULL),
+(531, 'Nous,ferons,du ski,à la montagne,demain', NULL, '____ ____ ____ ____ ____', 'Le sport - Remettez dans le bon ordre', 'à la montagne,demain,ferons,Nous,du ski', NULL),
+(532, 'Salut c\'est moi !,Bonjour je vous appelle de la part de...,Bonjour cabinet du Dr Martin j\'écoute.', NULL, '1. Appel à un ami ____\r\n2. Appel professionnel à un client ____\r\n3. Réceptionniste d\'un cabinet ____', 'Au téléphne - Associez chaque situation au début d\'appel qui convient.', 'Bonjour cabinet du Dr Martin j\'écoute,Salut c\'est moi !,Bonjour je vous appelle de la part de...,', NULL),
+(533, 'Salut c\'est moi !,Bonjour je vous appelle de la part de,Bonjour cabinet du Dr Martin j\'écoute', NULL, '1. Appel à un ami ____\r\n2. Appel professionnel à un client ____\r\n3. Réceptionniste d\'un cabinet ____', 'Au téléphne - Associez chaque situation au début d\'appel qui convient.', 'Bonjour cabinet du Dr Martin j\'écoute,Salut c\'est moi !,Bonjour je vous appelle de la part de,', NULL),
+(534, 'ne,pas,rien,ne,plus', NULL, '1. Je ____ vous entends ____ très bien, ça coupe.\r\n2. Allô ? Je n\'entends ____, il y a trop de bruit.\r\n3. Le réseau est rétabli, je ____ suis ____ coupé.', 'Au téléphone - Glissez la structure de négation correcte pour compléter la phrase téléphonique', 'rien,ne,plus,ne,pas', NULL),
+(535, 'Salut c\'est moi !,Bonjour je vous appelle de la part de,Bonjour cabinet du Dr Martin, j\'écoute.', NULL, '1. Appel à un ami ____\r\n2. Appel professionnel à un client ____\r\n3. Réceptionniste d\'un cabinet ____', 'Au  téléphone - Associez chaque situation au début d\'appel qui convient.', 'Salut c\'est moi !,Bonjour je vous appelle de la part de,Bonjour cabinet du Dr Martin, j\'écoute.', NULL),
+(536, 'le,à,dans', NULL, '1. Est-ce que vous êtes libre ____ mardi prochain ?\r\n2. Je suis disponible ____ 14 heures.\r\n3. Je peux vous rappeler ____ dix minutes ?', 'Au téléphone - Glissez la préposition adaptée pour fixer un rendez-vous téléphonique.', 'à,le,en,dans', NULL),
+(537, 'à cause de,parce que,grâce à', NULL, '1. Je suis en retard ____ la circulation.\r\n2. Je vous appelle ____  j\'ai un problème urgent.\r\n3. Nous avons signé le contrat ____  votre appel rapide.', 'Au téléphone - Glissez le connecteur logique qui convient dans l\'échange téléphonique.', 'parce que,grâce à,à cause de', NULL),
+(538, 'je vais vous envoyer,je vous enverrai,je vais raccrocher', NULL, '1. C\'est parfait, ____  le devis par e-mail tout de suite.\r\n2. Merci pour ces informations, ____  un récapitulatif demain.\r\n3. Bien, je vous remercie, au revoir, ____ .', 'Au téléphone - Glissez la bonne forme verbale pour terminer l\'appel poliment.', 'je vous enverrai,je vais raccrocher,je vais vous envoyer', NULL),
+(539, 'un,un,de l\',de la,des', NULL, '1. Je voudrais ____ café, s\'il vous plaît.\r\n2. Je voudrais ____ café et ____ eau s\'il vous plaît.\r\n3. Je prends ____ tarte aux pommes en dessert.\r\n4. Et avec ça, je veux ____ croissants.', 'U Sartrouville - Glissez l\'article partitif correct pour compléter la commande.', 'un,de l\',un,des,de la', NULL),
+(540, 'Apportez,Veuillez,Donnez', NULL, '1. ____ -moi un grand crème, s\'il vous plaît.\r\n2. ____ patienter un instant, la table se libère. (Par le serveur)\r\n3. ____ -moi l\'addition, s\'il vous plaît.', 'U Sartrouville  - Complétez les phrases du client', 'Veuillez,Donnez,Apportez', NULL),
+(541, 'les croissants,la bière,l\'eau plate,le thé,l\'eau plate', NULL, '1. Le matin, j\'adore ____ chauds.\r\n2. Je n\'aime pas du tout l\'alcool, je préfère ____ ? Non, plutôt ____ !\r\n3. Je ne bois jamais de café, je préfère ____ .\r\n4. Il fait très chaud, je commande ____ .', 'U Sartrouville - Associez le verbe à son complément avec le bon article défini.', 'la bière,l\'eau plate,les croissants,l\'eau plate,le thé', NULL),
+(542, 'au fond de,à côté de,en face de', NULL, '1. Excusez-moi, où sont les toilettes ? — Elles sont ____ la salle, à droite.\r\n2. Je peux m\'asseoir ____ la fenêtre ?\r\n3. Le comptoir est ____ la porte d\'entrée.', 'U Sartrouville - Glissez la bonne préposition pour situer les différents espaces du café.', 'à côté de,en face de,au fond de', NULL),
+(543, 'signiez,soyez,participiez,envoyiez', NULL, '1. Avant de commencer, il est indispensable que vous ____ votre contrat de travail.\r\n2. Pour valider votre période d\'essai, il faut que vous ____ ponctuel et impliqué\r\n3. La semaine prochaine, nous demandons que vous ____ à la réunion d\'équipe\r\n4. Avant vendredi, il est nécessaire que vous ____ votre CV mis à jour au service RH.', 'Entreprise', 'participiez,envoyiez,signiez,soyez', NULL),
+(544, 'qui,que,qui,que', '', '1. Voici le nouveau directeur ____ vient d\'arriver de la filiale de Lyon.\r\n2. Le dossier ____ vous avez préparé pour le client est excellent.\r\n3. C\'est la collègue ____ s\'occupe de la gestion des plannings.\r\n4. Les objectifs ____ la direction a fixés sont très ambitieux.', 'Entreprise', 'que,que,qui,qui', NULL),
+(545, 'avant,pendant,d\'ici,jusqu\'à', NULL, '1. Nous devons finaliser ce rapport ____ la réunion de lundi matin.\r\n2. Le bureau sera fermé pour rénovation ____ tout le mois d\'août.\r\n3. Le projet doit être totalement terminé ____ la fin du trimestre.\r\n4. Les négociations avec les partenaires ont duré ____ dix-huit heures.', 'Entreprise - Les prépositions et conjonctions de temps', 'pendant,jusqu\'à,d\'ici,avant', NULL),
+(546, 'faudrait,serait,devrait,pourrait,devrait', NULL, '1. Face à la concurrence, il ____ diversifier nos gammes de produits.\r\n2. Si nous investissons dans ce logiciel, le rendement ____ nettement supérieur\r\n3. La directrice marketing estime qu\'on ____ lancer une campagne publicitaire.\r\n4. Le service informatique ____ nous aider à régler ce bug technique.\r\n5. Pour réduire les coûts, la direction ____ optimiser les dépenses énergétiques.', 'Entreprise', 'devrait,pourrait,devrait,faudrait,serait', NULL),
+(547, 'en proposant,en signant,en écoutant,en réduisant', NULL, '1. Nous avons convaincu le client ____ une remise exceptionnelle de 10%.\r\n2. Le partenariat a été officialisé ____ le contrat-cadre ce matin.\r\n3. Nous avons résolu le malentendu ____ attentivement les réclamations du fournisseur.\r\n4. Les coûts de production ont baissé ____ les intermédiaires.', 'Entreprise', 'en proposant,en écoutant,en réduisant,en signant', NULL),
+(548, 'grand,longs,roux,rousse,souriants', NULL, '1. Mon frère est très ____ et athlétique.\r\n2. Marie a les cheveux ____\r\n3. La nouvelle voisine a les cheveux bouclés et ____ \r\n4. Elle a une chevelure ____.\r\n5. Les enfants jouent dans le parc, ils ont l\'air ____ et heureux.', 'Les gens', 'souriants,grand,rousse,longs,roux', NULL),
+(549, 'lui,elles,toi,nous', NULL, '1. Mon collègue est très timide, mais ____, il est extrêmement créatif.\r\n2. Mes tantes adorent voyager ; ____ partent tous les mois à l\'étranger.\r\n3. Tu es toujours optimiste, ____, tu vois le bon côté des choses.\r\n4. Nous aimons la tranquillité, et ____ préférons la campagne à la ville.', 'Les gens - Glissez le pronom adéquat', 'toi,elles,lui,nous', NULL),
+(550, 'leur,la,lui,les', NULL, '1. Thomas téléphone à ses parents. -> Il ____ téléphone tous les dimanches.\r\n2. Julie aide sa meilleure amie. -> Elle ____ soutient dans les moments difficiles.\r\n3. Paul écrit une lettre à son professeur. -> Il ____ écrit pour le remercier.\r\n4. Marc invite ses voisins à dîner. -> Il ____ invite ce samedi.', 'Les gens', 'lui,la,leur,les', NULL),
+(551, 'habitaient,ont déménagé,portait,a changé', NULL, '1. Avant, mes grands-parents ____ dans un petit village de montagne.\r\n2. L\'an dernier, ils ____ pour se rapprocher de la ville.\r\n3. Mon grand-père ____ toujours un chapeau pour sortir.\r\n4. Cette transition ____ complètement leur quotidien.', 'Les gens', 'portait,a changé,habitaient,ont déménagé', NULL),
+(552, 'un,vis,des,une,du ', NULL, '1. Il me faut ____ marteau pour enfoncer ce clou.\r\n2. J\'ai besoin de ____ -> Ajustons avec l\'article : \"Prends ____ vis et un tournevis.\r\n3. Il faut acheter ____ perceuse électrique pour ce mur.\r\n4. Mets ____ scotch de masquage avant de peindre.', 'Le bricolage - Glissez l\'article correct', 'une,de,vis,des,un,du', NULL),
+(553, 'couper,mesurer,fixer,peindre,', NULL, '1. Je ne sais pas ____ cette planche de bois droit, prête-moi une scie\r\n2. Avant de percer, je dois ____ l\'écart avec un mètre.\r\n3. Mon père va ____ cette étagère au mur du salon.\r\n4. Nous voulons ____ la chambre en bleu ce weekend.', 'Le bricolage ', 'mesurer,fixer,peindre,couper', NULL),
+(554, 'lumineux,équipée,traversant,entièrement rénovée', NULL, '1. Situé au dernier étage, cet appartement est particulièrement ____ toute la journée.\r\n2. La cuisine est moderne et ____ avec des appareils haut de gamme.\r\n3. Nous vous proposons un salon spacieux et ____, offrant une double vue.\r\n4. La salle de bains a été ____ le mois dernier.', 'l\'immobilier', 'traversant,entièrement rénovée,lumineux,équipée', NULL),
+(555, 'fournissiez,payiez,respectiez,sollicitiez', NULL, '1. Le propriétaire exige que vous ____ trois bulletins de salaire récents.\r\n2. Il est stipulé dans le contrat que vous ____ le loyer avant le 5 de chaque mois.\r\n3. Le règlement de copropriété demande que vous ____ le calme après 22 heures.\r\n4. Pour toute modification des cloisons, il est obligatoire que vous ____ l\'accord du syndic.', 'l\'immobilier', 'respectiez,payiez,fournissiez,sollicitiez', NULL),
+(556, 'aurions acheté,aurait pu,serait monté,serait parti', NULL, '1. Si nous avions signé l\'offre plus tôt, nous ____ cette maison à un meilleur prix.\r\n2. Avec les nouvelles baisses de taux, le crédit ____ être validé plus facilement l\'an dernier.\r\n3. Le prix de ce quartier ____ de 15% en l\'espace de deux ans.\r\n4. Si l\'appartement n\'avait pas eu de défauts cachés, l\'acheteur ne ____ pas aussi vite.', 'l\'immobilier', 'serait monté,aurions acheté,aurait pu,serait parti', NULL),
+(557, 'me lève,te dépêches,s\'occupe,nous détendons', NULL, '1. Tous les matins, je ____ de bonne heure pour aller travailler.\r\n2. Pourquoi est-ce que tu ____ toujours autant le matin ?\r\n3. Pendant que les enfants jouent, le père ____ du dîner.\r\n4. Le soir, après le travail, nous ____ devant une série.', 'La vie quotidienne', 'te dépêches,s\'occupe,nous détendons,me lève', NULL),
+(558, 'de la,un peu de,beaucoup de,pas de', NULL, '1. Il n\'y a plus de pain, il faut acheter ____ baguette à la boulangerie\r\n2. Je mets ____ sucre dans mon café, mais pas trop.\r\n3. Pour faire cette grande tarte, nous avons besoin de ____ pommes.\r\n4. Attention, le médecin m\'a dit de ne manger ____ sel en excès.', 'La vie quotidienne', 'beaucoup de,de la,un peu de,pas de', NULL),
+(559, 'en,en,à,au,aux', NULL, '1. Pour aller au bureau, je vais ____ métro ou ____ bus.\r\n2. Quand il fait beau, je préfère aller chercher le pain ____ pied.\r\n3. Ce soir, je vais ____ supermarché pour faire le plein de provisions.\r\n4.  Le week-end, nous allons souvent rendre visite ____ grands-parents.', 'La vie quotidienne', 'au,en,à,en,aux', NULL),
+(560, 'partirons,allons visiter,louerez,réservera ', NULL, '1. Cet été, nous ____ deux semaines en vacances sur la Côte d\'Azur.\r\n2. Une fois sur place, nous ____ le vieux village historique.\r\n3. Pour plus de liberté, vous ____ une voiture à l\'aéroport.\r\n4. Si vous préférez, l\'hôtel ____ vos billets pour le musée.', 'Le tourisme', 'allons visiter,louerez,réservera,partirons', NULL),
+(561, 'allez,Tournez,Traversez', NULL, '1. Pour aller à la cathédrale, ____ tout droit jusqu\'au feu tricolore.\r\n2. ____ à gauche après la boulangerie, le musée est juste là.\r\n3. ____ la grande place piétonne pour trouver l\'office de tourisme.', 'Le tourisme', 'Tournez,Traversez,allez', NULL),
+(562, 'avons visité,sommes allés,est tombée,avons goûté', NULL, '1. Pendant notre séjour à Rome, nous ____ le Colisée.\r\n2. Hier, nous ____ à la plage en fin de journée.\r\n3. Malheureusement, la météo n\'a pas été idéale et la pluie ____ toute l\'après-midi.\r\n4. Sur le marché local, nous ____ des spécialités délicieuses.', 'Le tourisme', 'est tombée,sommes allés,avons goûté,avons visité', NULL),
+(563, 'un,une,des,', NULL, '1. Il faut acheter ____ lit parapluie pour les voyages.\r\n2. N\'oublie pas de prendre ____ poussette légère et maniable.\r\n3. Il nous faut ____ biberons anti-coliques de différentes tailles.\r\n', 'Autour de bébé', 'des,une,un', NULL),
+(564, 'change-le,lave-lui,allonge-la,habille-les', NULL, '1. La couche est pleine, ____ délicatement sur la table à langer.\r\n2. Pour nettoyer son visage, ____ les yeux avec du sérum physiologique.\r\n3. Pose le tapis d\'éveil au sol et ____ pour qu\'elle puisse jouer.\r\n4. Le bain est terminé, ____ rapidement pour qu\'ils n\'attrapent pas froid.', 'Autour de bébé', 'habille-les,allonge-la,change-le,lave-lui', NULL),
+(565, 'un peu de,beaucoup de,plus de,', NULL, '1. À six mois, on introduit ____ courgette dans sa purée pour commencer\r\n2. Il a fini son biberon de lait, il a bu ____ lait ce midi !\r\n3. Bébé grandit vite, il faut prévoir ____ vêtements en taille 12 mois.\r\n', 'Autour de bébé', 'plus de,un peu de,beaucoup de', NULL),
+(566, 'pleurait,a fait,dormait,a dit', NULL, '1. Quand il avait deux mois, il ____ souvent en fin de journée.\r\n2. La semaine dernière, il ____ ses premiers pas tout seul.\r\n3. Pendant que nous cuisinions, le bébé ____ paisiblement dans son berceau.\r\n4. Ce matin, pour la toute première fois, il ____ \'maman\'.', 'Autour de bébé', 'dormait,a dit,pleurait,a fait', NULL),
+(567, 'à la,à l\',aux,au', NULL, '1. Je ne peux plus parler, j\'ai mal ____ gorge depuis hier.\r\n2.J\'ai passé la nuit à tousser, j\'ai mal ____ estomac.\r\n3. Je suis resté trop longtemps debout, j\'ai mal ____ jambes.\r\n4.  Il a soulevé un carton trop lourd, il a mal ____ dos.', 'La santé', 'aux,à l\',au,à la', NULL),
+(568, 'prenez-les,mettez-en,ne les oubliez pas,buvez-en', NULL, '1. Ces comprimés sont pour votre fièvre, ____ matin et soir pendant trois jours.\r\n2. Pour cette brûlure, ____ une fine couche deux fois par jour.\r\n3. Vos gouttes pour les yeux sont importantes, ____ avant de dormir.\r\n4. Vous êtes déshydraté, ____ régulièrement tout au long de la journée.', 'La santé', 'mettez-en,ne les oubliez pas,buvez-en,prenez-les', NULL),
+(569, 'restiez,preniez,consultiez,fassiez', NULL, '1. Pour soigner cette grippe, il est indispensable que vous ____ au lit pendant deux jours\r\n2. Il faut que vous ____ ce médicament avec un grand verre d\'eau.\r\n3. Si la douleur persiste, il est nécessaire que vous ____ un spécialiste.\r\n4. Le médecin demande que vous ____ une prise de sang la semaine prochaine.', 'La santé', 'consultiez,fassiez,preniez,restiez', NULL),
+(570, 'suis allé,avais,a examiné,commençait', NULL, '1. Hier matin, je ____ chez le médecin en urgence.\r\n2. Depuis trois jours, j\' ____ une forte fièvre et des frissons.\r\n3. Le docteur m\' ____ avec beaucoup d\'attention.\r\n4. La gorge me grattait et la toux ____ à m\'inquiéter.', 'La santé', 'a examiné,commençait,suis allé,avais', NULL),
+(571, 'viennes,comprennes,partes,sois', NULL, '1. Je suis vraiment ravi que tu ____ à notre dîner de ce soir.\r\n2. Je regrette que tu ne ____ pas ma réaction lors de notre dispute.\r\n3. Je crains que tu ne ____ sans qu\'on ait pu discuter calmement\r\n4. Il est important que tu ____ honnête avec tes amis en cas de désaccord.', 'Les relations humaines', 'sois,partes,comprennes,viennes', NULL),
+(572, 'à cause d\',grâce à,si bien que,par conséquent', NULL, '1. Ils ne se parlent plus ____ un vieux malentendu persistant.\r\n2. Notre amitié est devenue plus forte ____ cette épreuve surmontée ensemble.\r\n3. Il a présenté ses excuses sincères, ____ tout est rentré dans l\'ordre.\r\n4. Leurs modes de vie étaient devenus trop différents ; ____, ils ont pris des chemins séparés.', 'Les relations humaines', 'grâce à,si bien que,par conséquent,à cause d\'', NULL),
+(573, 'aurions évité,aurait réagi,aurais pas dû', NULL, '1. Si nous avions communiqué plus tôt, nous ____ cette longue dispute.\r\n2. Comment est-ce qu\'il ____ si tu lui avais avoué la vérité ?\r\n3. Avec du recul, je pense que je n\' ____ m\'en mêler.', 'Les relations humaines', 'aurait réagi,aurions évité,aurais pas dû', NULL);
 
 -- --------------------------------------------------------
 
@@ -1428,7 +1488,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -1480,7 +1540,8 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (291, '2026-09-22 14:57:13.715968', 'testu23@gmail.com', b'1', '$2a$10$w/K3W4gclPD8c1S2Ma/64O1teg/e4mYVliyQnFbluOj3Fhesb3.H.', 'USER', 'testu23'),
 (292, '2026-09-22 14:57:41.763219', 'testu24@gmail.com', b'1', '$2a$10$yfEKeOQ8D7mF1.x1NV.xueuZuwXtVGhXJN7BwToLXqOO7QTGzwgGm', 'USER', 'testu24'),
 (293, '2026-09-29 07:16:12.310701', 'testu25@gmail.com', b'1', '$2a$10$irtdpELeR/TWqJKj9rtxJubL45A/TvL/i5qnjiJ9YGciJxflGf18e', 'USER', 'testu25'),
-(294, '2026-10-01 16:59:29.664378', 'sab@gmail.com', b'1', '$2a$10$FWUNL.z81d6Kv.CzfDmy.ueGfyGs3Qk43N1ojSz6OY0p8I9F/ILhG', 'ROLE_USER', 'sabine');
+(294, '2026-10-01 16:59:29.664378', 'sab@gmail.com', b'1', '$2a$10$FWUNL.z81d6Kv.CzfDmy.ueGfyGs3Qk43N1ojSz6OY0p8I9F/ILhG', 'ROLE_USER', 'sabine'),
+(295, '2026-10-06 10:52:08.711877', 'testu30@gmail.com', b'1', '$2a$10$SrcMedf3KHdL.VLjgYVPFOZOPOpTRToLz8avRgl2lNzRtmxXISukW', 'USER', 'testu30');
 
 -- --------------------------------------------------------
 

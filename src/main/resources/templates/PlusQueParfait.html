@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français sur le plus-que-parfait (formation, auxiliaires être et avoir, antériorité dans le passé) pour adultes">
+
+    <title>Le plus-que-parfait - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Le plus-que-parfait
+        </h1>
+
+        <p class="lead">
+            Exprimer une action passée, antérieure à une autre action du passé
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez former le <strong>plus-que-parfait</strong>
+                et l'utiliser correctement pour exprimer des actions antérieures dans un récit au passé
+                ou des regrets avec « si ».
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que le plus-que-parfait ?</h2>
+
+
+        <p>
+
+            Le plus-que-parfait est un temps composé du passé. Il s'emploie principalement pour situer une action
+            qui s'est déroulée <strong>avant</strong> une autre action du passé (exprimée au passé composé ou à l'imparfait).
+            C'est « le passé du passé ».
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Exemple d'antériorité :</strong> Quand je suis arrivé à la gare, le train <em>était déjà parti</em>.</li>
+
+            <li><strong>Exemple de regret :</strong> Ah ! Si j'<em>avais su</em> !</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>La formation du plus-que-parfait</h2>
+
+
+        <p>
+
+            La formation est similaire à celle du passé composé, mais l'auxiliaire est mis à l'<strong>imparfait</strong>.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <p class="mb-2"><strong>Formule magique :</strong></p>
+
+            <h3 class="h5 text-primary mb-3">
+                Auxiliaire ÊTRE ou AVOIR à l'imparfait + Participe passé du verbe
+            </h3>
+
+            <ul class="mb-0">
+
+                <li><strong>Avec AVOIR (Avoir à l'imparfait) :</strong> J'avais parlé, tu avais fini, il avait pris...</li>
+
+                <li><strong>Avec ÊTRE (Être à l'imparfait) :</strong> J'étais venu(e), tu étais parti(e), elle était arrivée...</li>
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Les auxiliaires : Avoir vs Être</h2>
+
+
+        <p>
+
+            Les règles pour le choix de l'auxiliaire et l'accord du participe passé sont exactement les mêmes qu'au passé composé.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Verbes avec AVOIR (la majorité)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Manger</strong></td>
+                                <td>J'<em>avais mangé</em>, tu avais mangé...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Faire</strong></td>
+                                <td>Il <em>avait fait</em>, nous avions fait...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Comprendre</strong></td>
+                                <td>Vous <em>aviez compris</em>, ils avaient compris...</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Verbes avec ÊTRE (mouvement & pronominaux)
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Aller</strong></td>
+                                <td>J'<em>étais allé(e)</em>, tu étais allé(e)...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Partir</strong></td>
+                                <td>Elle <em>était partie</em>, nous étions parti(e)s...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Se lever</strong></td>
+                                <td>Je m'<em>étais levé(e)</em>, ils s'étaient levés...</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Chronologie et emplois principaux</h2>
+
+
+        <p>
+
+            Observez comment le plus-que-parfait se positionne par rapport au passé composé.
+
+        </p>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Action 1 (La plus ancienne $\rightarrow$ Plus-que-parfait)</th>
+
+                <th>Action 2 (Postérieure $\rightarrow$ Passé composé / Imparfait)</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'<strong>avais déjà étudié</strong> la leçon...</td>
+
+                <td>... quand l'examen a commencé.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle <strong>avait oublié</strong> ses clés...</td>
+
+                <td>... donc elle n'a pas pu rentrer.</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>J'ai été parti avant qu'il arrive. (Mélange de passé composé et d'être).</td>
+
+                <td>J'<strong>étais parti</strong> avant qu'il n'arrive. (Auxiliaire <em>être</em> à l'imparfait).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle avait tombé dans la rue. (Mauvais auxiliaire).</td>
+
+                <td>Elle <strong>était tombée</strong> dans la rue. (Le verbe <em>tomber</em> se conjugue avec l'auxiliaire <em>être</em>).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Si j'aurais su, je ne serais pas venu. (Conditionnel après "si").</td>
+
+                <td>Si j'<strong>avais su</strong>, je ne serais pas venu. (Imparfait ou plus-que-parfait après <em>si</em> dans l'hypothèse).</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Tu as réussi à trouver le restaurant hier soir ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oui, mais quand nous sommes arrivés, la cuisine <strong>avait déjà fermé</strong> !
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Mince ! Vous n'<strong>aviez pas réservé</strong> à l'avance ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Si, mais nous étions en retard parce que nous nous <strong>étions trompés</strong> de chemin.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Quel dommage ! La prochaine fois, préparez l'itinéraire avant !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Le plus-que-parfait se forme avec l'<strong>auxiliaire à l'imparfait</strong> + le <strong>participe passé</strong>.</li>
+
+
+                <li>Il exprime une action antérieure (plus ancienne) qu'une autre action du passé.</li>
+
+
+                <li>N'oubliez pas d'accorder le participe passé avec le sujet lorsque l'auxiliaire est <strong>être</strong>.</li>
+
+
+                <li>C'est aussi le temps utilisé après <em>« si »</em> pour exprimer un regret dans le passé (ex: <em>Si j'avais su...</em>).</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

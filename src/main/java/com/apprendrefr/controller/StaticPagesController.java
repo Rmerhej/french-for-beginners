@@ -233,6 +233,34 @@ public class StaticPagesController {
     @GetMapping("/LaVoixPassive") public String LaVoixPassive() {
         return "LaVoixPassive";
     }
+
+    @GetMapping("/PlusQueParfait") public String PlusQueParfait() {
+        return "PlusQueParfait";
+    }
+
+    @GetMapping("/FuturAntérieur") public String FuturAntérieur() {
+        return "FuturAntérieur";
+    }
+
+    @GetMapping("/ConditionnelPrésentSupDeCours") public String ConditionnelPrésent() {
+        return "ConditionnelPrésentSupDeCours";
+    }
+
+    @GetMapping("/ConditionnelPassé") public String ConditionnelPassé() {
+        return "ConditionnelPassé";
+    }
+
+    @GetMapping("/LesTroisTypesDhypothèse") public String LesTroisTypesDhypothèse() {
+        return "LesTroisTypesDhypothèse";
+    }
+
+    @GetMapping("/SubjonctifPrésent") public String SubjonctifPrésent() {
+        return "SubjonctifPrésent";
+    }
+
+    @GetMapping("/ConcordanceDesTemps") public String ConcordanceDesTemps() {
+        return "ConcordanceDesTemps";
+    }
     @GetMapping("/LaCauseEtLaConséquence") public String LaCauseEtLaConséquence() {
         return "LaCauseEtLaConséquence";
     }
