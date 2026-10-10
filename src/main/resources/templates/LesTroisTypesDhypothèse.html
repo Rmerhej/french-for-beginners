@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français sur les trois types d'hypothèses avec 'si' (réalisable, irréelle du présent, irréelle du passé) pour adultes">
+
+    <title>Les trois types d'hypothèses - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Les trois types d'hypothèses
+        </h1>
+
+        <p class="lead">
+            Exprimer une condition possible, imaginaire ou impossible avec la structure « si »
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez maîtriser parfaitement les <strong>trois structures de l'hypothèse introduites par « si »</strong> en appliquant la bonne concordance des temps selon que la condition est probable, imaginaire ou manquée dans le passé.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce qu'une phrase hypothétique ?</h2>
+
+
+        <p>
+
+            Une phrase hypothétique permet d'exprimer un fait dont la réalisation dépend d'une condition. Elle est généralement composée de deux parties : la proposition conditionnelle introduite par <strong>« si »</strong> et la proposition principale (le résultat).
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Règle fondamentale :</strong> On ne met <em>jamais</em> de futur ni de conditionnel directement après « si ».</li>
+
+            <li><strong>Postulat :</strong> C'est la conjonction des temps qui indique le degré de réalité de l'hypothèse.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Détail des 3 types d'hypothèses</h2>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Type 1 : Hypothèse réalisable (Futur)
+                        </h3>
+
+                        <p class="fw-bold">Si + Présent ➔ Futur simple</p>
+                        <p class="small text-muted">Exprime une condition possible ou probable dans l'avenir.</p>
+                        <p class="mb-0"><em>Exemple : Si j'<strong>ai</strong> du temps libre ce soir, je <strong>regarderai</strong> un film.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Type 2 : Hypothèse irréelle du présent
+                        </h3>
+
+                        <p class="fw-bold">Si + Imparfait ➔ Conditionnel présent</p>
+                        <p class="small text-muted">Exprime une situation imaginaire ou contraire à la réalité actuelle.</p>
+                        <p class="mb-0"><em>Exemple : Si j'<strong>avais</strong> du temps libre aujourd'hui, je <strong>regarderais</strong> un film.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-danger">
+                            Type 3 : Hypothèse irréelle du passé
+                        </h3>
+
+                        <p class="fw-bold">Si + Plus-que-parfait ➔ Conditionnel passé</p>
+                        <p class="small text-muted">Exprime une action impossible, un regret ou un reproche sur le passé.</p>
+                        <p class="mb-0"><em>Exemple : Si j'<strong>avais eu</strong> du temps libre hier, j'<strong>aurais regardé</strong> un film.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>Tableau récapitulatif de concordance des temps</h2>
+
+
+        <table class="table table-bordered align-middle">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Type</th>
+
+                <th>Structure (Si...)</th>
+
+                <th>Résultat</th>
+
+                <th>Intention / Sens</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>1. Réalisable</strong></td>
+
+                <td>Si + Présent</td>
+
+                <td>Futur simple / Présent / Impératif</td>
+
+                <td>Projet probable ou conseil</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>2. Irréelle du présent</strong></td>
+
+                <td>Si + Imparfait</td>
+
+                <td>Conditionnel présent</td>
+
+                <td>Rêve, imagination actuelle</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>3. Irréelle du passé</strong></td>
+
+                <td>Si + Plus-que-parfait</td>
+
+                <td>Conditionnel passé</td>
+
+                <td>Regret, opportunité manquée</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Si j'aurai de l'argent, j'achèterai une voiture.</td>
+
+                <td>Si j'<strong>ai</strong> de l'argent, j'achèterai une voiture. (Pas de futur après "si").</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Si je serais riche, je voyagerai.</td>
+
+                <td>Si j'<strong>étais</strong> riche, je <strong>voyagerais</strong>. (Imparfait + Conditionnel présent).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Si j'aurais su, je ne serais pas venu.</td>
+
+                <td>Si j'<strong>avais su</strong>, je ne serais pas venu. (Plus-que-parfait après "si").</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Que feras-tu ce week-end ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Si le temps <strong>est</strong> beau, nous <strong>irons</strong> faire une randonnée à la montagne.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Chanceux ! Si j'<strong>avais</strong> mon week-end, je vous <strong>accompagnerais</strong> bien...
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Dommage ! Et si tu nous <strong>avais prévenus</strong> la semaine dernière, tu <strong>aurais pu</strong> poser une journée de congé !
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li><strong>Type 1 :</strong> Si + Présent ➔ Futur simple (Projet probable).</li>
+
+
+                <li><strong>Type 2 :</strong> Si + Imparfait ➔ Conditionnel présent (Imaginaire présent).</li>
+
+
+                <li><strong>Type 3 :</strong> Si + Plus-que-parfait ➔ Conditionnel passé (Regret passé).</li>
+
+
+                <li>Rappelez-vous la règle d'or : <strong>Jamais de "rai" ni de "rais" directement après "Si" !</strong></li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
