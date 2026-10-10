@@ -39,7 +39,19 @@ public class QuizController {
 
         return "accords-des-adjectifs";
     }
+    @GetMapping("/LaPhraseSimple-Quiz")
+    public String goToLaPhraseSimpleQuiz(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("La phrase simple"));
 
+        return "LaPhraseSimple-Quiz";
+    }
+
+    @GetMapping("/LesNomsMasculinEtFéminin-Quiz")
+    public String goToLesNomsMasculinEtFémininQuiz(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les noms : masculin et féminin"));
+
+        return "LesNomsMasculinEtFéminin-Quiz";
+    }
     @GetMapping("/les-adjectifs-accord-pluriel")
     public String goToLesAdjectifsAccordAuPluriel(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Adjectifs(Accord au pluriel)"));
