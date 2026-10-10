@@ -39,6 +39,14 @@ public class QuizController {
 
         return "accords-des-adjectifs";
     }
+
+    @GetMapping("/LesArticlesDéfinis-Quiz")
+    public String goToLesArticlesDéfinisQuiz(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les articles définis"));
+
+        return "LesArticlesDéfinis-Quiz";
+    }
+
     @GetMapping("/LaPhraseSimple-Quiz")
     public String goToLaPhraseSimpleQuiz(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("La phrase simple"));
