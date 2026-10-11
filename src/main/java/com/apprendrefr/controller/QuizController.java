@@ -74,6 +74,47 @@ public class QuizController {
         return "utilisation-des-pronoms";
     }
 
+    @GetMapping("/LanégationSimple")
+    public String goToLanégationSimple(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("La négation simple"));
+
+        return "LanégationSimple-Quiz";
+    }
+
+    @GetMapping("/Linterrogation")
+    public String goToLinterrogation(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("L'interrogation"));
+
+        return "Linterrogation-Quiz";
+    }
+
+    @GetMapping("/GenreEtNombreDesNoms")
+    public String goToGenreEtNombreDesNoms(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Genre et nombre des noms"));
+
+        return "GenreEtNombreDesNoms-Quiz";
+    }
+
+    @GetMapping("/LesAccords")
+    public String goToLesAccords(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les accords"));
+
+        return "LesAccords-Quiz";
+    }
+
+    @GetMapping("/LesCompléments")
+    public String goToLesCompléments(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les compléments"));
+
+        return "LesCompléments-Quiz";
+    }
+
+    @GetMapping("/LesExpressionsDeTemps")
+    public String goToLesExpressionsDeTemps(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les expressions de temps"));
+
+        return "LesExpressionsDeTemps-Quiz";
+    }
     @GetMapping("/expressions-de-temps")
     public String goToLesExpressionsDuTemps(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Expressions de temps - Grammaire"));
