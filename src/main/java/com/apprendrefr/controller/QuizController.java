@@ -121,7 +121,22 @@ public class QuizController {
 
         return "expressions-de-temps";
     }
+//-----------------------Conjugaison------------------------------>
 
+    @GetMapping("/EtreEtAvoirAuPrésent")
+    public String goToEtreEtAvoirAuPrésent(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Être et avoir au présent"));
+
+        return "EtreEtAvoirAuPrésent_Qcm";
+    }
+
+    @GetMapping("/LesVerbes")
+    public String goToLesVerbes(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les verbes"));
+
+        return "LesVerbes_Quiz";
+    }
+    //---------------------------------------------------->
     @GetMapping("/futur-simple")
     public String goToFuturSimple(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Futur simple - Grammaire"));

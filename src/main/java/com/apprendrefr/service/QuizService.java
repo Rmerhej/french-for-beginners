@@ -36,6 +36,9 @@ public class QuizService {
     public List<Quiz> findByTitleContainingIgnoreCase(String title) {
         return quizRepository.findByTitleContainingIgnoreCase(title);
     }
+    public List<Quiz> findByTitle(String title) {
+        return quizRepository.findByTitleIgnoreCase(title);
+    }
 
     public void deleteById(Long id) {
         quizRepository.deleteById(id);
