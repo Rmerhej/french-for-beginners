@@ -41,7 +41,7 @@
     Score : <span id="score">0</span> / <span id="total">0</span>
 </div>
 
-<h4 class="mt-5 mb-3 text-primary"><span aria-hidden="true">📖</span> Exercices</h4>
+<h4 class="mt-5 mb-3 text-primary"><span aria-hidden="true">📖</span> Exercices , Leçon : Au café </h4>
 
 <main th:each="ex : ${exercises}"
       th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'U Sartrouville')}"
