@@ -136,6 +136,20 @@ public class QuizController {
 
         return "LesVerbes_Quiz";
     }
+
+    @GetMapping("/PrésentDesVerbesEnER")
+    public String goToPrésentDesVerbesEnER(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Présent des verbes en ER"));
+
+        return "PrésentDesVerbesEnER_Quiz";
+    }
+    @GetMapping("/AllerEtFaire")
+    public String goToAllerEtFaire(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Aller et Faire"));
+
+        return "AllerEtFaire_Quiz";
+    }
+
     //---------------------------------------------------->
     @GetMapping("/futur-simple")
     public String goToFuturSimple(Model model) {
