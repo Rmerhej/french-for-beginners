@@ -150,6 +150,33 @@ public class QuizController {
         return "AllerEtFaire_Quiz";
     }
 
+    @GetMapping("/VerbesPronominaux")
+    public String goToVerbesPronominaux(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Verbes pronominaux"));
+
+        return "VerbesPronominaux_Quiz";
+    }
+
+    @GetMapping("/FuturProche")
+    public String goToFuturProche(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Futur proche"));
+
+        return "FuturProche-quiz";
+    }
+
+    @GetMapping("/PasséRécent")
+    public String goToPasséRécent(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Passé récent"));
+
+        return "PasséRécent-quiz";
+    }
+
+    @GetMapping("/Impératif")
+    public String goToImpératif(Model model) {
+        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Impératif"));
+
+        return "Impératif-quiz";
+    }
     //---------------------------------------------------->
     @GetMapping("/futur-simple")
     public String goToFuturSimple(Model model) {
