@@ -156,7 +156,7 @@
                                     <a th:href="@{/phrase}"
                                        aria-label="La phrase simple"
                                        class="text-secondary">
-                                        La phrase simple <a href="/LaPhraseSimple-Quiz" class="text-primary fst-italic small float-end">Quiz</a>
+                                        La phrase simple <a th:href="@{/quiz/drag-drop(recherche='La phrase simple')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -165,35 +165,35 @@
                                        aria-label="Les noms : masculin et féminin"
                                        class="text-secondary">
                                         Les noms : masculin et féminin
-                                        <a href="LesNomsMasculinEtFéminin-Quiz" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        <a th:href="@{/quiz/drag-drop(recherche='Les noms : masculin et féminin')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/articlesDéfinis}"
                                        aria-label="Les articles définis"
                                        class="text-secondary">
-                                        Les articles définis  <a href="/LesArticlesDéfinis-Quiz" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les articles définis  <a th:href="@{/quiz/drag-drop(recherche='Les articles définis')}" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/adjectif}"
                                        aria-label="  L'adjectif"
                                        class="text-secondary">
-                                        L'adjectif <a href="/accords-des-adjectifs" class="text-primary fst-italic small float-end">Quiz</a>
+                                        L'adjectif <a th:href="@{/quiz/drag-drop(recherche='Accords des adjectifs')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/adjectifsQualificatifs}"
                                        aria-label="Les adjectifs qualificatifs"
                                        class="text-secondary">
-                                        Les adjectifs qualificatifs <a href="/AdjectifsQualificatifs" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les adjectifs qualificatifs <a th:href="@{/quiz/drag-drop(recherche='Les adjectifs qualificatifs')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/PronomsPersonnelsSujets}"
                                        aria-label="Les pronoms personnels"
                                        class="text-secondary">
-                                        Les pronoms personnels <a href="/utilisation-des-pronoms" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les pronoms personnels <a th:href="@{/quiz/drag-drop(recherche='Les pronoms')}"  class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -202,28 +202,28 @@
                                     <a th:href="@{/NegationSimple}"
                                        aria-label="La négation simple"
                                        class="text-secondary">
-                                        La négation simple  <a href="/LanégationSimple#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        La négation simple  <a th:href="@{/quiz/drag-drop(recherche='La négation simple')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/questionsSimples}"
                                        aria-label="L’interrogation — questions simples"
                                        class="text-secondary">
-                                        L’interrogation — questions simples <a href="/Linterrogation" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        L’interrogation — questions simples <a th:with="nomCours=|L'interrogation|" th:href="@{/quiz/drag-drop(recherche=${nomCours})}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/lesPrépositions}"
                                        aria-label="Les prépositions"
                                        class="text-secondary">
-                                        Les prépositions <a href="/prepositionConjonction" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les prépositions <a th:href="@{/quiz/drag-drop(recherche='préposition')}" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/genreEtNombreDesNoms}"
                                        aria-label="Genre et nombre des noms"
                                        class="text-secondary">
-                                        Genre et nombre<a href="/GenreEtNombreDesNoms" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Genre et nombre<a th:href="@{/quiz/drag-drop(recherche='Genre et nombre des noms')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -232,7 +232,7 @@
                                     <a th:href="@{/accords}"
                                        aria-label="Les accords"
                                        class="text-secondary">
-                                        Les accords <a href="/LesAccords" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les accords <a th:href="@{/quiz/drag-drop(recherche='Les accords')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -240,14 +240,14 @@
                                     <a th:href="@{/complements}"
                                        aria-label="Les compléments"
                                        class="text-secondary">
-                                        Les compléments <a href="/LesCompléments" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les compléments <a th:href="@{/quiz/drag-drop(recherche='Les compléments')}" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/expressionstemps}"
                                        aria-label="Les expressions de temps"
                                        class="text-secondary">
-                                        Les expressions de temps <a href="/LesExpressionsDeTemps" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les expressions de temps <a th:href="@{/quiz/drag-drop(recherche='Les Expressions de temps')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                             </ul>
@@ -277,71 +277,71 @@
                                 <li>
                                     <a th:href="@{/verbesAuPresent}"
                                        aria-label="Être et avoir au présent"
-                                       class="text-secondary">
-                                        Être et avoir au présent <a href="/EtreEtAvoirAuPrésent" class="text-primary fst-italic small float-end">Quiz</a>
+                                       class="text-secondary">Être et avoir au présent
+                                        Être et avoir au présent <a th:href="@{/quiz/drag-drop(recherche='Être et avoir au présent')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/lesVerbes}"
                                        aria-label="Les verbes"
                                        class="text-secondary">
-                                        Les verbes <a href="/LesVerbes" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les verbes <a th:href="@{/quiz/drag-drop(recherche='Les verbes au présent')}"  class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/verbesreguliers}"
                                        aria-label="Les verbes réguliers"
                                        class="text-secondary">
-                                        Les verbes réguliers <a href="/verbes-regulier" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les verbes réguliers <a th:href="@{/quiz/drag-drop(recherche='Verbes réguliers')}"  class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/auxiliaires}"
                                        aria-label="Les auxiliaires"
                                        class="text-secondary">
-                                        Les auxiliaires <a href="/LesAuxiliaresQuiz" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les auxiliaires <a th:href="@{/quiz/drag-drop(recherche='Les auxiliaires')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/présentdesVerbesEner}"
                                        aria-label="Présent des verbes en -ER"
                                        class="text-secondary">
-                                        Présent des verbes(ER) <a href="/PrésentDesVerbesEnER" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Présent des verbes(ER) <a th:href="@{/quiz/drag-drop(recherche='Présent des verbes en ER')}"  class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/allerEtFaire}"
                                        aria-label="Aller et faire"
                                        class="text-secondary">
-                                        Aller et faire <a href="/AllerEtFaire" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Aller et faire <a th:href="@{/quiz/drag-drop(recherche='Aller et Faire')}"   class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/verbesPronominaux}"
                                        aria-label="Verbes pronominaux"
                                        class="text-secondary">
-                                        Verbes pronominaux <a href="/VerbesPronominaux" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Verbes pronominaux <a th:href="@{/quiz/drag-drop(recherche='Les verbes pronominaux')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/futurProche}"
                                        aria-label="Futur proche"
                                        class="text-secondary">
-                                        Futur proche <a href="/FuturProche" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Futur proche <a th:href="@{/quiz/drag-drop(recherche='Futur proche')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/passeRecent}"
                                        aria-label="Passé récent"
                                        class="text-secondary">
-                                        Passé récent <a href="/PasséRécent" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Passé récent <a th:href="@{/quiz/drag-drop(recherche='Le passé récent')}" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
                                     <a th:href="@{/imperatif}"
                                        aria-label="Impératif"
                                        class="text-secondary">
-                                        Impératif <a href="/Impératif" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Impératif <a  th:href="@{/quiz/drag-drop(recherche='Impératif')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                             </ul>
@@ -401,19 +401,11 @@
                             </h3>
 
                             <ul class="text-secondary">
-
-                                <li>
-                                    <a th:href="@{/complements}"
-                                       aria-label="Les compléments"
-                                       class="text-secondary">
-                                        Les compléments <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
-                                    </a>
-                                </li>
                                 <li>
                                     <a th:href="@{/adjectifsdemonstratifs}"
                                        aria-label="Les adjectifs démonstratifs"
                                        class="text-secondary">
-                                        Les adjectifs démonstratifs <a href="/adjectifs-demonstratif" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les adjectifs démonstratifs <a th:href="@{/quiz/drag-drop(recherche='Adjectifs démonstratifs')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li><br>
 
@@ -428,14 +420,14 @@
                                     <a th:href="@{/expressionstemps}"
                                        aria-label="Les expressions de temps"
                                        class="text-secondary">
-                                        Les expressions de temps <a href="/expressions-de-temps" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les expressions de temps <a th:href="@{/quiz/drag-drop(recherche='Les Expressions de temps')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li><br>
                                 <li>
                                     <a th:href="@{/accords}"
                                        aria-label="Les accords"
                                        class="text-secondary">
-                                        Les accords <a href="/les-adjectifs-accord-pluriel" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les accords <a th:href="@{/quiz/drag-drop(recherche='Les adjectifs')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -450,7 +442,14 @@
                                     <a th:href="@{/pronomsPossessifsEtDemonstratifs}"
                                        aria-label="Les pronoms possessifs et démonstratifs"
                                        class="text-secondary">
-                                        Les pronoms possessifs et démonstratifs <a href="/PronomsPossessifesEtDemonstratifs" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les pronoms possessifs et démonstratifs <a th:href="@{/quiz/drag-drop(recherche='Pronoms possessifs et démonstratifs')}" class="text-primary fst-italic small float-end">Quiz</a>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/#}"
+                                       aria-label="quiz sur la conjonction et préposition"
+                                       class="text-secondary">
+                                        Prépositions et Conjonctions   <a th:href="@{/quiz/drag-drop(recherche='conjonction')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
@@ -542,7 +541,7 @@
                                     <a th:href="@{/passecompse}"
                                        aria-label="Passé composé"
                                        class="text-secondary">
-                                      Le passé composé <a href="/passéComposé" class="text-primary fst-italic small float-end">Quiz</a>
+                                      Le passé composé <a th:href="@{/quiz/drag-drop(recherche='Le passé composé')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
@@ -563,7 +562,7 @@
                                     <a th:href="@{/LefuturSimple}"
                                        aria-label="Futur simple"
                                        class="text-secondary">
-                                        Le futur simple <a href="/futurSimple" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Le futur simple <a th:href="@{/quiz/drag-drop(recherche='Le futur simple')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
@@ -585,7 +584,7 @@
                                     <a th:href="@{/ImperatifAvecLesPronoms}"
                                        aria-label="Impératif avec les pronoms"
                                        class="text-secondary">
-                                       L'impératif avec les pronoms <a href="/impératif" class="text-primary fst-italic small float-end">Quiz</a>
+                                       L'impératif avec les pronoms <a th:href="@{/quiz/drag-drop(recherche='Impératif')}"  class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 

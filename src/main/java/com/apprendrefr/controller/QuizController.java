@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,238 +27,21 @@ public class QuizController {
         return "quiz-sur-la-grammaire";
     }
 
-    @GetMapping("/prepositionConjonction")
-    public String goToPrepositionConjonction(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("préposition"));
 
-        return "prepositionConjonction";
+
+    @GetMapping("/quiz/drag-drop")
+    public String afficherQuiz(
+            @RequestParam String recherche,
+            Model model) {
+
+        List<Quiz> quizzes =
+                quizService.findByTitleContainingIgnoreCase(recherche);
+
+        model.addAttribute("quizzes", quizzes);
+        model.addAttribute("titre", recherche);
+
+        return "quiz-drag-drop";
     }
-
-    @GetMapping("/accords-des-adjectifs")
-    public String goToLesPronoms(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Accords des adjectifs"));
-
-        return "accords-des-adjectifs";
-    }
-
-    @GetMapping("/LesArticlesDéfinis-Quiz")
-    public String goToLesArticlesDéfinisQuiz(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les articles définis"));
-
-        return "LesArticlesDéfinis-Quiz";
-    }
-
-    @GetMapping("/LaPhraseSimple-Quiz")
-    public String goToLaPhraseSimpleQuiz(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("La phrase simple"));
-
-        return "LaPhraseSimple-Quiz";
-    }
-
-    @GetMapping("/LesNomsMasculinEtFéminin-Quiz")
-    public String goToLesNomsMasculinEtFémininQuiz(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les noms : masculin et féminin"));
-
-        return "LesNomsMasculinEtFéminin-Quiz";
-    }
-    @GetMapping("/les-adjectifs-accord-pluriel")
-    public String goToLesAdjectifsAccordAuPluriel(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Adjectifs(Accord au pluriel)"));
-
-        return "les-adjectifs-accord-pluriel";
-    }
-
-    @GetMapping("/utilisation-des-pronoms")
-    public String goToUtilisationDesPronoms(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les pronoms - Grammaire"));
-
-        return "utilisation-des-pronoms";
-    }
-
-    @GetMapping("/LanégationSimple")
-    public String goToLanégationSimple(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("La négation simple"));
-
-        return "LanégationSimple-Quiz";
-    }
-
-    @GetMapping("/Linterrogation")
-    public String goToLinterrogation(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("L'interrogation"));
-
-        return "Linterrogation-Quiz";
-    }
-
-    @GetMapping("/GenreEtNombreDesNoms")
-    public String goToGenreEtNombreDesNoms(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Genre et nombre des noms"));
-
-        return "GenreEtNombreDesNoms-Quiz";
-    }
-
-    @GetMapping("/LesAccords")
-    public String goToLesAccords(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les accords"));
-
-        return "LesAccords-Quiz";
-    }
-
-    @GetMapping("/LesCompléments")
-    public String goToLesCompléments(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les compléments"));
-
-        return "LesCompléments-Quiz";
-    }
-
-    @GetMapping("/LesExpressionsDeTemps")
-    public String goToLesExpressionsDeTemps(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les expressions de temps"));
-
-        return "LesExpressionsDeTemps-Quiz";
-    }
-    @GetMapping("/expressions-de-temps")
-    public String goToLesExpressionsDuTemps(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Expressions de temps - Grammaire"));
-
-        return "expressions-de-temps";
-    }
-//-----------------------Conjugaison------------------------------>
-
-    @GetMapping("/EtreEtAvoirAuPrésent")
-    public String goToEtreEtAvoirAuPrésent(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Être et avoir au présent"));
-
-        return "EtreEtAvoirAuPrésent_Qcm";
-    }
-
-    @GetMapping("/LesVerbes")
-    public String goToLesVerbes(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les verbes"));
-
-        return "LesVerbes_Quiz";
-    }
-
-    @GetMapping("/PrésentDesVerbesEnER")
-    public String goToPrésentDesVerbesEnER(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Présent des verbes en ER"));
-
-        return "PrésentDesVerbesEnER_Quiz";
-    }
-    @GetMapping("/AllerEtFaire")
-    public String goToAllerEtFaire(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Aller et Faire"));
-
-        return "AllerEtFaire_Quiz";
-    }
-
-    @GetMapping("/VerbesPronominaux")
-    public String goToVerbesPronominaux(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Verbes pronominaux"));
-
-        return "VerbesPronominaux_Quiz";
-    }
-
-    @GetMapping("/FuturProche")
-    public String goToFuturProche(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Futur proche"));
-
-        return "FuturProche-quiz";
-    }
-
-    @GetMapping("/PasséRécent")
-    public String goToPasséRécent(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Passé récent"));
-
-        return "PasséRécent-quiz";
-    }
-
-    @GetMapping("/Impératif")
-    public String goToImpératif(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Impératif"));
-
-        return "Impératif-quiz";
-    }
-    //---------------------------------------------------->
-    @GetMapping("/futur-simple")
-    public String goToFuturSimple(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Futur simple - Grammaire"));
-
-        return "futur-simple-quiz-grammaire";
-    }
-
-    @GetMapping("/adjectifs-demonstratif")
-    public String goToAdjectifsDemonstratif(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Adjectifs démonstratifs - Grammaire"));
-
-        return "adjectifs-demonstratifs-quiz-grammaire";
-    }
-
-    @GetMapping("/verbes-regulier")
-    public String goToVerbesRegulier(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Verbes réguliers"));
-
-        return "verbes-regulier-quiz-grammaire";
-    }
-
-
-    @GetMapping("/LesArticlesDefinis")
-    public String goToLesArticlesDefinis(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les Articles définis - Grammaire"));
-
-        return "LesArticlesDefinis-quiz-grammaire";
-    }
-
-
-    @GetMapping("/AdjectifsQualificatifs")
-    public String goToAdjectifsQualificatifs(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les adjectifs qualificatifs- Grammaire"));
-
-        return "AdjectifsQualificatifs-quiz-grammaire";
-    }
-
-    @GetMapping("/PronomsPossessifesEtDemonstratifs")
-    public String goToPronomsPossessifesEtDemonstratifs(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Pronoms possessifs et démonstratifs - Grammaire"));
-
-        return "PronomsPossessifesEtDemonstratifs-quiz-grammaire";
-    }
-
-    @GetMapping("/LesAuxiliaresQuiz")
-    public String goToLesAuxiliares(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les auxiliaires - Grammaire"));
-
-        return "LesAuxiliares-quiz-grammaire";
-    }
-
-    @GetMapping("/verbesPresent")
-    public String goToLesVerbesAuPresent(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Les verbes au présent"));
-
-        return "LesVerbesAuPresent-quiz-grammaire";
-    }
-
-    @GetMapping("/impératif")
-    public String goToImperatif(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Impératif"));
-
-        return "Impératif-quiz-grammaire";
-    }
-
-    @GetMapping("/passéComposé")
-    public String goToPasséComposé(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Le passé composé"));
-
-        return "passéComposé-quiz-grammaire";
-    }
-
-
-    @GetMapping("/futurSimple")
-    public String goToFuturSimpleGrammaire(Model model) {
-        model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("Le futur simple"));
-
-        return "futurSimple-quiz-grammaire";
-    }
-
 
     @GetMapping("/quiz/{id}")
     public String showQuiz(@PathVariable Long id, Model model) {
