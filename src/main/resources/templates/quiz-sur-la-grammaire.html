@@ -148,7 +148,7 @@
 
                         </div>
 
-                        <a th:href="@{/LaPhraseSimple-Quiz}"
+                        <a th:href="@{/quiz/drag-drop(recherche='La phrase simple')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur La phrase simple">
 
@@ -176,7 +176,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesNomsMasculinEtFéminin-Quiz}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les noms : masculin et féminin')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les noms : masculin et féminin">
 
@@ -203,7 +203,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesArticlesDéfinis-Quiz}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les articles définis')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les noms : Les articles définis">
 
@@ -230,7 +230,7 @@
 
                         </div>
 
-                        <a th:href="@{/accords-des-adjectifs}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Accords des adjectifs')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les Accords des adjectifs">
 
@@ -263,7 +263,7 @@
 
                         </div>
 
-                        <a th:href="@{/AdjectifsQualificatifs}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les adjectifs qualificatifs')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les Adjectifs qualificatifs">
 
@@ -296,7 +296,7 @@
 
                         </div>
 
-                        <a th:href="@{/utilisation-des-pronoms}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les pronoms')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les pronoms">
 
@@ -327,7 +327,7 @@
 
                         </div>
 
-                        <a th:href="@{/LanégationSimple}"
+                        <a th:href="@{/quiz/drag-drop(recherche='La négation simple')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur  La négation simple">
 
@@ -358,7 +358,7 @@
 
                         </div>
 
-                        <a th:href="@{/Linterrogation}"
+                        <a th:with="nomCours=|L'interrogation|" th:href="@{/quiz/drag-drop(recherche=${nomCours})}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur  L'interrogation">
 
@@ -370,6 +370,38 @@
                 </article>
 
             </div>
+
+            <!----------------Les prépositions---------------->
+            <div class="col-md-4 col-sm-6">
+
+                <article class="card h-100 border-0 shadow-sm"
+                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <span class="fs-3 me-3">❓</span>
+
+                            <h5 class="card-title fw-bold fs-6 mb-0">
+                                Les prépositions
+                            </h5>
+
+                        </div>
+
+                        <a th:href="@{/quiz/drag-drop(recherche='préposition')}"
+                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
+                           aria-label="Commencer le quiz sur Les prépositions ">
+
+                            Commencer le quiz
+
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
 
             <!--------------Genre et nombre des noms------------------>
             <div class="col-md-4 col-sm-6">
@@ -389,7 +421,7 @@
 
                         </div>
 
-                        <a th:href="@{/GenreEtNombreDesNoms}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Genre et nombre des noms')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur  Genre et nombre des noms">
 
@@ -419,7 +451,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesAccords}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les accords')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les accords">
 
@@ -451,7 +483,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesCompléments}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les compléments')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les compléments">
 
@@ -481,7 +513,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesExpressionsDeTemps}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les Expressions de temps')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les expressions de temps">
 
@@ -514,7 +546,7 @@
 
                         </div>
 
-                        <a th:href="@{/EtreEtAvoirAuPrésent}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Être et avoir au présent')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Être et avoir au présent">
 
@@ -527,7 +559,7 @@
 
             </div>
 
-
+            <!-- Verbes au présent -->
             <div class="col-md-4 col-sm-6">
 
                 <article class="card h-100 border-0 shadow-sm"
@@ -545,7 +577,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesVerbes}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les verbes au présent')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les verbes">
 
@@ -557,8 +589,8 @@
                 </article>
 
             </div>
-            <!-- Verbes au présent -->
 
+<!-----------Les Verbes réguliers------------------>
             <div class="col-md-4 col-sm-6">
 
                 <article class="card h-100 border-0 shadow-sm"
@@ -571,45 +603,12 @@
                             <span class="fs-3 me-3">⏳</span>
 
                             <h5 class="card-title fw-bold fs-6 mb-0">
-                                Verbes au présent
+                                Les verbes réguliers
                             </h5>
 
                         </div>
 
-                        <a th:href="@{/verbesPresent}"
-                           class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
-                           aria-label="Commencer le quiz sur les verbes au présent">
-
-                            Commencer le quiz
-
-                        </a>
-
-                    </div>
-                </article>
-
-            </div>
-
-
-            <!-- Verbes réguliers -->
-
-            <div class="col-md-4 col-sm-6">
-
-                <article class="card h-100 border-0 shadow-sm"
-                         style="border-radius:16px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
-
-                    <div class="card-body d-flex flex-column p-4">
-
-                        <div class="d-flex align-items-center mb-3">
-
-                            <span class="fs-3 me-3">📖</span>
-
-                            <h5 class="card-title fw-bold fs-6 mb-0">
-                                Verbes réguliers
-                            </h5>
-
-                        </div>
-
-                        <a th:href="@{/verbes-regulier}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Verbes réguliers')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les verbes réguliers">
 
@@ -642,7 +641,7 @@
 
                         </div>
 
-                        <a th:href="@{/LesAuxiliaresQuiz}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les auxiliaires')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Les auxiliaires">
 
@@ -672,7 +671,7 @@
 
                     </div>
 
-                    <a th:href="@{/PrésentDesVerbesEnER}"
+                    <a th:href="@{/quiz/drag-drop(recherche='Présent des verbes en ER')}"
                        class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                        aria-label="Commencer le quiz sur Présent des verbes en ER">
 
@@ -701,7 +700,7 @@
 
                         </div>
 
-                        <a th:href="@{/AllerEtFaire}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Aller et Faire')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur Aller et Faire">
 
@@ -730,7 +729,7 @@
 
                         </div>
 
-                        <a th:href="@{/VerbesPronominaux}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les verbes pronominaux')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les  Verbes pronominaux">
 
@@ -759,7 +758,7 @@
 
                         </div>
 
-                        <a th:href="@{/FuturProche}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Futur proche')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur le   Futur proche">
 
@@ -788,7 +787,7 @@
 
                         </div>
 
-                        <a th:href="@{/PasséRécent}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Le passé récent')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur le Passé récent">
 
@@ -817,7 +816,7 @@
 
                         </div>
 
-                        <a th:href="@{/Impératif}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Impératif')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur l'Impératif">
 
@@ -883,7 +882,7 @@
 
                         </div>
 
-                        <a th:href="@{/adjectifs-demonstratif}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Adjectifs démonstratifs')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les adjectifs démonstratifs">
 
@@ -916,7 +915,7 @@
 
                         </div>
 
-                        <a th:href="@{/les-adjectifs-accord-pluriel}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Les adjectifs')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les Adjectifs accord pluriel">
 
@@ -949,7 +948,7 @@
 
                         </div>
 
-                        <a th:href="@{/impératif}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Impératif')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur l'impératif">
 
@@ -982,7 +981,7 @@
 
                         </div>
 
-                        <a th:href="@{/passéComposé}"
+                        <a th:href="@{/quiz/drag-drop(recherche='Le passé composé')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur le passé composé">
 
@@ -1016,7 +1015,7 @@
 
                         </div>
 
-                        <a th:href="@{/PronomsPossessifesEtDemonstratifs}"
+                        <a  th:href="@{/quiz/drag-drop(recherche='Pronoms possessifs et démonstratifs')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur les Pronoms possessifs et démonstratifs">
 
@@ -1047,7 +1046,7 @@
 
                         </div>
 
-                        <a th:href="@{/prepositionConjonction}"
+                        <a th:href="@{/quiz/drag-drop(recherche='conjonction')}"
                            class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                            aria-label="Commencer le quiz sur la conjonction et préposition">
 
@@ -1072,7 +1071,7 @@
                                 Le futur simple
                             </h5>
                         </div>
-                            <a th:href="@{/futurSimple}"
+                            <a th:href="@{/quiz/drag-drop(recherche='Le futur simple')}"
                                class="btn btn-outline-primary btn-sm mt-auto rounded-pill w-100"
                                aria-label="Commencer le quiz sur le futur simple">
 

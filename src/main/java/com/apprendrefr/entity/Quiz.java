@@ -16,7 +16,6 @@ public class Quiz {
     private String sentence;
     private String words;
     private String correctAnswers;
-    private String imageUrl;
     private String quizType;
 
 }
