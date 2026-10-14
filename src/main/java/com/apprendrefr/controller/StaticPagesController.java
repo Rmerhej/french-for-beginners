@@ -261,6 +261,32 @@ public class StaticPagesController {
     @GetMapping("/ConcordanceDesTemps") public String ConcordanceDesTemps() {
         return "ConcordanceDesTemps";
     }
+
+    @GetMapping("/LesStructuresComplexes") public String LesStructuresComplexes() {
+        return "LesStructuresComplexes";
+    }
+    @GetMapping("/LesPronomsRelatifsComplexes") public String LesPronomsRelatifsComplexes() {
+        return "LesPronomsRelatifsComplexes";
+    }
+    @GetMapping("/LeSubjonctif") public String LeSubjonctif() {
+        return "LeSubjonctif";
+    }
+    @GetMapping("/LaConcession") public String LaConcession() {
+        return "LaConcession";
+    }
+    @GetMapping("/LesPropositionsCirconstancielles") public String LesPropositionsCirconstancielles () {
+        return "LesPropositionsCirconstancielles";
+    }
+    @GetMapping("/LaMiseEnRelief") public String LaMiseEnRelief() {
+        return "LaMiseEnRelief";
+    }
+    @GetMapping("/LesFormesImpersonnelles") public String LesFormesImpersonnelles() {
+        return "LesFormesImpersonnelles";
+    }
+    @GetMapping("/LesRegistresDeLangue") public String LesRegistresDeLangue() {
+        return "LesRegistresDeLangue";
+    }
+
     @GetMapping("/LaCauseEtLaConséquence") public String LaCauseEtLaConséquence() {
         return "LaCauseEtLaConséquence";
     }
