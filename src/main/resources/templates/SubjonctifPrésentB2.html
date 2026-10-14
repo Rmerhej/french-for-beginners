@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français B2 sur la conjugaison du subjonctif présent (formation régulière, verbes irréguliers, doubles radicaux et régimes d'emploi) pour adultes">
+
+    <title>Le subjonctif présent - Conjugaison B2 - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Le subjonctif présent
+        </h1>
+
+        <p class="lead">
+            Consolider la formation, maîtriser les verbes à deux radicaux et les déclencheurs B2
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez former le <strong>subjonctif présent</strong> sans hésitation (y compris pour les verbes irréguliers à deux radicaux) et l'employer avec aisance après les structures complexes du niveau B2.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que le subjonctif présent ?</h2>
+
+
+        <p>
+
+            Le subjonctif présent est un mode de la subjectivité, de l'incertitude, du désir, du doute et des constructions logiques (concession, but, condition). Au niveau B2, sa maîtrise morphologique doit être irréprochable pour assurer la fluidité de l'expression orale et écrite.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Terminaisons uniques :</strong> Pour tous les verbes (sauf *avoir* et *être*), les terminaisons sont identiques : <strong>-e, -es, -e, -ions, -iez, -ent</strong>.</li>
+
+            <li><strong>Règle du radical :</strong> On utilise la 3ᵉ personne du pluriel du présent de l'indicatif pour former *que je, tu, il/elle, ils/elles*, et la 1ʳᵉ personne du pluriel pour *que nous, vous*.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. La formation régulière et la règle des deux radicaux</h2>
+
+
+        <p>
+
+            Pour beaucoup de verbes du 3ᵉ groupe, la modification phonétique au présent de l'indicatif entraîne la présence de **deux radicaux** distincts au subjonctif.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <p class="mb-2"><strong>Formule générale :</strong></p>
+
+            <ul class="mb-0">
+
+                <li>Radical d'<strong>ils/elles</strong> (Indicatif Présent) ➔ que je, que tu, qu'il/elle, qu'ils/elles</li>
+
+                <li>Radical de <strong>nous</strong> (Indicatif Présent) ➔ que nous, que vous</li>
+
+            </ul>
+
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered text-center align-middle">
+
+                <thead class="table-primary">
+
+                <tr>
+
+                    <th>Verbe</th>
+
+                    <th>Radical (ils) ➔ je, tu, il, ils</th>
+
+                    <th>Radical (nous) ➔ nous, vous</th>
+
+                    <th>Exemples de conjugaison</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr>
+
+                    <td><strong>Prendre</strong></td>
+
+                    <td><em>Prenn-</em></td>
+
+                    <td><em>Pren-</em></td>
+
+                    <td>Que je <strong>prenne</strong> / Que nous <strong>prenions</strong></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><strong>Venir</strong></td>
+
+                    <td><em>Vienn-</em></td>
+
+                    <td><em>Ven-</em></td>
+
+                    <td>Que tu <strong>viennes</strong> / Que vous <strong>veniez</strong></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><strong>Boire</strong></td>
+
+                    <td><em>Boiv-</em></td>
+
+                    <td><em>Buv-</em></td>
+
+                    <td>Qu'elle <strong>boive</strong> / Que nous <strong>buvions</strong></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><strong>Mourir</strong></td>
+
+                    <td><em>Meur-</em></td>
+
+                    <td><em>Mour-</em></td>
+
+                    <td>Qu'ils <strong>meurent</strong> / Que vous <strong>mouriez</strong></td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. Les verbes totalement irréguliers</h2>
+
+
+        <p>
+
+            Ces verbes possèdent un radical propre au subjonctif qu'il convient de mémoriser parfaitement au niveau B2.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Auxiliaires & Essentiels
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Être</strong></td>
+                                <td>Sois, sois, soit, soyons, soyez, soient</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Avoir</strong></td>
+                                <td>Aie, aies, ait, ayons, ayez, aient</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Faire</strong></td>
+                                <td>Fasse, fasses, fasse, fassions, fassiez, fassent</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Pouvoir</strong></td>
+                                <td>Puisse, puisses, puisse, puissions, puissiez, puissent</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Verbes de mouvement & Volonté
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Aller</strong></td>
+                                <td>Aille, ailles, aille, allions, alliez, aillent</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Savoir</strong></td>
+                                <td>Sache, saches, sache, sachions, sachiez, sachent</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Vouloir</strong></td>
+                                <td>Veuille, veuilles, veuille, voulions, vouliez, veuillent</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Valoir</strong></td>
+                                <td>Vaille, vailles, vaille, valions, valiez, vaillent</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>3. Déclencheurs fréquents au niveau B2</h2>
+
+
+        <p>
+
+            Au niveau B2, le subjonctif est fréquemment sollicité par des connecteurs logiques et des verbes de nuance :
+
+        </p>
+
+
+        <table class="table table-bordered align-middle">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Valeur logique</th>
+
+                <th>Structure / Conjonction</th>
+
+                <th>Exemple B2</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>Concession</strong></td>
+
+                <td>Bien que, quoique, sans que</td>
+
+                <td><strong>Bien que</strong> le projet <strong>soit</strong> ambitieux, nous le validerons.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Condition</strong></td>
+
+                <td>À condition que, pourvu que, à moins que (+ ne)</td>
+
+                <td>Nous viendrons <strong>à condition qu'</strong>il <strong>fasse</strong> beau.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Doute / Opinion négative</strong></td>
+
+                <td>Je ne pense pas que, il est douteux que</td>
+
+                <td>Je <strong>ne pense pas qu'</strong>elle <strong>sache</strong> la vérité.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Crainte / Protection</strong></td>
+
+                <td>De peur que (+ ne), afin que</td>
+
+                <td>Je vous préviens <strong>afin que</strong> vous <strong>preniez</strong> vos dispositions.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes au niveau B2</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Il faut que nous faissons attention. (Mauvais radical).</td>
+
+                <td>Il faut que nous <strong>fassions</strong> attention. (Radical de *faire* ➔ *fass-*).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Bien qu'il prend le train, il arrive en retard.</td>
+
+                <td>Bien qu'il <strong>prenne</strong> le train... (<em>Bien que</em> exige le subjonctif).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je veux que nous venions demain. (Confusion sur les terminaisons).</td>
+
+                <td>Je veux que nous <strong>venions</strong> demain. (*Nous* et *vous* prennent les terminaisons de l'imparfait : *-ions*, *-iez*).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Est-il possible que vous <strong>fassiez</strong> un effort pour finir ce dossier aujourd'hui ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Bien que nous <strong>soyons</strong> très occupés, nous allons essayer, à condition que vous nous <strong>donniez</strong> les derniers chiffres.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Je m'en occupe afin que vous <strong>puissiez</strong> travailler sereinement.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Parfait ! Il vaut mieux que nous <strong>prenions</strong> de l'avance avant le contrôle de la semaine prochaine.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Terminaisons du subjonctif : <strong>-e, -es, -e, -ions, -iez, -ent</strong> pour la grande majorité des verbes.</li>
+
+
+                <li>Attention aux verbes à <strong>deux radicaux</strong> (ex: <em>ils prennent ➔ que je prenne</em> / <em>nous prenons ➔ que nous prenions</em>).</li>
+
+
+                <li>Apprenez par cœur les 9 verbes très irréguliers : <em>être, avoir, faire, pouvoir, savoir, aller, vouloir, valoir, falloir</em>.</li>
+
+
+                <li>Connecteurs B2 incontournables déclenchant le subjonctif : <strong>bien que, afin que, à condition que, de peur que, à moins que</strong>.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

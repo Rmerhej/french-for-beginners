@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français B2 sur la concordance des temps à l'indicatif et au subjonctif (discours indirect au passé, simultanéité, antériorité, postériorité) pour adultes">
+
+    <title>La concordance des temps - Conjugaison B2 - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 La concordance des temps
+        </h1>
+
+        <p class="lead">
+            Maitriser les relations chronologiques (simultanéité, antériorité, postériorité) dans le discours indirect et le récit B2
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez appliquer avec précision les règles de <strong>concordance des temps</strong> lorsque le verbe principal est au passé, aussi bien à l'indicatif (discours indirect) qu'au subjonctif, pour exprimer des faits simultanés, antérieurs ou futurs.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que la concordance des temps ?</h2>
+
+
+        <p>
+
+            La concordance des temps est l'ensemble des règles qui régissent le choix du temps ou du mode dans la proposition subordonnée en fonction du temps de la proposition principale et du rapport chronologique que l'on veut exprimer (<strong>antériorité</strong>, <strong>simultanéité</strong> ou <strong>postériorité</strong>).
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Verbe principal au présent/futur :</strong> Le temps de la subordonnée ne change pas par rapport à la réalité (ex: <em>Il dit qu'il vient / est venu / viendra</em>).</li>
+
+            <li><strong>Verbe principal au passé :</strong> Les temps de la subordonnée doivent basculer dans le système du passé.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. Concordance à l'Indicatif (Verbe principal au passé)</h2>
+
+
+        <p>
+
+            C'est la règle fondamentale du discours indirect rapporté au passé (<em>Il a déclaré que..., Elle pensait que...</em>) :
+
+        </p>
+
+
+        <div class="card shadow-sm mb-4">
+
+
+            <div class="card-body">
+
+
+                <table class="table table-bordered align-middle mb-0">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Rapport temporel</th>
+
+                        <th>Temps au discours direct</th>
+
+                        <th>Temps transposé dans le passé</th>
+
+                        <th>Exemple B2</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td><strong>Simultanéité</strong><br><small class="text-muted">(Même moment)</small></td>
+
+                        <td>Présent</td>
+
+                        <td><strong>Imparfait</strong></td>
+
+                        <td>Il a affirmé qu'il <strong>étudiait</strong> le dossier.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Antériorité</strong><br><small class="text-muted">(Action passée avant)</small></td>
+
+                        <td>Passé composé / Imparfait</td>
+
+                        <td><strong>Plus-que-parfait</strong></td>
+
+                        <td>Elle a expliqué qu'elle <strong>avait déjà signé</strong> le contrat.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Postériorité</strong><br><small class="text-muted">(Action future)</small></td>
+
+                        <td>Futur simple</td>
+
+                        <td><strong>Conditionnel présent</strong></td>
+
+                        <td>Ils ont promis qu'ils <strong>reviendraient</strong> la semaine suivante.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Postériorité accomplie</strong><br><small class="text-muted">(Futur antérieur)</small></td>
+
+                        <td>Futur antérieur</td>
+
+                        <td><strong>Conditionnel passé</strong></td>
+
+                        <td>Il a dit qu'il <strong>aurait fini</strong> avant midi.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. Les modifications des marqueurs temporels dans le passé</h2>
+
+
+        <p>
+
+            Lorsque le récit ou le discours rapporté bascule au passé, les indicateurs de temps doivent également s'adapter :
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Discours au Présent
+                        </h3>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td>Aujourd'hui</td>
+                            </tr>
+
+                            <tr>
+                                <td>Hier / Avant-hier</td>
+                            </tr>
+
+                            <tr>
+                                <td>Demain / Après-demain</td>
+                            </tr>
+
+                            <tr>
+                                <td>Ce matin / Ce mois-ci</td>
+                            </tr>
+
+                            <tr>
+                                <td>Le mois prochain / l'année dernière</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Transposition au Passé
+                        </h3>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Ce jour-là</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>La veille / Deux jours avant</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Le lendemain / Deux jours après</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Ce matin-là / Ce mois-là</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Le mois suivant / l'année précédente</strong></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>3. Concordance au Subjonctif (Français moderne)</h2>
+
+
+        <p>
+
+            En français moderne (y compris au niveau B2), l'imparfait et le plus-que-parfait du subjonctif sont réservés à la littérature très soutenue. En pratique, on applique la règle simplifiée suivante :
+
+        </p>
+
+
+        <table class="table table-bordered align-middle">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Rapport temporel</th>
+
+                <th>Temps du Subjonctif employé</th>
+
+                <th>Exemple B2</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>Simultanéité ou Postériorité</strong><br><small class="text-muted">(En cours ou à venir)</small></td>
+
+                <td><strong>Subjonctif Présent</strong></td>
+
+                <td>Bien qu'il <strong>fût</strong> fatigué... ➔ <em>(Moderne) :</em> Il voulait que nous <strong>fassions</strong> un effort.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Antériorité</strong><br><small class="text-muted">(Action déjà accomplie)</small></td>
+
+                <td><strong>Subjonctif Passé</strong></td>
+
+                <td>Je doutais qu'il <strong>eût réussi</strong>... ➔ <em>(Moderne) :</em> Je doutais qu'il <strong>ait réussi</strong> son examen.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes au niveau B2</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Il m'a dit qu'il viendra demain. (Conserver le futur après un verbe passé).</td>
+
+                <td>Il m'a dit qu'il <strong>viendrait le lendemain</strong>. (Futur ➔ Conditionnel présent / Demain ➔ Le lendemain).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle a expliqué qu'elle a oublié ses clés hier.</td>
+
+                <td>Elle a expliqué qu'elle <strong>avait oublié</strong> ses clés <strong>la veille</strong>. (Passé composé ➔ Plus-que-parfait).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Je pensais que tu es malade aujourd'hui.</td>
+
+                <td>Je pensais que tu <strong>étais</strong> malade <strong>ce jour-là</strong>. (Présent ➔ Imparfait).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Qu'est-ce que le directeur a annoncé pendant la réunion d'hier ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Il a affirmé que l'entreprise <strong>traversait</strong> une période charnière et qu'il <strong>fallait</strong> réorganiser les équipes.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Est-ce qu'il a précisé quand cela se ferait ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oui, il a assuré que le nouveau plan <strong>serait appliqué</strong> le mois suivant et qu'il <strong>avait déjà rencontré</strong> les responsables la veille.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>Lorsque le verbe principal est au passé :<br>
+                    ➔ <em>Présent ➔ Imparfait</em> (Simultanéité)<br>
+                    ➔ <em>Passé composé / Imparfait ➔ Plus-que-parfait</em> (Antériorité)<br>
+                    ➔ <em>Futur simple ➔ Conditionnel présent</em> (Postériorité)</li>
+
+
+                <li>N'oubliez pas d'adapter les <strong>marqueurs de temps</strong> (ex: <em>demain ➔ le lendemain, hier ➔ la veille, ce jour ➔ ce jour-là</em>).</li>
+
+
+                <li>Au subjonctif moderne : utilisez le <strong>subjonctif présent</strong> pour la simultanéité/postériorité et le <strong>subjonctif passé</strong> pour l'antériorité accomplie.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

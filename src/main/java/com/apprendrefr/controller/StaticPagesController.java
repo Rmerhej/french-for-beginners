@@ -287,6 +287,33 @@ public class StaticPagesController {
         return "LesRegistresDeLangue";
     }
 
+    //#################################################
+    @GetMapping("/RévisionApprofondieDesTemps") public String RévisionApprofondieDesTemps() {
+        return "RévisionApprofondieDesTemps";
+    }
+    @GetMapping("/SubjonctifPrésentB2") public String SubjonctifPrésentB2() {
+        return "SubjonctifPrésent";
+    }
+    @GetMapping("/SubjonctifPassé") public String SubjonctifPassé() {
+        return "SubjonctifPassé";
+    }
+    @GetMapping("/ConditionnelPrésentEtPassé") public String ConditionnelPrésentEtPassé() {
+        return "ConditionnelPrésentEtPassé";
+    }
+    @GetMapping("/ConcordanceDesTempsB2") public String ConcordanceDesTempsB2() {
+        return "ConcordanceDesTemps";
+    }
+    @GetMapping("/ParticipePrésent") public String ParticipePrésent() {
+        return "ParticipePrésent";
+    }
+    @GetMapping("/Gérondif") public String Gérondif() {
+        return "Gérondif";
+    }
+    @GetMapping("/InfinitifPassé") public String InfinitifPassé() {
+        return "InfinitifPassé";
+    }
+    //#################################################
+
     @GetMapping("/LaCauseEtLaConséquence") public String LaCauseEtLaConséquence() {
         return "LaCauseEtLaConséquence";
     }
