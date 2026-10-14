@@ -15,6 +15,7 @@ public class Quiz {
     @Column(name = "sentence", columnDefinition = "TEXT")
     private String sentence;
     private String words;
+    private String imageUrl;
     private String correctAnswers;
     private String quizType;
 
