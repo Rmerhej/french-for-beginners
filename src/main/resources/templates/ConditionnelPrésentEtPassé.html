@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français B2 sur le conditionnel présent et passé (formation, valeurs, regrets, reproches, information non confirmée et hypothèses complexes) pour adultes">
+
+    <title>Le conditionnel présent et passé - Conjugaison B2 - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Le conditionnel présent et passé
+        </h1>
+
+        <p class="lead">
+            Exprimer le souhait, l'information sous réserve, les regrets, reproches et systèmes hypothétiques B2
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez former et employer le <strong>conditionnel présent et passé</strong> pour exprimer une information incertaine, formuler un conseil, un regret ou un reproche, et maîtriser les structures d'hypothèse complexes du niveau B2.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que le mode conditionnel ?</h2>
+
+
+        <p>
+
+            Le conditionnel est à la fois un mode de l’imaginaire (souhait, hypothèse, regret) et du journalisme (information non confirmée). Au niveau B2, il permet de nuancer avec finesse ses propos, d'adoucir une demande et d'articuler des hypothèses dans le présent ou le passé.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Conditionnel présent :</strong> Exprime un fait potentiel, un souhait actuel, un conseil ou une demande polie.</li>
+
+            <li><strong>Conditionnel passé :</strong> Temps composé qui exprime une action irréelle du passé, un regret ou un reproche.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. La formation des deux temps</h2>
+
+
+        <p>
+
+            La conjugaison du conditionnel repose sur le système du futur pour le présent et sur les auxiliaires au conditionnel pour le passé.
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Conditionnel Présent
+                        </h3>
+
+
+                        <div class="alert alert-light border mb-3">
+
+                            <strong>Radical du Futur + Terminaisons de l'Imparfait</strong><br>
+
+                            <small class="text-muted">(-ais, -ais, -ait, -ions, -iez, -aient)</small>
+
+                        </div>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Parler</strong></td>
+                                <td>Je parler<em>ais</em>, nous parler<em>ions</em>...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Avoir / Être</strong></td>
+                                <td>J'aur<em>ais</em> / Je ser<em>ais</em>...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Pouvoir / Vouloir</strong></td>
+                                <td>Je pourr<em>ais</em> / Je voudr<em>ais</em>...</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Conditionnel Passé
+                        </h3>
+
+
+                        <div class="alert alert-light border mb-3">
+
+                            <strong>Auxiliaire ÊTRE ou AVOIR au Conditionnel Présent + Participe Passé</strong>
+
+                        </div>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Avec AVOIR</strong></td>
+                                <td>J'<em>aurais voulu</em>, nous <em>aurions fait</em>...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Avec ÊTRE</strong></td>
+                                <td>Je <em>serais venu(e)</em>, elle <em>serait partie</em>...</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Verbes pronominaux</strong></td>
+                                <td>Ils se <em>seraient rencontrés</em>...</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. Emplois et nuances avancées au niveau B2</h2>
+
+
+        <p>
+
+            Au niveau B2, le conditionnel s'emploie dans des tournures stylistiques et journalistiques précises :
+
+        </p>
+
+
+        <div class="card shadow-sm mb-4">
+
+
+            <div class="card-body">
+
+
+                <table class="table table-bordered align-middle mb-0">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Valeur / Usage B2</th>
+
+                        <th>Temps utilisé</th>
+
+                        <th>Exemple</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td><strong>Information non confirmée (journalisme)</strong></td>
+
+                        <td>Présent ou Passé</td>
+
+                        <td>Un accord <strong>serait</strong> sur le point d'être signé. / L'accident <strong>aurait fait</strong> deux blessés.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Politesse, conseil ou adoucissement</strong></td>
+
+                        <td>Présent</td>
+
+                        <td>Vous <strong>devriez</strong> consulter un spécialiste. / Je <strong>souhaiterais</strong> obtenir un rendez-vous.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Regret ou reproche (action passée)</strong></td>
+
+                        <td>Passé</td>
+
+                        <td>J'<strong>aurais aimé</strong> participer ! (Regret) / Tu <strong>aurais dû</strong> me prévenir. (Reproche)</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Imaginaire ou fiction</strong></td>
+
+                        <td>Présent ou Passé</td>
+
+                        <td>On <strong>vivrait</strong> dans une grande maison au bord de la mer.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>3. L'hypothèse complexe avec « SI »</h2>
+
+
+        <p>
+
+            C'est l'un des piliers grammaticaux du niveau B2 pour structurer un raisonnement ou exprimer des regrets :
+
+        </p>
+
+
+        <table class="table table-bordered align-middle">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Structure d'hypothèse</th>
+
+                <th>Combinaison des temps</th>
+
+                <th>Exemple B2</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td><strong>Irrationnel / Potentiel du présent</strong></td>
+
+                <td>Si + Imparfait ➔ <strong>Conditionnel Présent</strong></td>
+
+                <td>Si nous <strong>avions</strong> les fonds nécessaires, nous <strong>investirions</strong> dans ce projet.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Irréel du passé (regret / événement manqué)</strong></td>
+
+                <td>Si + Plus-que-parfait ➔ <strong>Conditionnel Passé</strong></td>
+
+                <td>Si tu m'<strong>avais écouté</strong>, tu n'<strong>aurais pas commis</strong> cette erreur.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td><strong>Hypothèse mixte (Passé ➔ Présent)</strong></td>
+
+                <td>Si + Plus-que-parfait ➔ <strong>Conditionnel Présent</strong></td>
+
+                <td>Si j'<strong>avais révisé</strong> hier, je <strong>serais</strong> serein aujourd'hui.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes au niveau B2</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Si j'aurais su, je ne serais pas venu. (Mettre le conditionnel directement après *si*).</td>
+
+                <td>Si j'<strong>avais su</strong>, je ne serais pas venu. (Après *si*, on utilise l'imparfait ou le plus-que-parfait).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle aurait allée à la réunion. (Mauvais choix d'auxiliaire).</td>
+
+                <td>Elle <strong>serait allée</strong> à la réunion. (Le verbe *aller* se conjugue avec l'auxiliaire *être*).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Tu devrais m'avertir hier ! (Confusion présent / passé pour un reproche).</td>
+
+                <td>Tu <strong>aurais dû</strong> m'avertir hier ! (Pour un reproche sur le passé, on utilise le conditionnel passé).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> As-tu entendu les nouvelles ? Le projet <strong>aurait été</strong> validé par le conseil ce matin !
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Ah bon ? C'est fantastique ! Si j'avais su cela plus tôt, j'<strong>aurais préparé</strong> la présentation du budget.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Ne t'inquiète pas. Tu <strong>devrais</strong> contacter la direction pour confirmer. Je <strong>pourrais</strong> t'accompagner si tu le souhaites.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Merci ! Sans ton aide, nous <strong>aurions perdu</strong> un temps précieux.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li><strong>Conditionnel Présent :</strong> Radical du futur + terminaisons de l'imparfait (-ais, -ais, -ait, -ions, -iez, -aient).</li>
+
+
+                <li><strong>Conditionnel Passé :</strong> Auxiliaire (être/avoir) au conditionnel présent + participe passé.</li>
+
+
+                <li>Le conditionnel sert à exprimer une <strong>information sous réserve</strong>, une <strong>demande polie</strong>, un <strong>conseil</strong>, ou des <strong>regrets/reproches</strong>.</li>
+
+
+                <li>Règle d'or absolue : Jamais de conditionnel immédiatement après la conjonction <em>« si »</em> !<br>
+                    (<em>Si + imparfait ➔ conditionnel présent</em> / <em>Si + plus-que-parfait ➔ conditionnel passé</em>).</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

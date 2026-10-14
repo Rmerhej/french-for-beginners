@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français B2 sur la révision approfondie des temps (temps simples vs composés, concordance des temps, système du passé et valeurs aspectuelles) pour adultes">
+
+    <title>Révision approfondie des temps - Français B2</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 Révision approfondie des temps
+        </h1>
+
+        <p class="lead">
+            Maitriser les valeurs des temps, l'aspect verbal et la concordance temporelle complexe au niveau B2
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez jongler avec précision entre les <strong>temps simples et composés</strong> de l'indicatif, exprimer l'antériorité et la simultanéité dans le passé ou le futur, et appliquer sans erreur les règles de <strong>concordance des temps</strong> dans le récit et le discours indirect.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Temps simples vs Temps composés : La valeur d'accompli</h2>
+
+
+        <p>
+
+            En français, chaque temps simple est associé à un temps composé qui en exprime l'<strong>antériorité</strong> (action terminée juste avant le moment de référence) et l'<strong>aspect accompli</strong>.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Temps simple (Action non accomplie / en cours) :</strong> Présent, Imparfait, Futur simple, Conditionnel présent.</li>
+
+            <li><strong>Temps composé (Action accomplie / antérieure) :</strong> Passé composé, Plus-que-parfait, Futur antérieur, Conditionnel passé.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. L'organisation du système du passé au niveau B2</h2>
+
+
+        <p>
+
+            Dans un récit au passé, la combinaison du passé composé, de l'imparfait et du plus-que-parfait obéit à une hiérarchie stricte des actions :
+
+        </p>
+
+
+        <div class="card shadow-sm mb-4">
+
+
+            <div class="card-body">
+
+
+                <table class="table table-bordered align-middle mb-0">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Temps</th>
+
+                        <th>Valeur grammaticale</th>
+
+                        <th>Exemple B2</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td><strong>Plus-que-parfait</strong></td>
+
+                        <td>Action antérieure à une autre action passée (déjà accomplie).</td>
+
+                        <td>Il <strong>avait déjà fini</strong> son rapport quand le directeur est arrivé.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Passé composé</strong></td>
+
+                        <td>Action ponctuelle, délimitée, événement marquant qui fait avancer l'histoire.</td>
+
+                        <td>Soudain, le téléphone <strong>a sonné</strong>.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Imparfait</strong></td>
+
+                        <td>Décor, habitude, description, action secondaire en cours d'accomplissement.</td>
+
+                        <td>La pluie <strong>tombait</strong> doucement et les rues <strong>étaient</strong> désertes.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. Antériorité et certitude : Futur simple vs Futur antérieur</h2>
+
+
+        <p>
+
+            Le futur antérieur sert à indiquer qu'une action sera achevée dans le futur avant une autre action future (introduit souvent par <em>dès que, quand, lorsque, aussitôt que</em>).
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Antériorité dans le Futur
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Formule</strong></td>
+                                <td><em>Dès que + Futur antérieur ➔ Futur simple</em></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Dès que j'<strong>aurai terminé</strong> cette analyse, je vous l'<strong>enverrai</strong>.</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+                        <p class="mb-0 small text-muted"><em>Remarque : L'action d'envoyer ne peut se faire que si l'analyse est totalement terminée.</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Futur antérieur de supposition
+                        </h3>
+
+
+                        <table class="table table-bordered">
+
+
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Valeur</strong></td>
+                                <td>Exprimer une hypothèse ou une explication probable dans le passé.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Il est en retard. Il <strong>aura oublié</strong> notre rendez-vous.</td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+                        <p class="mb-0 small text-muted"><em>Remarque : Équivaut à « Il a probablement oublié ».</em></p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>3. Concordance des temps au discours indirect dans le passé</h2>
+
+
+        <p>
+
+            Lorsque le verbe introducteur est au passé (<em>il a dit, elle expliquait, ils ont affirmé</em>), les temps de la subordonnée doivent être modifiés :
+
+        </p>
+
+
+        <table class="table table-bordered align-middle">
+
+
+            <thead class="table-primary">
+
+
+            <tr>
+
+                <th>Discours Direct</th>
+
+                <th>Discours Indirect (Verbe introducteur au passé)</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Présent ➔ <em>« Je <strong>travaille</strong>. »</em></td>
+
+                <td><strong>Imparfait</strong> ➔ Il a dit qu'il <strong>travaillait</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Passé composé ➔ <em>« J'<strong>ai fini</strong>. »</em></td>
+
+                <td><strong>Plus-que-parfait</strong> ➔ Il a dit qu'il <strong>avait fini</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Futur simple ➔ <em>« Je <strong>viendrai</strong>. »</em></td>
+
+                <td><strong>Conditionnel présent</strong> ➔ Il a dit qu'il <strong>viendrait</strong>.</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Futur antérieur ➔ <em>« J'<strong>aurai rédigé</strong> le texte. »</em></td>
+
+                <td><strong>Conditionnel passé</strong> ➔ Il a dit qu'il <strong>aurait rédigé</strong> le texte.</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes au niveau B2</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Quand j'arriverai à la maison, je t'appellerai. (Si l'action d'arriver est accomplie avant d'appeler).</td>
+
+                <td>Quand je <strong>serai arrivé(e)</strong> à la maison, je t'appellerai. (Futur antérieur nécessaire pour marquer l'accompli).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Il m'a confirmé qu'il viendra demain. (Absence de concordance dans le passé).</td>
+
+                <td>Il m'a confirmé qu'il <strong>viendrait</strong> le lendemain. (Le futur devient conditionnel présent).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>J'ai fini mon projet pendant qu'il regardait la télé.</td>
+
+                <td>J'<strong>avais fini</strong> mon projet pendant qu'il regardait la télé. (Ou : *J'ai fini mon projet alors qu'il...* selon le sens d'antériorité voulu).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Thomas, pourquoi n'as-tu pas assisté à la conférence hier ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Quand je suis arrivé, la salle <strong>était</strong> déjà pleine. La présentatrice <strong>avait déjà commencé</strong> son intervention depuis dix minutes.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> C'est dommage ! Elle nous a assuré qu'elle nous <strong>enverrait</strong> le récapitulatif dès qu'elle <strong>aurait terminé</strong> de relire ses notes.
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Parfait ! Dès que vous l'<strong>aurez reçu</strong>, transfert-le moi, s'il te plaît.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li>À chaque <strong>temps simple</strong> correspond un <strong>temps composé</strong> exprimant une action antérieure et accomplie.</li>
+
+
+                <li>Dans un récit au passé : <strong>Plus-que-parfait</strong> (avant) ➔ <strong>Passé composé</strong> (action ponctuelle) ➔ <strong>Imparfait</strong> (décor / durée).</li>
+
+
+                <li>Utilisez le <strong>futur antérieur</strong> après <em>dès que, quand, lorsque</em> pour marquer une condition préalable dans l'avenir.</li>
+
+
+                <li>Au discours indirect au passé : <em>Présent ➔ Imparfait</em> | <em>Passé composé ➔ Plus-que-parfait</em> | <em>Futur ➔ Conditionnel présent</em>.</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

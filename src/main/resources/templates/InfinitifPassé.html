@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cours de français B2 sur l'infinitif passé (formation, auxiliaires être/avoir, concordance du sujet, expression de la cause, du regret et de l'antériorité) pour adultes">
+
+    <title>L'infinitif passé - Conjugaison B2 - Français</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        body{
+            font-family:"Segoe UI",system-ui,sans-serif;
+            line-height:1.7;
+        }
+
+        .hero{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        h2{
+            margin-top:2rem;
+            margin-bottom:1rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<header class="hero py-5 text-center">
+
+    <div class="container">
+
+        <h1 class="display-5 fw-bold">
+            📘 L'infinitif passé
+        </h1>
+
+        <p class="lead">
+            Exprimer l'antériorité, la cause, le regret et alléger les structures subordonnées au niveau B2
+        </p>
+
+    </div>
+
+</header>
+
+
+<main id="main-content" class="container my-5">
+
+
+    <button
+            type="button"
+            class="btn btn-outline-secondary float-end"
+            onclick="history.back()">
+
+        <i class="bi bi-arrow-left"></i>
+        Retour
+
+    </button>
+
+
+    <section>
+
+        <div class="alert alert-primary">
+
+            <h2 class="h4">
+                <span aria-hidden="true">🎯</span> Objectif
+            </h2>
+
+            <p class="mb-0">
+
+                À la fin de cette leçon, vous saurez former l'<strong>infinitif passé</strong>, appliquer correctement l'accord du participe passé et l'employer après des prépositions (<em>après, pour, de, sans...</em>) pour exprimer l'antériorité et la cause tout en évitant la lourdeur des propositions subordonnées.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <h2>Qu'est-ce que l'infinitif passé ?</h2>
+
+
+        <p>
+
+            L'infinitif passé est un temps composé du mode infinitif. Il sert à indiquer qu'une action est <strong>entièrement accomplie ou antérieure</strong> par rapport au verbe principal de la phrase.
+
+        </p>
+
+
+        <ul>
+
+            <li><strong>Condition d'utilisation :</strong> Il s'utilise uniquement lorsque le sujet du verbe principal et le sujet de l'action à l'infinitif sont <strong>strictelement identiques</strong>.</li>
+
+            <li><strong>Rôle stylistique :</strong> Il permet de remplacer une proposition subordonnée temporelle ou causale (ex: <em>« après que j'ai fini » ➔ « après avoir fini »</em>) pour rendre le discours plus fluide et élégant au niveau B2.</li>
+
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>1. Formation de l'infinitif passé</h2>
+
+
+        <p>
+
+            L'infinitif passé se forme très simplement en utilisant l'auxiliaire <em>avoir</em> ou <em>être</em> à l'infinitif présent, suivi du participe passé du verbe principal.
+
+        </p>
+
+
+        <div class="alert alert-info">
+
+
+            <p class="mb-2"><strong>Formule générale :</strong></p>
+
+            <h3 class="h5 text-primary mb-3">
+                Auxiliaire AVOIR ou ÊTRE à l'infinitif + Participe Passé
+            </h3>
+
+            <p class="mb-0">
+                <em>Exemples : <strong>avoir terminé</strong> | <strong>être parti(e)s</strong> | <strong>s'être rendu(e)</strong></em>
+            </p>
+
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            Avec l'auxiliaire AVOIR
+                        </h3>
+
+
+                        <p>
+
+                            Utilisé pour la majorité des verbes transitifs et intransitifs.
+
+                        </p>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Finir</strong></td>
+                                <td>avoir fini</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Comprendre</strong></td>
+                                <td>avoir compris</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Faire</strong></td>
+                                <td>avoir fait</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            Avec l'auxiliaire ÊTRE
+                        </h3>
+
+
+                        <p>
+
+                            Utilisé avec les verbes de mouvement/changement d'état et les verbes pronominaux.
+
+                        </p>
+
+
+                        <table class="table table-bordered mb-0">
+
+
+                            <tbody>
+
+                            <tr>
+                                <td><strong>Arriver</strong></td>
+                                <td>être arrivé(e)(s)</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Partir</strong></td>
+                                <td>être parti(e)(s)</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Se lever</strong></td>
+                                <td>s'être levé(e)(s)</td>
+                            </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>2. Emplois et prépositions associées au niveau B2</h2>
+
+
+        <p>
+
+            Au niveau B2, l'infinitif passé se combine fréquemment avec des prépositions pour exprimer différentes nuances logiques :
+
+        </p>
+
+
+        <div class="card shadow-sm mb-4">
+
+
+            <div class="card-body">
+
+
+                <table class="table table-bordered align-middle mb-0">
+
+
+                    <thead class="table-primary">
+
+
+                    <tr>
+
+                        <th>Nuance logique</th>
+
+                        <th>Préposition / Structure</th>
+
+                        <th>Exemple B2</th>
+
+                    </tr>
+
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                    <tr>
+
+                        <td><strong>L'antériorité</strong></td>
+
+                        <td><strong>Après</strong> + Infinitif Passé</td>
+
+                        <td><strong>Après avoir rédigé</strong> le rapport, elle l'a envoyé au directeur.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>La cause</strong></td>
+
+                        <td><strong>Pour</strong> + Infinitif Passé</td>
+
+                        <td>Il a été félicité <strong>pour avoir réussi</strong> ce projet complexe.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>Le regret / Le sentiment</strong></td>
+
+                        <td><strong>Regretter de / Être désolé de</strong> + Infinitif Passé</td>
+
+                        <td>Je regrette <strong>d'être parti</strong> si tôt de la réunion.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>L'absence d'action accomplie</strong></td>
+
+                        <td><strong>Sans</strong> + Infinitif Passé</td>
+
+                        <td>Il est parti <strong>sans avoir dit</strong> au revoir.</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td><strong>L'accusation / La justification</strong></td>
+
+                        <td><strong>Accuser de / Remercier de</strong> + Infinitif Passé</td>
+
+                        <td>Je vous remercie <strong>d'avoir pris</strong> le temps de me répondre.</td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2>3. La règle essentielle de l'accord et des pronoms</h2>
+
+
+        <p>
+
+            Deux points de vigilance importants s'appliquent lors de l'utilisation de l'infinitif passé :
+
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-primary">
+                            1. Accord du participe passé
+                        </h3>
+
+
+                        <ul>
+
+                            <li>Avec <strong>être</strong> ➔ L'accord se fait en genre et en nombre avec le sujet (ex: <em>Elle regrette d'être ven<strong>ue</strong></em>).</li>
+
+                            <li>Avec <strong>avoir</strong> ➔ Pas d'accord avec le sujet, sauf si le COD est placé avant l'infinitif (ex: <em>Les documents qu'il regrette d'avoir perdu<strong>s</strong></em>).</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6">
+
+
+                <div class="card shadow-sm h-100">
+
+
+                    <div class="card-body">
+
+
+                        <h3 class="h5 text-success">
+                            2. Place de la négation et des pronoms
+                        </h3>
+
+
+                        <ul>
+
+                            <li><strong>La négation :</strong> Encadre l'auxiliaire ou se place devant l'infinitif (ex: <em>pour ne pas avoir compris</em> / <em>sans n'avoir rien vu</em>).</li>
+
+                            <li><strong>Les pronoms compléments :</strong> Se placent juste avant l'auxiliaire (ex: <em>après lui avoir parlé</em> / <em>pour s'être trompé</em>).</li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes au niveau B2</h2>
+
+
+        <table class="table table-bordered">
+
+
+            <thead class="table-danger">
+
+
+            <tr>
+
+                <th><span aria-hidden="true">❌</span> Incorrect</th>
+
+                <th><span aria-hidden="true">✅</span> Correct</th>
+
+            </tr>
+
+
+            </thead>
+
+
+            <tbody>
+
+
+            <tr>
+
+                <td>Après j'ai fini mon travail, je suis parti. (Lourdeur/Faute si le sujet est identique).</td>
+
+                <td><strong>Après avoir fini</strong> mon travail, je suis parti. (L'infinitif passé est obligatoire après *après* avec un sujet identique).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Après avoir parti, il m'a téléphoné. (Mauvais choix d'auxiliaire).</td>
+
+                <td><strong>Après être parti</strong>, il m'a téléphoné. (Le verbe *partir* se conjugue avec l'auxiliaire *être*).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Elle regrette de ne vous avoir pas prévenu. (Mauvaise place de la négation).</td>
+
+                <td>Elle regrette de <strong>ne pas vous avoir prévenu(e)</strong>. (La négation *ne pas* se place devant le pronom et l'auxiliaire).</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Après qu'il ait mangé, il est parti. (Confondre *après que* + subjonctif avec l'infinitif passé).</td>
+
+                <td><strong>Après avoir mangé</strong>, il est parti. (Si sujets identiques) / <strong>Après qu'il a mangé</strong>... (Si sujets différents).</td>
+
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+    <section>
+
+
+        <h2><span aria-hidden="true">💬</span> Dialogue</h2>
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <p>
+                    <strong>Élodie :</strong> Thomas, as-tu pu envoyer le dossier à l'équipe financière ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Oui, <strong>après avoir révisé</strong> les derniers chiffres ce matin, je leur ai tout transmis.
+                </p>
+
+
+                <p>
+                    <strong>Élodie :</strong> Parfait. Ils t'ont remercié <strong>d'avoir soumis</strong> le document si rapidement ?
+                </p>
+
+
+                <p>
+                    <strong>Thomas :</strong> Absolument. Ils s'excusent même <strong>de ne pas être venus</strong> à notre réunion hier pour en discuter directement.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+
+
+        <div class="alert alert-success">
+
+
+            <h2 class="h4">
+                <span aria-hidden="true">✅</span> À retenir
+            </h2>
+
+
+            <ul class="mb-0">
+
+
+                <li><strong>Formation :</strong> Auxiliaire ÊTRE ou AVOIR à l'infinitif + Participe Passé.</li>
+
+
+                <li><strong>Règle du sujet :</strong> Utilisé uniquement si le sujet du verbe principal et celui de l'infinitif sont <strong>identiques</strong>.</li>
+
+
+                <li><strong>Après + Infinitif Passé :</strong> Règle obligatoire pour exprimer la succession de deux actions faites par le même sujet (ex: <em>Après être arrivé...</em>).</li>
+
+
+                <li><strong>Pour + Infinitif Passé :</strong> Utilisé pour exprimer la cause d'une action passée (ex: <em>Sancionné pour avoir triché</em>).</li>
+
+
+                <li>N'oubliez pas d'accorder le participe passé lorsque l'auxiliaire est <strong>être</strong> !</li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
