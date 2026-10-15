@@ -432,10 +432,10 @@
                                 </li>
 
                                 <li>
-                                    <a th:href="@{/pronomsYetEn}"
+                                    <a th:href="@{/LesPronomsYEtEn}"
                                        aria-label="Les pronoms y et en"
                                        class="text-secondary">
-                                        Les pronoms y et en <a href="/#" class="text-danger fst-italic small float-end">Quiz</a>
+                                        Les pronoms y et en <a th:href="@{/quiz/drag-drop(recherche='Les pronoms y et en')}" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                                 <li>
@@ -446,19 +446,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a th:href="@{/#}"
+                                    <a th:href="@{/PrépositionsEtConjonctions}"
                                        aria-label="quiz sur la conjonction et préposition"
                                        class="text-secondary">
                                         Prépositions et Conjonctions   <a th:href="@{/quiz/drag-drop(recherche='conjonction')}" class="text-primary fst-italic small float-end">Quiz</a>
                                     </a>
-                                </li>
+                                </li><br>
                                 <li>
                                     <a th:href="@{/connecteursLogiques}"
                                        aria-label="Les connecteurs logiques"
                                        class="text-secondary">
-                                        Les connecteurs logiques <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
+                                        Les connecteurs logiques <a th:href="@{/quiz/drag-drop(recherche='Les connecteurs logiques')}" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
-                                </li>
+                                </li><br>
 
                                 <li>
                                     <a th:href="@{/laComparaison}"
@@ -865,7 +865,7 @@
                                     <a th:href="@{/LesPronomsRelatifsComplexes}"
                                        aria-label="Les pronoms relatifs complexes"
                                        class="text-secondary">
-                                        Les pronoms relatifs complexes <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les pronoms relatifs complexes <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -873,7 +873,7 @@
                                     <a th:href="@{/LeSubjonctif}"
                                        aria-label="Le subjonctif"
                                        class="text-secondary">
-                                        Le subjonctif <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Le subjonctif <a href="/#" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -889,7 +889,7 @@
                                     <a th:href="@{/LesPropositionsCirconstancielles}"
                                        aria-label="Les propositions circonstancielles"
                                        class="text-secondary">
-                                        Les propositions circonstancielles <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les propositions circonstancielles <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -897,7 +897,7 @@
                                     <a th:href="@{/LaMiseEnRelief}"
                                        aria-label="La mise en relief"
                                        class="text-secondary">
-                                        La mise en relief <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        La mise en relief <a href="/#" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -913,7 +913,7 @@
                                     <a th:href="@{/LesRegistresDeLangue}"
                                        aria-label="Les registres de langue"
                                        class="text-secondary">
-                                        Les registres de langue <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Les registres de langue <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                             </ul>
@@ -945,7 +945,7 @@
                                     <a th:href="@{/SubjonctifPrésentB2}"
                                        aria-label="Subjonctif présent"
                                        class="text-secondary">
-                                        Subjonctif présent <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Subjonctif présent <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -953,7 +953,7 @@
                                     <a th:href="@{/SubjonctifPassé}"
                                        aria-label="Subjonctif passé"
                                        class="text-secondary">
-                                        Subjonctif passé <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Subjonctif passé <a href="/#" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -969,7 +969,7 @@
                                     <a th:href="@{/ConcordanceDesTempsB2}"
                                        aria-label="Concordance des temps"
                                        class="text-secondary">
-                                        Concordance des temps <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Concordance des temps <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -977,7 +977,7 @@
                                     <a th:href="@{/ParticipePrésent}"
                                        aria-label="Participe présent"
                                        class="text-secondary">
-                                        Participe présent <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Participe présent <a href="/#" class="text-danger fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
 
@@ -993,7 +993,7 @@
                                     <a th:href="@{/InfinitifPassé}"
                                        aria-label="Infinitif passé"
                                        class="text-secondary">
-                                        Infinitif passé <a href="/#" class="text-primary fst-italic small float-end">Quiz</a>
+                                        Infinitif passé <a href="/#" class="text-secondary fst-italic small float-end">Quiz</a>
                                     </a>
                                 </li>
                             </ul>
