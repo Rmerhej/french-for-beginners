@@ -168,7 +168,10 @@ public class StaticPagesController {
     public String allerSurPronomsPersonnelSujets() {
         return "pronoms-personnels-sujets";
     }
-
+    @GetMapping("/PrépositionsEtConjonctions")
+    public String allerSurPrépositionsEtConjonctions() {
+        return "PrépositionsEtConjonctions";
+    }
     @GetMapping("/verbesAuPresent")
     public String allerSurVerbesAuxPresent() {
         return "verbes-au-present";
