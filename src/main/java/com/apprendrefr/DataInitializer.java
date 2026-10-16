@@ -24,7 +24,6 @@ public class DataInitializer implements CommandLineRunner {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
-    private final ThemeRepository themeRepository;
 
     @Override
     @Transactional
