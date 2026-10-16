@@ -4,6 +4,7 @@ import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.session.SessionRegistry;
@@ -16,6 +17,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
 
@@ -70,11 +72,11 @@ public class SecurityConfig {
                                 "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-form-create", "/theme-detail", "/conjugaison", "/cultureFrancaise",
                       "/LesArticlesDefinis","/AdjectifsQualificatifs","/PronomsPossessifesEtDemonstratifs","/LesAuxiliares","/verbesPresent",
                                 "/impératif","/passéComposé","/futurSimple","/Limmobilier").permitAll()
-                        .requestMatchers("/api/admin/uploads/**").hasRole("ADMIN")
-                        // 3. Règles Administration (La règle spécifique avant la générale)
-                        .requestMatchers("/admin/images/optimize").permitAll() // Exception spécifique
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/api/admin/uploads/**").hasRole("ADMIN")
 
+                                .requestMatchers("/api/upload/**").hasRole("ADMIN")
+// 3. Règles Administration
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
                         // 4. Règles Authentification
                         .requestMatchers("/quizzes", "/lessons").authenticated()
                         .requestMatchers(HttpMethod.POST, "/exercise/submit/**").authenticated()
