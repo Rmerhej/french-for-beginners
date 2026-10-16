@@ -1,5 +1,6 @@
 package com.apprendrefr.controller;
 
+import com.apprendrefr.dto.RegisterRequest;
 import com.apprendrefr.entity.User;
 import com.apprendrefr.service.UserService;
 import jakarta.validation.Valid;
@@ -22,33 +23,36 @@ public class AuthController {
 
     @GetMapping("/register")
     public String registerForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new RegisterRequest());
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute("user") User user,
+    public String registerUser(@Valid @ModelAttribute("user") RegisterRequest
+                                       form,
+
                                BindingResult bindingResult,
                                String confirmPassword,
-                               RedirectAttributes redirectAttributes,
-                               Model model) {
-
+                               RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("user", user);
             return "register";
         }
+        if (confirmPassword == null ||
+                !confirmPassword.equals(form.getPassword())) {
 
-
-        if (confirmPassword == null || !confirmPassword.equals(user.getPassword())) {
             bindingResult.rejectValue("password", "error.password", "Les mots de passe ne correspondent pas");
-            model.addAttribute("user", user);
             return "register";
         }
+// Seuls ces trois champs viennent du formulaire ; id, rôle et état sont fixés par le service
+        User user = new User();
+        user.setUsername(form.getUsername().trim());
+        user.setEmail(form.getEmail().trim());
+        user.setPassword(form.getPassword());
         userService.registerUser(user);
         redirectAttributes.addFlashAttribute("success", "✅ Inscription réussie ! Vous pouvez maintenant vous connecter.");
-        return "redirect:/login";
 
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
