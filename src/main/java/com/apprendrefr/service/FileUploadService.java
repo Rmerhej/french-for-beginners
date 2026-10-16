@@ -1,83 +1,155 @@
 package com.apprendrefr.service;
-
 import com.apprendrefr.exception.FileUploadException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Set;
 import java.util.UUID;
-
+import java.util.regex.Pattern;
+/**
+* Enregistre les fichiers envoyés par les administrateurs.
+*
+* Le type du fichier n'est jamais déduit du nom ni du type MIME fournis par
+le client :
+* l'extension doit figurer dans une liste blanche et le contenu (octets
+d'en-tête)
+* doit correspondre à cette extension.
+*/
 @Service
 public class FileUploadService {
+private static final Set<String> IMAGE_EXTENSIONS = Set.of("png", "jpg",
+"jpeg", "gif", "webp");
+private static final Set<String> AUDIO_EXTENSIONS = Set.of("mp3", "wav",
+"ogg", "m4a");
+private static final long MAX_IMAGE_BYTES = 10L * 1024 * 1024;
+private static final long MAX_AUDIO_BYTES = 20L * 1024 * 1024;
+//Corrections pas à pas – French For Beginners
 
-    private final Path uploadDir;
+//Page 5 of 25
 
-    public FileUploadService(@Value("${app.upload.dir}") String uploadPath) {
-        this.uploadDir = Paths.get(uploadPath);
+private static final Pattern SAFE_EXTENSION = Pattern.compile("[a-z0-9]{1,5}");
+private static final int HEADER_LENGTH = 12;
+private final Path uploadDir;
+public FileUploadService(@Value("${app.upload.dir}") String uploadPath) {
+this.uploadDir = Paths.get(uploadPath);
+try {
+Files.createDirectories(uploadDir.resolve("images"));
+Files.createDirectories(uploadDir.resolve("audio"));
+} catch (IOException e) {
+throw new FileUploadException("Impossible de créer les dossiers uploads", e);
+}
+}
+public String saveImage(MultipartFile file) {
+return saveFile(file, "images", IMAGE_EXTENSIONS, MAX_IMAGE_BYTES);
+}
+public String saveAudio(MultipartFile file) {
+return saveFile(file, "audio", AUDIO_EXTENSIONS, MAX_AUDIO_BYTES);
+}
+private String saveFile(MultipartFile file, String subFolder, Set<String>
+allowedExtensions, long maxBytes) {
 
-        try {
-            Files.createDirectories(uploadDir.resolve("images"));
-            Files.createDirectories(uploadDir.resolve("audio"));
-        } catch (IOException e) {
-            throw new FileUploadException("Impossible de créer les dossiers uploads", e);
-        }
-    }
+if (file == null || file.isEmpty()) {
+return null;
+}
+if (file.getSize() > maxBytes) {
+throw new FileUploadException("Fichier trop volumineux");
+}
+String extension = extractExtension(file.getOriginalFilename());
+if (!allowedExtensions.contains(extension)) {
+throw new FileUploadException("Extension de fichier non autorisée");
+}
+try {
+if (!hasValidSignature(extension, readHeader(file))) {
 
-    public String saveImage(MultipartFile file) {
-        return saveFile(file, "images");
-    }
+//Corrections pas à pas – French For Beginners
 
-    public String saveAudio(MultipartFile file) {
-        return saveFile(file, "audio");
-    }
+//Page 6 of 25
 
-    private String saveFile(MultipartFile file, String subFolder) {
+throw new FileUploadException("Le contenu du fichier ne correspond pas à son extension");
 
-        if (file == null || file.isEmpty()) {
-            return null;
-        }
+}
+Path subDir = uploadDir.resolve(subFolder).normalize();
+Files.createDirectories(subDir);
+// Nom généré côté serveur : aucune partie du nom d'origine n'est conservée
 
-        String contentType = file.getContentType();
-        String originalName = file.getOriginalFilename();
-        String extension = "";
+String newFileName = UUID.randomUUID() + "." + extension;
+Path filePath = subDir.resolve(newFileName).normalize();
+if (!filePath.startsWith(subDir)) {
+throw new FileUploadException("Chemin de destination invalide");
+}
+try (InputStream inputStream = file.getInputStream()) {
+Files.copy(inputStream, filePath);
+}
+// Chemin relatif enregistré en base (ex :/uploads/audio/uuid.mp3)
 
-        if (originalName != null && originalName.contains(".")) {
-            extension = originalName.substring(originalName.lastIndexOf(".")).toLowerCase();
-        }
+return "/uploads/" + subFolder + "/" + newFileName;
+} catch (IOException e) {
+throw new FileUploadException("Erreur lors de l'upload du fichier", e);
+}
+}
+/** Retourne l'extension en minuscules, ou une chaîne vide si elle n'est
+pas sûre. */
+private static String extractExtension(String originalName) {
+if (originalName == null) {
+return "";
+}
+int dot = originalName.lastIndexOf('.');
+if (dot < 0 || dot == originalName.length() - 1) {
+return "";
+}
+String extension = originalName.substring(dot + 1).toLowerCase();
+return SAFE_EXTENSION.matcher(extension).matches() ? extension : "";
+}
+private static byte[] readHeader(MultipartFile file) throws IOException {
+try (InputStream in = file.getInputStream()) {
 
-        // Ajout d'une tolérance pour les fichiers audio dont le type MIME est parfois mal détecté par le navigateur (ex: application/octet-stream)
-        boolean isImage = contentType != null && contentType.startsWith("image/");
-        boolean isAudio = (contentType != null && contentType.startsWith("audio/")) ||
-                (extension.equals(".mp3") || extension.equals(".wav") || extension.equals(".ogg") || extension.equals(".m4a"));
+//Corrections pas à pas – French For Beginners
 
-        if (!isImage && !isAudio) {
-            throw new FileUploadException("Type de fichier non autorisé : " + contentType);
-        }
+//Page 7 of 25
 
-        try {
-            Path subDir = uploadDir.resolve(subFolder);
-            Files.createDirectories(subDir);
+return in.readNBytes(HEADER_LENGTH);
+}
+}
+private static boolean hasValidSignature(String extension, byte[] h) {
+return switch (extension) {
+case "png" -> matches(h, 0, 0x89, 'P', 'N', 'G');
+case "jpg", "jpeg" -> matches(h, 0, 0xFF, 0xD8, 0xFF);
+case "gif" -> matches(h, 0, 'G', 'I', 'F', '8');
+case "webp" -> matches(h, 0, 'R', 'I', 'F', 'F') && matches(h, 8,
 
-            // Génération du nom unique
-            String newFileName = UUID.randomUUID() + extension;
-            Path filePath = subDir.resolve(newFileName);
+'W', 'E', 'B', 'P');
 
-            Files.deleteIfExists(filePath);
+case "wav" -> matches(h, 0, 'R', 'I', 'F', 'F') && matches(h, 8,
 
-// Copie le flux du fichier directement vers le vrai chemin absolu cible
-            try (var inputStream = file.getInputStream()) {
-                Files.copy(inputStream, filePath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-            }
+'W', 'A', 'V', 'E');
 
-            // Retourne le chemin relatif pour la BDD (ex: /uploads/audio/uuid.mp3)
-            return "/uploads/" + subFolder + "/" + newFileName;
+case "ogg" -> matches(h, 0, 'O', 'g', 'g', 'S');
+case "mp3" -> matches(h, 0, 'I', 'D', '3')
 
-        } catch (IOException e) {
-            throw new FileUploadException("Erreur lors de l'upload du fichier", e);
-        }
-    }
+|| (h.length > 1 && (h[0] & 0xFF) == 0xFF && (h[1] &
+
+0xE0) == 0xE0);
+
+case "m4a" -> matches(h, 4, 'f', 't', 'y', 'p');
+default -> false;
+};
+}
+private static boolean matches(byte[] data, int offset, int... expected)
+{
+
+if (data.length < offset + expected.length) {
+return false;
+}
+for (int i = 0; i < expected.length; i++) {
+if ((data[offset + i] & 0xFF) != expected[i]) {
+return false;
+}
+}
+return true;
+}
 }
