@@ -1,9 +1,11 @@
 package com.apprendrefr.service;
 
 import com.apprendrefr.entity.User;
+import com.apprendrefr.exception.BusinessException;
 import com.apprendrefr.exception.DuplicateResourceException;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.repository.UserRepository;
+import com.apprendrefr.security.Roles;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -96,9 +98,13 @@ public class UserService {
     }
 
     public void changeRole(Long id, String newRole) {
+        if (!Roles.isAllowed(newRole)) {
+            throw new BusinessException("Rôle invalide");
+        }
         User user = userRepository.findById(id)
+
                 .orElseThrow(() -> new ResourceNotFoundException("Utilisateur non trouvé"));
-        user.setRole(newRole.toUpperCase());
+        user.setRole(Roles.normalize(newRole));
         userRepository.save(user);
     }
 
