@@ -93,6 +93,38 @@ class UserRegistrationIntegrationTest {
     }
 
     @Test
+    void registerUser_ignoresIdRoleAndEnabledSentByClient() throws Exception {
+
+        User existing = new User();
+        existing.setUsername("victime");
+        existing.setEmail("victime@test.com");
+        existing.setPassword(passwordEncoder.encode("Password123"));
+        existing.setRole("ROLE_ADMIN");
+        existing = userRepository.save(existing);
+        mockMvc.perform(post("/register")
+                        .with(csrf())
+                        .param("id", String.valueOf(existing.getId()))
+                        .param("role", "ROLE_ADMIN")
+                        .param("enabled", "true")
+                        .param("username", "attaquant")
+                        .param("email", "attaquant@test.com")
+                        .param("password", "Password123")
+                        .param("confirmPassword", "Password123"))
+                .andExpect(status().is3xxRedirection());
+
+        User untouched =
+
+                userRepository.findById(existing.getId()).orElseThrow();
+        assertEquals("victime", untouched.getUsername());
+        assertEquals("ROLE_ADMIN", untouched.getRole());
+        User created =
+
+                userRepository.findByUsername("attaquant").orElseThrow();
+        assertNotEquals(existing.getId(), created.getId());
+        assertEquals("ROLE_USER", created.getRole());
+    }
+
+    @Test
     void registerUser_passwordMismatch_staysOnForm() throws Exception {
         mockMvc.perform(post("/register")
                         .with(csrf())
