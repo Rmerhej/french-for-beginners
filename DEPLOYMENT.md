@@ -115,7 +115,7 @@ cd french-for-beginners
 Créer le fichier `.env` :
 
 ```bash
-cp .env.example .env
+cp .env.exemple .env
 ```
 
 Modifier :
@@ -131,7 +131,13 @@ MYSQL_ROOT_PASSWORD=******
 MYSQL_DATABASE=frenchdb
 MYSQL_USER=frenchuser
 MYSQL_PASSWORD=******
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=****** (12 caractères minimum)
 ```
+Le compte administrateur est créé au démarrage à partir de `ADMIN_USERNAME`et `ADMIN_PASSWORD`.
+L'application refuse de démarrer si le mot de passe est vide, trop court ou
+resté à la valeur d'exemple.
+
 
 Sauvegarder nano :
 
