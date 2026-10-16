@@ -1,13 +1,14 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.service.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin")
@@ -28,6 +29,8 @@ public class AdminController {
     private final QuizService quizService;
 
     private final PrononciationService prononciationService;
+    @Value("${app.upload.dir}")
+    private String uploadDir;
 
     OnlineUserService onlineUserService;
 
@@ -78,14 +81,18 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @GetMapping("/images/optimize")
+    @PostMapping("/images/optimize")
     @PreAuthorize("hasRole('ADMIN')")
-    @ResponseBody
-    public String launchImageOptimization() {
+    public String launchImageOptimization(RedirectAttributes
+                                                  redirectAttributes) {
+        String path = java.nio.file.Paths.get(uploadDir,
 
-        String path = "uploads/images";
+                "images").toString();
+
         imageService.batchProcessImages(path);
-        return "Optimisation lancée sur le dossier : " + path;
+        redirectAttributes.addFlashAttribute("success", "Optimisation lancée sur le dossier : " + path);
+
+        return "redirect:/admin/dashboard";
     }
 
 }

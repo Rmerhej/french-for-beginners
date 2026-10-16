@@ -167,7 +167,13 @@
             <a th:href="@{/admin/prononciation/ajouter}" class="btn btn-primary  px-4 py-2">
                 <i class="bi bi-plus-circle"></i>️🗣️ Nouvelle prononciation
             </a>
-            <a href="/admin/images/optimize" class="btn btn-warning">Lancer l'optimisation des images</a>
+            <form th:action="@{/admin/images/optimize}" method="post" class="d-inline" onsubmit="return confirm('Lancer l\'optimisation des images?');">
+
+                <button type="submit" class="btn btn-warning">Lancer
+
+                    l'optimisation des images</button>
+
+            </form>
         </div>
     </div>
 </div>
