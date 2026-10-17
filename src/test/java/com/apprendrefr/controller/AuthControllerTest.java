@@ -10,7 +10,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.apprendrefr.exception.DuplicateResourceException;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
@@ -75,7 +75,7 @@ class AuthControllerTest {
 
     @Test
     void registerUser_usernameAlreadyExists() throws Exception {
-        doThrow(new RuntimeException("Ce nom d'utilisateur est déjà utilisé"))
+        doThrow(new DuplicateResourceException("Ce nom d'utilisateur est déjà utilisé"))
                 .when(userService).registerUser(any(User.class));
 
         mockMvc.perform(post("/register")
