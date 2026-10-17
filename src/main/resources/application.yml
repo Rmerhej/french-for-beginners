@@ -85,6 +85,8 @@ admin:
 
 # ==================== DEFAULT PROPERTIES ====================
 app:
+  security:
+    remember-me-key: ${REMEMBER_ME_KEY:}
   upload:
     dir: uploads/
 

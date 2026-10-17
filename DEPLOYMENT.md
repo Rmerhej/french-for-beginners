@@ -132,6 +132,7 @@ MYSQL_DATABASE=frenchdb
 MYSQL_USER=frenchuser
 MYSQL_PASSWORD=******
 ```
+REMEMBER_ME_KEY=****** (32 caractères minimum, ex. résultat de `openssl rand -hex 32`)
 
 Sauvegarder nano :
 

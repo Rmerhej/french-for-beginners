@@ -42,6 +42,8 @@ services:
       # Admin User (pour DataInitializer)
       ADMIN_USERNAME: ${ADMIN_USERNAME}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      # Clé des cookies remember-me
+      REMEMBER_ME_KEY: ${REMEMBER_ME_KEY}
 
       # Optional: JPA settings
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
