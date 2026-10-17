@@ -22,10 +22,10 @@ public class QuizController {
         this.quizService = quizService;
     }
 
-    @GetMapping("/quizzesSurLaGrammaire")
+    /*@GetMapping("/quizzesSurLaGrammaire")
     public String goToquizSurLaGrammaire() {
         return "quiz-sur-la-grammaire";
-    }
+    }*/
 
 
 
@@ -116,7 +116,6 @@ public class QuizController {
         model.addAttribute("quiz", new Quiz());
         return "admin/quiz-create";
     }
-
 
 }
 

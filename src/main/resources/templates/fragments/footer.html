@@ -25,10 +25,10 @@
                     <li>
                         <a th:href="@{/rgpd}" class="text-light text-decoration-none">Mentions Légales - RGPD</a>
                     </li>
-                    <li>
+                   <!-- <li>
                         <a th:href="@{/secourscatholique}" class="text-light text-decoration-none" target="_blank">Site
                             du secours catholique</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
 
@@ -36,9 +36,11 @@
             <div class="col-md-3 mb-4">
                 <h6 class="fw-bold">Suivez-nous</h6>
                 <div class="d-flex gap-3">
-                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
+                    <a th:href="@{/secourscatholique}" class="text-light text-decoration-none" target="_blank">Site
+                        du secours catholique</a>
+                   <!-- <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
                     <a href="#" class="text-light"><i class="bi bi-instagram fs-4" aria-hidden="true"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4" aria-hidden="true"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4" aria-hidden="true"></i></a>-->
                 </div>
             </div>
         </div>
