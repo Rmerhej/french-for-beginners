@@ -33,9 +33,18 @@
                     <div th:if="${param.error}" class="alert alert-danger" role="alert">
                         Identifiants incorrects. Vérifiez votre nom d'utilisateur et mot de passe.
                     </div>
+                    <div th:if="${param.locked}" class="alert alert-warning" role="alert">
+                        Trop de tentatives de connexion. Veuillez réessayer dans 15 minutes.
+                    </div>
                     <div th:if="${param.success}" class="alert alert-success" role="status">
                         Inscription réussie ! Vous pouvez maintenant vous connecter.
                     </div>
+                   <!-- <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Identifiants incorrects. Vérifiez votre nom d'utilisateur et mot de passe.
+                    </div>
+                    <div th:if="${param.success}" class="alert alert-success" role="status">
+                        Inscription réussie ! Vous pouvez maintenant vous connecter.
+                    </div>-->
                     <div th:if="${param.logout}" class="alert alert-info" role="status">
                         Vous avez été déconnecté avec succès.
                     </div>

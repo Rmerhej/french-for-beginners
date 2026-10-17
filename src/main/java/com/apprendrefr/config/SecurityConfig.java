@@ -1,6 +1,10 @@
 package com.apprendrefr.config;
 
 import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
+import com.apprendrefr.security.LoginAttemptService;
+import com.apprendrefr.security.LoginRateLimitFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.slf4j.LoggerFactory;
@@ -21,6 +25,7 @@ import java.security.SecureRandom;
 import java.util.HexFormat;
 
 
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -31,11 +36,13 @@ public class SecurityConfig {
     private static final int MIN_REMEMBER_ME_KEY_LENGTH = 32;
 
     private final CustomAuthenticationSuccessHandler successHandler;
+    private final LoginAttemptService loginAttempts;
     private final String rememberMeKey;
 
-    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler,
+    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler,LoginAttemptService loginAttempts,
                           @Value("${app.security.remember-me-key:}") String rememberMeKey) {
         this.successHandler = successHandler;
+        this.loginAttempts = loginAttempts;
         this.rememberMeKey = resolveRememberMeKey(rememberMeKey);
     }
 
@@ -113,10 +120,14 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .loginPage("/login")
                         .successHandler(successHandler)
-                        .failureUrl("/login?error=true")
+                        .failureHandler((request, response, exception) -> {
+                            loginAttempts.recordFailure(request.getParameter("username"),
+                                    LoginAttemptService.clientIp(request));
+                            response.sendRedirect(request.getContextPath() + "/login?error=true");
+                        })
                         .permitAll()
                 )
-
+                .addFilterBefore(new LoginRateLimitFilter(loginAttempts), UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session
                         .maximumSessions(-1)
                         .sessionRegistry(sessionRegistry())
