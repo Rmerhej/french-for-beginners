@@ -64,10 +64,14 @@
             </td>
             <td>
                 <a th:href="@{/admin/users/edit/{id}(id=${user.id})}" class="btn btn-warning btn-sm">Modifier</a>
-                <a th:href="@{/admin/users/toggle/{id}(id=${user.id})}" class="btn btn-info btn-sm">Act/Désact</a>
-                <a th:href="@{/admin/users/delete/{id}(id=${user.id})}"
-                   class="btn btn-danger btn-sm"
-                   onclick="return confirm('Supprimer cet utilisateur ?')">Supprimer</a>
+               <!-- <a th:href="@{/admin/users/toggle/{id}(id=${user.id})}" class="btn btn-info btn-sm">Act/Désact</a>-->
+                <form th:action="@{/admin/users/toggle/{id}(id=${user.id})}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-info btn-sm">Act/Désact</button>
+                </form>
+                <form th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer cet utilisateur ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
             </td>
         </tr>
         </tbody>

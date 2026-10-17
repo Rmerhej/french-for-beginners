@@ -174,7 +174,7 @@ public class LessonController {
         return "admin/lesson-form";
     }
 
-    @GetMapping("/admin/lessons/delete/{id}")
+    @PostMapping("/admin/lessons/delete/{id}")
     public String deleteLesson(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
             lessonService.deleteById(id);

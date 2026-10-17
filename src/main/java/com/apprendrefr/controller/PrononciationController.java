@@ -91,7 +91,7 @@ public class PrononciationController {
 
     }
 
-    @GetMapping("/admin/prononciation/supprimer/{id}")
+    @PostMapping("/admin/prononciation/supprimer/{id}")
     public String supprimer(@PathVariable Long id) {
 
         service.deleteById(id);

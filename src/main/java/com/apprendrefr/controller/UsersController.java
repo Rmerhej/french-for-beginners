@@ -42,7 +42,7 @@ public class UsersController {
         return "admin/users-list";
     }
 
-    @GetMapping("/admin/users/delete/{id}")
+    @PostMapping("/admin/users/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteById(id);
         return "redirect:/admin/users";
@@ -75,13 +75,13 @@ public class UsersController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/admin/users/toggle/{id}")
+    @PostMapping("/admin/users/toggle/{id}")
     public String toggleUserStatus(@PathVariable Long id) {
         userService.toggleEnabled(id);
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/admin/users/role/{id}/{role}")
+    @PostMapping("/admin/users/role/{id}/{role}")
     public String changeUserRole(@PathVariable Long id, @PathVariable String role) {
         userService.changeRole(id, role);
         return "redirect:/admin/users";

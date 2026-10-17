@@ -68,10 +68,14 @@
                     Modifier
                 </a>
 
-                <a class="btn btn-danger btn-sm" th:href="@{/admin/prononciation/supprimer/{id}(id=${item.id})}"
+                <!--<a class="btn btn-danger btn-sm" th:href="@{/admin/prononciation/supprimer/{id}(id=${item.id})}"
                    onclick="return confirm('Supprimer cette prononciation ?');">
                     Supprimer
-                </a>
+                </a>-->
+                <form th:action="@{/admin/prononciation/supprimer/{id}(id=${item.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer cette prononciation ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
 
             </td>
 

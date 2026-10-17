@@ -54,11 +54,15 @@
             <td th:text="${lesson.category}"></td>
             <td>
                 <a th:href="@{/admin/lessons/edit/{id}(id=${lesson.id})}" class="btn btn-warning btn-sm">Modifier</a>
-                <a th:href="@{/admin/lessons/delete/{id}(id=${lesson.id})}"
+              <!--  <a th:href="@{/admin/lessons/delete/{id}(id=${lesson.id})}"
                    class="btn btn-sm btn-danger"
                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette leçon ?')">
                     Supprimer
-                </a>
+                </a>-->
+                <form th:action="@{/admin/lessons/delete/{id}(id=${lesson.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer cette leçon ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
             </td>
         </tr>
         </tbody>

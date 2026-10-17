@@ -79,7 +79,7 @@ public class ExerciseController {
         return "admin/exercise-form";
     }
 
-    @GetMapping("/admin/exercises/delete/{id}")
+    @PostMapping("/admin/exercises/delete/{id}")
     public String deleteExercise(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
             exerciseService.deleteById(id);
