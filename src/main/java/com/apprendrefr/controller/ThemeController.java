@@ -171,7 +171,7 @@ public class ThemeController {
     // ADMIN - SUPPRESSION D'UN THEME
     // =========================================================
 
-    @GetMapping("/admin/theme/delete/{id}")
+    @PostMapping("/admin/theme/delete/{id}")
     public String deleteTheme(@PathVariable Long id) {
 
         themeService.deleteById(id);

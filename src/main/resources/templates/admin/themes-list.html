@@ -37,8 +37,12 @@
             <td>
                 <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/edit/{id}(id=${theme.id})}"
                    class="btn btn-warning btn-sm">Modifier</a>
-                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/delete/{id}(id=${theme.id})}"
-                   class="btn btn-danger btn-sm">Supprimer</a>
+               <!-- <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/theme/delete/{id}(id=${theme.id})}"
+                   class="btn btn-danger btn-sm">Supprimer</a>-->
+                <form sec:authorize="hasRole('ADMIN')" th:action="@{/admin/theme/delete/{id}(id=${theme.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer ce thème ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
             </td>
         </tr>
         </tbody>

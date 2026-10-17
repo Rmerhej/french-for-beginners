@@ -43,9 +43,13 @@
             <td th:text="${word.lesson?.title}"></td>
             <td>
                 <a th:href="@{/admin/vocabulary/edit/{id}(id=${word.id})}" class="btn btn-sm btn-primary">Modifier</a>
-                <a th:href="@{/admin/vocabulary/delete/{id}(id=${word.id})}"
+               <!-- <a th:href="@{/admin/vocabulary/delete/{id}(id=${word.id})}"
                    class="btn btn-sm btn-danger"
-                   onclick="return confirm('Supprimer ce mot ?')">Supprimer</a>
+                   onclick="return confirm('Supprimer ce mot ?')">Supprimer</a>-->
+                <form th:action="@{/admin/vocabulary/delete/{id}(id=${word.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer ce mot ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
             </td>
         </tr>
         </tbody>

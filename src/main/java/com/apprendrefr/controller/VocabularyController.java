@@ -129,7 +129,7 @@ public class VocabularyController {
     }
 
 
-    @GetMapping("/admin/vocabulary/delete/{id}")
+    @PostMapping("/admin/vocabulary/delete/{id}")
     public String deleteVocabulary(@PathVariable Long id) {
         vocabularyService.deleteById(id);
         return "redirect:/admin/vocabulary";

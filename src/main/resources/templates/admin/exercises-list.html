@@ -53,9 +53,13 @@
             <td><strong class="text-success" th:text="${ex.correctAnswer}"></strong></td>
             <td>
                 <a th:href="@{/admin/exercises/edit/{id}(id=${ex.id})}" class="btn btn-warning btn-sm">Modifier</a>
-                <a th:href="@{/admin/exercises/delete/{id}(id=${ex.id})}"
+                <form th:action="@{/admin/exercises/delete/{id}(id=${ex.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Supprimer cet exercise ?');">
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
+               <!-- <a th:href="@{/admin/exercises/delete/{id}(id=${ex.id})}"
                    class="btn btn-danger btn-sm"
-                   onclick="return confirm('Supprimer cet exercice ?')">Supprimer</a>
+                   onclick="return confirm('Supprimer cet exercice ?')">Supprimer</a>-->
             </td>
         </tr>
         </tbody>
