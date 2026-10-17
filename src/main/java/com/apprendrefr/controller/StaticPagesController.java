@@ -40,8 +40,8 @@ public class StaticPagesController {
         return "lesrepas";
     }
 
-    @GetMapping("/supports-de-cours")
-    public String allerSupportCours() {return "supports-de-cours";}
+   /* @GetMapping("/supports-de-cours")
+    public String allerSupportCours() {return "supports-de-cours";}*/
 
     @GetMapping("/adjectif")
     public String allerSurAdjectif() {return "adjectif";}
