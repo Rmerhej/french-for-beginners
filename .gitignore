@@ -54,3 +54,5 @@ application-local.yml
 .DS_Store
 Thumbs.db
 SERVER_PRIVATE_NOTES.md
+### Fichiers générés ###
+effective-pom.xml
