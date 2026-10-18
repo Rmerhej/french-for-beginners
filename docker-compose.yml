@@ -33,6 +33,10 @@ services:
     environment:
       # Spring Boot Profile
       SPRING_PROFILES_ACTIVE: prod
+      SERVER_SERVLET_SESSION_COOKIE_SECURE: "true"
+      SERVER_FORWARD_HEADERS_STRATEGY: framework
+      SERVER_ERROR_INCLUDE_MESSAGE: never
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: never
 
       # Database Configuration
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
