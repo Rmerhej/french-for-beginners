@@ -56,3 +56,6 @@ Thumbs.db
 SERVER_PRIVATE_NOTES.md
 ### Fichiers générés ###
 effective-pom.xml
+
+dedupe-output/
+uploads-duplicates-backup/
