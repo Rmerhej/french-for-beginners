@@ -74,9 +74,9 @@ public class CourseController {
 
                 new CoursItem("Les pronoms", "/pronoms", "Les pronomsB1", "text-primary"),
                 new CoursItem("Les adverbes", "/adverbes", "Les adverbesB1", "text-secondary"),
-                new CoursItem("Les propositions subordonnées", "/LesPropositionsSubordonnées", "#", "text-danger"),
-                new CoursItem("La cause et la conséquence", "/LaCauseEtLaConséquence", "#", "text-primary"),
-                new CoursItem("Le but", "/LeBut", "#", "text-secondary"),
+                new CoursItem("Les propositions subordonnées", "/LesPropositionsSubordonnées", "Les propositions subordonnées", "text-danger"),
+                new CoursItem("La cause et la conséquence", "/LaCauseEtLaConséquence", "La cause et la conséquence", "text-primary"),
+                new CoursItem("Le but", "/LeBut", "Le but", "text-secondary"),
                 new CoursItem("L'opposition et la concession", "/LOppositionEtLaConcession", "#", "text-danger"),
                 new CoursItem("Les pronoms relatifs", "/LesPronomsRelatifs", "#", "text-primary"),
                 new CoursItem("Les hypothèses", "/LesHypothèses", "#", "text-secondary"),
