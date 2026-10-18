@@ -37,6 +37,7 @@ services:
       SERVER_FORWARD_HEADERS_STRATEGY: framework
       SERVER_ERROR_INCLUDE_MESSAGE: never
       SERVER_ERROR_INCLUDE_BINDING_ERRORS: never
+      SPRING_THYMELEAF_CACHE: "true"
 
       # Database Configuration
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${MYSQL_DATABASE}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
@@ -50,7 +51,7 @@ services:
       REMEMBER_ME_KEY: ${REMEMBER_ME_KEY}
 
       # Optional: JPA settings
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
       SPRING_JPA_SHOW_SQL: "false"
     volumes:
       - ./uploads:/app/uploads
