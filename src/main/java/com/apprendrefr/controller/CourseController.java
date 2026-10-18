@@ -72,8 +72,8 @@ public class CourseController {
         );
         List<CoursItem> grammaireB1 = List.of(
 
-                new CoursItem("Les pronoms", "/pronoms", "#", "text-primary"),
-                new CoursItem("Les adverbes", "/adverbes", "#", "text-secondary"),
+                new CoursItem("Les pronoms", "/pronoms", "Les pronomsB1", "text-primary"),
+                new CoursItem("Les adverbes", "/adverbes", "Les adverbesB1", "text-secondary"),
                 new CoursItem("Les propositions subordonnées", "/LesPropositionsSubordonnées", "#", "text-danger"),
                 new CoursItem("La cause et la conséquence", "/LaCauseEtLaConséquence", "#", "text-primary"),
                 new CoursItem("Le but", "/LeBut", "#", "text-secondary"),
