@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 16 oct. 2026 à 13:11
+-- Généré le : dim. 18 oct. 2026 à 10:14
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -30,24 +30,24 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `exercises`;
 CREATE TABLE IF NOT EXISTS `exercises` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `correct_answer` varchar(255) DEFAULT NULL,
-  `explanation` varchar(255) DEFAULT NULL,
-  `lesson_title` varchar(255) DEFAULT NULL,
-  `optiona` varchar(255) DEFAULT NULL,
-  `optionb` varchar(255) DEFAULT NULL,
-  `optionc` varchar(255) DEFAULT NULL,
-  `optiond` varchar(255) DEFAULT NULL,
-  `question` text,
-  `exercise_type` varchar(255) DEFAULT NULL,
-  `lesson_level` varchar(255) DEFAULT NULL,
-  `sentences` text,
-  `words` text,
-  `date` varchar(255) DEFAULT NULL,
-  `page` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `correct_answer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explanation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lesson_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `optiona` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `optionb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `optionc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `optiond` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `question` mediumtext COLLATE utf8mb4_unicode_ci,
+  `exercise_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lesson_level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sentences` mediumtext COLLATE utf8mb4_unicode_ci,
+  `words` mediumtext COLLATE utf8mb4_unicode_ci,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lesson_title` (`lesson_title`)
-) ENGINE=InnoDB AUTO_INCREMENT=696 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=696 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `exercises`
@@ -764,16 +764,16 @@ INSERT INTO `flyway_schema_history` (`installed_rank`, `version`, `description`,
 DROP TABLE IF EXISTS `lessons`;
 CREATE TABLE IF NOT EXISTS `lessons` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `audio_url` varchar(255) DEFAULT NULL,
-  `category` varchar(255) DEFAULT NULL,
-  `content` text,
+  `audio_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` mediumtext COLLATE utf8mb4_unicode_ci,
   `created_at` datetime(6) DEFAULT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
-  `level` varchar(255) DEFAULT NULL,
-  `title` varchar(150) NOT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `lessons`
@@ -847,15 +847,15 @@ INSERT INTO `prononciation` (`id`, `audio`, `exemple`, `son`) VALUES
 DROP TABLE IF EXISTS `quizzes`;
 CREATE TABLE IF NOT EXISTS `quizzes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `correct_answers` varchar(255) DEFAULT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
-  `sentence` text,
-  `title` varchar(255) DEFAULT NULL,
-  `words` varchar(255) DEFAULT NULL,
-  `quiz_type` varchar(255) DEFAULT NULL,
+  `correct_answers` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sentence` mediumtext COLLATE utf8mb4_unicode_ci,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `words` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `quiz_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=854 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=900 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Déchargement des données de la table `quizzes`
@@ -1709,7 +1709,53 @@ INSERT INTO `quizzes` (`id`, `correct_answers`, `image_url`, `sentence`, `title`
 (850, 'irais,ferais,viendrait,verraient', NULL, '1. j’avais une voiture, j’____ à la campagne.\r\n2. À ta place, je ____ attention.\r\n3. Paul ____ avec nous s’il était libre.\r\n4. Avec des jumelles, ils ____ mieux les oiseaux.', 'Le conditionnel présent - Les verbes irréguliers', 'viendrait,verraient,irais,ferais', NULL),
 (851, 'achèterais,partirions,ferais,visiterait', NULL, '1. Si j’avais assez d’argent, j’____ une nouvelle voiture.\r\n2. Si nous avions des vacances, nous ____ en Italie.\r\n3. Si tu étais moins fatigué, tu ____ du sport.\r\n4. Si elle avait le temps, elle ____ le musée.', 'Le conditionnel présent - La structure « Si + imparfait »', 'ferais,visiterait,achèterais,partirions', NULL),
 (852, 'pourrait,semblerait,coûterait,faudrait', NULL, '1. Avec un peu de patience, cette situation ____ s’améliorer.\r\n2. Ce projet ____ intéressant pour notre association.\r\n3. Cette réparation ____ environ cent euros.\r\n4. Pour réussir, il ____ pratiquer régulièrement.', 'Le conditionnel présent - Exprimer une possibilité', 'semblerait,coûterait,faudrait,pourrait', NULL),
-(853, 'voudrais,aimerions,pourrait,faudrait,serait', NULL, '-Bonjour ! Je ____ organiser une sortie avec mes collègues.\r\n-Nous ____ visiter un château ce week-end.\r\n-On ____ prendre le train pour y aller ?\r\n-Oui, mais il ____ réserver les billets à l’avance.\r\n-Ce ____ une bonne idée de partir tôt le matin !', 'Le conditionnel présent - Dialogue : organiser une sortie', 'pourrait,faudrait,serait,voudrais,aimerions', NULL);
+(853, 'voudrais,aimerions,pourrait,faudrait,serait', NULL, '-Bonjour ! Je ____ organiser une sortie avec mes collègues.\r\n-Nous ____ visiter un château ce week-end.\r\n-On ____ prendre le train pour y aller ?\r\n-Oui, mais il ____ réserver les billets à l’avance.\r\n-Ce ____ une bonne idée de partir tôt le matin !', 'Le conditionnel présent - Dialogue : organiser une sortie', 'pourrait,faudrait,serait,voudrais,aimerions', NULL),
+(854, 'la,les,le,l\'', NULL, '1. J’ai acheté cette veste. Je ____ porte souvent.\r\n2. Tu connais ces personnes ? Oui, je ____ connais.\r\n3. Il regarde le film. Il ____ regarde attentivement.\r\n4. Elle invite son amie. Elle ____ invite à dîner.', 'Les pronomsB1 - Les pronoms COD', 'le,l\',les,la', NULL),
+(855, 'lui,leur,lui,leur', NULL, '1. Je téléphone à ma sœur. Je ____ téléphone chaque dimanche.\r\n2. Le professeur explique la règle aux étudiants. Il ____ explique la règle.\r\n3. Nous écrivons à notre voisin. Nous ____ écrivons une lettre.\r\n4. Elle parle à ses collègues. Elle ____ parle du projet.', 'Les pronomsB1 - Les pronoms COI', 'leur,lui', NULL),
+(856, 'y,en,y,en', NULL, '1. Tu vas souvent à la bibliothèque ? Oui, j’____ vais souvent.\r\n2. Vous avez besoin de farine ? Oui, nous ____ avons besoin.\r\n3. Elle pense à ses vacances. Elle ____ pense souvent.\r\n4. Il a acheté des pommes. Il ____ a acheté six.', 'Les pronomsB1 - Les pronoms « y » et « en »', 'en,y', NULL),
+(857, 'les,lui,y,en', NULL, '1. Elle a donné les documents à son responsable. Elle ____ a donnés à son responsable.\r\n2. J’ai parlé de ce problème à Paul. Je ____ ai parlé.\r\n3. Nous allons au marché. Nous ____ allons demain.\r\n4. Tu veux du café ? Oui, j’____ veux.', 'Les pronomsB1 - Remplacer un complément', 'en,y,les,lui', NULL),
+(858, 'qui,que,qui,que', NULL, '1. Voici le collègue ____ travaille avec moi.\r\n2. Le livre ____ tu m’as prêté est passionnant.\r\n3. C’est une décision ____ surprend tout le monde.\r\n4. Le repas ____ nous avons préparé est délicieux.', 'Les pronomsB1 - Les pronoms relatifs « qui » et « que »', 'que,qui', NULL),
+(859, 'dont,où,dont,où', NULL, '1. C’est le sujet ____ nous avons parlé hier.\r\n2. Voici la ville ____ j’ai grandi.\r\n3. Elle a obtenu le poste ____ elle rêvait.\r\n4. Je me souviens du jour ____ nous nous sommes rencontrés.', 'Les pronomsB1 - Les pronoms relatifs « dont » et « où »', 'où,dont', NULL),
+(860, 'celui,celle,ceux,celles', NULL, '1. Mon ordinateur est ancien, mais ____ de mon frère est récent.\r\n2. Cette robe est jolie, mais je préfère ____ qui est en vitrine.\r\n3. Les exercices de grammaire sont difficiles, mais ____ de conjugaison sont faciles.\r\n4. Mes chaussures sont noires ; ____ de Marie sont rouges.', 'Les pronomsB1 - Les pronoms démonstratifs', 'ceux,celles,celui,celle', NULL),
+(861, 'le mien,la tienne,les nôtres,les leurs', NULL, '1. Ton téléphone est neuf. ____ est plus ancien.\r\n2. Ma voiture est bleue. ____ est rouge.\r\n3. Vos enfants sont à l’école. ____ sont à la maison.\r\n4. Nos documents sont prêts. ____ ne sont pas encore terminés.', 'Les pronomsB1 - Les pronoms possessifs', 'les nôtres,les leurs,le mien,la tienne', NULL),
+(862, 'les,lui,y,en', NULL, '1. J’ai lu les articles et je ____ ai trouvés intéressants.\r\n2. Marie a écrit à son directeur et elle ____ a expliqué la situation.\r\n3. Nous pensons à notre avenir et nous ____ réfléchissons sérieusement.\r\n4. Il achète des billets et il ____ prend quatre.', 'Les pronomsB1 - Éviter les répétitions', 'lui,y,en,les', NULL),
+(863, 'le lui,la leur,les lui,lui en ', NULL, '1. J’ai donné le dossier à mon collègue. Je ____ ai donné hier.\r\n2. Elle a présenté les photos à sa mère. Elle ____ a présentées.\r\n3.Nous avons envoyé la lettre à nos voisins. Nous ____ avons envoyée. \r\n4. Il parle souvent de ses difficultés à son ami. Il ____ parle souvent.', 'Les pronomsB1 - Combiner deux pronoms', 'le lui,la leur,les lui,lui en ', NULL),
+(864, 'attentivement,rapidement,poliment,facilement', NULL, '1. Pour comprendre les consignes, lisez-les ____.\r\n2. Le train roule très ____ sur cette ligne.\r\n3. Le client s’adresse ____ à la responsable.\r\n4. Avec de l’entraînement, elle résout ces exercices ____.', 'Les adverbesB1 - Les adverbes de manière', 'poliment,facilement,attentivement,rapidement', NULL),
+(865, 'souvent,rarement,toujours,parfois', NULL, '1. Je prends ____ le bus pour aller au travail, presque tous les jours.\r\n2. Il arrive ____ en retard : cela ne lui arrive presque jamais.\r\n3. Elle est ____ disponible pour aider ses collègues.\r\n4. Nous allons ____ au cinéma, mais seulement de temps en temps.', 'Les adverbesB1 - Les adverbes de fréquence', 'rarement,toujours,parfois,souvent', NULL),
+(866, 'bientôt,récemment,autrefois,désormais', NULL, '1. Nous déménagerons ____ : le départ est prévu dans quelques jours.\r\n2. J’ai ____ changé de travail, il y a deux semaines.\r\n3. ____ , les gens écrivaient davantage de lettres à la main.\r\n4. Il utilise ____ les transports en commun pour se rendre au bureau.', 'Les adverbesB1 - Les adverbes de temps', 'récemment,autrefois,désormais,bientôt', NULL),
+(867, 'extrêmement,assez,particulièrement,trop', '', '1. Cette salle est ____ bruyante ; je n’arrive pas à me concentrer.\r\n2. Le dossier est ____ complet pour être présenté à la direction.\r\n3. Ce restaurant est ____ apprécié pour la qualité de ses plats.\r\n4. Cette consigne est ____ difficile ; personne ne la comprend.', 'Les adverbesB1 - Les adverbes d’intensité', 'particulièrement,assez,extrêmement,trop', NULL),
+(868, 'prudemment,clairement,sérieusement,généralement', NULL, '1. Il faut conduire ____ lorsqu’il pleut.\r\n2. La formatrice explique les règles ____.\r\n3. Les participants travaillent ____ pour terminer le projet.\r\n4. Les magasins ferment ____ plus tôt le dimanche.', 'Les adverbesB1 - Former des adverbes en « -ment »', 'clairement,sérieusement,prudemment,généralement', NULL),
+(869, 'mieux,mal,bien,moins', '', '1. Depuis qu’il s’entraîne, il parle ____ français.\r\n2. Elle a ____ compris la consigne et doit demander une explication.\r\n3. Je dors ____ depuis que j’ai changé d’horaires.\r\n4. Cette année, nous dépensons ____ qu’avant.', 'Les adverbesB1 - Choisir entre deux adverbes', 'bien,moins,mal,mieux', NULL),
+(870, 'déjà,encore,enfin,bientôt', NULL, '1. J’ai ____ terminé mon rapport ; je peux vous l’envoyer.\r\n2. Le bus n’est pas arrivé : nous attendons ____.\r\n3. Après plusieurs semaines d’attente, nous avons ____ reçu une réponse.\r\n4. Le magasin va ____ fermer ; dépêchons-nous !', 'Les adverbesB1 - La place de l’adverbe', 'enfin,bientôt,déjà,encore', NULL),
+(871, 'beaucoup,presque,environ,suffisamment', NULL, '1. Elle travaille ____ pour améliorer son niveau de français.\r\n2. Nous avons ____ terminé le projet ; il reste une petite vérification.\r\n3. Il y avait ____ cinquante personnes à la réunion.\r\n4. Il ne dort pas ____ pour être en forme au travail.', 'Les adverbesB1 - Les adverbes de quantité', 'presque,environ,suffisamment,beaucoup', NULL),
+(872, 'pourtant,cependant,seulement,néanmoins', NULL, '1. Il était très fatigué ; ____, il a terminé son travail.\r\n2. Le prix est élevé. ____, la qualité est excellente.\r\n3. Je travaille ____ trois jours par semaine.\r\n4. La tâche est difficile ; ____, nous pouvons la réaliser ensemble.', 'Les adverbesB1 - Exprimer une opposition ou une restriction', 'seulement,néanmoins,cependant,pourtant', NULL),
+(873, 'probablement,certainement,heureusement,malheureusement', NULL, '1. Le train a du retard ; nous arriverons ____ après 10 heures.\r\n2. Elle a ____ réussi son examen : elle avait très bien préparé ses épreuves.\r\n3. ____, personne n’a été blessé dans l’accident.\r\n4. ____, le musée est fermé aujourd’hui ; nous ne pourrons pas le visiter.', 'Les adverbesB1 - Les adverbes et le sens de la phrase', 'heureusement,malheureusement,probablement,certainement', NULL),
+(874, 'attentivement,régulièrement,désormais,efficacement', NULL, '1. Pendant les cours, elle écoute ____ les formateurs.\r\n2. Elle révise ____ pour mémoriser les nouvelles notions.\r\n3. Elle utilise ____ un agenda pour organiser ses journées.\r\n4. Grâce à cette méthode, elle travaille plus ____.', 'Les adverbesB1 - Compréhension : une journée de formation', 'régulièrement,désormais,efficacement,attentivement', NULL),
+(875, 'rapidement,précisément,suffisamment,ensemble,probablement', NULL, '— Nous devons terminer ce projet ____.\r\n— Oui, mais il faut d’abord définir ____ les objectifs.\r\n— Avons-nous ____ de temps pour tout terminer ?\r\n— Si nous travaillons ____ , nous y arriverons.\r\n— Le responsable viendra-t-il demain ?\r\n— Il viendra ____ , mais il doit encore confirmer.', 'Les adverbesB1 - Dialogue : organiser un projet', 'précisément,suffisamment,rapidement,probablement,ensemble', NULL),
+(876, 'parce que,puisque,comme,étant donné que', NULL, '1. Je reste chez moi ____ je suis malade.\r\n2. ____ tu es déjà ici, aide-nous à préparer la salle.\r\n3. ____ il pleuvait, nous avons pris un taxi.\r\n4. Le cours est annulé ____ le formateur est absent.', 'Les propositions subordonnées - Exprimer la cause', 'puisque,comme,étant donné que,parce que', NULL),
+(877, 'pour que,afin que,de peur que,afin de', NULL, '1. Je parle lentement ____ tout le monde puisse comprendre.\r\n2. Elle répète les consignes ____ les apprenants les retiennent mieux.\r\n3. Il ferme la fenêtre ____ le bruit ne dérange les voisins.\r\n4. Nous travaillons en équipe ____ terminer le projet à temps.', 'Les propositions subordonnées - Exprimer le but', 'de peur que,pour que,afin de,afin que', NULL),
+(878, 'si,à condition que,à moins qu\',au cas où', NULL, '1. ____ tu révises régulièrement, tu progresseras.\r\n2. Tu peux participer ____ tu respectes les règles.\r\n3. Nous sortirons demain, ____ il pleuve.\r\n4. Prenez un parapluie ____ il pleuvrait cet après-midi.', 'Les propositions subordonnées - Exprimer la condition', 'à moins qu\',au cas où,si,à condition que', NULL),
+(879, 'quand,dès que,pendant que,avant que', NULL, '1. ____ tu arriveras, appelle-moi.\r\n2. Nous commencerons la réunion ____ tous les participants seront présents.\r\n3. Je prépare le repas ____ les enfants font leurs devoirs.\r\n4. Il faut vérifier les documents ____ le responsable ne les signe.', 'Les propositions subordonnées - Exprimer le temps', 'dès que,pendant que,avant que,quand', NULL),
+(880, 'si bien qu\',tellement,qu\',de sorte que,au point que', NULL, '1. Il a beaucoup travaillé, ____ il a réussi son examen.\r\n2. Elle était ____ fatiguée ____ elle s’est endormie dans le train.\r\n3. Le responsable a modifié l’organisation ____ chacun puisse terminer son travail à temps.\r\n4. Il parlait si fort, ____ tout le monde s’est retourné.', 'Les propositions subordonnées - Exprimer la conséquence', 'qu\',de sorte que,si bien qu\',tellement,au point que', NULL),
+(881, 'qui,que,dont,où', NULL, '1. La personne ____ dirige la réunion est notre nouvelle responsable.\r\n2. Le document ____ tu as envoyé est très utile.\r\n3. Voici le sujet ____ nous avons discuté hier.\r\n4. C’est le bureau ____ je travaille depuis deux ans.', 'Les propositions subordonnées - Les propositions subordonnées relatives', 'dont,qui,où,que', NULL),
+(882, 'que,si,ce que,ce qui', NULL, '1. Je pense ____ cette solution est la meilleure.\r\n2. Elle veut savoir ____ le magasin est encore ouvert.\r\n3. Explique-moi ____ tu as compris dans ce texte.\r\n4. Je ne comprends pas ____ l’inquiète autant.', 'Les propositions subordonnées - Les propositions complétives', 'ce qui,que,ce que,si', NULL),
+(883, 'réussisses,soyez,puisse,venions', '', '1. Il faut que tu ____ ton examen.\r\n2. Je souhaite que vous ____ présents à la réunion.\r\n3. Elle travaille beaucoup pour que son équipe ____ terminer le projet.\r\n4. Le directeur préfère que nous ____ plus tôt demain.', 'Les propositions subordonnées - Le subjonctif dans la subordonnée', 'puisse,réussisses,venions,soyez', NULL),
+(884, 'est,soit,avons,ayons', NULL, '1. Je sais qu’il ____ disponible aujourd’hui.\r\n2. Il faut qu’il ____ disponible demain.\r\n3. Je suis certain que nous ____ assez de temps.\r\n4. Bien que nous ____ peu de temps, nous allons terminer ce travail.', 'Les propositions subordonnées - Indicatif ou subjonctif ?', 'soit,avons,ayons,est', NULL),
+(885, 'bien qu\',même si,alors que,malgré le fait que', '', '1. ____ il soit fatigué, il continue à travailler.\r\n2. ____ tu n’es pas d’accord, tu dois respecter cette décision.\r\n3. Paul préfère travailler seul, ____ sa collègue préfère le travail en équipe.\r\n4. ____ le trajet soit long, elle vient travailler chaque jour en train.', 'Les propositions subordonnées - Exprimer l’opposition et la concession', 'alors que,malgré le fait que,bien qu\',même si', NULL),
+(886, 'parce qu\',afin que,lorsque,bien que', NULL, 'Sonia suit une formation pour trouver un emploi. Elle révise régulièrement et demande de l’aide lorsqu’elle rencontre une difficulté.\r\n--------------------------------------------------------------------------------\r\n1. Sonia suit cette formation ____ elle souhaite changer de métier.\r\n2. Elle pose des questions ____ le formateur puisse lui expliquer les points difficiles.\r\n3. Elle relit ses notes ____ le cours est terminé.\r\n4. ____ certaines notions soient difficiles, elle continue à progresser.', 'Les propositions subordonnées ', 'lorsque,bien que,parce qu\',afin que', NULL),
+(887, 'puisque,pour que,si,avant que,lorsque', NULL, '— ____ tout le monde est disponible demain, nous pouvons organiser la réunion.\r\n— D’accord. Il faut préparer les documents ____ les participants puissent les consulter.\r\n— ____ tu termines le compte rendu, envoie-le-moi.\r\n— Je vais le relire ____ je l’envoie au directeur.\r\n— Parfait. Préviens-moi ____ tu auras confirmé l’heure de la réunion.', 'Les propositions subordonnées', 'pour que,si,puisque,avant que,lorsque', NULL),
+(888, 'parce que,puisque,comme,étant donné que', NULL, '1. Je suis arrivé en retard ____ le bus n’est pas passé.\r\n2. ____ tu connais bien le quartier, peux-tu nous guider ?\r\n3. ____ il faisait très froid, nous sommes restés à l’intérieur.\r\n4. La réunion est reportée ____ plusieurs participants sont absents.', 'La cause et la conséquence - Exprimer la cause', 'puisque,comme,étant donné que,parce que', NULL),
+(889, 'donc,c’est pourquoi,si bien qu\',par conséquent', '', '1. Il a oublié son réveil, ____ il est arrivé en retard.\r\n2. Le magasin est fermé ; ____ nous reviendrons demain.\r\n3. Elle a beaucoup travaillé, ____ elle a réussi son examen.\r\n4. Les dépenses ont augmenté ; ____ nous devons réduire le budget.', 'La cause et la conséquence - Exprimer la conséquence', 'donc,si bien qu\',par conséquent,c’est pourquoi', NULL),
+(890, 'à cause de,grâce à,à cause du,grâce aux', NULL, '1. Le match a été annulé ____ la pluie.\r\n2. J’ai trouvé un emploi ____ l’aide de mon conseiller.\r\n3. Le train est retardé ____ mauvais temps.\r\n4. Le projet a réussi ____ efforts de toute l’équipe.', 'La cause et la conséquence - « À cause de » ou « grâce à » ?', 'à cause de,grâce à,à cause du,grâce aux', NULL),
+(891, 'parce qu’,donc,parce que,donc', NULL, '1. Elle prend un parapluie ____ il pleut.\r\n2. Il est malade, ____ il ne vient pas travailler.\r\n3. Nous sommes partis plus tôt ____ nous voulions éviter les embouteillages.\r\n4. Le bureau est fermé, ____ nous devons revenir demain.', 'La cause et la conséquence - « Parce que » ou « donc » ?', 'parce que,donc,parce qu’', NULL),
+(892, 'grâce à,à force de,grâce aux,à force de', '', '1. ____ ses conseils, j’ai réussi mon entretien.\r\n2. ____ travailler régulièrement, elle a amélioré son français.\r\n3. ____ efforts collectifs, l’association a atteint son objectif.\r\n4. ____ répéter les mêmes exercices, les apprenants ont progressé.', 'La cause et la conséquence - « Grâce à » ou « à force de » ?', 'à force de,grâce aux,grâce à', NULL),
+(893, 'tellement,qu\',si,que,tellement de,que,si,que', '', '1. Il était ____ fatigué ____ il s’est endormi dans le train.\r\n2. Cette salle est ____ bruyante ____ je n’arrive pas à me concentrer.\r\n3. Il y avait ____ monde ____ nous avons attendu une heure.\r\n4. Elle parle ____ vite ____ les nouveaux apprenants ne comprennent pas tout.', 'La cause et la conséquence - « Tellement… que » et « si… que »', 'tellement de,que,si,que,tellement,qu\',si,que', NULL),
+(894, 'à tel point qu\',au point de,si bien que,au point que', NULL, '1. Il était stressé, ____ il a oublié son discours.\r\n2. Elle a travaillé ____ négliger son sommeil.\r\n3. La route était bloquée, ____ nous avons dû changer d’itinéraire.\r\n4. Il a tellement insisté ____ son responsable a accepté sa demande.', 'La cause et la conséquence - « À tel point que » et « au point de »', 'à tel point qu\',au point de,au point que,si bien que', NULL),
+(895, 'en raison de,c’est pour cela qu\',faute de,par conséquent', NULL, '1. Le vol a été annulé ____ mauvaises conditions météorologiques.\r\n2. Il n’avait pas de diplôme ; ____ il n’a pas pu postuler à ce poste.\r\n3. ____ temps, nous n’avons pas pu terminer la réunion.\r\n4. Elle a oublié ses clés ; ____ elle a dû attendre devant la porte.', 'La cause et la conséquence', 'faute de,par conséquent,en raison de,c’est pour cela qu\'', NULL),
+(896, 'donc,c’est pourquoi,par conséquent,si bien que', NULL, '1. Il a beaucoup plu. Les rues sont inondées.-> Il a beaucoup plu, ____ les rues sont inondées.\r\n2. Je suis malade. Je reste chez moi. ->Je suis malade ; ____ je reste chez moi.\r\n3. Les prix ont augmenté. Les clients achètent moins.-> Les prix ont augmenté ; ____, les clients achètent moins.\r\n4. Elle a suivi une formation. Elle a trouvé un emploi. ->Elle a suivi une formation, ____ elle a trouvé un emploi.', 'La cause et la conséquence - Transformer une cause en conséquence', 'c’est pourquoi,par conséquent,donc,si bien que', NULL),
+(897, 'parce qu\',grâce à,donc,à cause de', NULL, '1. Il a progressé ____ il a beaucoup pratiqué.\r\n2. ____ son expérience, elle a obtenu le poste.\r\n3. Le train est supprimé ; nous devons ____ prendre le bus.\r\n4. Le pique-nique a été annulé ____ l’orage.', 'La cause et la conséquence - Éviter les confusions', 'donc,à cause de,parce qu\',grâce à', NULL),
+(898, 'parce qu\',grâce à,si bien que,par conséquent', NULL, '1. Les apprenants viennent aux ateliers ____ ils souhaitent améliorer leur français.\r\n2. ____ l’engagement des bénévoles, l’association peut proposer plusieurs cours.\r\n3. Le nombre d’inscrits a augmenté, ____ les salles sont devenues trop petites.\r\n4. L’association manque de place ; ____ elle cherche un nouveau local.', 'La cause et la conséquence', 'grâce à,si bien que,parce qu\',par conséquent', NULL),
+(899, 'à cause d\',puisque,à cause de,donc,grâce à', NULL, '— Nous n’avons pas pu commencer la réunion ____ une panne informatique.\r\n— ____ le problème persiste, nous allons reporter la présentation.\r\n— D’accord. ____ cette panne, nous avons perdu une heure de travail.\r\n— Nous devons ____ modifier notre planning.\r\n— Heureusement, ____ l’aide du service informatique, nous avons récupéré les documents.', 'La cause et la conséquence', 'à cause d\',puisque,à cause de,donc,grâce à', NULL);
 
 -- --------------------------------------------------------
 
@@ -1761,16 +1807,16 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `created_at` datetime(6) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `enabled` bit(1) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=298 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=298 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -1839,7 +1885,7 @@ CREATE TABLE IF NOT EXISTS `users_exercises_scores` (
   PRIMARY KEY (`id`),
   KEY `fk_score_users` (`user_id`),
   KEY `fk_score_exercises` (`exercise_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1850,18 +1896,18 @@ CREATE TABLE IF NOT EXISTS `users_exercises_scores` (
 DROP TABLE IF EXISTS `vocabularies`;
 CREATE TABLE IF NOT EXISTS `vocabularies` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `audio_url` varchar(255) DEFAULT NULL,
-  `english_translation` varchar(100) NOT NULL,
-  `french_word` varchar(100) NOT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
-  `pronunciation` varchar(100) DEFAULT NULL,
+  `audio_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `english_translation` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `french_word` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pronunciation` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lesson_id` bigint(20) NOT NULL,
-  `example_sentence` varchar(500) DEFAULT NULL,
-  `alt_text` varchar(255) DEFAULT NULL,
+  `example_sentence` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKr4cdy69nx0qb4g4vv3ywxerav` (`lesson_id`),
   KEY `french_word` (`french_word`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vocabularies`
