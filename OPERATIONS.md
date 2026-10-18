@@ -35,7 +35,7 @@ https://frenchforbeginners.duckdns.org
 Connexion SSH :
 
 ```bash
-ssh -i votre-cle.pem opc@141.145.219.35
+ssh -i votre-cle.pem opc@<IP_SERVEUR>
 ```
 
 Utilisateur :
