@@ -77,44 +77,44 @@ public class CourseController {
                 new CoursItem("Les propositions subordonnées", "/LesPropositionsSubordonnées", "Les propositions subordonnées", "text-danger"),
                 new CoursItem("La cause et la conséquence", "/LaCauseEtLaConséquence", "La cause et la conséquence", "text-primary"),
                 new CoursItem("Le but", "/LeBut", "Le but", "text-secondary"),
-                new CoursItem("L'opposition et la concession", "/LOppositionEtLaConcession", "#", "text-danger"),
-                new CoursItem("Les pronoms relatifs", "/LesPronomsRelatifs", "#", "text-primary"),
-                new CoursItem("Les hypothèses", "/LesHypothèses", "#", "text-secondary"),
-                new CoursItem("Le discours indirect", "/LeDiscoursIndirect", "#", "text-danger"),
-                new CoursItem("La voix passive", "/LaVoixPassive", "#", "text-primary")
+                new CoursItem("L'opposition et la concession", "/LOppositionEtLaConcession", "L’opposition et la concession", "text-danger"),
+                new CoursItem("Les pronoms relatifs", "/LesPronomsRelatifs", "Les pronoms relatifs", "text-primary"),
+                new CoursItem("Les hypothèses", "/LesHypothèses", "Les hypothèses", "text-secondary"),
+                new CoursItem("Le discours indirect", "/LeDiscoursIndirect", "Le discours indirect", "text-danger"),
+                new CoursItem("La voix passive", "/LaVoixPassive", "La voix passive", "text-primary")
 
 
         );
         List<CoursItem> conjugaisonB1 = List.of(
 
-                new CoursItem("Le plus-que-parfait", "/PlusQueParfait", "#", "text-primary"),
-                new CoursItem("Le futur antérieur", "/FuturAntérieur", "#", "text-secondary"),
-                new CoursItem("Le conditionnel présent", "/ConditionnelPrésentSupDeCours", "#", "text-danger"),
-                new CoursItem("Le conditionnel passé", "/ConditionnelPassé", "#", "text-primary"),
-                new CoursItem("Les trois types d'hypothèses", "/LesTroisTypesDhypothèse", "#", "text-secondary"),
-                new CoursItem("Concordance des temps", "/ConcordanceDesTemps", "#", "text-danger")
+                new CoursItem("Le plus-que-parfait", "/PlusQueParfait", "Le plus-que-parfait", "text-primary"),
+                new CoursItem("Le futur antérieur", "/FuturAntérieur", "Le futur antérieur", "text-secondary"),
+                new CoursItem("Le conditionnel présent", "/ConditionnelPrésentSupDeCours", "Le conditionnel présent", "text-danger"),
+                new CoursItem("Le conditionnel passé", "/ConditionnelPassé", "Le conditionnel passé", "text-primary"),
+                new CoursItem("Les trois types d'hypothèses", "/LesTroisTypesDhypothèse", "Les trois types d'hypothèses", "text-secondary"),
+                new CoursItem("Concordance des temps", "/ConcordanceDesTemps", "Concordance des temps", "text-danger")
                 // new CoursItem("", "/", "", "text-")
         );
         List<CoursItem> grammaireB2 = List.of(
-                new CoursItem("Les structures complexes", "/LesStructuresComplexes", "#", "text-"),
-                new CoursItem("Les pronoms relatifs complexes", "/LesPronomsRelatifsComplexes", "#", "text-primary"),
-                new CoursItem("Le subjonctif", "/LeSubjonctif", "#", "text-secondary"),
-                new CoursItem("La concession", "/LaConcession", "#", "text-danger"),
-                new CoursItem("Les propositions circonstancielles", "/LesPropositionsCirconstancielles", "#", "text-primary"),
-                new CoursItem("La mise en relief", "/LaMiseEnRelief", "#", "text-secondary"),
-                new CoursItem("Les formes impersonnelles", "/LesFormesImpersonnelles", "#", "text-danger"),
-                new CoursItem("Les registres de langue", "/LesRegistresDeLangue", "#", "text-primary")
+                new CoursItem("Les structures complexes", "/LesStructuresComplexes", "Les structures complexes", "text-"),
+                new CoursItem("Les pronoms relatifs complexes", "/LesPronomsRelatifsComplexes", "Les pronoms relatifs complexes", "text-primary"),
+                new CoursItem("Le subjonctif", "/LeSubjonctif", "Le subjonctif", "text-secondary"),
+                new CoursItem("La concession", "/LaConcession", "La concession", "text-danger"),
+                new CoursItem("Les propositions circonstancielles", "/LesPropositionsCirconstancielles", "Les propositions circonstancielles", "text-primary"),
+                new CoursItem("La mise en relief", "/LaMiseEnRelief", "La mise en relief", "text-secondary"),
+                new CoursItem("Les formes impersonnelles", "/LesFormesImpersonnelles", "Les formes impersonnelles", "text-danger"),
+                new CoursItem("Les registres de langue", "/LesRegistresDeLangue", "Les registres de langue", "text-primary")
 
         );
         List<CoursItem> conjugaisonB2 = List.of(
-                new CoursItem("Révision approfondie des temps", "/RévisionApprofondieDesTemps", "#", "text-primary"),
-                new CoursItem("Subjonctif présent", "/SubjonctifPrésentB2", "#", "text-secondary"),
-                new CoursItem("Subjonctif passé", "/SubjonctifPassé", "#", "text-danger"),
-                new CoursItem("Conditionnel présent et passé", "/ConditionnelPrésentEtPassé", "#", "text-primary"),
-                new CoursItem("Concordance des temps", "/ConcordanceDesTempsB2", "#", "text-secondary"),
-                new CoursItem("Participe présent", "/ParticipePrésent", "#", "text-danger"),
-                new CoursItem("Gérondif", "/Gérondif", "#", "text-primary"),
-                new CoursItem("Infinitif passé", "/InfinitifPassé", "#", "text-secondary")
+                new CoursItem("Révision approfondie des temps", "/RévisionApprofondieDesTemps", "Révision approfondie des temps", "text-primary"),
+                new CoursItem("Subjonctif présent", "/SubjonctifPrésentB2", "Subjonctif présent", "text-secondary"),
+                new CoursItem("Subjonctif passé", "/SubjonctifPassé", "Subjonctif passé", "text-danger"),
+                new CoursItem("Conditionnel présent et passé", "/ConditionnelPrésentEtPassé", "Conditionnel présent et passé", "text-primary"),
+                new CoursItem("Concordance des temps", "/ConcordanceDesTempsB2", "Concordance des temps", "text-secondary"),
+                new CoursItem("Participe présent", "/ParticipePrésent", "Participe présent", "text-danger"),
+                new CoursItem("Gérondif", "/Gérondif", "Gérondif", "text-primary"),
+                new CoursItem("Infinitif passé", "/InfinitifPassé", "Infinitif passé", "text-secondary")
 
                 // new CoursItem("", "/", "", "text-")
         );
