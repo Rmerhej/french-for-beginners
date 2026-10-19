@@ -1838,14 +1838,12 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (27, '2026-06-07 04:53:08.671500', 'testu13@gmail.com', b'1', '$2a$10$BfHY3jmm/btqLKUPDH7.w.wa8cxiUfFfZI638ERpX01CkjTvK33BG', 'ROLE_USER', 'testu13'),
 (28, '2026-06-07 04:53:45.124098', 'testu14@gmail.com', b'1', '$2a$10$VNwCt6NTFgC8dGq/85SNyeSPnGAuZj.ZRGMVcjGEG9EmaDM1ekaIW', 'ROLE_USER', 'testu14'),
 (29, '2026-06-07 13:54:41.803270', 'testu15@gmail.com', b'0', '$2a$10$B7X2bthG9nfjksijgoLwe.8xJWQe1beXek7ukZWZXk33Lt11esQAO', 'ROLE_USER', 'testu15'),
-(31, '2026-06-11 13:42:05.896080', 'testu16@gmail.com', b'1', 'testtestp16', 'USER', 'testu16'),
 (32, '2026-06-16 08:05:49.648143', 'cato@gmail.com', b'1', '$2a$10$0ckrN1gzqky0eo7n/lKvu.aVtUmMHrz986kvb7I.tmAgCgjQ0cvmK', 'ROLE_USER', 'cato'),
 (33, '2026-06-16 08:22:00.987623', 'lina@gmail.com', b'1', '$2a$10$QZ4cwlu7IU6BFSXcZOUb9OzTyLesPrP.W16OCH7aCUpa7dhUZ1unG', 'ROLE_USER', 'lina'),
 (34, '2026-06-16 08:39:45.614426', 'sono@gmail.com', b'1', '$2a$10$OEW69DrgiFvclVHtLcwMD.ekUgH/D4ILU9.hjbsyyCnPerNS8aiFO', 'ROLE_USER', 'sono'),
 (35, '2026-06-16 08:49:34.462419', 'boni@gmail.com', b'1', '$2a$10$5ECA2HAsjMqga21nheaUpe53hXQRB0v5kclet2L.00l/0qrQApMvG', 'ROLE_USER', 'boni'),
 (36, '2026-06-16 08:51:03.700386', 'bona@gmail.com', b'1', '$2a$10$kQI3yZe7l/QXBzxy8xDda.JZvjjreIx2kQxdFnbUFgASOgCpWS9Py', 'ROLE_USER', 'bona'),
 (37, '2026-06-16 09:00:31.230183', 'arrete@gmail.com', b'1', '$2a$10$pE5XBRPi6pcBXK2.5qy/VeSebGvkfxlFS.x/BPtAnWehr9W98lGSq', 'ROLE_USER', 'arrete'),
-(38, '2026-06-16 18:01:58.344018', 'stephaniemerhej@hotmail.com', b'1', '$2a$10$RiAx9T1uNFxS7F.htDq6ZOyfDeaostz2kf/fahVPyvxGsdcUydmTW', 'ROLE_USER', 'Faniu'),
 (39, '2026-06-17 13:31:01.659246', 'hob@gmail.com', b'1', '$2a$10$ykrxdnL6p/7J2dMLf.ky/ugxMofZ8e7Hqz.KUe81oE5FfSs8E5K9G', 'ROLE_USER', 'hob'),
 (40, '2026-06-17 14:13:57.099943', 'tata1@gmail.com', b'1', '$2a$10$OoRcYRKciIqn1Pk/gVqn9e67qxlgZSF5C/Q5jechxgXgrIbUVtciu', 'ROLE_USER', 'tata1'),
 (41, '2026-06-22 03:41:47.209360', 'testu100@gmail.com', b'1', '$2a$10$fggttBRJoo2LDI4oOybihexn7rsoQ39xFOY0FRGWGZfeI.8p4jcfq', 'ROLE_USER', 'testu100'),
@@ -1866,8 +1864,7 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (293, '2026-09-29 07:16:12.310701', 'testu25@gmail.com', b'1', '$2a$10$irtdpELeR/TWqJKj9rtxJubL45A/TvL/i5qnjiJ9YGciJxflGf18e', 'USER', 'testu25'),
 (294, '2026-10-01 16:59:29.664378', 'sab@gmail.com', b'1', '$2a$10$FWUNL.z81d6Kv.CzfDmy.ueGfyGs3Qk43N1ojSz6OY0p8I9F/ILhG', 'ROLE_USER', 'sabine'),
 (295, '2026-10-06 10:52:08.711877', 'testu30@gmail.com', b'1', '$2a$10$SrcMedf3KHdL.VLjgYVPFOZOPOpTRToLz8avRgl2lNzRtmxXISukW', 'USER', 'testu30'),
-(296, '2026-10-15 15:27:27.454320', 'rola@gmail.com', b'1', '$2a$10$J6M7OrBtur9sFyH2i8vsO.YibrJewnAL2Togd8yUe0/EUheeM4mba', 'USER', 'rola'),
-(297, '2026-10-16 06:53:06.662135', 'admin-roroadmin@apprendrefr.com', b'1', '$2a$10$A2LEcK4GqFEY4l/q9psD3urY0Q7Fhwp34TGm65Omwrl7G.938soES', 'ADMIN', 'roroadmin');
+(296, '2026-10-15 15:27:27.454320', 'rola@gmail.com', b'1', '$2a$10$J6M7OrBtur9sFyH2i8vsO.YibrJewnAL2Togd8yUe0/EUheeM4mba', 'USER', 'rola');
 
 -- --------------------------------------------------------
 
