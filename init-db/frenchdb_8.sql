@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 19 oct. 2026 à 13:01
+-- Généré le : lun. 19 oct. 2026 à 16:18
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -1885,7 +1885,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=298 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -1934,7 +1934,7 @@ INSERT INTO `users` (`id`, `created_at`, `email`, `enabled`, `password`, `role`,
 (294, '2026-10-01 16:59:29.664378', 'sab@gmail.com', b'1', '$2a$10$FWUNL.z81d6Kv.CzfDmy.ueGfyGs3Qk43N1ojSz6OY0p8I9F/ILhG', 'ROLE_USER', 'sabine'),
 (295, '2026-10-06 10:52:08.711877', 'testu30@gmail.com', b'1', '$2a$10$SrcMedf3KHdL.VLjgYVPFOZOPOpTRToLz8avRgl2lNzRtmxXISukW', 'USER', 'testu30'),
 (296, '2026-10-15 15:27:27.454320', 'rola@gmail.com', b'1', '$2a$10$J6M7OrBtur9sFyH2i8vsO.YibrJewnAL2Togd8yUe0/EUheeM4mba', 'USER', 'rola'),
-(297, '2026-10-16 06:53:06.662135', 'admin-roroadmin@apprendrefr.com', b'1', '$2a$10$Im2BP.JOG6QK/ZPL1bkN2ev.kfDtdyMlQeA1XRmrHN4rgkXZCqWG2', 'ADMIN', 'secourscat');
+(301, '2026-10-19 15:59:11.819983', 'admin-kitkat@apprendrefr.com', b'1', '$2a$10$mA1p5YkcJkkEyXmTDOuioucj81/mL1q3Nt5QSEMfwmaPDQQGsSKua', 'ADMIN', 'kitkat');
 
 -- --------------------------------------------------------
 
