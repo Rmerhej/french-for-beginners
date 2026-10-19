@@ -1,10 +1,10 @@
 # 🇫🇷 French For Beginners
 
-**Application web éducative pour apprendre le français depuis le niveau débutant absolu (A1).**
+**Application web pour apprendre le français, du niveau débutant (A1) jusqu'à l'avancé (B2).**
 
-Une plateforme interactive pour maîtriser le vocabulaire, la grammaire, la prononciation et les exercices pratiques.
+Leçons de grammaire, vocabulaire illustré, prononciation avec audio, quiz corrigés automatiquement et suivi des scores, dans une interface responsive.
 
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.6-brightgreen)
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![MySQL](https://img.shields.io/badge/MySQL-8-blue)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
@@ -13,57 +13,40 @@ Une plateforme interactive pour maîtriser le vocabulaire, la grammaire, la pron
 
 ## ✨ Fonctionnalités
 
-- **Leçons interactives** structurées par niveau (A1)
-- **Vocabulaire** illustré avec images et exemples audio
-- **Exercices et quizzes** corrigés automatiquement
-- **Système d'authentification** complet (utilisateurs + administrateur)
+- **Leçons interactives** : grammaire, conjugaison, thèmes de la vie quotidienne, culture française
+- **Vocabulaire** illustré, avec images et exemples audio
+- **Prononciation** : fiches avec enregistrements audio
+- **Exercices, QCM et quiz** corrigés automatiquement, avec suivi des scores
+- **Comptes utilisateurs** et **panneau d'administration** (leçons, quiz, vocabulaire, thèmes, utilisateurs)
 - **Upload et optimisation d'images** (Thumbnailator)
-- **Interface moderne** et responsive avec Bootstrap 5
-- Gestion des progrès et scores
+- **Limitation des tentatives de connexion** (anti force brute)
+- Interface responsive (Bootstrap 5), installable comme application (PWA)
+
+## 📸 Aperçu
+
+| Accueil | Leçon | QCM |
+|---|---|---|
+| ![Accueil](screenshots/Accueil_FFB.png) | ![Leçon](screenshots/Leçon_FFB.png) | ![QCM](screenshots/QCM_FFB.png) |
 
 ---
 
 ## 🛠 Technologies
 
-### Backend
-- **Spring Boot 3.3.5** + Java 17
-- **Spring Security** (authentification & autorisation)
-- **Spring Data JPA** + Hibernate
-- **MySQL 8**
-- **Lombok**
-
-### Frontend
-- **Thymeleaf**
-- **Bootstrap 5** + Bootstrap Icons
-- **HTML5 / CSS3 / JavaScript**
-
-### DevOps
-- **Maven**
-- **Docker** + Docker Compose
-- Multi-stage Dockerfile
+| Couche | Outils |
+|---|---|
+| Backend | Spring Boot 3.5.6, Java 17, Spring Security, Spring Data JPA / Hibernate, Lombok |
+| Base de données | MySQL 8 (H2 pour les tests) |
+| Frontend | Thymeleaf, Bootstrap 5, HTML / CSS / JavaScript |
+| DevOps | Maven, Docker, Docker Compose, GitHub Actions (tests) |
 
 ---
 
-## 🚀 Installation Locale
+## 🚀 Installation avec Docker
 
 ### Prérequis
-- Java 17+
-- Maven 3.8+
-- MySQL 8
-- Docker
 
-### Avec Docker
-
-# French for Beginners
-
-Application Spring Boot + MySQL exécutée avec Docker Compose.
-
-## Prérequis
-
-- Docker Desktop (Windows/Mac) ou Docker Engine + Docker Compose (Linux)
+- Docker Desktop (Windows / Mac) ou Docker Engine + Docker Compose (Linux)
 - Git
-
-Vérifiez les installations :
 
 ```bash
 docker --version
@@ -71,20 +54,14 @@ docker compose version
 git --version
 ```
 
----
-
-## Installation
-
 ### 1. Cloner le projet
-Choisissez le dossier dans lequel vous souhaitez installer l'application, puis exécutez :
+
 ```bash
 git clone https://github.com/Rmerhej/french-for-beginners.git
 cd french-for-beginners
 ```
 
 ### 2. Créer le fichier d'environnement
-
-Copiez le fichier d'exemple :
 
 ```bash
 cp .env.exemple .env
@@ -96,11 +73,9 @@ Sous Windows PowerShell :
 Copy-Item .env.exemple .env
 ```
 
-### 3. Modifier le fichier `.env`
+### 3. Renseigner le fichier `.env`
 
-Avant de lancer l'application, remplacez les mots de passe d'exemple par vos propres valeurs.
-
-Par exemple :
+Remplacez **tous** les mots de passe d'exemple par vos propres valeurs :
 
 ```env
 MYSQL_ROOT_PASSWORD=StrongRootPassword123!
@@ -110,141 +85,122 @@ MYSQL_PASSWORD=StrongDatabasePassword123!
 
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=StrongAdminPassword123!
+
+# Clé de signature des cookies « se souvenir de moi » (32 caractères minimum)
+# Générer avec : openssl rand -hex 32
+REMEMBER_ME_KEY=<résultat de la commande ci-dessus>
 ```
 
----
+> ⚠️ Le fichier `.env` contient des secrets : il ne doit **jamais** être versionné.
+> Seul `.env.exemple` figure dans le dépôt.
 
-### 4. Construire et lancer l'application
+### 4. Lancer l'application
 
 ```bash
-docker compose up --build
+docker compose up -d
 ```
 
-Ou en arrière-plan :
+> Le fichier `docker-compose.yml` utilise l'image publiée `rolandmerhej1/french-app`.
+> Pour construire l'image depuis les sources, remplacez la ligne `image:` du service `app` par `build: .`
+> puis lancez `docker compose up --build -d`.
+
+L'application est disponible sur **http://localhost:8080**.
+
+### Première utilisation
+
+Le compte administrateur est créé au premier démarrage avec `ADMIN_USERNAME` et `ADMIN_PASSWORD` du fichier `.env`.
+
+### Commandes utiles
 
 ```bash
-docker compose up --build -d
+docker compose logs -f app     # logs de l'application
+docker compose logs db         # logs de MySQL
+docker compose down            # arrêter
+docker compose down -v         # arrêter ET supprimer la base de données ⚠️
+docker compose build --no-cache && docker compose up -d   # reconstruire
 ```
 
----
-
-## Accès
-
-Application :
-
-```
-http://localhost:8080
-```
-
----
-
-## Arrêter l'application
-
-```bash
-docker compose down
-```
-
----
-
-## Supprimer également les données MySQL
-
-⚠️ Cette commande supprime également la base de données.
-
-```bash
-docker compose down -v
-```
-
----
-
-## Première utilisation
-
-L'utilisateur administrateur est créé avec les informations définies dans le fichier `.env` :
-
-```
-ADMIN_USERNAME
-ADMIN_PASSWORD
-```
-
----
-
-## Dépannage
-
-### Vérifier les logs
-
-```bash
-docker compose logs
-```
-
-ou
-
-```bash
-docker compose logs app
-docker compose logs db
-```
-
-### Reconstruire complètement
-
-```bash
-docker compose down
-docker compose build --no-cache
-docker compose up
-```
-
-> **Important**
->
-> Le fichier `.env` contient des informations sensibles (mots de passe).
-> Il ne doit jamais être versionné sur GitHub.
-> Seul le fichier `.env.example` est inclus dans le dépôt.
-
-
-## Ports utilisés
+### Ports
 
 | Service | Port |
-|----------|------|
+|---|---|
 | Spring Boot | 8080 |
-| MySQL (interne uniquement) | 3306 |
+| MySQL | 3306 (réseau Docker interne uniquement) |
 
+---
 
+## 💻 Développement local (sans Docker)
 
- ###Routes Principales
- Route                  Accès                 Description
- 
-/                       Public                Page d'accueil
-/register               Public                Inscription
-/login                  Public                Connexion
-/lessons/**             Authentifié           Liste des leçons
-/quizzes/**             Authentifié           Exercices et quizzes
-/admin/**               Admin                 Panel administrateur
+Prérequis : Java 17, MySQL 8 en local.
 
+```bash
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD=ChangeMe123!
+./mvnw spring-boot:run
+```
 
+Lancer les tests (base H2 en mémoire, aucun MySQL requis) :
 
-### Structure du Projet
+```bash
+./mvnw test
+```
 
+Les tests sont aussi exécutés automatiquement par GitHub Actions à chaque push.
+
+---
+
+## 🗺 Routes principales
+
+| Route | Accès | Description |
+|---|---|---|
+| `/` | Public | Page d'accueil |
+| `/register` | Public | Inscription |
+| `/login` | Public | Connexion |
+| `/lessons`, `/quizzes` | Connecté | Leçons et exercices |
+| `/admin/**` | Administrateur | Panneau d'administration |
+
+Plusieurs pages de cours sont accessibles sans compte (voir `SecurityConfig`).
+
+---
+
+## 📁 Structure du projet
+
+```
 src/main/java/com/apprendrefr/
-├── config/              → Configuration Spring (Security, Web)
-├── controller/          → Contrôleurs MVC
-├── entity/              → Entités JPA
-├── repository/          → Repositories Spring Data
-├── service/             → Logique métier
-├── security/            → Configuration de sécurité
-├── DataInitializer.java → Création du compte admin
-└── FrenchForBeginnersApplication.java
+├── config/        Configuration Spring (sécurité, web)
+├── controller/    Contrôleurs MVC
+├── dto/           Objets de transfert
+├── entity/        Entités JPA
+├── exception/     Exceptions métier et gestion globale des erreurs
+├── repository/    Repositories Spring Data
+├── security/      Authentification, limitation des tentatives de connexion
+├── service/       Logique métier
+└── DataInitializer.java   Création du compte administrateur
 
+src/main/resources/
+├── templates/     Pages Thymeleaf
+└── static/        CSS, JavaScript, PWA
+```
 
-### Sécurité
--Authentification basée sur Spring Security
--Mots de passe hashés avec BCrypt
--Protection CSRF
--Gestion des rôles (ROLE_USER et ROLE_ADMIN)
+---
 
+## 🔒 Sécurité
 
-### Auteur
--Merhej Roland
+- Authentification Spring Security, rôles `ROLE_USER` et `ROLE_ADMIN`
+- Mots de passe hachés avec BCrypt
+- Protection CSRF
+- Limitation des tentatives de connexion
+- Cookies de session `HttpOnly`
 
-Merci d’utiliser French For Beginners !
-N’hésite pas à contribuer ou à signaler des bugs.
+## 🌐 Déploiement en production
 
+- [DEPLOYMENT.md](DEPLOYMENT.md) : installation sur serveur (Docker, Nginx, HTTPS)
+- [OPERATIONS.md](OPERATIONS.md) : exploitation, sauvegardes, dépannage
 
+---
 
+## 👤 Auteur
 
+Roland Merhej
 
+Contributions et signalements de bugs bienvenus via les *issues* GitHub.
