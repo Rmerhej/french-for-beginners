@@ -1,25 +1,22 @@
 package com.apprendrefr;
 
 import com.apprendrefr.entity.User;
-import com.apprendrefr.repository.ThemeRepository;
 import com.apprendrefr.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("dev")
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    @Value("${ADMIN_USERNAME}")
+    @Value("${ADMIN_USERNAME :}")
     private String adminUsername;
 
-    @Value("${ADMIN_PASSWORD}")
+    @Value("${ADMIN_PASSWORD :}")
     private String adminPassword;
 
     private final PasswordEncoder passwordEncoder;
@@ -30,8 +27,10 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // ====================== INITIALISATION ADMIN ======================
-        if (adminPassword == null || adminPassword.trim().isEmpty()) {
-            throw new RuntimeException("❌ ADMIN_PASSWORD n'est pas défini dans les variables d'environnement !");
+        if (adminUsername == null || adminUsername.isBlank()
+                || adminPassword == null || adminPassword.isBlank()) {
+            System.out.println("⚠️ ADMIN_USERNAME / ADMIN_PASSWORD non définis : aucun compte admin créé.");
+            return;
         }
 
         if (userRepository.findByUsername(adminUsername).isPresent()) {
