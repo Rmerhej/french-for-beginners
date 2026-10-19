@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * Pages de cours sans logique : chaque URL affiche simplement un template Thymeleaf.
  * Pour ajouter une page, ajouter une ligne "URL" -> "nom du template (sans .html)".
  * (Remplace l'ancien StaticPagesController.)
  */
