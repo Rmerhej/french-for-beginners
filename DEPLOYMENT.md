@@ -115,7 +115,7 @@ cd french-for-beginners
 Créer le fichier `.env` :
 
 ```bash
-cp .env.example .env
+cp .env.exemple .env
 ```
 
 Modifier :
