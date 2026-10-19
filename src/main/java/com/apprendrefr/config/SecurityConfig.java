@@ -102,7 +102,7 @@ public class SecurityConfig {
                                 "/quizzesSurLaGrammaire", "/prepositionConjonction",
                                 "/accords-des-adjectifs", "/les-pronoms", "/les-adjectifs-accord-pluriel", "/utilisation-des-pronoms",
                                 "/expressions-de-temps", "/futur-simple-quiz-grammaire", "/adjectifs-demonstratif-quiz-grammaire",
-                                "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-form-create", "/theme-detail", "/conjugaison", "/cultureFrancaise",
+                                "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-detail", "/conjugaison", "/cultureFrancaise",
                       "/LesArticlesDefinis","/AdjectifsQualificatifs","/PronomsPossessifesEtDemonstratifs","/LesAuxiliares","/verbesPresent",
                                 "/impératif","/passéComposé","/futurSimple","/Limmobilier").permitAll()
                         .requestMatchers("/api/upload/**").hasRole("ADMIN")
