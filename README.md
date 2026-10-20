@@ -114,7 +114,8 @@ L'application est disponible sur **http://localhost:8080**.
 
 ### Première utilisation
 
-Le compte administrateur est créé au premier démarrage avec `ADMIN_USERNAME` et `ADMIN_PASSWORD` du fichier `.env`.
+Le compte administrateur est créé s’il n’existe pas déjà au premier démarrage avec `ADMIN_USERNAME` et `ADMIN_PASSWORD` du fichier `.env`;
+le mot de passe n’est jamais mis à jour ensuite par le .env
 
 ### Commandes utiles
 
