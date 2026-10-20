@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b2a6b">
+  <title>Hors ligne - French For Beginners</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
+           background: #f8f9fa; color: #212529; padding: 1rem; box-sizing: border-box; }
+    @media (prefers-color-scheme: dark) { body { background: #12151c; color: #e9ecef; } }
+    .box { max-width: 420px; }
+    img { width: 96px; height: 96px; border-radius: 20px; }
+    h1 { font-size: 1.5rem; margin: 1rem 0 .5rem; }
+    p { margin: 0 0 1.5rem; opacity: .8; line-height: 1.5; }
+    button { background: #1b2a6b; color: #fff; border: 0; border-radius: 999px;
+             padding: .7rem 1.6rem; font-size: 1rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <img src="/pwa/icon-192.png" alt="">
+    <h1>Vous êtes hors ligne</h1>
+    <p>La connexion a été perdue. Vérifiez votre réseau, puis réessayez : vos cours et vos quiz seront de nouveau disponibles.</p>
+    <button type="button" onclick="location.reload()">Réessayer</button>
+  </main>
+</body>
+</html>
