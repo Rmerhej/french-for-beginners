@@ -27,7 +27,7 @@ Leçons de grammaire, vocabulaire illustré, prononciation avec audio, quiz corr
 | Accueil | Leçon | QCM | Quiz |
 |Grammaire et Conjugaison|| Livret du citoyen |
 
-| ![index_FFB.png](screenshots/index_FFB.png) | 
+| ![index_FFB.png](src/main/resources/static/pwa/screenshot-mobile.png) | 
 | ![Grammaire_Conjugaison_A1_FFB.png](screenshots/Grammaire_Conjugaison_A1_FFB.png) | 
 | ![Exemple_Quiz_FFB.png](screenshots/Exemple_Quiz_FFB.png) |
 | ![Exemple_QCM_FFB.png](screenshots/Exemple_QCM_FFB.png) |
