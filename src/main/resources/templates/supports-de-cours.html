@@ -1,503 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<head th:replace="~{fragments/head :: head(title='Supports de cours')}">
     <title>Supports de cours</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
+<style>
+    /* Orange pour B1 (Bootstrap n'a pas de classe orange) */
+    .text-bg-orange { background-color: #fd7e14; color: #000; }
+    .alert-orange { background-color: rgba(253, 126, 20, .15); color: var(--bs-body-color); border: 0; }
+</style>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+
 <div class="container py-5">
 
     <div class="text-center mb-5">
         <div class="fs-1 mb-3" aria-hidden="true">📚</div>
-
-        <h1 class="fw-bold mb-3">
-            Grammaire et conjugaison françaises
-        </h1>
-
+        <h1 class="fw-bold mb-3">Grammaire et conjugaison françaises</h1>
         <p class="lead text-secondary mx-auto" style="max-width: 800px;">
-            Progressez de A1 à B2 grâce à un parcours structuré
-            de grammaire et de conjugaison adapté aux adultes.
+            Un parcours en 4 niveaux, de A1 à B2. Suivez les étapes dans l'ordre :
+            chaque cours prépare le suivant, et chaque cours a son quiz.
         </p>
-
-        <p class="text-secondary">
-            Chaque niveau combine les règles grammaticales et
-            la maîtrise des verbes nécessaires pour communiquer
-            avec de plus en plus de précision.
+        <p class="text-secondary mb-0">
+            <span class="badge text-bg-primary">Grammaire</span>
+            <span class="badge text-bg-secondary">Conjugaison</span>
         </p>
     </div>
 
-
-    <!-- ========================================================= -->
-    <!-- PROGRESSION                                                -->
-    <!-- ========================================================= -->
-
-    <div class="card border-0 shadow-sm rounded-4 mb-5">
-        <div class="card-body p-4">
-            <h2 class="h4 fw-bold text-center mb-4">
-                Votre progression
-            </h2>
-
-            <div class="row g-3 text-center">
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <div class="fs-2">🟢</div>
-                        <strong>A1</strong>
-                        <div class="small text-secondary">Construire</div>
+    <!-- Aperçu du parcours : un bouton par niveau -->
+    <div class="row g-3 mb-5">
+        <div th:each="n : ${niveaux}" class="col-6 col-md-3">
+            <a th:href="|#niveau-${n.code}|" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm rounded-4 text-center">
+                    <div class="card-body">
+                        <div class="fs-2" th:text="${n.emoji}">🟢</div>
+                        <strong class="text-body" th:text="${n.code}">A1</strong>
+                        <div class="small text-secondary" th:text="${n.verbe}">Construire</div>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <div class="fs-2">🟡</div>
-                        <strong>A2</strong>
-                        <div class="small text-secondary">Raconter</div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <div class="fs-2">🟠</div>
-                        <strong>B1</strong>
-                        <div class="small text-secondary">Expliquer</div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-3">
-                    <div class="p-3">
-                        <div class="fs-2">🔴</div>
-                        <strong>B2</strong>
-                        <div class="small text-secondary">Nuancer</div>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 
-
-    <!-- ========================================================= -->
-    <!-- A1                                                          -->
-    <!-- ========================================================= -->
-
-    <section class="mb-5">
-        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-body p-4 p-md-5">
-
-                <div class="d-flex align-items-center mb-3">
-                    <div class="fs-1 me-3">🟢</div>
-                    <div>
-                        <h2 class="fw-bold mb-1">
-                            A1 — Les bases du français
-                        </h2>
-                        <p class="text-secondary mb-0">
-                            Construire des phrases simples
-                        </p>
-                    </div>
-                </div>
-
-                <p class="mb-4">
-                    Apprenez les structures essentielles pour vous présenter,
-                    parler de votre quotidien et communiquer dans des
-                    situations courantes.
-                </p>
-
-                <!-- Grille des catégories (Grammaire / Conjugaison) -->
-                <div class="row g-4">
-
-                    <!-- Colonne Grammaire -->
-                    <div class="col-md-6">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2">📘</span>
-                                <h3 class="h4 fw-bold mb-0">Grammaire : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${grammaireA1}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <!-- Lien vers le cours -->
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <!-- Lien vers le quiz associé -->
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|"
-                                       style="font-style: italic;">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Colonne Conjugaison -->
-                    <div class="col-md-6" th:if="${conjugaisonA1 != null}">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2"> 🔤</span>
-                                <h3 class="h4 fw-bold mb-0">Conjugaison : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${conjugaisonA1}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="mb-5">
-
+    <!-- Un bloc par niveau, généré par une seule boucle -->
+    <section th:each="n : ${niveaux}" th:id="|niveau-${n.code}|" class="mb-5">
         <div class="card border-0 shadow-sm rounded-4">
-
             <div class="card-body p-4 p-md-5">
 
                 <div class="d-flex align-items-center mb-3">
-
-                    <div class="fs-1 me-3">🟡</div>
-
+                    <div class="fs-1 me-3" th:text="${n.emoji}" aria-hidden="true">🟢</div>
                     <div>
-                        <h2 class="fw-bold mb-1">
-                            A2 — Développer et raconter
-                        </h2>
-
-                        <p class="text-secondary mb-0">
-                            Raconter des événements et parler de ses projets
-                        </p>
+                        <h2 class="fw-bold mb-1" th:text="|${n.code} — ${n.titre}|">A1 — Les bases</h2>
+                        <p class="text-secondary mb-0" th:text="${n.verbe}">Construire</p>
                     </div>
-
                 </div>
 
-                <p class="mb-4">
-                    Enrichissez vos phrases et apprenez à raconter des
-                    expériences passées et à parler de vos projets.
-                </p>
-                <!-- Grille des catégories (Grammaire / Conjugaison) -->
-                <div class="row g-4">
-
-                    <!-- Colonne Grammaire -->
-                    <div class="col-md-6">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2">📘</span>
-                                <h3 class="h4 fw-bold mb-0">Grammaire : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${grammaireA2}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <!-- Lien vers le cours -->
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <!-- Lien vers le quiz associé -->
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|"
-                                       style="font-style: italic;">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Colonne Conjugaison -->
-                    <div class="col-md-6" th:if="${conjugaisonA2 != null}">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2"> 🔤</span>
-                                <h3 class="h4 fw-bold mb-0">Conjugaison : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${conjugaisonA2}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <div th:class="|alert alert-${n.couleur} bg-opacity-25 border-0 mb-4|" role="note">
+                    <strong>À la fin de ce niveau :</strong>
+                    <span th:text="${n.objectif}">objectif</span>
                 </div>
 
+                <div th:each="b : ${n.blocs}" class="mb-4">
+                    <h3 class="h5 fw-bold mb-3" th:text="${b.titre}">Titre du bloc</h3>
+
+                    <ol class="list-group list-group-flush" start="1">
+                        <li th:each="e, st : ${b.etapes}"
+                            class="list-group-item d-flex flex-wrap align-items-center gap-2 px-0">
+
+                            <span th:class="|badge rounded-pill text-bg-${n.couleur}|"
+                                  th:text="${b.debut + st.index}">1</span>
+
+                            <a th:href="@{${e.url}}" class="fw-semibold text-decoration-none flex-grow-1"
+                               th:text="${e.titre}">Nom du cours</a>
+
+                            <span th:if="${n.code == 'A1' and b.debut + st.index == 1}"
+                                  class="badge text-bg-success">Commencer ici</span>
+
+                            <span th:class="${e.type == 'G'} ? 'badge text-bg-primary' : 'badge text-bg-secondary'"
+                                  th:text="${e.type == 'G'} ? 'Grammaire' : 'Conjugaison'">Grammaire</span>
+
+                            <a th:href="@{/quiz/drag-drop(recherche=${e.quiz})}"
+                               class="btn btn-sm btn-outline-secondary">Quiz</a>
+                        </li>
+                    </ol>
+                </div>
 
             </div>
         </div>
     </section>
-    <section class="mb-5">
-
-        <div class="card border-0 shadow-sm rounded-4">
-
-            <div class="card-body p-4 p-md-5">
-
-                <div class="d-flex align-items-center mb-3">
-
-                    <div class="fs-1 me-3">🟠</div>
-
-                    <div>
-                        <h2 class="fw-bold mb-1">
-                            B1 — Construire un raisonnement
-                        </h2>
-
-                        <p class="text-secondary mb-0">
-                            Expliquer, justifier et exprimer des hypothèses
-                        </p>
-                    </div>
-
-                </div>
-
-                <p class="mb-4">
-                    Apprenez à relier vos idées et à construire des phrases
-                    plus complexes pour expliquer votre opinion.
-                </p>
-                <div class="row g-4">
-
-                    <!-- Colonne Grammaire -->
-                    <div class="col-md-6">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2">📘</span>
-                                <h3 class="h4 fw-bold mb-0">Grammaire : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${grammaireB1}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <!-- Lien vers le cours -->
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <!-- Lien vers le quiz associé -->
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|"
-                                       style="font-style: italic;">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Colonne Conjugaison -->
-                    <div class="col-md-6" th:if="${conjugaisonB1 != null}">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2"> 🔤</span>
-                                <h3 class="h4 fw-bold mb-0">Conjugaison : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${conjugaisonB1}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section class="mb-5">
-
-        <div class="card border-0 shadow-sm rounded-4">
-
-            <div class="card-body p-4 p-md-5">
-
-                <div class="d-flex align-items-center mb-3">
-
-                    <div class="fs-1 me-3">🔴</div>
-
-                    <div>
-                        <h2 class="fw-bold mb-1">
-                            B2 — Maîtriser et nuancer
-                        </h2>
-
-                        <p class="text-secondary mb-0">
-                            S'exprimer avec précision et nuance
-                        </p>
-                    </div>
-
-                </div>
-
-                <p class="mb-4">
-                    Maîtrisez les structures complexes et adaptez votre
-                    expression aux situations professionnelles, sociales
-                    et académiques.
-                </p>
-
-                <div class="row g-4">
-
-                    <!-- Colonne Grammaire -->
-                    <div class="col-md-6">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2">📘</span>
-                                <h3 class="h4 fw-bold mb-0">Grammaire : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${grammaireB2}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <!-- Lien vers le cours -->
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <!-- Lien vers le quiz associé -->
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|"
-                                       style="font-style: italic;">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Colonne Conjugaison -->
-                    <div class="col-md-6" th:if="${conjugaisonB2 != null}">
-                        <div class="border border-secondary rounded-4 p-4 h-100 bg-dark text-white">
-                            <div class="d-flex align-items-center mb-4">
-                                <span class="fs-3 me-2"> 🔤</span>
-                                <h3 class="h4 fw-bold mb-0">Conjugaison : cours et Quiz</h3>
-                            </div>
-
-                            <ul class="list-unstyled mb-0">
-                                <li th:each="cours : ${conjugaisonB2}"
-                                    class="mb-3 d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
-                                    <a th:href="@{${cours.urlCours}}"
-                                       class="text-secondary text-decoration-underline link-offset-2"
-                                       th:text="${cours.label}">
-                                        Nom du cours
-                                    </a>
-
-                                    <a th:href="@{/quiz/drag-drop(recherche=${cours.searchQuiz})}"
-                                       th:class="|fst-italic ${cours.quizColorClass} text-decoration-underline|">
-                                        Quiz
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <div class="card border-0 shadow-sm rounded-4 mb-4">
-
-        <div class="card-body p-4 p-md-5">
-
-            <h2 class="h4 fw-bold mb-3">
-                💡 Comment progresser ?
-            </h2>
-
-            <div class="row g-3">
-
-                <div class="col-md-3">
-                    <div class="p-3 border rounded-3 h-100">
-                        <strong>1. Comprendre</strong>
-                        <p class="small text-secondary mb-0 mt-2">
-                            Découvrez la règle et observez les exemples.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="p-3 border rounded-3 h-100">
-                        <strong>2. S'exercer</strong>
-                        <p class="small text-secondary mb-0 mt-2">
-                            Faites des QCM et des exercices interactifs.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="p-3 border rounded-3 h-100">
-                        <strong>3. Pratiquer</strong>
-                        <p class="small text-secondary mb-0 mt-2">
-                            Utilisez la grammaire dans des situations concrètes.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="p-3 border rounded-3 h-100">
-                        <strong>4. Vérifier</strong>
-                        <p class="small text-secondary mb-0 mt-2">
-                            Testez vos connaissances avant de passer au niveau suivant.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
 
 </div>
-<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<!-- Pied de page (contient aussi le script du mode sombre) -->
 <div th:replace="~{fragments/footer :: footer}"></div>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
