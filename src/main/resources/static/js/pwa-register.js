@@ -31,7 +31,8 @@
     var box = document.createElement('div');
     box.id = 'installAppBox';
     box.className = 'position-fixed d-flex align-items-center gap-1 shadow rounded-pill bg-primary text-white';
-    box.style.cssText = 'left:16px;bottom:16px;z-index:1050;padding:4px 6px 4px 14px;';
+    // centré en bas : le bouton « Retour » est à gauche, la flèche « haut » à droite
+    box.style.cssText = 'left:50%;transform:translateX(-50%);bottom:16px;z-index:1050;padding:4px 6px 4px 14px;white-space:nowrap;';
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'btn btn-sm text-white border-0 fw-semibold';
