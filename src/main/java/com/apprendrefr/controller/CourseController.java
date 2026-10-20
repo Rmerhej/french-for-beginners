@@ -47,7 +47,7 @@ public class CourseController {
                 new CoursItem("Les adverbes", "/adverbes", "Les adverbes", "text-secondary"),
                 new CoursItem("Les expressions de temps", "/expressionstemps", "Les Expressions de temps", "text-danger"),
                 new CoursItem("Les accords", "/accords", "Les adjectifs", "text-primary"),
-                new CoursItem("Les pronoms y et en", "/LesPronomsYEtEn", "Les pronoms y et en", "text-secondary"),
+                new CoursItem("Les pronoms y et en", "/pronomsYetEn", "Les pronoms y et en", "text-secondary"),
                 new CoursItem("Les pronoms possessifs et démonstratifs", "/pronomsPossessifsEtDemonstratifs", "Pronoms possessifs et démonstratifs", "text-danger"),
                 new CoursItem("Conjonction et préposition", "/PrépositionsEtConjonctions", "conjonction", "text-primary"),
                 new CoursItem("Les connecteurs logiques", "/connecteursLogiques", "Les connecteurs logiques", "text-secondary"),
