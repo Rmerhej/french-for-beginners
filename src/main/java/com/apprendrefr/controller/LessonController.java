@@ -124,7 +124,7 @@ public class LessonController {
         model.addAttribute("totalPages", lessonsPage.getTotalPages());
         model.addAttribute("totalItems", lessonsPage.getTotalElements());
 
-        return "admin/lessons";
+        return "/admin/lessons";
     }
 
     @PostMapping("/admin/lessons")
