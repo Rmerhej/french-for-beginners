@@ -85,7 +85,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/", "/index", "/register", "/login", "/logout",
                                 "/visitor/**",                    // ← plus simple
-                                "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
+                                "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**","/error", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
                                 "/fragments/**", "/prononciationNew"
                         ).permitAll()
 
