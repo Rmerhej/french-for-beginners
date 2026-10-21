@@ -65,31 +65,7 @@
         </tbody>
     </table>
 
-    <nav th:if="${exercisesPage}" class="mt-4">
-        <ul class="pagination justify-content-center">
-            <li class="page-item" th:classappend="${exercisesPage.first} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/admin/exercises(page=${exercisesPage.number - 1}, size=${exercisesPage.size}, keyword=${keyword})}">
-                    Précédent
-                </a>
-            </li>
-
-            <li th:each="p : ${#numbers.sequence(0, exercisesPage.totalPages - 1)}"
-                class="page-item"
-                th:classappend="${p == exercisesPage.number} ? 'active'">
-                <a class="page-link"
-                   th:href="@{/admin/exercises(page=${p}, size=${exercisesPage.size}, keyword=${keyword})}"
-                   th:text="${p + 1}"></a>
-            </li>
-
-            <li class="page-item" th:classappend="${exercisesPage.last} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/admin/exercises(page=${exercisesPage.number + 1}, size=${exercisesPage.size}, keyword=${keyword})}">
-                    Suivant
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <div th:replace="~{fragments/pagination :: pagination(${exercisesPage}, '/admin/exercises', ${keyword})}"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>

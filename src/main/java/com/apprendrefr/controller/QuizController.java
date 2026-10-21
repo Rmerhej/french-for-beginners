@@ -2,8 +2,8 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Quiz;
 import com.apprendrefr.service.QuizService;
+import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,7 +64,7 @@ public class QuizController {
             @RequestParam(required = false) String keyword,
             Model model) {
 
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = AdminPaging.newestFirst(page, size);
 
         Page<Quiz> quizzesPage = quizService.searchQuizzes(keyword, pageable);
 

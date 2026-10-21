@@ -42,8 +42,12 @@ public class VocabularyService {
 
 
     public Page<Vocabulary> searchVocabulary(String keyword, Pageable pageable) {
+        if (keyword == null || keyword.isBlank()) {
+            return vocabularyRepository.findAll(pageable);
+        }
+        String k = keyword.trim();
         return vocabularyRepository.findByFrenchWordContainingIgnoreCaseOrEnglishTranslationContainingIgnoreCase(
-                keyword, keyword, pageable);
+                k, k, pageable);
     }
 
     public Vocabulary save(Vocabulary vocabulary) {

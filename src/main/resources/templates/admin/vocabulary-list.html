@@ -55,6 +55,8 @@
         </tbody>
     </table>
 
+    <div th:replace="~{fragments/pagination :: pagination(${vocabularyPage}, '/admin/vocabulary', ${keyword})}"></div>
+
     <div th:if="${vocabularies.isEmpty()}" class="alert alert-info text-center">
         Aucun résultat trouvé.
     </div>

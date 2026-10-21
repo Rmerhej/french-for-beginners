@@ -4,10 +4,9 @@ import com.apprendrefr.entity.Exercise;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.LessonService;
+import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +34,7 @@ public class ExerciseController {
                                 @RequestParam(defaultValue = "10") int size,
                                 @RequestParam(required = false) String keyword,
                                 Model model) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+        Pageable pageable = AdminPaging.newestFirst(page, size);
         Page<Exercise> exercisesPage;
 
         if (keyword != null && !keyword.isBlank()) {
