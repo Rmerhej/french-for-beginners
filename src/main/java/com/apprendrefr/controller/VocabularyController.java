@@ -7,7 +7,9 @@ import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.ImageService;
 import com.apprendrefr.service.LessonService;
 import com.apprendrefr.service.VocabularyService;
+import com.apprendrefr.util.AdminPaging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,16 +99,18 @@ public class VocabularyController {
     }
 
     @GetMapping("/admin/vocabulary")
-    public String listVocabulary(@RequestParam(value = "keyword", required = false) String keyword,
+    public String listVocabulary(@RequestParam(defaultValue = "0") int page,
+                                 @RequestParam(defaultValue = "10") int size,
+                                 @RequestParam(required = false) String keyword,
                                  Model model) {
 
-        if (keyword != null && !keyword.trim().isEmpty()) {
-            model.addAttribute("vocabularies",
-                    vocabularyService.searchVocabulary(keyword.trim(), Pageable.unpaged()));
-            model.addAttribute("keyword", keyword);
-        } else {
-            model.addAttribute("vocabularies", vocabularyService.findAll());
-        }
+        Pageable pageable = AdminPaging.newestFirst(page, size);
+
+        Page<Vocabulary> vocabularyPage = vocabularyService.searchVocabulary(keyword, pageable);
+
+        model.addAttribute("vocabularyPage", vocabularyPage);
+        model.addAttribute("vocabularies", vocabularyPage.getContent());
+        model.addAttribute("keyword", keyword);
 
         return "admin/vocabulary-list";
     }

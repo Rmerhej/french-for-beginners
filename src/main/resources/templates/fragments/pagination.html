@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--
+  Pagination réutilisable pour les pages d'administration.
+  Utilisation :
+    <div th:replace="~{fragments/pagination :: pagination(${laPage}, '/admin/exemple', ${keyword})}"></div>
+  - laPage  : objet Page<?> envoyé par le contrôleur
+  - l'URL   : adresse de la liste (sans paramètres)
+  - keyword : mot recherché (peut être vide ou null)
+-->
+<nav th:fragment="pagination(page, baseUrl, keyword)"
+     th:if="${page != null and page.totalPages > 1}"
+     class="mt-4" aria-label="Pagination">
+
+    <ul class="pagination justify-content-center flex-wrap mb-2"
+        th:with="start=${T(java.lang.Math).max(0, page.number - 2)},
+                 end=${T(java.lang.Math).min(page.totalPages - 1, page.number + 2)}">
+
+        <li class="page-item" th:classappend="${page.first} ? 'disabled'">
+            <a class="page-link"
+               th:href="${page.first} ? '#' : @{${baseUrl}(page=${page.number - 1}, size=${page.size}, keyword=${keyword})}">Précédent</a>
+        </li>
+
+        <li class="page-item" th:if="${start > 0}">
+            <a class="page-link" th:href="@{${baseUrl}(page=0, size=${page.size}, keyword=${keyword})}">1</a>
+        </li>
+        <li class="page-item disabled" th:if="${start > 1}">
+            <span class="page-link">…</span>
+        </li>
+
+        <li th:each="p : ${#numbers.sequence(start, end)}"
+            class="page-item" th:classappend="${p == page.number} ? 'active'">
+            <a class="page-link"
+               th:href="@{${baseUrl}(page=${p}, size=${page.size}, keyword=${keyword})}"
+               th:text="${p + 1}">1</a>
+        </li>
+
+        <li class="page-item disabled" th:if="${end < page.totalPages - 2}">
+            <span class="page-link">…</span>
+        </li>
+        <li class="page-item" th:if="${end < page.totalPages - 1}">
+            <a class="page-link"
+               th:href="@{${baseUrl}(page=${page.totalPages - 1}, size=${page.size}, keyword=${keyword})}"
+               th:text="${page.totalPages}">N</a>
+        </li>
+
+        <li class="page-item" th:classappend="${page.last} ? 'disabled'">
+            <a class="page-link"
+               th:href="${page.last} ? '#' : @{${baseUrl}(page=${page.number + 1}, size=${page.size}, keyword=${keyword})}">Suivant</a>
+        </li>
+    </ul>
+
+    <p class="text-center text-secondary small mb-0"
+       th:text="|Page ${page.number + 1} sur ${page.totalPages} — ${page.totalElements} éléments|"></p>
+</nav>
+</body>
+</html>

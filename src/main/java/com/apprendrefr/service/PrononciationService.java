@@ -4,6 +4,8 @@ package com.apprendrefr.service;
 import com.apprendrefr.entity.Prononciation;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.repository.PrononciationRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +26,12 @@ public class PrononciationService {
     public List<Prononciation> findAll() {
 
         return repository.findAll();
+
+    }
+
+    public Page<Prononciation> findAllPaginated(Pageable pageable) {
+
+        return repository.findAll(pageable);
 
     }
 

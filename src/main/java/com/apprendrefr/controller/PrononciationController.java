@@ -2,6 +2,9 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Prononciation;
 import com.apprendrefr.service.PrononciationService;
+import com.apprendrefr.util.AdminPaging;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +36,15 @@ public class PrononciationController {
     }
 
     @GetMapping("/admin/prononciationsDashboard")
-    public String prononciationliste(Model model) {
+    public String prononciationliste(@RequestParam(defaultValue = "0") int page,
+                                     @RequestParam(defaultValue = "10") int size,
+                                     Model model) {
 
-        model.addAttribute("prononciations", service.findAll());
+        Pageable pageable = AdminPaging.newestFirst(page, size);
+        Page<Prononciation> prononciationsPage = service.findAllPaginated(pageable);
+
+        model.addAttribute("prononciationsPage", prononciationsPage);
+        model.addAttribute("prononciations", prononciationsPage.getContent());
 
         return "admin/prononciation-list";
     }

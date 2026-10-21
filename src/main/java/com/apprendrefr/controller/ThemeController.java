@@ -7,8 +7,8 @@ import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.QuizService;
 import com.apprendrefr.service.ThemeService;
+import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,7 +91,7 @@ public class ThemeController {
             @RequestParam(required = false) String keyword,
             Model model) {
 
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = AdminPaging.newestFirst(page, size);
 
         Page<Theme> themesPage =
                 themeService.searchThemes(keyword, pageable);

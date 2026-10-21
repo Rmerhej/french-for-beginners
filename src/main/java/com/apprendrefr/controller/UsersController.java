@@ -3,10 +3,9 @@ package com.apprendrefr.controller;
 import com.apprendrefr.entity.User;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.UserService;
+import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +26,7 @@ public class UsersController {
             @RequestParam(required = false) String keyword,
             Model model) {
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+        Pageable pageable = AdminPaging.newestFirst(page, size);
         Page<User> usersPage;
 
         if (keyword != null && !keyword.isBlank()) {
