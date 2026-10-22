@@ -5,6 +5,7 @@ import com.apprendrefr.entity.User;
 import com.apprendrefr.repository.ExerciseRepository;
 import com.apprendrefr.repository.UserExerciseScoreRepository;
 import com.apprendrefr.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,14 @@ class ExerciseScoreIntegrationTest {
         e.setOptionD("êtes");
         e.setCorrectAnswer("B");
         exercise = exerciseRepository.save(e);
+    }
+
+    /** Nettoyage : les autres tests supposent une base sans ce compte ni ses scores. */
+    @AfterEach
+    void cleanUp() {
+        scoreRepository.deleteAll();
+        exerciseRepository.deleteById(exercise.getId());
+        userRepository.findByUsername(USERNAME).ifPresent(userRepository::delete);
     }
 
     @Test
