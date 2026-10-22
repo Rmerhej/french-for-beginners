@@ -50,6 +50,46 @@
     </div>
 
 
+    <!-- Application installée (PWA) -->
+    <div class="row mb-4" th:if="${pwaStats != null}">
+        <div class="col-12">
+            <h5 class="text-secondary mb-3">📲 Application installée (PWA)</h5>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow-sm text-center text-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Installations</h5>
+                    <h2 class="fw-bold text-primary" th:text="${pwaStats.installedTotal}">0</h2>
+                    <p class="mb-2 small">dont <strong th:text="${pwaStats.installedLast7Days}">0</strong> sur les 7 derniers jours</p>
+                    <ul class="list-unstyled small mb-0">
+                        <li th:each="e : ${pwaStats.installedByPlatform}">
+                            <span th:text="${e.key}">Android</span> : <strong th:text="${e.value}">0</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow-sm text-center text-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Ouvertures depuis l'icône</h5>
+                    <h2 class="fw-bold text-success" th:text="${pwaStats.launchedTotal}">0</h2>
+                    <p class="mb-2 small">
+                        <strong th:text="${pwaStats.launchedLast7Days}">0</strong> sur 7 jours,
+                        <strong th:text="${pwaStats.launchedLast30Days}">0</strong> sur 30 jours
+                    </p>
+                    <ul class="list-unstyled small mb-0">
+                        <li th:each="e : ${pwaStats.launchedByPlatform}">
+                            <span th:text="${e.key}">Android</span> : <strong th:text="${e.value}">0</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row g-4">
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm">

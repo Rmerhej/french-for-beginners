@@ -33,10 +33,13 @@ public class AdminController {
 
     VisitorTrackerService  visitorTrackerService;
 
+    private final PwaStatsService pwaStatsService;
+
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
                            PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,
                            OnlineUserService onlineUserService,
-                           VisitorTrackerService visitorTrackerService,ThemeService themeService,ImageService imageService) {
+                           VisitorTrackerService visitorTrackerService,ThemeService themeService,ImageService imageService,
+                           PwaStatsService pwaStatsService) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
@@ -47,6 +50,7 @@ public class AdminController {
         this.visitorTrackerService = visitorTrackerService;
         this.themeService = themeService;
         this.imageService = imageService;
+        this.pwaStatsService = pwaStatsService;
     }
 
     @GetMapping
@@ -75,6 +79,7 @@ public class AdminController {
         model.addAttribute("prononciationsCount", prononciations);
         model.addAttribute("onlineUsers", onlineUserService.getOnlineUsersCount());
         model.addAttribute("onlineVisitors", visitorTrackerService.getOnlineVisitors());
+        model.addAttribute("pwaStats", pwaStatsService.stats());
         return "admin/dashboard";
     }
 

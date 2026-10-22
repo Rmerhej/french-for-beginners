@@ -26,6 +26,35 @@
   var ua = navigator.userAgent;
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
+  // Comptage anonyme (type + plateforme + date, sans identifiant) : voir /visitor/pwa-event
+  function platform() {
+    if (isIOS) return 'ios';
+    if (/Android/i.test(ua)) return 'android';
+    return 'desktop';
+  }
+  function sendEvent(type) {
+    try {
+      var url = '/visitor/pwa-event?type=' + type + '&p=' + platform();
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(url);
+      } else {
+        fetch(url, { method: 'POST', keepalive: true });
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  // Ouverture depuis l'icône (mode « application ») : une fois par session
+  if (isStandalone()) {
+    try {
+      if (!sessionStorage.getItem('pwaLaunchSent')) {
+        sessionStorage.setItem('pwaLaunchSent', '1');
+        sendEvent('launched');
+      }
+    } catch (e) {
+      sendEvent('launched');
+    }
+  }
+
   function showButton(onClick) {
     if (isStandalone() || dismissed() || document.getElementById('installAppBox')) return;
     var box = document.createElement('div');
@@ -66,6 +95,7 @@
   });
 
   window.addEventListener('appinstalled', function () {
+    sendEvent('installed');
     var b = document.getElementById('installAppBox');
     if (b) b.remove();
   });
