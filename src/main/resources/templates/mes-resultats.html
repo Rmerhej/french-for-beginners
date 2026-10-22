@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Mes résultats')}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content" class="container py-5" style="max-width: 900px;">
+
+    <div class="text-center mb-5">
+        <div class="fs-1 mb-3" aria-hidden="true">📊</div>
+        <h1 class="fw-bold mb-2">Mes résultats</h1>
+        <p class="text-secondary mb-0">Vos réponses aux exercices (QCM), leçon par leçon.</p>
+    </div>
+
+    <div th:if="${results.answered == 0}" class="alert alert-info text-center">
+        Vous n'avez pas encore répondu à un exercice. Faites un QCM dans une leçon : vos résultats apparaîtront ici.
+    </div>
+
+    <div th:if="${results.answered > 0}">
+
+        <div class="row g-3 mb-5 text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-primary" th:text="${results.answered}">0</div>
+                    <div class="text-secondary">réponses données</div>
+                </div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-success" th:text="${results.correct}">0</div>
+                    <div class="text-secondary">réponses justes</div>
+                </div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-warning" th:text="|${results.percent} %|">0 %</div>
+                    <div class="text-secondary">de réussite</div>
+                </div></div>
+            </div>
+        </div>
+
+        <h2 class="h4 fw-bold mb-3">Par leçon</h2>
+        <div class="table-responsive mb-5">
+            <table class="table align-middle">
+                <thead>
+                <tr><th>Leçon</th><th class="text-end">Justes / réponses</th><th style="min-width: 160px;">Réussite</th></tr>
+                </thead>
+                <tbody>
+                <tr th:each="l : ${results.lessons}">
+                    <td th:text="${l.lesson}">Leçon</td>
+                    <td class="text-end" th:text="|${l.correct} / ${l.answered}|">0 / 0</td>
+                    <td>
+                        <div class="progress" role="progressbar" th:attr="aria-valuenow=${l.percent}" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success" th:style="|width: ${l.percent}%|" th:text="|${l.percent} %|">0 %</div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="h4 fw-bold mb-3">Dernières réponses</h2>
+        <ul class="list-group">
+            <li th:each="r : ${results.recent}" class="list-group-item d-flex justify-content-between align-items-start gap-3">
+                <div>
+                    <div class="fw-semibold" th:text="${#strings.abbreviate(r.question, 90)}">Question</div>
+                    <div class="small text-secondary" th:text="${r.lesson}">Leçon</div>
+                </div>
+                <div class="text-end flex-shrink-0">
+                    <span th:if="${r.correct}" class="badge text-bg-success">✅ Juste</span>
+                    <span th:unless="${r.correct}" class="badge text-bg-danger">❌ Faux</span>
+                    <div class="small text-secondary mt-1" th:text="${#temporals.format(r.when, 'dd/MM/yyyy HH:mm')}">date</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

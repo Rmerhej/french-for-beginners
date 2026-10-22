@@ -76,30 +76,6 @@ function checkAnswer(btn, exerciseId, correctAnswer) {
 
     console.log(`Répondues : ${answered} - Score : ${score}`);
 
-    // Préparation de l'envoi au backend
-    const formData = new FormData();
-    formData.append("userAnswer", userText);
-
-    // CSRF
-    const token = document.querySelector("meta[name='_csrf']")?.getAttribute("content");
-    const header = document.querySelector("meta[name='_csrf_header']")?.getAttribute("content");
-
-    const headers = {};
-    if (token && header) {
-        headers[header] = token;
-    }
-
-    fetch(`/exercise/submit/${exerciseId}`, {
-        method: "POST",
-        headers: headers,
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log(`Exercice ${exerciseId} sauvegardé en BDD !`);
-        } else {
-            console.error("Erreur ou utilisateur non connecté.");
-        }
-    })
-    .catch(err => console.error("Erreur réseau :", err));
+    // Enregistrement du score côté serveur (utilisateurs connectés)
+    if (window.sendScore) window.sendScore(exerciseId, userText);
 }

@@ -42,26 +42,7 @@
         document.getElementById('score').textContent = score;
         document.getElementById('total').textContent = answered;
 
-        // 4. ENVOI DU SCORE VERS LE SCORECONTROLLER (JAVA)
-        // On récupère le texte de la réponse sélectionnée pour l'envoyer au @RequestParam String userAnswer
+        // 4. Enregistrement du score côté serveur (utilisateurs connectés)
         const selectedText = selectedWrapper.querySelector('label').textContent.trim();
-
-        const formData = new FormData();
-        formData.append("userAnswer", selectedText);
-
-        const csrfToken = document.getElementById("csrfToken")?.value;
-
-        fetch(`/exercise/submit/${exerciseId}`, {
-            method: 'POST',
-            headers: csrfToken ? { 'X-CSRF-TOKEN': csrfToken } : {},
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log(`Exercice ${exerciseId} : Score enregistré en base de données !`);
-            } else {
-                console.error("Erreur serveur lors de l'enregistrement du score.");
-            }
-        })
-        .catch(error => console.error("Erreur réseau :", error));
+        if (window.sendScore) window.sendScore(exerciseId, selectedText);
     }
