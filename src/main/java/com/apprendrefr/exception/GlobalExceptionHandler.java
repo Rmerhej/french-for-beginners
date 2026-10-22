@@ -5,11 +5,14 @@ import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
@@ -21,8 +24,23 @@ public class GlobalExceptionHandler {
     private static final Logger log =
             LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    // ========== Fichier ou page inexistant (robots, Chrome DevTools, favicon…) ==========
+    // Ce n'est pas une erreur du serveur : vraie réponse 404, sans trace dans les logs.
+    @ExceptionHandler(NoResourceFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleNoResource(NoResourceFoundException ex, Model model) {
+
+        log.debug("Ressource introuvable : {}", ex.getResourcePath());
+
+        model.addAttribute("status", 404);
+        model.addAttribute("errorMessage", "La page demandée n'existe pas.");
+
+        return "error/404";
+    }
+
     // ========== 404 métier ==========
     @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handleResourceNotFound(
             ResourceNotFoundException ex,
             Model model) {
@@ -136,6 +154,7 @@ public class GlobalExceptionHandler {
 
     // ========== Catch-all ==========
     @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleAllExceptions(
             Exception ex,
             Model model,

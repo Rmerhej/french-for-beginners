@@ -32,7 +32,7 @@
         Aucun quiz n'est disponible pour le moment.
     </div>
 
-    <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 border rounded">
+    <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 border rounded" th:data-quiz-id="${quiz.id}">
         <h1 th:text="${quiz.title}" class="text-secondary">Quiz Title</h1>
 
         <!-- Mots à placer -->

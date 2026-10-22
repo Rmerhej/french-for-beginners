@@ -20,6 +20,17 @@
     return null;
   }
 
+  // Pages sans jeton de sécurité intégré (ex. quiz glisser-déposer) : on le demande au serveur.
+  function ensureToken() {
+    if (findToken()) {
+      return Promise.resolve();
+    }
+    return fetch('/exercise/my-results', { credentials: 'same-origin', headers: { 'Accept': 'application/json' } })
+      .then(jsonOrNull)
+      .then(function (data) { if (data && data.csrf) csrf = data.csrf; })
+      .catch(function () { /* silencieux */ });
+  }
+
   function jsonOrNull(res) {
     var type = res.headers.get('content-type') || '';
     if (res.redirected || res.status === 401 || res.status === 403 || !res.ok || type.indexOf('json') === -1) {
@@ -65,6 +76,10 @@
 
   // Envoie la réponse choisie ; le serveur la corrige et l'enregistre.
   window.sendScore = function (exerciseId, userAnswer) {
+    return ensureToken().then(function () { return doSendScore(exerciseId, userAnswer); });
+  };
+
+  function doSendScore(exerciseId, userAnswer) {
     var token = findToken();
     var body = new URLSearchParams();
     body.append('userAnswer', userAnswer);
@@ -90,7 +105,35 @@
       }
       return data;
     }).catch(function () { return null; });
+  }
+
+  // Quiz glisser-déposer : answers = réponses séparées par « | », dans l'ordre des zones.
+  window.sendQuizScore = function (quizId, answers) {
+    return ensureToken().then(function () { return doSendQuizScore(quizId, answers); });
   };
+
+  function doSendQuizScore(quizId, answers) {
+    var token = findToken();
+    var body = new URLSearchParams();
+    body.append('answers', answers);
+    var headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    if (token && token.token) {
+      body.append(token.parameterName || '_csrf', token.token);
+      headers[token.headerName || 'X-XSRF-TOKEN'] = token.token;
+    }
+    return fetch('/quiz/submit/' + encodeURIComponent(quizId), {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: headers,
+      body: body.toString()
+    }).then(function (res) {
+      if (res.redirected || res.status === 401) {
+        showLoginNotice();
+        return null;
+      }
+      return jsonOrNull(res);
+    }).catch(function () { return null; });
+  }
 
   // Au chargement : récupère les exercices déjà réussis (et le jeton de sécurité).
   document.addEventListener('DOMContentLoaded', function () {

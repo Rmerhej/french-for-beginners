@@ -17,6 +17,10 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
     List<Quiz> findByTitleIgnoreCase(String title);
 
+    /** [id, titre] de tous les quiz (sans charger les phrases). */
+    @org.springframework.data.jpa.repository.Query("select q.id, q.title from Quiz q")
+    List<Object[]> findAllIdAndTitle();
+
     //  chercher par plusieurs critères,  la logique OR sur les champs existants
     Page<Quiz> findByTitleContainingIgnoreCaseOrSentenceContainingIgnoreCase(
             String title, String sentence, Pageable pageable);
