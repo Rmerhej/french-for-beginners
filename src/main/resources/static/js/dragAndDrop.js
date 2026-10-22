@@ -57,6 +57,12 @@
         });
         document.getElementById('feedback-' + index).innerHTML =
             `<div class="alert alert-info">Ton score : ${score}/${zones.length}</div>`;
+
+        // Enregistrement du score côté serveur (le serveur recalcule la correction)
+        if (window.sendQuizScore && wrapper.dataset.quizId) {
+            const given = Array.from(zones).map(z => z.textContent.trim()).join('|');
+            window.sendQuizScore(wrapper.dataset.quizId, given);
+        }
     }
 
     function resetQuiz(index) {

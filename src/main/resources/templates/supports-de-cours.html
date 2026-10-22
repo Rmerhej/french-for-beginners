@@ -28,6 +28,10 @@
         </p>
     </div>
 
+    <div th:unless="${connecte}" class="alert alert-info text-center mx-auto mb-4" style="max-width: 800px;" role="note">
+        🔒 <a th:href="@{/login}">Connectez-vous</a> pour suivre votre progression : chaque étape terminée sera cochée.
+    </div>
+
     <!-- Aperçu du parcours : un bouton par niveau -->
     <div class="row g-3 mb-5">
         <div th:each="n : ${niveaux}" class="col-6 col-md-3">
@@ -56,6 +60,19 @@
                     </div>
                 </div>
 
+                <div th:if="${connecte and progresNiveau[n.code] != null}" class="mb-4">
+                    <div class="d-flex justify-content-between small text-secondary mb-1">
+                        <span>Votre progression</span>
+                        <span th:text="|${progresNiveau[n.code].done} / ${progresNiveau[n.code].total} étapes terminées|">0 / 0</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-label="Progression du niveau"
+                         th:attr="aria-valuenow=${progresNiveau[n.code].total == 0 ? 0 : progresNiveau[n.code].done * 100 / progresNiveau[n.code].total}"
+                         aria-valuemin="0" aria-valuemax="100">
+                        <div th:class="|progress-bar bg-${n.couleur}|"
+                             th:style="|width: ${progresNiveau[n.code].total == 0 ? 0 : progresNiveau[n.code].done * 100 / progresNiveau[n.code].total}%|"></div>
+                    </div>
+                </div>
+
                 <div th:class="|alert alert-${n.couleur} bg-opacity-25 border-0 mb-4|" role="note">
                     <strong>À la fin de ce niveau :</strong>
                     <span th:text="${n.objectif}">objectif</span>
@@ -79,6 +96,12 @@
 
                             <span th:class="${e.type == 'G'} ? 'badge text-bg-primary' : 'badge text-bg-secondary'"
                                   th:text="${e.type == 'G'} ? 'Grammaire' : 'Conjugaison'">Grammaire</span>
+
+                            <span th:if="${connecte and progres[e.quiz] != null and progres[e.quiz].complete()}"
+                                  class="badge text-bg-success">✅ Terminé</span>
+                            <span th:if="${connecte and progres[e.quiz] != null and progres[e.quiz].done > 0 and !progres[e.quiz].complete()}"
+                                  class="badge text-bg-warning"
+                                  th:text="|${progres[e.quiz].done} / ${progres[e.quiz].total} quiz|">1 / 2 quiz</span>
 
                             <a th:href="@{/quiz/drag-drop(recherche=${e.quiz})}"
                                class="btn btn-sm btn-outline-secondary">Quiz</a>
