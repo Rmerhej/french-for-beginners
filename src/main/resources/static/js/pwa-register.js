@@ -53,6 +53,17 @@
     } catch (e) {
       sendEvent('launched');
     }
+
+    // iPhone / iPad : Safari n'annonce pas l'installation. La première ouverture depuis
+    // l'icône sert d'approximation (le stockage est vidé quand l'app est supprimée).
+    if (isIOS) {
+      try {
+        if (!localStorage.getItem('pwaFirstLaunchSent')) {
+          localStorage.setItem('pwaFirstLaunchSent', '1');
+          sendEvent('installed');
+        }
+      } catch (e) { /* ignore */ }
+    }
   }
 
   function showButton(onClick) {
