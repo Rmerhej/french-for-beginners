@@ -95,7 +95,7 @@ public class SecurityConfig {
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
                                 "/adjectifsdemonstratifs/**", "/expressionstemps/**",
                                 "/verbesreguliers/**", "/passecompse/**", "/imperatif/**",
-                                "/auxiliaires/**", "/about", "/contact", "/rgpd",
+                                "/auxiliaires/**", "/about", "/contact", "/rgpd", "/installer",
                                 "/secourscatholique", "/au-bureau",
                                 "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
                                 "/au-bureau-quiz", "/les-gens-quiz", "/lesVerbes", "/chiffresEtLettres",

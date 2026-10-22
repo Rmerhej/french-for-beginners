@@ -97,7 +97,8 @@ public class StaticPagesConfig implements WebMvcConfigurer {
             Map.entry("/phrase", "phrase"),
             Map.entry("/complements", "compléments"),
             Map.entry("/connecteursLogiques", "connecteursLogiques"),
-            Map.entry("/adverbes", "adverbes")
+            Map.entry("/adverbes", "adverbes"),
+            Map.entry("/installer", "installer")
     );
 
     @Override
