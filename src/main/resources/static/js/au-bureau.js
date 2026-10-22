@@ -52,18 +52,6 @@ function submitAndCheck(exerciseId, correctAnswer) {
     if (document.getElementById('score')) document.getElementById('score').textContent = score;
     if (document.getElementById('total')) document.getElementById('total').textContent = answered;
 
-    // 4. Envoi au serveur
-    const formData = new FormData();
-    formData.append("userAnswer", selectedValue);
-
-    fetch(`/exercise/submit/${exerciseId}`, {
-        method: 'POST',
-        headers: { 'X-CSRF-TOKEN': document.getElementById("csrfToken")?.value || "" },
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("Erreur serveur");
-        console.log(`Exercice ${exerciseId} enregistré.`);
-    })
-    .catch(error => console.error("Erreur réseau :", error));
+    // 4. Enregistrement du score côté serveur (utilisateurs connectés)
+    if (window.sendScore) window.sendScore(exerciseId, selectedValue);
 }
