@@ -13,6 +13,8 @@ public interface UserQuizScoreRepository extends JpaRepository<UserQuizScore, Lo
 
     long countByUserId(Long userId);
 
+    List<UserQuizScore> findTop10ByUserIdOrderByCompletedAtDesc(Long userId);
+
     /** Quiz réussis à 100 % au moins une fois. */
     @Query("select s.quiz.id from UserQuizScore s "
             + "where s.user.id = :userId and s.total > 0 and s.score = s.total group by s.quiz.id")
