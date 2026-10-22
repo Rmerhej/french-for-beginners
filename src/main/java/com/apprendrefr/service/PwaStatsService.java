@@ -4,7 +4,6 @@ import com.apprendrefr.entity.PwaEvent;
 import com.apprendrefr.repository.PwaEventRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -26,13 +25,17 @@ public class PwaStatsService {
     private static final Set<String> TYPES = Set.of(INSTALLED, LAUNCHED);
     private static final Set<String> PLATFORMS = Set.of("ANDROID", "IOS", "DESKTOP", "OTHER");
 
-    /** Un même appareil ne compte pas plusieurs fois le même événement dans cette durée. */
-    private static final Duration THROTTLE = Duration.ofMinutes(30);
+    /**
+     * Protection contre les abus : au plus 30 événements par minute et par adresse.
+     * Beaucoup de personnes peuvent partager la même adresse (famille, classe) :
+     * on ne dédoublonne donc pas, on limite seulement le débit.
+     */
+    private static final int MAX_EVENTS_PER_MINUTE = 30;
 
     private final PwaEventRepository repository;
 
-    /** Mémoire temporaire (jamais écrite en base) pour limiter les envois répétés. */
-    private final Map<String, Instant> lastSeen = new ConcurrentHashMap<>();
+    /** Mémoire temporaire (jamais écrite en base) : [minute, nombre d'événements] par adresse. */
+    private final Map<String, long[]> rates = new ConcurrentHashMap<>();
 
     public PwaStatsService(PwaEventRepository repository) {
         this.repository = repository;
@@ -49,7 +52,7 @@ public class PwaStatsService {
 
     /**
      * @return false si le type d'événement est invalide ; true sinon
-     *         (y compris quand l'envoi est ignoré car répété trop vite)
+     *         (y compris quand l'envoi est ignoré car le débit est trop élevé)
      */
     public boolean track(String type, String platform, String clientKey) {
         String eventType = type == null ? "" : type.trim().toUpperCase(Locale.ROOT);
@@ -61,19 +64,32 @@ public class PwaStatsService {
             eventPlatform = "OTHER";
         }
 
-        Instant now = Instant.now();
-        String key = clientKey + "|" + eventType;
-        Instant previous = lastSeen.get(key);
-        if (previous != null && previous.isAfter(now.minus(THROTTLE))) {
+        if (!allowed(clientKey)) {
             return true;
-        }
-        lastSeen.put(key, now);
-        if (lastSeen.size() > 5000) {
-            lastSeen.values().removeIf(i -> i.isBefore(now.minus(THROTTLE)));
         }
 
         repository.save(new PwaEvent(eventType, eventPlatform, LocalDateTime.now()));
         return true;
+    }
+
+    private boolean allowed(String clientKey) {
+        long minute = Instant.now().getEpochSecond() / 60;
+        boolean[] ok = {true};
+        rates.compute(clientKey, (k, w) -> {
+            if (w == null || w[0] != minute) {
+                return new long[]{minute, 1};
+            }
+            if (w[1] >= MAX_EVENTS_PER_MINUTE) {
+                ok[0] = false;
+                return w;
+            }
+            w[1]++;
+            return w;
+        });
+        if (rates.size() > 5000) {
+            rates.values().removeIf(w -> w[0] < minute);
+        }
+        return ok[0];
     }
 
     public PwaStats stats() {
