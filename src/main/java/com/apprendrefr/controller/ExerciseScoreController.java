@@ -24,9 +24,12 @@ public class ExerciseScoreController {
     private static final int MAX_ANSWER_LENGTH = 500;
 
     private final ExerciseScoreService scoreService;
+    private final com.apprendrefr.service.QuizScoreService quizScoreService;
 
-    public ExerciseScoreController(ExerciseScoreService scoreService) {
+    public ExerciseScoreController(ExerciseScoreService scoreService,
+                                   com.apprendrefr.service.QuizScoreService quizScoreService) {
         this.scoreService = scoreService;
+        this.quizScoreService = quizScoreService;
     }
 
     /** Reçoit une réponse, la corrige et l'enregistre. */
@@ -72,6 +75,7 @@ public class ExerciseScoreController {
     @GetMapping("/mes-resultats")
     public String myResultsPage(Principal principal, Model model) {
         model.addAttribute("results", scoreService.myResults(principal.getName()));
+        model.addAttribute("quizResults", quizScoreService.summary(principal.getName()));
         return "mes-resultats";
     }
 }

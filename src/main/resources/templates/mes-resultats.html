@@ -12,8 +12,8 @@
         <p class="text-secondary mb-0">Vos réponses aux exercices (QCM), leçon par leçon.</p>
     </div>
 
-    <div th:if="${results.answered == 0}" class="alert alert-info text-center">
-        Vous n'avez pas encore répondu à un exercice. Faites un QCM dans une leçon : vos résultats apparaîtront ici.
+    <div th:if="${results.answered == 0 and quizResults.attempts == 0}" class="alert alert-info text-center">
+        Vous n'avez pas encore répondu à un exercice. Faites un QCM ou un quiz dans une leçon : vos résultats apparaîtront ici.
     </div>
 
     <div th:if="${results.answered > 0}">
@@ -69,6 +69,40 @@
                 <div class="text-end flex-shrink-0">
                     <span th:if="${r.correct}" class="badge text-bg-success">✅ Juste</span>
                     <span th:unless="${r.correct}" class="badge text-bg-danger">❌ Faux</span>
+                    <div class="small text-secondary mt-1" th:text="${#temporals.format(r.when, 'dd/MM/yyyy HH:mm')}">date</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div th:if="${quizResults.attempts > 0}" class="mt-5">
+        <h2 class="h4 fw-bold mb-3">Quiz glisser-déposer</h2>
+        <div class="row g-3 mb-4 text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-primary" th:text="${quizResults.attempts}">0</div>
+                    <div class="text-secondary">tentatives</div>
+                </div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-warning" th:text="${quizResults.attemptedQuizzes}">0</div>
+                    <div class="text-secondary">quiz essayés</div>
+                </div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100"><div class="card-body">
+                    <div class="display-6 fw-bold text-success" th:text="${quizResults.perfectQuizzes}">0</div>
+                    <div class="text-secondary">quiz réussis à 100 %</div>
+                </div></div>
+            </div>
+        </div>
+        <ul class="list-group">
+            <li th:each="r : ${quizResults.recent}" class="list-group-item d-flex justify-content-between align-items-start gap-3">
+                <div class="fw-semibold" th:text="${r.title}">Titre du quiz</div>
+                <div class="text-end flex-shrink-0">
+                    <span th:class="${r.perfect} ? 'badge text-bg-success' : 'badge text-bg-warning'"
+                          th:text="|${r.score} / ${r.total}|">2 / 2</span>
                     <div class="small text-secondary mt-1" th:text="${#temporals.format(r.when, 'dd/MM/yyyy HH:mm')}">date</div>
                 </div>
             </li>

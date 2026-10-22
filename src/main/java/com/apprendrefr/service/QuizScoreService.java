@@ -32,6 +32,15 @@ public class QuizScoreService {
         }
     }
 
+    public record QuizRecent(String title, int score, int total, java.time.LocalDateTime when) {
+        public boolean perfect() {
+            return total > 0 && score == total;
+        }
+    }
+
+    public record QuizSummary(long attempts, int attemptedQuizzes, int perfectQuizzes, List<QuizRecent> recent) {
+    }
+
     private final UserQuizScoreRepository scoreRepository;
     private final UserRepository userRepository;
     private final QuizRepository quizRepository;
@@ -69,6 +78,23 @@ public class QuizScoreService {
             }
         }
         return new SubmitResult(score, expected.length);
+    }
+
+    /** Résumé pour la page « Mes résultats ». */
+    @Transactional(readOnly = true)
+    public QuizSummary summary(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isEmpty()) {
+            return new QuizSummary(0, 0, 0, List.of());
+        }
+        Long id = user.get().getId();
+        List<QuizRecent> recent = new java.util.ArrayList<>();
+        for (UserQuizScore s : scoreRepository.findTop10ByUserIdOrderByCompletedAtDesc(id)) {
+            recent.add(new QuizRecent(s.getQuiz().getTitle(), s.getScore(), s.getTotal(), s.getCompletedAt()));
+        }
+        return new QuizSummary(scoreRepository.countByUserId(id),
+                scoreRepository.findAttemptedQuizIds(id).size(),
+                scoreRepository.findPerfectQuizIds(id).size(), recent);
     }
 
     @Transactional(readOnly = true)

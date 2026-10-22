@@ -108,6 +108,18 @@ class QuizScoreIntegrationTest {
     }
 
     @Test
+    @WithMockUser(username = USERNAME)
+    void myResultsPage_showsQuizSection() throws Exception {
+        mockMvc.perform(post("/quiz/submit/{id}", quiz.getId()).param("answers", "suis|es").with(csrf()))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/mes-resultats"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("Quiz glisser-déposer")))
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("Quiz de test progression")));
+    }
+
+    @Test
     void coursePage_worksForAnonymous() throws Exception {
         mockMvc.perform(get("/supports-de-cours"))
                 .andExpect(status().isOk())
