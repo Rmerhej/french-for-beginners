@@ -97,6 +97,15 @@ public class QuizScoreService {
                 scoreRepository.findPerfectQuizIds(id).size(), recent);
     }
 
+    /** Minuscules, sans accents, apostrophes simplifiées : même idée que la recherche MySQL de la page quiz. */
+    static String fold(String text) {
+        if (text == null) {
+            return "";
+        }
+        String decomposed = java.text.Normalizer.normalize(text, java.text.Normalizer.Form.NFD);
+        return decomposed.replaceAll("\\p{M}+", "").replace('\u2019', '\'').toLowerCase(Locale.ROOT);
+    }
+
     @Transactional(readOnly = true)
     public List<Long> perfectQuizIds(String username) {
         return userRepository.findByUsername(username).map(u -> scoreRepository.findPerfectQuizIds(u.getId())).orElse(List.of());
@@ -120,11 +129,11 @@ public class QuizScoreService {
         Set<Long> perfect = new HashSet<>(perfectQuizIds(username));
         List<Object[]> all = quizRepository.findAllIdAndTitle();
         for (String wanted : titles) {
-            String needle = wanted == null ? "" : wanted.toLowerCase(Locale.ROOT);
+            String needle = fold(wanted);
             int total = 0;
             int done = 0;
             for (Object[] row : all) {
-                String title = row[1] == null ? "" : String.valueOf(row[1]).toLowerCase(Locale.ROOT);
+                String title = fold(row[1] == null ? "" : String.valueOf(row[1]));
                 if (title.contains(needle)) {
                     total++;
                     if (perfect.contains(((Number) row[0]).longValue())) {

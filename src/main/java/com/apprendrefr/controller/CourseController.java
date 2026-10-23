@@ -4,6 +4,7 @@ import com.apprendrefr.dto.ParcoursNiveau;
 import com.apprendrefr.dto.ParcoursNiveau.Bloc;
 import com.apprendrefr.dto.ParcoursNiveau.Etape;
 import com.apprendrefr.service.QuizScoreService;
+import com.apprendrefr.service.QuizService;
 import com.apprendrefr.service.QuizScoreService.Progress;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +22,36 @@ import java.util.Set;
 public class CourseController {
 
     private final QuizScoreService quizScoreService;
+    private final QuizService quizService;
 
-    public CourseController(QuizScoreService quizScoreService) {
+    public CourseController(QuizScoreService quizScoreService, QuizService quizService) {
         this.quizScoreService = quizScoreService;
+        this.quizService = quizService;
+    }
+
+    /** Une ligne du contrôle : une étape du parcours et le nombre de quiz trouvés pour son lien « Quiz ». */
+    public record LigneControle(String niveau, String etape, String url, String recherche, int nbQuiz) {
+    }
+
+    /**
+     * Page admin : pour chaque étape, combien de quiz le lien « Quiz » trouve-t-il ?
+     * Utilise la même recherche que la page /quiz/drag-drop, donc le résultat est exact.
+     */
+    @GetMapping("/admin/parcours-check")
+    public String controleParcours(Model model) {
+        List<LigneControle> lignes = new ArrayList<>();
+        for (ParcoursNiveau n : List.of(a1(), a2(), b1(), b2())) {
+            for (Bloc b : n.blocs()) {
+                for (Etape e : b.etapes()) {
+                    int nb = quizService.findByTitleContainingIgnoreCase(e.quiz()).size();
+                    lignes.add(new LigneControle(n.code(), e.titre(), e.url(), e.quiz(), nb));
+                }
+            }
+        }
+        long sansQuiz = lignes.stream().filter(l -> l.nbQuiz() == 0).count();
+        model.addAttribute("lignes", lignes);
+        model.addAttribute("sansQuiz", sansQuiz);
+        return "admin/parcours-check";
     }
 
     @GetMapping("/supports-de-cours")

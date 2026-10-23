@@ -30,6 +30,12 @@ class QuizScoreServiceTest {
     }
 
     @Test
+    void fold_ignoresCaseAccentsAndCurlyApostrophe() {
+        assertEquals("l'opposition et la concession", QuizScoreService.fold("L\u2019Opposition et la Concession"));
+        assertEquals("passe compose", QuizScoreService.fold("Passé Composé"));
+    }
+
+    @Test
     void noCorrectAnswersDefined() {
         var r = QuizScoreService.grade(null, List.of("a"));
         assertEquals(0, r.score());
