@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cours de français A2 : choisir entre être et avoir au passé composé, verbes à double auxiliaire, verbes pronominaux et expressions avec avoir">
+    <title>Les auxiliaires approfondis - Conjugaison A2 - Français</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/lesson-hero.css}">
+</head>
+
+<body>
+
+<a href="#main-content" class="visually-hidden-focusable">Aller au contenu principal</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">📘 Les auxiliaires approfondis</h1>
+        <p class="lead">Être ou avoir ? Les verbes de mouvement, les pronominaux et les verbes à double emploi</p>
+    </div>
+</header>
+
+<main id="main-content" class="container my-5">
+
+    <section>
+        <div class="alert alert-primary">
+            <h2 class="h4"><span aria-hidden="true">🎯</span> Objectif</h2>
+            <p class="mb-0">À la fin de cette leçon, vous saurez <strong>choisir le bon auxiliaire</strong> (être ou avoir) au passé composé, même pour les verbes qui changent de sens, et utiliser les <strong>expressions avec avoir</strong>.</p>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>1. Rappel</h2>
+        <p>Au passé composé, la grande majorité des verbes se conjuguent avec <strong>avoir</strong> : <em>j'ai mangé, nous avons fini</em>. Un petit groupe de verbes de mouvement ou de changement d'état se conjugue avec <strong>être</strong>.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2>2. Les verbes conjugués avec « être »</h2>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Verbes</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>aller, venir, arriver, partir</td><td>Elle <strong>est</strong> arrivée hier.</td></tr>
+                <tr><td>entrer, rentrer, sortir</td><td>Nous <strong>sommes</strong> entrés.</td></tr>
+                <tr><td>monter, descendre, tomber</td><td>Il <strong>est</strong> tombé.</td></tr>
+                <tr><td>rester, retourner, devenir, revenir</td><td>Ils <strong>sont</strong> restés ici.</td></tr>
+                <tr><td>naître, mourir</td><td>Elle <strong>est</strong> née en 1990.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>        <p>Avec <strong>être</strong>, le participe passé <strong>s'accorde avec le sujet</strong> : <em>Elle est partie. Ils sont arrivés.</em></p>
+    </section>
+
+    <section class="mb-5">
+        <h2>3. Les verbes pronominaux : toujours « être »</h2>
+        <p>Tous les verbes pronominaux se conjuguent avec <strong>être</strong>, et le pronom se place avant l'auxiliaire :</p>        <ul>
+            <li><em>Je <strong>me suis</strong> levé à sept heures.</em></li>
+            <li><em>Nous <strong>nous sommes</strong> promenés.</em></li>
+            <li><em>Elles <strong>se sont</strong> téléphoné.</em></li>
+        </ul>        <p>Ne dites jamais <em>je m'ai levé</em>.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2>4. Les verbes à double emploi</h2>
+        <p>Six verbes changent d'auxiliaire selon la phrase. Sans complément d'objet direct (COD), on utilise <strong>être</strong>. Avec un COD, on utilise <strong>avoir</strong> :</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-success"><tr><th>Verbe</th><th>Avec être (sans COD)</th><th>Avec avoir (avec COD)</th></tr></thead>
+                    <tbody>
+                <tr><td>sortir</td><td>Il <strong>est</strong> sorti.</td><td>Il <strong>a</strong> sorti la poubelle.</td></tr>
+                <tr><td>rentrer</td><td>Elle <strong>est</strong> rentrée tard.</td><td>Elle <strong>a</strong> rentré la voiture.</td></tr>
+                <tr><td>monter</td><td>Nous <strong>sommes</strong> montés.</td><td>Nous <strong>avons</strong> monté les valises.</td></tr>
+                <tr><td>descendre</td><td>Je <strong>suis</strong> descendu.</td><td>J'<strong>ai</strong> descendu l'escalier.</td></tr>
+                <tr><td>retourner</td><td>Ils <strong>sont</strong> retournés chez eux.</td><td>Ils <strong>ont</strong> retourné la carte.</td></tr>
+                <tr><td>passer</td><td>Elle <strong>est</strong> passée devant moi.</td><td>Elle <strong>a</strong> passé ses vacances en Italie.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>5. Avoir : expressions à connaître</h2>
+        <p>En français, plusieurs sensations et états se disent avec <strong>avoir</strong> (et non avec être) :</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-warning"><tr><th>Expression</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>avoir faim, soif, chaud, froid</td><td>J'<strong>ai</strong> froid.</td></tr>
+                <tr><td>avoir peur, honte, raison, tort</td><td>Tu <strong>as</strong> raison.</td></tr>
+                <tr><td>avoir besoin de, envie de</td><td>Nous <strong>avons besoin d'</strong>un dictionnaire.</td></tr>
+                <tr><td>avoir mal à</td><td>Elle <strong>a mal à</strong> la tête.</td></tr>
+                <tr><td>avoir + nombre + ans</td><td>Il <strong>a</strong> trente ans.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-danger">
+            <tr><th><span aria-hidden="true">❌</span> Incorrect</th><th><span aria-hidden="true">✅</span> Correct</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>J'ai allé au marché.</td><td>Je suis allé au marché.</td></tr>
+            <tr><td>Je m'ai levé tôt.</td><td>Je me suis levé tôt.</td></tr>
+            <tr><td>Il est sorti la poubelle.</td><td>Il a sorti la poubelle.</td></tr>
+            <tr><td>Elle a rentrée tard.</td><td>Elle est rentrée tard.</td></tr>
+            <tr><td>Je suis 30 ans.</td><td>J'ai 30 ans.</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="alert alert-success">
+            <h2 class="h4"><span aria-hidden="true">✅</span> À retenir</h2>
+            <ul class="mb-0">
+                <li>Verbes de mouvement et de changement d'état : <em>être</em> ; accord du participe avec le sujet.</li>
+                <li>Verbes pronominaux : toujours <em>être</em>.</li>
+                <li><em>Sortir, rentrer, monter, descendre, retourner, passer</em> : <em>être</em> sans COD, <em>avoir</em> avec un COD.</li>
+                <li>On « a » faim, froid, peur, raison : on n'« est » pas.</li>
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
