@@ -15,13 +15,6 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <br>
 <main id="main-content" class="container py-5">
-    <button
-            type="button"
-            class="btn btn-outline-secondary float-end"
-            onclick="history.back()"
-            aria-label="Retour">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-    </button>
 
     <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 bg-white border rounded">
         <h1 th:text="${quiz.title}" class="text-secondary">Quiz Title</h1>
