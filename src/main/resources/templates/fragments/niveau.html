@@ -18,7 +18,7 @@
             <div class="fs-1 mb-3" aria-hidden="true">📖</div>
             <h2 class="h5 card-title fw-bold">Grammaire &amp; conjugaison <span th:text="${niveau}">A1</span></h2>
             <p class="text-muted mb-4" th:text="${texte}">Un cours et un quiz pour chaque étape</p>
-            <a th:href="@{/supports-de-cours}+'#niveau-'+${niveau}"
+            <a th:href="@{/supports-de-cours(niveau=${niveau})}"
                class="btn btn-outline-success rounded-pill fw-bold w-100 mt-auto">
                 Accéder aux cours <span th:text="${niveau}">A1</span>
             </a>

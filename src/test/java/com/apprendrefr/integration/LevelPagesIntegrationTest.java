@@ -27,7 +27,7 @@ class LevelPagesIntegrationTest {
         mockMvc.perform(get("/niveauDebutant"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Pré-A1 → A1")))
-                .andExpect(content().string(containsString("/supports-de-cours#niveau-A1")));
+                .andExpect(content().string(containsString("/supports-de-cours?niveau=A1")));
     }
 
     @Test
@@ -36,7 +36,7 @@ class LevelPagesIntegrationTest {
         mockMvc.perform(get("/niveauConsolidation"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("A1 → A2")))
-                .andExpect(content().string(containsString("/supports-de-cours#niveau-A2")));
+                .andExpect(content().string(containsString("/supports-de-cours?niveau=A2")));
     }
 
     @Test
@@ -45,8 +45,25 @@ class LevelPagesIntegrationTest {
         mockMvc.perform(get("/niveauApprofondissement"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("A2 → B2")))
-                .andExpect(content().string(containsString("/supports-de-cours#niveau-B1")))
-                .andExpect(content().string(containsString("/supports-de-cours#niveau-B2")));
+                .andExpect(content().string(containsString("/supports-de-cours?niveau=B1")))
+                .andExpect(content().string(containsString("/supports-de-cours?niveau=B2")));
+    }
+
+    @Test
+    void supportsPage_canBeFilteredOnOneLevel() throws Exception {
+        mockMvc.perform(get("/supports-de-cours").param("niveau", "A2"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("id=\"niveau-A2\"")))
+                .andExpect(content().string(org.hamcrest.Matchers.not(containsString("id=\"niveau-B1\""))))
+                .andExpect(content().string(containsString("Voir tous les niveaux")));
+    }
+
+    @Test
+    void supportsPage_showsAllLevelsWithoutFilter() throws Exception {
+        mockMvc.perform(get("/supports-de-cours"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("id=\"niveau-A1\"")))
+                .andExpect(content().string(containsString("id=\"niveau-B2\"")));
     }
 
     @Test

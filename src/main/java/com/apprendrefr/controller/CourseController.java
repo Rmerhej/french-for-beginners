@@ -55,9 +55,18 @@ public class CourseController {
     }
 
     @GetMapping("/supports-de-cours")
-    public String supportsDeCours(Model model, Principal principal) {
+    public String supportsDeCours(Model model, Principal principal,
+                                  @org.springframework.web.bind.annotation.RequestParam(name = "niveau", required = false) String niveau) {
         List<ParcoursNiveau> niveaux = List.of(a1(), a2(), b1(), b2());
         model.addAttribute("niveaux", niveaux);
+
+        // ?niveau=A2 : n'afficher que ce niveau (les 4 boutons du haut restent disponibles)
+        List<ParcoursNiveau> affiches = niveaux.stream()
+                .filter(n -> niveau != null && n.code().equalsIgnoreCase(niveau.trim()))
+                .toList();
+        boolean filtre = !affiches.isEmpty();
+        model.addAttribute("affiches", filtre ? affiches : niveaux);
+        model.addAttribute("niveauChoisi", filtre ? affiches.get(0).code() : null);
 
         boolean connecte = principal != null;
         model.addAttribute("connecte", connecte);
