@@ -50,6 +50,46 @@
 
 
         <!-- =====================================================
+             CONTINUER LE PARCOURS (utilisateur connecté)
+             ===================================================== -->
+        <div th:if="${suivi != null}" class="card border-0 shadow-sm my-4" id="continuer-parcours">
+            <div class="card-body p-4">
+                <div th:if="${suivi.termine}" class="text-center">
+                    <div class="fs-1" aria-hidden="true">🎉</div>
+                    <h2 class="h4 fw-bold mb-2">Bravo, vous avez terminé tout le parcours !</h2>
+                    <p class="text-secondary mb-3">Vous pouvez refaire les quiz quand vous voulez ou consulter vos résultats.</p>
+                    <a th:href="@{/mes-resultats}" class="btn btn-success rounded-pill fw-bold">📊 Mes résultats</a>
+                </div>
+                <div th:unless="${suivi.termine}">
+                    <p class="text-secondary small mb-1">
+                        <span th:text="${suivi.commence} ? 'Continuer votre parcours' : 'Commencer votre parcours'">Continuer</span>
+                        · niveau <strong th:text="${suivi.niveau}">A1</strong>
+                        · <span th:text="${suivi.bloc}">Se présenter</span>
+                    </p>
+                    <h2 class="h4 fw-bold mb-3">
+                        Étape <span th:text="${suivi.numero}">1</span> :
+                        <span th:text="${suivi.etape.titre}">Titre</span>
+                    </h2>
+                    <div class="progress mb-2" style="height: 8px;" role="progressbar"
+                         th:attr="aria-valuenow=${suivi.faites},aria-valuemax=${suivi.total}" aria-valuemin="0"
+                         aria-label="Progression dans le parcours">
+                        <div class="progress-bar bg-success"
+                             th:style="|width: ${suivi.total > 0 ? suivi.faites * 100 / suivi.total : 0}%|"></div>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        <span th:text="${suivi.faites}">0</span> étape(s) terminée(s) sur <span th:text="${suivi.total}">75</span>
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a th:href="@{${suivi.etape.url}}" class="btn btn-primary rounded-pill fw-bold">📖 Ouvrir le cours</a>
+                        <a th:href="@{/quiz/drag-drop(recherche=${suivi.etape.quiz})}"
+                           class="btn btn-outline-primary rounded-pill fw-bold">✏️ Faire le quiz</a>
+                        <a th:href="@{/supports-de-cours}" class="btn btn-link">Voir tout le parcours</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================================================
              NOUVEAUTÉ : CONJUGUEUR
              ===================================================== -->
         <div class="alert alert-success d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 shadow-sm my-4"
