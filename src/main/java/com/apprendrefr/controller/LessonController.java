@@ -7,6 +7,7 @@ import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.LessonService;
+import com.apprendrefr.service.ParcoursService;
 import com.apprendrefr.service.VocabularyService;
 import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
@@ -26,19 +27,25 @@ public class LessonController {
     private final VocabularyService vocabularyService;
     private final ExerciseService exerciseService;
     private final FileUploadService fileUploadService;
+    private final ParcoursService parcoursService;
 
     public LessonController(LessonService lessonService,
                             VocabularyService vocabularyService,
-                            ExerciseService exerciseService, FileUploadService fileUploadService) {
+                            ExerciseService exerciseService, FileUploadService fileUploadService,
+                            ParcoursService parcoursService) {
         this.lessonService = lessonService;
         this.vocabularyService = vocabularyService;
         this.exerciseService = exerciseService;
         this.fileUploadService = fileUploadService;
+        this.parcoursService = parcoursService;
     }
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(Model model, java.security.Principal principal) {
         model.addAttribute("lessons", lessonService.findAll());
+        if (principal != null) {
+            model.addAttribute("suivi", parcoursService.suivi(principal.getName()));
+        }
         return "index";
     }
 
