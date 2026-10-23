@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cours de français A2 : accords avec plusieurs sujets, adjectifs de couleur, noms collectifs et participe passé avec avoir">
+    <title>Les accords approfondis - Grammaire A2 - Français</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/lesson-hero.css}">
+</head>
+
+<body>
+
+<a href="#main-content" class="visually-hidden-focusable">Aller au contenu principal</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">📘 Les accords approfondis</h1>
+        <p class="lead">Les cas qui posent problème : plusieurs sujets, couleurs, « on », « la plupart » et le participe passé avec avoir</p>
+    </div>
+</header>
+
+<main id="main-content" class="container my-5">
+
+    <section>
+        <div class="alert alert-primary">
+            <h2 class="h4"><span aria-hidden="true">🎯</span> Objectif</h2>
+            <p class="mb-0">À la fin de cette leçon, vous saurez accorder correctement le verbe et l'adjectif quand il y a <strong>plusieurs sujets</strong>, accorder les <strong>adjectifs de couleur</strong>, utiliser les <strong>noms collectifs</strong> et accorder le <strong>participe passé avec avoir</strong> quand le complément est placé avant le verbe.</p>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>Rappel : les accords de base</h2>
+        <p>Vous savez déjà que l'adjectif s'accorde avec le nom (<em>une fille grande</em>) et que le verbe s'accorde avec son sujet. Cette leçon traite les cas où l'accord est moins évident.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2>1. Plusieurs sujets</h2>
+        <p>Quand le verbe a <strong>deux sujets reliés par « et »</strong>, il se met au <strong>pluriel</strong>. Si l'adjectif ou le participe passé s'accorde avec ces sujets, le <strong>masculin l'emporte</strong> dès qu'il y a au moins un sujet masculin.</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Sujets</th><th>Accord</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>Masculin + masculin</td><td>masculin pluriel</td><td>Paul et Marc sont <strong>partis</strong>.</td></tr>
+                <tr><td>Féminin + féminin</td><td>féminin pluriel</td><td>Julie et Sara sont <strong>parties</strong>.</td></tr>
+                <tr><td>Masculin + féminin</td><td>masculin pluriel</td><td>Paul et Julie sont <strong>partis</strong>.</td></tr>
+                <tr><td>Un adjectif pour deux noms</td><td>masculin pluriel si un nom est masculin</td><td>Un pull et une veste <strong>neufs</strong>.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>2. Les adjectifs de couleur</h2>
+        <p>Les adjectifs de couleur s'accordent normalement : <em>des murs jaunes, des robes vertes</em>. Mais il y a deux cas où ils <strong>ne changent pas</strong> :</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Cas</th><th>Règle</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>Nom utilisé comme couleur</td><td>invariable</td><td>des chaussures <strong>marron</strong>, des chemises <strong>orange</strong></td></tr>
+                <tr><td>Couleur composée (couleur + clair, foncé, vif…)</td><td>invariable</td><td>des yeux <strong>bleu clair</strong>, une jupe <strong>bleu foncé</strong></td></tr>
+                <tr><td>Couleurs ordinaires</td><td>s'accordent</td><td>des fleurs <strong>rouges</strong>, des sacs <strong>noirs</strong></td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>        <p><strong>Attention :</strong> <em>rose</em>, <em>mauve</em> et <em>pourpre</em> sont devenus des adjectifs ordinaires : <em>des robes roses</em>.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2>3. Le pronom « on » et les noms collectifs</h2>
+        <p>Avec <strong>« on »</strong>, le verbe est toujours à la 3e personne du <strong>singulier</strong> (<em>on mange</em>). Mais dans la langue courante, l'adjectif ou le participe s'accorde souvent avec le sens : si « on » veut dire « nous », on peut écrire <em>On est <strong>contents</strong></em> ou <em>On est <strong>allés</strong> au cinéma</em>.</p>        <p>Avec les <strong>expressions de quantité</strong>, le verbe se met au pluriel. Avec un <strong>nom collectif singulier</strong>, il reste au singulier :</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Expression</th><th>Accord du verbe</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>la plupart des + nom</td><td>pluriel</td><td>La plupart des gens <strong>sont</strong> contents.</td></tr>
+                <tr><td>beaucoup de + nom</td><td>pluriel</td><td>Beaucoup d'élèves <strong>sont</strong> arrivés.</td></tr>
+                <tr><td>un groupe de, une foule de + nom</td><td>singulier</td><td>Un groupe d'étudiants <strong>est</strong> arrivé.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>4. Le participe passé avec avoir</h2>
+        <p>Avec <strong>avoir</strong>, le participe passé ne s'accorde pas avec le sujet. Il s'accorde seulement avec le <strong>complément d'objet direct (COD) s'il est placé avant le verbe</strong>.</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Situation</th><th>Accord</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>COD après le verbe</td><td>pas d'accord</td><td>J'ai acheté <strong>des pommes</strong>.</td></tr>
+                <tr><td>COD avant le verbe (pronom le, la, les)</td><td>accord avec le COD</td><td>Je <strong>les</strong> ai achet<strong>ées</strong>.</td></tr>
+                <tr><td>COD avant le verbe (que)</td><td>accord avec le COD</td><td>Les pommes <strong>que</strong> j'ai achet<strong>ées</strong> sont rouges.</td></tr>
+                <tr><td>Pronom « en »</td><td>pas d'accord</td><td>J'<strong>en</strong> ai acheté.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>        <p>Astuce : posez la question <em>« quoi ? »</em> ou <em>« qui ? »</em> après le verbe. Si la réponse est <strong>avant</strong> le verbe, accordez.</p>
+    </section>
+
+    <section class="mb-5">
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-danger">
+            <tr><th><span aria-hidden="true">❌</span> Incorrect</th><th><span aria-hidden="true">✅</span> Correct</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Paul et Julie sont partie.</td><td>Paul et Julie sont partis.</td></tr>
+            <tr><td>Des chaussures marrons.</td><td>Des chaussures marron.</td></tr>
+            <tr><td>Des yeux bleus clairs.</td><td>Des yeux bleu clair.</td></tr>
+            <tr><td>Beaucoup de gens est venu.</td><td>Beaucoup de gens sont venus.</td></tr>
+            <tr><td>Les lettres que j'ai écrit.</td><td>Les lettres que j'ai écrites.</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="alert alert-success">
+            <h2 class="h4"><span aria-hidden="true">✅</span> À retenir</h2>
+            <ul class="mb-0">
+                <li>Deux sujets reliés par « et » : verbe au pluriel ; le masculin l'emporte.</li>
+                <li>Couleur issue d'un nom (<em>marron, orange</em>) ou composée (<em>bleu clair</em>) : invariable.</li>
+                <li><em>La plupart, beaucoup</em> : verbe au pluriel ; <em>un groupe, une foule</em> : singulier.</li>
+                <li>Avec <em>avoir</em>, accordez le participe passé seulement si le COD est placé avant le verbe.</li>
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

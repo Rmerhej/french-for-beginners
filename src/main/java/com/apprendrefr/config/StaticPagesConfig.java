@@ -98,7 +98,13 @@ public class StaticPagesConfig implements WebMvcConfigurer {
             Map.entry("/complements", "compléments"),
             Map.entry("/connecteursLogiques", "connecteursLogiques"),
             Map.entry("/adverbes", "adverbes"),
-            Map.entry("/installer", "installer")
+            Map.entry("/installer", "installer"),
+            // Cours « approfondis » (2e niveau des cours qui étaient en double)
+            Map.entry("/accordsApprofondis", "accordsApprofondis"),
+            Map.entry("/expressionsTempsApprofondies", "expressionsTempsApprofondies"),
+            Map.entry("/verbesReguliersApprofondis", "verbesReguliersApprofondis"),
+            Map.entry("/auxiliairesApprofondis", "auxiliairesApprofondis"),
+            Map.entry("/adverbesApprofondis", "adverbesApprofondis")
     );
 
     @Override

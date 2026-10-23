@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cours de français B1 : formation des adverbes en -ment, adverbes irréguliers, comparatif, place de l'adverbe et adverbes de phrase">
+    <title>Les adverbes approfondis - Grammaire B1 - Français</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/lesson-hero.css}">
+</head>
+
+<body>
+
+<a href="#main-content" class="visually-hidden-focusable">Aller au contenu principal</a>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold">📘 Les adverbes approfondis</h1>
+        <p class="lead">Former les adverbes en -ment, comparer, bien les placer et nuancer son opinion</p>
+    </div>
+</header>
+
+<main id="main-content" class="container my-5">
+
+    <section>
+        <div class="alert alert-primary">
+            <h2 class="h4"><span aria-hidden="true">🎯</span> Objectif</h2>
+            <p class="mb-0">À la fin de cette leçon, vous saurez <strong>former les adverbes en -ment</strong> (y compris -amment et -emment), les <strong>comparer</strong>, les <strong>placer correctement</strong> et utiliser les <strong>adverbes de phrase</strong> pour donner votre opinion.</p>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>1. Former les adverbes en -MENT</h2>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-primary"><tr><th>Adjectif</th><th>Règle</th><th>Adverbe</th></tr></thead>
+                    <tbody>
+                <tr><td>lent, heureux, doux</td><td>féminin + <em>-ment</em></td><td>lentement, heureusement, doucement</td></tr>
+                <tr><td>vrai, poli, absolu</td><td>se termine par une voyelle : masculin + <em>-ment</em></td><td>vraiment, poliment, absolument</td></tr>
+                <tr><td>prudent, constant, courant</td><td><em>-ent</em> devient <strong>-emment</strong></td><td>prudemment, constamment, couramment</td></tr>
+                <tr><td>évident, récent, intelligent</td><td><em>-ent</em> devient <strong>-emment</strong></td><td>évidemment, récemment, intelligemment</td></tr>
+                <tr><td>précis, profond, énorme</td><td>féminin avec <em>-é-</em> : précise → précisément</td><td>précisément, profondément, énormément</td></tr>
+                <tr><td>gentil, bref</td><td>cas particuliers</td><td>gentiment, brièvement</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>        <p><strong>Astuce de prononciation :</strong> <em>-emment</em> et <em>-amment</em> se prononcent tous les deux [amɑ̃].</p>
+    </section>
+
+    <section class="mb-5">
+        <h2>2. Les adverbes irréguliers et les comparatifs</h2>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-success"><tr><th>Adjectif</th><th>Adverbe</th><th>Comparatif</th><th>Superlatif</th></tr></thead>
+                    <tbody>
+                <tr><td>bon</td><td><strong>bien</strong></td><td><strong>mieux</strong></td><td>le mieux</td></tr>
+                <tr><td>mauvais</td><td><strong>mal</strong></td><td>plus mal</td><td>le plus mal</td></tr>
+                <tr><td>petit</td><td>peu</td><td>moins</td><td>le moins</td></tr>
+                <tr><td>rapide</td><td>vite</td><td>plus vite</td><td>le plus vite</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>        <ul>
+            <li><em>Elle chante <strong>mieux</strong> que moi.</em> (et non « plus bien »)</li>
+            <li><em>C'est lui qui conduit <strong>le plus prudemment</strong>.</em></li>
+            <li>Ne confondez pas <em>meilleur</em> (adjectif : <em>un meilleur film</em>) et <em>mieux</em> (adverbe : <em>il joue mieux</em>).</li>
+        </ul>
+    </section>
+
+    <section class="mb-5">
+        <h2>3. La place de l'adverbe</h2>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-warning"><tr><th>Cas</th><th>Place</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>Verbe simple</td><td>après le verbe</td><td>Il parle <strong>lentement</strong>.</td></tr>
+                <tr><td>Temps composé : adverbes courts (bien, mal, déjà, trop, souvent, vraiment)</td><td>entre l'auxiliaire et le participe</td><td>J'ai <strong>bien</strong> dormi. Elle a <strong>déjà</strong> mangé.</td></tr>
+                <tr><td>Temps composé : adverbes longs en -ment</td><td>après le participe (ou avant, pour insister)</td><td>Il a répondu <strong>poliment</strong>. / Il a <strong>poliment</strong> répondu.</td></tr>
+                <tr><td>Verbe à l'infinitif</td><td>avant l'infinitif (surtout bien, mal)</td><td>Pour <strong>bien</strong> comprendre, lisez le texte.</td></tr>
+                <tr><td>Avec un adjectif</td><td>juste avant</td><td>Elle est <strong>très</strong> contente.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2>4. Les adverbes de phrase</h2>
+        <p>Ces adverbes donnent l'<strong>opinion</strong> de celui qui parle sur toute la phrase. On les place souvent au début, suivis d'une virgule :</p>        <ul>
+            <li><strong>Heureusement</strong>, il n'a pas plu. / <strong>Malheureusement</strong>, nous avons raté le train.</li>
+            <li><strong>Évidemment</strong>, il viendra. / <strong>Apparemment</strong>, elle est partie. / <strong>Probablement</strong>, il pleuvra demain.</li>
+        </ul>
+    </section>
+
+    <section class="mb-5">
+        <h2>5. Adjectifs employés comme adverbes</h2>
+        <p>Dans certaines expressions, un adjectif joue le rôle d'un adverbe et reste <strong>invariable</strong> :</p>        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-danger"><tr><th>Expression</th><th>Exemple</th></tr></thead>
+                    <tbody>
+                <tr><td>parler fort / bas</td><td>Il parle trop <strong>fort</strong>.</td></tr>
+                <tr><td>coûter cher</td><td>Ce sac coûte <strong>cher</strong>.</td></tr>
+                <tr><td>travailler dur</td><td>Elle travaille <strong>dur</strong>.</td></tr>
+                <tr><td>chanter faux</td><td>Tu chantes <strong>faux</strong>.</td></tr>
+                <tr><td>sentir bon / mauvais</td><td>Cela sent <strong>bon</strong>.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2><span aria-hidden="true">⚠</span> Erreurs fréquentes</h2>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-danger">
+            <tr><th><span aria-hidden="true">❌</span> Incorrect</th><th><span aria-hidden="true">✅</span> Correct</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Il parle prudentement.</td><td>Il parle prudemment.</td></tr>
+            <tr><td>Elle chante plus bien que moi.</td><td>Elle chante mieux que moi.</td></tr>
+            <tr><td>J'ai dormi bien.</td><td>J'ai bien dormi.</td></tr>
+            <tr><td>Ce sac coûte chèrement.</td><td>Ce sac coûte cher.</td></tr>
+            <tr><td>Elle est intelligentement.</td><td>Elle est intelligente.</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="alert alert-success">
+            <h2 class="h4"><span aria-hidden="true">✅</span> À retenir</h2>
+            <ul class="mb-0">
+                <li><em>-ent → -emment</em> et <em>-ant → -amment</em> : <em>prudemment, constamment</em>.</li>
+                <li><em>Bon → bien → mieux</em> : on ne dit pas « plus bien ».</li>
+                <li>Adverbes courts entre l'auxiliaire et le participe ; adverbes longs en -ment souvent après le participe.</li>
+                <li><em>Heureusement, malheureusement, évidemment</em> : opinion, souvent en début de phrase.</li>
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
