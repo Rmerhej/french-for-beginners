@@ -28,13 +28,6 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <main id="main-content" class="container py-5">
     <h2 th:text="${quiz.title}"></h2>
-    <button
-            type="button"
-            class="btn btn-outline-secondary float-end"
-            onclick="history.back()"
-            aria-label="Retour">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i> Retour
-    </button>
     <div class="card mb-4">
         <div class="card-header">Mots à placer (glisse-les)</div>
         <div class="card-body" id="wordsContainer"></div>
