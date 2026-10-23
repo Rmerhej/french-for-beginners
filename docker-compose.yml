@@ -5,6 +5,14 @@ services:
     image: mysql:8.0
     container_name: french-db
     restart: always
+    # Serveur de 1 Go de RAM : on limite la mémoire de MySQL pour éviter le swap
+    command:
+      - --performance-schema=OFF
+      - --innodb-buffer-pool-size=128M
+      - --innodb-log-buffer-size=8M
+      - --max-connections=40
+      - --table-open-cache=400
+      - --table-definition-cache=400
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -33,6 +41,8 @@ services:
     environment:
       # Spring Boot Profile
       SPRING_PROFILES_ACTIVE: prod
+      # Limite la mémoire de la JVM (sinon elle peut viser 75 % des 818 Mo de la machine)
+      JAVA_TOOL_OPTIONS: "-Xms96m -Xmx320m"
       SERVER_SERVLET_SESSION_COOKIE_SECURE: "true"
       SERVER_FORWARD_HEADERS_STRATEGY: framework
       SERVER_ERROR_INCLUDE_MESSAGE: never
