@@ -5,6 +5,11 @@ services:
     image: mysql:8.0
     container_name: french-db
     restart: always
+    logging: &logs-limites
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     # Serveur de 1 Go de RAM : on limite la mémoire de MySQL pour éviter le swap
     command:
       - --performance-schema=OFF
@@ -33,6 +38,8 @@ services:
     image: rolandmerhej1/french-app:v1.12.0
     container_name: french-app
     restart: always
+    # Journaux limités à 3 fichiers de 10 Mo (sans cela, ils grossissent sans fin)
+    logging: *logs-limites
     depends_on:
       db:
         condition: service_healthy
