@@ -86,7 +86,7 @@ public class SecurityConfig {
                                 "/", "/index", "/register", "/login", "/logout",
                                 "/visitor/**",                    // ← plus simple
                                 "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**","/error", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
-                                "/fragments/**", "/prononciationNew"
+                                "/fragments/**", "/prononciationNew", "/robots.txt", "/sitemap.xml"
                         ).permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous

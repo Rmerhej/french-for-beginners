@@ -28,3 +28,16 @@
 .word.dragging {
     opacity: 0.5;
 }
+
+.word.selected {
+    outline: 3px solid #ffc107;
+    outline-offset: 2px;
+}
+.word:focus-visible, .dropzone:focus-visible {
+    outline: 3px solid #ffc107;
+    outline-offset: 2px;
+}
+.dropzone {
+    min-width: 120px;
+    cursor: pointer;
+}
