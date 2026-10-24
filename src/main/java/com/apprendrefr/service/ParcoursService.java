@@ -16,8 +16,12 @@ import java.util.Set;
 @Service
 public class ParcoursService {
 
+    /** Niveaux dans l'ordre du parcours. */
+    public static final List<String> CODES = List.of("A1", "A2", "B1", "B2");
+
     /** Prochaine étape d'un apprenant ; {@code etape} est null quand tout le parcours est terminé. */
-    public record Suivi(Etape etape, String niveau, String couleur, String bloc, int numero, int faites, int total) {
+    public record Suivi(Etape etape, String niveau, String couleur, String bloc, int numero, int faites, int total,
+                        String niveauTest) {
         public boolean termine() {
             return etape == null;
         }
@@ -42,6 +46,14 @@ public class ParcoursService {
      * tant qu'il reste une étape avec quiz (pour ne pas bloquer l'apprenant).
      */
     public Suivi suivi(String username) {
+        return suivi(username, null);
+    }
+
+    /**
+     * Prochaine étape. Si l'apprenant a fait le test de positionnement ({@code niveauTest}, ex. « B1 »),
+     * on cherche d'abord à partir de ce niveau ; les niveaux précédents restent le dernier recours.
+     */
+    public Suivi suivi(String username, String niveauTest) {
         List<ParcoursNiveau> niveaux = niveaux();
         Set<String> titres = new LinkedHashSet<>();
         for (ParcoursNiveau n : niveaux) {
@@ -52,37 +64,44 @@ public class ParcoursService {
             }
         }
         Map<String, Progress> progres = quizScoreService.progressByTitle(username, titres);
+        String test = niveauTest != null && CODES.contains(niveauTest) ? niveauTest : null;
+        int depart = test == null ? 0 : CODES.indexOf(test);
+
         int total = 0;
         int faites = 0;
-        Suivi premiere = null;
-        Suivi secours = null;   // première étape non terminée, même si son quiz est introuvable
+        // Ordre de préférence : étape avec quiz puis étape sans quiz, à partir du niveau de départ ; puis avant.
+        Suivi[] choix = new Suivi[4];
         for (ParcoursNiveau n : niveaux) {
+            boolean apres = CODES.indexOf(n.code()) >= depart;
             for (Bloc b : n.blocs()) {
                 int numero = b.debut();
                 for (Etape e : b.etapes()) {
                     total++;
                     Progress p = progres.get(e.quiz());
-                    boolean fait = p != null && p.complete();
-                    if (fait) {
+                    if (p != null && p.complete()) {
                         faites++;
                     } else {
-                        Suivi candidate = new Suivi(e, n.code(), n.couleur(), b.titre(), numero, 0, 0);
-                        if (secours == null) {
-                            secours = candidate;
-                        }
-                        if (premiere == null && p != null && p.total() > 0) {
-                            premiere = candidate;
+                        Suivi candidate = new Suivi(e, n.code(), n.couleur(), b.titre(), numero, 0, 0, null);
+                        boolean avecQuiz = p != null && p.total() > 0;
+                        int rang = (apres ? 0 : 2) + (avecQuiz ? 0 : 1);
+                        if (choix[rang] == null) {
+                            choix[rang] = candidate;
                         }
                     }
                     numero++;
                 }
             }
         }
-        // On préfère une étape avec quiz ; sinon la première étape non terminée ; « terminé » seulement si tout est fait.
-        Suivi choisie = premiere != null ? premiere : secours;
+        Suivi choisie = null;
+        for (Suivi c : choix) {
+            if (c != null) {
+                choisie = c;
+                break;
+            }
+        }
         return choisie == null
-                ? new Suivi(null, null, null, null, 0, faites, total)
-                : new Suivi(choisie.etape(), choisie.niveau(), choisie.couleur(), choisie.bloc(), choisie.numero(), faites, total);
+                ? new Suivi(null, null, null, null, 0, faites, total, test)
+                : new Suivi(choisie.etape(), choisie.niveau(), choisie.couleur(), choisie.bloc(), choisie.numero(), faites, total, test);
     }
 
     // ------------------------------------------------------------------ A1

@@ -83,6 +83,37 @@ class ParcoursServiceTest {
     }
 
     @Test
+    void placementLevel_startsAtThatLevel() {
+        when(scores.progressByTitle(eq("alice"), any())).thenReturn(progres(0));
+        Suivi s = service.suivi("alice", "B1");
+        assertEquals("B1", s.niveau());
+        assertEquals("B1", s.niveauTest());
+        assertEquals(service.niveaux().get(2).blocs().get(0).debut(), s.numero());
+    }
+
+    @Test
+    void placementLevel_fallsBackToEarlierLevelsWhenLaterOnesAreDone() {
+        Map<String, Progress> map = progres(0);
+        boolean after = false;
+        for (ParcoursNiveau n : service.niveaux()) {
+            after = after || n.code().equals("B1");
+            if (after) {
+                n.blocs().forEach(b -> b.etapes().forEach(e -> map.put(e.quiz(), new Progress(1, 1))));
+            }
+        }
+        when(scores.progressByTitle(eq("alice"), any())).thenReturn(map);
+        assertEquals("A1", service.suivi("alice", "B1").niveau());
+    }
+
+    @Test
+    void unknownPlacementLevel_isIgnored() {
+        when(scores.progressByTitle(eq("alice"), any())).thenReturn(progres(0));
+        Suivi s = service.suivi("alice", "Z9");
+        assertEquals("A1", s.niveau());
+        assertEquals(null, s.niveauTest());
+    }
+
+    @Test
     void parcoursHas75Steps() {
         int steps = service.niveaux().stream().mapToInt(n -> n.blocs().stream().mapToInt(b -> b.etapes().size()).sum()).sum();
         assertEquals(75, steps);

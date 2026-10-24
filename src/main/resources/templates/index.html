@@ -66,6 +66,9 @@
                         · niveau <strong th:text="${suivi.niveau}">A1</strong>
                         · <span th:text="${suivi.bloc}">Se présenter</span>
                     </p>
+                    <p th:if="${suivi.niveauTest != null}" class="small text-secondary mb-2">
+                        🎯 Niveau conseillé par votre test de positionnement : <strong th:text="${suivi.niveauTest}">B1</strong>
+                    </p>
                     <h2 class="h4 fw-bold mb-3">
                         Étape <span th:text="${suivi.numero}">1</span> :
                         <span th:text="${suivi.etape.titre}">Titre</span>

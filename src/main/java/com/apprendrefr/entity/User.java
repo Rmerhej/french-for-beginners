@@ -44,6 +44,11 @@ public class User implements UserDetails {
     private String password;
     private String role;
     private boolean enabled = true;
+
+    /** Niveau conseillé par le test de positionnement (A1, A2, B1, B2) ; null si le test n'a pas été fait. */
+    @Column(name = "placement_level", length = 2)
+    private String placementLevel;
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
