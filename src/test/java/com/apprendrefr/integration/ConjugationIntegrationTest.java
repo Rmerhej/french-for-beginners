@@ -34,7 +34,8 @@ class ConjugationIntegrationTest {
     void knownVerb_showsTable() throws Exception {
         mockMvc.perform(get("/conjugueur").param("verbe", "manger"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("nous mangeons")));
+                .andExpect(content().string(containsString("nous mangeons")))
+                .andExpect(content().string(containsString("listen-btn")));
     }
 
     @Test

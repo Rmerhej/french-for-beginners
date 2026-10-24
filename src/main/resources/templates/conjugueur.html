@@ -50,7 +50,11 @@
             <div class="row g-3">
                 <div th:each="tense : ${mood.tenses}" class="col-12 col-md-6 col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
-                        <div class="card-header bg-primary text-white fw-semibold" th:text="${tense.name}">Présent</div>
+                        <div class="card-header bg-primary text-white fw-semibold d-flex justify-content-between align-items-center">
+                            <span th:text="${tense.name}">Présent</span>
+                            <button type="button" class="btn btn-sm btn-light listen-btn d-none"
+                                    th:attr="aria-label=|Écouter : ${tense.name}|" title="Écouter">🔊</button>
+                        </div>
                         <ul class="list-group list-group-flush">
                             <li th:each="line : ${tense.lines}" class="list-group-item" th:text="${line}">je mange</li>
                         </ul>
@@ -64,5 +68,24 @@
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Bouton « Écouter » : lecture à voix haute avec la synthèse vocale du navigateur (si disponible)
+    (function () {
+        if (!('speechSynthesis' in window)) { return; }
+        document.querySelectorAll('.listen-btn').forEach(function (btn) {
+            btn.classList.remove('d-none');
+            btn.addEventListener('click', function () {
+                window.speechSynthesis.cancel();
+                btn.closest('.card').querySelectorAll('li').forEach(function (li) {
+                    var text = li.textContent.replace(/\(e\)|\(s\)/g, '').replace(/\//g, ' ').trim();
+                    var u = new SpeechSynthesisUtterance(text);
+                    u.lang = 'fr-FR';
+                    u.rate = 0.85;
+                    window.speechSynthesis.speak(u);
+                });
+            });
+        });
+    })();
+</script>
 </body>
 </html>
