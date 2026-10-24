@@ -59,3 +59,6 @@ effective-pom.xml
 
 dedupe-output/
 uploads-duplicates-backup/
+
+# Sauvegardes (contiennent des données personnelles)
+backups/
