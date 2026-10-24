@@ -26,7 +26,14 @@ if [ "$(stat -c %s "$SQL_FILE")" -lt 1000 ]; then
   rm -f "$SQL_FILE"
   exit 1
 fi
-zcat "$SQL_FILE" | grep -q "CREATE TABLE" || { echo "ERREUR : aucune table dans la sauvegarde." >&2; rm -f "$SQL_FILE"; exit 1; }
+# (grep -c lit tout le flux : avec « grep -q » + pipefail, zcat est coupé en cours de route et le test échoue à tort)
+NB_TABLES="$(zcat "$SQL_FILE" | grep -c "CREATE TABLE" || true)"
+if [ "$NB_TABLES" -lt 1 ]; then
+  echo "ERREUR : aucune table dans la sauvegarde." >&2
+  rm -f "$SQL_FILE"
+  exit 1
+fi
+echo "   $NB_TABLES tables sauvegardées."
 
 if [ -d uploads ]; then
   UP_FILE="$DEST/uploads-$STAMP.tar.gz"
