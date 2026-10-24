@@ -58,6 +58,16 @@
         document.getElementById('feedback-' + index).innerHTML =
             `<div class="alert alert-info">Ton score : ${score}/${zones.length}</div>`;
 
+        // Quiz réussi à 100 % : proposer de continuer le parcours (utilisateur connecté)
+        const next = document.getElementById('quiz-next');
+        if (next && zones.length > 0 && score === zones.length) {
+            const link = document.createElement('a');
+            link.href = next.getAttribute('href').split('?')[0] + '#continuer-parcours';
+            link.className = 'btn btn-success rounded-pill fw-bold mt-3';
+            link.textContent = '🎉 Bravo ! Étape suivante ➜';
+            document.getElementById('feedback-' + index).appendChild(link);
+        }
+
         // Enregistrement du score côté serveur (le serveur recalcule la correction)
         if (window.sendQuizScore && wrapper.dataset.quizId) {
             const given = Array.from(zones).map(z => z.textContent.trim()).join('|');
