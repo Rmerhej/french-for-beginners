@@ -6,6 +6,7 @@ import com.apprendrefr.entity.Vocabulary;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.FileUploadService;
+import com.apprendrefr.repository.UserRepository;
 import com.apprendrefr.service.LessonService;
 import com.apprendrefr.service.ParcoursService;
 import com.apprendrefr.service.VocabularyService;
@@ -28,23 +29,27 @@ public class LessonController {
     private final ExerciseService exerciseService;
     private final FileUploadService fileUploadService;
     private final ParcoursService parcoursService;
+    private final UserRepository userRepository;
 
     public LessonController(LessonService lessonService,
                             VocabularyService vocabularyService,
                             ExerciseService exerciseService, FileUploadService fileUploadService,
-                            ParcoursService parcoursService) {
+                            ParcoursService parcoursService, UserRepository userRepository) {
         this.lessonService = lessonService;
         this.vocabularyService = vocabularyService;
         this.exerciseService = exerciseService;
         this.fileUploadService = fileUploadService;
         this.parcoursService = parcoursService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/")
     public String home(Model model, java.security.Principal principal) {
         model.addAttribute("lessons", lessonService.findAll());
         if (principal != null) {
-            model.addAttribute("suivi", parcoursService.suivi(principal.getName()));
+            String niveauTest = userRepository.findByUsername(principal.getName())
+                    .map(com.apprendrefr.entity.User::getPlacementLevel).orElse(null);
+            model.addAttribute("suivi", parcoursService.suivi(principal.getName(), niveauTest));
         }
         return "index";
     }

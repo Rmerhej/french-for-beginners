@@ -135,6 +135,29 @@
     }).catch(function () { return null; });
   }
 
+  // Test de positionnement : retient le niveau (A1 à B2) du compte connecté. Résout true si enregistré.
+  window.sendPlacementLevel = function (level) {
+    return ensureToken().then(function () {
+      var token = findToken();
+      var body = new URLSearchParams();
+      body.append('niveau', level);
+      var headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+      if (token && token.token) {
+        body.append(token.parameterName || '_csrf', token.token);
+        headers[token.headerName || 'X-XSRF-TOKEN'] = token.token;
+      }
+      return fetch('/evaluation/niveau', {
+        method: 'POST', credentials: 'same-origin', headers: headers, body: body.toString()
+      }).then(function (res) {
+        if (res.redirected || res.status === 401) {
+          showLoginNotice();
+          return false;
+        }
+        return res.ok;
+      });
+    }).catch(function () { return false; });
+  };
+
   // Au chargement : récupère les exercices déjà réussis (et le jeton de sécurité).
   document.addEventListener('DOMContentLoaded', function () {
     if (exerciseContainers().length === 0) return;

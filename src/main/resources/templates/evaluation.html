@@ -91,6 +91,9 @@
                                                                                class="badge bg-primary fs-4">-</span>
         </h4>
         <p id="cecr-description" class="mb-0 mt-2"></p>
+        <p id="placement-saved" class="mb-0 mt-3 fw-bold text-success d-none">
+            ✔ Niveau enregistré : « Continuer le parcours » démarrera à ce niveau.
+        </p>
     </div>
 
 </main>
@@ -188,6 +191,15 @@
 
         levelBadge.innerText = level;
         descElement.innerText = description + " (Score : " + currentScore + "/" + totalQuestions + " - " + Math.round(percentage) + "%)";
+
+        // Utilisateur connecté : on retient le niveau pour « Continuer le parcours »
+        if (window.sendPlacementLevel) {
+            window.sendPlacementLevel(level).then(function (saved) {
+                if (saved) {
+                    document.getElementById('placement-saved').classList.remove('d-none');
+                }
+            });
+        }
 
         resultContainer.scrollIntoView({ behavior: 'smooth' });
     }
