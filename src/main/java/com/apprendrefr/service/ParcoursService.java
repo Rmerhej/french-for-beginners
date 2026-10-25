@@ -134,7 +134,8 @@ public class ParcoursService {
                         g("L'interrogation : questions simples", "/questionsSimples", "L'interrogation"),
                         g("Les prépositions", "/lesPrépositions", "préposition"),
                         g("Les expressions de temps", "/expressionstemps", "Les Expressions de temps"),
-                        c("L'impératif", "/imperatif", "Impératif")));
+                        c("L'impératif", "/imperatif", "Impératif"),
+                        g("Les types et formes de phrases", "/typesDePhrases", "Les types et formes de phrases")));
     }
 
     // ------------------------------------------------------------------ A2
@@ -193,7 +194,8 @@ public class ParcoursService {
                         g("La cause et la conséquence", "/LaCauseEtLaConséquence", "La cause et la conséquence"),
                         g("Le but", "/LeBut", "Le but"),
                         g("L'opposition et la concession", "/LOppositionEtLaConcession", "L’opposition et la concession"),
-                        g("Les pronoms relatifs", "/LesPronomsRelatifs", "Les pronoms relatifs")),
+                        g("Les pronoms relatifs", "/LesPronomsRelatifs", "Les pronoms relatifs"),
+                        g("Les pronoms interrogatifs", "/pronomsInterrogatifs", "Pronoms interrogatifs")),
                 bloc("Imaginer et supposer",
                         g("Les hypothèses", "/LesHypothèses", "Les hypothèses"),
                         c("Le conditionnel passé", "/ConditionnelPassé", "Le conditionnel passé"),

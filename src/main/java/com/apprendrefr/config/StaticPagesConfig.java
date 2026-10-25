@@ -55,6 +55,8 @@ public class StaticPagesConfig implements WebMvcConfigurer {
             Map.entry("/negationApprofondie", "negation-approfondie"),
             Map.entry("/adjectifsInterrogatifsEtExclamatifs", "adjectifs-interrogatifs-exclamatifs"),
             Map.entry("/orthographeGrammaticale", "orthographe-grammaticale"),
+            Map.entry("/typesDePhrases", "types-de-phrases"),
+            Map.entry("/pronomsInterrogatifs", "pronoms-interrogatifs"),
             Map.entry("/genreEtNombreDesNoms", "genre-et-nombre-des-noms"),
             Map.entry("/adjectifsQualificatifs", "adjectifs-qualificatifs"),
             Map.entry("/PronomsPersonnelsSujets", "pronoms-personnels-sujets"),
