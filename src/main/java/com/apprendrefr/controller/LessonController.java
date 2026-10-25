@@ -113,32 +113,6 @@ public class LessonController {
         return "lesson-exercises";
     }
 
-    @GetMapping("/admin/lessons-list")
-    public String listLessons(
-            @RequestParam(required = false) String keyword,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            Model model) {
-
-        Pageable pageable = AdminPaging.newestFirst(page, size);
-
-        Page<Lesson> lessonsPage;
-
-        if (keyword != null && !keyword.trim().isEmpty()) {
-            lessonsPage = lessonService.searchLessons(keyword.trim(), pageable);
-            model.addAttribute("keyword", keyword);
-        } else {
-            lessonsPage = lessonService.findAll(pageable);
-        }
-
-        model.addAttribute("lessons", lessonsPage);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", lessonsPage.getTotalPages());
-        model.addAttribute("totalItems", lessonsPage.getTotalElements());
-
-        return "/admin/lessons";
-    }
-
     @PostMapping("/admin/lessons")
     public String saveLesson(@ModelAttribute Lesson lesson,
 

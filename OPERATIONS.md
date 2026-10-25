@@ -252,6 +252,10 @@ sudo systemctl status nginx
 
 # 8. Sauvegarde MySQL
 
+> **Méthode recommandée : les scripts du dossier `scripts/`** (`./scripts/backup.sh`, `./scripts/restore.sh`).
+> Ils vérifient la sauvegarde, gardent les 14 dernières et n'écrivent aucun mot de passe.
+> Voir [scripts/README.md](scripts/README.md). Les commandes manuelles ci-dessous restent valables.
+
 ## Export manuel de la base
 
 Créer un backup :
