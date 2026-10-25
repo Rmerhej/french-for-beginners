@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'orthographe grammaticale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        section { margin-top: 2rem; }
+    </style>
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> L'orthographe grammaticale</h1>
+        <p>Ne plus se tromper entre <strong>a / à, et / est, son / sont, ce / se, ces / ses, ou / où, on / ont</strong>, et bien écrire majuscules, ponctuation et accents.</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>1. Les homophones grammaticaux</h2>
+        <p>Les homophones sont des mots qui se prononcent de la même façon mais qui s'écrivent différemment. Pour choisir, on utilise <strong>un test</strong> : on remplace le mot par un autre.</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Mots</th><th scope="col">Test de remplacement</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td><strong>a</strong> / <strong>à</strong></td><td>« a » = verbe avoir : on peut dire « avait »</td><td>Il <strong>a</strong> faim. Je vais <strong>à</strong> Paris.</td></tr><tr><td><strong>et</strong> / <strong>est</strong></td><td>« est » = verbe être : on peut dire « était »</td><td>Paul <strong>et</strong> Marie. Il <strong>est</strong> grand.</td></tr><tr><td><strong>son</strong> / <strong>sont</strong></td><td>« sont » = verbe être : on peut dire « étaient »</td><td>Ils <strong>sont</strong> gentils. <strong>Son</strong> frère arrive.</td></tr><tr><td><strong>on</strong> / <strong>ont</strong></td><td>« ont » = verbe avoir : on peut dire « avaient »</td><td><strong>On</strong> mange. Ils <strong>ont</strong> faim.</td></tr><tr><td><strong>ce</strong> / <strong>se</strong></td><td>« se » vient avec un verbe pronominal (se laver, se lever)</td><td><strong>Ce</strong> livre. Il <strong>se</strong> lève.</td></tr><tr><td><strong>ces</strong> / <strong>ses</strong></td><td>« ses » = les … à lui / à elle ; « ces » = les … que je montre</td><td><strong>Ces</strong> fleurs-là. Elle aime <strong>ses</strong> amis.</td></tr><tr><td><strong>ou</strong> / <strong>où</strong></td><td>« ou » = ou bien ; « où » = lieu ou temps</td><td>Thé <strong>ou</strong> café ? <strong>Où</strong> est la gare ?</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Les majuscules</h2>
+        <p>On met une majuscule :</p>
+        <ul>
+            <li>au début d'une phrase : <em>Il pleut.</em></li>
+            <li>aux noms de personnes, de villes, de pays : <em>Marie, Lyon, la France</em>.</li>
+        </ul>
+        <p>Mais <strong>pas</strong> aux jours, aux mois, aux langues ni aux nationalités (adjectif) :</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">En anglais</th><th scope="col">En français</th></tr></thead>
+            <tbody><tr><td>Monday, January</td><td>lundi, janvier</td></tr><tr><td>French, English</td><td>le français, l'anglais</td></tr><tr><td>She is French.</td><td>Elle est française.</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. La ponctuation</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Signe</th><th scope="col">Nom</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td>.</td><td>le point</td><td>Je suis fatigué.</td></tr><tr><td>,</td><td>la virgule</td><td>Il achète du pain, du lait et du fromage.</td></tr><tr><td>?</td><td>le point d'interrogation</td><td>Où habitez-vous ?</td></tr><tr><td>!</td><td>le point d'exclamation</td><td>Quelle belle journée !</td></tr><tr><td>:</td><td>les deux-points</td><td>Voici ma liste : du pain, du lait.</td></tr></tbody>
+        </table>
+        <div class="alert alert-warning"><strong>Attention :</strong> en français, on laisse une <strong>espace</strong> avant <strong>? ! : ;</strong> et on n'en laisse pas avant le point et la virgule.</div>
+    </section>
+
+    <section>
+        <h2>4. Les accents</h2>
+        <p>Les accents font partie de l'orthographe : sans accent, le mot est faux ou change de sens.</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Signe</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td>é (accent aigu)</td><td>été, café</td></tr><tr><td>è (accent grave)</td><td>mère, très</td></tr><tr><td>ê (accent circonflexe)</td><td>fête, forêt</td></tr><tr><td>ç (cédille : prononcé [s])</td><td>français, ça</td></tr><tr><td>ë, ï (tréma)</td><td>Noël, maïs</td></tr></tbody>
+        </table>
+        <p>L'accent peut changer le sens : <strong>a / à</strong> (il a / à Paris), <strong>ou / où</strong> (ou bien / lieu), <strong>la / là</strong> (la maison / là-bas), <strong>sur / sûr</strong> (sur la table / certain).</p>
+    </section>
+
+    <section>
+        <h2>Petit exercice</h2>
+        <p>Complétez avec le bon mot.</p>
+        <ol>
+            <li>Il ___ faim. Nous allons ___ la boulangerie. (a ou à)</li>
+            <li>Léa ___ Paul sont amis. Léa ___ grande. (et ou est)</li>
+            <li>Ils ___ chez eux. ___ chien dort. (sont ou son)</li>
+            <li>Il ___ lave les mains. (ce ou se)</li>
+            <li>Tu veux du thé ___ du café ? ___ est la cuisine ? (ou ou où)</li>
+        </ol>
+        <details>
+            <summary>Voir les réponses</summary>
+            <ul>
+                <li><strong>a</strong> faim, <strong>à</strong> la boulangerie</li>
+                <li>Léa <strong>et</strong> Paul, Léa <strong>est</strong> grande</li>
+                <li>Ils <strong>sont</strong> chez eux. <strong>Son</strong> chien dort.</li>
+                <li>Il <strong>se</strong> lave les mains</li>
+                <li>du thé <strong>ou</strong> du café ? <strong>Où</strong> est la cuisine ?</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>Pour les homophones : toujours faire le test de remplacement (avait, était, étaient, avaient…)</li>
+            <li>Pas de majuscule aux jours, mois, langues</li>
+            <li>Espace avant ? ! : ;</li>
+            <li>Les accents changent parfois le sens : à / a, où / ou, là / la</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -145,10 +145,12 @@ public class ParcoursService {
                 bloc("Enrichir ses phrases",
                         g("Les adjectifs démonstratifs", "/adjectifsdemonstratifs", "Adjectifs démonstratifs"),
                         g("Les adverbes", "/adverbes", "Les adverbes"),
+                        g("Les adjectifs interrogatifs et exclamatifs", "/adjectifsInterrogatifsEtExclamatifs", "Les adjectifs interrogatifs et exclamatifs"),
                         g("Les compléments", "/complements", "Les compléments"),
                         g("Les accords approfondis", "/accordsApprofondis", "Accords approfondis"),
                         g("La quantité", "/laQuantite", "La quantité"),
                         g("La comparaison", "/laComparaison", "La comparaison"),
+                        g("La négation approfondie", "/negationApprofondie", "La négation approfondie"),
                         g("Les prépositions de lieu et de temps", "/PrepositionsDeLieuEtTemps", "Les prépositions de lieu et temps"),
                         g("Conjonctions et prépositions", "/PrépositionsEtConjonctions", "conjonction")),
                 bloc("Éviter les répétitions",
@@ -173,7 +175,8 @@ public class ParcoursService {
                         c("Le conditionnel présent", "/ConditionnelPresent", "Le conditionnel présent")),
                 bloc("Relier ses idées",
                         g("Les connecteurs simples", "/LesConnecteursSimples", "Les connecteurs simples"),
-                        g("Les connecteurs logiques", "/connecteursLogiques", "Les connecteurs logiques")));
+                        g("Les connecteurs logiques", "/connecteursLogiques", "Les connecteurs logiques"),
+                        g("L'orthographe grammaticale", "/orthographeGrammaticale", "L'orthographe grammaticale")));
     }
 
     // ------------------------------------------------------------------ B1
