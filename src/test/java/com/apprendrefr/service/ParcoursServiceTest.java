@@ -114,9 +114,9 @@ class ParcoursServiceTest {
     }
 
     @Test
-    void parcoursHas75Steps() {
+    void parcoursHas78Steps() {
         int steps = service.niveaux().stream().mapToInt(n -> n.blocs().stream().mapToInt(b -> b.etapes().size()).sum()).sum();
-        assertEquals(75, steps);
+        assertEquals(78, steps);
         assertEquals(Set.of("A1", "A2", "B1", "B2"),
                 Set.copyOf(service.niveaux().stream().map(ParcoursNiveau::code).toList()));
     }
