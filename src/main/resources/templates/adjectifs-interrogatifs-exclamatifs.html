@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjectifs interrogatifs et exclamatifs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        section { margin-top: 2rem; }
+    </style>
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> Les adjectifs interrogatifs et exclamatifs</h1>
+        <p>Poser une question ou exprimer une émotion avec <strong>quel, quelle, quels, quelles</strong>.</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>1. Les quatre formes</h2>
+        <p>« Quel » accompagne un nom et s'accorde avec lui, comme un adjectif.</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col"></th><th scope="col">Singulier</th><th scope="col">Pluriel</th></tr></thead>
+            <tbody><tr><td>Masculin</td><td>quel</td><td>quels</td></tr><tr><td>Féminin</td><td>quelle</td><td>quelles</td></tr></tbody>
+        </table>
+        <p>La prononciation est la même pour les quatre formes : [kɛl]. Seule l'écriture change.</p>
+    </section>
+
+    <section>
+        <h2>2. Poser une question : « quel » = which / what</h2>
+        <p><span aria-hidden="true">📌</span> <strong>Quel</strong> âge as-tu ?<br>→ How old are you?</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quelle</strong> heure est-il ?<br>→ What time is it?</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quels</strong> livres préférez-vous ?<br>→ Which books do you prefer?</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quelles</strong> langues parlez-vous ?<br>→ Which languages do you speak?</p>
+    </section>
+
+    <section>
+        <h2>3. Avec le verbe être</h2>
+        <p>Avec « être », « quel » est souvent séparé du nom, mais il s'accorde toujours avec lui :</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quel</strong> est ton numéro de téléphone ?<br>→ What is your phone number? (numéro est masculin)</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quelle</strong> est votre adresse ?<br>→ What is your address? (adresse est féminin)</p>
+    </section>
+
+    <section>
+        <h2>4. Avec une préposition</h2>
+        <p>La préposition se place <strong>avant</strong> « quel » :</p>
+        <p><span aria-hidden="true">📌</span> <strong>À quelle</strong> heure commence le cours ?<br>→ At what time does the class start?</p>
+        <p><span aria-hidden="true">📌</span> <strong>De quel</strong> pays venez-vous ?<br>→ Which country do you come from?</p>
+        <p><span aria-hidden="true">📌</span> <strong>Dans quelle</strong> ville habitez-vous ?<br>→ Which city do you live in?</p>
+    </section>
+
+    <section>
+        <h2>5. Exprimer une émotion : « quel ! »</h2>
+        <p>« Quel » sert aussi à s'exclamer, devant un nom (parfois avec un adjectif) :</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quelle</strong> belle journée !<br>→ What a beautiful day!</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quel</strong> froid !<br>→ How cold it is!</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quels</strong> beaux enfants !<br>→ What beautiful children!</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quelle</strong> chance !<br>→ What luck!</p>
+        <div class="alert alert-warning"><strong>Attention :</strong> « quel » est toujours suivi d'un nom (ou du verbe être). Ne le confondez pas avec « qu'est-ce que », qui est suivi d'un sujet et d'un verbe : « Quel livre lisez-vous ? » mais « Qu'est-ce que vous lisez ? »</div>
+    </section>
+
+    <section>
+        <h2>Petit exercice</h2>
+        <p>Complétez avec <strong>quel, quelle, quels, quelles</strong>.</p>
+        <ol>
+            <li>___ âge avez-vous ?</li>
+            <li>___ est votre prénom ?</li>
+            <li>À ___ heure partez-vous ?</li>
+            <li>___ belles fleurs !</li>
+            <li>___ films aimez-vous ?</li>
+        </ol>
+        <details>
+            <summary>Voir les réponses</summary>
+            <ul>
+                <li><strong>Quel</strong> âge (masculin singulier)</li>
+                <li><strong>Quel</strong> est votre prénom (prénom est masculin)</li>
+                <li>À <strong>quelle</strong> heure</li>
+                <li><strong>Quelles</strong> belles fleurs (féminin pluriel)</li>
+                <li><strong>Quels</strong> films</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>quel / quelle / quels / quelles : on accorde avec le nom</li>
+            <li>Question : Quel âge as-tu ? Quelle est ton adresse ?</li>
+            <li>Préposition avant quel : À quelle heure ? De quel pays ?</li>
+            <li>Exclamation : Quelle belle journée !</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
