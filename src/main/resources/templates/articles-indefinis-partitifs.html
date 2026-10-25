@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles indéfinis et partitifs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        section { margin-top: 2rem; }
+    </style>
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> Les articles indéfinis et partitifs</h1>
+        <p>Apprendre à utiliser <strong>un, une, des</strong> et <strong>du, de la, de l'</strong>.</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>1. Les articles indéfinis : un, une, des</h2>
+        <p>On utilise un article indéfini pour parler de quelqu'un ou de quelque chose <strong>que l'on peut compter</strong>, sans précision : « un livre » (n'importe quel livre).</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Article</th><th scope="col">Genre / nombre</th><th scope="col">Exemple</th><th scope="col">Traduction</th></tr></thead>
+            <tbody><tr><td>un</td><td>masculin singulier</td><td>un livre</td><td>a book</td></tr><tr><td>une</td><td>féminin singulier</td><td>une maison</td><td>a house</td></tr><tr><td>des</td><td>pluriel (masculin ou féminin)</td><td>des enfants</td><td>some children</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Les articles partitifs : du, de la, de l'</h2>
+        <p>On utilise un article partitif pour une quantité que l'<strong>on ne compte pas</strong> : de la nourriture, une boisson, une matière, un sentiment. On parle d'une partie (« un peu de »).</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Article</th><th scope="col">Quand l'utiliser ?</th><th scope="col">Exemple</th><th scope="col">Traduction</th></tr></thead>
+            <tbody><tr><td>du</td><td>masculin singulier</td><td>Je mange du pain.</td><td>I eat (some) bread.</td></tr><tr><td>de la</td><td>féminin singulier</td><td>Je bois de la limonade.</td><td>I drink (some) lemonade.</td></tr><tr><td>de l'</td><td>devant une voyelle ou un h muet</td><td>Tu bois de l'eau.</td><td>You drink (some) water.</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. Exemples avec des phrases</h2>
+        <p><span aria-hidden="true">📌</span> Nous avons <strong>un</strong> chien et <strong>des</strong> poissons.<br>→ We have a dog and (some) fish.</p>
+        <p><span aria-hidden="true">📌</span> Elle achète <strong>une</strong> pomme.<br>→ She buys an apple.</p>
+        <p><span aria-hidden="true">📌</span> Il mange <strong>du</strong> fromage avec <strong>de la</strong> salade.<br>→ He eats (some) cheese with (some) salad.</p>
+        <p><span aria-hidden="true">📌</span> Vous avez <strong>de l'</strong>argent ?<br>→ Do you have (some) money?</p>
+    </section>
+
+    <section>
+        <h2>4. Compter ou ne pas compter ?</h2>
+        <p>Pour choisir, posez-vous la question : « Puis-je compter ? »</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">On peut compter → indéfini</th><th scope="col">On ne peut pas compter → partitif</th></tr></thead>
+            <tbody><tr><td>un café (une tasse)</td><td>du café (la boisson)</td></tr><tr><td>une pomme</td><td>de la confiture</td></tr><tr><td>des légumes</td><td>de l'eau</td></tr><tr><td>un ami</td><td>du courage, de la patience</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>5. Attention : la négation et les quantités</h2>
+        <p>Après une <strong>négation</strong> (ne… pas, ne… plus), <strong>un, une, des, du, de la, de l'</strong> deviennent <strong>de</strong> (ou <strong>d'</strong> devant une voyelle).</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Phrase affirmative</th><th scope="col">Phrase négative</th></tr></thead>
+            <tbody><tr><td>J'ai <strong>une</strong> voiture.</td><td>Je n'ai pas <strong>de</strong> voiture.</td></tr><tr><td>Il mange <strong>du</strong> pain.</td><td>Il ne mange pas <strong>de</strong> pain.</td></tr><tr><td>Elle a <strong>des</strong> amis.</td><td>Elle n'a pas <strong>d'</strong>amis.</td></tr></tbody>
+        </table>
+        <p>On utilise aussi <strong>de</strong> après les mots de quantité : <em>beaucoup de</em> monde, <em>un peu de</em> sucre, <em>trop de</em> bruit, <em>assez de</em> temps.</p>
+        <div class="alert alert-warning"><strong>Attention :</strong> avec le verbe <em>être</em>, l'article ne change pas : « Ce n'est pas <strong>un</strong> chien, c'est <strong>un</strong> loup. »</div>
+    </section>
+
+    <section>
+        <h2>Petit exercice</h2>
+        <p>Complétez avec : <strong>un, une, des, du, de la, de l', de, d'</strong></p>
+        <ol>
+            <li>Il y a ___ chat dans le jardin.</li>
+            <li>Il y a ___ eau dans la bouteille.</li>
+            <li>Nous n'avons pas ___ pain.</li>
+            <li>Elle a ___ amies à Lyon.</li>
+            <li>Tu manges ___ viande ?</li>
+        </ol>
+        <details>
+            <summary>Voir les réponses</summary>
+            <ul>
+                <li><strong>un</strong> chat</li>
+                <li><strong>de l'</strong>eau</li>
+                <li><strong>de</strong> pain</li>
+                <li><strong>des</strong> amies</li>
+                <li><strong>de la</strong> viande</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>un, une, des → on peut compter</li>
+            <li>du, de la, de l' → on ne peut pas compter</li>
+            <li>Après une négation ou une quantité : <strong>de</strong> ou <strong>d'</strong></li>
+            <li>Avec <em>être</em> : l'article ne change pas</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
