@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoms interrogatifs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        section { margin-top: 2rem; }
+    </style>
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> Les pronoms interrogatifs</h1>
+        <p>Poser une question avec <strong>qui, que, quoi, qu'est-ce que, qu'est-ce qui, lequel</strong>.</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>1. À quoi servent-ils ?</h2>
+        <p>Un pronom interrogatif remplace un nom dans une question : on demande <strong>qui</strong> (une personne), <strong>quoi</strong> (une chose) ou <strong>lequel</strong> (un choix).</p>
+    </section>
+
+    <section>
+        <h2>2. Poser une question sur une personne : qui</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Fonction</th><th scope="col">Forme</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td>sujet</td><td>Qui / Qui est-ce qui</td><td><strong>Qui</strong> parle ? / <strong>Qui est-ce qui</strong> parle ?</td></tr><tr><td>objet</td><td>Qui est-ce que / Qui + inversion</td><td><strong>Qui est-ce que</strong> tu vois ? / <strong>Qui</strong> vois-tu ?</td></tr><tr><td>après une préposition</td><td>préposition + qui</td><td><strong>À qui</strong> parles-tu ? <strong>Avec qui</strong> habitez-vous ?</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. Poser une question sur une chose : que, quoi</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Fonction</th><th scope="col">Forme</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td>sujet</td><td>Qu'est-ce qui</td><td><strong>Qu'est-ce qui</strong> se passe ?</td></tr><tr><td>objet</td><td>Qu'est-ce que / Que + inversion</td><td><strong>Qu'est-ce que</strong> tu fais ? / <strong>Que</strong> fais-tu ?</td></tr><tr><td>après une préposition</td><td>préposition + quoi</td><td><strong>De quoi</strong> parlez-vous ? <strong>Avec quoi</strong> écris-tu ?</td></tr></tbody>
+        </table>
+        <p><span aria-hidden="true">💡</span> <strong>Pour retenir :</strong> « qui » = personne, « que / quoi » = chose. Dans « qu'est-ce <strong>qui</strong> », on parle du sujet ; dans « qu'est-ce <strong>que</strong> », on parle de l'objet.</p>
+    </section>
+
+    <section>
+        <h2>4. Demander de choisir : lequel, laquelle, lesquels, lesquelles</h2>
+        <p>Ces pronoms remplacent « quel + nom » : on les accorde avec le nom qu'ils remplacent.</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col"></th><th scope="col">Singulier</th><th scope="col">Pluriel</th></tr></thead>
+            <tbody><tr><td>Masculin</td><td>lequel</td><td>lesquels</td></tr><tr><td>Féminin</td><td>laquelle</td><td>lesquelles</td></tr></tbody>
+        </table>
+        <p><span aria-hidden="true">📌</span> Voici deux livres : <strong>lequel</strong> préfères-tu ?<br>→ Which one do you prefer?</p>
+        <p><span aria-hidden="true">📌</span> Voici deux robes : <strong>laquelle</strong> préfères-tu ?<br>→ Which one do you prefer?</p>
+        <p><span aria-hidden="true">📌</span> Ils ont plusieurs chiens : <strong>lesquels</strong> sont à toi ?<br>→ Which ones are yours?</p>
+        <p>Après <em>à</em> et <em>de</em>, ils se contractent au masculin et au pluriel : <em>auquel, auxquels, auxquelles</em> ; <em>duquel, desquels, desquelles</em>. Au féminin singulier : <em>à laquelle, de laquelle</em>.</p>
+    </section>
+
+    <section>
+        <h2>5. Adjectif ou pronom ?</h2>
+        <p>« Quel » est suivi d'un nom (<em>Quel livre ?</em>), « lequel » le remplace (<em>Lequel ?</em>).</p>
+        <p><span aria-hidden="true">📌</span> <strong>Quel</strong> livre veux-tu ?<br>→ Which book do you want?</p>
+        <p><span aria-hidden="true">📌</span> <strong>Lequel</strong> veux-tu ?<br>→ Which one do you want?</p>
+    </section>
+
+    <section>
+        <h2>Petit exercice</h2>
+        <p>Complétez avec <strong>qui, que, quoi, qu'est-ce qui, qu'est-ce que, lequel, laquelle</strong>.</p>
+        <ol>
+            <li>___ parle au téléphone ? (une personne)</li>
+            <li>___ tu fais ce soir ?</li>
+            <li>À ___ penses-tu ? (à une chose)</li>
+            <li>___ se passe ?</li>
+            <li>Voici deux robes : ___ préfères-tu ?</li>
+        </ol>
+        <details>
+            <summary>Voir les réponses</summary>
+            <ul>
+                <li><strong>Qui</strong> parle</li>
+                <li><strong>Qu'est-ce que</strong> tu fais (ou <strong>Que</strong> fais-tu)</li>
+                <li>À <strong>quoi</strong> penses-tu</li>
+                <li><strong>Qu'est-ce qui</strong> se passe</li>
+                <li><strong>laquelle</strong> préfères-tu</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>qui = personne ; que / quoi = chose</li>
+            <li>qu'est-ce qui = sujet ; qu'est-ce que = objet</li>
+            <li>Après une préposition : à qui, avec qui, de quoi</li>
+            <li>lequel / laquelle / lesquels / lesquelles pour choisir</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types et formes de phrases</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        section { margin-top: 2rem; }
+    </style>
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">📘</span> Les types et les formes de phrases</h1>
+        <p>Savoir si une phrase <strong>affirme, interroge, ordonne ou s'exclame</strong> — et si elle est <strong>affirmative ou négative</strong>.</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>1. Les quatre types de phrases</h2>
+        <p>Chaque phrase a une fonction : on peut raconter, poser une question, donner un ordre ou exprimer une émotion.</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Type</th><th scope="col">À quoi sert-elle ?</th><th scope="col">Ponctuation</th><th scope="col">Exemple</th></tr></thead>
+            <tbody><tr><td>déclarative</td><td>donner une information</td><td>point (.)</td><td>Il pleut aujourd'hui.</td></tr><tr><td>interrogative</td><td>poser une question</td><td>point d'interrogation (?)</td><td>Où habitez-vous ?</td></tr><tr><td>impérative</td><td>donner un ordre, un conseil, une consigne</td><td>point (.) ou point d'exclamation (!)</td><td>Ferme la porte, s'il te plaît.</td></tr><tr><td>exclamative</td><td>exprimer une émotion (joie, surprise, colère)</td><td>point d'exclamation (!)</td><td>Quelle belle journée !</td></tr></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Comment reconnaître le type ?</h2>
+        <ul>
+            <li><strong>Déclarative</strong> : on pourrait ajouter « C'est vrai ». C'est la phrase la plus courante.</li>
+            <li><strong>Interrogative</strong> : on attend une réponse (<em>Tu viens ? Est-ce que tu viens ? Viens-tu ?</em>).</li>
+            <li><strong>Impérative</strong> : le verbe est à l'impératif, sans sujet (<em>Viens ! Écoutez !</em>).</li>
+            <li><strong>Exclamative</strong> : elle commence souvent par <em>quel, comme, que</em> (<em>Comme il fait chaud !</em>).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Les deux formes : affirmative et négative</h2>
+        <p>Chaque type de phrase peut être à la forme <strong>affirmative</strong> ou à la forme <strong>négative</strong> (avec <em>ne… pas</em>, <em>ne… jamais</em>…).</p>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary"><tr><th scope="col">Type</th><th scope="col">Forme affirmative</th><th scope="col">Forme négative</th></tr></thead>
+            <tbody><tr><td>déclarative</td><td>Je mange de la viande.</td><td>Je ne mange pas de viande.</td></tr><tr><td>interrogative</td><td>Tu viens ?</td><td>Tu ne viens pas ?</td></tr><tr><td>impérative</td><td>Ferme la porte.</td><td>Ne ferme pas la porte.</td></tr><tr><td>exclamative</td><td>Quel beau film !</td><td>Quel film ennuyeux ! (pas de forme négative simple)</td></tr></tbody>
+        </table>
+        <p>Attention : la forme négative est une <strong>forme</strong>, pas un type. « Il ne vient pas. » est une phrase déclarative à la forme négative.</p>
+    </section>
+
+    <section>
+        <h2>4. La forme passive</h2>
+        <p>On rencontre aussi la forme <strong>passive</strong> (« Le gâteau est mangé par les enfants. »). Elle se travaille plus tard, au niveau B1 : voir la leçon « La voix passive ».</p>
+    </section>
+
+    <section>
+        <h2>Petit exercice</h2>
+        <p>Quel est le type de chaque phrase ? (déclarative, interrogative, impérative, exclamative)</p>
+        <ol>
+            <li>Nous habitons à Lyon.</li>
+            <li>Quelle chance !</li>
+            <li>Parlez plus lentement, s'il vous plaît.</li>
+            <li>Avez-vous faim ?</li>
+            <li>Il ne vient pas demain.</li>
+        </ol>
+        <details>
+            <summary>Voir les réponses</summary>
+            <ul>
+                <li><strong>déclarative</strong></li>
+                <li><strong>exclamative</strong></li>
+                <li><strong>impérative</strong></li>
+                <li><strong>interrogative</strong></li>
+                <li><strong>déclarative</strong>, à la forme négative</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>4 types : déclarative, interrogative, impérative, exclamative</li>
+            <li>2 formes : affirmative et négative</li>
+            <li>La ponctuation aide à reconnaître le type : . ? !</li>
+            <li>Le type dit à quoi sert la phrase ; la forme dit si elle est affirmative ou négative</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
