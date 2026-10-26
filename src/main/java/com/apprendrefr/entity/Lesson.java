@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 //import lombok.Data;
 import lombok.*;
+import com.apprendrefr.util.LessonIcons;
 import java.time.LocalDateTime;
 
 @Entity
@@ -31,6 +32,12 @@ public class Lesson {
     private String audioUrl;
     @Column(updatable = false)
     private LocalDateTime createdAt;
+
+    /** Icône affichée à côté du titre (calculée d'après le titre, jamais enregistrée en base). */
+    @Transient
+    public String getIcon() {
+        return LessonIcons.forTitle(title);
+    }
 
     @PrePersist
     protected void onCreate() {

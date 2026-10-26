@@ -9,7 +9,7 @@
 
 <main id="main-content" class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 th:text="${lesson.title}"></h1>
+        <h1><span aria-hidden="true" th:text="${lesson.icon}"></span> <span th:text="${lesson.title}"></span></h1>
         <a th:href="@{/lesson/{id}(id=${lesson.id})}" class="btn btn-secondary">
             ← Retour à la leçon
         </a>
