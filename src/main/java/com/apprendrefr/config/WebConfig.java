@@ -26,7 +26,9 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations(location)
-                .setCachePeriod(0);
+                // Le navigateur revérifie à chaque fois (réponse 304 légère si le fichier n'a pas changé) :
+                // un fichier remplacé est visible aussitôt, sans retélécharger les images à chaque page.
+                .setCacheControl(CacheControl.noCache());
 
         // Scripts, styles et fichiers de l'application : le navigateur doit revérifier à chaque fois
         // (réponse 304 très légère si rien n'a changé). Sinon, un ancien JS reste en mémoire 30 jours
