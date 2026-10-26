@@ -42,7 +42,10 @@ class SeoIntegrationTest {
         mockMvc.perform(get("/sitemap.xml"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("<urlset")))
-                .andExpect(content().string(containsString("/supports-de-cours</loc>")));
+                .andExpect(content().string(containsString("/supports-de-cours</loc>")))
+                // adresses avec accent : encodées (/lesPrépositions -> /lesPr%C3%A9positions)
+                .andExpect(content().string(containsString("/lesPr%C3%A9positions</loc>")))
+                .andExpect(content().string(containsString("/negationApprofondie</loc>")));
     }
 
     /** Chaque page du sitemap doit répondre 200 sans être connecté, sinon le sitemap est faux. */

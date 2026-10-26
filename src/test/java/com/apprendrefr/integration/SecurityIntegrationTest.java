@@ -1,6 +1,8 @@
 package com.apprendrefr.integration;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,13 +28,27 @@ class SecurityIntegrationTest {
         mockMvc.perform(get("/about")).andExpect(status().isOk());
     }
 
-    @Test
-    void protectedPages_redirectToLogin_whenNotAuthenticated() throws Exception {
-        mockMvc.perform(get("/lessons"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrlPattern("**/login"));
+    /** Consultation ouverte à tous : cours, quiz, thèmes, conjugueur, test de niveau… */
+    @ParameterizedTest
+    @ValueSource(strings = {"/lessons", "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement",
+            "/supports-de-cours", "/conjugueur", "/testEval", "/themes", "/quiz/drag-drop?recherche=Test",
+            "/negationApprofondie", "/typesDePhrases", "/LeSubjonctif", "/AuCafé", "/laFrance"})
+    void contentPages_areOpenWithoutAccount(String path) throws Exception {
+        mockMvc.perform(get(path)).andExpect(status().isOk());
+    }
 
-        mockMvc.perform(get("/quizzes"))
+    @Test
+    void unknownQuiz_withoutAccount_goesBackToTheCourseList() throws Exception {
+        mockMvc.perform(get("/quiz/{id}", 999999999L))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/supports-de-cours"));
+    }
+
+    /** Enregistrer ou consulter ses résultats demande toujours un compte. */
+    @ParameterizedTest
+    @ValueSource(strings = {"/quizzes", "/mes-resultats", "/exercise/my-results", "/quiz/my-results", "/dashboard"})
+    void personalPages_stillRedirectToLogin_whenNotAuthenticated(String path) throws Exception {
+        mockMvc.perform(get(path))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrlPattern("**/login"));
     }

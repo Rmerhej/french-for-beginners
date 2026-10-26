@@ -115,6 +115,11 @@ public class StaticPagesConfig implements WebMvcConfigurer {
             Map.entry("/adverbesApprofondis", "adverbesApprofondis")
     );
 
+    /** Adresses de toutes ces pages (utilisées par la sécurité et le plan du site : consultation sans compte). */
+    public static java.util.Set<String> paths() {
+        return PAGES.keySet();
+    }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         PAGES.forEach((url, template) -> registry.addViewController(url).setViewName(template));

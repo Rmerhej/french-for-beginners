@@ -60,6 +60,29 @@ public class SecurityConfig {
         return configured;
     }
 
+    /** Pages de consultation (méthode GET) accessibles sans compte, en plus des pages de StaticPagesConfig. */
+    private static final String[] OPEN_GET_PAGES = {
+            "/conjugueur", "/supports-de-cours", "/testEval",
+            "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement", "/lessons",
+            "/themes/**",
+            // Quiz : seulement les numéros (« /quiz/my-results » reste réservé aux comptes)
+            "/quiz/drag-drop", "/quiz/{id:\\d+}",
+            // La France : QCM et quiz
+            "/laFrance", "/principesEtValeursQCM", "/principesEtValeursQUIZ",
+            "/systemeInstEtPolitiqueQCM", "/systemeInstEtPolitiqueQUIZ",
+            "/droitsEtDevoirsQCM", "/droitsEtDevoirsQUIZ", "/histoireGeoCultureQCM", "/histoireGeoCultureQUIZ",
+            "/vivreDsSocieteFQCM", "/vivreDsSocieteFQUIZ",
+            // Leçons de préparation et leurs quiz
+            "/preparation-list-index", "/preparation-quiz-index", "/togoToAuBureu", "/togoToAuBureuQuiz",
+            "/AuCafé", "/AuTéléphone", "/LaVieQuotidienne", "/LeTourisme", "/LesRenseignements", "/AutourDeBébé",
+            "/laSanté", "/LesRelationsHumaines", "/LesTâchesDomestiques", "/LePatrimoine", "/LImmobiier",
+            "/LesLieux", "/lesgens", "/lesport", "/entreprise", "/bricolage", "/ville", "/laFac", "/meteo",
+            "/AuCaféQuiz", "/AuTéléphoneQuiz", "/LaVieQuotidienneQuiz", "/LeTourismeQuiz", "/LesRenseignementsQuiz",
+            "/AutourdeBebeQuiz", "/laSanteQuiz", "/lesRelationsHumainesQuiz", "/LesTâchesDomestiquesQuiz",
+            "/LePatrimoineQuiz", "/LImmobilierQuiz", "/LesLieuxQuiz", "/lesgensquiz", "/lesportquiz",
+            "/entrepriseQuiz", "/bricolageQuiz", "/meteoQuiz", "/villeQuiz", "/facQuiz"
+    };
+
     @Bean
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
@@ -105,13 +128,18 @@ public class SecurityConfig {
                                 "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-detail", "/conjugaison", "/cultureFrancaise",
                       "/LesArticlesDefinis","/AdjectifsQualificatifs","/PronomsPossessifesEtDemonstratifs","/LesAuxiliares","/verbesPresent",
                                 "/impératif","/passéComposé","/futurSimple","/Limmobilier").permitAll()
+                        // 2b. Consultation ouverte à tous : cours, quiz, QCM, conjugueur, thèmes, test de niveau.
+                        // Seul l'enregistrement (scores, niveau, résultats) demande un compte : ces adresses
+                        // restent protégées par « anyRequest().authenticated() » plus bas.
+                        .requestMatchers(HttpMethod.GET, StaticPagesConfig.paths().toArray(String[]::new)).permitAll()
+                        .requestMatchers(HttpMethod.GET, OPEN_GET_PAGES).permitAll()
                         .requestMatchers("/api/upload/**").hasRole("ADMIN")
                         // 3. Règles Administration (La règle spécifique avant la générale)
 
                         .requestMatchers("/admin/**").hasRole("ADMIN")
 
                         // 4. Règles Authentification
-                        .requestMatchers("/quizzes", "/lessons").authenticated()
+                        .requestMatchers("/quizzes").authenticated()
                         .requestMatchers(HttpMethod.POST, "/exercise/submit/**").authenticated()
 
                         // 5. Tout le reste

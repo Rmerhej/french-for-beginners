@@ -56,6 +56,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Présent seulement pour un utilisateur connecté : dragAndDrop.js l'utilise pour proposer l'étape suivante -->
 <a id="quiz-next" hidden sec:authorize="isAuthenticated()" th:href="@{/}"></a>
+<!-- Sans compte : on renvoie vers la liste des cours -->
+<a id="quiz-next" hidden sec:authorize="isAnonymous()" th:href="@{/supports-de-cours}"></a>
 <script th:src="@{/js/dragAndDrop.js}"></script>
 </body>
 </html>

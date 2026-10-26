@@ -53,7 +53,7 @@ public class QuizController {
             model.addAttribute("correctAnswers", quiz.getCorrectAnswers().split(","));
             return "quiz";
         }
-        return "redirect:/quizzes";
+        return "redirect:/supports-de-cours";
     }
 
 
