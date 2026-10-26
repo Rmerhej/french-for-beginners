@@ -43,6 +43,7 @@ class VocabularyTtsIntegrationTest {
 
     private void word(Lesson lesson, String french, String audioUrl) {
         Vocabulary v = new Vocabulary();
+        v.setExampleSentence("Voici " + french + ".");
         v.setFrenchWord(french);
         v.setEnglishTranslation("test");
         v.setAudioUrl(audioUrl);
@@ -70,5 +71,16 @@ class VocabularyTtsIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("btn-play")))
                 .andExpect(content().string(not(containsString("btn-tts"))));
+    }
+
+    @Test
+    void exampleSentence_hasItsOwnListenButton_evenWhenTheWordHasAudio() throws Exception {
+        Lesson lesson = lesson();
+        word(lesson, "table", "/uploads/audio/table.mp3");
+
+        mockMvc.perform(get("/lesson/{id}/vocabulary", lesson.getId()))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("btn-sentence")))
+                .andExpect(content().string(containsString("data-sentence=\"Voici table.\"")));
     }
 }

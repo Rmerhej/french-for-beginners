@@ -19,7 +19,7 @@ class VocabularyLotSqlFilesTest {
 
     private static final String Q = "'((?:[^']|'')*)'";
     private static final Pattern WORD = Pattern.compile(
-            "SELECT NULL, " + Q + ", " + Q + ", NULL, " + Q + ", l\\.`id`, " + Q + ", '' FROM `lessons` l");
+            "SELECT NULL, " + Q + ", " + Q + ", '(/images/vocab/[a-z0-9-]+\\.svg)', " + Q + ", l\\.`id`, " + Q + ", '' FROM `lessons` l");
     private static final Pattern LESSON = Pattern.compile(
             "SELECT NULL, '', '', NOW\\(6\\), NULL, " + Q + ", " + Q + " FROM DUAL");
 
@@ -47,10 +47,12 @@ class VocabularyLotSqlFilesTest {
         while (words.find()) {
             String english = words.group(1);
             String french = words.group(2);
-            String example = words.group(4);
+            String image = words.group(3);
+            String example = words.group(5);
+            assertTrue(Files.exists(Path.of("src/main/resources/static" + image)), "Image manquante : " + image);
             assertTrue(!french.isBlank() && french.length() <= 100, "Mot français invalide : " + french);
             assertTrue(!english.isBlank() && english.length() <= 100, "Traduction invalide : " + english);
-            assertTrue(words.group(3).length() <= 100, "Prononciation trop longue : " + french);
+            assertTrue(words.group(4).length() <= 100, "Prononciation trop longue : " + french);
             assertTrue(example.length() <= 500 && example.endsWith("."), "Exemple invalide : " + french);
             wordCount++;
         }

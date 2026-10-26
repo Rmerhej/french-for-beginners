@@ -1,6 +1,7 @@
 let currentAudio = null;
 let currentButton = null;
-let ttsButton = null;      // bouton « Écouter » (voix du navigateur) en cours de lecture
+let ttsButton = null;       // bouton (mot ou phrase) en cours de lecture avec la voix du navigateur
+let ttsIdleLabel = '';     // texte à remettre sur ce bouton quand la lecture s'arrête
 
 // Lecture à voix haute avec la voix française de l'appareil (aucun fichier audio nécessaire)
 function ttsAvailable() {
@@ -12,17 +13,18 @@ function stopTts() {
         window.speechSynthesis.cancel();
     }
     if (ttsButton) {
-        ttsButton.querySelector('span').textContent = 'Écouter';
+        ttsButton.querySelector('span').textContent = ttsIdleLabel;
         ttsButton = null;
     }
 }
 
-function speakWord(word, btn) {
-    if (!ttsAvailable() || !word) {
+// Lit un texte (mot ou phrase). btn : bouton qui passe en « Arrêter » pendant la lecture.
+function speakText(text, btn) {
+    if (!ttsAvailable() || !text) {
         return;
     }
     stopTts();
-    const u = new SpeechSynthesisUtterance(word);
+    const u = new SpeechSynthesisUtterance(text);
     u.lang = 'fr-FR';
     u.rate = 0.85;
     const french = window.speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
@@ -31,6 +33,7 @@ function speakWord(word, btn) {
     }
     if (btn) {
         ttsButton = btn;
+        ttsIdleLabel = btn.querySelector('span').textContent;
         btn.querySelector('span').textContent = 'Arrêter';
         const reset = () => { if (ttsButton === btn) { stopTts(); } };
         u.onend = reset;
@@ -39,22 +42,51 @@ function speakWord(word, btn) {
     window.speechSynthesis.speak(u);
 }
 
+function speakWord(word, btn) {
+    speakText(word, btn);
+}
+
+// Arrête le fichier audio en cours (avant de lire une phrase avec la voix du navigateur)
+function stopRecordedAudio() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        if (currentButton) {
+            resetButton(currentButton);
+        }
+        currentAudio = null;
+        currentButton = null;
+    }
+}
+
+function bindTtsButton(btn, textOf) {
+    btn.addEventListener('click', () => {
+        if (ttsButton === btn) {
+            stopTts();
+        } else {
+            stopRecordedAudio();
+            speakText(textOf(btn), btn);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Mots sans fichier audio : bouton « Écouter » affiché seulement si l'appareil sait lire à voix haute
+    // Boutons de voix du navigateur : affichés seulement si l'appareil sait lire à voix haute
     if (ttsAvailable()) {
+        // Mots sans fichier audio
         document.querySelectorAll('.btn-tts').forEach(btn => {
             const wrapper = btn.closest('.tts-wrapper');
             if (wrapper) {
                 wrapper.hidden = false;
             }
-            btn.addEventListener('click', () => {
-                if (ttsButton === btn) {
-                    stopTts();
-                } else {
-                    speakWord(btn.dataset.word, btn);
-                }
-            });
+            bindTtsButton(btn, b => b.dataset.word);
+        });
+        // Phrase utile (tous les mots, avec ou sans fichier audio)
+        document.querySelectorAll('.btn-sentence').forEach(btn => {
+            btn.hidden = false;
+            btn.classList.add('d-inline-flex');
+            bindTtsButton(btn, b => b.dataset.sentence);
         });
     }
 
