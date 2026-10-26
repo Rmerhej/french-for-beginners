@@ -102,7 +102,8 @@ function activateDropzone(zone) {
         const next = document.getElementById('quiz-next');
         if (next && zones.length > 0 && score === zones.length) {
             const link = document.createElement('a');
-            link.href = next.getAttribute('href').split('?')[0] + '#continuer-parcours';
+            const base = next.getAttribute('href').split('?')[0];
+            link.href = base === '/' ? base + '#continuer-parcours' : base;
             link.className = 'btn btn-success rounded-pill fw-bold mt-3';
             link.textContent = '🎉 Bravo ! Étape suivante ➜';
             document.getElementById('feedback-' + index).appendChild(link);

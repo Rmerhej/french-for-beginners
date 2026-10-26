@@ -77,7 +77,7 @@ class AuthenticationIntegrationTest {
 
     @Test
     void protectedPage_withoutAuth_redirectsToLogin() throws Exception {
-        mockMvc.perform(get("/lessons"))
+        mockMvc.perform(get("/mes-resultats"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrlPattern("**/login"));
     }

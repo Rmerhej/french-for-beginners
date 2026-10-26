@@ -4,6 +4,12 @@
   var csrf = null;          // { headerName, parameterName, token } reçu du serveur
   var noticeShown = false;
 
+  // true seulement si un compte est connecté (voir le pied de page) : sans compte, on s'entraîne librement
+  // mais rien n'est enregistré.
+  function logged() {
+    return window.FFB_AUTH === true;
+  }
+
   function findToken() {
     if (csrf && csrf.token) {
       return csrf;
@@ -46,7 +52,8 @@
     box.className = 'alert alert-info alert-dismissible fade show mx-auto mt-3';
     box.style.maxWidth = '820px';
     box.setAttribute('role', 'status');
-    box.innerHTML = '🔒 <a href="/login">Connectez-vous</a> pour enregistrer vos scores et suivre votre progression.' +
+    box.innerHTML = '💡 Vous vous entraînez sans compte : vos scores ne sont pas enregistrés. ' +
+      '<a href="/register">Créez un compte gratuit</a> (ou <a href="/login">connectez-vous</a>) pour suivre votre progression.' +
       '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>';
     var host = document.querySelector('main') || document.body;
     host.insertBefore(box, host.firstChild);
@@ -76,6 +83,7 @@
 
   // Envoie la réponse choisie ; le serveur la corrige et l'enregistre.
   window.sendScore = function (exerciseId, userAnswer) {
+    if (!logged()) { showLoginNotice(); return Promise.resolve(null); }
     return ensureToken().then(function () { return doSendScore(exerciseId, userAnswer); });
   };
 
@@ -109,6 +117,7 @@
 
   // Quiz glisser-déposer : answers = réponses séparées par « | », dans l'ordre des zones.
   window.sendQuizScore = function (quizId, answers) {
+    if (!logged()) { showLoginNotice(); return Promise.resolve(null); }
     return ensureToken().then(function () { return doSendQuizScore(quizId, answers); });
   };
 
@@ -137,6 +146,7 @@
 
   // Test de positionnement : retient le niveau (A1 à B2) du compte connecté. Résout true si enregistré.
   window.sendPlacementLevel = function (level) {
+    if (!logged()) { showLoginNotice(); return Promise.resolve(false); }
     return ensureToken().then(function () {
       var token = findToken();
       var body = new URLSearchParams();
@@ -161,6 +171,7 @@
   // Au chargement : récupère les exercices déjà réussis (et le jeton de sécurité).
   document.addEventListener('DOMContentLoaded', function () {
     if (exerciseContainers().length === 0) return;
+    if (!logged()) { showLoginNotice(); return; }
     fetch('/exercise/my-results', { credentials: 'same-origin', headers: { 'Accept': 'application/json' } })
       .then(jsonOrNull)
       .then(function (data) {

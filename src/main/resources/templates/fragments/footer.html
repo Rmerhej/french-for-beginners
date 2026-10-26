@@ -41,9 +41,9 @@
                 <div class="d-flex gap-3">
                     <a th:href="@{/secourscatholique}" class="text-light text-decoration-none" target="_blank">Site
                         du secours catholique</a>
-                   <!-- <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
                     <a href="#" class="text-light"><i class="bi bi-instagram fs-4" aria-hidden="true"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4" aria-hidden="true"></i></a>-->
+                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -60,6 +60,8 @@
         </div>
     </div>
 
+    <!-- Indique à score-sender.js si un compte est connecté (sinon : on propose d'en créer un) -->
+    <script sec:authorize="isAuthenticated()">window.FFB_AUTH = true;</script>
     <script th:src="@{/js/score-sender.js}"></script>
     <script>
 
