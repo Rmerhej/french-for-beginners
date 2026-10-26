@@ -25,7 +25,7 @@ public class SeoController {
     static final List<String> PUBLIC_PAGES = List.of(
             "/", "/supports-de-cours", "/about", "/contact", "/rgpd", "/installer",
             "/prononciation", "/cultureFrancaise", "/themes", "/chiffresEtLettres", "/lesVerbes",
-            "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement", "/lessons", "/conjugueur", "/testEval");
+            "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement", "/lessons", "/conjugueur", "/conjugaison-par-niveau", "/testEval");
 
     private final String baseUrl;
     private final LessonService lessonService;
