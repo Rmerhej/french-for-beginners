@@ -8,6 +8,7 @@ import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.QuizService;
 import com.apprendrefr.service.ThemeService;
 import com.apprendrefr.util.AdminPaging;
+import com.apprendrefr.util.ThemeIcons;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -46,7 +49,15 @@ public class ThemeController {
     @GetMapping("/themes")
     public String listThemes(Model model) {
 
-        model.addAttribute("themes", themeService.findAll());
+        List<Theme> themes = themeService.findAll();
+        model.addAttribute("themes", themes);
+
+        // Une icône par leçon, choisie d'après son titre
+        Map<Long, String> icons = new HashMap<>();
+        for (Theme theme : themes) {
+            icons.put(theme.getId(), ThemeIcons.forTitle(theme.getTitle()));
+        }
+        model.addAttribute("icons", icons);
 
         return "themes";
     }
