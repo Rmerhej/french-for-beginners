@@ -1,0 +1,49 @@
+body{
+    background:#f8f9fa;
+}
+
+.lesson-header{
+    background:linear-gradient(90deg,#f95b8d,#f23f7b);
+    color:white;
+    padding:45px 20px;
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.lesson-header h1{
+    font-weight:bold;
+}
+
+.section-title{
+    margin-top:40px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.table th{
+    background:#f0f0f0;
+}
+
+.example{
+    margin-bottom:12px;
+}
+
+.translation{
+    color:#777;
+    font-size:.9rem;
+    margin-left:20px;
+}
+
+.resume{
+    background:#fff5f8;
+    border-left:5px solid #f23f7b;
+    padding:20px;
+    border-radius:5px;
+}
+
+footer{
+    background:#212529;
+    color:white;
+    padding:40px 0;
+    margin-top:60px;
+}

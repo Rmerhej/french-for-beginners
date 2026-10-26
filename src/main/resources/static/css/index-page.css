@@ -1,0 +1,390 @@
+/* ============================================================
+   BODY
+   ============================================================ */
+
+body {
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        1fr
+        auto;
+
+    min-height: 100vh;
+
+    background-color:
+        var(--bs-body-bg) !important;
+
+    color:
+        var(--bs-body-color) !important;
+}
+
+
+/* ============================================================
+   CARTES DES PARCOURS
+   ============================================================ */
+
+.parcours-card {
+
+    border-radius: 16px;
+
+    color: var(--bs-body-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+/* ------------------------------------------------------------
+   Parcours 1 - Bleu
+   ------------------------------------------------------------ */
+
+.parcours-card-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f9fa 0%,
+            #ffffff 100%
+        );
+
+    border-left:
+        5px solid #0d6efd !important;
+}
+
+
+/* ------------------------------------------------------------
+   Parcours 2 - Jaune
+   ------------------------------------------------------------ */
+
+.parcours-card-warning {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5 0%,
+            #ffffff 100%
+        );
+
+    border-left:
+        5px solid #ffc107 !important;
+}
+
+
+/* ------------------------------------------------------------
+   Parcours 3 - Vert
+   ------------------------------------------------------------ */
+
+.parcours-card-success {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4fbf7 0%,
+            #ffffff 100%
+        );
+
+    border-left:
+        5px solid #198754 !important;
+}
+
+
+/* ============================================================
+   TEXTE DES CARTES
+   ============================================================ */
+
+.parcours-card h5 {
+
+    color:
+        var(--bs-body-color);
+
+}
+
+
+.parcours-list {
+
+    color:
+        var(--bs-secondary-color);
+
+}
+
+
+.parcours-list strong {
+
+    color:
+        var(--bs-body-color);
+
+}
+
+
+/* ============================================================
+   BADGES DE NIVEAU
+   ============================================================ */
+
+.level-badge {
+
+    padding:
+        0.35rem 0.65rem;
+
+    font-weight:
+        600;
+
+}
+
+
+/* Bleu */
+
+.level-badge-primary {
+
+    color:
+        #0d6efd;
+
+    background-color:
+        rgba(13, 110, 253, 0.08);
+
+    border:
+        1px solid rgba(13, 110, 253, 0.35);
+
+}
+
+
+/* Jaune */
+
+.level-badge-warning {
+
+    color:
+        #ffc107;
+
+    background-color:
+        rgba(255, 193, 7, 0.10);
+
+    border:
+        1px solid rgba(255, 193, 7, 0.45);
+
+}
+
+
+/* Vert */
+
+.level-badge-success {
+
+    color:
+        #198754;
+
+    background-color:
+        rgba(25, 135, 84, 0.08);
+
+    border:
+        1px solid rgba(25, 135, 84, 0.35);
+
+}
+
+
+/* ============================================================
+   CARTE TEST
+   ============================================================ */
+
+.test-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd 0%,
+            #0a58ca 100%
+        );
+
+    border-radius:
+        20px;
+
+}
+
+
+/* ============================================================
+   CARTE CONNEXION
+   ============================================================ */
+
+.login-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6f42c1,
+            #9f7aea
+        );
+
+}
+
+
+/* ============================================================
+   CARTE ENVIRONNEMENT DE DÉMONSTRATION
+   ============================================================ */
+
+.demo-card {
+
+    border-radius:
+        16px;
+
+    background-color:
+        var(--bs-tertiary-bg);
+
+    border:
+        1px solid var(--bs-border-color) !important;
+
+    color:
+        var(--bs-body-color);
+
+}
+
+
+/* Ligne supérieure de la mention IA */
+
+.demo-footer-text {
+
+    border-color:
+        var(--bs-border-color) !important;
+
+}
+
+
+/* ============================================================
+   MODE SOMBRE
+   ============================================================ */
+
+[data-bs-theme="dark"] .parcours-card-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b2633 0%,
+            #212529 100%
+        );
+
+}
+
+
+[data-bs-theme="dark"] .parcours-card-warning {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2a281f 0%,
+            #212529 100%
+        );
+
+}
+
+
+[data-bs-theme="dark"] .parcours-card-success {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1c2a23 0%,
+            #212529 100%
+        );
+
+}
+
+
+/* Texte des cartes en mode sombre */
+
+[data-bs-theme="dark"] .parcours-card h5 {
+
+    color:
+        #f8f9fa;
+
+}
+
+
+[data-bs-theme="dark"] .parcours-list {
+
+    color:
+        #adb5bd;
+
+}
+
+
+[data-bs-theme="dark"] .parcours-list strong {
+
+    color:
+        #dee2e6;
+
+}
+
+
+/* Badges en mode sombre */
+
+[data-bs-theme="dark"] .level-badge-primary {
+
+    color:
+        #6ea8fe;
+
+    background-color:
+        rgba(13, 110, 253, 0.15);
+
+}
+
+
+[data-bs-theme="dark"] .level-badge-warning {
+
+    color:
+        #ffda6a;
+
+    background-color:
+        rgba(255, 193, 7, 0.15);
+
+}
+
+
+[data-bs-theme="dark"] .level-badge-success {
+
+    color:
+        #75b798;
+
+    background-color:
+        rgba(25, 135, 84, 0.15);
+
+}
+
+
+/* Carte démonstration en mode sombre */
+
+[data-bs-theme="dark"] .demo-card {
+
+    background-color:
+        #212529;
+
+    border-color:
+        #495057 !important;
+
+}
+
+
+[data-bs-theme="dark"] .demo-card .text-secondary {
+
+    color:
+        #adb5bd !important;
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 991.98px) {
+
+    .parcours-card .text-lg-end {
+
+        margin-top:
+            1rem;
+
+        text-align:
+            left !important;
+
+    }
+
+}
