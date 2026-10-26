@@ -38,6 +38,13 @@ class SeoIntegrationTest {
     }
 
     @Test
+    void googleVerificationFile_isPublic() throws Exception {
+        mockMvc.perform(get("/googleb831499c732fc7f6.html"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("google-site-verification: googleb831499c732fc7f6.html")));
+    }
+
+    @Test
     void sitemap_isPublicXml() throws Exception {
         mockMvc.perform(get("/sitemap.xml"))
                 .andExpect(status().isOk())
