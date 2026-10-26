@@ -42,6 +42,8 @@ public final class LessonIcons {
         add("nature", "🌳");
         add("ecole|etude", "🎓");
         add("musique", "🎵");
+        add("boisson", "🥤");
+        add("mairie|prefecture|demarche|administratif", "🏛️");
     }
 
     private LessonIcons() {

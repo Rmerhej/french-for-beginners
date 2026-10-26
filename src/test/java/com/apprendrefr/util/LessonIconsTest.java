@@ -23,7 +23,11 @@ class LessonIconsTest {
             "LA MAISON|🏠",
             "LES OBJETS|🎒",
             "LES PARTIES DU CORPS|🧍",
-            "LES ANIMAUX|🐾"
+            "LES ANIMAUX|🐾",
+            "LES ALIMENTS DE BASE|🍞",
+            "LES BOISSONS|🥤",
+            "À LA MAIRIE ET À LA PRÉFECTURE|🏛️",
+            "LE LOGEMENT ET LA LOCATION|🏠"
     })
     void eachVocabularyLessonGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, LessonIcons.forTitle(title));
