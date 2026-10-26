@@ -3,22 +3,7 @@
 
 <head th:replace="~{fragments/head :: head(title='Verbes réguliers')}"></head>
 
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-<style>
-
-    body{
-        font-family:"Segoe UI",system-ui,sans-serif;
-        line-height:1.7;
-    }
-
-    .hero{
-        background:linear-gradient(135deg,#667eea,#764ba2);
-        color:white;
-    }
-
-</style>
+<link rel="stylesheet" th:href="@{/css/verbes-reguliers-page.css}">
 <body>
 
 <a href="#main-content" class="visually-hidden-focusable">
@@ -613,7 +598,7 @@
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
 
 
 </body>

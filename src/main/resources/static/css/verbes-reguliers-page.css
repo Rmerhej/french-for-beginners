@@ -1,0 +1,9 @@
+body{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    line-height:1.7;
+}
+
+.hero{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+}

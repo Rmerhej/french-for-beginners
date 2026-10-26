@@ -5,18 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices Interactifs - Français Débutant</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <style>
-        .option { cursor: pointer; transition: all 0.3s; }
-        .option:hover { background-color: #f8f9fa; }
-        .correct { background-color: #d4edda !important; border-color: #198754; }
-        .incorrect { background-color: #f8d7da !important; border-color: #dc3545; }
-        .score { font-size: 1.5rem; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/exercises-options.css}">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -84,7 +76,7 @@
         <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     </div>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>

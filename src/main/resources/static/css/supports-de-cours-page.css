@@ -1,0 +1,3 @@
+/* Orange pour B1 (Bootstrap n'a pas de classe orange) */
+.text-bg-orange { background-color: #fd7e14; color: #000; }
+.alert-orange { background-color: rgba(253, 126, 20, .15); color: var(--bs-body-color); border: 0; }
