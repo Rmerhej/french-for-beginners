@@ -45,6 +45,13 @@ class SeoIntegrationTest {
     }
 
     @Test
+    void bingVerificationFile_isPublicXml() throws Exception {
+        mockMvc.perform(get("/BingSiteAuth.xml"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("DC557EF4AEAE21F9C130F045641572CE")));
+    }
+
+    @Test
     void sitemap_isPublicXml() throws Exception {
         mockMvc.perform(get("/sitemap.xml"))
                 .andExpect(status().isOk())
