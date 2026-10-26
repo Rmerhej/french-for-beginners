@@ -485,3 +485,7 @@ Correction:
 ---
 
 # Fin du document
+
+## Cache et compression Nginx
+
+Voir `deploy/nginx/README.md` : installation en 4 étapes, vérification, vidage du cache après un déploiement et retour en arrière.
