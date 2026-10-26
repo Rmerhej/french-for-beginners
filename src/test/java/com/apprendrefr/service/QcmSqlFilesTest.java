@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,7 +28,15 @@ class QcmSqlFilesTest {
 
     @Test
     void everyQcmHasItsAnswerAmongFourDistinctOptions() throws IOException {
-        String sql = Files.readString(Path.of("init-db/frenchdb_9_qcm_vocabulaire.sql"));
+        // tous les fichiers de QCM de vocabulaire (frenchdb_9_qcm_*.sql)
+        StringBuilder all = new StringBuilder();
+        try (Stream<Path> stream = Files.list(Path.of("init-db"))) {
+            for (Path file : stream.filter(p -> p.getFileName().toString().startsWith("frenchdb_9_qcm_"))
+                    .filter(p -> p.toString().endsWith(".sql")).sorted().toList()) {
+                all.append(Files.readString(file)).append('\n');
+            }
+        }
+        String sql = all.toString();
         Matcher m = ROW.matcher(sql);
         int checked = 0;
         while (m.find()) {
@@ -42,11 +51,11 @@ class QcmSqlFilesTest {
             assertTrue(explanation.length() <= 255, "Explication trop longue : " + question);
             checked++;
         }
-        assertEquals(66, checked);
+        assertTrue(checked >= 84, "Trop peu de QCM trouvés : " + checked);
         assertEquals(checked, sql.split("NOT EXISTS", -1).length - 1, "Chaque QCM doit être protégé contre les doublons");
         Set<String> titles = new HashSet<>();
         Matcher t = Pattern.compile("WHERE `lesson_title` = " + Q).matcher(sql);
         while (t.find()) titles.add(t.group(1));
-        assertEquals(11, titles.size());
+        assertTrue(titles.size() >= 14, "Trop peu de leçons couvertes : " + titles.size());
     }
 }
