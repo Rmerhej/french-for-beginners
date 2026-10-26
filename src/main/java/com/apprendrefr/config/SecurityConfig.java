@@ -62,7 +62,7 @@ public class SecurityConfig {
 
     /** Pages de consultation (méthode GET) accessibles sans compte, en plus des pages de StaticPagesConfig. */
     private static final String[] OPEN_GET_PAGES = {
-            "/conjugueur", "/supports-de-cours", "/testEval",
+            "/conjugueur", "/conjugaison-par-niveau", "/supports-de-cours", "/testEval",
             "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement", "/lessons",
             "/themes/**",
             // Quiz : seulement les numéros (« /quiz/my-results » reste réservé aux comptes)

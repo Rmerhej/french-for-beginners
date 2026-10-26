@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Conjugaison par niveau')}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content" class="container py-5" style="max-width: 1000px;">
+
+    <div class="text-center mb-5">
+        <div class="fs-1 mb-3" aria-hidden="true">🧭</div>
+        <h1 class="fw-bold mb-3">Conjugaison par niveau</h1>
+        <p class="lead text-secondary mx-auto" style="max-width: 760px;">
+            Quels temps apprendre, dans quel ordre ? Pour chaque niveau : les temps à connaître,
+            les cours avec leur quiz, et des verbes à conjuguer dans le conjugueur.
+        </p>
+        <p class="mb-0">
+            <a th:href="@{/conjugueur}" class="btn btn-outline-primary rounded-pill">🔤 Ouvrir le conjugueur</a>
+            <a th:href="@{/supports-de-cours}" class="btn btn-outline-secondary rounded-pill">📚 Tout le parcours</a>
+        </p>
+    </div>
+
+    <section th:each="n : ${niveaux}" class="mb-5" th:attr="aria-labelledby='niveau-' + ${n.code}">
+        <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+            <div class="card-body p-4">
+
+                <h2 th:id="'niveau-' + ${n.code}" class="h4 fw-bold mb-2">
+                    <span aria-hidden="true" th:text="${n.emoji}">🟢</span>
+                    <span th:class="|badge text-bg-${n.couleur} me-2|" th:text="${n.code}">A1</span>
+                    <span th:text="${n.verbe}">Construire</span>
+                </h2>
+                <p class="text-secondary mb-4">
+                    <strong>À connaître :</strong> <span th:text="${n.temps}">Le présent</span>
+                </p>
+
+                <h3 class="h6 fw-bold">Les cours de conjugaison</h3>
+                <ul class="list-group list-group-flush mb-4">
+                    <li th:each="e : ${n.etapes}"
+                        class="list-group-item d-flex flex-wrap align-items-center gap-2 px-0">
+                        <a th:href="@{${e.url}}" class="fw-semibold text-decoration-none flex-grow-1"
+                           th:text="${e.titre}">Le passé composé</a>
+                        <a th:href="@{/quiz/drag-drop(recherche=${e.quiz})}"
+                           class="btn btn-sm btn-outline-secondary">Quiz</a>
+                    </li>
+                    <li th:if="${#lists.isEmpty(n.etapes)}" class="list-group-item px-0 text-secondary">
+                        Aucun cours de conjugaison pour ce niveau.
+                    </li>
+                </ul>
+
+                <h3 class="h6 fw-bold">Verbes à conjuguer</h3>
+                <p class="d-flex flex-wrap gap-2 mb-0">
+                    <a th:each="v : ${n.verbes}" th:href="@{/conjugueur(verbe=${v})}"
+                       class="btn btn-sm btn-outline-primary rounded-pill" th:text="${v}">être</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

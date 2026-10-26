@@ -4,6 +4,7 @@ import com.apprendrefr.dto.ParcoursNiveau;
 import com.apprendrefr.dto.ParcoursNiveau.Bloc;
 import com.apprendrefr.dto.ParcoursNiveau.Etape;
 import com.apprendrefr.service.ParcoursService;
+import com.apprendrefr.util.ConjugationLevels;
 import com.apprendrefr.service.QuizScoreService;
 import com.apprendrefr.service.QuizService;
 import com.apprendrefr.service.QuizScoreService.Progress;
@@ -106,5 +107,30 @@ public class CourseController {
         model.addAttribute("progres", progres);
         model.addAttribute("progresNiveau", parNiveau);
         return "supports-de-cours";
+    }
+
+    /** Un niveau de la page « Conjugaison par niveau » : ses temps, ses étapes de conjugaison et des verbes à essayer. */
+    public record NiveauConjugaison(String code, String emoji, String verbe, String couleur, String temps,
+                                    List<Etape> etapes, List<String> verbes) {
+    }
+
+    @GetMapping("/conjugaison-par-niveau")
+    public String conjugaisonParNiveau(Model model) {
+        List<NiveauConjugaison> niveaux = new ArrayList<>();
+        for (ParcoursNiveau n : parcoursService.niveaux()) {
+            List<Etape> etapes = new ArrayList<>();
+            for (Bloc b : n.blocs()) {
+                for (Etape e : b.etapes()) {
+                    if ("C".equals(e.type())) {
+                        etapes.add(e);
+                    }
+                }
+            }
+            ConjugationLevels.Info info = ConjugationLevels.of(n.code());
+            niveaux.add(new NiveauConjugaison(n.code(), n.emoji(), n.verbe(), n.couleur(),
+                    info.temps(), etapes, info.verbes()));
+        }
+        model.addAttribute("niveaux", niveaux);
+        return "conjugaison-par-niveau";
     }
 }
