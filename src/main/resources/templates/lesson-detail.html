@@ -10,7 +10,7 @@
 
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
-            <h1 th:text="${lesson.title}"></h1>
+            <h1><span aria-hidden="true" th:text="${lesson.icon}"></span> <span th:text="${lesson.title}"></span></h1>
             <p th:text="${lesson.level} + ' • ' + ${lesson.category}"></p>
         </div>
 
