@@ -50,6 +50,11 @@ public final class LessonIcons {
         add("bain", "🛁");
         add("argent|prix", "💰");
         add("poste|banque", "🏦");
+        add("voyage|vacances", "✈️");
+        add("technologie|informatique", "💻");
+        add("adjectif", "🧑");
+        add("verbe", "🏃");
+        add("contraire", "↔️");
     }
 
     private LessonIcons() {
