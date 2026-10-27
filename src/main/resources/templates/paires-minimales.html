@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paires minimales : écouter la différence</title>
+    <meta name="description" content="Exercice d'écoute en français : comparez des mots proches (tu / tout, rue / roue, poisson / poison) pour entraîner votre oreille.">
+    <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/grammar-hero-sections.css}">
+</head>
+
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="hero py-5 text-center">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><span aria-hidden="true">👂</span> Paires minimales</h1>
+        <p>Des mots qui se ressemblent, mais qui ne se prononcent pas pareil : <strong>tu / tout, rue / roue, poisson / poison</strong>…</p>
+    </div>
+</header>
+<main id="main-content" class="container pb-5">
+
+    <section>
+        <h2>À quoi ça sert ?</h2>
+        <p>Une <strong>paire minimale</strong> est une paire de mots qui ne changent que par un seul son. Les écouter l'un après l'autre aide l'oreille à entendre la différence, et la bouche à la reproduire.</p>
+        <p>Cliquez sur <span aria-hidden="true">🔊</span> à côté de chaque mot pour l'écouter. Répétez à voix haute, plusieurs fois.</p>
+        <p class="say-unavailable alert alert-warning" hidden>Votre appareil ne sait pas lire à voix haute : les boutons d'écoute ne sont pas affichés. Essayez avec un autre navigateur (Chrome, Edge ou Safari).</p>
+        <p class="small text-secondary">La voix est une voix de synthèse : elle peut être moins naturelle qu'une personne. Écoutez plusieurs fois, et demandez à votre enseignante de vous montrer.</p>
+    </section>
+
+    <section id="jeu" class="say-required" hidden>
+        <h2><span aria-hidden="true">🎧</span> Jeu d'écoute</h2>
+        <p>Vous entendez un mot. Choisissez celui que vous avez entendu.</p>
+        <div class="card border-0 shadow-sm"><div class="card-body text-center p-4">
+            <p id="quiz-progress" class="text-secondary small mb-2" aria-live="polite"></p>
+            <button id="quiz-listen" type="button" class="btn btn-primary btn-lg mb-3"><i class="bi bi-volume-up-fill" aria-hidden="true"></i> Écouter le mot</button>
+            <div id="quiz-choices" class="d-flex flex-wrap justify-content-center gap-2 mb-3" role="group" aria-label="Choisissez le mot entendu"></div>
+            <p id="quiz-feedback" class="fw-semibold mb-3" role="status" aria-live="polite"></p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button id="quiz-next" type="button" class="btn btn-outline-primary" hidden>Mot suivant</button>
+                <button id="quiz-restart" type="button" class="btn btn-outline-secondary" hidden>Recommencer</button>
+            </div>
+        </div></div>
+    </section>
+
+    <section>
+        <h2>1. u / ou</h2>
+        <p>Le « u » se prononce avec les lèvres en avant, comme pour un « i ». Le « ou » se prononce avec les lèvres arrondies.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="tu,tout"><td><strong>tu</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tu" data-nosplit aria-label="Écouter : tu" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>tout</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tout" data-nosplit aria-label="Écouter : tout" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">you – all</td></tr>
+                <tr data-words="rue,roue"><td><strong>rue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="rue" data-nosplit aria-label="Écouter : rue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>roue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="roue" data-nosplit aria-label="Écouter : roue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">street – wheel</td></tr>
+                <tr data-words="dessus,dessous"><td><strong>dessus</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="dessus" data-nosplit aria-label="Écouter : dessus" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>dessous</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="dessous" data-nosplit aria-label="Écouter : dessous" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">above – below</td></tr>
+                <tr data-words="vu,vous"><td><strong>vu</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vu" data-nosplit aria-label="Écouter : vu" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vous</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vous" data-nosplit aria-label="Écouter : vous" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">seen – you</td></tr>
+                <tr data-words="du,doux"><td><strong>du</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="du" data-nosplit aria-label="Écouter : du" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>doux</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="doux" data-nosplit aria-label="Écouter : doux" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">of the – soft</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>2. é / è</h2>
+        <p>Le « é » est fermé (bouche presque fermée). Le « è » est ouvert (bouche plus ouverte).</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="les,lait"><td><strong>les</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="les" data-nosplit aria-label="Écouter : les" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>lait</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="lait" data-nosplit aria-label="Écouter : lait" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">the – milk</td></tr>
+                <tr data-words="thé,tête"><td><strong>thé</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="thé" data-nosplit aria-label="Écouter : thé" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>tête</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tête" data-nosplit aria-label="Écouter : tête" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">tea – head</td></tr>
+                <tr data-words="mes,mais"><td><strong>mes</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="mes" data-nosplit aria-label="Écouter : mes" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>mais</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="mais" data-nosplit aria-label="Écouter : mais" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">my – but</td></tr>
+                <tr data-words="pré,prêt"><td><strong>pré</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="pré" data-nosplit aria-label="Écouter : pré" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>prêt</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="prêt" data-nosplit aria-label="Écouter : prêt" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">meadow – ready</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>3. Les voyelles nasales : an, on, in</h2>
+        <p>On ne prononce pas le « n » : l&#x27;air passe par le nez.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="vin,vent,vont"><td><strong>vin</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vin" data-nosplit aria-label="Écouter : vin" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vent</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vent" data-nosplit aria-label="Écouter : vent" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vont</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vont" data-nosplit aria-label="Écouter : vont" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">wine – wind – go (they)</td></tr>
+                <tr data-words="pain,pont"><td><strong>pain</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="pain" data-nosplit aria-label="Écouter : pain" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>pont</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="pont" data-nosplit aria-label="Écouter : pont" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">bread – bridge</td></tr>
+                <tr data-words="blanc,blond"><td><strong>blanc</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="blanc" data-nosplit aria-label="Écouter : blanc" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>blond</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="blond" data-nosplit aria-label="Écouter : blond" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">white – blond</td></tr>
+                <tr data-words="sans,son"><td><strong>sans</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="sans" data-nosplit aria-label="Écouter : sans" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>son</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="son" data-nosplit aria-label="Écouter : son" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">without – his / her</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>4. on / ou</h2>
+        <p>Le « on » est nasal. Le « ou » ne l&#x27;est pas.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="tout,ton"><td><strong>tout</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tout" data-nosplit aria-label="Écouter : tout" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>ton</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="ton" data-nosplit aria-label="Écouter : ton" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">all – your</td></tr>
+                <tr data-words="nous,non"><td><strong>nous</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="nous" data-nosplit aria-label="Écouter : nous" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>non</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="non" data-nosplit aria-label="Écouter : non" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">we – no</td></tr>
+                <tr data-words="sous,son"><td><strong>sous</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="sous" data-nosplit aria-label="Écouter : sous" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>son</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="son" data-nosplit aria-label="Écouter : son" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">under – his / her</td></tr>
+                <tr data-words="vous,vont"><td><strong>vous</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vous" data-nosplit aria-label="Écouter : vous" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vont</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vont" data-nosplit aria-label="Écouter : vont" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">you – go (they)</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>5. s / z</h2>
+        <p>Entre deux voyelles, « s » se prononce [z]. Avec « ss », on prononce [s].</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="poisson,poison"><td><strong>poisson</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="poisson" data-nosplit aria-label="Écouter : poisson" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>poison</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="poison" data-nosplit aria-label="Écouter : poison" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">fish – poison</td></tr>
+                <tr data-words="dessert,désert"><td><strong>dessert</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="dessert" data-nosplit aria-label="Écouter : dessert" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>désert</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="désert" data-nosplit aria-label="Écouter : désert" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">dessert – desert</td></tr>
+                <tr data-words="casse,case"><td><strong>casse</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="casse" data-nosplit aria-label="Écouter : casse" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>case</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="case" data-nosplit aria-label="Écouter : case" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">breaks – box / square</td></tr>
+                <tr data-words="ils sont,ils ont"><td><strong>ils sont</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="ils sont" data-nosplit aria-label="Écouter : ils sont" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>ils ont</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="ils ont" data-nosplit aria-label="Écouter : ils ont" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">they are – they have</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>6. ch / j</h2>
+        <p>Le « ch » est sourd (sans vibration). Le « j » vibre dans la gorge.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="bouche,bouge"><td><strong>bouche</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="bouche" data-nosplit aria-label="Écouter : bouche" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>bouge</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="bouge" data-nosplit aria-label="Écouter : bouge" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">mouth – moves</td></tr>
+                <tr data-words="cache,cage"><td><strong>cache</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="cache" data-nosplit aria-label="Écouter : cache" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>cage</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="cage" data-nosplit aria-label="Écouter : cage" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">hides – cage</td></tr>
+                <tr data-words="chou,joue"><td><strong>chou</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="chou" data-nosplit aria-label="Écouter : chou" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>joue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="joue" data-nosplit aria-label="Écouter : joue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">cabbage – plays</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>7. f / v</h2>
+        <p>Pour « v », la gorge vibre. Pour « f », elle ne vibre pas.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="fin,vin"><td><strong>fin</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="fin" data-nosplit aria-label="Écouter : fin" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vin</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vin" data-nosplit aria-label="Écouter : vin" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">end – wine</td></tr>
+                <tr data-words="faux,veau"><td><strong>faux</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="faux" data-nosplit aria-label="Écouter : faux" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>veau</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="veau" data-nosplit aria-label="Écouter : veau" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">false – veal</td></tr>
+                <tr data-words="fer,vert"><td><strong>fer</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="fer" data-nosplit aria-label="Écouter : fer" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>vert</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="vert" data-nosplit aria-label="Écouter : vert" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">iron – green</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>8. p / b</h2>
+        <p>Pour « b », la gorge vibre. Pour « p », on souffle sans vibration.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="pain,bain"><td><strong>pain</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="pain" data-nosplit aria-label="Écouter : pain" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>bain</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="bain" data-nosplit aria-label="Écouter : bain" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">bread – bath</td></tr>
+                <tr data-words="poule,boule"><td><strong>poule</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="poule" data-nosplit aria-label="Écouter : poule" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>boule</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="boule" data-nosplit aria-label="Écouter : boule" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">hen – ball</td></tr>
+                <tr data-words="pas,bas"><td><strong>pas</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="pas" data-nosplit aria-label="Écouter : pas" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>bas</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="bas" data-nosplit aria-label="Écouter : bas" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">not / step – low</td></tr>
+                <tr data-words="peau,beau"><td><strong>peau</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="peau" data-nosplit aria-label="Écouter : peau" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>beau</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="beau" data-nosplit aria-label="Écouter : beau" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">skin – beautiful</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>9. t / d</h2>
+        <p>Pour « d », la gorge vibre. Pour « t », elle ne vibre pas.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="tout,doux"><td><strong>tout</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tout" data-nosplit aria-label="Écouter : tout" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>doux</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="doux" data-nosplit aria-label="Écouter : doux" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">all – soft</td></tr>
+                <tr data-words="tu,du"><td><strong>tu</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tu" data-nosplit aria-label="Écouter : tu" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>du</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="du" data-nosplit aria-label="Écouter : du" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">you – of the</td></tr>
+                <tr data-words="thé,dé"><td><strong>thé</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="thé" data-nosplit aria-label="Écouter : thé" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>dé</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="dé" data-nosplit aria-label="Écouter : dé" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">tea – dice</td></tr>
+                <tr data-words="tort,dort"><td><strong>tort</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="tort" data-nosplit aria-label="Écouter : tort" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>dort</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="dort" data-nosplit aria-label="Écouter : dort" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">wrong – sleeps</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>10. r / l</h2>
+        <p>Le « r » français vient du fond de la gorge. Le « l » se fait avec la pointe de la langue derrière les dents.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="rue,lue"><td><strong>rue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="rue" data-nosplit aria-label="Écouter : rue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>lue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="lue" data-nosplit aria-label="Écouter : lue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">street – read</td></tr>
+                <tr data-words="riz,lit"><td><strong>riz</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="riz" data-nosplit aria-label="Écouter : riz" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>lit</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="lit" data-nosplit aria-label="Écouter : lit" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">rice – bed</td></tr>
+                <tr data-words="rond,long"><td><strong>rond</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="rond" data-nosplit aria-label="Écouter : rond" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>long</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="long" data-nosplit aria-label="Écouter : long" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">round – long</td></tr>
+                <tr data-words="roue,loue"><td><strong>roue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="roue" data-nosplit aria-label="Écouter : roue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>loue</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="loue" data-nosplit aria-label="Écouter : loue" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">wheel – rents</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>11. e / eu</h2>
+        <p>Le « e » est court et léger. Le « eu » est plus long, avec les lèvres arrondies.</p>
+        <div class="table-responsive"><table class="table table-bordered align-middle">
+            <thead class="table-primary"><tr><th scope="col">Mots à comparer</th><th scope="col">Sens</th></tr></thead>
+            <tbody>
+                <tr data-words="de,deux"><td><strong>de</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="de" data-nosplit aria-label="Écouter : de" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>deux</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="deux" data-nosplit aria-label="Écouter : deux" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">of – two</td></tr>
+                <tr data-words="je,jeu"><td><strong>je</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="je" data-nosplit aria-label="Écouter : je" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button> <span class="text-secondary">–</span> <strong>jeu</strong><button type="button" class="btn btn-sm btn-outline-primary btn-say ms-1" data-say="jeu" data-nosplit aria-label="Écouter : jeu" hidden><i class="bi bi-volume-up-fill" aria-hidden="true"></i></button></td><td class="text-secondary">I – game</td></tr>
+            </tbody>
+        </table></div>
+    </section>
+
+    <section>
+        <h2>Résumé</h2>
+        <ul>
+            <li>Une paire minimale : deux mots qui ne changent que par un son.</li>
+            <li>Écoutez, répétez, puis jouez au jeu d'écoute pour vérifier.</li>
+            <li>Pour d'autres sons, voir la page <a th:href="@{/prononciation}">Prononciation</a> et la page <a th:href="@{/liaison-lettres-muettes}">Liaison et lettres muettes</a>.</li>
+        </ul>
+    </section>
+
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<script th:src="@{/js/say.js}"></script>
+<script th:src="@{/js/paires-minimales.js}"></script>
+
+</body>
+
+</html>
