@@ -33,7 +33,13 @@ class LessonIconsTest {
             "LA CUISINE|🍳",
             "LA SALLE DE BAIN|🛁",
             "L'ARGENT ET LES PRIX|💰",
-            "À LA POSTE ET À LA BANQUE|🏦"
+            "À LA POSTE ET À LA BANQUE|🏦",
+            "LES LOISIRS ET LES SPORTS|⚽",
+            "LES VOYAGES ET LES VACANCES|✈️",
+            "LES TECHNOLOGIES|💻",
+            "LES ADJECTIFS DE DESCRIPTION|🧑",
+            "LES VERBES DU QUOTIDIEN|🏃",
+            "LES CONTRAIRES|↔️"
     })
     void eachVocabularyLessonGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, LessonIcons.forTitle(title));

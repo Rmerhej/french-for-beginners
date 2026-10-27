@@ -51,11 +51,11 @@ class QcmSqlFilesTest {
             assertTrue(explanation.length() <= 255, "Explication trop longue : " + question);
             checked++;
         }
-        assertTrue(checked >= 187, "Trop peu de QCM trouvés : " + checked);
+        assertTrue(checked >= 255, "Trop peu de QCM trouvés : " + checked);
         assertEquals(checked, sql.split("NOT EXISTS", -1).length - 1, "Chaque QCM doit être protégé contre les doublons");
         Set<String> titles = new HashSet<>();
         Matcher t = Pattern.compile("WHERE `lesson_title` = " + Q).matcher(sql);
         while (t.find()) titles.add(t.group(1));
-        assertTrue(titles.size() >= 24, "Trop peu de leçons couvertes : " + titles.size());
+        assertTrue(titles.size() >= 30, "Trop peu de leçons couvertes : " + titles.size());
     }
 }
