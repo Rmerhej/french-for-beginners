@@ -55,6 +55,8 @@ public final class LessonIcons {
         add("adjectif", "🧑");
         add("verbe", "🏃");
         add("contraire", "↔️");
+        add("vetement|accessoire", "👕");
+        add("travail|entreprise", "💼");
     }
 
     private LessonIcons() {

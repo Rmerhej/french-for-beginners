@@ -39,7 +39,13 @@ class LessonIconsTest {
             "LES TECHNOLOGIES|💻",
             "LES ADJECTIFS DE DESCRIPTION|🧑",
             "LES VERBES DU QUOTIDIEN|🏃",
-            "LES CONTRAIRES|↔️"
+            "LES CONTRAIRES|↔️",
+            "LES VÊTEMENTS ET LES ACCESSOIRES|👕",
+            "LES MÉTIERS|👷",
+            "L'ÉCOLE ET LES ÉTUDES|🎓",
+            "LE TRAVAIL ET L'ENTREPRISE|💼",
+            "LES ÉMOTIONS ET LES SENTIMENTS|😊",
+            "LA NATURE ET L'ENVIRONNEMENT|🌳"
     })
     void eachVocabularyLessonGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, LessonIcons.forTitle(title));
