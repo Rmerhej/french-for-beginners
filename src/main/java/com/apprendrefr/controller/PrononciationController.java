@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Prononciation;
+import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.PrononciationService;
 import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
@@ -10,21 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.UUID;
-
 @Controller
 public class PrononciationController {
 
     private final PrononciationService service;
-    private final String AUDIO_UPLOAD_DIR = "uploads/audio/";
+    private final FileUploadService fileUploadService;
 
-    public PrononciationController(PrononciationService service) {
+    public PrononciationController(PrononciationService service, FileUploadService fileUploadService) {
         this.service = service;
+        this.fileUploadService = fileUploadService;
     }
 
     @GetMapping("/prononciation")
@@ -71,33 +66,16 @@ public class PrononciationController {
 
     @PostMapping("/admin/prononciation/enregistrer")
     public String enregistrer(@ModelAttribute Prononciation prononciation,
-                              @RequestParam(value = "audioFile", required = false) MultipartFile audioFile) throws IOException {
+                              @RequestParam(value = "audioFile", required = false) MultipartFile audioFile) {
 
-        if (audioFile != null && !audioFile.isEmpty()) {
-
-            String originalName = Paths.get(audioFile.getOriginalFilename())
-                    .getFileName()
-                    .toString();
-
-            String fileName = UUID.randomUUID() + "_" + originalName;
-
-            Path uploadPath = Paths.get(AUDIO_UPLOAD_DIR);
-
-            Files.createDirectories(uploadPath);
-
-            Files.copy(
-                    audioFile.getInputStream(),
-                    uploadPath.resolve(fileName),
-                    StandardCopyOption.REPLACE_EXISTING
-            );
-
-            // chemin enregistré en base
-            prononciation.setAudio("/uploads/audio/" + fileName);
+        // Le service ne garde que les formats audio autorisés et donne un nom aléatoire au fichier
+        String audioPath = fileUploadService.saveAudio(audioFile);
+        if (audioPath != null) {
+            prononciation.setAudio(audioPath);
         }
 
         service.save(prononciation);
         return "redirect:/admin/prononciationsDashboard";
-
     }
 
     @PostMapping("/admin/prononciation/supprimer/{id}")

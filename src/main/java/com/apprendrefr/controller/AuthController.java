@@ -2,6 +2,9 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.User;
 import com.apprendrefr.service.UserService;
+import com.apprendrefr.security.LoginAttemptService;
+import com.apprendrefr.security.RegistrationLimiter;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +18,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class AuthController {
 
     private final UserService userService;
+    private final RegistrationLimiter registrationLimiter;
 
-    public AuthController(UserService userService) {
+    public AuthController(UserService userService, RegistrationLimiter registrationLimiter) {
         this.userService = userService;
+        this.registrationLimiter = registrationLimiter;
     }
 
     @GetMapping("/register")
@@ -31,7 +36,8 @@ public class AuthController {
                                BindingResult bindingResult,
                                String confirmPassword,
                                RedirectAttributes redirectAttributes,
-                               Model model) {
+                               Model model,
+                               HttpServletRequest request) {
 
 
         if (bindingResult.hasErrors()) {
@@ -42,6 +48,12 @@ public class AuthController {
 
         if (confirmPassword == null || !confirmPassword.equals(user.getPassword())) {
             bindingResult.rejectValue("password", "error.password", "Les mots de passe ne correspondent pas");
+            model.addAttribute("user", user);
+            return "register";
+        }
+        if (!registrationLimiter.tryAcquire(LoginAttemptService.clientIp(request))) {
+            bindingResult.rejectValue("username", "error.rate",
+                    "Trop d'inscriptions depuis cette connexion. Réessayez dans une heure.");
             model.addAttribute("user", user);
             return "register";
         }

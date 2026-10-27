@@ -20,6 +20,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import java.security.SecureRandom;
 import java.util.HexFormat;
@@ -96,6 +98,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .headers(headers -> headers
+                        .referrerPolicy(ref -> ref.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
+                        // Envoyé seulement sur une connexion HTTPS (le navigateur retient « toujours HTTPS » 1 an)
+                        .httpStrictTransportSecurity(hsts -> hsts.maxAgeInSeconds(31_536_000))
+                        // Règles qui ne gênent pas les scripts et styles du site : pas de <base> détourné,
+                        // pas de plugins, pas d'affichage du site dans la page d'un autre site, formulaires vers le site seulement.
+                        .contentSecurityPolicy(csp -> csp.policyDirectives(
+                                "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'"))
+                        .addHeaderWriter(new StaticHeadersWriter("Permissions-Policy",
+                                "camera=(), microphone=(), geolocation=(), payment=(), usb=()")))
                 .csrf(csrf -> csrf
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .ignoringRequestMatchers(
