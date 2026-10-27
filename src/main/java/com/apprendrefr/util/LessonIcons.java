@@ -44,6 +44,12 @@ public final class LessonIcons {
         add("musique", "🎵");
         add("boisson", "🥤");
         add("mairie|prefecture|demarche|administratif", "🏛️");
+        add("restaurant", "🍽️");
+        add("supermarche|courses|magasin", "🛒");
+        add("cuisine", "🍳");
+        add("bain", "🛁");
+        add("argent|prix", "💰");
+        add("poste|banque", "🏦");
     }
 
     private LessonIcons() {

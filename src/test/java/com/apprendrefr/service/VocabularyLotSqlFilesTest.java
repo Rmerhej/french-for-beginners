@@ -39,7 +39,7 @@ class VocabularyLotSqlFilesTest {
             assertTrue(Set.of("A1", "A2", "B1", "B2").contains(lessons.group(1)), "Niveau inconnu : " + lessons.group(1));
             lessonCount++;
         }
-        assertTrue(lessonCount >= 4, "Leçons trouvées : " + lessonCount);
+        assertTrue(lessonCount >= 10, "Leçons trouvées : " + lessonCount);
 
         Matcher words = WORD.matcher(sql);
         Set<String> seen = new HashSet<>();
@@ -53,10 +53,10 @@ class VocabularyLotSqlFilesTest {
             assertTrue(!french.isBlank() && french.length() <= 100, "Mot français invalide : " + french);
             assertTrue(!english.isBlank() && english.length() <= 100, "Traduction invalide : " + english);
             assertTrue(words.group(4).length() <= 100, "Prononciation trop longue : " + french);
-            assertTrue(example.length() <= 500 && example.endsWith("."), "Exemple invalide : " + french);
+            assertTrue(example.length() <= 500 && example.matches("(?s).*[.!?]"), "Exemple invalide : " + french);
             wordCount++;
         }
-        assertTrue(wordCount >= 72, "Mots trouvés : " + wordCount);
+        assertTrue(wordCount >= 180, "Mots trouvés : " + wordCount);
         assertEquals(wordCount, sql.split("x\\.`french_word`", -1).length - 1, "Chaque mot doit être protégé contre les doublons");
         assertEquals(lessonCount, sql.split("WHERE NOT EXISTS \\(SELECT 1 FROM `lessons`", -1).length - 1, "Chaque leçon doit être protégée contre les doublons");
     }

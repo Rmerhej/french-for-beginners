@@ -27,7 +27,13 @@ class LessonIconsTest {
             "LES ALIMENTS DE BASE|🍞",
             "LES BOISSONS|🥤",
             "À LA MAIRIE ET À LA PRÉFECTURE|🏛️",
-            "LE LOGEMENT ET LA LOCATION|🏠"
+            "LE LOGEMENT ET LA LOCATION|🏠",
+            "AU RESTAURANT|🍽️",
+            "AU SUPERMARCHÉ|🛒",
+            "LA CUISINE|🍳",
+            "LA SALLE DE BAIN|🛁",
+            "L'ARGENT ET LES PRIX|💰",
+            "À LA POSTE ET À LA BANQUE|🏦"
     })
     void eachVocabularyLessonGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, LessonIcons.forTitle(title));
