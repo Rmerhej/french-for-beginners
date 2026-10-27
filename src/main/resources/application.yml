@@ -101,6 +101,19 @@ spring:
 
   mvc:
     throw-exception-if-no-handler-found: true
+  thymeleaf:
+    cache: true
+
+server:
+  # Nginx transmet le protocole d'origine (https) : les redirections et cookies en tiennent compte
+  forward-headers-strategy: framework
+  servlet:
+    session:
+      cookie:
+        secure: true
+  error:
+    include-message: never
+    include-binding-errors: never
 
    # flyway:
    #   enabled: true
