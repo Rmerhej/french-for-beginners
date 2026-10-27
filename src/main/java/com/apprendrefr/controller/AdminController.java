@@ -1,5 +1,6 @@
 package com.apprendrefr.controller;
 
+import com.apprendrefr.security.ActivityLog;
 import com.apprendrefr.service.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -35,11 +36,13 @@ public class AdminController {
 
     private final PwaStatsService pwaStatsService;
 
+    private final ActivityLog activityLog;
+
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
                            PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,
                            OnlineUserService onlineUserService,
                            VisitorTrackerService visitorTrackerService,ThemeService themeService,ImageService imageService,
-                           PwaStatsService pwaStatsService) {
+                           PwaStatsService pwaStatsService, ActivityLog activityLog) {
         this.lessonService = lessonService;
         this.userService = userService;
         this.exerciseService = exerciseService;
@@ -51,6 +54,7 @@ public class AdminController {
         this.themeService = themeService;
         this.imageService = imageService;
         this.pwaStatsService = pwaStatsService;
+        this.activityLog = activityLog;
     }
 
     @GetMapping
@@ -78,6 +82,8 @@ public class AdminController {
         model.addAttribute("themesCount", themes);
         model.addAttribute("prononciationsCount", prononciations);
         model.addAttribute("onlineUsers", onlineUserService.getOnlineUsersCount());
+        model.addAttribute("onlineUsernames", onlineUserService.getOnlineUsernames());
+        model.addAttribute("recentActivity", activityLog.recent());
         model.addAttribute("onlineVisitors", visitorTrackerService.getOnlineVisitors());
         model.addAttribute("pwaStats", pwaStatsService.stats());
         return "admin/dashboard";

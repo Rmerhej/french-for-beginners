@@ -43,10 +43,35 @@
                 <div class="card-body">
                     <h5 class="card-title">Utilisateurs connectés</h5>
                     <h2 class="fw-bold text-success" th:text="${onlineUsers}">0</h2>
+                    <p class="small mb-0" th:if="${!onlineUsernames.isEmpty()}"
+                       th:text="${#strings.listJoin(onlineUsernames, ', ')}">pseudo1, pseudo2</p>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <!-- Connexions et déconnexions récentes -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title text-secondary">🕒 Activité récente</h5>
+            <p class="small text-secondary mb-2">Les 50 derniers événements depuis le dernier démarrage de l'application. Une session expire après 30 minutes sans activité.</p>
+            <p class="text-secondary mb-0" th:if="${recentActivity.isEmpty()}">Aucune activité pour le moment.</p>
+            <div class="table-responsive" th:unless="${recentActivity.isEmpty()}">
+                <table class="table table-sm align-middle mb-0">
+                    <thead>
+                    <tr><th scope="col">Heure</th><th scope="col">Pseudo</th><th scope="col">Événement</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="e : ${recentActivity}">
+                        <td class="text-nowrap" th:text="${e.time}">27/10 16:01:02</td>
+                        <td th:text="${e.username}">pseudo</td>
+                        <td><span class="badge" th:classappend="${e.badge}" th:text="${e.label}">Connexion</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
