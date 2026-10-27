@@ -12,7 +12,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** La page RGPD doit décrire l'utilisation sans compte, maintenant que les cours sont ouverts à tous. */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -22,11 +21,12 @@ class RgpdPageIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    void rgpdPage_isPublic_andExplainsUseWithoutAccount() throws Exception {
+    void privacyPageExplainsTheLoginActivityAndLogs() throws Exception {
         mockMvc.perform(get("/rgpd"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Utilisation sans compte")))
-                .andExpect(content().string(containsString("Visiter le site sans compte")))
-                .andExpect(content().string(containsString("Visiteurs en ligne")));
+                .andExpect(content().string(containsString("Connexions et déconnexions")))
+                .andExpect(content().string(containsString("jamais enregistrées en base de données")))
+                .andExpect(content().string(containsString("Adresses IP et journaux techniques")))
+                .andExpect(content().string(containsString("inscriptions")));
     }
 }
