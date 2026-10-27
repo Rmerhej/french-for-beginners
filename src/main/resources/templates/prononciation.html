@@ -19,6 +19,14 @@
             </h1>
             <p class="text-secondary mb-0">Apprenez à maîtriser les sons et les nuances de la langue française.</p>
         </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a th:href="@{/paires-minimales}" class="btn btn-outline-primary">
+                <span aria-hidden="true">👂</span> Paires minimales
+            </a>
+            <a th:href="@{/liaison-lettres-muettes}" class="btn btn-outline-primary">
+                <span aria-hidden="true">🔗</span> Liaison et lettres muettes
+            </a>
+        </div>
     </div>
 
     <!-- Grille des sons et prononciations -->
@@ -39,8 +47,9 @@
                         <p class="text-secondary fs-5 fw-semibold  mb-0" th:text="${item.exemple}">Exemple</p>
                     </div>
 
-                    <!-- Lecteur Audio -->
-                    <div class="mt-auto pt-3 border-top d-flex align-items-center gap-3">
+                    <!-- Lecteur Audio (fichier enregistré) -->
+                    <div th:if="${item.audio != null and !item.audio.isBlank()}"
+                         class="mt-auto pt-3 border-top d-flex align-items-center gap-3">
                         <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center shadow-sm btn-play" style="width: 42px; height: 42px;" th:aria-label="'Écouter la prononciation de ' + ${item.son}">
                             <i class="bi bi-play-fill fs-5" aria-hidden="true"></i>
                         </button>
@@ -48,6 +57,17 @@
                             <source th:src="${item.audio}" type="audio/mpeg">
                         </audio>
                         <span class="text-secondary fw-medium small">Écouter l'exemple</span>
+                    </div>
+
+                    <!-- Pas d'enregistrement : lecture avec la voix du navigateur (affichée si l'appareil sait lire à voix haute) -->
+                    <div th:unless="${item.audio != null and !item.audio.isBlank()}"
+                         class="mt-auto pt-3 border-top">
+                        <button type="button" class="btn btn-primary btn-say d-flex align-items-center gap-2"
+                                th:data-say="${item.exemple}"
+                                th:aria-label="|Écouter les mots d'exemple : ${item.son}|" hidden>
+                            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+                            <span class="say-label">Écouter l'exemple</span>
+                        </button>
                     </div>
                 </div>
             </article>
@@ -61,6 +81,7 @@
 
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
 <script src="/js/audio.js"></script>
+<script th:src="@{/js/say.js}"></script>
 
 <link rel="stylesheet" th:href="@{/css/prononciation-page.css}">
 </body>

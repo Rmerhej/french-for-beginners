@@ -112,7 +112,9 @@ public class StaticPagesConfig implements WebMvcConfigurer {
             Map.entry("/expressionsTempsApprofondies", "expressionsTempsApprofondies"),
             Map.entry("/verbesReguliersApprofondis", "verbesReguliersApprofondis"),
             Map.entry("/auxiliairesApprofondis", "auxiliairesApprofondis"),
-            Map.entry("/adverbesApprofondis", "adverbesApprofondis")
+            Map.entry("/adverbesApprofondis", "adverbesApprofondis"),
+            Map.entry("/paires-minimales", "paires-minimales"),
+            Map.entry("/liaison-lettres-muettes", "liaison-lettres-muettes")
     );
 
     /** Adresses de toutes ces pages (utilisées par la sécurité et le plan du site : consultation sans compte). */
