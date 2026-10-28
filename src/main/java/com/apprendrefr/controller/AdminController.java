@@ -2,13 +2,11 @@ package com.apprendrefr.controller;
 
 import com.apprendrefr.security.ActivityLog;
 import com.apprendrefr.service.*;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/admin")
@@ -23,8 +21,6 @@ public class AdminController {
     private final VocabularyService vocabularyService;
 
     private final ThemeService themeService;
-
-    private final ImageService imageService;
 
     private final QuizService quizService;
 
@@ -41,7 +37,7 @@ public class AdminController {
     public AdminController(LessonService lessonService, UserService userService, QuizService quizService,
                            PrononciationService prononciationService, ExerciseService exerciseService, VocabularyService vocabularyService,
                            OnlineUserService onlineUserService,
-                           VisitorTrackerService visitorTrackerService,ThemeService themeService,ImageService imageService,
+                           VisitorTrackerService visitorTrackerService,ThemeService themeService,
                            PwaStatsService pwaStatsService, ActivityLog activityLog) {
         this.lessonService = lessonService;
         this.userService = userService;
@@ -52,7 +48,6 @@ public class AdminController {
         this.onlineUserService = onlineUserService;
         this.visitorTrackerService = visitorTrackerService;
         this.themeService = themeService;
-        this.imageService = imageService;
         this.pwaStatsService = pwaStatsService;
         this.activityLog = activityLog;
     }
@@ -87,16 +82,6 @@ public class AdminController {
         model.addAttribute("onlineVisitors", visitorTrackerService.getOnlineVisitors());
         model.addAttribute("pwaStats", pwaStatsService.stats());
         return "admin/dashboard";
-    }
-
-    @GetMapping("/images/optimize")
-    @PreAuthorize("hasRole('ADMIN')")
-    @ResponseBody
-    public String launchImageOptimization() {
-
-        String path = "uploads/images";
-        imageService.batchProcessImages(path);
-        return "Optimisation lancée sur le dossier : " + path;
     }
 
 }
