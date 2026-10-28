@@ -9,6 +9,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -31,14 +32,46 @@ class FileUploadServiceTest {
         return new MockMultipartFile("file", name, type, new byte[]{1, 2, 3});
     }
 
+    private static MockMultipartFile realImage(String name, String type, int width, int height, boolean transparent) {
+        return new MockMultipartFile("file", name, type, TestImages.png(width, height, transparent));
+    }
+
     @Test
-    void acceptsAllowedImage_andGivesItARandomName() throws Exception {
-        String path = service.saveImage(file("ma photo.PNG", "image/png"));
+    void opaquePngPhotoIsStoredAsLightJpegWithARandomName() throws Exception {
+        MockMultipartFile upload = realImage("ma photo.PNG", "image/png", 1600, 1200, false);
+
+        String path = service.saveImage(upload);
 
         assertTrue(path.startsWith("/uploads/images/"));
-        assertTrue(path.endsWith(".png"), "l'extension est mise en minuscules");
+        assertTrue(path.endsWith(".jpg"), "une photo opaque est enregistrée en JPEG");
         assertFalse(path.contains("photo"), "le nom envoyé n'est pas conservé");
-        assertTrue(Files.exists(tempDir.resolve("images").resolve(path.substring("/uploads/images/".length()))));
+        Path stored = tempDir.resolve("images").resolve(path.substring("/uploads/images/".length()));
+        assertTrue(Files.exists(stored));
+        assertTrue(Files.size(stored) < upload.getSize() / 3, "le fichier enregistré est bien plus léger");
+        assertEquals(800, TestImages.decode(Files.readAllBytes(stored)).getWidth());
+    }
+
+    @Test
+    void transparentPngKeepsItsFormat() {
+        String path = service.saveImage(realImage("logo.png", "image/png", 200, 100, true));
+
+        assertTrue(path.endsWith(".png"));
+    }
+
+    @Test
+    void gifAndWebpAreStoredAsSent() throws Exception {
+        MockMultipartFile webp = file("anim.webp", "image/webp");
+
+        String path = service.saveImage(webp);
+
+        assertTrue(path.endsWith(".webp"));
+        assertArrayEquals(new byte[]{1, 2, 3},
+                Files.readAllBytes(tempDir.resolve("images").resolve(path.substring("/uploads/images/".length()))));
+    }
+
+    @Test
+    void fileNamedPngButNotAnImageIsRefused() {
+        assertThrows(FileUploadException.class, () -> service.saveImage(file("fausse.png", "image/png")));
     }
 
     @Test
@@ -90,6 +123,6 @@ class FileUploadServiceTest {
     void twoUploadsOfTheSameNameGetDifferentFiles() {
         String first = service.saveAudio(file("a.wav", "audio/wav"));
         String second = service.saveAudio(file("a.wav", "audio/wav"));
-        assertEquals(false, first.equals(second));
+        assertFalse(first.equals(second));
     }
 }
