@@ -15,6 +15,7 @@
     img { width: 96px; height: 96px; border-radius: 20px; }
     h1 { font-size: 1.5rem; margin: 1rem 0 .5rem; }
     p { margin: 0 0 1.5rem; opacity: .8; line-height: 1.5; }
+    button:disabled { opacity: .6; cursor: default; }
     button { background: #1b2a6b; color: #fff; border: 0; border-radius: 999px;
              padding: .7rem 1.6rem; font-size: 1rem; cursor: pointer; }
   </style>
@@ -24,7 +25,38 @@
     <img src="/pwa/icon-192.png" alt="">
     <h1>Vous êtes hors ligne</h1>
     <p>La connexion a été perdue. Vérifiez votre réseau, puis réessayez : vos cours et vos quiz seront de nouveau disponibles.</p>
-    <button type="button" onclick="location.reload()">Réessayer</button>
+    <button type="button" id="retry">Réessayer</button>
+    <p id="status" role="status" aria-live="polite" style="margin:1rem 0 0;min-height:1.5em"></p>
   </main>
+  <script>
+    (function () {
+      var button = document.getElementById('retry');
+      var status = document.getElementById('status');
+      var busy = false;
+
+      // On vérifie d'abord que le site répond vraiment : recharger tout de suite ramènerait
+      // simplement cette page, et le bouton semblerait ne rien faire.
+      function check() {
+        if (busy) return;
+        busy = true;
+        button.disabled = true;
+        status.textContent = 'Vérification de la connexion…';
+        fetch('/manifest.webmanifest?t=' + Date.now(), { cache: 'no-store' })
+          .then(function (response) {
+            if (!response.ok) throw new Error('site indisponible');
+            location.reload();
+          })
+          .catch(function () {
+            status.textContent = 'Toujours pas de connexion. Un nouvel essai aura lieu automatiquement.';
+            button.disabled = false;
+            busy = false;
+          });
+      }
+
+      button.addEventListener('click', check);
+      window.addEventListener('online', check);                 // le réseau revient : on réessaie seul
+      setInterval(function () { if (navigator.onLine) check(); }, 15000);
+    })();
+  </script>
 </body>
 </html>
