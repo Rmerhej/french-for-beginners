@@ -55,6 +55,10 @@ public class ThemeService {
     public long count() {
         return themeRepository.count();
     }
+    public boolean isAudioUsedByAnotherTheme(String audio, Long themeId) {
+        return themeRepository.existsByAudioAndIdNot(audio, themeId);
+    }
+
     public Theme save(Theme theme) {
         return themeRepository.save(theme);
     }

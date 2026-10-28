@@ -13,7 +13,7 @@
 
     <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
 
-    <form th:action="@{/admin/theme/edit/{id}(id=${theme.id})}" method="post" th:object="${theme}">
+    <form th:action="@{/admin/theme/edit/{id}(id=${theme.id})}" method="post" enctype="multipart/form-data" th:object="${theme}">
 
         <div class="mb-3">
             <label class="form-label">Titre du thème</label>
@@ -31,8 +31,13 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Audio</label>
-            <input class="form-control" type="text" th:field="*{audio}" placeholder="/uploads/audio/ou.mp3">
+            <label class="form-label" for="audioFile">Audio</label>
+            <div th:if="${theme.audio != null and !theme.audio.isBlank()}" class="mb-2">
+                <audio controls th:src="@{${theme.audio}}"></audio>
+                <div class="form-text">Audio actuel.</div>
+            </div>
+            <input class="form-control" type="file" id="audioFile" name="audioFile" accept="audio/*">
+            <div class="form-text">Laissez vide pour conserver l'audio actuel (formats : mp3, wav, ogg, m4a). L'ancien fichier est supprimé quand vous en envoyez un nouveau.</div>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Enregistrer les modifications</button>
         <a th:href="@{/themes}" class="btn btn-secondary btn-lg">Annuler</a>

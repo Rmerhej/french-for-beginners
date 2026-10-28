@@ -15,6 +15,9 @@ public interface ThemeRepository extends JpaRepository<Theme, Long> {
 
     List<Theme> findByTitleContainingIgnoreCase(String title);
 
+    /** Vrai si un autre thème que celui-ci utilise déjà ce fichier audio. */
+    boolean existsByAudioAndIdNot(String audio, Long id);
+
     Page<Theme> findByTitleContainingIgnoreCase(
             String title,
             Pageable pageable
