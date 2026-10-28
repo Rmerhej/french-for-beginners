@@ -28,3 +28,21 @@ Ces fichiers contiennent les comptes des apprenants : ne les mettez jamais dans 
 3. `docker compose restart app`, puis vérifiez que vous pouvez vous connecter et que les résultats sont là.
 
 Une sauvegarde non testée n'est pas une sauvegarde : refaites ce test de temps en temps.
+
+## Alléger les photos (PNG → JPEG)
+
+Les photos des leçons enregistrées en PNG pèsent environ 900 Ko chacune ; en JPEG, environ 60 Ko, sans différence visible. À faire **une seule fois** sur le serveur, depuis le dossier du projet :
+
+```bash
+./scripts/compress-images.sh --dry-run    # simulation : montre le gain, ne change rien
+./scripts/backup.sh                       # sauvegarde avant de modifier
+./scripts/compress-images.sh              # crée les .jpg à côté des .png + backups/images-to-jpg.sql
+docker exec -i french-db sh -c 'mysql -u root -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE"' < backups/images-to-jpg.sql
+```
+
+- Les `.png` d'origine sont **conservés** : tant que le SQL n'est pas lancé, rien ne change pour les visiteurs.
+- Pour revenir en arrière : même commande SQL avec `backups/images-to-jpg-rollback.sql`.
+- Une semaine plus tard, si tout va bien : `./scripts/compress-images.sh --clean` supprime les `.png` convertis.
+- Le script s'appuie sur un conteneur Python jetable (Pillow) : rien à installer sur le serveur. Il laisse tels quels les petits fichiers (moins de 150 Ko, icônes comprises) et les images avec transparence.
+
+Les images envoyées ensuite depuis l'administration sont allégées automatiquement par l'application (largeur 800 px, JPEG pour les photos).
