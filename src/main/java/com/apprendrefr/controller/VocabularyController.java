@@ -4,7 +4,6 @@ import com.apprendrefr.entity.Lesson;
 import com.apprendrefr.entity.Vocabulary;
 import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.FileUploadService;
-import com.apprendrefr.service.ImageService;
 import com.apprendrefr.service.LessonService;
 import com.apprendrefr.service.VocabularyService;
 import com.apprendrefr.util.AdminPaging;
@@ -24,8 +23,6 @@ public class VocabularyController {
     @Autowired
     private VocabularyService vocabularyService;
     private final FileUploadService fileUploadService;
-    @Autowired
-    private ImageService imageService;
 
 
     public VocabularyController(LessonService lessonService, VocabularyService vocabularyService, FileUploadService fileUploadService) {
