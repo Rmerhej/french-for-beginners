@@ -63,24 +63,8 @@
     <!-- Indique à score-sender.js si un compte est connecté (sinon : on propose d'en créer un) -->
     <script sec:authorize="isAuthenticated()">window.FFB_AUTH = true;</script>
     <script th:src="@{/js/score-sender.js}"></script>
-    <script>
-
-        function sendHeartbeat() {
-     console.log("heartbeat envoyé");
-            fetch('/visitor/heartbeat', {
-                method: 'GET',
-                credentials: 'same-origin'
-            }).catch(() => {
-                // On ignore les erreurs réseau
-            });
-
-        }
-
-        sendHeartbeat();
-
-        setInterval(sendHeartbeat, 30000);
-
-    </script>
+    <!-- Signal de présence (visiteurs en ligne) : un seul par page, même si l'en-tête l'a déjà lancé -->
+    <script th:src="@{/js/visitor.js}"></script>
     <!-- Script global pour le mode sombre -->
     <script>
         (function() {
