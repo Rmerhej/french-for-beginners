@@ -332,6 +332,14 @@ Tester le renouvellement :
 sudo certbot renew --dry-run
 ```
 
+Le renouvellement automatique est assuré par une tâche systemd (`certbot-renew.timer`, deux passages par jour). Vérifier qu'elle est bien planifiée :
+
+```bash
+systemctl list-timers | grep -i certbot
+```
+
+Si la liste est vide, le certificat n'est plus renouvelé et expirera au bout de 90 jours (cela est arrivé le 27 octobre 2026) : recréer la tâche, puis lancer `sudo certbot renew`.
+
 ---
 
 # 12. Problèmes fréquents
@@ -489,3 +497,14 @@ Correction:
 ## Cache et compression Nginx
 
 Voir `deploy/nginx/README.md` : installation en 4 étapes, vérification, vidage du cache après un déploiement et retour en arrière.
+
+## Mises à jour de sécurité (Dependabot)
+
+Dependabot (fichier `.github/dependabot.yml`) propose chaque lundi des « pull requests » pour mettre à jour les dépendances Java, l'image de base du Dockerfile et les actions GitHub. Le CI lance les tests sur chacune.
+
+Quand une pull request arrive :
+1. Vérifier que le CI est vert (coche verte sur GitHub), puis la fusionner (« Merge »).
+2. Récupérer le code (`git pull`), construire une nouvelle image avec `docker build --pull` (le `--pull` télécharge aussi la dernière version de l'image de base Java), l'envoyer dans le registre.
+3. Déployer : `docker compose pull app`, attendre, puis `docker compose up -d`.
+
+Les alertes de sécurité (onglet « Security » du dépôt GitHub) sont à traiter en priorité. Les versions majeures (Spring Boot 4, par exemple) ne sont pas proposées automatiquement.

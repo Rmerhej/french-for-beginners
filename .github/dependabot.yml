@@ -1,0 +1,44 @@
+# Dependabot : propose chaque semaine des mises à jour sous forme de « pull requests ».
+# Le workflow CI (.github/workflows/ci.yml) lance automatiquement les tests sur chacune.
+# Les changements de version majeure (ex. Spring Boot 3 -> 4) ne sont pas proposés
+# automatiquement : ils demandent une migration réfléchie.
+version: 2
+updates:
+  # Dépendances Java (pom.xml), dont Spring Boot
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 5
+    groups:
+      maven-minor-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    labels: ["dependencies"]
+
+  # Images de base du Dockerfile (Java)
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    labels: ["dependencies"]
+
+  # Actions GitHub utilisées par le CI
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
