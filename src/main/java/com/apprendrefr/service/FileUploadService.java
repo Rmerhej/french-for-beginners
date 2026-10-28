@@ -13,6 +13,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 @Service
 public class FileUploadService {
@@ -23,6 +24,10 @@ public class FileUploadService {
 
     /** Ces formats sont recompressés (largeur 800 px, JPEG pour les photos) ; GIF et WebP sont gardés tels quels. */
     private static final Set<String> COMPRESSED_EXTENSIONS = Set.of(".png", ".jpg", ".jpeg");
+
+    /** Seuls les fichiers créés par l'application (nom aléatoire) peuvent être supprimés : jamais les audios d'origine. */
+    private static final Pattern GENERATED_AUDIO = Pattern.compile(
+            "/uploads/audio/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.(mp3|wav|ogg|m4a)");
 
     private final Path uploadDir;
     private final ImageCompressor imageCompressor = new ImageCompressor();
@@ -64,6 +69,21 @@ public class FileUploadService {
         String extension = checkedExtension(file, AUDIO_EXTENSIONS, null,
                 "Audio non autorisé : formats acceptés mp3, wav, ogg, m4a");
         return copy(file, "audio", extension);
+    }
+
+    /**
+     * Supprime un audio envoyé par l'application (chemin du type /uploads/audio/uuid.mp3).
+     * Tout autre chemin est ignoré. Renvoie vrai si un fichier a été supprimé ; une erreur ne bloque jamais l'appelant.
+     */
+    public boolean deleteAudio(String path) {
+        if (path == null || !GENERATED_AUDIO.matcher(path).matches()) {
+            return false;
+        }
+        try {
+            return Files.deleteIfExists(uploadDir.resolve("audio").resolve(path.substring("/uploads/audio/".length())));
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     /** Vérifie l'extension (et le type MIME s'il est exigé) et renvoie l'extension en minuscules. */

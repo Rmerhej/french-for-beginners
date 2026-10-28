@@ -169,11 +169,34 @@ public class ThemeController {
     @PostMapping("/admin/theme/edit/{id}")
     public String updateTheme(
             @PathVariable Long id,
-            @ModelAttribute Theme theme) {
+            @ModelAttribute Theme form,
+            @RequestParam(value = "audioFile", required = false) MultipartFile audioFile) {
 
-        theme.setId(id);
+        Optional<Theme> opt = themeService.findById(id);
+        if (opt.isEmpty()) {
+            return "redirect:/admin/themes";
+        }
+
+        // On modifie le thème existant : seuls les champs du formulaire changent,
+        // l'audio actuel est conservé si aucun nouveau fichier n'est envoyé.
+        Theme theme = opt.get();
+        String oldAudio = theme.getAudio();
+        theme.setTitle(form.getTitle());
+        theme.setNom(form.getNom());
+        theme.setDialogueContent(form.getDialogueContent());
+
+        // Le service ne garde que les formats audio autorisés et donne un nom aléatoire au fichier
+        String newAudio = fileUploadService.saveAudio(audioFile);
+        if (newAudio != null) {
+            theme.setAudio(newAudio);
+        }
 
         themeService.save(theme);
+
+        // Après l'enregistrement seulement : l'ancien fichier ne sert plus, on libère la place sur le disque
+        if (newAudio != null) {
+            removeAudioIfUnused(oldAudio, id);
+        }
 
         return "redirect:/admin/themes";
     }
@@ -185,9 +208,20 @@ public class ThemeController {
     @PostMapping("/admin/theme/delete/{id}")
     public String deleteTheme(@PathVariable Long id) {
 
+        String audio = themeService.findById(id).map(Theme::getAudio).orElse(null);
+
         themeService.deleteById(id);
 
+        removeAudioIfUnused(audio, id);
+
         return "redirect:/admin/themes";
+    }
+
+    /** Supprime un fichier audio envoyé par l'application, sauf si un autre thème l'utilise encore. */
+    private void removeAudioIfUnused(String audioPath, Long themeId) {
+        if (audioPath != null && !themeService.isAudioUsedByAnotherTheme(audioPath, themeId)) {
+            fileUploadService.deleteAudio(audioPath);
+        }
     }
 }
 
