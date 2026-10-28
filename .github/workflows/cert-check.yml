@@ -12,17 +12,24 @@ on:
 jobs:
   certificat:
     runs-on: ubuntu-latest
+    timeout-minutes: 3          # jamais d'exécution sans fin : au bout de 3 minutes, GitHub l'arrête
     env:
       HOST: frenchforbeginners.duckdns.org
       DAYS: "14"
     steps:
       - name: Vérifier la date d'expiration du certificat
         run: |
-          set -eu
+          set +e
+          log=$(mktemp)
           cert=$(mktemp)
-          if ! echo | openssl s_client -connect "$HOST:443" -servername "$HOST" 2>/dev/null \
-               | openssl x509 -outform PEM > "$cert" || [ ! -s "$cert" ]; then
+          # openssl peut rester à attendre la fermeture de la connexion : on l'arrête au bout de 20 secondes.
+          # Le certificat est déjà affiché à ce moment-là, on le lit dans le résultat.
+          timeout "${TLS_TIMEOUT:-20}" openssl s_client -connect "$HOST:${PORT:-443}" -servername "$HOST" < /dev/null > "$log" 2>&1
+          openssl x509 -in "$log" -outform PEM > "$cert" 2>/dev/null
+          if [ ! -s "$cert" ]; then
             echo "::error::Impossible de lire le certificat de $HOST (site arrêté ou injoignable ?)"
+            echo "--- Réponse de openssl ---"
+            cat "$log"
             exit 1
           fi
           echo "Le certificat de $HOST expire le : $(openssl x509 -in "$cert" -noout -enddate | cut -d= -f2)"
