@@ -26,8 +26,11 @@ class HomeNoticeIntegrationTest {
     void homeDoesNotClaimToBeATestSiteWithFakeAccounts() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Projet associatif et bénévole")))
+                .andExpect(content().string(containsString("Projet bénévole")))
                 .andExpect(content().string(containsString("href=\"/rgpd\"")))
+                .andExpect(content().string(containsString("adresse e-mail fictive")))
+                .andExpect(content().string(containsString("L'administrateur du site supprime les comptes")))
+                .andExpect(content().string(not(containsString("L'association"))))
                 .andExpect(content().string(not(containsString("phase de test"))))
                 .andExpect(content().string(not(containsString("comptes sont fictifs"))))
                 .andExpect(content().string(not(containsString("purgées régulièrement"))));
