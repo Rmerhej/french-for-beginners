@@ -1,0 +1,284 @@
+diff --git a/init-db/frenchdb_9_test_positionnement_niveaux.sql b/init-db/frenchdb_9_test_positionnement_niveaux.sql
+new file mode 100644
+index 0000000..a83dddd
+--- /dev/null
++++ b/init-db/frenchdb_9_test_positionnement_niveaux.sql
+@@ -0,0 +1,12 @@
++-- Test de positionnement : indique le niveau de chaque question (15 par niveau, dans l'ordre des numéros 424 à 483).
++-- La page /testEval s'en sert pour calculer le niveau bloc par bloc.
++-- À lancer APRÈS frenchdb_9_test_positionnement.sql. Peut être exécuté plusieurs fois.
++--   docker exec -i french-db sh -c 'mysql -u root -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE"' < init-db/frenchdb_9_test_positionnement_niveaux.sql
++-- Sur une base neuve, ce script s'exécute automatiquement.
++UPDATE `exercises` SET `lesson_level` = 'A1' WHERE `id` BETWEEN 424 AND 438 AND `lesson_title` LIKE 'Test%';
++UPDATE `exercises` SET `lesson_level` = 'A2' WHERE `id` BETWEEN 439 AND 453 AND `lesson_title` LIKE 'Test%';
++UPDATE `exercises` SET `lesson_level` = 'B1' WHERE `id` BETWEEN 454 AND 468 AND `lesson_title` LIKE 'Test%';
++UPDATE `exercises` SET `lesson_level` = 'B2' WHERE `id` BETWEEN 469 AND 483 AND `lesson_title` LIKE 'Test%';
++
++-- Contrôle : doit afficher 15 pour chacun des quatre niveaux
++SELECT `lesson_level`, COUNT(*) AS questions FROM `exercises` WHERE `lesson_title` = 'Test' GROUP BY `lesson_level` ORDER BY `lesson_level`;
+diff --git a/src/main/resources/static/js/placement-level.js b/src/main/resources/static/js/placement-level.js
+new file mode 100644
+index 0000000..5080e44
+--- /dev/null
++++ b/src/main/resources/static/js/placement-level.js
+@@ -0,0 +1,36 @@
++/* Calcul du niveau du test de positionnement, bloc par bloc.
++ * Chaque niveau (A1, A2, B1, B2) est noté sur ses propres questions : un niveau est « validé »
++ * quand au moins les deux tiers des questions du bloc sont réussies (10 sur 15).
++ * Le niveau annoncé est le plus haut niveau validé, à condition que tous les niveaux précédents le soient aussi :
++ * de bonnes réponses aux questions difficiles ne compensent pas des bases fragiles.
++ * Utilisation : FFBPlacement.compute({A1: {correct: 12, total: 15}, A2: {...}, ...}) */
++(function (root) {
++    var ORDER = ['A1', 'A2', 'B1', 'B2'];
++    var PASS_RATIO = 2 / 3;
++
++    function compute(blocks) {
++        var result = { level: 'A1', scores: [], firstGap: null, irregular: false, baseWeak: false };
++        var chain = true;
++        ORDER.forEach(function (level) {
++            var b = blocks[level];
++            if (!b || !b.total) return;                       // niveau absent du test
++            var need = Math.ceil(b.total * PASS_RATIO);
++            var ok = b.correct >= need;
++            result.scores.push({ level: level, correct: b.correct, total: b.total, need: need, ok: ok });
++            if (chain && ok) {
++                result.level = level;
++            } else if (chain) {
++                chain = false;
++                result.firstGap = level;                      // premier niveau non validé
++                if (level === ORDER[0] || result.scores.length === 1) result.baseWeak = true;
++            } else if (ok) {
++                result.irregular = true;                      // un niveau plus haut réussi malgré un trou plus bas
++            }
++        });
++        return result;
++    }
++
++    var api = { compute: compute, ORDER: ORDER };
++    root.FFBPlacement = api;
++    if (typeof module !== 'undefined' && module.exports) module.exports = api;
++})(typeof window !== 'undefined' ? window : globalThis);
+diff --git a/src/main/resources/templates/evaluation.html b/src/main/resources/templates/evaluation.html
+index ab083e7..1f49d32 100644
+--- a/src/main/resources/templates/evaluation.html
++++ b/src/main/resources/templates/evaluation.html
+@@ -29,7 +29,8 @@
+     <div class="card shadow-sm mb-4 exercise-card"
+          th:each="ex : ${exercises}"
+          th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'test')}"
+-         th:id="'exercise-container-' + ${ex.id}">
++         th:id="'exercise-container-' + ${ex.id}"
++         th:data-level="${ex.lessonLevel}">
+ 
+         <div class="card-header">
+             <strong th:text="${ex.lessonTitle}" class="text-secondary"></strong>
+@@ -90,6 +91,7 @@
+                                                                                class="badge bg-primary fs-4">-</span>
+         </h4>
+         <p id="cecr-description" class="mb-0 mt-2"></p>
++        <p id="cecr-details" class="small mb-0 mt-2 text-start" style="white-space: pre-line;"></p>
+         <p id="placement-saved" class="mb-0 mt-3 fw-bold text-success d-none">
+             ✔ Niveau enregistré : « Continuer le parcours » démarrera à ce niveau.
+         </p>
+@@ -103,14 +105,24 @@
+ 
+ <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+ 
++<script th:src="@{/js/placement-level.js}"></script>
+ <script>
+     let currentScore = 0;
+     let totalQuestions = 0;
+     const answeredExercises = new Set();
++    // Score par niveau : {A1: {correct, total}, ...}, rempli seulement si les questions portent un niveau
++    const byLevel = {};
+ 
+     document.addEventListener("DOMContentLoaded", function() {
+         const exerciseCards = document.querySelectorAll('.exercise-card');
+         totalQuestions = exerciseCards.length;
++        exerciseCards.forEach(function (card) {
++            const level = card.dataset.level;
++            if (level) {
++                byLevel[level] = byLevel[level] || { correct: 0, total: 0 };
++                byLevel[level].total++;
++            }
++        });
+ 
+         const totalSpan = document.getElementById('total');
+         if (totalSpan) {
+@@ -146,6 +158,8 @@
+             if (userAnswer === correctAnswer) {
+                 if (optionWrapper) optionWrapper.classList.add('correct');
+                 currentScore++;
++                const level = cardContainer.dataset.level;
++                if (level && byLevel[level]) byLevel[level].correct++;
+             } else {
+                 if (optionWrapper) optionWrapper.classList.add('incorrect');
+                 const correctRadio = cardContainer.querySelector(`input[value="${correctAnswer}"]`);
+@@ -171,25 +185,43 @@
+         resultContainer.classList.remove('d-none');
+ 
+         const percentage = (currentScore / totalQuestions) * 100;
++        const descriptions = {
++            A1: "Niveau Débutant : Vous découvrez la langue française et comprenez des expressions très simples.",
++            A2: "Niveau Élémentaire : Vous pouvez communiquer lors de tâches simples et habituelles.",
++            B1: "Niveau Intermédiaire (Seuil) : Vous faites face à la majorité des situations de voyage ou d'échanges usuels.",
++            B2: "Niveau Avancé (Indépendant) : Vous comprenez des textes complexes et vous exprimez avec aisance."
++        };
++        const detailsElement = document.getElementById('cecr-details');
+         let level = "";
+-        let description = "";
+-
+-        if (percentage >= 80) {
+-            level = "B2";
+-            description = "Niveau Avancé (Indépendant) : Vous comprenez des textes complexes et vous exprimez avec aisance.";
+-        } else if (percentage >= 65) {
+-            level = "B1";
+-            description = "Niveau Intermédiaire (Seuil) : Vous faites face à la majorité des situations de voyage ou d'échanges usuels.";
+-        } else if (percentage >= 50) {
+-            level = "A2";
+-            description = "Niveau Élémentaire : Vous pouvez communiquer lors de tâches simples et habituelles.";
++        let details = "";
++
++        if (window.FFBPlacement && Object.keys(byLevel).length > 0) {
++            // Calcul par niveau : chaque niveau est noté sur ses propres questions
++            const r = window.FFBPlacement.compute(byLevel);
++            level = r.level;
++            details = "Résultat par niveau :\n" + r.scores.map(function (b) {
++                return (b.ok ? "✔ " : "✖ ") + b.level + " : " + b.correct + "/" + b.total;
++            }).join("\n");
++            if (r.baseWeak) {
++                details += "\n\nLes bases du niveau A1 sont à consolider : commencez par les cours et exercices de ce niveau.";
++            } else if (r.firstGap) {
++                details += "\n\nÀ travailler en priorité : le niveau " + r.firstGap + ".";
++            }
++            if (r.irregular) {
++                details += "\n\nVotre profil est irrégulier (certains niveaux élevés réussis malgré des difficultés plus bas) : parlez-en avec votre enseignant.";
++            }
+         } else {
+-            level = "A1";
+-            description = "Niveau Débutant : Vous découvrez la langue française et comprenez des expressions très simples.";
++            // Questions sans niveau : calcul sur le score total
++            level = percentage >= 80 ? "B2" : percentage >= 65 ? "B1" : percentage >= 50 ? "A2" : "A1";
++        }
++        const unanswered = totalQuestions - answeredExercises.size;
++        if (unanswered > 0) {
++            details += (details ? "\n\n" : "") + unanswered + " question(s) sans réponse comptée(s) comme fausse(s).";
+         }
+ 
+         levelBadge.innerText = level;
+-        descElement.innerText = description + " (Score : " + currentScore + "/" + totalQuestions + " - " + Math.round(percentage) + "%)";
++        descElement.innerText = descriptions[level] + " (Score : " + currentScore + "/" + totalQuestions + " - " + Math.round(percentage) + "%)";
++        if (detailsElement) detailsElement.textContent = details;
+ 
+         // Utilisateur connecté : on retient le niveau pour « Continuer le parcours »
+         if (window.sendPlacementLevel) {
+diff --git a/src/test/java/com/apprendrefr/integration/PlacementPageIntegrationTest.java b/src/test/java/com/apprendrefr/integration/PlacementPageIntegrationTest.java
+new file mode 100644
+index 0000000..cf87fcf
+--- /dev/null
++++ b/src/test/java/com/apprendrefr/integration/PlacementPageIntegrationTest.java
+@@ -0,0 +1,62 @@
++package com.apprendrefr.integration;
++
++import com.apprendrefr.entity.Exercise;
++import com.apprendrefr.repository.ExerciseRepository;
++import org.junit.jupiter.api.AfterEach;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
++import org.springframework.boot.test.context.SpringBootTest;
++import org.springframework.test.context.ActiveProfiles;
++import org.springframework.test.web.servlet.MockMvc;
++
++import static org.hamcrest.Matchers.containsString;
++import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
++import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
++import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
++
++/** Page /testEval : chaque question porte son niveau (pour le calcul bloc par bloc) et le script de calcul est chargé. */
++@SpringBootTest
++@AutoConfigureMockMvc
++@ActiveProfiles("test")
++class PlacementPageIntegrationTest {
++
++    @Autowired
++    private MockMvc mockMvc;
++    @Autowired
++    private ExerciseRepository exerciseRepository;
++
++    private Long id;
++
++    @BeforeEach
++    void setUp() {
++        Exercise e = new Exercise();
++        e.setLessonTitle("Test niveau page");
++        e.setQuestion("Je ___ étudiant.");
++        e.setOptionA("est");
++        e.setOptionB("suis");
++        e.setOptionC("sont");
++        e.setOptionD("êtes");
++        e.setCorrectAnswer("B");
++        e.setLessonLevel("B1");
++        id = exerciseRepository.save(e).getId();
++    }
++
++    @AfterEach
++    void cleanUp() {
++        exerciseRepository.deleteById(id);
++    }
++
++    @Test
++    void questionsCarryTheirLevel_andTheScoringScriptIsLoaded() throws Exception {
++        mockMvc.perform(get("/testEval"))
++                .andExpect(status().isOk())
++                .andExpect(content().string(containsString("data-level=\"B1\"")))
++                .andExpect(content().string(containsString("/js/placement-level.js")))
++                .andExpect(content().string(containsString("id=\"cecr-details\"")));
++        mockMvc.perform(get("/js/placement-level.js"))
++                .andExpect(status().isOk())
++                .andExpect(content().string(containsString("FFBPlacement")));
++    }
++}
+diff --git a/src/test/java/com/apprendrefr/service/PlacementLevelsSqlFileTest.java b/src/test/java/com/apprendrefr/service/PlacementLevelsSqlFileTest.java
+new file mode 100644
+index 0000000..abbb2e3
+--- /dev/null
++++ b/src/test/java/com/apprendrefr/service/PlacementLevelsSqlFileTest.java
+@@ -0,0 +1,36 @@
++package com.apprendrefr.service;
++
++import org.junit.jupiter.api.Test;
++
++import java.io.IOException;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++
++/** Niveaux des 60 questions du test de positionnement : 15 questions par niveau, dans l'ordre des numéros. */
++class PlacementLevelsSqlFileTest {
++
++    private static final Pattern UPDATE = Pattern.compile(
++            "UPDATE `exercises` SET `lesson_level` = '([AB][12])' WHERE `id` BETWEEN (\\d+) AND (\\d+) AND `lesson_title` LIKE 'Test%';");
++
++    @Test
++    void fourBlocksOfFifteenQuestionsCoverTheWholeTest() throws IOException {
++        String sql = Files.readString(Path.of("init-db", "frenchdb_9_test_positionnement_niveaux.sql"));
++        Matcher m = UPDATE.matcher(sql);
++        List<String> levels = new ArrayList<>();
++        int expectedStart = 424;
++        while (m.find()) {
++            levels.add(m.group(1));
++            assertEquals(expectedStart, Integer.parseInt(m.group(2)), "Les blocs doivent se suivre sans trou");
++            assertEquals(expectedStart + 14, Integer.parseInt(m.group(3)), "Chaque bloc compte 15 questions");
++            expectedStart += 15;
++        }
++        assertEquals(List.of("A1", "A2", "B1", "B2"), levels);
++        assertEquals(484, expectedStart, "Les questions vont de 424 à 483");
++    }
++}
