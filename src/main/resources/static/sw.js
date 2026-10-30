@@ -6,12 +6,12 @@
  * Scripts et styles de l'application (/js/, /css/) : réseau d'abord, pour que les apprenants
  * aient toujours la version déployée ; le cache ne sert que sans connexion.
  * Pour forcer une mise à jour du cache : changer VERSION. */
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE = 'ffb-static-' + VERSION;
 const OFFLINE_URL = '/offline.html';
 const PRECACHE = [OFFLINE_URL, '/pwa/icon-192.png', '/pwa/icon-512.png'];
 const NETWORK_FIRST_PREFIXES = ['/css/', '/js/'];
-const STATIC_PREFIXES = ['/pwa/'];
+const STATIC_PREFIXES = ['/pwa/', '/fonts/'];
 const CDN_HOSTS = ['cdn.jsdelivr.net'];
 
 self.addEventListener('install', (event) => {

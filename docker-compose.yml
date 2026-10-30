@@ -35,7 +35,7 @@ services:
       - french-network
 
   app:
-    image: rolandmerhej1/french-app:v1.14.14
+    image: rolandmerhej1/french-app:v1.14.15
     container_name: french-app
     restart: always
     # Journaux limités à 3 fichiers de 10 Mo (sans cela, ils grossissent sans fin)
