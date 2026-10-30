@@ -1,11 +1,11 @@
-<footer th:fragment="footer" class="bg-dark text-white py-4 mt-5 border-top border-light border-2" role="contentinfo">
+<footer th:fragment="footer" class="site-footer bg-dark text-white py-4 mt-5" role="contentinfo">
     <div class="container">
         <div class="row">
 
 
             <div class="col-md-2 mb-4">
                 <h6 class="fw-bold">Navigation</h6>
-                <ul class="list-unstyled small">
+                <ul class="list-unstyled footer-links">
                     <li><a th:href="@{/}" class="text-light text-decoration-none">Accueil</a></li>
                     <li><a th:href="@{/lessons}" class="text-light text-decoration-none">Leçons</a></li>
                     <li><a th:href="@{/register}" class="text-light text-decoration-none">S'inscrire</a></li>
@@ -15,7 +15,7 @@
 
             <div class="col-md-3 mb-4">
                 <h6 class="fw-bold">Liens utiles</h6>
-                <ul class="list-unstyled small" role="list">
+                <ul class="list-unstyled footer-links" role="list">
                     <li>
                         <a th:href="@{/about}" class="text-light text-decoration-none">À propos</a>
                     </li>
@@ -38,7 +38,7 @@
 
             <div class="col-md-3 mb-4">
                 <h6 class="fw-bold">Suivez-nous</h6>
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-wrap align-items-center gap-3 footer-social">
                     <a th:href="@{/secourscatholique}" class="text-light text-decoration-none" target="_blank">Site
                         du secours catholique</a>
                     <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
@@ -49,7 +49,7 @@
         </div>
 
 
-        <hr class="border-secondary">
+        <hr class="footer-sep">
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start small">
                 © 2026 French For Beginners - Tous droits réservés

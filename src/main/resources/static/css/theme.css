@@ -525,3 +525,95 @@ textarea.form-control {
 [data-bs-theme="dark"] .text-danger { color: #ff9aa5 !important; }
 [data-bs-theme="dark"] .text-success { color: #6ee7a0 !important; }
 [data-bs-theme="dark"] .text-warning { color: #ffd36e !important; }
+
+/* ---------- Barre de navigation : boutons faciles à toucher ---------- */
+.navbar .btn {
+    min-height: 44px;
+}
+
+/* ---------- Pied de page ---------- */
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-sep {
+    border-color: rgba(255, 255, 255, 0.25);
+    opacity: 1;
+}
+
+/* Liens du pied de page : zone tactile d'environ 44 px, texte lisible */
+.footer-links {
+    margin-bottom: 0;
+}
+
+.footer-links a {
+    display: inline-block;
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.footer-social a:has(.bi) {
+    justify-content: center;
+    min-width: 44px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline !important;
+}
+
+/* ---------- Boutons flottants (haut de page / retour) ---------- */
+#btn-top {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    z-index: 1050;
+}
+
+#btn-back {
+    z-index: 1050;
+}
+
+/* La marque (drapeau + nom) peut passer à la ligne au lieu de faire déborder la page sur téléphone */
+.navbar-brand {
+    white-space: normal;
+    min-width: 0;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
+    .navbar-brand img {
+        margin-right: 8px !important;
+    }
+}
+
+/* Barre de navigation : textes plus lisibles sur le fond bleu nuit */
+.navbar-dark {
+    --bs-navbar-color: rgba(255, 255, 255, 0.85);
+    --bs-navbar-hover-color: #fff;
+    --bs-navbar-active-color: #fff;
+}
+
+.navbar #darkModeToggle {
+    color: rgba(255, 255, 255, 0.88);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.navbar .btn-outline-danger {
+    --bs-btn-color: #ff9aa5;
+    --bs-btn-border-color: #ff9aa5;
+    --bs-btn-hover-bg: #dc3545;
+    --bs-btn-hover-border-color: #dc3545;
+    --bs-btn-hover-color: #fff;
+}
