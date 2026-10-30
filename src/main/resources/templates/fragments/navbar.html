@@ -7,7 +7,7 @@
         <a class="navbar-brand d-flex align-items-center fw-bold" th:href="@{/}"
            aria-label="Accueil - Apprendre le Français">
 
-            <img src="https://flagcdn.com/w80/fr.png"
+            <img th:src="@{/images/flag-fr.svg}" width="42" height="28"
                  alt="Drapeau Français"
                  style="height: 28px; width: auto; margin-right: 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px;">
             <span>Apprendre le Français</span>
@@ -39,18 +39,18 @@
 
             <div class="navbar-nav ms-auto">
 
-                <div sec:authorize="isAuthenticated()" class="d-flex align-items-center">
-                    <span class="navbar-text me-3" aria-label="Utilisateur connecté">
+                <div sec:authorize="isAuthenticated()" class="d-flex flex-wrap align-items-center gap-2 py-2">
+                    <span class="navbar-text me-lg-2" aria-label="Utilisateur connecté">
                         👤 <strong sec:authentication="name"></strong>
                     </span>
                     <a th:href="@{/mes-resultats}"
-                       class="btn btn-outline-light btn-sm rounded-pill px-3 py-2 me-2">📊 Mes résultats</a>
-                    <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-2 d-inline-flex align-items-center" id="darkModeToggle" title="Changer de thème">
+                       class="btn btn-outline-light btn-sm rounded-pill px-3">📊 Mes résultats</a>
+                    <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 d-inline-flex align-items-center" id="darkModeToggle" title="Changer de thème">
                         <span id="themeIcon" class="me-1">🌙</span>
                         <span id="themeText">Sombre</span>
                     </button>
                     <a th:href="@{/admin/dashboard}"
-                       class="btn btn-outline-light me-2"
+                       class="btn btn-outline-light"
                        sec:authorize="hasRole('ADMIN')"
                        aria-label="Accéder au panneau administrateur">
                         Admin
@@ -66,7 +66,7 @@
                 </div>
 
 
-                <div sec:authorize="isAnonymous()">
+                <div sec:authorize="isAnonymous()" class="d-flex flex-wrap gap-2 py-2">
                     <a th:href="@{/login}"
                        class="btn btn-outline-light"
                        aria-label="Se Connecter à son compte">
