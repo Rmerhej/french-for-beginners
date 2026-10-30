@@ -2,11 +2,6 @@ body{
     line-height:1.7;
 }
 
-.hero{
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    color:white;
-}
-
 h2{
     margin-top:2rem;
     margin-bottom:1rem;
@@ -14,4 +9,15 @@ h2{
 
 .card{
     height:100%;
+}
+
+/* Page en grille de cartes : pleine largeur Bootstrap (la largeur de lecture réduite de theme.css ne s'applique pas ici) */
+@media (min-width: 992px) {
+    .hero:not(.bg-primary) ~ main.container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+    .hero:not(.bg-primary) ~ main.container { max-width: 1140px; }
+}
+@media (min-width: 1400px) {
+    .hero:not(.bg-primary) ~ main.container { max-width: 1320px; }
 }

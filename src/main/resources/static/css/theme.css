@@ -414,3 +414,78 @@ textarea.form-control {
     .ffb-toast { animation: none; }
     .ffb-toast-out { transition: none; }
 }
+
+/* ---------- Pages de leçon (bandeau « hero » suivi du contenu) ---------- */
+.hero:not(.bg-primary) {
+    background: linear-gradient(135deg, var(--ffb-primary) 0%, #1d3aa6 100%);
+    color: #fff;
+}
+
+.hero h1 {
+    letter-spacing: -0.02em;
+}
+
+.hero .lead {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Sur grand écran, le texte garde une largeur de lecture confortable (environ 75 caractères par ligne).
+   Les pages en grille de cartes (lesson-hero-cards.css) rétablissent la pleine largeur. */
+@media (min-width: 992px) {
+    .hero:not(.bg-primary) ~ main.container {
+        max-width: 880px;
+    }
+}
+
+.hero:not(.bg-primary) ~ main p,
+.hero:not(.bg-primary) ~ main li {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+}
+
+.hero:not(.bg-primary) ~ main li {
+    margin-bottom: 0.35rem;
+}
+
+.hero:not(.bg-primary) ~ main ul,
+.hero:not(.bg-primary) ~ main ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+}
+
+.hero:not(.bg-primary) ~ main h2 {
+    font-size: 1.6rem;
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero:not(.bg-primary) ~ main h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Encadrés (objectif, astuce, attention...) : plus d'air, pas de marge superflue en bas */
+.hero:not(.bg-primary) ~ main .alert {
+    padding: 1.25rem 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero:not(.bg-primary) ~ main .alert > :first-child,
+.hero:not(.bg-primary) ~ main .alert h2,
+.hero:not(.bg-primary) ~ main .alert h3 {
+    margin-top: 0;
+}
+
+.hero:not(.bg-primary) ~ main .alert > :last-child {
+    margin-bottom: 0;
+}
+
+.hero:not(.bg-primary) ~ main .table {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
