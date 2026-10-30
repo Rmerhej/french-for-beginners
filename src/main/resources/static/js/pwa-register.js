@@ -115,7 +115,8 @@
   if (isIOS && !isStandalone()) {
     document.addEventListener('DOMContentLoaded', function () {
       showButton(function () {
-        alert('Pour installer : touchez le bouton Partager (carré avec une flèche), puis « Sur l’écran d’accueil ».');
+        var msg = 'Pour installer : touchez le bouton Partager (carré avec une flèche), puis « Sur l’écran d’accueil ».';
+        if (window.FFBToast) FFBToast.info(msg, { delay: 12000 }); else alert(msg);
       });
     });
   }

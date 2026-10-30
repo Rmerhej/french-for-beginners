@@ -13,7 +13,7 @@ function submitAndCheck(exerciseId, correctAnswer) {
     const selectedRadio = container.querySelector(`input[name="answer-${exerciseId}"]:checked`);
 
     if (!selectedRadio) {
-        alert("Veuillez sélectionner une réponse avant de vérifier !");
+        (window.FFBToast ? FFBToast.warning("Veuillez sélectionner une réponse avant de vérifier.") : alert("Veuillez sélectionner une réponse avant de vérifier."));
         return;
     }
 
