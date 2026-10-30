@@ -13,7 +13,12 @@ function selectWord(el) {
     }
 }
 
+function clearStatus(zone) {
+    zone.classList.remove('correct', 'incorrect');
+}
+
 function activateDropzone(zone) {
+    clearStatus(zone);
     if (selectedWord) {
         zone.textContent = selectedWord.textContent;
         selectWord(selectedWord);            // désélectionne
@@ -76,6 +81,7 @@ function activateDropzone(zone) {
             e.preventDefault();
             e.target.textContent = e.dataTransfer.getData('text/plain');
             e.target.classList.remove('over');
+            clearStatus(e.target);
         }
     });
 
@@ -86,13 +92,13 @@ function activateDropzone(zone) {
 
         let score = 0;
         zones.forEach((zone, i) => {
+            // Les couleurs (clair / sombre) et les signes ✓ ✗ sont définis dans quiz-dropzone.css
+            clearStatus(zone);
             if (zone.textContent.trim() === correctAnswers[i].trim()) {
-                zone.style.backgroundColor = '#d1e7dd';
-                  zone.style.color = '#0f5132';
+                zone.classList.add('correct');
                 score++;
             } else {
-                zone.style.backgroundColor = '#f8d7da';
-                 zone.style.color = '#842029';
+                zone.classList.add('incorrect');
             }
         });
         document.getElementById('feedback-' + index).innerHTML =
@@ -118,7 +124,7 @@ function activateDropzone(zone) {
 
     function resetQuiz(index) {
         const wrapper = document.querySelectorAll('.quiz-wrapper')[index];
-        wrapper.querySelectorAll('.dropzone').forEach(z => z.textContent = '');
+        wrapper.querySelectorAll('.dropzone').forEach(z => { z.textContent = ''; clearStatus(z); });
         document.getElementById('feedback-' + index).innerHTML = '';
         if (selectedWord) { selectWord(selectedWord); }
     }
