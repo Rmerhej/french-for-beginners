@@ -92,9 +92,6 @@
         </h4>
         <p id="cecr-description" class="mb-0 mt-2"></p>
         <p id="cecr-details" class="small mb-0 mt-2 text-start" style="white-space: pre-line;"></p>
-        <p id="placement-saved" class="mb-0 mt-3 fw-bold text-success d-none">
-            ✔ Niveau enregistré : « Continuer le parcours » démarrera à ce niveau.
-        </p>
     </div>
 
 </main>
@@ -136,7 +133,7 @@
         const cardContainer = document.getElementById(`exercise-container-${exerciseId}`);
 
         if (!selectedRadio) {
-            alert("Veuillez sélectionner une réponse.");
+            (window.FFBToast ? FFBToast.warning("Veuillez sélectionner une réponse avant de vérifier.") : alert("Veuillez sélectionner une réponse avant de vérifier."));
             return;
         }
 
@@ -178,7 +175,7 @@
         const descElement = document.getElementById('cecr-description');
 
         if (!resultContainer || totalQuestions === 0) {
-            alert("Erreur de chargement des questions.");
+            (window.FFBToast ? FFBToast.error("Erreur de chargement des questions. Rechargez la page.") : alert("Erreur de chargement des questions. Rechargez la page."));
             return;
         }
 
@@ -226,8 +223,8 @@
         // Utilisateur connecté : on retient le niveau pour « Continuer le parcours »
         if (window.sendPlacementLevel) {
             window.sendPlacementLevel(level).then(function (saved) {
-                if (saved) {
-                    document.getElementById('placement-saved').classList.remove('d-none');
+                if (saved && window.FFBToast) {
+                    FFBToast.success('Niveau enregistré : « Continuer le parcours » démarrera à ce niveau.');
                 }
             });
         }

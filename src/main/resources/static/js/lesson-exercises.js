@@ -15,7 +15,7 @@ function checkAnswer(btn, exerciseId, correctAnswer) {
     const checkedRadio = card.querySelector(`input[name="qcm-${exerciseId}"]:checked`);
 
     if (!checkedRadio) {
-        alert("Veuillez sélectionner une réponse avant de vérifier !");
+        (window.FFBToast ? FFBToast.warning("Veuillez sélectionner une réponse avant de vérifier.") : alert("Veuillez sélectionner une réponse avant de vérifier."));
         return;
     }
 

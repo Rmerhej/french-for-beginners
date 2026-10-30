@@ -10,7 +10,7 @@
 
         // Sécurité : si l'utilisateur n'a rien coché et clique sur vérifier
         if (!selectedRadio) {
-            alert("Veuillez sélectionner une réponse avant de vérifier !");
+            (window.FFBToast ? FFBToast.warning("Veuillez sélectionner une réponse avant de vérifier.") : alert("Veuillez sélectionner une réponse avant de vérifier."));
             return;
         }
 
