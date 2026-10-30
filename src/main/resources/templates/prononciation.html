@@ -32,31 +32,31 @@
     <!-- Grille des sons et prononciations -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" th:each="item : ${prononciations}">
-            <article class="card h-100 border-0 shadow-sm prononciation-card" style="border-radius: 16px; overflow: hidden;">
+            <article class="card h-100 prononciation-card">
 
-                <!-- En-tête de la carte -->
-                <div class="card-header bg-primary py-3 px-4 border-0 d-flex align-items-center">
-                    <span class="fs-4 me-2" aria-hidden="true">🗣️</span>
-                    <h2 class="h5 fw-bold mb-0" th:text="${item.son}">Son</h2>
-                </div>
-
-                <!-- Corps de la carte -->
                 <div class="card-body d-flex flex-column p-4">
+
+                    <!-- En-tête : pastille d'icône + son à travailler -->
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="ffb-icon-chip" aria-hidden="true"><i class="bi bi-volume-up"></i></span>
+                        <h2 class="prononciation-son mb-0" th:text="${item.son}">Son</h2>
+                    </div>
+
                     <div class="mb-4">
-                        <span class="text-secondary small text-uppercase fw-bold d-block mb-1">Exemple :</span>
-                        <p class="text-secondary fs-5 fw-semibold  mb-0" th:text="${item.exemple}">Exemple</p>
+                        <span class="prononciation-label d-block mb-1">Exemple</span>
+                        <p class="prononciation-exemple mb-0" th:text="${item.exemple}">Exemple</p>
                     </div>
 
                     <!-- Lecteur Audio (fichier enregistré) -->
                     <div th:if="${item.audio != null and !item.audio.isBlank()}"
                          class="mt-auto pt-3 border-top d-flex align-items-center gap-3">
-                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center shadow-sm btn-play" style="width: 42px; height: 42px;" th:aria-label="'Écouter la prononciation de ' + ${item.son}">
-                            <i class="bi bi-play-fill fs-5" aria-hidden="true"></i>
+                        <button class="btn btn-primary btn-play" th:aria-label="'Écouter la prononciation de ' + ${item.son}">
+                            <i class="bi bi-play-fill fs-4" aria-hidden="true"></i>
                         </button>
                         <audio class="d-none">
                             <source th:src="${item.audio}" type="audio/mpeg">
                         </audio>
-                        <span class="text-secondary fw-medium small">Écouter l'exemple</span>
+                        <span class="fw-semibold">Écouter l'exemple</span>
                     </div>
 
                     <!-- Pas d'enregistrement : lecture avec la voix du navigateur (affichée si l'appareil sait lire à voix haute) -->

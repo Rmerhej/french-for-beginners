@@ -489,3 +489,22 @@ textarea.form-control {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
+
+/* ---------- Pastille d'icône (fond bleu clair, icône bleue) ---------- */
+.ffb-icon-chip {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: var(--ffb-accent);
+    background: var(--ffb-soft);
+    border-radius: 14px;
+}
+
+/* Texte « secondaire » : le gris par défaut de Bootstrap manque de contraste sur le fond sombre */
+.text-secondary {
+    color: var(--bs-secondary-color) !important;
+}

@@ -17,7 +17,7 @@
                     // Reset l'ancien bouton
                     const oldBtn = currentAudio.parentElement.querySelector('.btn-play');
                     if (oldBtn) {
-                        oldBtn.innerHTML = '<i class="bi bi-play-fill fs-3"></i>';
+                        oldBtn.innerHTML = '<i class="bi bi-play-fill fs-4"></i>';
                         oldBtn.classList.remove('btn-danger');
                         oldBtn.classList.add('btn-primary');
                     }
@@ -26,7 +26,7 @@
                 if (audio.paused) {
                     // Lecture
                     audio.play().then(() => {
-                        btn.innerHTML = '<i class="bi bi-pause-fill fs-3"></i>';
+                        btn.innerHTML = '<i class="bi bi-pause-fill fs-4"></i>';
                         btn.classList.remove('btn-primary');
                         btn.classList.add('btn-danger');
                         currentAudio = audio;
@@ -36,7 +36,7 @@
                 } else {
                     // Pause
                     audio.pause();
-                    btn.innerHTML = '<i class="bi bi-play-fill fs-3"></i>';
+                    btn.innerHTML = '<i class="bi bi-play-fill fs-4"></i>';
                     btn.classList.remove('btn-danger');
                     btn.classList.add('btn-primary');
                     currentAudio = null;
@@ -45,7 +45,7 @@
 
             // Quand l'audio se termine naturellement
             audio.addEventListener('ended', () => {
-                btn.innerHTML = '<i class="bi bi-play-fill fs-3"></i>';
+                btn.innerHTML = '<i class="bi bi-play-fill fs-4"></i>';
                 btn.classList.remove('btn-danger');
                 btn.classList.add('btn-primary');
                 if (currentAudio === audio) currentAudio = null;
