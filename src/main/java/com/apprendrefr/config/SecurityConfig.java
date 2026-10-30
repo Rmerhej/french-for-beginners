@@ -120,7 +120,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/", "/index", "/register", "/login", "/logout",
                                 "/visitor/**",                    // ← plus simple
-                                "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**","/error", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
+                                "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**", "/fonts/**", "/error", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
                                 "/fragments/**", "/prononciationNew", "/robots.txt", "/sitemap.xml", "/googleb831499c732fc7f6.html", "/BingSiteAuth.xml"
                         ).permitAll()
 
