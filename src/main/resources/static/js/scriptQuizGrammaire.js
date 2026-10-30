@@ -37,6 +37,7 @@
             e.preventDefault();
             e.target.textContent = e.dataTransfer.getData('text/plain');
             e.target.classList.remove('over');
+            e.target.classList.remove('correct', 'incorrect');
         }
     });
 
@@ -47,13 +48,13 @@
 
         let score = 0;
         zones.forEach((zone, i) => {
+            // Les couleurs (clair / sombre) et les signes ✓ ✗ sont définis dans quiz-dropzone.css
+            zone.classList.remove('correct', 'incorrect');
             if (zone.textContent.trim() === correctAnswers[i].trim()) {
-                zone.style.backgroundColor = '#d1e7dd';
-                 zone.style.color = '#0f5132';
+                zone.classList.add('correct');
                 score++;
             } else {
-                zone.style.backgroundColor = '#f8d7da';
-                zone.style.color = '#842029';
+                zone.classList.add('incorrect');
             }
         });
         document.getElementById('feedback-' + index).innerHTML =
@@ -62,6 +63,6 @@
 
     function resetQuiz(index) {
         const wrapper = document.querySelectorAll('.quiz-wrapper')[index];
-        wrapper.querySelectorAll('.dropzone').forEach(z => z.textContent = '');
+        wrapper.querySelectorAll('.dropzone').forEach(z => { z.textContent = ''; z.classList.remove('correct', 'incorrect'); });
         document.getElementById('feedback-' + index).innerHTML = '';
     }
