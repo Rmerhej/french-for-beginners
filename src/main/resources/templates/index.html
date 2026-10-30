@@ -139,9 +139,8 @@
                 </p>
 
                 <a th:href="@{/testEval}"
-                   class="btn btn-light btn-lg px-5 py-3 fw-bold
-                          text-primary shadow-sm rounded-pill"
-                   style="transition: all 0.3s ease;">
+                   class="btn btn-light btn-lg px-4 px-md-5 py-3 fw-bold
+                          text-primary shadow-sm rounded-pill">
 
                     Passer le test maintenant
 
@@ -152,13 +151,10 @@
         </div>
 
 
-        <br><br>
-
-
         <!-- =====================================================
              TITRE DES PARCOURS
              ===================================================== -->
-        <h2 class="text-center mb-2">
+        <h2 class="text-center fw-bold mt-5 mb-2">
             Choisissez votre parcours
         </h2>
 
@@ -170,13 +166,12 @@
         <!-- =====================================================
              1 - DÉBUTANT COMPLET
              ===================================================== -->
-        <section class="mb-5 py-4">
+        <section class="mb-5 py-2">
 
             <div class="d-flex align-items-center mb-3">
 
                 <span class="badge bg-primary rounded-circle p-2 fs-6 me-2
-                             d-flex align-items-center justify-content-center"
-                      style="width: 36px; height: 36px;">
+                             d-flex align-items-center justify-content-center parcours-number">
                     1
                 </span>
 
@@ -271,13 +266,12 @@
         <!-- =====================================================
              2 - CONSOLIDATION
              ===================================================== -->
-        <section class="mb-5 py-4">
+        <section class="mb-5 py-2">
 
             <div class="d-flex align-items-center mb-3">
 
                 <span class="badge bg-warning text-dark rounded-circle p-2 fs-6 me-2
-                             d-flex align-items-center justify-content-center fw-bold"
-                      style="width: 36px; height: 36px;">
+                             d-flex align-items-center justify-content-center fw-bold parcours-number">
                     2
                 </span>
 
@@ -375,14 +369,13 @@
         <!-- =====================================================
              3 - APPROFONDISSEMENT
              ===================================================== -->
-        <section class="mb-5 py-4">
+        <section class="mb-5 py-2">
 
             <div class="d-flex align-items-center mb-3">
 
                 <span class="badge bg-success rounded-circle p-2 fs-6 me-2
                              d-flex align-items-center justify-content-center
-                             fw-bold text-white"
-                      style="width: 36px; height: 36px;">
+                             fw-bold text-white parcours-number">
                     3
                 </span>
 
@@ -467,9 +460,7 @@
         </section>
 
 
-        <hr>
-
-        <br>
+        <hr class="my-5">
 
 
         <!-- =====================================================
@@ -478,7 +469,7 @@
         <div class="text-center mt-5"
              sec:authorize="isAnonymous()">
 
-            <div class="p-5 rounded-4 text-white login-card">
+            <div class="p-4 p-md-5 rounded-4 text-white login-card">
 
                 <h5 class="mb-3">
                     🌟 Toutes les leçons sont ouvertes à tous
@@ -490,15 +481,10 @@
                     et reprendre votre parcours là où vous l'avez laissé.
                 </p>
 
-                <a th:href="@{/login}"
-                   class="btn btn-light btn-lg me-3">
-                    Se connecter
-                </a>
-
-                <a th:href="@{/register}"
-                   class="btn btn-outline-light btn-lg">
-                    Créer un compte
-                </a>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a th:href="@{/login}" class="btn btn-light btn-lg">Se connecter</a>
+                    <a th:href="@{/register}" class="btn btn-outline-light btn-lg">Créer un compte</a>
+                </div>
 
             </div>
 
@@ -507,9 +493,6 @@
     </div>
 
 </main>
-
-
-<br>
 
 
 <!-- =============================================================

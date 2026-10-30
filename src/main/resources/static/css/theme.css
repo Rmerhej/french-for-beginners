@@ -508,3 +508,20 @@ textarea.form-control {
 .text-secondary {
     color: var(--bs-secondary-color) !important;
 }
+
+/* ---------- Pastille de texte (niveau, étiquette) : fond bleu clair, texte bleu ---------- */
+.ffb-badge-soft {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ffb-accent);
+    background: var(--ffb-soft);
+    border-radius: 999px;
+}
+
+/* Mode sombre : les couleurs de texte « vives » de Bootstrap manquent de contraste sur fond sombre */
+[data-bs-theme="dark"] .text-primary { color: var(--ffb-accent) !important; }
+[data-bs-theme="dark"] .text-danger { color: #ff9aa5 !important; }
+[data-bs-theme="dark"] .text-success { color: #6ee7a0 !important; }
+[data-bs-theme="dark"] .text-warning { color: #ffd36e !important; }
