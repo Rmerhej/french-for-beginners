@@ -617,3 +617,8 @@ textarea.form-control {
     --bs-btn-hover-border-color: #dc3545;
     --bs-btn-hover-color: #fff;
 }
+
+/* Plan du site */
+.plan-links li { padding: .25rem 0; }
+.plan-links a { text-decoration: none; }
+.plan-links a:hover, .plan-links a:focus-visible { text-decoration: underline; }

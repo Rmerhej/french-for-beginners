@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/head :: head(title='Plan du site')}"></head>
+<body class="d-flex flex-column h-100">
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<main id="main-content" class="container pb-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">Plan du site</h1>
+        <p class="lead text-secondary">Toutes les rubriques du site, en un seul endroit.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <section class="col-md-6 col-lg-4" aria-labelledby="plan-apprendre">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 text-primary" id="plan-apprendre"><i class="bi bi-book me-2" aria-hidden="true"></i>Apprendre</h2>
+                    <ul class="list-unstyled mb-0 plan-links">
+                        <li><a th:href="@{/}">Accueil</a></li>
+                        <li><a th:href="@{/lessons}">Toutes les leçons</a></li>
+                        <li><a th:href="@{/supports-de-cours}">Supports de cours (grammaire et conjugaison)</a></li>
+                        <li><a th:href="@{/niveauDebutant}">Niveau débutant</a></li>
+                        <li><a th:href="@{/niveauConsolidation}">Niveau consolidation</a></li>
+                        <li><a th:href="@{/niveauApprofondissement}">Niveau approfondissement</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-md-6 col-lg-4" aria-labelledby="plan-pratiquer">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 text-primary" id="plan-pratiquer"><i class="bi bi-pencil-square me-2" aria-hidden="true"></i>S'entraîner</h2>
+                    <ul class="list-unstyled mb-0 plan-links">
+                        <li><a th:href="@{/testEval}">Test d'évaluation</a></li>
+                        <li><a th:href="@{/prononciation}">Prononciation</a></li>
+                        <li><a th:href="@{/conjugueur}">Conjugueur</a></li>
+                        <li><a th:href="@{/conjugaison-par-niveau}">Conjugaison par niveau</a></li>
+                        <li><a th:href="@{/lesVerbes}">Les verbes</a></li>
+                        <li><a th:href="@{/chiffresEtLettres}">Les lettres et les nombres</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-md-6 col-lg-4" aria-labelledby="plan-decouvrir">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 text-primary" id="plan-decouvrir"><i class="bi bi-globe-europe-africa me-2" aria-hidden="true"></i>Découvrir</h2>
+                    <ul class="list-unstyled mb-0 plan-links">
+                        <li><a th:href="@{/themes}">Thèmes</a></li>
+                        <li><a th:href="@{/cultureFrancaise}">Culture française</a></li>
+                        <li><a th:href="@{/laFrance}">La France (valeurs et institutions)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-md-6 col-lg-4" aria-labelledby="plan-compte">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 text-primary" id="plan-compte"><i class="bi bi-person-circle me-2" aria-hidden="true"></i>Mon compte</h2>
+                    <ul class="list-unstyled mb-0 plan-links">
+                        <li sec:authorize="isAnonymous()"><a id="plan-login" th:href="@{/login}">Se connecter</a></li>
+                        <li sec:authorize="isAnonymous()"><a id="plan-register" th:href="@{/register}">S'inscrire</a></li>
+                        <li sec:authorize="isAuthenticated()"><a id="plan-results" th:href="@{/mes-resultats}">Mes résultats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-md-6 col-lg-4" aria-labelledby="plan-infos">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 text-primary" id="plan-infos"><i class="bi bi-info-circle me-2" aria-hidden="true"></i>Informations</h2>
+                    <ul class="list-unstyled mb-0 plan-links">
+                        <li><a th:href="@{/about}">À propos</a></li>
+                        <li><a th:href="@{/contact}">Contact</a></li>
+                        <li><a th:href="@{/rgpd}">Mentions légales - RGPD</a></li>
+                        <li><a th:href="@{/installer}">Installer l'application</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="mt-5" aria-labelledby="plan-lecons" th:if="${!lessonsByLevel.isEmpty()}">
+        <h2 class="h4 fw-bold text-primary mb-3" id="plan-lecons">Les leçons par niveau</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" th:each="entry : ${lessonsByLevel}">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h6 fw-bold text-uppercase text-secondary" th:text="${entry.key}">A1</h3>
+                        <ul class="list-unstyled mb-0 plan-links">
+                            <li th:each="lesson : ${entry.value}">
+                                <a th:href="@{/lesson/{id}(id=${lesson.id})}" th:text="${lesson.title}">Titre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
