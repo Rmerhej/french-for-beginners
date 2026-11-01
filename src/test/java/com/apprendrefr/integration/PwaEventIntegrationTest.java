@@ -2,6 +2,7 @@ package com.apprendrefr.integration;
 
 import com.apprendrefr.repository.PwaEventRepository;
 import com.apprendrefr.service.PwaStatsService;
+import com.apprendrefr.service.VisitorTrackerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -10,6 +11,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -23,6 +26,41 @@ class PwaEventIntegrationTest {
 
     @Autowired
     private PwaEventRepository repository;
+
+    @Autowired
+    private VisitorTrackerService visitorTracker;
+
+    @Test
+    void launchFromTheIcon_byTheAdmin_isNotCounted() throws Exception {
+        long before = repository.countByEventType(PwaStatsService.LAUNCHED);
+
+        mockMvc.perform(post("/visitor/pwa-event").param("type", "launched").param("p", "android")
+                        .with(user("boss").roles("ADMIN")))
+                .andExpect(status().isNoContent());
+
+        assertEquals(before, repository.countByEventType(PwaStatsService.LAUNCHED));
+    }
+
+    @Test
+    void launchFromTheIcon_byALearner_isCounted() throws Exception {
+        long before = repository.countByEventType(PwaStatsService.LAUNCHED);
+
+        mockMvc.perform(post("/visitor/pwa-event").param("type", "launched").param("p", "android")
+                        .with(user("apprenant").roles("USER")))
+                .andExpect(status().isNoContent());
+
+        assertEquals(before + 1, repository.countByEventType(PwaStatsService.LAUNCHED));
+    }
+
+    @Test
+    void adminHeartbeat_isNotCountedAsAnOnlineVisitor() throws Exception {
+        int before = visitorTracker.getOnlineVisitors();
+
+        mockMvc.perform(get("/visitor/heartbeat").with(user("boss").roles("ADMIN")))
+                .andExpect(status().isOk());
+
+        assertEquals(before, visitorTracker.getOnlineVisitors());
+    }
 
     @Test
     void installEvent_isAcceptedWithoutLoginOrCsrf_andCounted() throws Exception {

@@ -1,9 +1,11 @@
 package com.apprendrefr.controller;
 
+import com.apprendrefr.security.AdminAccounts;
 import com.apprendrefr.service.VisitorTrackerService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +20,13 @@ public class VisitorController {
 
     @GetMapping("/visitor/heartbeat")
     public void heartbeat(HttpServletRequest request,
-                          HttpServletResponse response) {
+                          HttpServletResponse response,
+                          Authentication authentication) {
+
+        // L'administrateur connecté n'est pas compté parmi les visiteurs en ligne.
+        if (AdminAccounts.isAdmin(authentication)) {
+            return;
+        }
        // System.out.println("HEARTBEAT reçu");
 
         String visitorId = null;

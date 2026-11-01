@@ -50,6 +50,10 @@ public class PwaStatsService {
                            Map<String, Long> launchedByPlatform) {
     }
 
+    public boolean isValidType(String type) {
+        return type != null && TYPES.contains(type.trim().toUpperCase(Locale.ROOT));
+    }
+
     /**
      * @return false si le type d'événement est invalide ; true sinon
      *         (y compris quand l'envoi est ignoré car le débit est trop élevé)
