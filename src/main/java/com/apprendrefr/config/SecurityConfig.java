@@ -2,6 +2,7 @@ package com.apprendrefr.config;
 
 import com.apprendrefr.security.CustomAuthenticationSuccessHandler;
 import com.apprendrefr.security.LoginAttemptService;
+import com.apprendrefr.security.LoginCsrfAccessDeniedHandler;
 import com.apprendrefr.security.LoginRateLimitFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -115,6 +116,7 @@ public class SecurityConfig {
                                 "/api/visitor/**"       // ← au cas où tu utilises le préfixe /api
                         )
                 )
+                .exceptionHandling(ex -> ex.accessDeniedHandler(new LoginCsrfAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
                         // 1. Ressources publiques (Statiques + Pages publiques)
                         .requestMatchers(

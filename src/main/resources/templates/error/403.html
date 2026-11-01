@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès refusé</title>
+    <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
+</head>
+<body class="bg-light">
+<main class="container text-center mt-5">
+    <h1 class="display-1 text-danger">403</h1>
+    <h2>Action refusée</h2>
+    <p class="lead">
+        Cette action n'a pas pu être faite. Votre page est peut-être restée ouverte trop longtemps,
+        ou vous avez appuyé deux fois sur un bouton.
+    </p>
+    <p>Retournez à l'accueil ou connectez-vous, puis recommencez.</p>
+    <a href="/" class="btn btn-primary mt-3">Retour à l'accueil</a>
+    <a href="/login" class="btn btn-outline-primary mt-3">Se connecter</a>
+</main>
+</body>
+</html>

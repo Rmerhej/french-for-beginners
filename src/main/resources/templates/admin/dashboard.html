@@ -35,6 +35,7 @@
             <div class="card text-center  shadow-sm text-secondary">
                 <div class="card-body">
                     <h5 class="card-title">Utilisateurs connectés</h5>
+                    <p class="small text-secondary mb-1">(sans les administrateurs)</p>
                     <h2 class="fw-bold text-success" th:text="${onlineUsers}">0</h2>
                     <p class="small mb-0" th:if="${!onlineUsernames.isEmpty()}"
                        th:text="${#strings.listJoin(onlineUsernames, ', ')}">pseudo1, pseudo2</p>

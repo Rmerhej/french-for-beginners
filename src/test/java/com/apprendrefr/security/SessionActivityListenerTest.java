@@ -88,4 +88,32 @@ class SessionActivityListenerTest {
 
         assertTrue(activity.recent().isEmpty());
     }
+
+    private static UsernamePasswordAuthenticationToken admin(String name) {
+        return new UsernamePasswordAuthenticationToken(name, "x", List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
+    }
+
+    @Test
+    void adminLoginIsNotRecorded() {
+        listener.onLogin(new AuthenticationSuccessEvent(admin("boss")));
+
+        assertTrue(activity.recent().isEmpty());
+    }
+
+    @Test
+    void adminLogoutIsNotRecorded() {
+        listener.onLogout(new LogoutSuccessEvent(admin("boss")));
+
+        assertTrue(activity.recent().isEmpty());
+    }
+
+    @Test
+    void adminSessionEndIsNotRecordedButOthersAre() {
+        listener.onSessionDestroyed(destroyed(
+                new SecurityContextImpl(admin("boss")),
+                new SecurityContextImpl(user("alice"))));
+
+        assertEquals(1, activity.recent().size());
+        assertEquals("alice", activity.recent().get(0).getUsername());
+    }
 }

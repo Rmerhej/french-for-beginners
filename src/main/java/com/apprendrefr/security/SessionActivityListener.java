@@ -32,6 +32,9 @@ public class SessionActivityListener {
         if (auth == null || auth instanceof AnonymousAuthenticationToken) {
             return;
         }
+        if (AdminAccounts.isAdmin(auth)) {
+            return; // l'administrateur n'est pas compté dans les connexions
+        }
         boolean automatic = auth instanceof RememberMeAuthenticationToken;
         log.info("Utilisateur connecté : {}{}", auth.getName(), automatic ? " (reconnexion automatique)" : "");
         activity.record(auth.getName(), automatic ? ActivityLog.Type.AUTO_LOGIN : ActivityLog.Type.LOGIN);
@@ -41,6 +44,9 @@ public class SessionActivityListener {
     public void onLogout(LogoutSuccessEvent event) {
         Authentication auth = event.getAuthentication();
         if (auth == null || auth instanceof AnonymousAuthenticationToken) {
+            return;
+        }
+        if (AdminAccounts.isAdmin(auth)) {
             return;
         }
         log.info("Utilisateur déconnecté : {} (déconnexion volontaire)", auth.getName());
@@ -56,6 +62,9 @@ public class SessionActivityListener {
         for (SecurityContext context : event.getSecurityContexts()) {
             Authentication auth = context.getAuthentication();
             if (auth == null || auth instanceof AnonymousAuthenticationToken || !auth.isAuthenticated()) {
+                continue;
+            }
+            if (AdminAccounts.isAdmin(auth)) {
                 continue;
             }
             log.info("Utilisateur déconnecté : {} (session expirée)", auth.getName());

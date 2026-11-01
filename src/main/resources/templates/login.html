@@ -30,6 +30,9 @@
                     <div th:if="${param.success}" class="alert alert-success" role="status">
                         Inscription réussie ! Vous pouvez maintenant vous connecter.
                     </div>
+                    <div th:if="${param.expired}" class="alert alert-info" role="status">
+                        La page était restée ouverte trop longtemps. Merci de vous connecter à nouveau.
+                    </div>
                    <!-- <div th:if="${param.error}" class="alert alert-danger" role="alert">
                         Identifiants incorrects. Vérifiez votre nom d'utilisateur et mot de passe.
                     </div>
@@ -40,7 +43,7 @@
                         Vous avez été déconnecté avec succès.
                     </div>
 
-                    <form th:action="@{/login}" method="post" aria-labelledby="login-title">
+                    <form th:action="@{/login}" method="post" aria-labelledby="login-title" data-single-submit>
                         <input type="hidden"
                                th:name="${_csrf.parameterName}"
                                th:value="${_csrf.token}" />
@@ -90,5 +93,6 @@
 <div th:replace="~{fragments/footer :: footer}"></div>
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
 <script th:src="@{/js/password-toggle.js}"></script>
+<script th:src="@{/js/single-submit.js}"></script>
 </body>
 </html>
