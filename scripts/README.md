@@ -46,3 +46,10 @@ docker exec -i french-db sh -c 'mysql -u root -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_D
 - Le script s'appuie sur un conteneur Python jetable (Pillow) : rien à installer sur le serveur. Il laisse tels quels les petits fichiers (moins de 150 Ko, icônes comprises) et les images avec transparence.
 
 Les images envoyées ensuite depuis l'administration sont allégées automatiquement par l'application (largeur 800 px, JPEG pour les photos).
+
+---
+
+## Mise à jour automatique
+
+`scripts/deploy.sh vX.Y.Z` fait une sauvegarde, installe la version indiquée et revient à la précédente si elle ne démarre pas.
+Il est lancé par GitHub Actions : voir [CD.md](../CD.md).

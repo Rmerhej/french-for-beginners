@@ -10,10 +10,11 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-    # Serveur de 1 Go de RAM : on limite la mémoire de MySQL pour éviter le swap
+    # Mémoire de MySQL : valeurs prudentes pour 1 Go de RAM. Sur un serveur plus grand (A1 : 6 Go),
+    # mettez MYSQL_BUFFER_POOL=512M dans .env.
     command:
       - --performance-schema=OFF
-      - --innodb-buffer-pool-size=128M
+      - --innodb-buffer-pool-size=${MYSQL_BUFFER_POOL:-128M}
       - --innodb-log-buffer-size=8M
       - --max-connections=40
       - --table-open-cache=400
@@ -35,7 +36,9 @@ services:
       - french-network
 
   app:
-    image: rolandmerhej1/french-app:v1.15.4
+    # La version est choisie par APP_TAG (écrite dans .env par scripts/deploy.sh, ou à la main).
+    # Si APP_TAG est absent, on prend la dernière version connue ci-dessous.
+    image: rolandmerhej1/french-app:${APP_TAG:-v1.15.5}
 
     container_name: french-app
     restart: always
@@ -49,8 +52,9 @@ services:
     environment:
       # Spring Boot Profile
       SPRING_PROFILES_ACTIVE: prod
-      # Limite la mémoire de la JVM (sinon elle peut viser 75 % des 818 Mo de la machine)
-      JAVA_TOOL_OPTIONS: "-Xms96m -Xmx320m"
+      # Limite la mémoire de la JVM (sinon elle peut viser 75 % de la RAM de la machine).
+      # Valeurs prudentes pour 1 Go ; sur l'A1 (6 Go) : JAVA_OPTS="-Xms256m -Xmx1024m" dans .env.
+      JAVA_TOOL_OPTIONS: "${JAVA_OPTS:--Xms96m -Xmx320m}"
       SERVER_SERVLET_SESSION_COOKIE_SECURE: "true"
       SERVER_FORWARD_HEADERS_STRATEGY: framework
       SERVER_ERROR_INCLUDE_MESSAGE: never
