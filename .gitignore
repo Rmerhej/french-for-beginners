@@ -62,3 +62,26 @@ uploads-duplicates-backup/
 
 # Sauvegardes (contiennent des données personnelles)
 backups/
+
+# Clés et secrets : ne JAMAIS les versionner
+deploy_key
+deploy_key.pub
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ppk
+SERVER_PRIVATE_NOTES.md
+
+# Sauvegardes et archives de serveur (comptes des apprenants, clé privée du certificat)
+*.sql.gz
+*.tar.gz
+*.tgz
+nginx-ancien*
+.env-ancien
+
+# Un dépôt cloné par erreur à l'intérieur du projet
+/french-for-beginners/
+/French-for-beginners/

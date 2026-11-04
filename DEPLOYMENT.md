@@ -33,9 +33,9 @@ MySQL Container
 ## Configuration
 
 * Cloud provider : Oracle Cloud
-* OS : Oracle Linux 9
+* OS : Oracle Linux 9 (aarch64)
 * Région : eu-paris-1
-* Instance : VM.Standard.E2.1.Micro
+* Instance : VM.Standard.A1.Flex (ARM Ampere, 1 OCPU, 6 Go de mémoire, disque de 50 Go)
 * Domaine :
   https://frenchforbeginners.duckdns.org
 * IP publique :
@@ -65,6 +65,19 @@ Oracle Linux peut parfois rencontrer des problèmes de synchronisation de packag
 ---
 
 # 4. Installation Docker
+
+Sur un serveur neuf (Oracle Linux 9) :
+
+```bash
+sudo dnf install -y dnf-plugins-core git nginx
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable --now docker nginx
+sudo usermod -aG docker opc
+sudo setsebool -P httpd_can_network_connect 1
+```
+
+Si `dnf` signale des conflits, ajouter `--allowerasing` à la commande qui échoue.
 
 Vérifier Docker :
 
@@ -134,6 +147,14 @@ MYSQL_PASSWORD=******
 ```
 REMEMBER_ME_KEY=****** (32 caractères minimum, ex. résultat de `openssl rand -hex 32`)
 
+Variables facultatives du `.env` (voir `.env.exemple`) :
+
+```
+APP_TAG=v1.2.3                 # version de l'application (écrite par scripts/deploy.sh)
+JAVA_OPTS=-Xms256m -Xmx1024m   # mémoire de Java : prudente par défaut (1 Go), à augmenter sur 6 Go
+MYSQL_BUFFER_POOL=512M         # mémoire de MySQL : 128M par défaut, 512M sur 6 Go
+```
+
 Sauvegarder nano :
 
 ```
@@ -145,6 +166,12 @@ CTRL + X
 ---
 
 # 7. Déploiement Docker
+
+Les mises à jour courantes se font par le déploiement automatique : voir [CD.md](CD.md).
+Les commandes ci-dessous servent à la première installation.
+
+Sur un serveur ARM (Oracle A1), l'image publiée contient une version ARM : le serveur prend la bonne tout seul.
+Vérification : `docker exec french-app uname -m` doit afficher `aarch64`.
 
 Démarrer les containers :
 
@@ -409,6 +436,14 @@ sudo certbot renew --dry-run
 ```
 
 Les certificats Let's Encrypt sont valides 90 jours et renouvelés automatiquement.
+Sur un serveur neuf, vérifier que la tâche de renouvellement est bien active :
+
+```bash
+sudo systemctl enable --now certbot-renew.timer
+systemctl list-timers | grep -i certbot
+```
+
+Si la deuxième commande n'affiche rien, le certificat ne sera pas renouvelé.
 
 ---
 
@@ -446,16 +481,25 @@ sudo systemctl status nginx
 
 ---
 
-# 18. Maintenance recommandée
+# 18. Maintenance
 
-À prévoir :
+En place :
 
-* Sauvegarde MySQL automatique
-* Sauvegarde du dossier uploads
-* Monitoring espace disque
-* Mise à jour Docker image
-* CI/CD GitHub Actions
-* Fermeture du port 8080 public
+* Sauvegarde automatique de MySQL et du dossier uploads (`scripts/backup.sh`, tâche `crontab` chaque nuit) : voir [scripts/README.md](scripts/README.md)
+* Tests automatiques (CI) et déploiement automatique (CD) : voir [CD.md](CD.md)
+* Alerte avant l'expiration du certificat (GitHub Actions)
+
+À faire régulièrement :
+
+* Copier une sauvegarde hors du serveur (voir [scripts/README.md](scripts/README.md))
+* Surveiller la mémoire et le disque : `free -h`, `docker stats --no-stream`, `df -h`
+* Appliquer les mises à jour de sécurité proposées par Dependabot (voir [OPERATIONS.md](OPERATIONS.md))
+
+---
+
+# 19. Changer de serveur
+
+Voir [DEMENAGEMENT.md](DEMENAGEMENT.md) (y compris vers un serveur ARM).
 
 ---
 

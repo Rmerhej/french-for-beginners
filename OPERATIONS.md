@@ -193,19 +193,27 @@ sudo tail -50 /var/log/nginx/access.log
 
 # 6. Mise à jour de l'application
 
-## Récupérer la dernière version Git
+## Méthode normale : le déploiement automatique
+
+Depuis votre PC, après fusion dans `main` et un CI vert :
 
 ```bash
-git pull
+git tag v1.2.3
+git push origin v1.2.3
 ```
 
----
+GitHub teste, construit l'image, puis met le serveur à jour (sauvegarde avant, retour arrière automatique si le site ne répond pas). Voir [CD.md](CD.md).
 
-## Reconstruire l'application
+## À la main, sur le serveur
+
+Pour (re)mettre une version précise, depuis le dossier du projet :
 
 ```bash
-docker compose up -d --build
+bash scripts/deploy.sh v1.2.3
 ```
+
+Le script fait la sauvegarde, installe la version, contrôle le site et revient à la précédente en cas d'échec.
+Une version modifiant la base de données demande d'abord de passer le SQL (voir [CD.md](CD.md), section « À savoir »).
 
 ---
 
@@ -492,6 +500,25 @@ Correction:
 - RAM disponible passée d'environ 500 MiB à 800 MiB
 ---
 
+## Incident SSH - 4 novembre 2026
+
+Symptôme :
+- `Permission denied (publickey)` sur le nouveau serveur, alors que la même clé fonctionnait sur l'ancien et que la veille la connexion marchait.
+
+Cause probable :
+- le fichier `~/.ssh/authorized_keys` avait été modifié à la main pour ajouter la clé de déploiement, et la ligne de la clé personnelle avait disparu. La session ouverte continuait de marcher, donc l'erreur n'a été vue que le lendemain.
+
+Correction :
+- connexion avec la clé de déploiement, puis ajout de la clé personnelle : `(echo; ssh-keygen -y -f ~/.ssh/<cle>) | ssh -i <cle-deploiement> opc@<IP> 'cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && restorecon -R ~/.ssh'`
+
+À retenir :
+- après toute modification de `~/.ssh/authorized_keys`, ouvrir une **deuxième** connexion pour la tester avant de fermer la première ;
+- contrôle : `ssh-keygen -lf ~/.ssh/authorized_keys` doit lister la clé personnelle **et** la clé de déploiement ;
+- ne jamais ranger une clé privée ou une sauvegarde dans le dossier du projet (le `.gitignore` les bloque, mais le mieux est de ne pas les y mettre) ;
+- ne pas utiliser `git add .` dans le dossier du projet : ajouter les fichiers un par un.
+
+---
+
 # Fin du document
 
 ## Cache et compression Nginx
@@ -504,7 +531,6 @@ Dependabot (fichier `.github/dependabot.yml`) propose chaque lundi des « pull r
 
 Quand une pull request arrive :
 1. Vérifier que le CI est vert (coche verte sur GitHub), puis la fusionner (« Merge »).
-2. Récupérer le code (`git pull`), construire une nouvelle image avec `docker build --pull` (le `--pull` télécharge aussi la dernière version de l'image de base Java), l'envoyer dans le registre.
-3. Déployer : `docker compose pull app`, attendre, puis `docker compose up -d`.
+2. Publier une nouvelle version : `git tag vX.Y.Z` puis `git push origin vX.Y.Z`. GitHub reconstruit l'image avec la dernière version de l'image de base Java et déploie (voir [CD.md](CD.md)).
 
 Les alertes de sécurité (onglet « Security » du dépôt GitHub) sont à traiter en priorité. Les versions majeures (Spring Boot 4, par exemple) ne sont pas proposées automatiquement.

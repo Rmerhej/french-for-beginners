@@ -1,7 +1,7 @@
 # Cache et compression Nginx
 
 Ce que cela apporte :
-- les images, l'audio, les styles et les scripts sont gardés par Nginx : l'application Java (818 Mo de mémoire seulement) n'est plus sollicitée à chaque fichier ;
+- les images, l'audio, les styles et les scripts sont gardés par Nginx : l'application Java n'est plus sollicitée à chaque fichier ;
 - les pages et les fichiers texte sont compressés : moins de données envoyées, pages plus rapides sur téléphone ;
 - pendant un redémarrage de l'application (déploiement), les fichiers statiques continuent d'être servis.
 

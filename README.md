@@ -43,7 +43,7 @@ Leçons de grammaire, vocabulaire illustré, prononciation avec audio, quiz corr
 | Backend | Spring Boot 3.5.6, Java 17, Spring Security, Spring Data JPA / Hibernate, Lombok |
 | Base de données | MySQL 8 (H2 pour les tests) |
 | Frontend | Thymeleaf, Bootstrap 5, HTML / CSS / JavaScript |
-| DevOps | Maven, Docker, Docker Compose, GitHub Actions (tests) |
+| DevOps | Maven, Docker (images amd64 et arm64), Docker Compose, GitHub Actions (tests et déploiement automatique) |
 
 ---
 
@@ -109,6 +109,8 @@ docker compose up -d
 > Le fichier `docker-compose.yml` utilise l'image publiée `rolandmerhej1/french-app`.
 > Pour construire l'image depuis les sources, remplacez la ligne `image:` du service `app` par `build: .`
 > puis lancez `docker compose up --build -d`.
+>
+> L'image est publiée pour les processeurs x86 (PC) **et** ARM (Mac Apple Silicon, serveurs Oracle A1).
 
 L'application est disponible sur **http://localhost:8080**.
 
@@ -201,8 +203,13 @@ src/main/resources/
 
 ## 🌐 Déploiement en production
 
+Le site tourne sur une instance Oracle Cloud Ampere A1 (ARM, 6 Go de mémoire). Une nouvelle version se publie en poussant une étiquette (`git tag v1.2.3` puis `git push origin v1.2.3`) : GitHub teste, construit l'image et met le serveur à jour, avec sauvegarde avant et retour arrière automatique.
+
 - [DEPLOYMENT.md](DEPLOYMENT.md) : installation sur serveur (Docker, Nginx, HTTPS)
+- [CD.md](CD.md) : déploiement automatique (mise en place, publier une version, revenir en arrière)
 - [OPERATIONS.md](OPERATIONS.md) : exploitation, sauvegardes, dépannage
+- [DEMENAGEMENT.md](DEMENAGEMENT.md) : changer de serveur (y compris vers un serveur ARM)
+- [scripts/README.md](scripts/README.md) : sauvegarde, restauration, mise à jour
 
 ---
 
