@@ -1,0 +1,69 @@
+name: Réparer l'accès SSH (TEMPORAIRE)
+
+# À utiliser une seule fois si votre propre clé SSH n'est plus reconnue par le serveur.
+# Il se connecte avec la clé de déploiement (secrets GitHub) et AJOUTE votre clé publique
+# dans ~/.ssh/authorized_keys, sans rien enlever. À SUPPRIMER du dépôt une fois l'accès retrouvé.
+on:
+  workflow_dispatch:
+    inputs:
+      public_key:
+        description: "Votre clé PUBLIQUE, sur une seule ligne (commence par ssh-rsa ou ssh-ed25519)"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PUBKEY: ${{ inputs.public_key }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+    steps:
+      - name: Contrôler la clé publique
+        run: |
+          if ! [[ "$PUBKEY" =~ ^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\ [A-Za-z0-9+/=]+(\ [A-Za-z0-9@._-]+)?$ ]]; then
+            echo "::error::Ce n'est pas une clé publique sur une seule ligne (attendu : ssh-rsa AAAA... ou ssh-ed25519 AAAA...)."
+            exit 1
+          fi
+
+      - name: Ajouter la clé sur le serveur
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          REMOTE=$(cat <<'REMOTE_SCRIPT'
+          set -e
+          umask 077
+          key=$(cat)
+          mkdir -p ~/.ssh
+          touch ~/.ssh/authorized_keys
+          echo "--- AVANT"
+          ls -ld ~
+          ls -laZ ~/.ssh
+          ssh-keygen -lf ~/.ssh/authorized_keys || true
+          if ! grep -qxF "$key" ~/.ssh/authorized_keys; then
+            if [ -s ~/.ssh/authorized_keys ] && [ -n "$(tail -c1 ~/.ssh/authorized_keys)" ]; then
+              echo >> ~/.ssh/authorized_keys
+            fi
+            printf '%s\n' "$key" >> ~/.ssh/authorized_keys
+            echo "Clé ajoutée."
+          else
+            echo "Clé déjà présente."
+          fi
+          chmod go-w ~
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/authorized_keys
+          restorecon -R ~/.ssh 2>/dev/null || true
+          echo "--- APRES"
+          ls -laZ ~/.ssh
+          ssh-keygen -lf ~/.ssh/authorized_keys
+          REMOTE_SCRIPT
+          )
+          printf '%s\n' "$PUBKEY" | ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+              "$SSH_USER@$SSH_HOST" "$REMOTE"
