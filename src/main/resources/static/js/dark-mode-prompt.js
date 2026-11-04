@@ -1,24 +1,21 @@
-// Proposition du mode sombre aux personnes connectées (notification avec deux boutons).
+// Proposition du mode sombre à toute personne qui arrive sur le site, connectée ou non (notification avec deux boutons).
 //  - « Activer »          : passe en mode sombre (même effet que le bouton « Sombre » du menu) ;
 //  - « Ne plus afficher » : mémorise le choix dans ce navigateur, la proposition ne revient plus ;
-//  - croix                : ferme seulement ; la proposition revient à la prochaine connexion.
-// Une seule fois par visite (et de nouveau après une nouvelle connexion). Rien n'est affiché si le
+//  - croix                : ferme seulement ; la proposition revient à la prochaine visite.
+// Une seule fois par visite (onglet), dès l'arrivée sur le site. Rien n'est affiché si le
 // mode sombre est déjà actif. Le stockage du navigateur peut être indisponible : tout est protégé.
 (function () {
   'use strict';
 
   var KEY_OFF = 'darkPromptOff';     // localStorage : « ne plus afficher »
   var KEY_SEEN = 'darkPromptSeen';   // sessionStorage : déjà proposé pendant cette visite
-  var DELAY = 900;                   // laisse passer un éventuel message de connexion
+  var DELAY = 600;                   // laisse la page s'afficher d'abord
 
   function read(store, key) {
     try { return window[store].getItem(key); } catch (e) { return null; }
   }
   function write(store, key, value) {
     try { window[store].setItem(key, value); } catch (e) { /* stockage indisponible : on continue */ }
-  }
-  function forget(store, key) {
-    try { window[store].removeItem(key); } catch (e) { /* idem */ }
   }
 
   function activateDarkMode() {
@@ -32,7 +29,7 @@
   }
 
   function propose() {
-    if (!window.FFB_AUTH || !window.FFBToast) return;
+    if (!window.FFBToast) return;
     if (document.documentElement.getAttribute('data-bs-theme') === 'dark') return;
     if (read('localStorage', KEY_OFF) === '1') return;
     if (read('sessionStorage', KEY_SEEN) === '1') return;
@@ -50,9 +47,6 @@
       }
     );
   }
-
-  // Sur la page de connexion, on oublie « déjà proposé » : la proposition revient après chaque connexion.
-  if (window.location.pathname === '/login') forget('sessionStorage', KEY_SEEN);
 
   function start() { setTimeout(propose, DELAY); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);

@@ -13,12 +13,11 @@ import java.nio.file.Path;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** Proposition du mode sombre aux personnes connectées (notification avec « Activer » et « Ne plus afficher »). */
+/** Proposition du mode sombre à tous les visiteurs, connectés ou non (notification avec « Activer » et « Ne plus afficher »). */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -35,12 +34,11 @@ class DarkModePromptTest {
 
     @Test
     void everyPageLoadsThePromptScript_afterTheToastScript() throws Exception {
-        String html = mockMvc.perform(get("/laFrance").with(user("apprenant").roles("USER")))
+        String html = mockMvc.perform(get("/laFrance"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("/js/dark-mode-prompt.js")))
                 .andReturn().getResponse().getContentAsString();
         assertThat(html.indexOf("/js/toast.js")).isLessThan(html.indexOf("/js/dark-mode-prompt.js"));
-        assertThat(html.indexOf("window.FFB_AUTH = true")).isLessThan(html.indexOf("/js/dark-mode-prompt.js"));
     }
 
     @Test
@@ -51,10 +49,10 @@ class DarkModePromptTest {
     }
 
     @Test
-    void promptOnlyForConnectedUsers_neverWhenDarkIsActive_andRespectsTheChoice() throws IOException {
+    void promptForEveryVisitor_neverWhenDarkIsActive_andRespectsTheChoice() throws IOException {
         String js = read("js/dark-mode-prompt.js");
-        assertThat(js).contains("window.FFB_AUTH")
-                .contains("data-bs-theme") .contains("=== 'dark'")
+        assertThat(js).doesNotContain("FFB_AUTH")
+                .contains("data-bs-theme").contains("=== 'dark'")
                 .contains("KEY_OFF").contains("localStorage")
                 .contains("KEY_SEEN").contains("sessionStorage")
                 .contains("Ne plus afficher").contains("Activer le mode sombre");
