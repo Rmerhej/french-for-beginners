@@ -24,16 +24,20 @@ Leçons de grammaire, vocabulaire illustré, prononciation avec audio, quiz corr
 
 ## 📸 Aperçu
 
-| Accueil | Leçon | QCM | Quiz |
-|Grammaire et Conjugaison|| Livret du citoyen |
+| Accueil | Admin | Leçon | QCM | Quiz | ex : niveau approfondissement |
+|Grammaire et Conjugaison|| Livret du citoyen | Mes résultats |
 
-| ![index_FFB.png](src/main/resources/static/pwa/screenshot-mobile.png) | 
-| ![Grammaire_Conjugaison_A1_FFB.png](screenshots/Grammaire_Conjugaison_A1_FFB.png) | 
-| ![Exemple_Quiz_FFB.png](screenshots/Exemple_Quiz_FFB.png) |
-| ![Exemple_QCM_FFB.png](screenshots/Exemple_QCM_FFB.png) |
-| ![Page_Niveau_débutant_FFB.png](screenshots/Page_Niveau_d%C3%A9butant_FFB.png) |
+| ![Page_index.png](screenshots/Page_index.png) |
+| ![Page_admin.png](screenshots/Page_admin.png) |
+| ![Page_Leçons_vocabulaire.png](screenshots/Page_Leçons_vocabulaire.png) |
+| ![Page_grammaire_conjuguaison.png](screenshots/Page_grammaire_conjuguaison.png) |
+| ![Page_qcm.png](screenshots/Page_qcm.png) |
+| ![Page_quiz.png](screenshots/Page_quiz.png) |
+| ![Page_approfondissement.png](screenshots/Page_approfondissement.png) |
 | ![Livret_du_citoyen_FFB.png](screenshots/Livret_du_citoyen_FFB.png) |
-| ![Leçons_Par_thème_FFB.png](screenshots/Le%C3%A7ons_Par_th%C3%A8me_FFB.png) |
+| ![Page_MesRésultats.png](screenshots/Page_MesRésultats.png) |
+
+
 ---
 
 ## 🛠 Technologies
