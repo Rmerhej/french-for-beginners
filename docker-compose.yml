@@ -38,7 +38,7 @@ services:
   app:
     # La version est choisie par APP_TAG (écrite dans .env par scripts/deploy.sh, ou à la main).
     # Si APP_TAG est absent, on prend la dernière version connue ci-dessous.
-    image: rolandmerhej1/french-app:${APP_TAG:-v1.15.5}
+    image: rolandmerhej1/french-app:${APP_TAG:-v1.15.6}
 
     container_name: french-app
     restart: always
