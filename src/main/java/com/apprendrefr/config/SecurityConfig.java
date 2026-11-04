@@ -75,6 +75,8 @@ public class SecurityConfig {
             "/systemeInstEtPolitiqueQCM", "/systemeInstEtPolitiqueQUIZ",
             "/droitsEtDevoirsQCM", "/droitsEtDevoirsQUIZ", "/histoireGeoCultureQCM", "/histoireGeoCultureQUIZ",
             "/vivreDsSocieteFQCM", "/vivreDsSocieteFQUIZ",
+            // La France : QCM et quiz généraux (les 5 modules réunis)
+            "/examenCiviqueQCM", "/examenCiviqueQUIZ",
             // Leçons de préparation et leurs quiz
             "/preparation-list-index", "/preparation-quiz-index", "/togoToAuBureu", "/togoToAuBureuQuiz",
             "/AuCafé", "/AuTéléphone", "/LaVieQuotidienne", "/LeTourisme", "/LesRenseignements", "/AutourDeBébé",

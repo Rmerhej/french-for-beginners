@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Examen civique - Quiz général</title>
+    <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/quiz-dropzone.css}">
+
+</head>
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content" class="container py-5">
+    <h1 class="h2 mb-3">Examen civique - Quiz général</h1>
+
+    <div class="alert alert-info" role="note">
+        Ce quiz réunit les <strong>5 modules</strong> de « La France » : complétez chaque phrase en glissant
+        les mots (ou en les touchant, puis en touchant une case). Les phrases changent d'ordre à chaque visite.
+        Source : <em>Livret du citoyen</em> (Ministère de l'Intérieur).
+    </div>
+
+    <div th:if="${quizzes.isEmpty()}" class="alert alert-warning">
+        Les phrases de ce quiz ne sont pas encore disponibles.
+    </div>
+
+    <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 border rounded">
+        <h2 class="h5 text-secondary" th:text="'Phrase ' + ${iter.count} + ' / ' + ${quizzes.size()}">Phrase</h2>
+
+        <!-- Mots à placer -->
+        <div class="card mb-4">
+            <div class="card-header">Mots à placer (glisse-les)</div>
+            <div class="card-body words-container" th:data-words="${quiz.words}"></div>
+        </div>
+
+        <!-- Phrase -->
+        <div class="card mb-4">
+            <div class="card-header">Complète la phrase :</div>
+            <div class="card-body fs-4 lh-lg sentence-container"
+                 th:id="'sentence-' + ${iter.index}"
+                 th:data-answers="${quiz.correctAnswers}"
+                 th:text="${quiz.sentence}"></div>
+        </div>
+
+        <button class="btn btn-success btn-lg me-3" th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier</button>
+        <button class="btn btn-secondary btn-lg" th:onclick="'resetQuiz(' + ${iter.index} + ')'">Recommencer</button>
+        <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
+    </div>
+
+    <div class="text-center">
+        <a th:href="@{/examenCiviqueQUIZ}" class="btn btn-outline-primary rounded-pill">
+            <i class="bi bi-arrow-repeat me-2" aria-hidden="true"></i>Nouvel ordre
+        </a>
+        <a th:href="@{/laFrance}" class="btn btn-outline-secondary rounded-pill ms-2">Retour aux modules</a>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<script th:src="@{/js/dragAndDrop.js}"></script>
+</body>
+</html>

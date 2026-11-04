@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
+    <title>Examen civique - QCM général</title>
+
+    <link rel="stylesheet" th:href="@{/css/qcm.css}">
+</head>
+<body>
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content" class="container mt-5" th:attr="data-total-questions=${exercises.size()}">
+    <h1 class="h2 mb-3">❓ Examen civique - QCM général</h1>
+
+    <div class="alert alert-info" role="note">
+        <p class="mb-2">
+            Ce QCM réunit les <strong>5 modules</strong> de « La France » : principes et valeurs, institutions,
+            droits et devoirs, histoire-géographie-culture, vivre dans la société française.
+            Les questions changent d'ordre à chaque visite.
+        </p>
+        <p class="mb-0 small">
+            À l'examen civique réel : <strong>40 questions</strong>, <strong>45 minutes</strong>,
+            il faut <strong>32 bonnes réponses</strong> (80 %) pour réussir.
+            Source : <em>Livret du citoyen</em> (Ministère de l'Intérieur) et
+            <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F39426" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>.
+        </p>
+    </div>
+
+    <div class="alert alert-success" aria-live="polite">
+        Score : <span id="score">0</span> / <span id="total">0</span>
+        <span class="text-secondary ms-2" th:text="'(' + ${exercises.size()} + ' questions)'"></span>
+    </div>
+
+    <div th:if="${exercises.isEmpty()}" class="alert alert-warning">
+        Les questions de ce QCM ne sont pas encore disponibles.
+    </div>
+
+    <div id="exam-result" class="alert d-none" role="status" aria-live="polite"></div>
+
+    <section th:each="ex, st : ${exercises}"
+             class="container"
+             th:id="'exercise-container-' + ${ex.id}">
+
+        <fieldset class="card shadow-sm mb-5">
+            <div class="card-header">
+                <strong class="text-secondary" th:text="'Question ' + ${st.count} + ' / ' + ${exercises.size()}"></strong>
+            </div>
+            <div class="card-body">
+                <h2 class="h5 card-title mb-4" th:text="${ex.question}"></h2>
+
+                <div class="options mb-3">
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optA-' + ${ex.id}" value="A">
+                        <label class="form-check-label w-100 ms-2" th:for="'optA-' + ${ex.id}"
+                               th:text="${ex.optionA}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optB-' + ${ex.id}" value="B">
+                        <label class="form-check-label w-100 ms-2" th:for="'optB-' + ${ex.id}"
+                               th:text="${ex.optionB}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optC-' + ${ex.id}" value="C">
+                        <label class="form-check-label w-100 ms-2" th:for="'optC-' + ${ex.id}"
+                               th:text="${ex.optionC}"></label>
+                    </div>
+                    <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
+                        <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
+                               th:id="'optD-' + ${ex.id}" value="D">
+                        <label class="form-check-label w-100 ms-2" th:for="'optD-' + ${ex.id}"
+                               th:text="${ex.optionD}"></label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary"
+                        th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
+                    Vérifier
+                </button>
+            </div>
+            <div class="card-footer d-none explanation" th:id="'explanation-' + ${ex.id}">
+                <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
+            </div>
+        </fieldset>
+    </section>
+
+    <div class="text-center mb-5" th:unless="${exercises.isEmpty()}">
+        <a th:href="@{/examenCiviqueQCM}" class="btn btn-outline-primary rounded-pill">
+            <i class="bi bi-arrow-repeat me-2" aria-hidden="true"></i>Recommencer avec un nouvel ordre
+        </a>
+        <a th:href="@{/laFrance}" class="btn btn-outline-secondary rounded-pill ms-2">Retour aux modules</a>
+    </div>
+</main>
+
+<input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<script th:src="@{/js/au-bureau.js}"></script>
+<script th:src="@{/js/examen-civique.js}"></script>
+</body>
+</html>

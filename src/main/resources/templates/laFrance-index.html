@@ -132,6 +132,26 @@
 
     </div>
 
+    <!-- Entraînement général : les 5 modules réunis -->
+    <section class="card border-0 shadow-sm mb-5" style="border-radius: 16px;" aria-labelledby="examen-general-titre">
+        <div class="card-body p-4">
+            <span class="badge bg-danger bg-opacity-10 text-danger mb-3 px-3 py-2 rounded-pill fw-bold">Les 5 modules réunis</span>
+            <h2 class="h5 fw-bold mb-2" id="examen-general-titre">Entraînement général à l'examen civique</h2>
+            <p class="text-secondary mb-4">
+                Un QCM et un quiz qui mélangent les questions des cinq modules, comme à l'examen.
+                À l'examen réel : 40 questions, 45 minutes, 32 bonnes réponses (80 %) pour réussir.
+            </p>
+            <div class="d-grid gap-2 d-md-flex">
+                <a th:href="@{/examenCiviqueQCM}" class="btn btn-primary rounded-pill py-2 px-4" aria-label="QCM général de l'examen civique, les cinq modules réunis">
+                    <i class="bi bi-question-circle me-2" aria-hidden="true"></i> QCM général
+                </a>
+                <a th:href="@{/examenCiviqueQUIZ}" class="btn btn-success rounded-pill py-2 px-4" aria-label="Quiz général glisser-déposer, les cinq modules réunis">
+                    <i class="bi bi-puzzle me-2" aria-hidden="true"></i> Quiz général (Glisser-déposer)
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Avertissement officiel / Source stylisé -->
     <div class="alert alert-warning border-0 shadow-sm p-4 text-secondary" style="border-radius: 16px;" role="region" aria-label="Informations légales et sources">
         <div class="d-flex align-items-start">

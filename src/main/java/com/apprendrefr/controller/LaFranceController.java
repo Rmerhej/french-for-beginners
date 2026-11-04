@@ -1,6 +1,7 @@
 package com.apprendrefr.controller;
 
 import com.apprendrefr.entity.Exercise;
+import com.apprendrefr.entity.Quiz;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.QuizService;
 import org.springframework.stereotype.Controller;
@@ -8,10 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
 public class LaFranceController {
+
+    /** Titres du QCM et du quiz généraux (les 5 modules réunis, comme à l'examen civique). */
+    static final String GENERAL_QCM_TITLE = "Examen civique - QCM général";
+    static final String GENERAL_QUIZ_TITLE = "Examen civique - Quiz général";
 
     private final ExerciseService exerciseService;
     private final QuizService quizService;
@@ -93,6 +99,24 @@ public class LaFranceController {
     public String goTovivreDsSocieteFQUIZ(Model model) {
         model.addAttribute("quizzes", quizService.findByTitleContainingIgnoreCase("vivre dans la societe française"));
         return "vivreDsSocieteF-QUIZ";
+    }
+
+    /** QCM général : les questions des 5 modules, dans un ordre différent à chaque visite. */
+    @GetMapping("/examenCiviqueQCM")
+    public String goToExamenCiviqueQCM(Model model) {
+        List<Exercise> exercises = new ArrayList<>(exerciseService.findByLessonTitleContaining(GENERAL_QCM_TITLE));
+        Collections.shuffle(exercises);
+        model.addAttribute("exercises", exercises);
+        return "examenCivique-QCM";
+    }
+
+    /** Quiz général (glisser-déposer) : les phrases des 5 modules, dans un ordre différent à chaque visite. */
+    @GetMapping("/examenCiviqueQUIZ")
+    public String goToExamenCiviqueQUIZ(Model model) {
+        List<Quiz> quizzes = new ArrayList<>(quizService.findByTitleContainingIgnoreCase(GENERAL_QUIZ_TITLE));
+        Collections.shuffle(quizzes);
+        model.addAttribute("quizzes", quizzes);
+        return "examenCivique-QUIZ";
     }
 
 }
