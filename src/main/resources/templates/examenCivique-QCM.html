@@ -49,6 +49,7 @@
              th:id="'exercise-container-' + ${ex.id}">
 
         <fieldset class="card shadow-sm mb-5">
+            <legend class="visually-hidden" th:text="${ex.question}"></legend>
             <div class="card-header">
                 <strong class="text-secondary" th:text="'Question ' + ${st.count} + ' / ' + ${exercises.size()}"></strong>
             </div>

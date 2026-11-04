@@ -14,11 +14,11 @@
     Aller au contenu principal
 </a>
 
-<main id="main-content">
+
     <div th:replace="~{fragments/navbar :: navbar}"></div>
     <br>
 
-    <main class="container py-5">
+    <main id="main-content" class="container py-5">
         <h1>L'immobilier - Quiz</h1>
 
         <div th:each="quiz, iter : ${quizzes}" class="quiz-wrapper mb-5 p-4 border rounded">
@@ -47,7 +47,7 @@
         </div>
 
     </main>
-</main>
+
 
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <div th:replace="~{fragments/footer :: footer}"></div>

@@ -43,7 +43,7 @@
         <div class="d-flex align-items-center gap-3">
 
             <button class="btn btn-primary btn-play">
-                <i class="bi bi-play-fill"></i>
+                <i class="bi bi-play-fill" aria-hidden="true"></i>
             </button>
 
             <audio class="d-none">
@@ -68,6 +68,7 @@
                     <strong th:text="${ex.lessonTitle}"></strong>
                 </div>
                 <fieldset class="card-body">
+            <legend class="visually-hidden" th:text="${ex.question}"></legend>
                     <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
 
                     <div class="options mb-3">

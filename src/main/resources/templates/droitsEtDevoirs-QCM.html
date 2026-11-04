@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <th:block th:replace="~{fragments/assets :: bootstrap}"></th:block>
     <title>droitsEtDevoirs-QCM</title>
@@ -13,20 +13,21 @@
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<div class="container mt-5">
-    <h2 class="mb-4">❓ Droits et Devoirs des citoyens - QCM .</h2>
+<main id="main-content" class="container mt-5">
+    <h1 class="h2 mb-4">❓ Droits et Devoirs des citoyens - QCM .</h1>
     <div class="alert alert-success">
         Score : <span id="score">0</span> / <span id="total">0</span>
     </div>
 
-    <h4 class="mt-5 mb-3 text-primary">📖 Exercices</h4>
+    <h2 class="h4 mt-5 mb-3 text-primary">📖 Exercices</h2>
 
-    <main th:each="ex : ${exercises}"
+    <section th:each="ex : ${exercises}"
           th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Droits et devoirs')}"
           class="container"
           th:id="'exercise-container-' + ${ex.id}">
 
         <fieldset class="card shadow-sm mb-5">
+            <legend class="visually-hidden" th:text="${ex.question}"></legend>
             <div class="card-header">
                 <strong th:text="${ex.lessonTitle}" class="text-secondary"></strong>
             </div>
@@ -69,8 +70,8 @@
                 <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
             </div>
         </fieldset>
-    </main>
-</div>
+    </section>
+</main>
 
 <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>

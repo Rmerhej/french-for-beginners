@@ -525,6 +525,118 @@ Correction :
 
 Voir `deploy/nginx/README.md` : installation en 4 étapes, vérification, vidage du cache après un déploiement et retour en arrière.
 
+## Alerte si la sauvegarde de la nuit ne se fait pas (Healthchecks.io)
+
+La sauvegarde de 03:00 UTC peut échouer sans que personne ne le voie. Healthchecks.io (gratuit) attend un « signal » chaque nuit et vous écrit s'il ne vient pas.
+
+1. Créer un compte sur healthchecks.io, puis **Add Check** : nom « Sauvegarde French For Beginners », période **1 day**, délai de grâce **3 hours**.
+2. Copier l'adresse « ping » de la vérification (de la forme `https://hc-ping.com/<identifiant>`).
+3. Sur le serveur, l'ajouter à la fin du fichier `.env` (une seule fois) :
+   ```bash
+   cd ~/french-for-beginners
+   echo 'HEALTHCHECK_URL=<adresse ping>' >> .env
+   ```
+4. Tester : `bash scripts/backup.sh`. À la fin, la vérification passe au vert sur le site. Si la sauvegarde échoue, le script le signale tout de suite (`/fail`) ; si elle ne tourne pas du tout, vous recevez un e-mail après le délai de grâce.
+
+Sans `HEALTHCHECK_URL`, le script fonctionne exactement comme avant.
+
+## Copie des sauvegardes hors du serveur (Oracle Object Storage)
+
+Tant que les sauvegardes restent sur l'A1, elles disparaissent avec lui. Chaque nuit, `backup.sh` peut en envoyer une copie dans un « bucket » Oracle (espace de stockage séparé des serveurs, gratuit jusqu'à 20 Go avec l'offre Always Free ; nos données pèsent environ 150 Mo). Le bucket est privé : les sauvegardes contiennent des adresses e-mail et des mots de passe chiffrés.
+
+Ce qui est copié : les sauvegardes de la base (conservées 60 jours, réglable avec `OFFSITE_KEEP_DAYS=<nombre de jours>` dans `.env`) et le dossier `uploads` (copie qui n'efface jamais rien).
+
+### 1. Créer le bucket (console Oracle)
+1. Menu ☰ → **Stockage** → **Buckets** → **Créer un bucket**. Nom : `french-backups`. Garder « Standard » et la visibilité **privée**.
+2. Sur la page du bucket, noter **l'espace de noms** (Namespace) et, en haut de la console, **la région** (par exemple `eu-paris-1`).
+
+### 2. Créer une clé d'accès
+1. Cliquer sur votre profil (en haut à droite) → votre nom d'utilisateur → **Clés secrètes client** → **Générer une clé secrète**. Nom : `french-backups-a1`.
+2. **Copier la clé secrète tout de suite** : elle ne s'affiche qu'une fois. La « clé d'accès » (Access key) apparaît ensuite dans la liste.
+3. Ne tapez jamais ces deux valeurs dans une commande (elles resteraient dans l'historique) : on les écrit dans un fichier à l'étape 4.
+
+Si votre compte n'est pas administrateur de la location, une règle (policy) doit l'autoriser à gérer les objets du compartiment ; sinon l'étape 5 répond « AccessDenied ».
+
+### 3. Installer rclone sur l'A1
+```bash
+sudo dnf install -y unzip
+cd /tmp
+curl -fsSLO https://downloads.rclone.org/rclone-current-linux-arm64.zip
+unzip -q rclone-current-linux-arm64.zip
+sudo cp rclone-*-linux-arm64/rclone /usr/local/bin/rclone
+rm -rf /tmp/rclone-*
+rclone version
+```
+
+### 4. Écrire la configuration (les clés restent dans un fichier privé)
+```bash
+mkdir -p ~/.config/rclone
+nano ~/.config/rclone/rclone.conf
+```
+Y coller ceci, en remplaçant chaque `<...>` (sans garder les chevrons), puis enregistrer (Ctrl+O, Entrée, Ctrl+X) :
+```
+[oci]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = <clé d'accès>
+secret_access_key = <clé secrète>
+region = <région>
+endpoint = https://<espace de noms>.compat.objectstorage.<région>.oraclecloud.com
+no_check_bucket = true
+```
+Puis : `chmod 600 ~/.config/rclone/rclone.conf`
+
+### 5. Tester
+```bash
+rclone lsd oci:                                   # doit afficher « french-backups »
+echo essai > /tmp/essai.txt
+rclone copy /tmp/essai.txt oci:french-backups/essai
+rclone ls oci:french-backups                      # doit afficher essai.txt
+rclone purge oci:french-backups/essai
+rm /tmp/essai.txt
+```
+
+### 6. Activer et vérifier
+```bash
+cd ~/french-for-beginners
+echo 'OFFSITE_REMOTE=oci:french-backups' >> .env
+bash scripts/backup.sh
+rclone ls oci:french-backups | head
+```
+Le script doit afficher « copie hors serveur terminée » ; la première fois, l'envoi des images (environ 114 Mo) prend une minute ou deux. La sauvegarde de 03:00 le fait ensuite toute seule. Si l'envoi échoue, le script le signale (et l'alerte Healthchecks.io, si elle est réglée).
+
+### Restaurer depuis le bucket
+```bash
+rclone ls oci:french-backups/db                   # liste des bases
+rclone copy oci:french-backups/db/<nom du fichier>.sql.gz ~/
+rclone copy oci:french-backups/uploads ~/french-for-beginners/uploads
+```
+Puis restaurer la base avec `scripts/restore.sh` (voir `scripts/README.md`).
+
+### En cas d'erreur
+- `SignatureDoesNotMatch` / `InvalidAccessKeyId` : clé d'accès ou clé secrète mal recopiée (en générer une nouvelle).
+- `NoSuchBucket` : nom du bucket différent, ou mauvaise région dans `endpoint`.
+- `AccessDenied` : le compte n'a pas le droit (règle manquante, voir l'étape 2).
+
+## Mises à jour de sécurité automatiques du serveur (A1)
+
+Les correctifs de sécurité du système (Oracle Linux) sont installés chaque jour par `dnf-automatic`. Les conteneurs, eux, se mettent à jour par une nouvelle version de l'application (voir « Dependabot » ci-dessous).
+
+```bash
+sudo dnf install -y dnf-automatic
+sudo sed -i 's/^upgrade_type.*/upgrade_type = security/; s/^apply_updates.*/apply_updates = yes/' /etc/dnf/automatic.conf
+sudo systemctl enable --now dnf-automatic.timer
+systemctl list-timers | grep dnf-automatic
+```
+
+La dernière commande doit afficher une ligne `dnf-automatic.timer`. Vérifier aussi :
+```bash
+grep -E '^(upgrade_type|apply_updates)' /etc/dnf/automatic.conf     # security / yes
+docker inspect --format '{{.Name}} {{.HostConfig.RestartPolicy.Name}}' french-app french-db     # always
+```
+Un nouveau noyau n'est actif qu'après un redémarrage du serveur. De temps en temps (par exemple une fois par mois) : `sudo dnf needs-restarting -r`. S'il répond qu'un redémarrage est nécessaire, faites `sudo reboot` à un moment calme ; les conteneurs repartent seuls (`restart: always`).
+
 ## Mises à jour de sécurité (Dependabot)
 
 Dependabot (fichier `.github/dependabot.yml`) propose chaque lundi des « pull requests » pour mettre à jour les dépendances Java, l'image de base du Dockerfile et les actions GitHub. Le CI lance les tests sur chacune.

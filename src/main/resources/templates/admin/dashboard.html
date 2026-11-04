@@ -113,7 +113,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body text-center ">
-                    <i class="bi bi-book fs-1 text-primary mb-3"></i>
+                    <i class="bi bi-book fs-1 text-primary mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-primary" th:text="${lessonsCount}"></h2>
                     <p class="text-secondary">Leçons créées</p>
                 </div>
@@ -126,7 +126,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-translate fs-1 text-success  mb-3"></i>
+                    <i class="bi bi-translate fs-1 text-success  mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-success" th:text="${vocabularyCount}"></h2>
                     <p class="text-secondary">Mots de vocabulaire</p>
                 </div>
@@ -139,7 +139,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-pencil-square fs-1 text-warning  mb-3"></i>
+                    <i class="bi bi-pencil-square fs-1 text-warning  mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-warning" th:text="${exercisesCount}"></h2>
                     <p class="text-secondary">Exercices</p>
                 </div>
@@ -153,7 +153,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-people fs-1 text-info  mb-3"></i>
+                    <i class="bi bi-people fs-1 text-info  mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-info" th:text="${usersCount}"></h2>
                     <p class="text-secondary">Utilisateurs</p>
                 </div>
@@ -165,7 +165,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-question-circle fs-1 text-danger  mb-3"></i>
+                    <i class="bi bi-question-circle fs-1 text-danger  mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-danger" th:text="${quizzesCount}"></h2>
                     <p class="text-secondary">Quizzes</p>
                 </div>
@@ -177,7 +177,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-question-circle fs-1 text-danger mb-3"></i>
+                    <i class="bi bi-question-circle fs-1 text-danger mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-info" th:text="${themesCount}"></h2>
                     <p class="text-secondary">Thèmes</p>
                 </div>
@@ -190,7 +190,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card h-100 border-0 shadow-sm ">
                 <div class="card-body text-center">
-                    <i class="bi bi-question-circle fs-1 text-danger mb-3"></i>
+                    <i class="bi bi-question-circle fs-1 text-danger mb-3" aria-hidden="true"></i>
                     <h2 class="fw-bold text-info" th:text="${prononciationsCount}"></h2>
                     <p class="text-secondary">Prononciation</p>
                 </div>
@@ -206,25 +206,25 @@
         <h4 class="mb-3">🚀 Actions rapides</h4>
         <div class="d-flex flex-wrap gap-3">
             <a th:href="@{/admin/lessons/new}" class="btn btn-primary  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>📘 Nouvelle Leçon
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>📘 Nouvelle Leçon
             </a>
             <a th:href="@{/admin/vocabulary/new}" class="btn btn-success  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>🗣️ Nouveau Mot
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>🗣️ Nouveau Mot
             </a>
             <a th:href="@{/admin/exercises/new}" class="btn btn-warning  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>❓ Nouvel Exercice
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>❓ Nouvel Exercice
             </a>
             <a th:href="@{/admin/user/new}" class="btn btn-primary  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>🙋‍♂️ Nouvel utilisateur
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>🙋‍♂️ Nouvel utilisateur
             </a>
             <a th:href="@{/admin/quiz/create}" class="btn btn-danger  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>❓ Nouveau Quiz
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>❓ Nouveau Quiz
             </a>
             <a th:href="@{/admin/theme/new}" class="btn btn-primary  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>📕 Nouveau Thème
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>📕 Nouveau Thème
             </a>
             <a th:href="@{/admin/prononciation/ajouter}" class="btn btn-primary  px-4 py-2">
-                <i class="bi bi-plus-circle"></i>️🗣️ Nouvelle prononciation
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>️🗣️ Nouvelle prononciation
             </a>
             <a th:href="@{/admin/parcours-check}" class="btn btn-outline-danger px-4 py-2">
                 ✅ Contrôler les quiz du parcours

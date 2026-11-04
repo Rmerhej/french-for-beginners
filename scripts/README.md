@@ -2,7 +2,7 @@
 
 ## Sur le serveur
 ```bash
-cd ~/French-for-beginners          # le dossier du projet
+cd ~/french-for-beginners          # le dossier du projet
 ./scripts/backup.sh                # crée backups/frenchdb-AAAAMMJJ-HHMM.sql.gz et uploads-….tar.gz
 ```
 Les 14 dernières sauvegardes sont conservées. Le dossier `backups/` n'est pas versionné (ignoré par git).
@@ -11,13 +11,13 @@ Les 14 dernières sauvegardes sont conservées. Le dossier `backups/` n'est pas 
 ```bash
 crontab -e
 # puis ajouter la ligne (adaptez le chemin) :
-0 3 * * * cd /home/opc/French-for-beginners && ./scripts/backup.sh >> backups/backup.log 2>&1
+0 3 * * * cd /home/opc/french-for-beginners && ./scripts/backup.sh >> backups/backup.log 2>&1
 ```
 
 ## Copie sur votre PC (hors serveur)
 Une sauvegarde qui reste sur le serveur ne protège pas d'une panne du serveur. Depuis votre PC (PowerShell) :
 ```powershell
-scp opc@frenchforbeginners.duckdns.org:French-for-beginners/backups/derniere-base.sql.gz .
+scp opc@frenchforbeginners.duckdns.org:french-for-beginners/backups/derniere-base.sql.gz .
 ```
 Gardez au moins une copie ailleurs que sur ce PC (disque externe ou stockage de l'association).
 Ces fichiers contiennent les comptes des apprenants : ne les mettez jamais dans le dépôt GitHub.
@@ -53,3 +53,11 @@ Les images envoyées ensuite depuis l'administration sont allégées automatique
 
 `scripts/deploy.sh vX.Y.Z` fait une sauvegarde, installe la version indiquée et revient à la précédente si elle ne démarre pas.
 Il est lancé par GitHub Actions : voir [CD.md](../CD.md).
+
+## Alerte de sauvegarde (facultatif)
+
+Si `.env` contient `HEALTHCHECK_URL=<adresse ping>` (ou si la variable est définie dans l'environnement), `backup.sh` signale à Healthchecks.io que la sauvegarde a réussi, ou qu'elle a échoué. Mise en place pas à pas : voir `OPERATIONS.md`, section « Alerte si la sauvegarde de la nuit ne se fait pas ».
+
+## Copie hors serveur (facultatif)
+
+Si `.env` contient `OFFSITE_REMOTE=<remote>:<bucket>` (par exemple `oci:french-backups`), `backup.sh` envoie ensuite les sauvegardes de la base et le dossier `uploads` dans ce stockage avec `rclone`. Mise en place pas à pas (Oracle Object Storage) : voir `OPERATIONS.md`, section « Copie des sauvegardes hors du serveur ».

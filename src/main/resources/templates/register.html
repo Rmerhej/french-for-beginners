@@ -9,6 +9,7 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <main id="main-content" class="container mt-5">
+    <h1 class="visually-hidden">Inscription</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow">
@@ -43,7 +44,7 @@
                                 <button class="btn btn-outline-secondary toggle-password-btn"
                                         type="button"
                                         id="togglePassword">
-                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-eye" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <div class="text-danger small" th:errors="*{password}" role="alert"
@@ -71,7 +72,7 @@
                             <fieldset>
                                 <legend>Acceptation des règles du site</legend>
                                 <div class="alert alert-info">
-                                    <i class="bi bi-info-circle"></i>
+                                    <i class="bi bi-info-circle" aria-hidden="true"></i>
                                     <strong>Important :</strong>
                                     Protection de vos données :
                                     Conformément à notre démarche de respect de votre vie privée,<br>

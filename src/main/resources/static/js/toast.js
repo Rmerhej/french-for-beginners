@@ -5,6 +5,9 @@
  *     <div hidden data-ffb-toast="success" th:text="${success}"></div>
  *   -> le message s'affiche en notification au chargement de la page.
  *
+ * Avec des boutons :  FFBToast.show("Texte", "info", {delay: 20000, actions: [{label: "Oui", primary: true, onClick: fn}, {label: "Non"}]})
+ *   -> chaque bouton ferme la notification puis appelle onClick.
+ *
  * Accessibilité : la zone est annoncée par les lecteurs d'écran (aria-live), la notification se ferme
  * seule (plus longtemps pour une erreur), se ferme aussi au clic sur la croix, et reste affichée
  * tant que la souris ou le doigt est dessus. Le texte est inséré avec textContent (pas de HTML). */
@@ -72,6 +75,24 @@
     close.textContent = '\u00d7';   // croix en texte : s'affiche même si les icônes Bootstrap ne sont pas chargées
     close.addEventListener('click', function () { remove(el); });
 
+    var actions = options && options.actions;
+    if (actions && actions.length) {
+      var bar = document.createElement('div');
+      bar.className = 'ffb-toast-actions';
+      actions.forEach(function (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ffb-toast-action' + (a.primary ? ' ffb-toast-action-primary' : '');
+        b.textContent = String(a.label);
+        b.addEventListener('click', function () {
+          remove(el);
+          if (typeof a.onClick === 'function') a.onClick();
+        });
+        bar.appendChild(b);
+      });
+      text.appendChild(bar);
+    }
+
     el.appendChild(icon);
     el.appendChild(text);
     el.appendChild(close);
@@ -83,6 +104,8 @@
     el.addEventListener('mouseenter', stop);
     el.addEventListener('touchstart', stop, { passive: true });
     el.addEventListener('mouseleave', start);
+    el.addEventListener('focusin', stop);      // au clavier aussi : la notification reste tant qu'on y est
+    el.addEventListener('focusout', start);
     el.addEventListener('touchend', start, { passive: true });
     start();
     return el;

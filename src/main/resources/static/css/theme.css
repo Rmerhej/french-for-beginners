@@ -405,6 +405,31 @@ textarea.form-control {
 
 .ffb-toast-out { opacity: 0; transition: opacity 0.2s ease; }
 
+/* Boutons d'une notification (ex. proposition du mode sombre) */
+.ffb-toast-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+.ffb-toast-action {
+    min-height: 44px;
+    padding: 0.35rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.ffb-toast-action:hover { background: rgba(255, 255, 255, 0.14); }
+.ffb-toast-action:focus-visible { outline: 3px solid #9db8ff; outline-offset: 2px; }
+
+.ffb-toast-action-primary { background: #fff; border-color: #fff; color: #111936; }
+.ffb-toast-action-primary:hover { background: #e8ecff; }
+
+
 @keyframes ffb-toast-in {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: none; }

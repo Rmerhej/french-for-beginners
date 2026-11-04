@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
 
-                    <div class="options mb-3">
+                    <div class="options mb-3" role="radiogroup" th:attr="aria-label=${ex.question}">
                         <div class="form-check border rounded p-3 mb-2 option-wrapper">
                             <input class="form-check-input mx-2" type="radio" th:name="'answer-' + ${ex.id}"
                                    th:id="'optA-' + ${ex.id}" value="A">

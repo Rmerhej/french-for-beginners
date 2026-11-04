@@ -13,17 +13,18 @@
     <link rel="stylesheet" th:href="@{/css/qcm.css}">
 </head>
 <body>
-<a href="#contenu" class="visually-hidden-focusable">
+<a href="#main-content" class="visually-hidden-focusable">
     Aller au contenu principal
 </a>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+<main id="main-content">
 <div class="alert alert-success">
     Score : <span id="score">0</span> / <span id="total">0</span>
 </div>
 
-<h4 class="mt-5 mb-3 text-primary"><span aria-hidden="true">📖</span> Exercices</h4>
+<h1 class="h4 mt-5 mb-3 text-primary"><span aria-hidden="true">📖</span> Exercices</h1>
 
-<main th:each="ex : ${exercises}"
+<section th:each="ex : ${exercises}"
       th:if="${ex != null and #strings.containsIgnoreCase(ex.lessonTitle, 'Les lieux')}"
       class="container"
       th:id="'exercise-container-' + ${ex.id}">
@@ -35,7 +36,7 @@
         <div class="card-body">
             <h5 class="card-title mb-4" th:text="${ex.question}"></h5>
 
-            <div class="options mb-3">
+            <div class="options mb-3" role="radiogroup" th:attr="aria-label=${ex.question}">
                 <div class="form-check border rounded p-3 mb-2 d-flex align-items-center option-wrapper">
                     <input class="form-check-input" type="radio" th:name="'answer-' + ${ex.id}"
                            th:id="'optA-' + ${ex.id}" value="A">
@@ -71,6 +72,7 @@
             <strong>Explication : </strong> <span th:text="${ex.explanation}"></span>
         </div>
     </div>
+</section>
 </main>
 <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
