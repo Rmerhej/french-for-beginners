@@ -24,6 +24,12 @@ public class FooterController {
 
     }
 
+    @GetMapping("/accessibilite")
+    public String allerSurAccessibilite() {
+        return "accessibilite";
+
+    }
+
     @GetMapping("/secourscatholique")
     public String allerSurSecourscatholique() {
         return "redirect:https://www.secours-catholique.org/";

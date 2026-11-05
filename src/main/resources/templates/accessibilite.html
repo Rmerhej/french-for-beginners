@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Accessibilité')}"></head>
+<body class="d-flex flex-column h-100">
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<main id="main-content" class="container my-5 flex-grow-1">
+    <article>
+        <header class="mb-4">
+            <h1>Accessibilité</h1>
+            <p class="text-body-secondary mb-0">Dernière mise à jour : 5 novembre 2026</p>
+        </header>
+
+        <h2>Notre engagement</h2>
+        <p>Ce site est fait pour des personnes qui apprennent le français. Nous voulons qu'il soit utilisable par
+            le plus grand nombre, y compris par les personnes qui naviguent au clavier, utilisent un lecteur
+            d'écran, agrandissent le texte ou préfèrent un affichage sombre.</p>
+
+        <h2>État actuel</h2>
+        <p>Le site n'a pas fait l'objet d'un audit d'accessibilité officiel. Nous ne pouvons donc pas affirmer
+            qu'il respecte un référentiel (RGAA ou WCAG). Des défauts peuvent encore exister.</p>
+
+        <h2>Ce qui a été fait</h2>
+        <ul>
+            <li>Un lien « Aller au contenu principal » apparaît au premier appui sur la touche Tab.</li>
+            <li>Chaque page est découpée en zones repérables (navigation, contenu principal, pied de page) et
+                possède un titre de niveau 1.</li>
+            <li>Dans les QCM, chaque question est annoncée avec son énoncé, et les réponses se choisissent au
+                clavier.</li>
+            <li>Dans les tableaux, les en-têtes de lignes et de colonnes sont indiqués aux lecteurs d'écran.</li>
+            <li>Les icônes décoratives sont ignorées par les lecteurs d'écran.</li>
+            <li>Le zoom de la page n'est pas bloqué : vous pouvez agrandir le texte avec votre navigateur ou votre
+                téléphone.</li>
+            <li>Un mode sombre est disponible avec le bouton « Sombre » du menu ; votre choix est mémorisé sur
+                votre appareil.</li>
+        </ul>
+
+        <h2>Ce qui reste à améliorer</h2>
+        <ul>
+            <li>Un audit complet des pages, avec des tests de lecteurs d'écran, n'a pas encore été réalisé.</li>
+            <li>Certains contenus ajoutés plus anciennement peuvent ne pas respecter tous les contrastes ou toutes
+                les alternatives textuelles.</li>
+        </ul>
+
+        <h2>Signaler une difficulté</h2>
+        <p>Si vous ne parvenez pas à utiliser une page ou une fonction, dites-le-nous. Indiquez l'adresse de la page,
+            ce que vous essayiez de faire et, si possible, l'outil que vous utilisez (navigateur, lecteur d'écran).
+            Nous répondrons dès que possible et corrigerons ce qui peut l'être.</p>
+        <p>Vous pouvez écrire à l'administrateur du site par e-mail :
+            <a href="mailto:rolandmerhej8@gmail.com">rolandmerhej8@gmail.com</a>
+            (voir aussi la page <a th:href="@{/contact}">Contact</a>).</p>
+    </article>
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+</body>
+</html>
