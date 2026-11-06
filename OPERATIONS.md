@@ -456,6 +456,33 @@ Vérifier le mode actif : `curl -sI https://frenchforbeginners.duckdns.org/login
 
 ---
 
+# 13 ter. Flyway : modifier la base de données
+
+Flyway applique automatiquement, au démarrage de l'application, les modifications de la base écrites dans `src/main/resources/db/migration`. Plus besoin de lancer les scripts SQL à la main avec `docker exec` : un script déposé là part avec le déploiement.
+
+**Règles**
+- Un fichier = une modification, nommé `V<numéro>__<description_en_minuscules>.sql` (deux tirets bas). Le premier numéro libre est `V2` (la base existante est la « version 1 »).
+- Un fichier déjà déployé ne se modifie **jamais** : Flyway refuserait de démarrer. Pour corriger, on ajoute le numéro suivant.
+- Préférer les ajouts (`INSERT`, nouvelle table, nouvelle colonne) aux suppressions.
+- Le dossier `init-db/` ne sert plus qu'à créer une base neuve : n'y rien ajouter.
+- Faire une sauvegarde juste avant de déployer une migration : `bash scripts/backup.sh`. Le retour automatique de `deploy.sh` remet l'ancienne image, mais ne défait pas une modification déjà faite dans la base.
+
+**Mise en service (une seule fois)**
+L'ancien essai de Flyway a laissé dans la base une table `flyway_schema_history` avec une migration « en échec » : elle empêcherait le démarrage. Il faut la supprimer **avant** de déployer la version qui active Flyway :
+1. `cd ~/french-for-beginners`
+2. `bash scripts/backup.sh`
+3. `docker exec -i french-db sh -c 'mysql -u root -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE" -e "DROP TABLE IF EXISTS flyway_schema_history;"'`
+4. Déployer la version (tag), puis vérifier :
+   - `docker logs french-app 2>&1 | grep -i flyway` doit contenir « Successfully baselined schema with version: 1 » et « No migration necessary » ;
+   - `docker exec -i french-db sh -c 'mysql -u root -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE" -e "SELECT installed_rank, version, description, type, success FROM flyway_schema_history;"'` doit montrer une ligne : version 1, type BASELINE, success 1.
+
+Si on a oublié l'étape 3, l'application ne démarre pas, `deploy.sh` revient à la version précédente et le site reste en ligne. Faire alors l'étape 3 et redéployer.
+
+**Si une migration échoue plus tard**
+L'application ne démarre pas et `deploy.sh` revient en arrière. Lire `docker logs french-app 2>&1 | grep -i -B2 -A8 flyway`, corriger le script dans un **nouveau** fichier, puis redéployer. Si la migration a été à moitié appliquée, restaurer la sauvegarde faite juste avant (section « Restaurer une sauvegarde ») avant de redéployer.
+
+---
+
 # 14. Arrêter temporairement le serveur
 
 Pour arrêter uniquement l'application :

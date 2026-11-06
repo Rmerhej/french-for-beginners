@@ -1,0 +1,14 @@
+Migrations Flyway : une modification de la base = un fichier ici.
+
+Nom du fichier :  V<numéro>__<description_en_minuscules>.sql      (deux tirets bas après le numéro)
+Exemple          :  V2__ajout_quiz_conjugaison.sql
+
+Règles
+- Le premier numéro libre est 2 (la base existante est la « version 1 »). Ensuite 3, 4, 5...
+- Un fichier déjà appliqué en production ne se modifie JAMAIS : Flyway refuserait de démarrer.
+  Pour corriger, on ajoute un nouveau fichier (numéro suivant).
+- Préférer les modifications qui ajoutent (INSERT, nouvelle table, nouvelle colonne) à celles qui suppriment.
+- Les scripts du dossier init-db/ ne servent plus qu'à créer une base neuve ; ne rien y ajouter.
+- Les fichiers sont appliqués au démarrage de l'application, donc au déploiement : faire une sauvegarde avant.
+
+Détails et procédure : OPERATIONS.md, section 13 ter.
