@@ -34,6 +34,14 @@ class AuthFormsConsistencyTest {
     }
 
     @Test
+    void pseudoCheckboxIsNotRedUntilTheFormIsSubmittedWithoutIt() throws IOException {
+        String html = read("register.html");
+        assertThat(html).doesNotContain("form-check-input is-invalid").contains("/js/register-form.js");
+        String js = Files.readString(Path.of("src/main/resources/static/js/register-form.js"));
+        assertThat(js).contains("confirmPseudo").contains("'invalid'").contains("is-invalid");
+    }
+
+    @Test
     void everyPasswordRevealButtonIsNamed() throws IOException {
         String html = read("register.html");
         assertThat(html.split("toggle-password-btn", -1).length - 1)
