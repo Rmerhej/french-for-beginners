@@ -32,6 +32,24 @@ body {
     padding: 2.5rem 1.5rem !important;
 }
 
+/* Pastille « Étape recommandée » et bouton : blancs, texte bleu foncé, lisibles en clair comme en sombre */
+.test-card .test-card-badge {
+    background-color: #fff;
+    color: #1d3aa6;
+}
+
+.test-card .test-card-cta {
+    --bs-btn-color: #1d3aa6;
+    --bs-btn-bg: #fff;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: #14297a;
+    --bs-btn-hover-bg: #e8eeff;
+    --bs-btn-hover-border-color: #e8eeff;
+    --bs-btn-active-color: #14297a;
+    --bs-btn-active-bg: #dbe5ff;
+    --bs-btn-active-border-color: #dbe5ff;
+}
+
 /* le « blanc à 50 % » de Bootstrap est trop pâle sur fond bleu */
 .test-card .text-white-50 {
     color: rgba(255, 255, 255, 0.92) !important;
