@@ -40,12 +40,33 @@ class TemplateAssetsTest {
     }
 
     @Test
-    void bootstrapCdn_isDeclaredOnlyInAssetsFragment() throws IOException {
+    void bootstrap_isHostedLocally_andDeclaredOnlyInAssetsFragment() throws IOException {
         for (Path p : templates()) {
+            String html = Files.readString(p);
+            assertThat(html).as("Service externe (CDN) dans %s : Bootstrap est hébergé sur le site", p)
+                    .doesNotContain("cdn.jsdelivr.net");
             if (p.endsWith("fragments/assets.html")) continue;
-            assertThat(Files.readString(p))
-                    .as("CDN Bootstrap en dur dans %s : utiliser fragments/assets", p)
-                    .doesNotContain("cdn.jsdelivr.net/npm/bootstrap");
+            assertThat(html).as("Bootstrap en dur dans %s : utiliser fragments/assets", p)
+                    .doesNotContain("vendor/bootstrap");
+        }
+    }
+
+    @Test
+    void vendorFilesAreServed_withoutLogin() throws Exception {
+        for (String url : List.of(
+                "/vendor/bootstrap-5.3.3/bootstrap.min.css",
+                "/vendor/bootstrap-5.3.3/bootstrap.bundle.min.js",
+                "/vendor/bootstrap-icons-1.11.3/bootstrap-icons.min.css",
+                "/vendor/bootstrap-icons-1.11.3/fonts/bootstrap-icons.woff2",
+                "/vendor/bootstrap-icons-1.11.3/fonts/bootstrap-icons.woff")) {
+            mockMvc.perform(get(url)).andExpect(status().isOk());
+        }
+    }
+
+    @Test
+    void staticFilesNeverPointToAnExternalHost() throws IOException {
+        for (String file : List.of("src/main/resources/static/css/theme.css", "src/main/resources/static/sw.js")) {
+            assertThat(Files.readString(Path.of(file))).as(file).doesNotContain("cdn.jsdelivr.net");
         }
     }
 
@@ -63,9 +84,9 @@ class TemplateAssetsTest {
     void lessonPage_rendersBootstrapAndPageCss() throws Exception {
         mockMvc.perform(get("/lesRepas"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("bootstrap@5.3.3/dist/css/bootstrap.min.css")))
-                .andExpect(content().string(containsString("bootstrap-icons@1.11.3")))
+                .andExpect(content().string(containsString("/vendor/bootstrap-5.3.3/bootstrap.min.css")))
+                .andExpect(content().string(containsString("/vendor/bootstrap-icons-1.11.3/bootstrap-icons.min.css")))
                 .andExpect(content().string(containsString("/css/lesson-header-orange.css")))
-                .andExpect(content().string(containsString("bootstrap.bundle.min.js")));
+                .andExpect(content().string(containsString("/vendor/bootstrap-5.3.3/bootstrap.bundle.min.js")));
     }
 }

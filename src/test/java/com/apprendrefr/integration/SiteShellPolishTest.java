@@ -56,9 +56,10 @@ class SiteShellPolishTest {
     }
 
     @Test
-    void rgpdPage_listsOnlyTheRemainingExternalService() throws Exception {
+    void rgpdPage_saysNoExternalServiceIsLoaded() throws Exception {
         mockMvc.perform(get("/rgpd")).andExpect(status().isOk())
-                .andExpect(content().string(containsString("jsDelivr")))
+                .andExpect(content().string(containsString("aucun service externe")))
+                .andExpect(content().string(not(containsString("jsDelivr"))))
                 .andExpect(content().string(not(containsString("cdnjs"))))
                 .andExpect(content().string(not(containsString("flagcdn"))));
     }

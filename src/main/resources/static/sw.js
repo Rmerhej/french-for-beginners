@@ -6,13 +6,12 @@
  * Scripts et styles de l'application (/js/, /css/) : réseau d'abord, pour que les apprenants
  * aient toujours la version déployée ; le cache ne sert que sans connexion.
  * Pour forcer une mise à jour du cache : changer VERSION. */
-const VERSION = 'v4';
+const VERSION = 'v5';
 const CACHE = 'ffb-static-' + VERSION;
 const OFFLINE_URL = '/offline.html';
 const PRECACHE = [OFFLINE_URL, '/pwa/icon-192.png', '/pwa/icon-512.png'];
 const NETWORK_FIRST_PREFIXES = ['/css/', '/js/'];
-const STATIC_PREFIXES = ['/pwa/', '/fonts/'];
-const CDN_HOSTS = ['cdn.jsdelivr.net'];
+const STATIC_PREFIXES = ['/pwa/', '/fonts/', '/vendor/'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -45,11 +44,10 @@ self.addEventListener('fetch', (event) => {
   const sameOrigin = url.origin === self.location.origin;
   const isAppCode = sameOrigin && NETWORK_FIRST_PREFIXES.some((p) => url.pathname.startsWith(p));
   const isStatic = sameOrigin && STATIC_PREFIXES.some((p) => url.pathname.startsWith(p));
-  const isCdn = CDN_HOSTS.includes(url.hostname);
 
   if (isAppCode) {
     event.respondWith(networkFirst(req));
-  } else if (isStatic || isCdn) {
+  } else if (isStatic) {
     event.respondWith(staleWhileRevalidate(req));
   }
   // Tout le reste (API, /uploads, /admin, quiz...) : comportement normal du navigateur.

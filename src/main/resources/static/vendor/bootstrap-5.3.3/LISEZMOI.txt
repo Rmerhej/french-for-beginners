@@ -1,0 +1,3 @@
+Bootstrap 5.3.3 (licence MIT, voir LICENSE), copie locale du fichier officiel.
+Seule modification : la dernière ligne « sourceMappingURL » a été retirée (fichier .map non inclus).
+Pour changer de version : copier la nouvelle version dans un nouveau dossier et modifier fragments/assets.html.

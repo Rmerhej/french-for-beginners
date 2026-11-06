@@ -1,0 +1,1 @@
+Bootstrap Icons 1.11.3 (licence MIT, voir LICENSE), copie locale des fichiers officiels, sans modification.
