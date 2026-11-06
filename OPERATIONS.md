@@ -438,6 +438,24 @@ doit rester interne après validation.
 
 ---
 
+# 13 bis. Politique de sécurité du contenu (CSP)
+
+La CSP dit au navigateur d'où le site a le droit de charger ses scripts, styles, images, polices et sons. Avec la politique stricte, tout ce qui ne vient pas du site lui-même est refusé (un script injecté depuis un autre site, par exemple, ne s'exécute pas). Les scripts écrits directement dans les pages sont encore permis.
+
+Deux modes, choisis par `APP_CSP_ENFORCE` dans le `.env` du serveur :
+- **absent ou `false`** (par défaut) : mode « rapport ». Rien n'est bloqué. Le navigateur écrit dans sa console (F12, onglet Console) ce qu'il aurait bloqué, en commençant par `[Report Only]`.
+- **`true`** : mode strict. Ce qui n'est pas autorisé est bloqué.
+
+Passer en mode strict :
+1. Dans un navigateur (F12, onglet Console ouvert), parcourir les pages importantes (accueil, une leçon, un quiz, un QCM, le test de positionnement, la connexion, l'inscription, l'espace admin) et noter toute ligne `[Report Only] Refused to …`. Il ne doit y en avoir aucune.
+2. Faire une sauvegarde : `bash scripts/backup.sh`.
+3. Ajouter la ligne dans le `.env` du serveur : `echo 'APP_CSP_ENFORCE=true' >> .env`, puis `docker compose up -d` (le conteneur de l'application est recréé).
+4. Refaire le parcours des pages. Si une page est cassée : retirer la ligne (`sed -i '/^APP_CSP_ENFORCE=/d' .env`) et relancer `docker compose up -d` : le site revient au mode rapport.
+
+Vérifier le mode actif : `curl -sI https://frenchforbeginners.duckdns.org/login | grep -i content-security`. En mode rapport, on voit `Content-Security-Policy-Report-Only` ; en mode strict, `Content-Security-Policy` avec `default-src 'self'`.
+
+---
+
 # 14. Arrêter temporairement le serveur
 
 Pour arrêter uniquement l'application :

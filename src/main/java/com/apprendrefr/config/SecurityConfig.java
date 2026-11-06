@@ -22,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+import org.springframework.security.web.header.HeaderWriter;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import java.security.SecureRandom;
@@ -98,8 +99,27 @@ public class SecurityConfig {
         return new HttpSessionEventPublisher();
     }
 
+    /** Règles de base, toujours appliquées : pas de <base> détourné, pas de plugins, pas d'affichage dans un autre site. */
+    static final String CSP_BASE =
+            "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'";
+
+    /**
+     * Politique stricte : le site ne charge que ce qui vient de lui-même (aucun script, style, image, police,
+     * son ou connexion venant d'un autre site). Les scripts et styles écrits dans les pages restent permis
+     * ('unsafe-inline') : le site en contient encore.
+     */
+    static final String CSP_STRICT =
+            "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; "
+                    + "img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self'; "
+                    + "manifest-src 'self'; worker-src 'self'; frame-src 'none'; " + CSP_BASE;
+
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http,
+                                           @Value("${app.security.csp-enforce:false}") boolean cspEnforce) throws Exception {
+        // En mode strict, aucun en-tête « rapport » n'est ajouté (la politique stricte est déjà obligatoire).
+        HeaderWriter cspReportOnly = cspEnforce
+                ? (request, response) -> { }
+                : new StaticHeadersWriter("Content-Security-Policy-Report-Only", CSP_STRICT);
         http
                 .headers(headers -> headers
                         .referrerPolicy(ref -> ref.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
@@ -107,8 +127,10 @@ public class SecurityConfig {
                         .httpStrictTransportSecurity(hsts -> hsts.maxAgeInSeconds(31_536_000))
                         // Règles qui ne gênent pas les scripts et styles du site : pas de <base> détourné,
                         // pas de plugins, pas d'affichage du site dans la page d'un autre site, formulaires vers le site seulement.
-                        .contentSecurityPolicy(csp -> csp.policyDirectives(
-                                "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'"))
+                        // Mode « rapport » par défaut : la politique stricte est seulement signalée dans la console du
+                        // navigateur (rien n'est bloqué). APP_CSP_ENFORCE=true dans .env la rend obligatoire.
+                        .contentSecurityPolicy(csp -> csp.policyDirectives(cspEnforce ? CSP_STRICT : CSP_BASE))
+                        .addHeaderWriter(cspReportOnly)
                         .addHeaderWriter(new StaticHeadersWriter("Permissions-Policy",
                                 "camera=(), microphone=(), geolocation=(), payment=(), usb=()")))
                 .csrf(csrf -> csrf

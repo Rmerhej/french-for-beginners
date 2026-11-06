@@ -8,6 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
@@ -33,6 +34,16 @@ class SecurityHeadersIntegrationTest {
                 .andExpect(header().string("Content-Security-Policy", containsString("frame-ancestors 'self'")))
                 .andExpect(header().string("Content-Security-Policy", containsString("base-uri 'self'")))
                 .andExpect(header().string("Content-Security-Policy", containsString("form-action 'self'")));
+    }
+
+    @Test
+    void strictPolicyIsOnlyReported_notEnforced_byDefault() throws Exception {
+        mockMvc.perform(get("/login"))
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("default-src 'self'")))
+                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("script-src 'self' 'unsafe-inline'")))
+                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("connect-src 'self'")))
+                .andExpect(header().string("Content-Security-Policy", not(containsString("default-src"))));
     }
 
     @Test

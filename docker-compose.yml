@@ -71,6 +71,8 @@ services:
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       # Clé des cookies remember-me
       REMEMBER_ME_KEY: ${REMEMBER_ME_KEY}
+      # Politique de sécurité du contenu : false = rapport seulement, true = stricte (voir OPERATIONS.md)
+      APP_SECURITY_CSP_ENFORCE: ${APP_CSP_ENFORCE:-false}
 
       # Optional: JPA settings
       SPRING_JPA_HIBERNATE_DDL_AUTO: validate
