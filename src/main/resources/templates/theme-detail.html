@@ -99,7 +99,7 @@
                     </div>
 
                     <button type="button" class="btn btn-primary"
-                            th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
+                            data-click="submitAndCheck" th:data-arg0="${ex.id}" th:data-arg1="${ex.correctAnswer}">
                         Vérifier
                     </button>
                 </fieldset>
@@ -131,9 +131,9 @@
                      th:text="${quiz.sentence}" style="white-space: pre-line;"></div>
             </div>
 
-            <button class="btn btn-success btn-lg me-3" th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier
+            <button class="btn btn-success btn-lg me-3" data-click="checkAnswers" th:data-arg0="${iter.index}">Vérifier
             </button>
-            <button class="btn btn-secondary btn-lg" th:onclick="'resetQuiz(' + ${iter.index} + ')'">Recommencer
+            <button class="btn btn-secondary btn-lg" data-click="resetQuiz" th:data-arg0="${iter.index}">Recommencer
             </button>
             <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
         </div>

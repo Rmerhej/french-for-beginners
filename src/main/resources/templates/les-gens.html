@@ -63,7 +63,7 @@
             </fieldset>
 
             <button type="button" class="btn btn-primary"
-                    th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
+                    data-click="submitAndCheck" th:data-arg0="${ex.id}" th:data-arg1="${ex.correctAnswer}">
                 Vérifier
             </button>
         </div>

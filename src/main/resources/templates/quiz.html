@@ -25,8 +25,8 @@
         <div class="card-body fs-4 lh-lg" id="sentence" th:utext="${quiz.sentence}"></div>
     </div>
 
-    <button class="btn btn-success btn-lg me-3" onclick="checkAnswers()">Vérifier mes réponses</button>
-    <button class="btn btn-secondary btn-lg" onclick="resetQuiz()">Recommencer</button>
+    <button class="btn btn-success btn-lg me-3" data-click="checkAnswers">Vérifier mes réponses</button>
+    <button class="btn btn-secondary btn-lg" data-click="resetQuiz">Recommencer</button>
 
     <div id="feedback" class="mt-4"></div>
 </main>

@@ -42,8 +42,8 @@
                  th:utext="${quiz.sentence}"></div>
         </div>
 
-        <button class="btn btn-success btn-lg me-3" th:onclick="'checkAnswers(' + ${iter.index} + ')'">Vérifier</button>
-        <button class="btn btn-secondary btn-lg" th:onclick="'resetQuiz(' + ${iter.index} + ')'">Recommencer</button>
+        <button class="btn btn-success btn-lg me-3" data-click="checkAnswers" th:data-arg0="${iter.index}">Vérifier</button>
+        <button class="btn btn-secondary btn-lg" data-click="resetQuiz" th:data-arg0="${iter.index}">Recommencer</button>
         <div th:id="'feedback-' + ${iter.index}" class="mt-4"></div>
     </div>
 

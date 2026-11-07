@@ -68,7 +68,7 @@
             </fieldset>
 
             <button type="button" class="btn btn-primary verify-btn"
-                    th:onclick="submitAndCheck([[${ex.id}]], [[${ex.correctAnswer}]])">
+                    data-click="submitAndCheck" th:data-arg0="${ex.id}" th:data-arg1="${ex.correctAnswer}">
                 Vérifier
             </button>
         </div>
@@ -80,7 +80,7 @@
 
     <!-- Bouton et conteneur de résultat -->
     <div class="text-center my-5">
-        <button type="button" class="btn btn-success btn-lg shadow" onclick="showEvaluationResult()">
+        <button type="button" class="btn btn-success btn-lg shadow" data-click="showEvaluationResult">
             <i class="bi bi-award" aria-hidden="true"></i> Voir votre niveau
         </button>
     </div>
