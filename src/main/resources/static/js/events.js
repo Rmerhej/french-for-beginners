@@ -20,6 +20,7 @@
     var ACTIONS = [
         'checkAnswer',
         'checkAnswers',
+        'printPage',
         'resetQuiz',
         'showEvaluationResult',
         'submitAndCheck'

@@ -30,6 +30,12 @@ public class FooterController {
 
     }
 
+    @GetMapping("/qr")
+    public String allerSurQr() {
+        return "qr";
+
+    }
+
     @GetMapping("/aide")
     public String allerSurAide() {
         return "aide";

@@ -1,0 +1,35 @@
+/* Page « QR code du site » : le code reste sur fond blanc (même en mode sombre) pour être lisible par l'appareil photo. */
+.qr-card {
+    max-width: 380px;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 1rem;
+}
+
+.qr-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* À l'impression : seulement le titre, le code et l'adresse */
+@media print {
+    nav,
+    footer,
+    .no-print,
+    .visually-hidden-focusable,
+    #backToTop {
+        display: none !important;
+    }
+
+    .qr-page {
+        margin-top: 0 !important;
+        color: #000;
+    }
+
+    .qr-card {
+        max-width: 70%;
+        border: 0;
+    }
+}

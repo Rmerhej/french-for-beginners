@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='QR code du site')}"></head>
+<body class="d-flex flex-column h-100">
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<main id="main-content" class="container my-5 flex-grow-1 qr-page">
+    <article class="text-center">
+        <header class="mb-4">
+            <h1>QR code du site</h1>
+            <p class="lead mb-0">Scannez ce code avec l'appareil photo d'un téléphone pour ouvrir
+                <strong>French For Beginners</strong>.</p>
+        </header>
+
+        <div class="qr-card mx-auto mb-3">
+            <img th:src="@{/images/qr-french-for-beginners.svg}"
+                 class="qr-image"
+                 width="1000" height="1000"
+                 alt="QR code qui ouvre French For Beginners, à l'adresse frenchforbeginners.duckdns.org">
+        </div>
+
+        <p class="fs-5 fw-bold mb-4">frenchforbeginners.duckdns.org</p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-4 no-print">
+            <button type="button" class="btn btn-primary btn-lg rounded-pill px-4" data-click="printPage">
+                Imprimer cette page
+            </button>
+            <a th:href="@{/images/qr-french-for-beginners.png}" download="qr-french-for-beginners.png"
+               class="btn btn-outline-primary btn-lg rounded-pill px-4">
+                Télécharger l'image (PNG)
+            </a>
+            <a th:href="@{/images/qr-french-for-beginners.svg}" download="qr-french-for-beginners.svg"
+               class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                Image pour grand format (SVG)
+            </a>
+        </div>
+
+        <p class="text-body-secondary no-print">Vous pouvez imprimer ce code et l'afficher dans votre salle de cours,
+            ou envoyer l'image aux apprenants.</p>
+    </article>
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<link rel="stylesheet" th:href="@{/css/qr-page.css}">
+<script th:src="@{/js/print-page.js}"></script>
+</body>
+</html>

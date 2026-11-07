@@ -23,7 +23,7 @@ public class SeoController {
 
     /** Pages consultables sans compte (voir SecurityConfig) et utiles aux moteurs de recherche. */
     static final List<String> PUBLIC_PAGES = List.of(
-            "/", "/supports-de-cours", "/about", "/contact", "/rgpd", "/accessibilite", "/aide", "/installer", "/plan-du-site",
+            "/", "/supports-de-cours", "/about", "/contact", "/rgpd", "/accessibilite", "/aide", "/qr", "/installer", "/plan-du-site",
             "/prononciation", "/cultureFrancaise", "/themes", "/chiffresEtLettres", "/lesVerbes",
             "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement", "/lessons", "/conjugueur", "/conjugaison-par-niveau", "/testEval");
 

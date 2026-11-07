@@ -156,7 +156,7 @@ public class SecurityConfig {
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
                                 "/adjectifsdemonstratifs/**", "/expressionstemps/**",
                                 "/verbesreguliers/**", "/passecompse/**", "/imperatif/**",
-                                "/auxiliaires/**", "/about", "/contact", "/rgpd", "/accessibilite", "/aide", "/installer", "/plan-du-site",
+                                "/auxiliaires/**", "/about", "/contact", "/rgpd", "/accessibilite", "/aide", "/qr", "/installer", "/plan-du-site",
                                 "/secourscatholique", "/au-bureau",
                                 "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
                                 "/au-bureau-quiz", "/les-gens-quiz", "/lesVerbes", "/chiffresEtLettres",

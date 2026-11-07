@@ -43,7 +43,7 @@ class SitePlanIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(not(containsString("Les leçons par niveau"))))
                 .andExpect(content().string(not(containsString("id=\"plan-lecons\""))))
-                .andExpect(content().string(containsString("Toutes les leçons")));
+                .andExpect(content().string(containsString("Leçons de vocabulaire")));
     }
 
     @Test

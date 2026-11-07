@@ -3,7 +3,7 @@ package com.apprendrefr.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/** Page « Plan du site » : les rubriques du site (la liste des leçons est sur « Toutes les leçons »). */
+/** Page « Plan du site » : les rubriques du site (la liste des leçons est sur « Leçons de vocabulaire »). */
 @Controller
 public class SitePlanController {
 
