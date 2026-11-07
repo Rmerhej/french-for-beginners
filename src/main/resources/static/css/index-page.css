@@ -103,12 +103,13 @@ body {
     min-width: 0;
 }
 
+/* Le niveau (ex. « A1 → A2 ») est toujours sous le titre : les trois cartes ont la même forme. */
 .level-card-head {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.25rem 0.6rem;
-    margin-bottom: 0.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.35rem;
 }
 
 .level-card-desc {

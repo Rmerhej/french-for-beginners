@@ -61,6 +61,21 @@ class HomeLayoutTest {
     }
 
     @Test
+    void footerNavigationHasNoLessonsLink() throws IOException {
+        String footer = read("templates/fragments/footer.html");
+        assertThat(footer).doesNotContain("@{/lessons}").contains("@{/register}").contains("@{/plan-du-site}");
+    }
+
+    @Test
+    void levelBadgeIsAlwaysUnderTheTitle() throws IOException {
+        String css = read("static/css/index-page.css");
+        int start = css.indexOf(".level-card-head {");
+        assertThat(start).isGreaterThan(-1);
+        String rule = css.substring(start, css.indexOf("}", start));
+        assertThat(rule).contains("flex-direction: column");
+    }
+
+    @Test
     void levelCardsUseThemeVariables_soDarkModeWorks() throws IOException {
         String css = read("static/css/index-page.css");
         assertThat(css).contains(".level-card {").contains("var(--ffb-surface)").contains("var(--bs-body-color)");

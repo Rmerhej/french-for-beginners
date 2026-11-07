@@ -38,6 +38,15 @@ class SitePlanIntegrationTest {
     }
 
     @Test
+    void sitePlanHasNoLongLessonListByLevel() throws Exception {
+        mockMvc.perform(get("/plan-du-site"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("Les leçons par niveau"))))
+                .andExpect(content().string(not(containsString("id=\"plan-lecons\""))))
+                .andExpect(content().string(containsString("Toutes les leçons")));
+    }
+
+    @Test
     void visitorSeesLoginAndRegisterButNotMyResults() throws Exception {
         mockMvc.perform(get("/plan-du-site"))
                 .andExpect(content().string(containsString("id=\"plan-register\"")))

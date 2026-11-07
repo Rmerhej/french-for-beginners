@@ -90,24 +90,6 @@
             </div>
         </section>
     </div>
-
-    <section class="mt-5" aria-labelledby="plan-lecons" th:if="${!lessonsByLevel.isEmpty()}">
-        <h2 class="h4 fw-bold text-primary mb-3" id="plan-lecons">Les leçons par niveau</h2>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4" th:each="entry : ${lessonsByLevel}">
-                <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body">
-                        <h3 class="h6 fw-bold text-uppercase text-secondary" th:text="${entry.key}">A1</h3>
-                        <ul class="list-unstyled mb-0 plan-links">
-                            <li th:each="lesson : ${entry.value}">
-                                <a th:href="@{/lesson/{id}(id=${lesson.id})}" th:text="${lesson.title}">Titre</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
