@@ -54,7 +54,7 @@ class ToastIntegrationTest {
     @Test
     void answerChecks_useToasts_notBrowserAlerts() throws IOException {
         for (String f : new String[]{"static/js/exercises.js", "static/js/lesson-exercises.js",
-                "static/js/au-bureau.js", "templates/evaluation.html"}) {
+                "static/js/au-bureau.js", "static/js/evaluation.js"}) {
             String src = Files.readString(RESOURCES.resolve(f));
             assertThat(src).as(f).contains("FFBToast.warning");
             // alert() n'est plus qu'un secours si le script de notifications manque
@@ -64,7 +64,7 @@ class ToastIntegrationTest {
 
     @Test
     void placementLevel_confirmationIsAToast() throws IOException {
-        String src = Files.readString(RESOURCES.resolve("templates/evaluation.html"));
+        String src = Files.readString(RESOURCES.resolve("static/js/evaluation.js"));
         assertThat(src).contains("FFBToast.success('Niveau enregistré");
         assertThat(src).doesNotContain("placement-saved");
     }

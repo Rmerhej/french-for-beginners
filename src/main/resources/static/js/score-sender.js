@@ -7,7 +7,7 @@
   // true seulement si un compte est connecté (voir le pied de page) : sans compte, on s'entraîne librement
   // mais rien n'est enregistré.
   function logged() {
-    return window.FFB_AUTH === true;
+    return document.getElementById('ffb-auth') !== null;
   }
 
   function findToken() {

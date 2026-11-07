@@ -36,6 +36,10 @@ class InlineHandlersTest {
 
     private static final Pattern DATA_CLICK = Pattern.compile("data-click=\"(\\w+)\"");
 
+    /** Une balise <script> sans src (th:src compris) et qui n'est pas un bloc de données JSON-LD. */
+    private static final Pattern INLINE_SCRIPT =
+            Pattern.compile("<script\\b(?![^>]*\\bsrc\\s*=)(?![^>]*ld\\+json)[^>]*>", Pattern.CASE_INSENSITIVE);
+
     private static List<Path> templates() throws IOException {
         try (Stream<Path> s = Files.walk(TEMPLATES)) {
             return s.filter(p -> p.toString().endsWith(".html")).sorted().toList();
@@ -54,6 +58,45 @@ class InlineHandlersTest {
         assertThat(found)
                 .as("Pas de onclick/onsubmit… dans les pages : utiliser data-click ou data-confirm (voir js/events.js)")
                 .isEmpty();
+    }
+
+    @Test
+    void noInlineScriptBlocksInTemplates() throws IOException {
+        List<String> found = new ArrayList<>();
+        for (Path p : templates()) {
+            Matcher m = INLINE_SCRIPT.matcher(Files.readString(p));
+            while (m.find()) {
+                found.add(p + " : " + m.group());
+            }
+        }
+        assertThat(found)
+                .as("Pas de <script> écrit dans les pages : placer le code dans static/js et le charger avec th:src")
+                .isEmpty();
+    }
+
+    @Test
+    void loginStateMarkerReplacesTheInlineScript() throws IOException {
+        assertThat(Files.readString(TEMPLATES.resolve("fragments/footer.html")))
+                .contains("id=\"ffb-auth\"").contains("sec:authorize=\"isAuthenticated()\"")
+                .doesNotContain("FFB_AUTH");
+        assertThat(Files.readString(Path.of("src/main/resources/static/js/score-sender.js")))
+                .contains("getElementById('ffb-auth')").doesNotContain("FFB_AUTH");
+    }
+
+    @Test
+    void scriptsMovedOutOfThePagesAreLoadedWhereTheyWereWritten() throws IOException {
+        String footer = Files.readString(TEMPLATES.resolve("fragments/footer.html"));
+        assertThat(footer).contains("/js/theme-toggle.js");
+        assertThat(Files.readString(TEMPLATES.resolve("fragments/back-to-top.html"))).contains("/js/back-to-top.js");
+        assertThat(Files.readString(TEMPLATES.resolve("installer.html"))).contains("/js/installer.js");
+        assertThat(Files.readString(TEMPLATES.resolve("conjugueur.html"))).contains("/js/conjugueur-listen.js");
+        assertThat(Files.readString(TEMPLATES.resolve("evaluation.html"))).contains("/js/evaluation.js");
+        String quiz = Files.readString(TEMPLATES.resolve("quiz.html"));
+        assertThat(quiz).contains("/js/quiz-simple.js").contains("id=\"quiz-words\"").contains("id=\"quiz-answers\"")
+                .doesNotContain("th:inline");
+        for (String js : List.of("theme-toggle", "back-to-top", "installer", "conjugueur-listen", "evaluation", "quiz-simple")) {
+            assertThat(Path.of("src/main/resources/static/js/" + js + ".js")).exists();
+        }
     }
 
     @Test

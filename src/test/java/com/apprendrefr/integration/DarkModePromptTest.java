@@ -62,8 +62,9 @@ class DarkModePromptTest {
     void storageAccessIsProtectedAgainstBlockedBrowsers() throws IOException {
         String js = read("js/dark-mode-prompt.js");
         assertThat(js).contains("try {").contains("catch (e)");
-        String footer = Files.readString(Path.of("src/main/resources/templates/fragments/footer.html"));
-        assertThat(footer).contains("try { savedTheme = localStorage.getItem('theme')")
+        // Le bouton « Sombre / Clair » vit dans js/theme-toggle.js (plus de script écrit dans le pied de page)
+        String toggle = read("js/theme-toggle.js");
+        assertThat(toggle).contains("try { savedTheme = localStorage.getItem('theme')")
                 .contains("try { localStorage.setItem('theme', newTheme)");
     }
 
