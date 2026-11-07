@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Aide : connexion et mémoire de votre appareil')}"></head>
+<body class="d-flex flex-column h-100">
+<a href="#main-content" class="visually-hidden-focusable">
+    Aller au contenu principal
+</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<main id="main-content" class="container my-5 flex-grow-1">
+    <article>
+        <header class="mb-4">
+            <h1>Aide : connexion et mémoire de votre appareil</h1>
+            <p class="text-body-secondary mb-0">Dernière mise à jour : 7 novembre 2026</p>
+        </header>
+
+        <h2>Rester connecté</h2>
+        <ul>
+            <li>Quand vous vous connectez, le site vous reconnaît de page en page.</li>
+            <li>Si vous ne faites rien pendant <strong>30 minutes</strong>, vous êtes déconnecté pour votre sécurité.
+                Connectez-vous de nouveau.</li>
+            <li>Avec la case <strong>« Se souvenir de moi »</strong>, vous restez connecté pendant
+                <strong>14 jours</strong> sur cet appareil.</li>
+            <li>N'utilisez pas « Se souvenir de moi » sur un téléphone ou un ordinateur que d'autres personnes
+                utilisent.</li>
+            <li>Vous pouvez être connecté sur plusieurs appareils en même temps.</li>
+            <li>Le bouton <strong>« Déconnexion »</strong> arrête votre connexion tout de suite.</li>
+        </ul>
+
+        <h2>Ce que le site garde sur votre appareil</h2>
+        <ul>
+            <li>Votre choix du mode clair ou sombre, pour ne pas vous le demander à chaque fois.</li>
+            <li>Quelques fichiers du site (images, styles) pour que les pages s'affichent plus vite.</li>
+            <li>Une page de secours, quand il n'y a plus de réseau.</li>
+            <li>Un petit repère de connexion, pour vous reconnaître quand vous êtes connecté.</li>
+        </ul>
+        <p>Ces éléments servent seulement à faire marcher le site. Le site n'affiche pas de publicité.</p>
+
+        <h2>Vos scores et vos résultats</h2>
+        <p>Vos scores ne sont <strong>pas</strong> gardés sur votre téléphone. Ils sont enregistrés sur le serveur
+            du site, quand vous êtes connecté. Vous pouvez donc les retrouver sur un autre appareil, en vous
+            connectant avec le même compte.</p>
+        <p>Les leçons et les quiz restent ouverts à tous. Un compte gratuit sert à enregistrer vos scores et à
+            reprendre votre parcours.</p>
+
+        <h2>En cas de problème</h2>
+        <ul>
+            <li><strong>Une page semble ancienne</strong> : rechargez la page, ou fermez puis rouvrez l'application.</li>
+            <li><strong>Vous ne pouvez pas vous connecter</strong> : vérifiez votre identifiant et votre mot de passe.
+                Après plusieurs erreurs, le compte est bloqué pendant un moment, par sécurité. Attendez un peu, puis
+                essayez de nouveau.</li>
+            <li><strong>Vous êtes souvent déconnecté</strong> : c'est normal après 30 minutes sans activité. Cochez
+                « Se souvenir de moi » si l'appareil est à vous.</li>
+        </ul>
+        <p><strong>Contactez-nous</strong> si le problème continue. Indiquez la page, ce que vous essayiez de faire
+            et votre appareil (par exemple : téléphone Android, iPhone, ordinateur).<br>
+            <a href="mailto:rolandmerhej8@gmail.com">rolandmerhej8@gmail.com</a>
+            (voir aussi la page <a th:href="@{/contact}">Contact</a>).</p>
+
+        <p class="text-body-secondary">Pour les informations légales sur vos données, lisez la page
+            <a th:href="@{/rgpd}">Mentions légales - RGPD</a>.</p>
+    </article>
+</main>
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+</body>
+</html>

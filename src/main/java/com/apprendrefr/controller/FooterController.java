@@ -30,6 +30,12 @@ public class FooterController {
 
     }
 
+    @GetMapping("/aide")
+    public String allerSurAide() {
+        return "aide";
+
+    }
+
     @GetMapping("/secourscatholique")
     public String allerSurSecourscatholique() {
         return "redirect:https://www.secours-catholique.org/";
