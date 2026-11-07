@@ -113,13 +113,21 @@ public class SecurityConfig {
                     + "img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self'; "
                     + "manifest-src 'self'; worker-src 'self'; frame-src 'none'; " + CSP_BASE;
 
+    /**
+     * Prochaine étape : la politique stricte SANS scripts en ligne (script-src 'self' seul). Les pages n'ont plus de
+     * script ni de onclick écrits dedans ; cette politique est d'abord seulement SIGNALÉE (en-tête « Report-Only »,
+     * rien n'est bloqué) pour vérifier dans la console du navigateur qu'aucune page n'en dépend.
+     * Les styles en ligne restent permis (style="..." est encore très répandu dans les pages).
+     */
+    static final String CSP_NO_INLINE_SCRIPTS =
+            CSP_STRICT.replace("script-src 'self' 'unsafe-inline'", "script-src 'self'");
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            @Value("${app.security.csp-enforce:false}") boolean cspEnforce) throws Exception {
-        // En mode strict, aucun en-tête « rapport » n'est ajouté (la politique stricte est déjà obligatoire).
-        HeaderWriter cspReportOnly = cspEnforce
-                ? (request, response) -> { }
-                : new StaticHeadersWriter("Content-Security-Policy-Report-Only", CSP_STRICT);
+        // L'en-tête « rapport » porte toujours la politique sans scripts en ligne : elle ne bloque rien,
+        // elle fait seulement écrire dans la console du navigateur ce qui serait refusé.
+        HeaderWriter cspReportOnly = new StaticHeadersWriter("Content-Security-Policy-Report-Only", CSP_NO_INLINE_SCRIPTS);
         http
                 .headers(headers -> headers
                         .referrerPolicy(ref -> ref.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))

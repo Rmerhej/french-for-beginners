@@ -440,10 +440,10 @@ doit rester interne après validation.
 
 # 13 bis. Politique de sécurité du contenu (CSP)
 
-La CSP dit au navigateur d'où le site a le droit de charger ses scripts, styles, images, polices et sons. Avec la politique stricte, tout ce qui ne vient pas du site lui-même est refusé (un script injecté depuis un autre site, par exemple, ne s'exécute pas). Les scripts écrits directement dans les pages sont encore permis.
+La CSP dit au navigateur d'où le site a le droit de charger ses scripts, styles, images, polices et sons. Avec la politique stricte, tout ce qui ne vient pas du site lui-même est refusé (un script injecté depuis un autre site, par exemple, ne s'exécute pas). Les scripts écrits directement dans les pages sont encore permis par la politique imposée ; une politique encore plus stricte, sans eux, est en cours de vérification (voir plus bas).
 
 Deux modes, choisis par `APP_CSP_ENFORCE` dans le `.env` du serveur :
-- **absent ou `false`** (par défaut) : mode « rapport ». Rien n'est bloqué. Le navigateur écrit dans sa console (F12, onglet Console) ce qu'il aurait bloqué, en commençant par `[Report Only]`.
+- **absent ou `false`** (par défaut) : mode « rapport ». Rien n'est bloqué (seules les règles de base le sont). Le navigateur écrit dans sa console (F12, onglet Console) ce qu'il aurait bloqué, en commençant par `[Report Only]`.
 - **`true`** : mode strict. Ce qui n'est pas autorisé est bloqué.
 
 Passer en mode strict :
@@ -451,6 +451,8 @@ Passer en mode strict :
 2. Faire une sauvegarde : `bash scripts/backup.sh`.
 3. Ajouter la ligne dans le `.env` du serveur : `echo 'APP_CSP_ENFORCE=true' >> .env`, puis `docker compose up -d` (le conteneur de l'application est recréé).
 4. Refaire le parcours des pages. Si une page est cassée : retirer la ligne (`sed -i '/^APP_CSP_ENFORCE=/d' .env`) et relancer `docker compose up -d` : le site revient au mode rapport.
+
+**Étape suivante : retirer les scripts en ligne.** Les pages ne contiennent plus de `<script>` ni de `onclick` écrits dedans (tout est dans `static/js`). Quel que soit le mode, le serveur envoie donc aussi un en-tête `Content-Security-Policy-Report-Only` avec `script-src 'self'` (sans `'unsafe-inline'`). Il ne bloque rien. Pour vérifier : parcourir les pages avec la console ouverte ; aucune ligne `[Report Only] Refused to execute inline script` ne doit apparaître. Quand c'est le cas sur toutes les pages, une version suivante retirera `'unsafe-inline'` de `script-src` dans la politique imposée (`SecurityConfig.CSP_STRICT`). Les `style="..."` restent permis.
 
 Vérifier le mode actif : `curl -sI https://frenchforbeginners.duckdns.org/login | grep -i content-security`. En mode rapport, on voit `Content-Security-Policy-Report-Only` ; en mode strict, `Content-Security-Policy` avec `default-src 'self'`.
 

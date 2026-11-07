@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.nullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -33,6 +32,8 @@ class CspEnforcedIntegrationTest {
                 .andExpect(header().string("Content-Security-Policy", containsString("object-src 'none'")))
                 .andExpect(header().string("Content-Security-Policy", containsString("form-action 'self'")))
                 .andExpect(header().string("Content-Security-Policy", not(containsString("http"))))
-                .andExpect(header().string("Content-Security-Policy-Report-Only", nullValue()));
+                .andExpect(header().string("Content-Security-Policy", containsString("script-src 'self' 'unsafe-inline'")))
+                // La politique sans scripts en ligne est seulement signalée, jamais imposée
+                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("script-src 'self';")));
     }
 }
