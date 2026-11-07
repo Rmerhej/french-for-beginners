@@ -41,8 +41,7 @@ class SecurityHeadersIntegrationTest {
         mockMvc.perform(get("/login"))
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("default-src 'self'")))
-                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("script-src 'self';")))
-                .andExpect(header().string("Content-Security-Policy-Report-Only", not(containsString("script-src 'self' 'unsafe-inline'"))))
+                .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("script-src 'self'; style-src")))
                 .andExpect(header().string("Content-Security-Policy-Report-Only", containsString("connect-src 'self'")))
                 .andExpect(header().string("Content-Security-Policy", not(containsString("default-src"))));
     }
