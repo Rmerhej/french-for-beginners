@@ -16,6 +16,16 @@
 
     <div th:replace="~{fragments/niveau :: entete(3, 'Approfondissement', 'A2 → B2', 'danger')}"></div>
 
+    <!-- Ce que contient ce parcours (déplacé depuis l'accueil) -->
+    <section class="parcours-card parcours-card-success mb-4" aria-labelledby="contenu-parcours">
+        <h2 class="h5" id="contenu-parcours">🎯 Ce que contient ce parcours</h2>
+        <ul class="list-unstyled mb-0 parcours-list">
+            <li>🗼 <strong>FRANCE - LIVRET DU CITOYEN 2026</strong> Cours + QCM + QUIZ (A2-B1)</li>
+            <li>📚 <strong>Grammaire &amp; Conjugaison</strong></li>
+            <li>🏛️ <strong>Quiz d'entraînement</strong> QCM Culture Française (B1)</li>
+        </ul>
+    </section>
+
     <div class="row g-4">
 
         <!-- Carte 1 : Livret du citoyen -->
@@ -63,5 +73,6 @@
 <div th:replace="~{fragments/footer :: footer}"></div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<link rel="stylesheet" th:href="@{/css/niveau-contenu.css}">
 </body>
 </html>

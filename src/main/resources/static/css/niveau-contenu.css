@@ -1,0 +1,33 @@
+/* Carte « Ce que contient ce parcours » des pages de niveau : un liseré de couleur par étape. */
+.parcours-card {
+    background: var(--ffb-surface);
+    border: 1px solid var(--ffb-border) !important;
+    border-left-width: 5px !important;
+    border-radius: var(--ffb-radius-lg);
+    padding: 1.5rem !important;
+    color: var(--bs-body-color);
+}
+
+.parcours-card-primary { border-left-color: var(--ffb-primary) !important; }
+.parcours-card-warning { border-left-color: #d99a00 !important; }
+.parcours-card-success { border-left-color: var(--ffb-ok) !important; }
+
+.parcours-card h2,
+.parcours-card h5 {
+    color: var(--bs-body-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.parcours-list {
+    color: var(--bs-secondary-color);
+    line-height: 1.6;
+}
+
+.parcours-list li {
+    margin-bottom: 0.6rem !important;
+}
+
+.parcours-list strong {
+    color: var(--bs-body-color);
+}

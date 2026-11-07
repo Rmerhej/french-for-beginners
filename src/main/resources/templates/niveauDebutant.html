@@ -22,9 +22,20 @@
 
     <!-- Présentation du niveau -->
     <p class="text-muted mb-4">
-        Pour poser les toutes premières briques : sons, chiffres,
+        Pour poser les toutes premières briques : audios, chiffres,
         verbes et premiers mots du quotidien.
     </p>
+
+    <!-- Ce que contient ce parcours (déplacé depuis l'accueil) -->
+    <section class="parcours-card parcours-card-primary mb-4" aria-labelledby="contenu-parcours">
+        <h2 class="h5" id="contenu-parcours">🎯 Ce que contient ce parcours</h2>
+        <ul class="list-unstyled mb-0 parcours-list">
+            <li>📚 <strong>Leçons de vocabulaire</strong> (Fruits, Objets, Politesse...)</li>
+            <li>🗣️ <strong>Modules de prononciation</strong> (Niveau Pré A1)</li>
+            <li>🔢 <strong>Chiffres, lettres et verbes essentiels</strong></li>
+            <li>📚 <strong>Grammaire &amp; Conjugaison</strong></li>
+        </ul>
+    </section>
 
 
     <!-- ========================================================= -->
@@ -277,6 +288,7 @@
 
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
 
+<link rel="stylesheet" th:href="@{/css/niveau-contenu.css}">
 </body>
 </html>
 

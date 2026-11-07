@@ -17,6 +17,17 @@
     <!-- En-tête du niveau -->
     <div th:replace="~{fragments/niveau :: entete(2, 'Consolidation', 'A1 → A2', 'warning')}"></div>
 
+    <!-- Ce que contient ce parcours (déplacé depuis l'accueil) -->
+    <section class="parcours-card parcours-card-warning mb-4" aria-labelledby="contenu-parcours">
+        <h2 class="h5" id="contenu-parcours">🎯 Ce que contient ce parcours</h2>
+        <ul class="list-unstyled mb-0 parcours-list">
+            <li>📚 <strong>Leçons par thème</strong> (Dialogues + QCM + Exercices (glisser-déposer))</li>
+            <li>📚 <strong>Grammaire &amp; Conjugaison</strong></li>
+            <li>❓ <strong>Quiz d'entraînement</strong> et Culture générale (A1-A2)</li>
+            <li>📝 <strong>Préparations et révisions</strong> des cours hebdomadaires</li>
+        </ul>
+    </section>
+
     <!-- Cartes principales : 2 colonnes -->
     <div class="row g-4 mb-4">
 
@@ -162,6 +173,7 @@
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<link rel="stylesheet" th:href="@{/css/niveau-contenu.css}">
 </body>
 </html>
 

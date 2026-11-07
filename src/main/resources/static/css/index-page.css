@@ -11,8 +11,8 @@ body {
 /* ---------- Bandeau d'accueil ---------- */
 .hero.bg-primary {
     background-image: linear-gradient(135deg, var(--ffb-primary) 0%, #1d3aa6 100%);
-    padding-top: 3.5rem !important;
-    padding-bottom: 3.5rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
 }
 
 .hero .lead {
@@ -29,7 +29,11 @@ body {
 }
 
 .test-card .card-body {
-    padding: 2.5rem 1.5rem !important;
+    padding: 1.5rem 1.25rem !important;
+}
+
+.test-card .test-card-badge {
+    font-size: 0.85rem;
 }
 
 /* Pastille « Étape recommandée » et bouton : blancs, texte bleu foncé, lisibles en clair comme en sombre */
@@ -55,44 +59,69 @@ body {
     color: rgba(255, 255, 255, 0.92) !important;
 }
 
-/* ---------- Parcours : une carte unifiée, un liseré de couleur par étape ---------- */
-section .parcours-number {
+/* ---------- Parcours : trois cartes compactes (le détail est sur la page de chaque niveau) ---------- */
+.level-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.level-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 44px;
+    padding: 1rem 1.1rem;
+    background: var(--ffb-surface);
+    border: 1px solid var(--ffb-border);
+    border-left-width: 5px;
+    border-radius: var(--ffb-radius-lg);
+    color: var(--bs-body-color);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.level-card:hover,
+.level-card:focus-visible {
+    color: var(--bs-body-color);
+    box-shadow: var(--bs-box-shadow);
+}
+
+.level-card-primary { border-left-color: var(--ffb-primary); }
+.level-card-warning { border-left-color: #d99a00; }
+.level-card-success { border-left-color: var(--ffb-ok); }
+
+.level-card .parcours-number {
     width: 44px;
     height: 44px;
-    font-size: 1.1rem !important;
+    font-size: 1.1rem;
     flex: 0 0 auto;
 }
 
-.parcours-card {
-    background: var(--ffb-surface);
-    border: 1px solid var(--ffb-border) !important;
-    border-left-width: 5px !important;
-    border-radius: var(--ffb-radius-lg);
-    padding: 1.5rem !important;
-    color: var(--bs-body-color);
+.level-card-body {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
-.parcours-card-primary { border-left-color: var(--ffb-primary) !important; }
-.parcours-card-warning { border-left-color: #d99a00 !important; }
-.parcours-card-success { border-left-color: var(--ffb-ok) !important; }
-
-.parcours-card h5 {
-    color: var(--bs-body-color);
-    font-weight: 700;
-    margin-bottom: 1rem;
+.level-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.6rem;
+    margin-bottom: 0.2rem;
 }
 
-.parcours-list {
+.level-card-desc {
+    display: block;
     color: var(--bs-secondary-color);
-    line-height: 1.6;
+    line-height: 1.35;
 }
 
-.parcours-list li {
-    margin-bottom: 0.6rem !important;
-}
-
-.parcours-list strong {
-    color: var(--bs-body-color);
+.level-card-chevron {
+    flex: 0 0 auto;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--bs-secondary-color);
 }
 
 /* ---------- Pastilles de niveau (Pré-A1 → A1, etc.) ---------- */
@@ -154,15 +183,4 @@ section .parcours-number {
 
 .demo-footer-text {
     border-color: var(--bs-border-color) !important;
-}
-
-/* ---------- Petits écrans ---------- */
-@media (max-width: 991.98px) {
-    .parcours-card .text-lg-end {
-        margin-top: 1rem;
-        text-align: left !important;
-    }
-    .parcours-card .btn {
-        width: 100%;
-    }
 }
