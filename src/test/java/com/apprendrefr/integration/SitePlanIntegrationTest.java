@@ -47,6 +47,23 @@ class SitePlanIntegrationTest {
     }
 
     @Test
+    void verbsAndLettersAreUnderLearnNotPractice() throws Exception {
+        String html = mockMvc.perform(get("/plan-du-site"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+        int learn = html.indexOf("id=\"plan-apprendre\"");
+        int practice = html.indexOf("id=\"plan-pratiquer\"");
+        int discover = html.indexOf("id=\"plan-decouvrir\"");
+        org.junit.jupiter.api.Assertions.assertTrue(learn < html.indexOf("/lesVerbes") && html.indexOf("/lesVerbes") < practice);
+        org.junit.jupiter.api.Assertions.assertTrue(learn < html.indexOf("/chiffresEtLettres") && html.indexOf("/chiffresEtLettres") < practice);
+        String practiceBlock = html.substring(practice, discover);
+        org.junit.jupiter.api.Assertions.assertFalse(practiceBlock.contains("/lesVerbes"));
+        org.junit.jupiter.api.Assertions.assertFalse(practiceBlock.contains("/chiffresEtLettres"));
+        org.junit.jupiter.api.Assertions.assertTrue(practiceBlock.contains("Grammaire et conjugaison (quiz)"));
+        org.junit.jupiter.api.Assertions.assertTrue(practiceBlock.contains("Leçons de vocabulaire (QCM)"));
+    }
+
+    @Test
     void visitorSeesLoginAndRegisterButNotMyResults() throws Exception {
         mockMvc.perform(get("/plan-du-site"))
                 .andExpect(content().string(containsString("id=\"plan-register\"")))
