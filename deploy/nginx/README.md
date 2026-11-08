@@ -118,3 +118,28 @@ sudo nginx -t && sudo systemctl restart nginx
 
 Le certificat doit exister dans `/etc/letsencrypt/live/frenchforbeginners.duckdns.org/`.
 Si ce n'est pas le cas : `sudo certbot --nginx`.
+
+## Limitation du débit (par adresse IP)
+
+Deux zones sont définies dans `french-ratelimit.conf` :
+- `french_all` : 100 requêtes par seconde par IP, avec une réserve de 400 (une page charge une trentaine de fichiers) ;
+- `french_login` : 1 requête par seconde pour `/login`, avec une réserve de 20.
+
+Au-delà, Nginx répond **429** (trop de requêtes). Les valeurs sont larges pour ne pas bloquer une classe entière derrière la même connexion Wi-Fi.
+
+Installation sur le serveur :
+
+```
+cd ~/french-for-beginners
+sudo cp deploy/nginx/french-ratelimit.conf /etc/nginx/conf.d/french-ratelimit.conf
+sudo cp deploy/nginx/french-app.conf /etc/nginx/conf.d/french-app.conf
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+Test (PowerShell, sans risque : ce sont de simples visites de la page de connexion). Au bout d'une vingtaine de requêtes rapides, des `429` doivent apparaître :
+
+```
+1..60 | ForEach-Object { curl.exe -s -o NUL -w "%{http_code} " https://frenchforbeginners.duckdns.org/login }
+```
+
+Annuler : retirer les lignes `limit_req` de `french-app.conf` et supprimer `french-ratelimit.conf`, puis `sudo nginx -t && sudo systemctl reload nginx`.
