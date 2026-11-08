@@ -79,3 +79,42 @@ Retirer la ligne `include ...french-cache-locations.conf;` du fichier du site, p
 ```
 sudo nginx -t && sudo systemctl reload nginx
 ```
+
+## Sauvegarder et restaurer la configuration Nginx
+
+Le dépôt garde une copie des trois fichiers de configuration :
+`french-cache-zone.conf`, `french-cache-locations.conf` et `french-app.conf`.
+Le certificat HTTPS n'est **pas** dans le dépôt : il reste dans `/etc/letsencrypt`.
+
+**Attention : ne jamais écrire `rm -rf /etc/nginx/...`.** Le cache à vider est
+`/var/cache/nginx/french`, la configuration est dans `/etc/nginx` : ce sont deux dossiers différents.
+
+Vider le cache (commande complète, à recopier telle quelle) :
+
+```
+sudo rm -rf /var/cache/nginx/french/*
+```
+
+Sauvegarder la configuration actuelle (avant toute modification) :
+
+```
+sudo tar czf ~/nginx-config-$(date +%F).tgz -C /etc nginx/conf.d nginx/snippets
+```
+
+Restaurer sur un serveur dont `/etc/nginx` a été perdu :
+
+```
+sudo dnf reinstall -y nginx-core nginx-filesystem
+cd ~/french-for-beginners
+sudo mkdir -p /etc/nginx/conf.d /etc/nginx/snippets
+sudo cp deploy/nginx/french-cache-zone.conf /etc/nginx/conf.d/french-cache-zone.conf
+sudo cp deploy/nginx/french-cache-locations.conf /etc/nginx/snippets/french-cache-locations.conf
+sudo cp deploy/nginx/french-app.conf /etc/nginx/conf.d/french-app.conf
+sudo mkdir -p /var/cache/nginx/french
+sudo chown nginx:nginx /var/cache/nginx/french
+sudo restorecon -R /etc/nginx /var/cache/nginx
+sudo nginx -t && sudo systemctl restart nginx
+```
+
+Le certificat doit exister dans `/etc/letsencrypt/live/frenchforbeginners.duckdns.org/`.
+Si ce n'est pas le cas : `sudo certbot --nginx`.
