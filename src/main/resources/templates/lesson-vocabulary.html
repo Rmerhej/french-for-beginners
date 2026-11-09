@@ -15,6 +15,11 @@
         </a>
     </div>
 
+    <div th:replace="~{fragments/translation :: picker(${langBase}, ${langs}, ${currentLang})}"></div>
+    <th:block th:if="${currentLang != null}">
+        <div th:replace="~{fragments/translation :: notice(false)}"></div>
+    </th:block>
+
     <div class="row">
 
         <div th:if="${vocabularies.isEmpty()}" class="col-12">
@@ -50,6 +55,9 @@
 
 
                     <p class="text-secondary fs-5 mb-2" th:text="${word.englishTranslation}"></p>
+                    <p th:if="${wordTr.get(word.id) != null}" class="fs-5 fw-bold mb-2"
+                       th:attr="lang=${currentLang.code},dir=${currentLang.rtl} ? 'rtl' : 'ltr'"
+                       th:text="${wordTr.get(word.id)}"></p>
 
 
                     <p th:if="${word.pronunciation != null and word.pronunciation != ''}"
@@ -62,6 +70,9 @@
                          class="mt-3 p-3 border-start border-primary border-3 rounded text-start">
                         <small class="text-secondary fw-bold">📝 Phrase utile :</small>
                         <p class="text-secondary fst-italic mb-0" th:text="${word.exampleSentence}"></p>
+                        <p th:if="${sentenceTr.get(word.id) != null}" class="mb-0 mt-1"
+                           th:attr="lang=${currentLang.code},dir=${currentLang.rtl} ? 'rtl' : 'ltr'"
+                           th:text="${sentenceTr.get(word.id)}"></p>
                         <!-- Lecture de la phrase avec la voix du navigateur (affiché par le script si disponible) -->
                         <button type="button" class="btn btn-sm btn-outline-secondary btn-sentence mt-2 align-items-center gap-2"
                                 th:data-sentence="${word.exampleSentence}"

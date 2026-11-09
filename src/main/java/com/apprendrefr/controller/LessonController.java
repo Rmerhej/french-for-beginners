@@ -9,7 +9,11 @@ import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.repository.UserRepository;
 import com.apprendrefr.service.LessonService;
 import com.apprendrefr.service.ParcoursService;
+import com.apprendrefr.entity.Translation;
+import com.apprendrefr.service.TranslationService;
 import com.apprendrefr.service.VocabularyService;
+import com.apprendrefr.util.TranslationLang;
+import jakarta.servlet.http.HttpServletResponse;
 import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,11 +34,14 @@ public class LessonController {
     private final FileUploadService fileUploadService;
     private final ParcoursService parcoursService;
     private final UserRepository userRepository;
+    private final TranslationService translationService;
 
     public LessonController(LessonService lessonService,
                             VocabularyService vocabularyService,
                             ExerciseService exerciseService, FileUploadService fileUploadService,
-                            ParcoursService parcoursService, UserRepository userRepository) {
+                            ParcoursService parcoursService, UserRepository userRepository,
+                            TranslationService translationService) {
+        this.translationService = translationService;
         this.lessonService = lessonService;
         this.vocabularyService = vocabularyService;
         this.exerciseService = exerciseService;
@@ -89,7 +96,11 @@ public class LessonController {
     }
 
     @GetMapping("/lesson/{id}/vocabulary")
-    public String lessonVocabulary(@PathVariable Long id, Model model) {
+    public String lessonVocabulary(@PathVariable Long id,
+                                   @RequestParam(name = "lang", required = false) String lang,
+                                   @CookieValue(name = TranslationService.COOKIE, required = false) String langCookie,
+                                   HttpServletResponse response,
+                                   Model model) {
         Lesson lesson = lessonService.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Leçon non trouvée"));
 
@@ -97,6 +108,21 @@ public class LessonController {
 
         model.addAttribute("lesson", lesson);
         model.addAttribute("vocabularies", vocab);
+
+        // Traductions des mots et des phrases d'exemple (langue choisie, mémorisée dans un cookie)
+        TranslationLang chosen = translationService.resolve(lang, langCookie, response).orElse(null);
+        model.addAttribute("langs", TranslationLang.all());
+        model.addAttribute("currentLang", chosen);
+        model.addAttribute("langBase", "/lesson/" + id + "/vocabulary");
+        java.util.Map<Long, String> wordTr = new java.util.HashMap<>();
+        java.util.Map<Long, String> sentenceTr = new java.util.HashMap<>();
+        if (chosen != null) {
+            java.util.List<Long> ids = vocab.stream().map(Vocabulary::getId).toList();
+            wordTr = translationService.contents(Translation.VOCAB_WORD, ids, chosen);
+            sentenceTr = translationService.contents(Translation.VOCAB_SENTENCE, ids, chosen);
+        }
+        model.addAttribute("wordTr", wordTr);
+        model.addAttribute("sentenceTr", sentenceTr);
 
         return "lesson-vocabulary";
     }

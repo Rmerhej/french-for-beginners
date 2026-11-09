@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Choix de la langue de traduction. Paramètres : base (adresse de la page), langs (liste), current (langue choisie ou vide) -->
+<nav th:fragment="picker(base, langs, current)" class="translation-picker my-3" aria-label="Langue de traduction">
+    <span class="me-2 text-secondary">Traduire :</span>
+    <a th:href="@{${base}(lang='fr')}" class="btn btn-sm me-1"
+       th:classappend="${current == null} ? 'btn-primary' : 'btn-outline-primary'"
+       th:attr="aria-current=${current == null} ? 'true' : null">Français</a>
+    <a th:each="l : ${langs}" th:href="@{${base}(lang=${l.code})}" class="btn btn-sm me-1"
+       th:classappend="${current != null and current == l} ? 'btn-primary' : 'btn-outline-primary'"
+       th:attr="lang=${l.code},aria-current=${current != null and current == l} ? 'true' : null"
+       th:text="${l.label}"></a>
+</nav>
+<!-- Avertissement sous une traduction. Paramètre : reviewed (traduction relue par un bénévole) -->
+<p th:fragment="notice(reviewed)" class="small text-secondary mt-2 mb-0">
+    <span th:if="${reviewed}">Traduction relue par un bénévole, donnée à titre d'aide. Seul le texte français fait foi.</span>
+    <span th:unless="${reviewed}">Traduction automatique, non relue : elle peut contenir des erreurs. Seul le texte français fait foi.</span>
+</p>
+</body>
+</html>

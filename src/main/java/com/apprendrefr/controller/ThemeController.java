@@ -6,7 +6,11 @@ import com.apprendrefr.exception.ResourceNotFoundException;
 import com.apprendrefr.service.ExerciseService;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.QuizService;
+import com.apprendrefr.entity.Translation;
 import com.apprendrefr.service.ThemeService;
+import com.apprendrefr.service.TranslationService;
+import com.apprendrefr.util.TranslationLang;
+import jakarta.servlet.http.HttpServletResponse;
 import com.apprendrefr.util.AdminPaging;
 import com.apprendrefr.util.ThemeIcons;
 import org.springframework.data.domain.Page;
@@ -29,13 +33,16 @@ public class ThemeController {
     private final QuizService quizService;
     private final ExerciseService exerciseService;
     private final FileUploadService fileUploadService;
+    private final TranslationService translationService;
 
     public ThemeController(
             ThemeService themeService,
             QuizService quizService,
             ExerciseService exerciseService,
-            FileUploadService fileUploadService) {
+            FileUploadService fileUploadService,
+            TranslationService translationService) {
 
+        this.translationService = translationService;
         this.themeService = themeService;
         this.quizService = quizService;
         this.exerciseService = exerciseService;
@@ -65,6 +72,9 @@ public class ThemeController {
     @GetMapping("/themes/{nom}")
     public String showTheme(
             @PathVariable String nom,
+            @RequestParam(name = "lang", required = false) String lang,
+            @CookieValue(name = TranslationService.COOKIE, required = false) String langCookie,
+            HttpServletResponse response,
             Model model) {
 
         Theme theme = themeService.findByNom(nom)
@@ -72,6 +82,16 @@ public class ThemeController {
                         new ResourceNotFoundException("Thème non trouvé"));
 
         model.addAttribute("theme", theme);
+
+        // Traduction du dialogue (langue choisie par l'apprenant, mémorisée dans un cookie)
+        TranslationLang chosen = translationService.resolve(lang, langCookie, response).orElse(null);
+        model.addAttribute("langs", TranslationLang.all());
+        model.addAttribute("currentLang", chosen);
+        model.addAttribute("langBase", "/themes/" + theme.getNom());
+        if (chosen != null) {
+            translationService.find(Translation.THEME_DIALOGUE, theme.getId(), chosen)
+                    .ifPresent(t -> model.addAttribute("dialogueTranslation", t));
+        }
 
         // Quiz associés au thème
         model.addAttribute(

@@ -37,6 +37,18 @@
         <div class="card">
             <div class="card-body" style="white-space: pre-line;" th:utext="${theme.dialogueContent}"></div>
         </div>
+        <div th:replace="~{fragments/translation :: picker(${langBase}, ${langs}, ${currentLang})}"></div>
+        <div th:if="${dialogueTranslation != null}" class="card mt-2">
+            <div class="card-body" style="white-space: pre-line;"
+                 th:attr="lang=${currentLang.code},dir=${currentLang.rtl} ? 'rtl' : 'ltr'"
+                 th:text="${dialogueTranslation.content}"></div>
+            <div class="card-footer">
+                <th:block th:replace="~{fragments/translation :: notice(${dialogueTranslation.reviewed})}"></th:block>
+            </div>
+        </div>
+        <p th:if="${currentLang != null and dialogueTranslation == null}" class="text-secondary small">
+            Pas encore de traduction de ce dialogue dans cette langue.
+        </p>
 
     </section>
     <section>
