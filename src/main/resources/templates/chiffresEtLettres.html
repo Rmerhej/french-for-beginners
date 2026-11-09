@@ -68,7 +68,17 @@
             </tr>
         </table>
         <section>
-            <div class="d-flex align-items-center gap-3">
+            <!-- Lecture avec la voix française de l'appareil ; le fichier audio ne sert que si l'appareil ne sait pas lire à voix haute -->
+<div class="say-required" hidden>
+    <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn btn-primary btn-say" data-say="a, bé, cé, dé, eu, effe, gé, hache, i, ji, ka, elle, emme, enne, o, pé, ku, erre, esse, té, u, vé, double vé, iks, i grec, zède" aria-label="Écouter l’alphabet" hidden>
+            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+        </button>
+        <span class="say-label">Écouter la prononciation</span>
+    </div>
+</div>
+<div class="say-unavailable">
+<div class="d-flex align-items-center gap-3">
 
                 <button type="button" class="btn btn-primary btn-play" aria-label="Écouter la prononciation">
 <i class="bi bi-play-fill" aria-hidden="true"></i>
@@ -80,6 +90,7 @@
                 <span>Écouter la prononciation</span>
 
             </div>
+</div>
 
         </section>
         <h3>Voyelles</h3>
@@ -87,7 +98,17 @@
         <p>
             A – E – I – O – U – Y
         </p>
-        <div class="d-flex align-items-center gap-3">
+        <!-- Lecture avec la voix française de l'appareil ; le fichier audio ne sert que si l'appareil ne sait pas lire à voix haute -->
+<div class="say-required" hidden>
+    <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn btn-primary btn-say" data-say="a, eu, i, o, u, i grec" aria-label="Écouter les voyelles" hidden>
+            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+        </button>
+        <span class="say-label">Écouter la prononciation</span>
+    </div>
+</div>
+<div class="say-unavailable">
+<div class="d-flex align-items-center gap-3">
 
             <button type="button" class="btn btn-primary btn-play" aria-label="Écouter la prononciation">
 <i class="bi bi-play-fill" aria-hidden="true"></i>
@@ -99,6 +120,7 @@
             <span>Écouter la prononciation</span>
 
         </div>
+</div>
         <h3>Consonnes</h3>
 
         <p>
@@ -151,7 +173,17 @@
 
     </section>
     <br>
+    <!-- Lecture avec la voix française de l'appareil ; le fichier audio ne sert que si l'appareil ne sait pas lire à voix haute -->
+<div class="say-required" hidden>
     <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn btn-primary btn-say" data-say="é; café; è; père; ê; forêt; à; à; ç; garçon" aria-label="Écouter les accents" hidden>
+            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+        </button>
+        <span class="say-label">Écouter la prononciation</span>
+    </div>
+</div>
+<div class="say-unavailable">
+<div class="d-flex align-items-center gap-3">
 
         <button type="button" class="btn btn-primary btn-play" aria-label="Écouter la prononciation">
 <i class="bi bi-play-fill" aria-hidden="true"></i>
@@ -163,6 +195,7 @@
         <span>Écouter la prononciation</span>
 
     </div>
+</div>
     <hr>
 
     <section>
@@ -267,7 +300,17 @@
     </section>
     <br>
 
+    <!-- Lecture avec la voix française de l'appareil ; le fichier audio ne sert que si l'appareil ne sait pas lire à voix haute -->
+<div class="say-required" hidden>
     <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn btn-primary btn-say" data-say="zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf, vingt" aria-label="Écouter les nombres de 0 à 20" hidden>
+            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+        </button>
+        <span class="say-label">Écouter la prononciation</span>
+    </div>
+</div>
+<div class="say-unavailable">
+<div class="d-flex align-items-center gap-3">
 
         <button type="button" class="btn btn-primary btn-play" aria-label="Écouter la prononciation">
 <i class="bi bi-play-fill" aria-hidden="true"></i>
@@ -280,6 +323,7 @@
         <span>Écouter la prononciation</span>
 
     </div>
+</div>
 
 
     <hr>
@@ -333,7 +377,17 @@
 
     </section>
     <br>
+    <!-- Lecture avec la voix française de l'appareil ; le fichier audio ne sert que si l'appareil ne sait pas lire à voix haute -->
+<div class="say-required" hidden>
     <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn btn-primary btn-say" data-say="trente, quarante, cinquante, soixante, soixante-dix, quatre-vingts, quatre-vingt-dix, cent" aria-label="Écouter les dizaines" hidden>
+            <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+        </button>
+        <span class="say-label">Écouter la prononciation</span>
+    </div>
+</div>
+<div class="say-unavailable">
+<div class="d-flex align-items-center gap-3">
 
         <button type="button" class="btn btn-primary btn-play" aria-label="Écouter la prononciation">
 <i class="bi bi-play-fill" aria-hidden="true"></i>
@@ -345,6 +399,7 @@
         <span>Écouter la prononciation</span>
 
     </div>
+</div>
     <hr>
 
     <section>
@@ -399,6 +454,7 @@
 <div th:replace="~{fragments/footer :: footer}"></div>
 <div th:replace="~{fragments/back-to-top :: backToTop}"></div>
 <th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+<script src="/js/say.js"></script>
 <script src="/js/audio.js"></script>
 </body>
 </html>
