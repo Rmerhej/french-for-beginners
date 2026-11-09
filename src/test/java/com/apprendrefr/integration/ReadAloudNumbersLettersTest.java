@@ -27,7 +27,7 @@ class ReadAloudNumbersLettersTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("/js/say.js")))
                 .andExpect(content().string(containsString("data-say=\"a, bé, cé")))
-                .andExpect(content().string(containsString("data-say=\"a, eu, i, o, u, i grec\"")))
+                .andExpect(content().string(containsString("data-say=\"a, euh, i, o, u, i grec\"")))
                 .andExpect(content().string(containsString("data-say=\"é; café;")))
                 .andExpect(content().string(containsString("data-say=\"zéro, un, deux")))
                 .andExpect(content().string(containsString("data-say=\"trente, quarante")))
