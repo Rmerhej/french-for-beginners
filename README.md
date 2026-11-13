@@ -235,3 +235,10 @@ Source code is publicly available for review.
 See COPYRIGHT.md for usage restrictions.
 
 Contributions et signalements de bugs bienvenus via les *issues* GitHub.
+## License and Copyright
+
+Copyright © 2026 Roland Merhej.
+All rights reserved.
+
+Source code is publicly available for review.
+See COPYRIGHT.md for usage restrictions.
