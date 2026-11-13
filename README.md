@@ -226,5 +226,12 @@ Le site tourne sur une instance Oracle Cloud Ampere A1 (ARM, 6 Go de mémoire). 
 ## 👤 Auteur
 
 Roland Merhej
+## License and Copyright
+
+Copyright © 2026 Roland Merhej.
+All rights reserved.
+
+Source code is publicly available for review.
+See COPYRIGHT.md for usage restrictions.
 
 Contributions et signalements de bugs bienvenus via les *issues* GitHub.
