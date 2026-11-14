@@ -140,6 +140,16 @@ class InlineHandlersTest {
     }
 
     @Test
+    void adminDeviceMarkerIsInFooterAndReadByPwaScript() throws IOException {
+        assertThat(Files.readString(TEMPLATES.resolve("fragments/footer.html")))
+                .as("le pied de page expose un repère réservé à l'administrateur")
+                .contains("id=\"ffb-admin\"").contains("sec:authorize=\"hasRole('ADMIN')\"");
+        assertThat(Files.readString(Path.of("src/main/resources/static/js/pwa-register.js")))
+                .as("les ouvertures depuis l'icône de l'administrateur ne sont pas comptées")
+                .contains("getElementById('ffb-admin')").contains("if (adminDevice) return;");
+    }
+
+    @Test
     void confirmMessagesAreNotEmpty() throws IOException {
         for (Path p : templates()) {
             assertThat(Files.readString(p))

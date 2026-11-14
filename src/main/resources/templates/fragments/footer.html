@@ -76,6 +76,8 @@
 
     <!-- Repère lu par score-sender.js : présent seulement si un compte est connecté (sinon : on propose d'en créer un) -->
     <span id="ffb-auth" hidden sec:authorize="isAuthenticated()"></span>
+    <!-- Repère lu par pwa-register.js : présent seulement si un administrateur est connecté (ses ouvertures de l'app ne sont pas comptées) -->
+    <span id="ffb-admin" hidden sec:authorize="hasRole('ADMIN')"></span>
     <script th:src="@{/js/toast.js}"></script>
     <script th:src="@{/js/events.js}"></script>
     <script th:src="@{/js/dark-mode-prompt.js}"></script>

@@ -32,7 +32,17 @@
     if (/Android/i.test(ua)) return 'android';
     return 'desktop';
   }
+  // Appareil de l'administrateur : repère mémorisé dès qu'une page affiche le marqueur « ffb-admin »
+  // (présent seulement si un administrateur est connecté). Ses ouvertures ne sont plus comptées,
+  // même quand il n'est pas connecté au moment du lancement.
+  var adminDevice = false;
+  try {
+    if (document.getElementById('ffb-admin')) { localStorage.setItem('ffbAdminDevice', '1'); }
+    adminDevice = localStorage.getItem('ffbAdminDevice') === '1';
+  } catch (e) { /* ignore */ }
+
   function sendEvent(type) {
+    if (adminDevice) return;
     try {
       var url = '/visitor/pwa-event?type=' + type + '&p=' + platform();
       if (navigator.sendBeacon) {
