@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -21,6 +23,8 @@ public class PwaStatsService {
 
     public static final String INSTALLED = "INSTALLED";
     public static final String LAUNCHED = "LAUNCHED";
+
+    private static final ZoneId PARIS = ZoneId.of("Europe/Paris");
 
     private static final Set<String> TYPES = Set.of(INSTALLED, LAUNCHED);
     private static final Set<String> PLATFORMS = Set.of("ANDROID", "IOS", "DESKTOP", "OTHER");
@@ -100,7 +104,10 @@ public class PwaStatsService {
 
     public PwaStats stats() {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime startOfToday = now.toLocalDate().atStartOfDay();
+        // « Aujourd'hui » = depuis minuit à Paris, quel que soit le fuseau du serveur (souvent UTC/GMT) :
+        // on convertit ce minuit dans le fuseau de la JVM, car c'est dans ce fuseau que les dates sont enregistrées.
+        LocalDateTime startOfToday = ZonedDateTime.now(PARIS).toLocalDate().atStartOfDay(PARIS)
+                .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
         return new PwaStats(
                 repository.countByEventType(INSTALLED),
                 repository.countByEventTypeAndCreatedAtAfter(INSTALLED, startOfToday),
