@@ -42,8 +42,10 @@ public class PwaStatsService {
     }
 
     public record PwaStats(long installedTotal,
+                           long installedToday,
                            long installedLast7Days,
                            long launchedTotal,
+                           long launchedToday,
                            long launchedLast7Days,
                            long launchedLast30Days,
                            Map<String, Long> installedByPlatform,
@@ -98,10 +100,13 @@ public class PwaStatsService {
 
     public PwaStats stats() {
         LocalDateTime now = LocalDateTime.now();
+        LocalDateTime startOfToday = now.toLocalDate().atStartOfDay();
         return new PwaStats(
                 repository.countByEventType(INSTALLED),
+                repository.countByEventTypeAndCreatedAtAfter(INSTALLED, startOfToday),
                 repository.countByEventTypeAndCreatedAtAfter(INSTALLED, now.minusDays(7)),
                 repository.countByEventType(LAUNCHED),
+                repository.countByEventTypeAndCreatedAtAfter(LAUNCHED, startOfToday),
                 repository.countByEventTypeAndCreatedAtAfter(LAUNCHED, now.minusDays(7)),
                 repository.countByEventTypeAndCreatedAtAfter(LAUNCHED, now.minusDays(30)),
                 byPlatform(INSTALLED),

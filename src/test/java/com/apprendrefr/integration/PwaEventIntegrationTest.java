@@ -30,6 +30,23 @@ class PwaEventIntegrationTest {
     @Autowired
     private VisitorTrackerService visitorTracker;
 
+    @Autowired
+    private PwaStatsService pwaStatsService;
+
+    @Test
+    void dailyCounter_countsTodaysLaunches_butNotTheAdmins() throws Exception {
+        long before = pwaStatsService.stats().launchedToday();
+
+        mockMvc.perform(post("/visitor/pwa-event").param("type", "launched").param("p", "ios")
+                        .with(user("apprenant").roles("USER")))
+                .andExpect(status().isNoContent());
+        mockMvc.perform(post("/visitor/pwa-event").param("type", "launched").param("p", "ios")
+                        .with(user("boss").roles("ADMIN")))
+                .andExpect(status().isNoContent());
+
+        assertEquals(before + 1, pwaStatsService.stats().launchedToday());
+    }
+
     @Test
     void launchFromTheIcon_byTheAdmin_isNotCounted() throws Exception {
         long before = repository.countByEventType(PwaStatsService.LAUNCHED);
