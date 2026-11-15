@@ -30,98 +30,11 @@
     <section class="parcours-card parcours-card-primary mb-4" aria-labelledby="contenu-parcours">
         <h2 class="h5" id="contenu-parcours">🎯 Ce que contient ce parcours</h2>
         <ul class="list-unstyled mb-0 parcours-list">
-            <li>📚 <strong>Leçons de vocabulaire</strong> (Fruits, Objets, Politesse...)</li>
             <li>🗣️ <strong>Modules de prononciation</strong> (Niveau Pré A1)</li>
             <li>🔢 <strong>Chiffres, lettres et verbes essentiels</strong></li>
+            <li>📚 <strong>Leçons de vocabulaire</strong> (Fruits, Objets, Politesse...)</li>
             <li>📚 <strong>Grammaire &amp; Conjugaison</strong></li>
         </ul>
-    </section>
-
-
-    <!-- ========================================================= -->
-    <!-- LEÇONS DE VOCABULAIRE                                     -->
-    <!-- ========================================================= -->
-
-    <section class="mb-5">
-
-        <div class="mb-4">
-            <h3 class="fw-bold mb-2">
-                📚 Leçons disponibles
-            </h3>
-
-            <p class="text-muted mb-0">
-                Pour enrichir votre vocabulaire.
-            </p>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Les deux premières leçons -->
-
-            <div class="col-12 col-md-6"
-                 th:each="lesson, lessonStat : ${lessons}"
-                 th:if="${lessonStat.index < 2}">
-
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-
-                    <img th:if="${lesson.imageUrl != null and !lesson.imageUrl.isEmpty()}"
-                         th:src="${lesson.imageUrl}"
-                         th:alt="${lesson.title + ' - Illustration de la leçon'}"
-                         class="card-img-top"
-                         style="height: 180px; object-fit: cover;
-                                border-top-left-radius: 1rem;
-                                border-top-right-radius: 1rem;">
-
-                    <div class="card-body d-flex flex-column p-4">
-
-                        <h5 class="card-title fw-bold"
-                            th:text="${lesson.title}">
-                            Titre de la leçon
-                        </h5>
-
-                        <p class="text-muted small mb-4"
-                           th:text="${lesson.level}">
-                            Niveau
-                        </p>
-
-                        <a th:href="@{/lesson/{id}(id=${lesson.id})}"
-                           class="btn btn-outline-success rounded-pill
-                                  fw-bold w-100 mt-auto">
-
-                            <span aria-hidden="true" th:text="${lesson.icon}">📕</span>
-                            Voir la leçon
-
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Aucune leçon disponible -->
-            <div class="col-12"
-                 th:if="${lessons == null or lessons.empty}">
-
-                <div class="alert alert-warning text-center" role="alert">
-                    Aucune leçon disponible pour le moment.
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Accès à toutes les leçons -->
-        <div class="text-center mt-4">
-
-            <a th:href="@{/lessons}"
-               class="text-primary text-decoration-none fw-bold">
-
-                📚 Voir l'intégralité des leçons de vocabulaire →
-
-            </a>
-
-        </div>
-
     </section>
 
 
@@ -246,6 +159,93 @@
                 </div>
 
             </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- LEÇONS DE VOCABULAIRE                                     -->
+    <!-- ========================================================= -->
+
+    <section class="mb-5">
+
+        <div class="mb-4">
+            <h3 class="fw-bold mb-2">
+                📚 Leçons disponibles
+            </h3>
+
+            <p class="text-muted mb-0">
+                Pour enrichir votre vocabulaire.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Les deux premières leçons -->
+
+            <div class="col-12 col-md-6"
+                 th:each="lesson, lessonStat : ${lessons}"
+                 th:if="${lessonStat.index < 2}">
+
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+
+                    <img th:if="${lesson.imageUrl != null and !lesson.imageUrl.isEmpty()}"
+                         th:src="${lesson.imageUrl}"
+                         th:alt="${lesson.title + ' - Illustration de la leçon'}"
+                         class="card-img-top"
+                         style="height: 180px; object-fit: cover;
+                                border-top-left-radius: 1rem;
+                                border-top-right-radius: 1rem;">
+
+                    <div class="card-body d-flex flex-column p-4">
+
+                        <h5 class="card-title fw-bold"
+                            th:text="${lesson.title}">
+                            Titre de la leçon
+                        </h5>
+
+                        <p class="text-muted small mb-4"
+                           th:text="${lesson.level}">
+                            Niveau
+                        </p>
+
+                        <a th:href="@{/lesson/{id}(id=${lesson.id})}"
+                           class="btn btn-outline-success rounded-pill
+                                  fw-bold w-100 mt-auto">
+
+                            <span aria-hidden="true" th:text="${lesson.icon}">📕</span>
+                            Voir la leçon
+
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Aucune leçon disponible -->
+            <div class="col-12"
+                 th:if="${lessons == null or lessons.empty}">
+
+                <div class="alert alert-warning text-center" role="alert">
+                    Aucune leçon disponible pour le moment.
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Accès à toutes les leçons -->
+        <div class="text-center mt-4">
+
+            <a th:href="@{/lessons}"
+               class="text-primary text-decoration-none fw-bold">
+
+                📚 Voir l'intégralité des leçons de vocabulaire →
+
+            </a>
 
         </div>
 
