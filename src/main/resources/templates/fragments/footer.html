@@ -55,9 +55,12 @@
                 <div class="d-flex flex-wrap align-items-center gap-3 footer-social">
                     <a th:href="@{/secourscatholique}" class="text-light text-decoration-none" target="_blank" rel="noopener noreferrer">Site
                         du secours catholique</a>
-                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-instagram fs-4" aria-hidden="true"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-youtube fs-4" aria-hidden="true"></i></a>
+                    <a th:if="${!#strings.isEmpty(socialFacebook)}" th:href="${socialFacebook}" class="text-light"
+                       target="_blank" rel="noopener noreferrer" aria-label="Facebook du Secours Catholique (nouvel onglet)">
+                        <i class="bi bi-facebook fs-4" aria-hidden="true"></i></a>
+                    <a th:if="${!#strings.isEmpty(socialLinkedin)}" th:href="${socialLinkedin}" class="text-light"
+                       target="_blank" rel="noopener noreferrer" aria-label="LinkedIn du Secours Catholique (nouvel onglet)">
+                        <i class="bi bi-linkedin fs-4" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ package com.apprendrefr.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,6 +14,18 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Value("${app.upload.dir}")
     private String uploadDir;
+
+    private final SocialLinks socialLinks;
+
+    public WebConfig(SocialLinks socialLinks) {
+        this.socialLinks = socialLinks;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // Fournit les liens Facebook / LinkedIn au pied de page de toutes les pages
+        registry.addInterceptor(socialLinks);
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

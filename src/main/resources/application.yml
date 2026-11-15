@@ -89,6 +89,11 @@ admin:
 
 # ==================== DEFAULT PROPERTIES ====================
 app:
+  # Réseaux sociaux du pied de page. Une adresse vide masque l'icône correspondante.
+  # Pour changer une adresse sans modifier ce fichier : variables SOCIAL_FACEBOOK / SOCIAL_LINKEDIN.
+  social:
+    facebook: ${SOCIAL_FACEBOOK:https://www.facebook.com/Secours.Catholique.Caritas.france}
+    linkedin: ${SOCIAL_LINKEDIN:https://www.linkedin.com/company/secours-catholique-france/}
   security:
     remember-me-key: ${REMEMBER_ME_KEY:}
   upload:
