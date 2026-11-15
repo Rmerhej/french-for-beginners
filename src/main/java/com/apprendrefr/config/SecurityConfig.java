@@ -77,16 +77,7 @@ public class SecurityConfig {
             "/droitsEtDevoirsQCM", "/droitsEtDevoirsQUIZ", "/histoireGeoCultureQCM", "/histoireGeoCultureQUIZ",
             "/vivreDsSocieteFQCM", "/vivreDsSocieteFQUIZ",
             // La France : QCM et quiz généraux (les 5 modules réunis)
-            "/examenCiviqueQCM", "/examenCiviqueQUIZ",
-            // Leçons de préparation et leurs quiz
-            "/preparation-list-index", "/preparation-quiz-index", "/togoToAuBureu", "/togoToAuBureuQuiz",
-            "/AuCafé", "/AuTéléphone", "/LaVieQuotidienne", "/LeTourisme", "/LesRenseignements", "/AutourDeBébé",
-            "/laSanté", "/LesRelationsHumaines", "/LesTâchesDomestiques", "/LePatrimoine", "/LImmobiier",
-            "/LesLieux", "/lesgens", "/lesport", "/entreprise", "/bricolage", "/ville", "/laFac", "/meteo",
-            "/AuCaféQuiz", "/AuTéléphoneQuiz", "/LaVieQuotidienneQuiz", "/LeTourismeQuiz", "/LesRenseignementsQuiz",
-            "/AutourdeBebeQuiz", "/laSanteQuiz", "/lesRelationsHumainesQuiz", "/LesTâchesDomestiquesQuiz",
-            "/LePatrimoineQuiz", "/LImmobilierQuiz", "/LesLieuxQuiz", "/lesgensquiz", "/lesportquiz",
-            "/entrepriseQuiz", "/bricolageQuiz", "/meteoQuiz", "/villeQuiz", "/facQuiz"
+            "/examenCiviqueQCM", "/examenCiviqueQUIZ"
     };
 
     @Bean
@@ -151,21 +142,19 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
-                        .requestMatchers("/prononciation", "/togoToAuBureu",
-                                "/lessons/preparation-list", "/lesgens/**", "/lesport/**",
+                        .requestMatchers("/prononciation",
                                 "/supports-de-cours/**", "/adjectif/**", "/pronoms/**", "/lesson/**",
                                 "/adjectifsdemonstratifs/**", "/expressionstemps/**",
                                 "/verbesreguliers/**", "/passecompse/**", "/imperatif/**",
                                 "/auxiliaires/**", "/about", "/contact", "/rgpd", "/accessibilite", "/aide", "/qr", "/installer", "/plan-du-site",
-                                "/secourscatholique", "/au-bureau",
-                                "/preparation-quiz-lesson-vers-index", "/togoToAuBureuQuiz",
-                                "/au-bureau-quiz", "/les-gens-quiz", "/lesVerbes", "/chiffresEtLettres",
+                                "/secourscatholique",
+                                "/lesVerbes", "/chiffresEtLettres",
                                 "/quizzesSurLaGrammaire", "/prepositionConjonction",
                                 "/accords-des-adjectifs", "/les-pronoms", "/les-adjectifs-accord-pluriel", "/utilisation-des-pronoms",
                                 "/expressions-de-temps", "/futur-simple-quiz-grammaire", "/adjectifs-demonstratif-quiz-grammaire",
                                 "/verbes-regulier-quiz-grammaire", "/culture", "/themes", "/theme-detail", "/conjugaison", "/cultureFrancaise",
                       "/LesArticlesDefinis","/AdjectifsQualificatifs","/PronomsPossessifesEtDemonstratifs","/LesAuxiliares","/verbesPresent",
-                                "/impératif","/passéComposé","/futurSimple","/Limmobilier").permitAll()
+                                "/impératif","/passéComposé","/futurSimple").permitAll()
                         // 2b. Consultation ouverte à tous : cours, quiz, QCM, conjugueur, thèmes, test de niveau.
                         // Seul l'enregistrement (scores, niveau, résultats) demande un compte : ces adresses
                         // restent protégées par « anyRequest().authenticated() » plus bas.

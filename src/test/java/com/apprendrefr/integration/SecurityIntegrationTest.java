@@ -32,7 +32,7 @@ class SecurityIntegrationTest {
     @ParameterizedTest
     @ValueSource(strings = {"/lessons", "/niveauDebutant", "/niveauConsolidation", "/niveauApprofondissement",
             "/supports-de-cours", "/conjugueur", "/testEval", "/themes", "/quiz/drag-drop?recherche=Test",
-            "/negationApprofondie", "/typesDePhrases", "/LeSubjonctif", "/AuCafé", "/laFrance"})
+            "/negationApprofondie", "/typesDePhrases", "/LeSubjonctif", "/laFrance"})
     void contentPages_areOpenWithoutAccount(String path) throws Exception {
         mockMvc.perform(get(path)).andExpect(status().isOk());
     }

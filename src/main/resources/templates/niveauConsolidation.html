@@ -24,7 +24,6 @@
             <li>📚 <strong>Leçons par thème</strong> (Dialogues + QCM + Exercices (glisser-déposer))</li>
             <li>📚 <strong>Grammaire &amp; Conjugaison</strong></li>
             <li>❓ <strong>Quiz d'entraînement</strong> et Culture générale (A1-A2)</li>
-            <li>📝 <strong>Préparations et révisions</strong> des cours hebdomadaires</li>
         </ul>
     </section>
 
@@ -83,87 +82,6 @@
 
         <!-- Grammaire et conjugaison : niveau A2 -->
         <div th:replace="~{fragments/niveau :: supports('A2', 'Raconter, parler du futur, demander poliment')}"></div>
-
-    </div>
-
-
-
-    <!-- Unité locale -->
-    <div class="row justify-content-center my-4 my-lg-5">
-        <div class="col-12 col-md-6">
-            <div class="card h-100 border-0 shadow-sm rounded-4">
-                <div class="card-body d-flex align-items-center
-                        justify-content-center text-center p-3">
-
-                    <span class="fs-3 me-3" aria-hidden="true">📍</span>
-
-                    <div>
-                        <h5 class="card-title fw-bold text-danger mb-1">
-                            Unité locale
-                        </h5>
-                        <p class="text-muted mb-0">
-                            Sartrouville
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Révisions hebdomadaires -->
-    <div class="row g-4 mb-4">
-
-        <!-- Révision Quiz -->
-        <div class="col-12 col-md-6">
-            <div class="card h-100 border-0 shadow-sm rounded-4">
-                <div class="card-body d-flex flex-column align-items-center
-                            justify-content-center text-center p-4 p-lg-5">
-
-                    <div class="fs-1 mb-3" aria-hidden="true">📅</div>
-
-                    <h5 class="card-title fw-bold">
-                        Révision Hebdomadaire (Quiz)
-                    </h5>
-
-                    <p class="text-muted mb-4">
-                        Quiz de préparation (A1-A2)
-                    </p>
-
-                    <a th:href="@{/preparation-quiz-index}"
-                       class="btn btn-outline-success btn-lg rounded-pill
-                              fw-bold w-100 mt-auto">
-                        Passer le quiz
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Révision QCM -->
-        <div class="col-12 col-md-6">
-            <div class="card h-100 border-0 shadow-sm rounded-4">
-                <div class="card-body d-flex flex-column align-items-center
-                            justify-content-center text-center p-4 p-lg-5">
-
-                    <div class="fs-1 mb-3" aria-hidden="true">📅</div>
-
-                    <h5 class="card-title fw-bold">
-                        Révision Hebdomadaire (QCM)
-                    </h5>
-
-                    <p class="text-muted mb-4">
-                        QCM de préparation (A1-A2)
-                    </p>
-
-                    <a th:href="@{/preparation-list-index}"
-                       class="btn btn-outline-success btn-lg rounded-pill
-                              fw-bold w-100 mt-auto">
-                        Passer le qcm
-                    </a>
-                </div>
-            </div>
-        </div>
-
 
     </div>
 
