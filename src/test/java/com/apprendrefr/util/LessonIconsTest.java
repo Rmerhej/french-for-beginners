@@ -45,7 +45,10 @@ class LessonIconsTest {
             "L'ÉCOLE ET LES ÉTUDES|🎓",
             "LE TRAVAIL ET L'ENTREPRISE|💼",
             "LES ÉMOTIONS ET LES SENTIMENTS|😊",
-            "LA NATURE ET L'ENVIRONNEMENT|🌳"
+            "LA NATURE ET L'ENVIRONNEMENT|🌳",
+            "LES JOURS DE LA SEMAINE|📅",
+            "LES MOIS DE L'ANNÉE|📅",
+            "LES DIRECTIONS ET LA POSITION|🧭"
     })
     void eachVocabularyLessonGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, LessonIcons.forTitle(title));

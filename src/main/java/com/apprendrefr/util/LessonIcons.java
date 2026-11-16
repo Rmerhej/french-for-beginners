@@ -57,6 +57,7 @@ public final class LessonIcons {
         add("contraire", "↔️");
         add("vetement|accessoire", "👕");
         add("travail|entreprise", "💼");
+        add("direction|position", "🧭");
     }
 
     private LessonIcons() {
