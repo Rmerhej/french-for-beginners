@@ -1,6 +1,8 @@
 
 # Copyright
 
+© 2026 Roland Merhej — Tous droits réservés
+
 Copyright (c) 2026 Roland Merhej.
 
 All rights reserved.
