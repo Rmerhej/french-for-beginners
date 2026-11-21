@@ -26,7 +26,9 @@ class ThemeIconsTest {
             "À la station-service|⛽",
             "Au musée|🏛️",
             "À la préfecture|📋",
-            "À l'hôtel|🏨"
+            "À l'hôtel|🏨",
+            "Dans la cuisine|🍳",
+            "Cuisiner un plat|👨‍🍳"
     })
     void eachLessonTitleGetsItsOwnIcon(String title, String icon) {
         assertEquals(icon, ThemeIcons.forTitle(title));

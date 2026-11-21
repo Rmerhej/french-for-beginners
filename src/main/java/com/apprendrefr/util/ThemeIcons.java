@@ -19,6 +19,8 @@ public final class ThemeIcons {
 
     static {
         add("restaurant", "🍽️");
+        add("cuisiner", "👨‍🍳");
+        add("cuisine", "🍳");
         add("medecin|docteur|hopital", "🩺");
         add("pharmacie", "💊");
         add("bureau|travail", "💼");

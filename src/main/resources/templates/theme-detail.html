@@ -51,7 +51,21 @@
         </p>
 
     </section>
-    <section>
+    <!-- Thème sans fichier MP3 : le dialogue est lu avec la voix du navigateur -->
+    <section th:if="${#strings.isEmpty(theme.audio)}">
+        <div class="d-flex align-items-center gap-3">
+            <button type="button" class="btn btn-primary btn-say d-flex align-items-center gap-2"
+                    th:attr="data-say=${theme.dialogueContent}" data-lines data-rate="0.9"
+                    aria-label="Écouter le dialogue" hidden>
+                <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+                <span class="say-label">Écouter le dialogue</span>
+            </button>
+            <span class="say-unavailable small text-secondary" hidden>
+                Votre appareil ne sait pas lire à voix haute : lisez le dialogue ci-dessus.
+            </span>
+        </div>
+    </section>
+    <section th:if="${!#strings.isEmpty(theme.audio)}">
         <div class="d-flex align-items-center gap-3">
 
             <button class="btn btn-primary btn-play">
@@ -158,6 +172,7 @@
 <script th:src="@{/js/dragAndDrop.js}"></script>
 <script th:src="@{/js/au-bureau.js}"></script>
 <script src="/js/audio.js"></script>
+<script th:src="@{/js/say.js}"></script>
 
 </body>
 </html>

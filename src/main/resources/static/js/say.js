@@ -2,6 +2,7 @@
  * Lecture à voix haute avec la voix française de l'appareil (aucun fichier audio nécessaire).
  * Un bouton <button class="btn-say" data-say="tu, tout" hidden> lit chaque mot, l'un après l'autre.
  * Le bouton n'apparaît que si l'appareil sait lire à voix haute.
+ * Option data-lines : le texte est lu une ligne à la fois (dialogues) ; data-rate="0.9" règle la vitesse.
  * Exemple de texte : "tu / tout, rue / roue" -> quatre mots lus séparément.
  */
 (function () {
@@ -22,7 +23,11 @@
         return null;
     }
 
-    function parts(text, split) {
+    function parts(text, split, lines) {
+        if (lines) {
+            // Dialogue : une réplique par ligne, lue l'une après l'autre
+            return text.split(/\s*\n+\s*/).map(function (s) { return s.trim(); }).filter(Boolean);
+        }
         if (split === false) {
             return [text.trim()];
         }
@@ -68,7 +73,7 @@
             return;
         }
         stop();
-        var list = parts(text, options.split);
+        var list = parts(text, options.split, options.lines);
         var myRun = runId;
         var voice = frenchVoice();
         activeButton = options.button || null;
@@ -118,7 +123,9 @@
                 if (activeButton === btn) {
                     stop();
                 } else {
-                    speak(btn.dataset.say, {button: btn, split: btn.dataset.nosplit === undefined});
+                    speak(btn.dataset.say, {button: btn, split: btn.dataset.nosplit === undefined,
+                        lines: btn.dataset.lines !== undefined,
+                        rate: btn.dataset.rate ? parseFloat(btn.dataset.rate) : undefined});
                 }
             });
         });
