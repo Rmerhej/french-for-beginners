@@ -8,8 +8,10 @@ public enum TranslationLang {
     ZH("zh", "中文", false),
     KO("ko", "한국어", false),
     PT("pt", "Português", false),
-    ES("es", "Español", false);
-    // Pour ajouter l'anglais ou l'arabe plus tard : EN("en", "English", false) ; l'arabe : AR("ar", "العربية", true) (la page s'affiche alors de droite à gauche).
+    ES("es", "Español", false),
+    EN("en", "English", false),
+    /** L'arabe s'écrit de droite à gauche : le texte traduit s'affiche avec dir="rtl". */
+    AR("ar", "العربية", true);
 
     private final String code;
     private final String label;

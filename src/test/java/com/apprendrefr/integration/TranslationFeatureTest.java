@@ -52,6 +52,8 @@ class TranslationFeatureTest {
         themeId = themeRepository.save(theme).getId();
         translationRepository.save(new Translation(Translation.THEME_DIALOGUE, themeId, "es", "Camarero: ¡Hola! <b>x</b>", false));
         translationRepository.save(new Translation(Translation.THEME_DIALOGUE, themeId, "pt", "Garçom: Olá!", true));
+        translationRepository.save(new Translation(Translation.THEME_DIALOGUE, themeId, "en", "Waiter: Hello!", false));
+        translationRepository.save(new Translation(Translation.THEME_DIALOGUE, themeId, "ar", "النادل: مرحبًا!", false));
 
         Lesson lesson = new Lesson();
         lesson.setTitle("Les fruits (test)");
@@ -83,6 +85,34 @@ class TranslationFeatureTest {
                 .andExpect(content().string(containsString("dir=\"ltr\"")))
                 .andExpect(content().string(containsString("Traduction automatique, non relue")))
                 .andExpect(header().string("Set-Cookie", containsString("ffb_lang=es")));
+    }
+
+    @Test
+    void englishIsShownLeftToRight() throws Exception {
+        mockMvc.perform(get("/themes/theme_traduction_test").param("lang", "en"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Waiter: Hello!")))
+                .andExpect(content().string(containsString("dir=\"ltr\"")))
+                .andExpect(header().string("Set-Cookie", containsString("ffb_lang=en")));
+    }
+
+    @Test
+    void arabicIsShownRightToLeft() throws Exception {
+        mockMvc.perform(get("/themes/theme_traduction_test").param("lang", "ar"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("النادل: مرحبًا!")))
+                .andExpect(content().string(containsString("lang=\"ar\"")))
+                .andExpect(content().string(containsString("dir=\"rtl\"")))
+                .andExpect(header().string("Set-Cookie", containsString("ffb_lang=ar")));
+    }
+
+    @Test
+    void allSixLanguagesAreOffered() {
+        assertThat(TranslationLang.all()).extracting(TranslationLang::getCode)
+                .containsExactly("zh", "ko", "pt", "es", "en", "ar");
+        assertThat(TranslationLang.AR.isRtl()).isTrue();
+        assertThat(TranslationLang.EN.isRtl()).isFalse();
+        assertThat(TranslationLang.of("ar")).contains(TranslationLang.AR);
     }
 
     @Test
