@@ -1,7 +1,7 @@
 -- Lot 6 de leçons de vocabulaire (cuisine de restaurant) : Les ustensiles de cuisine, Les gestes de cuisine.
 -- Crée les leçons et leurs mots (images dans static/images/vocab, sans audio : la voix du navigateur lit les mots et les phrases). Peut être exécuté plusieurs fois sans doublons ; relancé, il ajoute seulement ce qui manque.
 -- Déployer d'abord la nouvelle image Docker (les illustrations sont dans l'application), puis exécuter, dans cet ordre :
---   frenchdb_9_vocab_lot6.sql, frenchdb_9_qcm_vocabulaire_8.sql, frenchdb_9_traductions_lot6.sql, frenchdb_9_themes_cuisine.sql, frenchdb_9_qcm_themes_cuisine.sql, frenchdb_9_quiz_themes_cuisine.sql
+--   frenchdb_9_vocab_lot6.sql, frenchdb_9_qcm_vocabulaire_8.sql, frenchdb_9_traductions_lot6.sql, frenchdb_9_themes_cuisine.sql, frenchdb_9_themes_qcm_cuisine.sql, frenchdb_9_quiz_themes_cuisine.sql
 SET NAMES utf8mb4;
 
 INSERT INTO `lessons` (`audio_url`, `category`, `content`, `created_at`, `image_url`, `level`, `title`)

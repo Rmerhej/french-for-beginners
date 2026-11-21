@@ -61,7 +61,7 @@ class Lot6CuisineSqlFilesTest {
     @Test
     void themesHaveDialogueTranslationsAndQcm() throws IOException {
         String themes = read("frenchdb_9_themes_cuisine.sql");
-        String qcm = read("frenchdb_9_qcm_themes_cuisine.sql");
+        String qcm = read("frenchdb_9_themes_qcm_cuisine.sql");
         for (String nom : THEMES) {
             assertEquals(1, count(themes, "WHERE NOT EXISTS (SELECT 1 FROM `themes` WHERE `nom` = '" + nom + "')"),
                     "Thème manquant ou non protégé contre les doublons : " + nom);
@@ -81,6 +81,26 @@ class Lot6CuisineSqlFilesTest {
     private static final String Q = "'((?:[^']|'')*)'";
     private static final Pattern QUIZ = Pattern.compile(
             "SELECT " + Q + ", '', " + Q + ", " + Q + ", " + Q + ", NULL FROM DUAL");
+
+    private static final Pattern THEME_QCM = Pattern.compile(
+            "SELECT " + Q + ", " + Q + ", " + Q + ", " + Q + ", " + Q + ", " + Q + ", " + Q + ", " + Q + " FROM DUAL");
+
+    /** Sur la page d'un thème, le bouton « Vérifier » compare la case cochée (A, B, C ou D) à la bonne réponse. */
+    @Test
+    void themeQcmAnswersAreLettersOfFourDistinctOptions() throws IOException {
+        Matcher m = THEME_QCM.matcher(read("frenchdb_9_themes_qcm_cuisine.sql"));
+        int checked = 0;
+        while (m.find()) {
+            String answer = m.group(1);
+            String question = m.group(8);
+            assertTrue(answer.matches("[ABCD]"), "La bonne réponse doit être une lettre A, B, C ou D : " + question);
+            List<String> options = List.of(m.group(4), m.group(5), m.group(6), m.group(7));
+            assertEquals(4, options.stream().distinct().count(), "Options en double : " + question);
+            assertTrue(!options.get("ABCD".indexOf(answer)).isBlank(), "Option vide : " + question);
+            checked++;
+        }
+        assertEquals(20, checked, "Dix QCM par thème");
+    }
 
     @Test
     void everyThemeHasFourWellFormedQuiz() throws IOException {
