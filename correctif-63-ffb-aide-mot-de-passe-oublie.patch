@@ -1,0 +1,15 @@
+diff --git a/src/main/resources/templates/login.html b/src/main/resources/templates/login.html
+index 9aa3da6..57e67c1 100644
+--- a/src/main/resources/templates/login.html
++++ b/src/main/resources/templates/login.html
+@@ -87,6 +87,10 @@
+                         Pas encore de compte ?
+                         <a th:href="@{/register}">S'inscrire</a>
+                     </div>
++                    <p class="text-center text-muted small mt-3 mb-0">
++                        Mot de passe oublié ? Créez un nouveau compte avec un autre nom d'utilisateur et un autre e-mail
++                        (les résultats de l'ancien compte ne sont pas repris).
++                    </p>
+                 </div>
+             </div>
+         </div>
