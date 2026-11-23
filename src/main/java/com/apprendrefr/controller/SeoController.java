@@ -51,6 +51,7 @@ public class SeoController {
                 + "Disallow: /login\n"
                 + "Disallow: /register\n"
                 + "Disallow: /mes-resultats\n"
+                + "Disallow: /compte\n"
                 + "\n"
                 + "Sitemap: " + baseUrl + "/sitemap.xml\n";
         return ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN).body(body);

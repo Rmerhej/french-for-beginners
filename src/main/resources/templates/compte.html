@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Mon compte')}"></head>
+<body>
+<a href="#main-content" class="visually-hidden-focusable">Aller au contenu principal</a>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main id="main-content" class="container py-5" style="max-width: 720px;">
+
+    <div class="text-center mb-4">
+        <div class="fs-1 mb-3" aria-hidden="true">⚙️</div>
+        <h1 class="fw-bold mb-2">Mon compte</h1>
+        <p class="text-secondary mb-0">
+            Connecté en tant que <strong th:text="${accountUsername}">nom</strong>
+            (<span th:text="${accountEmail}">email</span>)
+        </p>
+    </div>
+
+    <div th:if="${succes}" class="alert alert-success" role="status" th:text="${succes}"></div>
+    <div th:if="${erreur}" class="alert alert-danger" role="alert" th:text="${erreur}"></div>
+
+    <section class="card shadow-sm mb-4" aria-labelledby="titre-mdp">
+        <div class="card-body p-4">
+            <h2 class="h4 fw-bold mb-3" id="titre-mdp">Changer mon mot de passe</h2>
+            <form th:action="@{/compte/mot-de-passe}" method="post" data-single-submit>
+                <div class="mb-3">
+                    <label for="actuel" class="form-label">Mot de passe actuel</label>
+                    <input type="password" id="actuel" name="actuel" class="form-control"
+                           autocomplete="current-password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nouveau" class="form-label">Nouveau mot de passe</label>
+                    <input type="password" id="nouveau" name="nouveau" class="form-control"
+                           autocomplete="new-password" minlength="8" aria-describedby="aide-mdp" required>
+                    <div id="aide-mdp" class="form-text">8 caractères au moins, avec au moins une lettre et un chiffre.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmation" class="form-label">Confirmer le nouveau mot de passe</label>
+                    <input type="password" id="confirmation" name="confirmation" class="form-control"
+                           autocomplete="new-password" minlength="8" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Enregistrer le nouveau mot de passe</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="card border-danger shadow-sm" aria-labelledby="titre-suppression">
+        <div class="card-body p-4">
+            <h2 class="h4 fw-bold text-danger mb-3" id="titre-suppression">Supprimer mon compte</h2>
+
+            <div th:if="${accountAdmin}" class="alert alert-info mb-0" role="note">
+                Un compte administrateur ne peut pas être supprimé depuis cette page.
+            </div>
+
+            <th:block th:unless="${accountAdmin}">
+                <p>
+                    La suppression est <strong>définitive</strong> : votre compte, vos résultats aux QCM et aux quiz
+                    et votre niveau conseillé sont effacés. Vous ne pourrez pas les récupérer, mais vous pourrez
+                    toujours créer un nouveau compte plus tard.
+                </p>
+                <div th:if="${erreurSuppression}" class="alert alert-danger" role="alert" th:text="${erreurSuppression}"></div>
+                <form th:action="@{/compte/supprimer}" method="post" data-single-submit>
+                    <div class="mb-3">
+                        <label for="motDePasse" class="form-label">Votre mot de passe</label>
+                        <input type="password" id="motDePasse" name="motDePasse" class="form-control"
+                               autocomplete="current-password" required>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="confirmationSuppression"
+                               name="confirmation" value="oui" required>
+                        <label class="form-check-label" for="confirmationSuppression">
+                            Je comprends que la suppression de mon compte est définitive.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Supprimer définitivement mon compte</button>
+                </form>
+            </th:block>
+        </div>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/back-to-top :: backToTop}"></div>
+<div th:replace="~{fragments/footer :: footer}"></div>
+<th:block th:replace="~{fragments/assets :: bootstrap-js}"></th:block>
+</body>
+</html>

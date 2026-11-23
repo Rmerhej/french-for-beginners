@@ -30,6 +30,9 @@
                     <div th:if="${param.success}" class="alert alert-success" role="status">
                         Inscription réussie ! Vous pouvez maintenant vous connecter.
                     </div>
+                    <div th:if="${param.supprime}" class="alert alert-success" role="status">
+                        Votre compte et vos résultats ont été supprimés définitivement.
+                    </div>
                     <div th:if="${param.expired}" class="alert alert-info" role="status">
                         La page était restée ouverte trop longtemps. Merci de vous connecter à nouveau.
                     </div>

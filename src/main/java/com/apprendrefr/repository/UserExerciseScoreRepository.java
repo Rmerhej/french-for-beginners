@@ -2,9 +2,11 @@ package com.apprendrefr.repository;
 
 import com.apprendrefr.entity.UserExerciseScore;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +14,12 @@ import java.util.List;
 public interface UserExerciseScoreRepository extends JpaRepository<UserExerciseScore, Integer> {
 
     long countByUserId(Long userId);
+
+    /** Supprime tous les résultats d'un utilisateur (suppression de son compte). */
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query("delete from UserExerciseScore s where s.user.id = :userId")
+    void deleteByUserId(@Param("userId") Long userId);
 
     long countByUserIdAndScore(Long userId, int score);
 
