@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Livret du citoyen | Français pour débutants</title>
+    <meta name="theme-color" content="#1b2a6b">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/vendor/bootstrap-5.3.3/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons-1.11.3/bootstrap-icons.min.css">
+    <!--
+      Lecteur PDF intégré, utilisé quand le site est ouvert comme application installée (PWA).
+      Dans ce mode, un PDF ouvert « dans un nouvel onglet » s'affiche dans la fenêtre de l'application,
+      sans barre du navigateur ni bouton Retour : l'apprenant restait bloqué. Ici, une barre fixe
+      permet toujours de revenir au site. Dans un navigateur normal, le PDF s'ouvre toujours dans un nouvel onglet.
+    -->
+    <style>
+        body { background: #e9ecef; }
+        .livret-bar { position: sticky; top: 0; z-index: 10; background: #1b2a6b; color: #fff;
+                      padding: calc(env(safe-area-inset-top) + 8px) 12px 8px; }
+        .livret-pages { max-width: 900px; margin: 0 auto; padding: 12px 8px 40px; }
+        .livret-page { background: #fff; margin: 0 auto 12px; box-shadow: 0 1px 4px rgba(0,0,0,.15);
+                       position: relative; width: 100%; }
+        .livret-page canvas { display: block; width: 100%; height: 100%; }
+        .livret-page .livret-num { position: absolute; inset: 0; display: flex; align-items: center;
+                                   justify-content: center; color: #adb5bd; }
+    </style>
+</head>
+<body>
+<header class="livret-bar d-flex align-items-center gap-2">
+    <button type="button" id="livretBack" class="btn btn-light btn-sm rounded-pill fw-semibold">
+        <i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Retour au site
+    </button>
+    <span class="ms-auto small" id="livretInfo" aria-live="polite">Chargement…</span>
+    <a id="livretDownload" class="btn btn-outline-light btn-sm rounded-pill" href="/LIVRET-CITOYEN.pdf" download
+       aria-label="Télécharger le livret"><i class="bi bi-download" aria-hidden="true"></i></a>
+</header>
+<main id="main-content" class="livret-pages" aria-label="Livret du citoyen"></main>
+<script type="module" src="/js/livret-viewer.js"></script>
+</body>
+</html>

@@ -76,6 +76,24 @@
     }
   }
 
+  // Application installée : un PDF du site ouvert « dans un nouvel onglet » s'afficherait dans la fenêtre
+  // de l'application, sans barre du navigateur ni bouton Retour (l'apprenant reste bloqué sur le PDF).
+  // On l'ouvre donc dans le lecteur du site (/livret.html), qui garde un bouton « Retour au site ».
+  // Dans un navigateur normal, rien ne change : le PDF s'ouvre dans un nouvel onglet.
+  if (isStandalone()) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || e.defaultPrevented || a.hasAttribute('download')) return;
+      var url;
+      try { url = new URL(a.href, location.href); } catch (err) { return; }
+      if (url.origin !== location.origin || !/\.pdf$/i.test(url.pathname)) return;
+      e.preventDefault();
+      var page = (url.hash.match(/page=(\d+)/) || [])[1] || '1';
+      location.href = '/livret.html?file=' + encodeURIComponent(url.pathname)
+        + '&page=' + page + '&back=' + encodeURIComponent(location.pathname + location.search);
+    });
+  }
+
   function showButton(onClick) {
     if (isStandalone() || dismissed() || document.getElementById('installAppBox')) return;
     var box = document.createElement('div');

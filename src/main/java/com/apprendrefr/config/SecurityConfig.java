@@ -138,7 +138,7 @@ public class SecurityConfig {
                                 "/", "/index", "/register", "/login", "/logout",
                                 "/visitor/**",                    // ← plus simple
                                 "/css/**", "/js/**","/manifest.webmanifest", "/sw.js", "/offline.html", "/pwa/**", "/fonts/**", "/vendor/**", "/error", "/uploads/**", "/images/**", "/audio/**", "/webjars/**",
-                                "/fragments/**", "/prononciationNew", "/robots.txt", "/sitemap.xml", "/googleb831499c732fc7f6.html", "/BingSiteAuth.xml"
+                                "/fragments/**", "/prononciationNew", "/livret.html", "/LIVRET-CITOYEN.pdf", "/robots.txt", "/sitemap.xml", "/googleb831499c732fc7f6.html", "/BingSiteAuth.xml"
                         ).permitAll()
 
                         // 2. Pages de contenu (Cours, Exercices) accessibles à tous
