@@ -29,7 +29,7 @@ class HelpPageTest {
                 .andExpect(content().string(containsString("30 minutes")))
                 .andExpect(content().string(containsString("14 jours")))
                 .andExpect(content().string(containsString("En cas de problème")))
-                .andExpect(content().string(containsString("mailto:rolandmerhej8@gmail.com")));
+                .andExpect(content().string(containsString("mailto:rolandmerhej8+SC@gmail.com")));
     }
 
     @Test
