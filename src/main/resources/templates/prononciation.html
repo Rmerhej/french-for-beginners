@@ -31,7 +31,7 @@
 
     <!-- Grille des sons et prononciations -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col" th:each="item : ${prononciations}">
+        <div class="col" th:each="item, itemStat : ${prononciations}">
             <article class="card h-100 prononciation-card">
 
                 <div class="card-body d-flex flex-column p-4">
@@ -44,7 +44,7 @@
 
                     <div class="mb-4">
                         <span class="prononciation-label d-block mb-1">Exemple</span>
-                        <p class="prononciation-exemple mb-0" th:text="${item.exemple}">Exemple</p>
+                        <p class="prononciation-exemple mb-0" th:utext="${exemplesHtml[itemStat.index]}">Exemple</p>
                     </div>
 
                     <!-- Lecteur Audio (fichier enregistré) -->

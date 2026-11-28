@@ -3,6 +3,7 @@ package com.apprendrefr.controller;
 import com.apprendrefr.entity.Prononciation;
 import com.apprendrefr.service.FileUploadService;
 import com.apprendrefr.service.PrononciationService;
+import com.apprendrefr.service.PronunciationHighlighter;
 import com.apprendrefr.util.AdminPaging;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,16 +17,23 @@ public class PrononciationController {
 
     private final PrononciationService service;
     private final FileUploadService fileUploadService;
+    private final PronunciationHighlighter highlighter;
 
-    public PrononciationController(PrononciationService service, FileUploadService fileUploadService) {
+    public PrononciationController(PrononciationService service, FileUploadService fileUploadService,
+                                   PronunciationHighlighter highlighter) {
         this.service = service;
         this.fileUploadService = fileUploadService;
+        this.highlighter = highlighter;
     }
 
     @GetMapping("/prononciation")
     public String afficher(Model model) {
 
-        model.addAttribute("prononciations", service.findAll());
+        java.util.List<Prononciation> items = service.findAll();
+        model.addAttribute("prononciations", items);
+        // Exemples avec les lettres du son en évidence (même ordre que la liste ci-dessus)
+        model.addAttribute("exemplesHtml", items.stream()
+                .map(p -> highlighter.highlight(p.getSon(), p.getExemple())).toList());
 
         return "prononciation";
     }

@@ -28,6 +28,16 @@
     line-height: 1.5;
 }
 
+/* Lettres du son travaillé, mises en évidence dans les mots d'exemple (rouge + gras : le gras aide aussi ceux qui distinguent mal les couleurs) */
+.prononciation-exemple .son-lettres {
+    color: #C1121F;
+    font-weight: 800;
+}
+
+[data-bs-theme="dark"] .prononciation-exemple .son-lettres {
+    color: #FF8A8A;
+}
+
 /* Bouton lecture rond, 48 px (fichier audio enregistré) */
 .btn-play {
     width: 48px;

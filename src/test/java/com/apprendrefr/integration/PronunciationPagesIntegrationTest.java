@@ -70,4 +70,13 @@ class PronunciationPagesIntegrationTest {
                 .andExpect(content().string(containsString("btn-play")))
                 .andExpect(content().string(containsString("/audio/test.mp3")));
     }
+
+    @Test
+    void lettersOfTheSoundAreHighlightedInTheExamples() throws Exception {
+        repository.save(new Prononciation("ô", "drôle, côté", null));
+        mockMvc.perform(get("/prononciation"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("dr<strong class=\"son-lettres\">ô</strong>le")))
+                .andExpect(content().string(containsString("c<strong class=\"son-lettres\">ô</strong>té")));
+    }
 }
